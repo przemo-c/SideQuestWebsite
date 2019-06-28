@@ -1,0 +1,58 @@
+<div class="container">
+<br>
+  <hr>
+  <div class="row">
+    <ng-container *ngIf="!firstNews">
+      <div class="col s12 no-padding">
+        <div class="tall-image relative">
+          <div class="loader-initial"></div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="firstNews">
+    <div class="col s6">
+      <div class="tall-image" [ngStyle]="{'background-image':'url('+firstNews[0].image+')'}">
+        <app-over-image [firstNews]="firstNews[0]"></app-over-image>
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[1].image+')'}">
+        <app-over-image [firstNews]="firstNews[1]"></app-over-image>
+      </div>
+      <div class="row no-margin">
+        <div class="col s6"><div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[2].image+')'}">
+          <app-over-image [firstNews]="firstNews[2]"></app-over-image>
+        </div></div>
+        <div class="col s6"><div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[3].image+')'}">
+          <app-over-image [firstNews]="firstNews[3]"></app-over-image>
+        </div></div>
+      </div>
+    </div>
+    </ng-container>
+  </div>
+
+  <div class="right"><i class="material-icons layout-button">dashboard</i> <i class="material-icons layout-button">list</i></div>
+  <h4>News Feed</h4>
+  <hr>
+  <ngx-masonry class="masonry-layout"
+               *ngIf="isGrid"
+               [updateLayout]="updateMasonryLayout"
+               [options]="{ transitionDuration: '0.8s', gutter: 20}"
+               (layoutComplete)="doStuff($event)">
+    <ngxMasonryItem class="masonry-item" *ngFor="let newsItem of news">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" *ngIf="newsItem.image" onerror="this.style.display='none'" src="{{newsItem.image}}">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator white-text">{{newsItem.title}}<i class="material-icons right">more_vert</i></span>
+          <p class="right-align"><a href="#" class="btn-flat waves-effect waves-light white-text">link</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{newsItem.title}}</span>
+          <p>{{newsItem.description}}</p>
+        </div>
+      </div>
+    </ngxMasonryItem>
+  </ngx-masonry>
+</div>

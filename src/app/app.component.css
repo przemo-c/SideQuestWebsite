@@ -1,0 +1,37 @@
+.logo img{
+  width: 90px;
+  position:absolute;
+  top: 0;
+  left: 10px;
+}
+#nav-mobile{
+  margin-left: 60px;
+}
+.top-banner{
+  background: #533a7e url(../assets/images/topbannerback.png) top right no-repeat;
+  height: 90px;
+  width: 100%;
+}
+.top-buttons{
+  margin-top: 30px;
+}
+
+.header-title{
+  position:absolute;
+  top: -10px;
+  left: 85px;
+  font-size: 2.5rem;
+  margin-top: 0.4em;
+  margin-left: 1em;
+  color: #ffffff;
+  font-family: 'PT Sans', sans-serif;
+}
+.apk-install {
+  font-size: 0.9rem;
+  position: absolute;
+  top: 55px;
+  left: 125px;
+  color: #ffffff;
+  font-family: 'PT Sans', sans-serif;
+  -webkit-app-region: no-drag;
+}
