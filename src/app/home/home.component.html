@@ -1,5 +1,5 @@
 <div class="container">
-<br>
+  <h4>Featured</h4>
   <hr>
   <div class="row">
     <ng-container *ngIf="!firstNews">
@@ -37,7 +37,7 @@
   <ngx-masonry class="masonry-layout"
                *ngIf="isGrid"
                [updateLayout]="updateMasonryLayout"
-               [options]="{ transitionDuration: '0.8s', gutter: 20}"
+               [options]="{ transitionDuration: '0.8s', gutter: 20, initLayout: false}"
                (layoutComplete)="doStuff($event)">
     <ngxMasonryItem class="masonry-item" *ngFor="let newsItem of news">
       <div class="card">

@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    setTimeout(() => this.updateMasonryLayout = false, 1000 );
+    setTimeout(() => this.updateMasonryLayout = false, 1500 );
   }
 
   doStuff(event) {
