@@ -1,6 +1,6 @@
-<div class="container">
+<div class="padding">
   <h4>Featured</h4>
-  <hr>
+  <hr class="grey">
   <div class="row">
     <ng-container *ngIf="!firstNews">
       <div class="col s12 no-padding">
@@ -10,34 +10,42 @@
       </div>
     </ng-container>
     <ng-container *ngIf="firstNews">
-    <div class="col s6">
-      <div class="tall-image" [ngStyle]="{'background-image':'url('+firstNews[0].image+')'}">
-        <app-over-image [firstNews]="firstNews[0]"></app-over-image>
+      <div class="col s6">
+        <div class="tall-image" [ngStyle]="{'background-image':'url('+firstNews[0].image+')'}">
+          <app-over-image [firstNews]="firstNews[0]"></app-over-image>
+        </div>
       </div>
-    </div>
-    <div class="col s6">
-      <div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[1].image+')'}">
-        <app-over-image [firstNews]="firstNews[1]"></app-over-image>
-      </div>
-      <div class="row no-margin">
-        <div class="col s6"><div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[2].image+')'}">
+      <div class="col s6">
+        <div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[1].image+')'}">
+          <app-over-image [firstNews]="firstNews[1]"></app-over-image>
+        </div>
+        <div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[2].image+')'}">
           <app-over-image [firstNews]="firstNews[2]"></app-over-image>
-        </div></div>
-        <div class="col s6"><div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[3].image+')'}">
-          <app-over-image [firstNews]="firstNews[3]"></app-over-image>
-        </div></div>
+        </div>
+
       </div>
-    </div>
+      <div class="col s3"><div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[3].image+')'}">
+        <app-over-image [firstNews]="firstNews[3]"></app-over-image>
+      </div></div>
+      <div class="col s3"><div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[4].image+')'}">
+        <app-over-image [firstNews]="firstNews[4]"></app-over-image>
+      </div></div>
+      <div class="col s3"><div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[5].image+')'}">
+        <app-over-image [firstNews]="firstNews[5]"></app-over-image>
+      </div></div>
+      <div class="col s3"><div class="small-image" [ngStyle]="{'background-image':'url('+firstNews[6].image+')'}">
+        <app-over-image [firstNews]="firstNews[6]"></app-over-image>
+      </div></div>
     </ng-container>
   </div>
 
   <div class="right"><i class="material-icons layout-button">dashboard</i> <i class="material-icons layout-button">list</i></div>
   <h4>News Feed</h4>
-  <hr>
+  <hr class="grey">
   <ngx-masonry class="masonry-layout"
                *ngIf="isGrid"
                [updateLayout]="updateMasonryLayout"
-               [options]="{ transitionDuration: '0.8s', gutter: 20, initLayout: false}"
+               [options]="{ transitionDuration: '0.8s', gutter: 20}"
                (layoutComplete)="doStuff($event)">
     <ngxMasonryItem class="masonry-item" *ngFor="let newsItem of news">
       <div class="card">
@@ -55,4 +63,4 @@
       </div>
     </ngxMasonryItem>
   </ngx-masonry>
-</div>
+  </div>

@@ -8,14 +8,19 @@
   margin-left: 60px;
 }
 .top-banner{
-  background: #533a7e url(../assets/images/topbannerback.png) top right no-repeat;
+  background: #312249 url(../assets/images/topbannerback.png) top right no-repeat;
   height: 90px;
   width: 100%;
+}
+.smaller{
+  height: 43px;
 }
 .top-buttons{
   margin-top: 30px;
 }
-
+.smaller-buttons{
+  margin-top: 5px;
+}
 .header-title{
   position:absolute;
   top: -10px;
@@ -34,4 +39,12 @@
   color: #ffffff;
   font-family: 'PT Sans', sans-serif;
   -webkit-app-region: no-drag;
+}
+
+.scroll-container{
+  height: calc(100% - 90px);
+  overflow: auto;
+}
+.move-down{
+  transform: translate(0,80px);
 }

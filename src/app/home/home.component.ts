@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }));
         this.firstNews = result.filter(d => d.image);
         console.log(this.firstNews);
-        setTimeout(() => this.updateMasonryLayout = true, );
+        setTimeout(() => this.updateMasonryLayout = true );
       });
   }
 

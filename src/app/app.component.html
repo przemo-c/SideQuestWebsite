@@ -1,11 +1,11 @@
-<div class="top-banner">
+<div class="top-banner" [ngClass]="{'smaller':hideLogo}">
   <div *ngIf="!hideLogo">
     <div class="header-title">SideQuest</div>
     <div class="apk-install">by The Expanse VR</div>
     <a href="#/" class="logo"><img src="assets/images/logo-large icony.png"/></a>
   </div>
-  <div class="right top-buttons">
-    <div class="waves-effect waves-light btn-flat white-text" routerLink="news">News</div>
+  <div class="right top-buttons" [ngClass]="{'smaller-buttons':hideLogo}">
+    <div class="waves-effect waves-light btn-flat white-text" routerLink="news">News & Events</div>
     <div class="waves-effect waves-light btn-flat white-text" routerLink="what-is-sidequest">What is SideQuest?</div>
     <div class="waves-effect waves-light btn-flat white-text" routerLink="download" *ngIf="!hideLogo">Download</div>
     <div class="waves-effect waves-light btn-flat white-text" routerLink="app-submissions">App Submissions</div>
@@ -25,4 +25,7 @@
 <!--</ul>-->
 <!--</div>-->
 <!--</nav>-->
-<router-outlet></router-outlet>
+
+<div class="scroll-container">
+  <router-outlet></router-outlet>
+</div>

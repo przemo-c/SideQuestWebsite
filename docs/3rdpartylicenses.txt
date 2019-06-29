@@ -29,6 +29,9 @@ MIT
 @angular/core
 MIT
 
+@angular/forms
+MIT
+
 @angular/platform-browser
 MIT
 
@@ -103,6 +106,9 @@ SOFTWARE.
 
 ngx-masonry
 MIT
+
+ngx-materialize
+Apache-2.0
 
 outlayer
 MIT

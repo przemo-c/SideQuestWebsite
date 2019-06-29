@@ -6,27 +6,30 @@
 }
 .masonry-layout{
   text-align:center;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-left: 10px;
 }
 .masonry-item {
-  width: calc(33.3333% - 20px);
+  width: calc(25% - 17.5px);
 }
 .card-content{
-  background-color: #4e555b;
+  background-color: #312249;
 }
 .layout-button{
   margin: 0.5em;
   cursor: pointer;
 }
 .tall-image,.small-image{
-  height: 500px;
+  height: 350px;
   width: 100%;
   background-size: cover;
   background-position: center center;
   position: relative;
 }
 .small-image{
-  height: 240px;
+  height: 165px;
   margin-bottom: 20px;
+}
+.padding{
+  padding-left: 3em;
+  padding-right: 3em;
 }

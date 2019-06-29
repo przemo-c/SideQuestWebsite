@@ -6,18 +6,22 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NgxMasonryModule } from 'ngx-masonry';
 import { OverImageComponent } from './over-image/over-image.component';
+import { SetupHowtoComponent } from './setup-howto/setup-howto.component';
+import {MzToastModule} from 'ngx-materialize';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    OverImageComponent
+    OverImageComponent,
+    SetupHowtoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxMasonryModule
+    NgxMasonryModule,
+    MzToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

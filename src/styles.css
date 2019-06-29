@@ -4,7 +4,7 @@ html,body{
   height: 100%;
   padding: 0;
   margin: 0;
-  background: #36393f;
+  background: #503b73;
   color:white;
 }
 .full-size{
@@ -53,4 +53,11 @@ html,body{
 }
 .relative{
   position: relative;
+}
+.full-height{
+  height: 100%;
+}
+#toast-container {
+  top: auto !important;
+  bottom: 10%;
 }

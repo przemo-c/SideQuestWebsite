@@ -1,0 +1,21 @@
+.setup-content{
+  padding: 2em;
+}
+.setup-image {
+  width: 100%;
+}
+.section-title {
+  font-size: 2rem;
+  margin-top: 0.4em;
+  margin-left: 1em;
+  font-family: 'PT Sans', sans-serif;
+}
+.link,
+.sort-link {
+  color: lightseagreen;
+  cursor: pointer;
+}
+
+.pink-button{
+  background-color: #ed4e7a!important;
+}
