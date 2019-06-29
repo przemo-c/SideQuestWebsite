@@ -18,7 +18,7 @@
   margin: 0.5em;
   cursor: pointer;
 }
-.tall-image,.small-image{
+.tall-image,.small-image,.tall-placeholder{
   height: 350px;
   width: 100%;
   background-size: cover;
@@ -28,6 +28,9 @@
 .small-image{
   height: 165px;
   margin-bottom: 20px;
+}
+.tall-placeholder{
+  height: 525px;
 }
 .padding{
   padding-left: 3em;

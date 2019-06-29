@@ -61,3 +61,14 @@ html,body{
   top: auto !important;
   bottom: 10%;
 }
+.pointer{
+  cursor: pointer;
+}
+
+.pink-button{
+  background-color: #ed4e7a!important;
+}
+
+.offset-toast-chip{
+  margin-bottom: 0!important;
+}

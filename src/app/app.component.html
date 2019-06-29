@@ -8,8 +8,8 @@
     <div class="waves-effect waves-light btn-flat white-text" routerLink="news">News & Events</div>
     <div class="waves-effect waves-light btn-flat white-text" routerLink="what-is-sidequest">What is SideQuest?</div>
     <div class="waves-effect waves-light btn-flat white-text" routerLink="download" *ngIf="!hideLogo">Download</div>
-    <div class="waves-effect waves-light btn-flat white-text" routerLink="app-submissions">App Submissions</div>
-    <div class="waves-effect waves-light btn-flat white-text darken-1" routerLink="the-expanse">The Expanse Team</div>
+    <!--<div class="waves-effect waves-light btn-flat white-text" routerLink="blog">Blog</div>-->
+    <!--<div class="waves-effect waves-light btn-flat white-text darken-1" routerLink="the-expanse">The Expanse Team</div>-->
     <div class="waves-effect waves-light btn-flat white-text" routerLink="setup-howto">Setup & How To</div>
   </div>
 </div>
@@ -26,6 +26,6 @@
 <!--</div>-->
 <!--</nav>-->
 
-<div class="scroll-container">
+<div [ngClass]="{'scroll-container-small':hideLogo,'scroll-container':!hideLogo}">
   <router-outlet></router-outlet>
 </div>

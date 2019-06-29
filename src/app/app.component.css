@@ -41,6 +41,10 @@
   -webkit-app-region: no-drag;
 }
 
+.scroll-container-small{
+  height: calc(100% - 43px);
+  overflow: auto;
+}
 .scroll-container{
   height: calc(100% - 90px);
   overflow: auto;

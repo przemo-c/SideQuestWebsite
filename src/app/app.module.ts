@@ -8,6 +8,9 @@ import { NgxMasonryModule } from 'ngx-masonry';
 import { OverImageComponent } from './over-image/over-image.component';
 import { SetupHowtoComponent } from './setup-howto/setup-howto.component';
 import {MzToastModule} from 'ngx-materialize';
+import { WhatIsSideQuestComponent } from './what-is-side-quest/what-is-side-quest.component';
+import { DownloadSideQuestComponent } from './download-side-quest/download-side-quest.component';
+import { DownloadBoxComponent } from './download-box/download-box.component';
 
 
 @NgModule({
@@ -15,7 +18,10 @@ import {MzToastModule} from 'ngx-materialize';
     AppComponent,
     HomeComponent,
     OverImageComponent,
-    SetupHowtoComponent
+    SetupHowtoComponent,
+    WhatIsSideQuestComponent,
+    DownloadSideQuestComponent,
+    DownloadBoxComponent
   ],
   imports: [
     BrowserModule,

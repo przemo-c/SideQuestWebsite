@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {SetupHowtoComponent} from './setup-howto/setup-howto.component';
+import {WhatIsSideQuestComponent} from './what-is-side-quest/what-is-side-quest.component';
+import {DownloadSideQuestComponent} from './download-side-quest/download-side-quest.component';
 
 const routes: Routes = [
   {path: 'news', component: HomeComponent},
-  {path: 'what-is-sidequest', component: HomeComponent},
+  {path: 'download', component: DownloadSideQuestComponent},
+  {path: 'what-is-sidequest', component: WhatIsSideQuestComponent},
   {path: 'app-submissions', component: HomeComponent},
   {path: 'the-expanse', component: HomeComponent},
   {path: 'setup-howto', component: SetupHowtoComponent},

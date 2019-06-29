@@ -1,5 +1,5 @@
 .setup-content{
-  padding: 2em;
+  padding: 1em;
 }
 .setup-image {
   width: 100%;
@@ -14,8 +14,4 @@
 .sort-link {
   color: lightseagreen;
   cursor: pointer;
-}
-
-.pink-button{
-  background-color: #ed4e7a!important;
 }

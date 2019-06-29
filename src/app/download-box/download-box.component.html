@@ -1,0 +1,4 @@
+<div *ngFor="let asset of assets">
+  <div (click)="openUrl(asset.browser_download_url)" class="waves-effect waves-light btn pink-button">{{asset.name}}</div> <br>
+  <i>{{asset.download_count}} downloads</i><br><br>
+</div>
