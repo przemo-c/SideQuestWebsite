@@ -46,7 +46,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
           this.firstNews = this.firstNews.concat(
             result.filter(d => d.image && (d.type !== 'event' && d.type !== 'app')).slice(0, 8 - this.firstNews.length));
         }
-        setTimeout(() => this.updateMasonryLayout = true );
       });
   }
 
