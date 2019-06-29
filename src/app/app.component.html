@@ -5,12 +5,24 @@
     <a href="#/" class="logo"><img src="assets/images/logo-large icony.png"/></a>
   </div>
   <div class="right top-buttons" [ngClass]="{'smaller-buttons':hideLogo}">
-    <div class="waves-effect waves-light btn-flat white-text" routerLink="news">News & Events</div>
-    <div class="waves-effect waves-light btn-flat white-text" routerLink="what-is-sidequest">What is SideQuest?</div>
-    <div class="waves-effect waves-light btn-flat white-text" routerLink="download" *ngIf="!hideLogo">Download</div>
+    <div class="waves-effect waves-light btn-flat white-text"
+         mz-tooltip tooltip="New apps, events and news aggregated from reddit, twitter and discord."
+         position="bottom"
+         routerLink="news">News & Events</div>
+    <div class="waves-effect waves-light btn-flat white-text"
+         mz-tooltip tooltip="Find out about SideQuest."
+         position="bottom"
+         routerLink="what-is-sidequest">What is SideQuest?</div>
+    <div class="waves-effect waves-light btn-flat white-text"
+         mz-tooltip tooltip="Get the latest SideQuest download."
+         position="bottom"
+         routerLink="download" *ngIf="!hideLogo">Download</div>
     <!--<div class="waves-effect waves-light btn-flat white-text" routerLink="blog">Blog</div>-->
     <!--<div class="waves-effect waves-light btn-flat white-text darken-1" routerLink="the-expanse">The Expanse Team</div>-->
-    <div class="waves-effect waves-light btn-flat white-text" routerLink="setup-howto">Setup & How To</div>
+    <div class="waves-effect waves-light btn-flat white-text"
+         mz-tooltip tooltip="Get your sidequest setup the first time you install, and watch some how to videos."
+         position="bottom"
+         routerLink="setup-howto">Setup & How To</div>
   </div>
 </div>
 

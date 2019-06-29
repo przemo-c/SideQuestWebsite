@@ -12,4 +12,7 @@ export class SetupHowtoComponent implements OnInit {
   ngOnInit() {
   }
 
+  openItem(url: string) {
+    window.location.href = url;
+  }
 }

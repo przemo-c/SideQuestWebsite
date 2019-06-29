@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {NewsItem} from '../home/home.component';
 
 @Component({
@@ -7,7 +7,8 @@ import {NewsItem} from '../home/home.component';
   styleUrls: ['./over-image.component.css']
 })
 export class OverImageComponent implements OnInit {
-  @Input('firstNews') firstNews: NewsItem;
+  @Input() firstNews: NewsItem;
+  @Output() output = new EventEmitter();
   constructor() { }
 
   ngOnInit() {

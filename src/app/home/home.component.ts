@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   updateMasonryLayout:boolean;
   isGrid: boolean = true;
   firstNews: NewsItem[];
+  page: number;
   constructor(private appService: AppService, ) { }
 
   ngOnInit() {
@@ -49,10 +50,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
       });
   }
 
-  ngAfterViewInit() {
-
+  openItem(url: string) {
+    window.location.href = url;
   }
 
-  doStuff(event) {
-  }
+  ngAfterViewInit() { }
 }

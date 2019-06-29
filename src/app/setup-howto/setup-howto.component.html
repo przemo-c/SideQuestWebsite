@@ -114,13 +114,8 @@
           the library under 'Unknown Sources' on the menu on the left. Open it to find all the apps that
           have been installed on your device.
         </div><br>
-        <!--<span class="chip" *ngIf="isLauncherInstalled()">SideQuest Launcher Installed!</span>-->
-        <!--<app-loading-spinner-small *ngIf="isInstallingLauncher"></app-loading-spinner-small>-->
-        <!--*ngIf="!isInstalledLauncher&&!isInstallingLauncher"-->
-        <!--(click)="installLauncher()"-->
-        <div class="waves-effect waves-light btn pink-button"
-        >
-          Install App Launcher
+        <div class="waves-effect waves-light btn pink-button" (click)="openItem('sidequest://launcher/#')">
+          Install SideQuest Launcher
         </div>
         <br><br>
         <div>
@@ -129,12 +124,7 @@
           <span class="chip">SideQuest - TV</span> and <span class="chip">SideQuest - Home</span>.  This will show you all the apps on the device even hidden
           ones you would otherwise not see.
         </div><br>
-        <!--<span class="chip" *ngIf="isExpanseInstalled()">The Expanse VR Installed!</span>-->
-        <!--<app-loading-spinner-small *ngIf="isInstallingExpanse"></app-loading-spinner-small>-->
-        <!--*ngIf="!isInstalledExpanse&&!isInstallingExpanse"-->
-        <!--(click)="installExpanse()"-->
-        <div class="waves-effect waves-light btn pink-button"
-        >
+        <div class="waves-effect waves-light btn pink-button" (click)="openItem('sidequest://sideload/#https://cdn.theexpanse.app/TheExpanse.apk')">
           Install Your First App - The Expanse
         </div><br><br>
         <div>
