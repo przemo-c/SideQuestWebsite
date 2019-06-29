@@ -41,8 +41,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
               notLoaded = true;
             });
         }));
-        this.firstNews = result.filter(d => d.image);
-        console.log(this.firstNews);
+        this.firstNews = result.filter(d => d.image && (d.type === 'event' || d.type === 'app'));
+        if (this.firstNews.length < 8){
+          this.firstNews = this.firstNews.concat(
+            result.filter(d => d.image && (d.type !== 'event' && d.type !== 'app')).slice(0, 8 - this.firstNews.length));
+        }
         setTimeout(() => this.updateMasonryLayout = true );
       });
   }
