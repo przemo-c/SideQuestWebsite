@@ -6,6 +6,7 @@ html,body{
   margin: 0;
   background: #503b73;
   color:white;
+  overflow-x:hidden;
 }
 .full-size{
   width: 100%;

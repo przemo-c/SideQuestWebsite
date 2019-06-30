@@ -11,6 +11,25 @@
 .masonry-item {
   width: calc(25% - 17.5px);
 }
+.card-image-left{
+  height: 146px;
+  float: left;
+  width: 194.6666666666667px;
+  background-size: cover;
+  background-position: center center;
+  margin-right: 2em;
+}
+.card-title-small{
+  width: calc(100% - 300px)!important;
+}
+.card-title.truncate, .description.truncate{
+  width: calc(100% - 50px);
+}
+@media screen and (max-width: 992px) {
+  .masonry-item {
+    width: calc(50% - 17.5px);
+  }
+}
 .card-content{
   background-color: #312249;
 }

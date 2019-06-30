@@ -18,22 +18,50 @@ export interface NewsItem {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  news: NewsItem[];
+  news: NewsItem[] = [];
   updateMasonryLayout:boolean;
   isGrid: boolean = true;
+  isLoading: boolean = false;
+  hasNoMore: boolean = false;
   firstNews: NewsItem[];
-  page: number;
-  constructor(private appService: AppService, ) { }
+  page: number = 0;
+  constructor(public appService: AppService, ) {
+    const isGrid = localStorage.getItem('isGrid');
+    if (isGrid) {
+      this.isGrid = isGrid === 'true';
+    }
+    this.appService.scrollContainer.onscroll = ev => {
+      const scroller = this.appService.scrollContainer;
+      if (scroller && scroller.scrollTop >= scroller.scrollHeight - scroller.offsetHeight && !this.isLoading && !this.hasNoMore) {
+        this.getNews();
+      }
+    };
+  }
 
   ngOnInit() {
     return this.getNews();
   }
 
+  saveGrid() {
+    localStorage.setItem('isGrid', this.isGrid.toString());
+  }
+
   getNews() {
-    return this.appService.getNews()
+    this.isLoading = true;
+    return this.appService.getNews(this.page)
       .then(async (result: NewsItem[]) => {
         await this.fixImages(result);
-        this.news = result;
+        if (!result.length) {
+          this.hasNoMore = true;
+        } else {
+          this.hasNoMore = false;
+        }
+        if (this.page === 0) {
+          this.news.length = 0;
+        }
+        this.isLoading = false;
+        this.news = this.news.concat(result);
+        this.page++;
       })
       .then(() => this.getEvents());
   }

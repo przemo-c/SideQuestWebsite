@@ -1,10 +1,16 @@
-<div class="top-banner" [ngClass]="{'smaller':hideLogo}">
-  <div *ngIf="!hideLogo">
+<div class="top-banner" [ngClass]="{'smaller':appService.hideLogo}">
+  <div [ngStyle]="{'display':appService.hideLogo?'none':'block'}">
     <div class="header-title">SideQuest</div>
     <div class="apk-install">by The Expanse VR</div>
-    <a href="#/" class="logo"><img src="assets/images/logo-large icony.png"/></a>
+    <a href="#/" class="logo">
+      <div class="over-menu hide-on-large-only">
+        <i id="btn-sidenav-demo" class="material-icons medium white-text" mz-tooltip tooltip="Open the main menu."
+           position="bottom">menu</i>
+      </div>
+      <img src="assets/images/logo-large icony.png"/>
+    </a>
   </div>
-  <div class="right top-buttons" [ngClass]="{'smaller-buttons':hideLogo}">
+  <div class="right top-buttons hide-on-med-and-down" [ngClass]="{'smaller-buttons':appService.hideLogo}">
     <div class="waves-effect waves-light btn-flat white-text"
          mz-tooltip tooltip="New apps, events and news aggregated from reddit, twitter and discord."
          position="bottom"
@@ -16,9 +22,7 @@
     <div class="waves-effect waves-light btn-flat white-text"
          mz-tooltip tooltip="Get the latest SideQuest download."
          position="bottom"
-         routerLink="download" *ngIf="!hideLogo">Download</div>
-    <!--<div class="waves-effect waves-light btn-flat white-text" routerLink="blog">Blog</div>-->
-    <!--<div class="waves-effect waves-light btn-flat white-text darken-1" routerLink="the-expanse">The Expanse Team</div>-->
+         routerLink="download" *ngIf="!appService.hideLogo">Download</div>
     <div class="waves-effect waves-light btn-flat white-text"
          mz-tooltip tooltip="Get your sidequest setup the first time you install, and watch some how to videos."
          position="bottom"
@@ -29,7 +33,38 @@
          (click)="openLink('https://discord.me/sidequestvr')">Discord</div>
   </div>
 </div>
+<mz-sidenav
+  [id]="'sidenav-demo'"
+  [collapseButtonId]="'btn-sidenav-demo'" #sidenav>
+  <mz-sidenav-header>
+    Main Menu
+  </mz-sidenav-header>
+  <!--<mz-sidenav-subheader>Link Subheader</mz-sidenav-subheader>-->
+  <mz-sidenav-link>
+    <a routerLink="news" (click)="sidenav.opened = !sidenav.opened">News & Events</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a routerLink="what-is-sidequest" (click)="sidenav.opened = !sidenav.opened">What is SideQuest?</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a routerLink="download" (click)="sidenav.opened = !sidenav.opened">Download</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a routerLink="setup-howto" (click)="sidenav.opened = !sidenav.opened">Setup & How To</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a (click)="openLink('https://discord.me/sidequestvr'); sidenav.opened = !sidenav.opened">Discord</a>
+  </mz-sidenav-link>
 
+  <!--<mz-sidenav-divider></mz-sidenav-divider>-->
+  <!--<mz-sidenav-link >-->
+    <!--<a href="#">Active Link</a>-->
+  <!--</mz-sidenav-link>-->
+  <!--<mz-sidenav-divider></mz-sidenav-divider>-->
+  <!--<mz-sidenav-link>-->
+    <!--<a href="#" class="waves-effect">Second Link With Waves</a>-->
+  <!--</mz-sidenav-link>-->
+</mz-sidenav>
 <!--<nav>-->
 <!--<div class="nav-wrapper pink lighten-2">-->
 <!--<a href="#" class="brand-logo"><img src="assets/images/logo.png"/></a>-->
@@ -42,6 +77,6 @@
 <!--</div>-->
 <!--</nav>-->
 
-<div [ngClass]="{'scroll-container-small':hideLogo,'scroll-container':!hideLogo}">
+<div #scrollContainer [ngClass]="{'scroll-container-small':appService.hideLogo,'scroll-container':!appService.hideLogo}">
   <router-outlet></router-outlet>
 </div>

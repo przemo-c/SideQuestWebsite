@@ -9,28 +9,20 @@ declare const M;
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent implements AfterViewInit {
+  @ViewChild('scrollContainer',{static: false}) scrollContainer;
   title = 'SideQuestWebsite';
   sub: Subscription;
-  hideLogo:boolean;
   @ViewChild('sideNav', { static: false }) sideNav;
-  constructor( appService: AppService, router: Router, route: ActivatedRoute, private toastService: MzToastService) {
+  constructor( public appService: AppService, router: Router, route: ActivatedRoute, private toastService: MzToastService) {
     this.sub = router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
-        console.log(val.url);
-        const userAgent = (navigator as any).userAgent.toLowerCase();
-        if (userAgent.indexOf(' electron/') > -1) {
-          this.hideLogo = true;
-        }
-        // const currentPackage = route.snapshot.paramMap.get('packageName');
-        // if (currentPackage) {
-        //
-        // }
       }
     });
   }
 
   ngAfterViewInit() {
+    this.appService.scrollContainer = this.scrollContainer.nativeElement;
     const patreonClick = 'onclick="window.location.href = ' +
       '\'https://www.patreon.com/TheExpanseVR\'"';
     setTimeout(() => this.toastService.show(

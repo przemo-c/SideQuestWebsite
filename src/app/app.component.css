@@ -2,7 +2,7 @@
   width: 90px;
   position:absolute;
   top: 0;
-  left: 10px;
+  left: 50px;
 }
 #nav-mobile{
   margin-left: 60px;
@@ -11,6 +11,11 @@
   background: #312249 url(../assets/images/topbannerback.png) top right no-repeat;
   height: 90px;
   width: 100%;
+}
+.over-menu{
+  position:absolute;
+  top: 20px;
+  left: 5px;
 }
 .smaller{
   height: 43px;
@@ -24,7 +29,7 @@
 .header-title{
   position:absolute;
   top: -10px;
-  left: 85px;
+  left: 105px;
   font-size: 2.5rem;
   margin-top: 0.4em;
   margin-left: 1em;
@@ -35,7 +40,7 @@
   font-size: 0.9rem;
   position: absolute;
   top: 55px;
-  left: 125px;
+  left: 145px;
   color: #ffffff;
   font-family: 'PT Sans', sans-serif;
   -webkit-app-region: no-drag;
@@ -43,11 +48,13 @@
 
 .scroll-container-small{
   height: calc(100% - 43px);
-  overflow: auto;
+  overflow-x:hidden;
+  overflow-y: auto;
 }
 .scroll-container{
   height: calc(100% - 90px);
-  overflow: auto;
+  overflow-x:hidden;
+  overflow-y: auto;
 }
 .move-down{
   transform: translate(0,80px);

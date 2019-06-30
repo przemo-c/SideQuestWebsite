@@ -1,4 +1,4 @@
-<div class="padding">
+<div class="padding" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
   <br>
   <h4>Featured</h4>
   <hr class="grey">
@@ -40,9 +40,32 @@
     </ng-container>
   </div>
   <br><br>
-  <div class="right"><i class="material-icons layout-button">dashboard</i> <i class="material-icons layout-button">list</i></div>
+  <div class="right">
+    <i class="material-icons layout-button" (click)="isGrid = true;saveGrid()">dashboard</i>
+    <i class="material-icons layout-button" (click)="isGrid = false;saveGrid()">list</i>
+  </div>
   <h4>News Feed</h4>
   <hr class="grey">
+  <div *ngIf="!isGrid">
+    <div class="card" *ngFor="let newsItem of news">
+      <div class="card-image card-image-left waves-effect waves-block waves-light"
+           *ngIf="newsItem.image" [ngStyle]="{'background-image':'url('+newsItem.image+')'}">
+      </div>
+      <div class="card-content">
+        <i class="material-icons right">more_vert</i>
+        <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':newsItem.image}">{{newsItem.title}}</span>
+        <p class="grey-text description truncate" [ngClass]="{'card-title-small':newsItem.image}">{{newsItem.description}}</p>
+        <div class="">
+          <div class="btn-flat waves-effect waves-light white-text" (click)="openItem(newsItem.url)">link</div>
+        </div>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{newsItem.title}}</span>
+        <p class="grey-text">{{newsItem.description}}</p>
+      </div>
+    </div>
+  </div>
+
   <ngx-masonry class="masonry-layout"
                *ngIf="isGrid"
                [updateLayout]="updateMasonryLayout"
@@ -68,6 +91,7 @@
 </div>
 <br><br><br>
 <div class="center-align">
-  <div class="btn waves-effect waves-light pink-button">Load More</div>
+  <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="getNews()">Load More</div>
+  <div *ngIf="hasNoMore" class="chip">No more items...</div>
 </div>
 <br><br><br>
