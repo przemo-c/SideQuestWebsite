@@ -62,4 +62,8 @@ export class AppComponent implements AfterViewInit{
       console.log('paypal');
     }), 5500);
   }
+
+  openLink(url: string)  {
+    window.location.href = url;
+  }
 }

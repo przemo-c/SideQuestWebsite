@@ -5,8 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class AppService {
   constructor() { }
-  getNews() {
-    return fetch('https://shanesedit.org:5678/news_feed/0/none')
+  getNews(page: number = 0, filter: string = 'none') {
+    return fetch('https://shanesedit.org:5678/news_feed/' + page + '/' + filter)
       .then(r => r.json());
   }
 }

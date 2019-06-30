@@ -26,26 +26,42 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(private appService: AppService, ) { }
 
   ngOnInit() {
-    this.appService.getNews()
+    return this.getNews();
+  }
+
+  getNews() {
+    return this.appService.getNews()
       .then(async (result: NewsItem[]) => {
+        await this.fixImages(result);
         this.news = result;
-        await Promise.all(result.map(async d => {
-          const img = new Image();
-          let notLoaded = false;
-          await new Promise((resolve, reject) => {
-            img.onload = resolve;
-            img.onerror = reject;
-            img.src = d.image;
-          })
-            .catch(e => {
-              d.image = null;
-              notLoaded = true;
-            });
-        }));
+      })
+      .then(() => this.getEvents());
+  }
+
+  async fixImages(result) {
+    await Promise.all(result.map(async d => {
+      const img = new Image();
+      let notLoaded = false;
+      await new Promise((resolve, reject) => {
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = d.image;
+      })
+        .catch(e => {
+          d.image = null;
+          notLoaded = true;
+        });
+    }));
+  }
+
+  getEvents() {
+    return this.appService.getNews(0, 'app')
+      .then(async (result: NewsItem[]) => {
+        await this.fixImages(result);
         this.firstNews = result.filter(d => d.image && (d.type === 'event' || d.type === 'app'));
         if (this.firstNews.length < 8){
           this.firstNews = this.firstNews.concat(
-            result.filter(d => d.image && (d.type !== 'event' && d.type !== 'app')).slice(0, 8 - this.firstNews.length));
+            this.news.filter(d => d.image && (d.type !== 'event' && d.type !== 'app')).slice(0, 8 - this.firstNews.length));
         }
       });
   }
