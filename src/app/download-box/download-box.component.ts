@@ -18,7 +18,10 @@ export class DownloadBoxComponent implements OnInit {
       .then(r => r.json())
       .then(r => {
         r.assets.reverse();
-        this.assets = r.assets;
+        this.assets = r.assets.filter(a => {
+          console.log(a.name.split('.').pop());
+          return ~['zip', 'exe', 'xz', 'dmg'].indexOf(a.name.split('.').pop());
+        });
       });
   }
 
