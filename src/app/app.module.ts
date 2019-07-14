@@ -11,6 +11,7 @@ import {MzSidenavModule, MzToastModule, MzTooltipModule} from 'ngx-materialize';
 import { WhatIsSideQuestComponent } from './what-is-side-quest/what-is-side-quest.component';
 import { DownloadSideQuestComponent } from './download-side-quest/download-side-quest.component';
 import { DownloadBoxComponent } from './download-box/download-box.component';
+import { AppManagerComponent } from './app-manager/app-manager.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { DownloadBoxComponent } from './download-box/download-box.component';
     SetupHowtoComponent,
     WhatIsSideQuestComponent,
     DownloadSideQuestComponent,
-    DownloadBoxComponent
+    DownloadBoxComponent,
+    AppManagerComponent
   ],
   imports: [
     BrowserModule,

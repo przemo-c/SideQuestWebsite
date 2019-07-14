@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class AppService {
   hideLogo: boolean;
   scrollContainer: HTMLElement;
+  isAuthenticated: boolean;
+  currentUrl: string;
   constructor() {
 
     const userAgent = (navigator as any).userAgent.toLowerCase();
@@ -17,4 +19,6 @@ export class AppService {
     return fetch('https://shanesedit.org:5678/news_feed/' + page + '/' + filter)
       .then(r => r.json());
   }
+
+  logout() { }
 }

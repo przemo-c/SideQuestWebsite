@@ -21,11 +21,15 @@
     <div class="waves-effect waves-light btn-flat white-text"
          mz-tooltip tooltip="Get the latest SideQuest download."
          position="bottom"
+         routerLink="app-manager">App Manager</div>
+    <div class="waves-effect waves-light btn-flat white-text"
+         mz-tooltip tooltip="Get the latest SideQuest download."
+         position="bottom"
          routerLink="download" *ngIf="!appService.hideLogo">Download</div>
     <div class="waves-effect waves-light btn-flat white-text"
          mz-tooltip tooltip="Get your sidequest setup the first time you install, and watch some how to videos."
          position="bottom"
-         routerLink="setup-howto">Setup & How To</div>
+         routerLink="setup-howto"><span class="badge orange white-text">new users</span>Setup & How To</div>
     <div class="waves-effect waves-light btn-flat white-text"
          mz-tooltip tooltip="Come and chat with us on Discord."
          position="bottom"
