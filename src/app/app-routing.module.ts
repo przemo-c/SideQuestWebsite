@@ -1,25 +1,53 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './home/home.component';
-import {SetupHowtoComponent} from './setup-howto/setup-howto.component';
-import {WhatIsSideQuestComponent} from './what-is-side-quest/what-is-side-quest.component';
-import {DownloadSideQuestComponent} from './download-side-quest/download-side-quest.component';
-import {AppManagerComponent} from './app-manager/app-manager.component';
-import {LoginGuard} from './login.guard';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { HomeComponent } from "./home/home.component";
+import { SetupHowtoComponent } from "./setup-howto/setup-howto.component";
+import { WhatIsSideQuestComponent } from "./what-is-side-quest/what-is-side-quest.component";
+import { DownloadSideQuestComponent } from "./download-side-quest/download-side-quest.component";
+import { AppManagerComponent } from "./app-manager/app-manager.component";
+import { LoginGuard } from "./login.guard";
+import { LoginComponent } from "./login/login.component";
+import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
+import { SignUpComponent } from "./sign-up/sign-up.component";
+import { NotLoginGuard } from "./not-login.guard";
+import { AccountComponent } from "./account/account.component";
+import { AppsComponent } from "./apps/apps.component";
+import { ResetPasswordComponent } from "./reset-password/reset-password.component";
+import { AppListingComponent } from "./app-listing/app-listing.component";
 
 const routes: Routes = [
-  {path: 'news', component: HomeComponent},
-  {path: 'download', component: DownloadSideQuestComponent},
-  {path: 'what-is-sidequest', component: WhatIsSideQuestComponent},
-  {path: 'app-submissions', component: HomeComponent},
-  {path: 'app-manager', component: AppManagerComponent, canActivate: [LoginGuard]},
-  {path: 'the-expanse', component: HomeComponent},
-  {path: 'setup-howto', component: SetupHowtoComponent},
-  {path: '**', component: HomeComponent}
-  ];
+  { path: "news", component: HomeComponent },
+  { path: "download", component: DownloadSideQuestComponent },
+  { path: "what-is-sidequest", component: WhatIsSideQuestComponent },
+  { path: "app/:apps_id", component: AppListingComponent },
+  { path: "my-app", component: AppManagerComponent, canActivate: [LoginGuard] },
+  {
+    path: "my-app/:apps_id",
+    component: AppManagerComponent,
+    canActivate: [LoginGuard]
+  },
+  { path: "apps", component: AppsComponent },
+  { path: "apps/:category", component: AppsComponent },
+  { path: "account", component: AccountComponent, canActivate: [LoginGuard] },
+  { path: "the-expanse", component: HomeComponent },
+  { path: "setup-howto", component: SetupHowtoComponent },
+  { path: "login", component: LoginComponent, canActivate: [NotLoginGuard] },
+  {
+    path: "forgot-password",
+    component: ForgotPasswordComponent,
+    canActivate: [NotLoginGuard]
+  },
+  {
+    path: "reset-password/:token",
+    component: ResetPasswordComponent,
+    canActivate: [NotLoginGuard]
+  },
+  { path: "sign-up", component: SignUpComponent, canActivate: [NotLoginGuard] },
+  { path: "**", component: HomeComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

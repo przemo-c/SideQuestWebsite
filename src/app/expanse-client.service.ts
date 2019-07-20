@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { AppService } from "./app.service";
 
 @Injectable({
   providedIn: "root"
@@ -12,13 +13,18 @@ export class ExpanseClientService {
   openResolves: any;
   storageKey: string;
   isStarted: boolean;
+  isOpen: boolean;
   stateChanged: boolean;
+  preventGuest: boolean = true;
   state: any;
   stateWrap: any;
   updateLoopCount: number;
-  constructor(storageKey) {
+  ws: WebSocket;
+  socketId: any;
+  currentSession: any;
+  constructor(private appService: AppService) {
     this.messageResolves = {}; // localStorage.setItem('isDev','true');
-    localStorage.removeItem("isDev");
+    // localStorage.removeItem("isDev");
     this.isDev = localStorage.getItem("isDev");
     this.url = this.isDev
       ? "ws://192.168.0.4:3000"
@@ -30,20 +36,24 @@ export class ExpanseClientService {
       ? "http://192.168.0.4:47499/"
       : "https://xpan.cc/";
     this.openResolves = [];
+    this.storageKey = "";
   }
   setStorageKey(storageKey: string) {
     this.storageKey = storageKey || "";
   }
-  onspacedata() {}
-  ononeshot() {}
-  onjoined() {}
-  onalljoined() {}
-  onleft() {}
+  onspacedata(data) {}
+  ononeshot(data) {}
+  onjoined(data) {}
+  onalljoined(data) {}
+  onleft(data) {}
   onreconnect() {
     this.setupWebsocket();
   }
-  onusermessage() {}
-  start() {
+  onusermessage(data) {}
+  start(): Promise<any> {
+    if (this.isOpen) {
+      return Promise.resolve();
+    }
     return new Promise(resolve => {
       if (!this.isStarted) {
         this.isStarted = true;
@@ -55,7 +65,14 @@ export class ExpanseClientService {
         setInterval(() => this.keepAlive(), 10000);
       }
       this.openResolves.push(resolve);
-    });
+    })
+      .then(async () => {
+        this.currentSession = await this.getCurrentSession();
+        this.appService.isAuthenticated = !!this.currentSession;
+      })
+      .catch(e => {
+        console.log(e);
+      });
   }
   updateLoop() {
     this.updateLoopCount = this.updateLoopCount || 0;
@@ -74,7 +91,7 @@ export class ExpanseClientService {
     this.emit("keep-alive", {});
   }
   refreshGuestSession(options) {
-    return this.emit("generate-guest-login", options).then(msg => {
+    return this.emit("generate-guest-login", options).then((msg: any) => {
       localStorage.setItem("session" + this.storageKey, JSON.stringify(msg));
       localStorage.setItem("guest_token" + this.storageKey, msg.token);
       return msg;
@@ -90,7 +107,7 @@ export class ExpanseClientService {
   }
   getCurrentSession() {
     return new Promise((resolve, reject) => {
-      let session = localStorage.getItem("session" + this.storageKey);
+      let session: any = localStorage.getItem("session" + this.storageKey);
       if (!session) {
         if (!this.preventGuest) {
           this.getGuestSession().then(resolve);
@@ -102,7 +119,7 @@ export class ExpanseClientService {
           session = JSON.parse(session);
           setTimeout(() => {
             // console.log('is-websocket-open',this.ws.readyState===this.ws.OPEN)
-            this.refresh(session.token).then(msg => {
+            this.refresh(session.token).then((msg: any) => {
               if (!msg.error) {
                 localStorage.setItem(
                   "session" + this.storageKey,
@@ -136,25 +153,33 @@ export class ExpanseClientService {
           token = JSON.parse(localStorage.getItem("session" + this.storageKey))
             .token;
         } catch (e) {}
-        if (this.ws && this.ws.readyState === this.ws.OPEN) {
+        if (this.isOpen) {
           this.ws.send(
             JSON.stringify({ path: path, data: data, token: token })
           );
         }
+        // else {
+        //   this.openResolves.push(() => {
+        //     this.ws.send(
+        //       JSON.stringify({ path: path, data: data, token: token })
+        //     );
+        //   });
+        // }
       } catch (e) {
         console.warn(e);
       }
       this.messageResolves[path] = resolve;
     });
   }
-  onOpen() {
+  onOpen(evt) {
     this.openResolves.forEach(fn => fn());
+    this.isOpen = true;
     console.log("Connected to Expanse API");
   }
   onClose(evt) {
     console.log("Connection to API closed. Waiting ...");
     this.ws = null;
-    this.isStarted = false;
+    this.isStarted = this.isOpen = false;
     this.onreconnect();
   }
   onMessage(evt) {
@@ -252,7 +277,7 @@ export class ExpanseClientService {
     formData.append("scene", JSON.stringify(scene));
     let cdnToken, files_id;
     return this.getCurrentSession()
-      .then(resp => {
+      .then((resp: any) => {
         cdnToken = resp.token;
         if (scenes_id) {
           return this.updateScene(name, scenes_id).then(scenes => {
@@ -293,7 +318,7 @@ export class ExpanseClientService {
       }));
   }
   downloadSketchFab(data) {
-    return this.getCurrentSession().then(resp => {
+    return this.getCurrentSession().then((resp: any) => {
       return fetch(
         (this.isDev
           ? "http://192.168.0.4:47000"
@@ -308,13 +333,13 @@ export class ExpanseClientService {
     });
   }
   savePrefab(prefab) {
-    let formData = new FormData();
+    const formData = new FormData();
     // let file = new Blob([JSON.stringify(prefab)], {type: "application/json"})
     // formData.append("file", file,'prefab.json');
     formData.append("scene", JSON.stringify(prefab));
     let cdnToken, files_id;
     return this.getCurrentSession()
-      .then(resp => {
+      .then((resp: any) => {
         cdnToken = resp.token;
         return fetch(this.cdnUrl + "create-upload/" + cdnToken + "/")
           .then(res => res.json())
@@ -391,9 +416,6 @@ export class ExpanseClientService {
   updateScene(name, scenes_id) {
     return this.emit("update-scene", { name, scenes_id });
   }
-  // getMyScenes(page,search){
-  //     return this.emit('my-scenes',{page,search});
-  // }
   getNotifications() {
     return this.emit("get-notifications", {});
   }
@@ -557,8 +579,8 @@ export class ExpanseClientService {
     this.emit("user-message", { users_id: userId, message: { text: message } });
     return this.emit("send-message", { userId, message });
   }
-  forgotPassword(email) {
-    return this.emit("forgot-password", { email });
+  forgotPassword(email, returnUrl) {
+    return this.emit("forgot-password", { email, returnUrl });
   }
   resetPassword(password, resetToken) {
     return this.emit("reset-password", { password, resetToken });
@@ -616,5 +638,135 @@ export class ExpanseClientService {
   }
   heartBeat() {
     return this.emit("heart-beat", {});
+  }
+  deleteApp(apps_id) {
+    return this.emit("delete-app", { apps_id });
+  }
+  getApp(apps_id) {
+    return this.emit("get-app", { apps_id });
+  }
+  getAppUrls(apps_id) {
+    return this.emit("get-app-urls", { apps_id });
+  }
+  getAppScreenshots(apps_id) {
+    return this.emit("get-app-screenshots", { apps_id });
+  }
+  searchApps(search, page, app_categories_id?) {
+    return this.emit("search-apps", { search, page, app_categories_id });
+  }
+  searchMyApps(search, page) {
+    return this.emit("search-my-apps", { search, page });
+  }
+  addApp(
+    name,
+    image_url,
+    video_url,
+    comfort,
+    summary,
+    description,
+    apk_url,
+    packagename,
+    versioncode,
+    versionname,
+    license,
+    website,
+    donate_url,
+    github_name,
+    github_repo,
+    github_tag,
+    github_enabled,
+    app_categories_id,
+    screenshots,
+    supports_quest,
+    supports_go,
+    supports_other,
+    search_tags,
+    app_urls
+  ) {
+    return this.editApp(
+      null,
+      name,
+      image_url,
+      video_url,
+      comfort,
+      summary,
+      description,
+      apk_url,
+      packagename,
+      versioncode,
+      versionname,
+      license,
+      website,
+      donate_url,
+      github_name,
+      github_repo,
+      github_tag,
+      github_enabled,
+      app_categories_id,
+      screenshots,
+      supports_quest,
+      supports_go,
+      supports_other,
+      search_tags,
+      app_urls
+    );
+  }
+  editApp(
+    apps_id,
+    name,
+    image_url,
+    video_url,
+    comfort,
+    summary,
+    description,
+    apk_url,
+    packagename,
+    versioncode,
+    versionname,
+    license,
+    website,
+    donate_url,
+    github_name,
+    github_repo,
+    github_tag,
+    github_enabled,
+    app_categories_id,
+    screenshots,
+    supports_quest,
+    supports_go,
+    supports_other,
+    search_tags,
+    app_urls
+  ) {
+    return this.emit("add-edit-app", {
+      apps_id,
+      name,
+      image_url,
+      video_url,
+      comfort,
+      summary,
+      description,
+      apk_url,
+      packagename,
+      versioncode,
+      versionname,
+      license,
+      website,
+      donate_url,
+      github_name,
+      github_repo,
+      github_tag,
+      github_enabled,
+      app_categories_id,
+      screenshots,
+      supports_quest,
+      supports_go,
+      supports_other,
+      search_tags,
+      app_urls
+    });
+  }
+  appCount(type, apps_id) {
+    return this.emit("update-count-app", { type, apps_id });
   }
 }

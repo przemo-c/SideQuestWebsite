@@ -2,7 +2,7 @@
   border-left: 1px solid white;
 }
 .side-border:first-child{
-  border-left: 0px solid white;
+  border-left: 0 solid white;
 }
 .masonry-layout{
   text-align:center;
@@ -54,4 +54,8 @@
 .padding{
   padding-left: 3em;
   padding-right: 3em;
+}
+.top-chip{
+  margin-left: 1em;
+  margin-right: 1em;
 }

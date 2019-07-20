@@ -1,5 +1,28 @@
 <div class="padding" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
-  <br>
+  <div class="right">
+    <div class="waves-effect waves-light btn-flat white-text top-button"
+         mz-tooltip tooltip="Find out about SideQuest."
+         position="bottom"
+         routerLink="/what-is-sidequest">What is SideQuest?</div>
+    <div class="waves-effect waves-light btn-flat white-text top-button"
+         mz-tooltip tooltip="Come and chat with us on Discord."
+         position="bottom"
+         (click)="openLink('https://discord.me/sidequestvr')">Discord</div>
+    <span class="chip pointer top-chip"
+          onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+          mz-tooltip tooltip="People have been so kind, we are humbled."
+          position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+      Support us on Patreon
+    </span>
+    <span class="chip pointer top-chip"
+          onclick="window.location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=744A6C394Q8JG&source=url'"
+          mz-tooltip tooltip="Use this option if you prefer a one off donation."
+          position="bottom">
+      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+      Donate on Paypal
+    </span>
+  </div>
   <h4>Featured</h4>
   <hr class="grey">
   <div class="row">
@@ -48,14 +71,14 @@
   <hr class="grey">
   <div *ngIf="!isGrid">
     <div class="card" *ngFor="let newsItem of news">
-      <div class="card-image card-image-left waves-effect waves-block waves-light"
+      <div class="card-image card-image-left waves-effect waves-block waves-light activator"
            *ngIf="newsItem.image" [ngStyle]="{'background-image':'url('+newsItem.image+')'}">
       </div>
       <div class="card-content">
-        <i class="material-icons right">more_vert</i>
+        <i class="material-icons activator pointer right">more_vert</i>
         <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':newsItem.image}">{{newsItem.title}}</span>
         <p class="grey-text description truncate" [ngClass]="{'card-title-small':newsItem.image}">{{newsItem.description}}</p>
-        <div class="">
+        <div class="right-align">
           <div class="btn-flat waves-effect waves-light white-text" (click)="openItem(newsItem.url)">link</div>
         </div>
       </div>

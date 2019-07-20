@@ -6,7 +6,9 @@ html,body{
   margin: 0;
   background: #503b73;
   color:white;
-  overflow-x:hidden;
+  overflow:hidden;
+  position:relative;
+  top: 0;
 }
 .full-size{
   width: 100%;
@@ -24,10 +26,10 @@ html,body{
   background: #ed4e7a;
 }
 .no-padding{
-  padding:0;
+  padding:0!important;
 }
 .no-margin{
-  margin:0;
+  margin:0!important;
 }
 
 .loader-initial {
@@ -58,6 +60,9 @@ html,body{
 .full-height{
   height: 100%;
 }
+.full-width{
+  width: 100%;
+}
 #toast-container {
   top: auto !important;
   bottom: 10%;
@@ -72,4 +77,46 @@ html,body{
 
 .offset-toast-chip{
   margin-bottom: 0!important;
+}
+.margin-left{
+  margin-left: 1em;
+}
+.modal{
+  background: #503b73!important;
+}
+.modal .modal-footer{
+  background-color: #4e555b!important;
+}
+.collapsible-header{
+  background-color: #4e555b!important;
+  display: block!important;
+}
+
+.download-button{
+  height: 32px!important;
+  width: 32px!important;
+  line-height: 32px!important;
+  padding:0;
+}
+.download-button i{
+  line-height: 32px!important;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.caret{
+  color: white!important;
+}
+
+[type="radio"]:not(:checked)+label:before, [type="radio"]:not(:checked)+label:after {
+  border: 2px solid #efefef!important;
+}
+
+.chips .input{
+  color: white!important;
+}
+.vertical-align{
+  vertical-align: middle;
 }
