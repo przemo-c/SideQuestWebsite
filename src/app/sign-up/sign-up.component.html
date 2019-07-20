@@ -1,0 +1,50 @@
+<div class="row full-size no-margin">
+  <div class="col s9 m6 valign-wrapper login-container">
+    <div class="card login-card">
+      <div class="card-image">
+        <div class="background-image-card"></div>
+        <div class="right login-links">
+          <a  routerLink="/login">Sign In</a>
+          | <a routerLink="/sign-up">Sign Up</a>
+          | <a routerLink="/forgot-password">Forgot Password</a>
+        </div>
+        <span class="card-title">
+          Sign Up
+        </span>
+      </div>
+      <div class="card-content">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="icon_prefix_name" type="text" class="validate" [(ngModel)]="name">
+            <label for="icon_prefix_name">Name</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">email</i>
+            <input id="icon_prefix" type="text" class="validate" [(ngModel)]="email">
+            <label for="icon_prefix">Email</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">lock</i>
+            <input id="icon_prefix_password" type="password" class="validate" [(ngModel)]="password">
+            <label for="icon_prefix_password">Password</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">email</i>
+            <input id="icon_prefix_email" type="text" class="validate" [(ngModel)]="email2">
+            <label for="icon_prefix_email">Email Again</label>
+          </div>
+          <div class="input-field col s6">
+            <i class="material-icons prefix">lock</i>
+            <input id="icon_prefix_password2" type="password" class="validate" [(ngModel)]="password2">
+            <label for="icon_prefix_password2">Password Again</label>
+          </div>
+        </div>
+      </div>
+      <div class="card-action right-align">
+        <a class="pink-button btn waves-effect waves-light" (click)="signUp()">Sign Up</a>
+      </div>
+    </div>
+  </div>
+  <div class="col s3 m6 background-image"></div>
+</div>

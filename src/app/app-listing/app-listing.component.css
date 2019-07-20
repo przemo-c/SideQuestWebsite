@@ -1,0 +1,69 @@
+
+.back-icon{
+  margin-right: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+
+}
+.back-icon:focus {outline:0;}
+
+.top-tags-name{
+  margin-top: -33px;
+}
+
+.top-download{
+  margin-top: -45px;
+}
+
+@media screen and (max-width: 992px) {
+  .top-tags-name{
+    margin-top: 0px;
+  }
+}
+.screen-shot{
+  height: 100px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+.counter{
+  font-size: 1.7em;
+  display: inline-block;
+  margin-right: 1em;
+  vertical-align: middle;
+}
+.counter-icon{
+  font-size: 0.9em;
+  margin-top: -3px;
+}
+
+.padding{
+  padding-left: 3em;
+  padding-right: 3em;
+}
+.social-icon{
+  width: 36px;
+  height: 36px;
+  margin-right: 3px;
+  border-radius: 100%;
+  cursor: pointer;
+  border: 2px solid white;
+}
+.top-image{
+  height: 45px;
+  vertical-align: middle;
+}
+.radio-top{
+  margin-bottom: 25px;
+}
+.url-top{
+  margin-bottom: 32px;
+}
+.chip.pointer{
+  white-space: nowrap;
+}
+.line-height{
+  line-height: 2rem;
+}
+.install-button{
+  margin-top: -8px;
+}

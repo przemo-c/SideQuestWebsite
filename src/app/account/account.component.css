@@ -1,0 +1,37 @@
+
+.card-image-left{
+  height: 124px;
+  float: left;
+  width: 164.6666666666667px;
+  background-size: cover;
+  background-position: center center;
+  margin-right: 2em;
+}
+.card-title-small{
+  width: calc(100% - 300px)!important;
+}
+.card-title.truncate, .description.truncate{
+  width: calc(100% - 50px);
+}
+.card-content{
+  background-color: #312249;
+}
+.add-app{
+  width: 100%;
+  line-height: 124px;
+  font-size: 2rem;
+  height: 124px;
+  border: 3px dashed #cfcfcf;
+  margin: .5rem 0 1rem 0;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.card-height{
+  height: 124px;
+}
+
+.padding{
+  padding-left: 3em;
+  padding-right: 3em;
+}

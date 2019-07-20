@@ -1,0 +1,206 @@
+<div class="container" *ngIf="is_not_found">
+  <h4>Not found...</h4>
+</div>
+<div *ngIf="!is_not_found" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
+  <h4>
+    <i class="material-icons back-icon" routerLink="/apps">reply</i>
+    <img class="responsive-img top-image"
+         *ngIf="currentApp.image_url"
+         src="{{currentApp.image_url}}"/>
+    {{currentApp.name}}
+  </h4>
+  <div class="right top-tags-name">
+    <div class="btn waves-effect waves-light pink-button"
+         *ngIf="apk_download_urls && apk_download_urls.length"
+    (click)="downloadCount()">Install Now</div>
+    <!--<div class="btn waves-effect waves-light pink-button">Make Donation</div>-->
+  </div>
+  <div class="clearfix"></div>
+  <hr>
+  &nbsp;&nbsp;&nbsp;{{currentApp.summary}}
+  <div class="right">{{currentApp.packagename}}&nbsp;&nbsp;&nbsp;</div>
+  <br><br>
+  <div class="row">
+    <div class="col s12 m10">
+      <div class="row">
+        <div class="col s7">
+          <div *ngIf="videoObject">
+            <div *ngIf="videoObject.provider === 'youtube'">
+              <iframe width="100%" height="360" [src]="videoUrl" frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen></iframe>
+            </div>
+            <div *ngIf="videoObject.provider === 'vimeo'">
+              <iframe [src]="videoUrl" width="100%" height="360"
+                      frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+          </div>
+          <img class="responsive-img"
+               *ngIf="!videoObject && currentApp.image_url && !is_loading_icon"
+               src="{{currentApp.image_url}}"/>
+
+          <div>
+        <span class="counter">0&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+                                              mz-tooltip tooltip="Number of downloads"
+                                              position="bottom"
+        >cloud_download</i></span>
+            <span class="counter">0&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+                                                  mz-tooltip tooltip="Number of views"
+                                                  position="bottom"
+            >visibility</i></span>
+            <span class="counter pointer" (click)="likeApp()">0&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+                                                  mz-tooltip tooltip="Number of likes"
+                                                  position="bottom"
+            >thumb_up</i></span>
+          </div>
+          <br>
+
+          <img class="screen-shot pointer"
+               *ngIf="videoObject && currentApp.image_url && !is_loading_icon"
+               src="{{currentApp.image_url}}" (click)="openImage(screenshots.length)"/>
+          <img class="screen-shot pointer" *ngFor="let screenshot of screenshots; let i = index" src="{{screenshot}}" (click)="openImage(i)"/>
+        </div>
+        <div class="col s5">
+          <div class="row">
+            <div class="col s12">
+              <div *ngIf="currentApp.description">
+                <br>
+                <div class="input-field radio-top">
+                  <label class="active">Description</label>
+                </div>
+                <p [innerHTML]="currentApp.description"></p>
+              </div>
+              <div *ngIf="searchTags && searchTags.length">
+                <br>
+                <div class="input-field radio-top">
+                  <label class="active">Tags</label>
+                </div>
+                <ng-container>
+                  <span *ngFor="let tag of searchTags" class="chip">{{tag}}</span>&nbsp;&nbsp;&nbsp;
+                </ng-container>
+              </div>
+              <div *ngIf="currentApp.license">
+                <br>
+                <div class="input-field radio-top">
+                  <label class="active">Licence</label>
+                </div>
+                <p>{{currentApp.license}}</p>
+              </div>
+
+              <div *ngIf="currentApp.comfort">
+                <div class="input-field radio-top">
+                  <label class="active">Comfort</label>
+                </div>
+                <p>{{currentApp.comfort}}</p>
+              </div>
+              <div *ngIf="currentApp.created">
+                <br>
+                <div class="input-field radio-top">
+                  <label class="active">Added</label>
+                </div>
+                <p>{{currentApp.created}}</p>
+              </div>
+              <div *ngIf="currentApp.updated">
+                <br>
+                <div class="input-field radio-top">
+                  <label class="active">Updated</label>
+                </div>
+                <p>{{currentApp.updated}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="apk_download_urls && apk_download_urls.length">
+        <br><br>
+        <h5>Downloads</h5>
+        <hr>
+        <mz-collapsible
+          [mode]="'expandable'"
+          [onClose]="closeFunctionCallback"
+          [onOpen]="openFunctionCallback"
+          [popout]="true">
+          <mz-collapsible-item [active]="true">
+            <mz-collapsible-item-header>
+              <div class="btn right waves-effect waves-light pink-button install-button"
+                   (click)="downloadCount()">Install Now</div>
+              Latest Download
+            </mz-collapsible-item-header>
+            <mz-collapsible-item-body>
+              <div class="row" *ngFor="let url of apk_download_urls">
+                <div class="col s11 right-align vertical-align line-height">
+                  {{url.link_url}}
+                </div>
+                <div class="col s1 right-align vertical-align">
+                  <a class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"><i class="material-icons">cloud_download</i></a>
+                </div>
+              </div>
+            </mz-collapsible-item-body>
+          </mz-collapsible-item>
+          <ng-container *ngIf="hasGithubRepo && currentApp.github_enabled && currentApp.github_tag === '[ all ]'">
+            <mz-collapsible-item *ngFor="let release of githubReleases">
+              <mz-collapsible-item-header>
+                <div class="btn right waves-effect waves-light pink-button install-button"
+                     (click)="downloadCount()">Install Now</div>
+                [{{release.tag_name}}] {{release.name}}
+              </mz-collapsible-item-header>
+              <mz-collapsible-item-body>
+                <div *ngFor="let asset of release.assets">
+                  <div class="row">
+                    <div class="col s11 right-align vertical-align line-height">
+                      {{asset.browser_download_url}}
+                    </div>
+                    <div class="col s1 right-align vertical-align">
+                      <a class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"><i class="material-icons">cloud_download</i></a>
+                    </div>
+                  </div>
+                </div>
+              </mz-collapsible-item-body>
+            </mz-collapsible-item>
+          </ng-container>
+        </mz-collapsible>
+      </div>
+    </div>
+    <div class="col s12 m2">
+      <div *ngIf="website_url && website_url.length">
+        <div *ngFor="let url of website_url">
+          <div class="chip pointer"
+               mz-tooltip tooltip="{{url.provider}} {{url.link_url}}"
+               position="bottom"
+               (click)="openUrl(url.link_url)">
+            <!--<img src="{{urlIcons[url.provider].icon}}">-->
+            Open Website
+          </div>
+        </div>
+      </div>
+      <div *ngIf="social_urls && social_urls.length">
+        <div class="input-field radio-top">
+          <label class="active">Social</label>
+        </div><br>
+        <div *ngFor="let url of social_urls">
+          <div class="chip pointer"
+               mz-tooltip tooltip="{{url.provider}}"
+               position="bottom"
+               (click)="openUrl(url.link_url)">
+            <img src="{{urlIcons[url.provider].icon}}">
+            {{url.provider}}
+          </div>
+        </div>
+      </div>
+      <div *ngIf="donate_urls && donate_urls.length">
+        <div class="input-field radio-top" >
+          <label class="active">Support & Donate</label>
+        </div><br>
+        <div *ngFor="let url of donate_urls">
+          <div class="chip pointer"
+               mz-tooltip tooltip="{{url.provider}}"
+               position="bottom"
+               (click)="openUrl(url.link_url)">
+            <img src="{{urlIcons[url.provider].icon}}">
+            {{url.provider}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
