@@ -38,6 +38,9 @@ import { AppsComponent } from "./apps/apps.component";
 import { ResetPasswordComponent } from "./reset-password/reset-password.component";
 import { AppListingComponent } from "./app-listing/app-listing.component";
 import { LightboxModule } from "ngx-lightbox";
+import { ChartsModule } from "ng2-charts";
+import { StatsChartComponent } from "./stats-chart/stats-chart.component";
+import { NgxDaterangepickerMd } from "ngx-daterangepicker-material";
 
 @NgModule({
   declarations: [
@@ -55,7 +58,8 @@ import { LightboxModule } from "ngx-lightbox";
     AccountComponent,
     AppsComponent,
     ResetPasswordComponent,
-    AppListingComponent
+    AppListingComponent,
+    StatsChartComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +79,8 @@ import { LightboxModule } from "ngx-lightbox";
     MzButtonModule,
     MzModalModule,
     FormsModule,
+    ChartsModule,
+    NgxDaterangepickerMd.forRoot(),
     LightboxModule
   ],
   providers: [NotLoginGuard, LoginGuard],

@@ -9,6 +9,7 @@ import * as urlParser from "../../../node_modules/js-video-url-parser/lib/base";
 import "js-video-url-parser/lib/provider/vimeo";
 import "js-video-url-parser/lib/provider/youtube";
 import {
+  AppCounter,
   AppUrl,
   GithubRelease,
   ScreenShot,
@@ -21,7 +22,6 @@ interface SocialIcon {
   provider: string;
   icon: string;
 }
-
 @Component({
   selector: "app-app-listing",
   templateUrl: "./app-listing.component.html",
@@ -65,6 +65,11 @@ export class AppListingComponent implements OnInit, OnDestroy {
   };
   searchTags: string[];
   screenshots: string[];
+  counters = {
+    l: 0,
+    v: 0,
+    d: 0
+  };
   app_urls: AppUrl[];
   donate_urls: AppUrl[];
   social_urls: AppUrl[];
@@ -109,7 +114,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
         if (!Number.isInteger(this.apps_id)) {
           this.apps_id = null;
         } else {
-          let app_meta = localStorage.getItem("app_meta_" + this.apps_id);
+          let app_meta = localStorage.getItem("am_" + this.apps_id);
           if (!app_meta) {
             this.defaultAppMeta();
           } else {
@@ -120,29 +125,49 @@ export class AppListingComponent implements OnInit, OnDestroy {
             }
           }
         }
-        this.setupApp();
+        this.setupApp().then(() => this.viewApp());
       }
     });
   }
 
   downloadCount() {
     if (!this.app_meta.d) {
-      this.app_meta.d = 1;
-      this.saveAppMeta();
-      return this.expanseService.appCount("download", this.apps_id);
+      return this.expanseService
+        .appCount("download", this.apps_id)
+        .then((res: any) => {
+          if (!res.error) {
+            this.app_meta.d = 1;
+            this.counters.d++;
+            this.saveAppMeta();
+          }
+        });
+    }
+  }
+
+  viewApp() {
+    if (!this.app_meta.v) {
+      return this.expanseService
+        .appCount("view", this.apps_id)
+        .then((res: any) => {
+          if (!res.error) {
+            this.app_meta.v = 1;
+            this.counters.v++;
+            this.saveAppMeta();
+          }
+        });
     }
   }
 
   likeApp() {
     if (!this.app_meta.l) {
-      this.app_meta.l = 1;
-      this.saveAppMeta();
       return this.expanseService
         .appCount("like", this.apps_id)
         .then((res: any) => {
           this.service.showMessage(res, "App Liked!");
           if (!res.error) {
-            this.stats.like++;
+            this.app_meta.l = 1;
+            this.counters.l++;
+            this.saveAppMeta();
           }
         });
     } else {
@@ -152,7 +177,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
 
   defaultAppMeta() {
     this.app_meta = {
-      v: 1,
+      v: 0,
       d: 0,
       l: 0
     };
@@ -161,10 +186,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   }
 
   saveAppMeta() {
-    localStorage.setItem(
-      "app_meta_" + this.apps_id,
-      JSON.stringify(this.app_meta)
-    );
+    localStorage.setItem("am_" + this.apps_id, JSON.stringify(this.app_meta));
   }
 
   ngOnInit() {}
@@ -177,12 +199,25 @@ export class AppListingComponent implements OnInit, OnDestroy {
     this.lightbox.open(this.album, i);
   }
 
+  openItems(apps: any, isRelease: boolean) {
+    window.location.href =
+      "sidequest://sideload-multi/#" +
+      JSON.stringify(
+        isRelease
+          ? apps.map(app => app.browser_download_url)
+          : apps.map(app => app.link_url)
+      );
+  }
+
+  openItem(url: string) {
+    window.location.href = url;
+  }
+
   async setupApp() {
     if (this.apps_id) {
       const apps = (await this.expanseService.start().then(() => {
         return this.expanseService.getApp(this.apps_id);
       })) as AppListing[];
-      console.log(this.apps_id, apps);
       if (!apps.length) {
         this.apps_id = null;
         this.is_not_found = true;
@@ -191,6 +226,22 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.searchTags = (this.currentApp.search_tags || "")
           .split(",")
           .filter(t => t);
+        const counters = (await this.expanseService.getAppTotals(
+          this.apps_id
+        )) as AppCounter[];
+        counters.forEach(counter => {
+          switch (counter.type) {
+            case "view":
+              this.counters.v = counter.counter;
+              break;
+            case "download":
+              this.counters.d = counter.counter;
+              break;
+            case "like":
+              this.counters.l = counter.counter;
+              break;
+          }
+        });
         const screenshots = (await this.expanseService.getAppScreenshots(
           this.apps_id
         )) as ScreenShot[];

@@ -1,0 +1,64 @@
+<div class="relative">
+  <div class="no-enough" *ngIf="notEnough">Not enough data yet...</div>
+</div>
+<div class="right">
+  <div class="date-range">
+    <label for="dateRangePicker" class="active">Date Range</label>
+    <input type="text" ngxDaterangepickerMd
+           startKey="start" endKey="end"
+           [(ngModel)]="selectedDate" [opens]="'left'" [isCustomDate]="customCss"
+           (datesUpdated)="getData()"
+           id="dateRangePicker" class="form-control"/>
+  </div>
+  <div class="date-range">
+    <div class="select-drop-down">
+      <label class="active">Release</label>
+      <select class="browser-default black-text" [(ngModel)]="selectedFilter" (change)="getData()">
+        <option *ngFor="let version of versionFilter">{{version}}</option>
+      </select>
+    </div>
+  </div>
+</div>
+<h5 class="left metrics-title">App Metrics</h5>
+<div class="clearfix"></div>
+<hr>
+
+{{chart.chart.scales['x-axis-0'].min|date:'mediumDate'}}
+<div class="right">
+  {{chart.chart.scales['x-axis-0'].max|date:'mediumDate'}}
+</div>
+<br>
+<!--[labels]="lineChartLabels"-->
+<div style="display: block; width: 100%;">
+<canvas baseChart width="400" height="150"
+        [datasets]="lineChartData"
+        [options]="lineChartOptions"
+        [colors]="lineChartColors"
+        [legend]="lineChartLegend"
+        [chartType]="lineChartType"
+        [plugins]="lineChartPlugins"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
+</div>
+
+<!--<div class="flex">-->
+  <!--<div class="flex-item">-->
+    <!--<div style="display: block;">-->
+    <!--</div>-->
+  <!--</div>-->
+  <!--&lt;!&ndash;<div class="flex-item">&ndash;&gt;-->
+    <!--&lt;!&ndash;<table class="table table-responsive table-condensed">&ndash;&gt;-->
+      <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+        <!--&lt;!&ndash;<th *ngFor="let label of lineChartLabels">{{label}}</th>&ndash;&gt;-->
+      <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+      <!--&lt;!&ndash;<tr *ngFor="let d of lineChartData; let i=index" [class]="'line-'+i">&ndash;&gt;-->
+        <!--&lt;!&ndash;<td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>&ndash;&gt;-->
+      <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+    <!--&lt;!&ndash;</table>&ndash;&gt;-->
+    <!--&lt;!&ndash;<button mat-button mat-raised-button color="primary" (click)="randomize()">Randomize</button>&ndash;&gt;-->
+    <!--&lt;!&ndash;<button mat-button mat-raised-button color="primary" (click)="pushOne()">Push</button>&ndash;&gt;-->
+    <!--&lt;!&ndash;<button mat-button mat-raised-button color="primary" (click)="changeColor()">Recolor</button>&ndash;&gt;-->
+    <!--&lt;!&ndash;<button mat-button mat-raised-button color="primary" (click)="hideOne()">Toggle Series B</button>&ndash;&gt;-->
+    <!--&lt;!&ndash;<button mat-button mat-raised-button color="primary" (click)="changeLabel()">Change Label</button>&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->

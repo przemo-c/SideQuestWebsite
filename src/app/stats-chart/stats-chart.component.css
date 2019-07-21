@@ -1,0 +1,30 @@
+
+.date-range{
+  width: 250px;
+  display: inline-block;
+  margin-top: -30px;
+  margin-left: 10px;
+}
+.metrics-title{
+  margin-top: 30px;
+  margin-bottom: 2px;
+}
+.select-drop-down{
+  width: calc(100% - 45px);
+  position:relative;
+  display: inline-block;
+}
+.select-icon{
+  width: 3rem;
+  font-size: 2rem;
+  -webkit-transition: color .2s;
+  transition: color .2s;
+}
+.no-enough{
+  position: absolute;
+  top: 250px;
+  font-size: 3em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.4);
+  width: 100%;
+}

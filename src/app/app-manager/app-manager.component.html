@@ -5,10 +5,15 @@
 
   <div class="btn waves-effect waves-light right pink-button margin-left" (click)="saveApp()">Save App</div>
   <span class="chip right white-text"
-            [ngClass]="{'pink-button': currentApp.active, 'orange': !currentApp.active}">
+        [ngClass]="{'pink-button': currentApp.active, 'orange': !currentApp.active}">
   {{currentApp.active ? 'Published' : 'Pending'}}
   </span>
-  <h4><i class="material-icons back-icon" routerLink="/account">reply</i>{{apps_id?'Edit App':'Create App'}}</h4>
+  <h4><i class="material-icons back-icon" routerLink="/account">reply</i>{{apps_id?'Manage App':'Create App'}}</h4>
+  <div *ngIf="apps_id && currentApp.active">
+    <app-stats-chart #chart [apps_id]="apps_id" ></app-stats-chart>
+    <br>
+    <br>
+  </div>
   <div class="row">
     <div class="col s12 m3">
       <h5>App Icon</h5>
@@ -94,10 +99,10 @@
           <i class="material-icons select-icon">search</i>
           <label class="active extra-padding-left">Search Tags</label>
           <mz-chip-input  class="select-drop-down"
-            [placeholder]="'Hit enter to add...'"
-            [secondaryPlaceholder]="'Another...'"
+                          [placeholder]="'Hit enter to add...'"
+                          [secondaryPlaceholder]="'Another...'"
 
-            [(ngModel)]="searchTags">
+                          [(ngModel)]="searchTags">
             <!--(add)="onAddTag($event)"-->
             <!--(delete)="onDeleteTag($event)"-->
             <!--[autocompleteOptions]="comfortAutocomplete"-->
@@ -260,14 +265,14 @@
           </mz-radio-button-container>
         </div>
         <!--<div class="input-field col s12">-->
-          <!--<i class="material-icons prefix">public</i>-->
-          <!--<input id="website" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="currentApp.website">-->
-          <!--<label for="website" class="active">Website Url</label>-->
+        <!--<i class="material-icons prefix">public</i>-->
+        <!--<input id="website" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="currentApp.website">-->
+        <!--<label for="website" class="active">Website Url</label>-->
         <!--</div>-->
         <!--<div class="input-field col s12">-->
-          <!--<i class="material-icons prefix">public</i>-->
-          <!--<input id="donate_url" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="currentApp.donate_url">-->
-          <!--<label for="donate_url" class="active">Donate Url</label>-->
+        <!--<i class="material-icons prefix">public</i>-->
+        <!--<input id="donate_url" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="currentApp.donate_url">-->
+        <!--<label for="donate_url" class="active">Donate Url</label>-->
         <!--</div>-->
       </div>
       <br>

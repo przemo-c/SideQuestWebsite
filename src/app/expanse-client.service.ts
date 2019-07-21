@@ -645,6 +645,17 @@ export class ExpanseClientService {
   getApp(apps_id) {
     return this.emit("get-app", { apps_id });
   }
+  getAppTotals(apps_id) {
+    return this.emit("get-app-totals", { apps_id });
+  }
+  getAppCounters(apps_id, start_time, end_time, filter) {
+    return this.emit("get-app-counters", {
+      apps_id,
+      start_time,
+      end_time,
+      filter
+    });
+  }
   getAppUrls(apps_id) {
     return this.emit("get-app-urls", { apps_id });
   }

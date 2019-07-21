@@ -17,15 +17,22 @@ import { AppService } from "../app.service";
 import { ExpanseClientService } from "../expanse-client.service";
 import { AppListing } from "../account/account.component";
 import { Subscription } from "rxjs";
-import { MzToastService } from "ngx-materialize";
 import * as urlParser from "../../../node_modules/js-video-url-parser/lib/base";
 import "js-video-url-parser/lib/provider/vimeo";
 import "js-video-url-parser/lib/provider/youtube";
 import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
+
+import * as moment from "moment";
+import DateOptions = Pickadate.DateOptions;
+import DateItem = Pickadate.DateItem;
 export interface VideObject {
   id: string;
   mediaType: string;
   provider: string;
+}
+export interface AppCounter {
+  counter: number;
+  type: string;
 }
 export interface AppUrl {
   link_url: string;
@@ -53,8 +60,9 @@ export interface GithubRelease {
 export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("release_input", { static: false }) release_input;
   @ViewChild("repo_input", { static: false }) repo_input;
+  @ViewChild("chart", { static: false }) chart;
   apps_id: string;
-  addNewUrlType: string = "APK";
+  addNewUrlType = "APK";
   addNewUrlLink: string;
   is_not_found: boolean;
   is_loading_icon: boolean;
@@ -154,8 +162,10 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     this.setAutoComplete();
+    this.setupDatePicker();
   }
 
+  setupDatePicker() {}
   ngAfterViewInit() {}
 
   addAppUrl() {

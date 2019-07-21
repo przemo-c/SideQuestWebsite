@@ -2,11 +2,17 @@
   <h4>Hi {{expanseService.currentSession.name}}!</h4>
   <hr>
   <div class="row">
-    <div class="col s12 m3 center-align">
-      <img class="responsive-img" src="{{expanseService.cdnUrl+expanseService.currentSession.preview_image}}"/><br><br>
-      <div class="btn waves-effect waves-light pink-button" (click)="passwordModal.openModal()">Change Password</div>
+    <div class="col s12 m6">
+      You can manage your apps and update your personal details here. Apps are approved the first time you publish,
+      updates are real time after that. Approval is just a quick test of download etc.<br><br>
+
+      Things might seem a little all over the place here but it will all come together very soon. Lots of new features coming soon too!
     </div>
-    <div class="input-field col s12 m9">
+    <div class="col s12 m2 center-align">
+      <img class="responsive-img" src="{{expanseService.cdnUrl+expanseService.currentSession.preview_image}}"/><br><br>
+      <div class="btn waves-effect waves-light pink-button small-button" (click)="passwordModal.openModal()">Change Password</div>
+    </div>
+    <div class="input-field col s12 m4">
       <div class="input-field">
         <i class="material-icons prefix">face</i>
         <input id="user_name" type="text" placeholder="Your name..." [(ngModel)]="expanseService.currentSession.name">
@@ -20,7 +26,7 @@
       <div class="btn right waves-effect waves-light pink-button" (click)="saveNameAndEmail()">Save</div>
     </div>
   </div>
-  <br><br>
+
   <h4>My Apps</h4>
   <hr>
   <div class="row">

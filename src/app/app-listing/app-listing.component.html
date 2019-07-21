@@ -40,17 +40,17 @@
                src="{{currentApp.image_url}}"/>
 
           <div>
-        <span class="counter">0&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-                                              mz-tooltip tooltip="Number of downloads"
-                                              position="bottom"
+        <span class="counter">{{counters.d}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+          mz-tooltip tooltip="Number of downloads"
+          position="bottom"
         >cloud_download</i></span>
-            <span class="counter">0&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-                                                  mz-tooltip tooltip="Number of views"
-                                                  position="bottom"
+            <span class="counter">{{counters.v}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+              mz-tooltip tooltip="Number of views"
+              position="bottom"
             >visibility</i></span>
-            <span class="counter pointer" (click)="likeApp()">0&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-                                                  mz-tooltip tooltip="Number of likes"
-                                                  position="bottom"
+            <span class="counter pointer" (click)="likeApp()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+              mz-tooltip tooltip="Number of likes"
+              position="bottom"
             >thumb_up</i></span>
           </div>
           <br>
@@ -123,7 +123,7 @@
           <mz-collapsible-item [active]="true">
             <mz-collapsible-item-header>
               <div class="btn right waves-effect waves-light pink-button install-button"
-                   (click)="downloadCount()">Install Now</div>
+                   (click)="downloadCount();openItems(apk_download_urls, false);">Install Now</div>
               Latest Download
             </mz-collapsible-item-header>
             <mz-collapsible-item-body>
@@ -132,7 +132,9 @@
                   {{url.link_url}}
                 </div>
                 <div class="col s1 right-align vertical-align">
-                  <a class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"><i class="material-icons">cloud_download</i></a>
+                  <a class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"
+                     (click)="openItem('sidequest://sideload/#'+url.link_url)"
+                  ><i class="material-icons">cloud_download</i></a>
                 </div>
               </div>
             </mz-collapsible-item-body>
@@ -141,7 +143,7 @@
             <mz-collapsible-item *ngFor="let release of githubReleases">
               <mz-collapsible-item-header>
                 <div class="btn right waves-effect waves-light pink-button install-button"
-                     (click)="downloadCount()">Install Now</div>
+                     (click)="downloadCount();openItems(release.assets, true);">Install Now</div>
                 [{{release.tag_name}}] {{release.name}}
               </mz-collapsible-item-header>
               <mz-collapsible-item-body>
