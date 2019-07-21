@@ -18,7 +18,7 @@ export class AppService {
     }
     this.loadAppIndex();
     this.loadAppMeta();
-    this.checkForUpdates();
+    //this.checkForUpdates();
   }
   getNews(page: number = 0, filter: string = "none") {
     return fetch(
@@ -98,8 +98,8 @@ export class AppService {
       .filter(apps_id => this.app_meta[apps_id].vc)
       .map(apps_id => ({
         apps_id,
-        packagename: this.app_index[this.app_meta],
-        versioncode: this.app_meta[this.app_meta].vc
+        packagename: this.app_index[apps_id],
+        versioncode: this.app_meta[apps_id].vc
       }));
     console.log(installed);
   }
