@@ -67,3 +67,11 @@
 .install-button{
   margin-top: -8px;
 }
+.app-summary{
+  width: calc(80% - 20px);
+  margin-left: 20px;
+}
+.app-package{
+  width: calc(20% - 20px);
+  margin-right: 20px;
+}

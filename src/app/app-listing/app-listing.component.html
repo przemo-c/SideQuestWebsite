@@ -1,7 +1,7 @@
 <div class="container" *ngIf="is_not_found">
   <h4>Not found...</h4>
 </div>
-<div *ngIf="!is_not_found" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
+<div *ngIf="!is_not_found" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
   <h4>
     <i class="material-icons back-icon" routerLink="/apps">reply</i>
     <img class="responsive-img top-image"
@@ -12,13 +12,13 @@
   <div class="right top-tags-name">
     <div class="btn waves-effect waves-light pink-button"
          *ngIf="apk_download_urls && apk_download_urls.length"
-    (click)="downloadCount()">Install Now</div>
+    (click)="downloadCount();openItems(apk_download_urls, false)">Install Now</div>
     <!--<div class="btn waves-effect waves-light pink-button">Make Donation</div>-->
   </div>
   <div class="clearfix"></div>
   <hr>
-  &nbsp;&nbsp;&nbsp;{{currentApp.summary}}
-  <div class="right">{{currentApp.packagename}}&nbsp;&nbsp;&nbsp;</div>
+  <div class="right app-package right-align">{{currentApp.packagename}}</div>
+  <div class="app-summary truncate">{{currentApp.summary}}</div>
   <br><br>
   <div class="row">
     <div class="col s12 m10">

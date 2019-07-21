@@ -47,14 +47,20 @@
 }
 
 .scroll-container-small{
+  position:relative;
   height: calc(100% - 43px);
   overflow-x:hidden;
   overflow-y: auto;
 }
 .scroll-container{
+  position:relative;
   height: calc(100% - 90px);
   overflow-x:hidden;
   overflow-y: auto;
+}
+
+.main-container{
+  position:relative;
 }
 .move-down{
   transform: translate(0,80px);

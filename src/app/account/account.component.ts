@@ -43,7 +43,7 @@ export class AccountComponent implements OnInit {
   newPassword1: string;
   constructor(
     public expanseService: ExpanseClientService,
-    private appService: AppService
+    public appService: AppService
   ) {}
 
   ngOnInit() {

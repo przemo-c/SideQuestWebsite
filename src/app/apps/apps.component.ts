@@ -78,8 +78,27 @@ export class AppsComponent implements OnInit, OnDestroy {
             setTimeout(() => (this.isGrid = isGrid));
           }
           this.page++;
+          this.parseInstalled(resp);
         })
     );
+  }
+
+  parseInstalled(apps) {
+    const sideQuest = (window as any).sideQuest;
+    if (sideQuest) {
+      apps.forEach(app => {
+        this.appService.app_index[app.apps_id] = app.packagename;
+        if (
+          sideQuest.installed.indexOf(app.packagename) > -1 &&
+          (!this.appService.app_meta[app.apps_id] ||
+            !this.appService.app_meta[app.apps_id].vc)
+        ) {
+          const app_cache = this.appService.getAppMeta(app.apps_id);
+          app_cache.vc = app.versioncode;
+        }
+      });
+      this.appService.saveAppMeta();
+    }
   }
 
   async fixImages(result) {

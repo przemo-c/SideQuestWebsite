@@ -14,7 +14,7 @@
          mz-tooltip tooltip="New apps, events and news aggregated from reddit, twitter and discord."
          position="bottom"
          routerLink="news">News & Events</div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
+    <div *ngIf="appService.isAuthenticated" class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="New apps, events and news aggregated from reddit, twitter and discord."
          position="bottom"
          routerLink="apps">Apps</div>
@@ -22,7 +22,7 @@
          mz-tooltip tooltip="Get the latest SideQuest download."
          position="bottom"
          routerLink="download" *ngIf="!appService.hideLogo">Download</div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
+    <div *ngIf="appService.isAuthenticated" class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="{{appService.isAuthenticated? 'Manage your apps, repos, events and your account information.' : 'Sign in and manage apps and events'}}"
          position="bottom"
          [routerLink]="appService.isAuthenticated ? 'account' : 'login'">{{appService.isAuthenticated? 'Dashboard' : 'Sign In'}}</div>

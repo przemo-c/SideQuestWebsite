@@ -642,6 +642,12 @@ export class ExpanseClientService {
   deleteApp(apps_id) {
     return this.emit("delete-app", { apps_id });
   }
+  getAppUpdates(apps_ids) {
+    return this.emit("get-app-updates", { apps_ids });
+  }
+  getAppPackage(packagename) {
+    return this.emit("get-app-package", { packagename });
+  }
   getApp(apps_id) {
     return this.emit("get-app", { apps_id });
   }

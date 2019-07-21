@@ -65,7 +65,8 @@
       <div class="right top-package-name" *ngIf="apps_id">
         {{currentApp.packagename}}
       </div>
-      <h5>App Listing Details</h5>
+      <h5 *ngIf="!apps_id">App Listing Details</h5>
+      <h5 *ngIf="apps_id">[{{apps_id}}] {{currentApp.name}} Listing Details</h5>
       <hr>
       <div class="right-align grey-text">Enter the basic info for your application.</div>
       <div class="row">
@@ -112,7 +113,7 @@
         <div class="input-field col s6">
           <i class="material-icons prefix">fingerprint</i>
           <input id="version_code" type="number" onclick="this.select()" class="validate" placeholder="12" [(ngModel)]="currentApp.versioncode">
-          <label for="version_code" class="active">Version Code</label>
+          <label for="version_code" class="active">Version Code ( used for auto updates )</label>
         </div>
 
         <div class="input-field col s6">
@@ -317,12 +318,16 @@
         </div>
 
         <div class="col s12">
-          <br><br>
+          <br>
         </div>
 
         <div class="col s6 extra-padding-left" *ngIf="!currentApp.github_enabled">
-          <br>
-          Select to enable github release support - this allows for automated deployments to suit you. <a href="https://developer.github.com/v3/repos/releases/">More Info</a>
+          When enabled, the latest release on your listing page will be the latest/selected release on github.
+          Any APK or OBB file links added will also appear in the listing under Latest Release.
+          <br><br>
+          When Github Releases are enabled, the listing will
+          instead use the release tag_name instead of versionName and release ID instead of version code. This is then
+          used to coordinate automatic updates for your app.
           <!--<div class="input-field">-->
           <!--<i class="material-icons prefix">public</i>-->
           <!--<input id="apk_url" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="currentApp.apk_url">-->
@@ -373,6 +378,9 @@
               On
             </label>
           </div>
+          <br>
+          Enable github release support to allow for automated deployments to suit you.
+          <a href="https://developer.github.com/v3/repos/releases/">More Info</a>
         </div>
       </div>
       <div *ngIf="apps_id" class="col s12">

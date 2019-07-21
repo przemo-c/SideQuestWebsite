@@ -105,7 +105,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   hasGithubName: boolean;
   hasGithubRepo: boolean;
   isGettingGithub: boolean;
-  app_urls: AppUrl[];
+  app_urls: AppUrl[] = [];
   comfortAutocomplete: { data: { [key: string]: string } };
   repoAutoComplete: { data: { [key: string]: string }; limit: number };
   releaseAutoComplete: { data: { [key: string]: string }; limit: number };
@@ -387,6 +387,10 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
         )
         .then((res: any) => {
           this.service.showMessage(res, "App Saved!");
+          console.log(this.currentApp.active);
+          if (!this.currentApp.active) {
+            this.sendForApproval(this.apps_id);
+          }
         });
     } else {
       this.expanseService
@@ -419,10 +423,16 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
         .then((res: any) => {
           this.service.showMessage(res, "App Saved!");
           if (!res.error && res.length) {
-            this.router.navigateByUrl("/app/" + res[0].apps_id);
+            this.sendForApproval(res[0].apps_id).then(() =>
+              this.router.navigateByUrl("/my-app/" + res[0].apps_id)
+            );
           }
         });
     }
+  }
+
+  sendForApproval(apps_id) {
+    return fetch("https://shanesedit.org:5678/new_app/" + apps_id);
   }
 
   deleteApp() {

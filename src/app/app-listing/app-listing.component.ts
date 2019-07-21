@@ -114,16 +114,8 @@ export class AppListingComponent implements OnInit, OnDestroy {
         if (!Number.isInteger(this.apps_id)) {
           this.apps_id = null;
         } else {
-          let app_meta = localStorage.getItem("am_" + this.apps_id);
-          if (!app_meta) {
-            this.defaultAppMeta();
-          } else {
-            try {
-              this.app_meta = JSON.parse(app_meta);
-            } catch (e) {
-              this.defaultAppMeta();
-            }
-          }
+          this.service.getAppMeta(this.apps_id);
+          this.app_meta = this.service.app_meta[this.apps_id];
         }
         this.setupApp().then(() => this.viewApp());
       }
@@ -136,9 +128,12 @@ export class AppListingComponent implements OnInit, OnDestroy {
         .appCount("download", this.apps_id)
         .then((res: any) => {
           if (!res.error) {
-            this.app_meta.d = 1;
+            this.service.app_meta[this.apps_id].d = 1;
+            this.service.app_meta[
+              this.apps_id
+            ].vc = this.currentApp.versioncode;
             this.counters.d++;
-            this.saveAppMeta();
+            this.service.saveAppMeta();
           }
         });
     }
@@ -150,9 +145,9 @@ export class AppListingComponent implements OnInit, OnDestroy {
         .appCount("view", this.apps_id)
         .then((res: any) => {
           if (!res.error) {
-            this.app_meta.v = 1;
+            this.service.app_meta[this.apps_id].v = 1;
             this.counters.v++;
-            this.saveAppMeta();
+            this.service.saveAppMeta();
           }
         });
     }
@@ -165,28 +160,14 @@ export class AppListingComponent implements OnInit, OnDestroy {
         .then((res: any) => {
           this.service.showMessage(res, "App Liked!");
           if (!res.error) {
-            this.app_meta.l = 1;
+            this.service.app_meta[this.apps_id].l = 1;
             this.counters.l++;
-            this.saveAppMeta();
+            this.service.saveAppMeta();
           }
         });
     } else {
       this.service.showMessage({}, "You already liked that!");
     }
-  }
-
-  defaultAppMeta() {
-    this.app_meta = {
-      v: 0,
-      d: 0,
-      l: 0
-    };
-    this.saveAppMeta();
-    return this.expanseService.appCount("view", this.apps_id);
-  }
-
-  saveAppMeta() {
-    localStorage.setItem("am_" + this.apps_id, JSON.stringify(this.app_meta));
   }
 
   ngOnInit() {}
@@ -352,16 +333,26 @@ export class AppListingComponent implements OnInit, OnDestroy {
             );
             if (tag_release.length) {
               this.apk_download_urls = this.apk_download_urls.concat(
-                tag_release[0].assets.filter((asset: any) => {
-                  return (
-                    ["apk", "obb"].indexOf(
-                      asset.name
+                tag_release[0].assets
+                  .filter((asset: any) => {
+                    return (
+                      ["apk", "obb"].indexOf(
+                        asset.name
+                          .split(".")
+                          .pop()
+                          .toLowerCase()
+                      ) > -1
+                    );
+                  })
+                  .map(asset => {
+                    return {
+                      link_url: asset.browser_download_url,
+                      provider: asset.name
                         .split(".")
                         .pop()
-                        .toLowerCase()
-                    ) > -1
-                  );
-                })
+                        .toUpperCase()
+                    };
+                  })
               );
             }
           }

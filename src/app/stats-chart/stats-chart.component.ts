@@ -280,4 +280,7 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
   }): void {
     // console.log(event, active);
   }
+  getTopDate(isMax) {
+    return (this.chart.chart as any).scales["x-axis-0"][isMax ? "max" : "min"];
+  }
 }

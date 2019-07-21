@@ -13,8 +13,8 @@
           on your PC and create an 'organization'. You'll be asked to accept the developer agreement.
         </div>
         <br><br>
-        <img class="setup-image" src="assets/images/CreateOrganisation.png" />
-        <img class="setup-image" src="assets/images/OculusDashboardDeveloperCreate.png" />
+        <img class="setup-image" src="assets/images/CreateOrganisation.png" (click)="openImage(0)"/>
+        <img class="setup-image" src="assets/images/OculusDashboardDeveloperCreate.png"  (click)="openImage(1)"/>
       </div>
     </div>
     <div class="col s12 m6">
@@ -31,7 +31,9 @@
           file and click install.
         </div>
         <br><br>
-        <img class="setup-image" src="assets/images/ADB Drivers.png" />
+        <img class="setup-image" src="assets/images/ADB Drivers.png" (click)="openImage(2)"/>
+        <img class="setup-image" src="assets/images/right-click.png" (click)="openImage(3)"/>
+
       </div>
     </div>
   </div>
@@ -49,7 +51,7 @@
           to be able to see it on the device.
         </p>
         <br><br>
-        <img class="setup-image" src="assets/images/OculusAppDevModeSteps.png" />
+        <img class="setup-image" src="assets/images/OculusAppDevModeSteps.png" (click)="openImage(4)"/>
       </div>
     </div>
     <div class="col s12 m6">
@@ -63,11 +65,11 @@
           something like the below. You should also select 'Always allow from this computer' to prevent
           this message from coming up every time you connect.
           <br><br>
-          Important 1): Disable Pattern Lock in the Oculus app in <div class="chip">My Quest > More Settings > Pattern Lock</div><br><br>
+          Important 1): Disable Unlock Pattern in the Oculus app in <div class="chip">Settings > Quest > More Settings > Unlock Pattern</div>. <br>See the image in Step 2 for more info. <br><br>
           Important 2): Try a phone USB cable instead of the cable that comes with your Quest.
         </div>
         <br><br>
-        <img class="setup-image" src="assets/images/allow-auth.png" />
+        <img class="setup-image" src="assets/images/allow-auth.png" (click)="openImage(5)"/>
       </div>
     </div>
   </div>

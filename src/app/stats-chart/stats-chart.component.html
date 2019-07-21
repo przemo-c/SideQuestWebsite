@@ -22,10 +22,10 @@
 <h5 class="left metrics-title">App Metrics</h5>
 <div class="clearfix"></div>
 <hr>
-
-{{chart.chart.scales['x-axis-0'].min|date:'mediumDate'}}
+<div class="right-align grey-text">View the historical unique views, downloads and likes for your app or specific app versions.</div>
+{{getTopDate(false)|date:'mediumDate'}}
 <div class="right">
-  {{chart.chart.scales['x-axis-0'].max|date:'mediumDate'}}
+  {{getTopDate(true)|date:'mediumDate'}}
 </div>
 <br>
 <!--[labels]="lineChartLabels"-->
