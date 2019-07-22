@@ -17,7 +17,7 @@
   </div>
   <div class="clearfix"></div>
   <hr>
-  <div class="right app-package right-align">{{currentApp.packagename}}</div>
+  <div class="right app-package right-align truncate">{{currentApp.packagename}}</div>
   <div class="app-summary truncate">{{currentApp.summary}}</div>
   <br><br>
   <div class="row">
@@ -79,6 +79,25 @@
                   <span *ngFor="let tag of searchTags" class="chip">{{tag}}</span>&nbsp;&nbsp;&nbsp;
                 </ng-container>
               </div>
+              <div *ngIf="currentApp.supports_quest || currentApp.supports_go || currentApp.supports_other">
+
+                <br>
+                <div class="input-field radio-top">
+                  <label class="active">Device Support</label>
+                </div>
+                <ng-container >
+                  <span *ngIf="currentApp.supports_quest" class="chip">
+                    <img src="assets/images/oculusquest.jpg" alt="Oculus Quest">
+                    Oculus Quest</span>&nbsp;&nbsp;&nbsp;
+                  <span *ngIf="currentApp.supports_go" class="chip">
+                    <img src="assets/images/oculusgo.png" alt="Oculus Go">
+                    Oculus Go</span>&nbsp;&nbsp;&nbsp;
+                  <span *ngIf="currentApp.supports_other" class="chip">
+                    <img src="assets/images/other.jpg" alt="Other">
+                    Other</span>&nbsp;&nbsp;&nbsp;
+                </ng-container>
+              </div>
+
               <div *ngIf="currentApp.license">
                 <br>
                 <div class="input-field radio-top">
@@ -128,7 +147,7 @@
             </mz-collapsible-item-header>
             <mz-collapsible-item-body>
               <div class="row" *ngFor="let url of apk_download_urls">
-                <div class="col s11 right-align vertical-align line-height">
+                <div class="col s11 right-align vertical-align line-height truncate full-width">
                   {{url.link_url}}
                 </div>
                 <div class="col s1 right-align vertical-align">
@@ -149,7 +168,7 @@
               <mz-collapsible-item-body>
                 <div *ngFor="let asset of release.assets">
                   <div class="row">
-                    <div class="col s11 right-align vertical-align line-height">
+                    <div class="col s11 right-align vertical-align line-height truncate full-width">
                       {{asset.browser_download_url}}
                     </div>
                     <div class="col s1 right-align vertical-align">

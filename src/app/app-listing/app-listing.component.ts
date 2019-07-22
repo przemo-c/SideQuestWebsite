@@ -93,7 +93,18 @@ export class AppListingComponent implements OnInit, OnDestroy {
     Patreon: { icon: "assets/images/social/Patreon.png" },
     Itch: { icon: "assets/images/social/Itch.png" },
     Paypal: { icon: "assets/images/social/Paypal.png" },
-    Kofi: { icon: "assets/images/social/Kofi.png" }
+    Kofi: { icon: "assets/images/social/Kofi.png" },
+    "Oculus Quest Listing": {
+      icon: "assets/images/social/Oculus Quest Listing.png"
+    },
+    "Oculus Go Listing": { icon: "assets/images/social/Oculus Go Listing.png" },
+    "Oculus Rift Listing": {
+      icon: "assets/images/social/Oculus Rift Listing.png"
+    },
+    "Oculus GearVR Listing": {
+      icon: "assets/images/social/Oculus GearVR Listing.png"
+    },
+    "Steam Page": { icon: "assets/images/social/Steam Page.png" }
   };
   album: IAlbum[] = [];
   app_meta: any;

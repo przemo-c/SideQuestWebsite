@@ -185,6 +185,11 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     this.urlTypes = [
       "APK",
       "OBB",
+      "Oculus Quest Listing",
+      "Oculus Go Listing",
+      "Oculus Rift Listing",
+      "Oculus GearVR Listing",
+      "Steam Page",
       "Patreon",
       "Paypal",
       "Itch",
