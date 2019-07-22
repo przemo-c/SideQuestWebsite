@@ -299,7 +299,8 @@ export class AppListingComponent implements OnInit, OnDestroy {
           (url: AppUrl) => url.provider === "Website"
         );
         this.apk_download_urls = this.app_urls.filter(
-          (url: AppUrl) => ["OBB", "APK"].indexOf(url.provider) > -1
+          (url: AppUrl) =>
+            ["OBB", "APK", "BeatOn Mod"].indexOf(url.provider) > -1
         );
         this.screenshots = (screenshots || []).map(s => s.image_url);
         this.album = this.screenshots.map(s => ({ src: s, thumb: s }));

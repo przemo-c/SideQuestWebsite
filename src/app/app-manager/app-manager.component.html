@@ -89,11 +89,16 @@
                  [(ngModel)]="currentApp.name">
           <label for="app_name" class="active">App Name</label>
         </div>
-        <div class="input-field col s12 m6" *ngIf="!apps_id">
+        <div class="input-field col s12" [ngClass]="{'m8': !apps_id}" *ngIf="!apps_id">
           <i class="material-icons prefix">extension</i>
           <input id="package_name" placeholder="com.example.app" type="text" class="validate"
                  [(ngModel)]="currentApp.packagename">
           <label for="package_name" class="active">Package Name</label>
+        </div>
+        <div class="col s12 m4" *ngIf="!apps_id">
+          <div #dropJson class="add-app" routerLink="/my-app">
+            Drop JSON Here
+          </div>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">mode_edit</i>
@@ -115,7 +120,7 @@
           <mz-chip-input  class="select-drop-down"
                           [placeholder]="'Hit enter to add...'"
                           [secondaryPlaceholder]="'Another...'"
-
+                          (add)="onAddTag($event)"
                           [(ngModel)]="searchTags">
             <!--(add)="onAddTag($event)"-->
             <!--(delete)="onDeleteTag($event)"-->

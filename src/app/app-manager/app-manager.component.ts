@@ -46,6 +46,17 @@ interface GithubRepo {
   name: string;
 }
 
+interface BeatOnModJson {
+  id: string;
+  name: string;
+  author: string;
+  description: string[];
+  gameVersion: string;
+  version: string;
+  platform: string;
+  category: string;
+}
+
 export interface GithubRelease {
   name?: string;
   tag_name: string;
@@ -61,6 +72,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("release_input", { static: false }) release_input;
   @ViewChild("repo_input", { static: false }) repo_input;
   @ViewChild("chart", { static: false }) chart;
+  @ViewChild("dropJson", { static: false }) dropJson;
   apps_id: string;
   addNewUrlType = "APK";
   addNewUrlLink: string;
@@ -106,12 +118,13 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   hasGithubName: boolean;
   hasGithubRepo: boolean;
   isGettingGithub: boolean;
+  isDragging: boolean;
   app_urls: AppUrl[] = [];
   comfortAutocomplete: { data: { [key: string]: string } };
   repoAutoComplete: { data: { [key: string]: string }; limit: number };
   releaseAutoComplete: { data: { [key: string]: string }; limit: number };
   urlTypes: string[];
-  searchTags: Materialize.ChipDataObject[];
+  searchTags: Materialize.ChipDataObject[] = [];
   githubRepos: GithubRepo[];
   githubReleases: GithubRelease[];
   constructor(
@@ -167,7 +180,89 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   setupDatePicker() {}
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    const ele = this.dropJson.nativeElement;
+    let dragTimeout;
+    ele.ondragover = () => {
+      clearTimeout(dragTimeout);
+      this.isDragging = true;
+      return false;
+    };
+
+    ele.ondragleave = () => {
+      dragTimeout = setTimeout(() => {
+        this.isDragging = false;
+      }, 1000);
+      return false;
+    };
+
+    ele.ondragend = () => {
+      this.isDragging = false;
+      return false;
+    };
+
+    ele.ondrop = e => {
+      if (!this.isDragging) {
+        return;
+      }
+      this.isDragging = false;
+      e.preventDefault();
+      console.log(e.dataTransfer.files);
+      if (e.dataTransfer.files.length) {
+        const reader = new FileReader();
+        // Closure to capture the file information.
+        reader.onload = (e: any) => {
+          // Render thumbnail.
+          try {
+            const json: BeatOnModJson = JSON.parse(
+              e.target.result
+            ) as BeatOnModJson;
+            if (json.id) {
+              this.currentApp.packagename = "com.beatonmod." + json.id;
+            }
+            const searchTags: Materialize.ChipDataObject[] = [];
+            if (json.gameVersion) {
+              searchTags.push({
+                tag: json.gameVersion.toString()
+              } as Materialize.ChipDataObject);
+            }
+            if (json.category) {
+              searchTags.push({
+                tag: json.category.toString()
+              } as Materialize.ChipDataObject);
+            }
+            this.searchTags = searchTags;
+            if (json.version) {
+              this.currentApp.versionname = json.version.toString();
+            }
+            if (json.description && json.description.length) {
+              this.currentApp.description = json.description[0].toString();
+            }
+            if (json.author) {
+              this.currentApp.summary = "by " + json.author.toString();
+            }
+            if (json.name) {
+              this.currentApp.name = json.name.toString();
+            }
+            this.currentApp.versioncode = 1;
+            this.currentApp.app_categories_id = "4";
+          } catch (e) {
+            this.service.showMessage(
+              { error: true, data: "Could not parse json!!" },
+              ""
+            );
+          }
+        };
+
+        // Read in the image file as a data URL.
+        reader.readAsText(e.dataTransfer.files[0]);
+      }
+    };
+  }
+
+  onAddTag(e) {
+    console.log(this.searchTags);
+  }
 
   addAppUrl() {
     this.app_urls.push({
@@ -186,6 +281,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     this.urlTypes = [
       "APK",
       "OBB",
+      "BeatOn Mod",
       "Oculus Quest",
       "Oculus Go",
       "Oculus Rift",

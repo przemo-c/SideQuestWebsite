@@ -90,3 +90,15 @@
 .bottom-border{
   border-bottom: 1px solid #cfcfcf;
 }
+
+.add-app{
+  width: 100%;
+  line-height: 40px;
+  font-size: 1rem;
+  height: 50px;
+  border: 3px dashed #cfcfcf;
+  margin: .5rem 0 1rem 0;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}

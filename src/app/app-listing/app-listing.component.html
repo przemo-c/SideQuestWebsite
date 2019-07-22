@@ -4,9 +4,9 @@
 <div *ngIf="!is_not_found" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
   <h4>
     <i class="material-icons back-icon" routerLink="/apps">reply</i>
-    <img class="responsive-img top-image"
+    <img class="responsive-img top-image pointer"
          *ngIf="currentApp.image_url"
-         src="{{currentApp.image_url}}"/>
+         src="{{currentApp.image_url}}" (click)="openImage(screenshots.length)"/>
     {{currentApp.name}}
   </h4>
   <div class="right top-tags-name">
@@ -44,6 +44,7 @@
               <div class="chip pointer"
                    mz-tooltip tooltip="THis is is still in early access and has limited availability."
                    position="bottom">
+                <img src="assets/images/social/EarlyAccess.png"/>
                 Early Access
               </div>
             </div>
@@ -62,10 +63,20 @@
           </div>
           <br>
 
-          <img class="screen-shot pointer"
-               *ngIf="videoObject && currentApp.image_url && !is_loading_icon"
-               src="{{currentApp.image_url}}" (click)="openImage(screenshots.length)"/>
+          <!--<img class="screen-shot pointer"-->
+               <!--*ngIf="videoObject && currentApp.image_url && !is_loading_icon"-->
+               <!--src="{{currentApp.image_url}}" (click)="openImage(screenshots.length)"/>-->
           <img class="screen-shot pointer" *ngFor="let screenshot of screenshots; let i = index" src="{{screenshot}}" (click)="openImage(i)"/>
+
+          <br>
+          <h5 *ngIf="app_meta.vc && service.app_index[apps_id]">Currently Installed: [v{{app_meta.vc}}]</h5>
+
+          <div class="btn waves-effect waves-light pink-button"
+               *ngIf="app_meta.vc && service.app_index[apps_id]">Uninstall</div>
+          <br><br>
+          <div class="btn waves-effect waves-light pink-button"
+               *ngIf="app_meta.vc && service.app_index[apps_id] && currentApp.versioncode < app_meta.vc"
+               (click)="downloadCount();openItems(apk_download_urls, false)">Update Available</div>
         </div>
         <div class="col s12 m5">
           <div class="row">
