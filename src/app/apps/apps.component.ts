@@ -66,8 +66,8 @@ export class AppsComponent implements OnInit, OnDestroy {
           await this.fixImages(resp);
           this.hasNoMore = !resp.length;
           let isGrid = this.isGrid;
-          this.isGrid = false;
           if (this.page === 0) {
+            this.isGrid = false;
             this.apps.length = 0;
           }
           this.isLoading = false;

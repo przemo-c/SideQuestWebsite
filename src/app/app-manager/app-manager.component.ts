@@ -88,6 +88,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     github_repo: "",
     github_tag: "",
     github_enabled: false,
+    early_access: false,
     updated: 0,
     created: 0,
     supports_quest: true,
@@ -392,7 +393,8 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
           this.currentApp.supports_go,
           this.currentApp.supports_other,
           this.currentApp.search_tags,
-          this.app_urls
+          this.app_urls,
+          this.currentApp.early_access
         )
         .then((res: any) => {
           this.service.showMessage(res, "App Saved!");
@@ -427,7 +429,8 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
           this.currentApp.supports_go,
           this.currentApp.supports_other,
           this.currentApp.search_tags,
-          this.app_urls
+          this.app_urls,
+          this.currentApp.early_access
         )
         .then((res: any) => {
           this.service.showMessage(res, "App Saved!");

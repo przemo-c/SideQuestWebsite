@@ -38,7 +38,7 @@
     <div class="col s12 m6" *ngFor="let app of myApps">
       <div class="card card-height">
         <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-             *ngIf="app.image_url" [ngStyle]="{'background-image':'url('+app.image_url+')'}">
+             *ngIf="app.image_url" [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
         </div>
         <div class="card-content card-height">
           <i class="material-icons activator pointer right">more_vert</i>

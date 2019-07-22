@@ -5,8 +5,18 @@
 
   <div class="btn waves-effect waves-light pink-button right margin-left" routerLink="/app/{{apps_id}}" *ngIf="apps_id">View Listing</div>
   <div class="btn waves-effect waves-light right pink-button margin-left" (click)="saveApp()">Save App</div>
+  <div *ngIf="apps_id" class="right center-align">
+    Early Access
+    <div class="switch">
+      <label>
+        Off
+        <input type="checkbox" [(ngModel)]="currentApp.early_access">
+        <span class="lever"></span>
+        On
+      </label>
+    </div>
+  </div>
   <h4><i class="material-icons back-icon" routerLink="/account">reply</i>{{apps_id?'Manage App':'Create App'}}
-
     <span *ngIf="apps_id" class="chip white-text"
           [ngClass]="{'pink-button': currentApp.active, 'orange': !currentApp.active}">
   {{currentApp.active ? 'Published' : 'Pending'}}

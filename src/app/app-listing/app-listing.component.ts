@@ -54,6 +54,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
     github_repo: "",
     github_tag: "",
     github_enabled: false,
+    early_access: false,
     updated: 0,
     created: 0,
     supports_quest: true,

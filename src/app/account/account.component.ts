@@ -22,6 +22,7 @@ export interface AppListing {
   github_repo: string;
   github_tag: string;
   github_enabled: boolean;
+  early_access: boolean;
   updated: number;
   created: number;
   supports_quest: boolean;

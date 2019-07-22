@@ -698,7 +698,8 @@ export class ExpanseClientService {
     supports_go,
     supports_other,
     search_tags,
-    app_urls
+    app_urls,
+    early_access
   ) {
     return this.editApp(
       null,
@@ -725,7 +726,8 @@ export class ExpanseClientService {
       supports_go,
       supports_other,
       search_tags,
-      app_urls
+      app_urls,
+      early_access
     );
   }
   editApp(
@@ -753,7 +755,8 @@ export class ExpanseClientService {
     supports_go,
     supports_other,
     search_tags,
-    app_urls
+    app_urls,
+    early_access
   ) {
     return this.emit("add-edit-app", {
       apps_id,
@@ -780,7 +783,8 @@ export class ExpanseClientService {
       supports_go,
       supports_other,
       search_tags,
-      app_urls
+      app_urls,
+      early_access
     });
   }
   appCount(type, apps_id) {
