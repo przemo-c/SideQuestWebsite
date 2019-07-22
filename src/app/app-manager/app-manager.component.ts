@@ -351,7 +351,9 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   async saveApp() {
-    this.currentApp.search_tags = this.searchTags.map(t => t.tag).join(",");
+    this.currentApp.search_tags = (this.searchTags || [])
+      .map(t => t.tag)
+      .join(",");
     if (this.apps_id) {
       this.expanseService
         .editApp(

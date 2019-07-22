@@ -144,6 +144,14 @@
                    type="radio" [(ngModel)]="currentApp.app_categories_id">
             <br>
             <input mz-radio-button
+                   [label]="'Mods'"
+                   [withGap]="true"
+                   id="devices-Mods"
+                   name="type-group"
+                   value="4"
+                   type="radio" [(ngModel)]="currentApp.app_categories_id">
+            <br>
+            <input mz-radio-button
                    [label]="'NSFW'"
                    [withGap]="true"
                    id="devices-Other"
