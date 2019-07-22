@@ -315,6 +315,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
             ) +
             "/" +
             this.currentApp.name +
+            " on SideQuest" +
             "/" +
             (window as any).encodeURIComponent(this.currentApp.image_url) +
             "/" +
