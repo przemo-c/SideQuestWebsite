@@ -36,6 +36,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   isAllReleases: boolean;
   currentApp: AppListing = {
     name: "",
+    users_id: 0,
     app_categories_id: "1",
     image_url: "",
     video_url: "",
@@ -70,6 +71,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
     v: 0,
     d: 0
   };
+  isMine: boolean;
   app_urls: AppUrl[];
   donate_urls: AppUrl[];
   social_urls: AppUrl[];
@@ -117,7 +119,14 @@ export class AppListingComponent implements OnInit, OnDestroy {
           this.service.getAppMeta(this.apps_id);
           this.app_meta = this.service.app_meta[this.apps_id];
         }
-        this.setupApp().then(() => this.viewApp());
+        this.setupApp()
+          .then(() => this.viewApp())
+          .then(() => {
+            this.isMine =
+              this.service.isAuthenticated &&
+              Number(this.currentApp.users_id) ===
+                Number(this.expanseService.currentSession.users_id);
+          });
       }
     });
   }
@@ -207,6 +216,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.searchTags = (this.currentApp.search_tags || "")
           .split(",")
           .filter(t => t);
+        console.log(apps[0]);
         const counters = (await this.expanseService.getAppTotals(
           this.apps_id
         )) as AppCounter[];

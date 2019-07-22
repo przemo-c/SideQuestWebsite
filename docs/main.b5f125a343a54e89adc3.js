@@ -71021,6 +71021,7 @@
                 (this.lightbox = o),
                 (this.currentApp = {
                   name: "",
+                  users_id: 0,
                   app_categories_id: "1",
                   image_url: "",
                   video_url: "",
@@ -71081,9 +71082,18 @@
                                 this.apps_id
                               ]))
                             : (this.apps_id = null),
-                          this.setupApp().then(function() {
-                            return t.viewApp();
-                          })),
+                          this.setupApp()
+                            .then(function() {
+                              return t.viewApp();
+                            })
+                            .then(function() {
+                              t.isMine =
+                                t.service.isAuthenticated &&
+                                Number(t.currentApp.users_id) ===
+                                  Number(
+                                    t.expanseService.currentSession.users_id
+                                  );
+                            })),
                         [2]
                       );
                     });
@@ -71190,6 +71200,7 @@
                             .filter(function(e) {
                               return e;
                             })),
+                          console.log(e[0]),
                           [4, this.expanseService.getAppTotals(this.apps_id)]
                         );
                       case 3:
@@ -71522,13 +71533,72 @@
               null,
               null
             )),
-            (e()(), r["\u0275ted"](-1, null, ["Install Now"]))
+            (e()(), r["\u0275ted"](-1, null, ["Install Latest"]))
           ],
           null,
           null
         );
       }
       function fo(e) {
+        return r["\u0275vid"](
+          0,
+          [
+            (e()(),
+            r["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              2,
+              "div",
+              [
+                [
+                  "class",
+                  "btn waves-effect waves-light pink-button margin-left"
+                ]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, t, n) {
+                var i = !0;
+                return (
+                  "click" === t &&
+                    (i = !1 !== r["\u0275nov"](e, 1).onClick() && i),
+                  i
+                );
+              },
+              null,
+              null
+            )),
+            r["\u0275did"](
+              1,
+              16384,
+              null,
+              0,
+              ki,
+              [Mi, hr, [8, null], r.Renderer2, r.ElementRef],
+              { routerLink: [0, "routerLink"] },
+              null
+            ),
+            (e()(), r["\u0275ted"](-1, null, ["Edit App"]))
+          ],
+          function(e, t) {
+            e(
+              t,
+              1,
+              0,
+              r["\u0275inlineInterpolate"](
+                1,
+                "/my-app/",
+                t.component.apps_id,
+                ""
+              )
+            );
+          },
+          null
+        );
+      }
+      function po(e) {
         return r["\u0275vid"](
           0,
           [
@@ -71578,7 +71648,7 @@
           }
         );
       }
-      function po(e) {
+      function mo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -71625,7 +71695,7 @@
           }
         );
       }
-      function mo(e) {
+      function go(e) {
         return r["\u0275vid"](
           0,
           [
@@ -71644,7 +71714,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, fo)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, po)),
             r["\u0275did"](
               2,
               16384,
@@ -71655,7 +71725,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, po)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, mo)),
             r["\u0275did"](
               4,
               16384,
@@ -71675,7 +71745,7 @@
           null
         );
       }
-      function go(e) {
+      function _o(e) {
         return r["\u0275vid"](
           0,
           [
@@ -71711,7 +71781,7 @@
           }
         );
       }
-      function _o(e) {
+      function vo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -71755,7 +71825,7 @@
           }
         );
       }
-      function vo(e) {
+      function yo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -71793,7 +71863,7 @@
           }
         );
       }
-      function yo(e) {
+      function bo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -71880,7 +71950,7 @@
           }
         );
       }
-      function bo(e) {
+      function wo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -71907,7 +71977,7 @@
           }
         );
       }
-      function wo(e) {
+      function Mo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -71987,7 +72057,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, bo)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, wo)),
             r["\u0275did"](
               7,
               278528,
@@ -72006,7 +72076,7 @@
           null
         );
       }
-      function Mo(e) {
+      function ko(e) {
         return r["\u0275vid"](
           0,
           [
@@ -72094,7 +72164,7 @@
           }
         );
       }
-      function ko(e) {
+      function Do(e) {
         return r["\u0275vid"](
           0,
           [
@@ -72167,7 +72237,7 @@
           }
         );
       }
-      function Do(e) {
+      function Co(e) {
         return r["\u0275vid"](
           0,
           [
@@ -72255,7 +72325,7 @@
           }
         );
       }
-      function Co(e) {
+      function xo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -72343,7 +72413,7 @@
           }
         );
       }
-      function xo(e) {
+      function Lo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -72448,7 +72518,7 @@
           }
         );
       }
-      function Lo(e) {
+      function So(e) {
         return r["\u0275vid"](
           0,
           [
@@ -72556,7 +72626,7 @@
           }
         );
       }
-      function So(e) {
+      function To(e) {
         return r["\u0275vid"](
           0,
           [
@@ -72649,7 +72719,7 @@
               null
             )),
             r["\u0275did"](8, 16384, null, 0, $e, [], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Lo)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, So)),
             r["\u0275did"](
               10,
               278528,
@@ -72669,7 +72739,7 @@
           }
         );
       }
-      function To(e) {
+      function Eo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -72688,7 +72758,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, So)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, To)),
             r["\u0275did"](
               2,
               278528,
@@ -72707,7 +72777,7 @@
           null
         );
       }
-      function Eo(e) {
+      function Oo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -72906,7 +72976,7 @@
               null
             )),
             r["\u0275did"](17, 16384, null, 0, $e, [], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, xo)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Lo)),
             r["\u0275did"](
               19,
               278528,
@@ -72917,7 +72987,7 @@
               { ngForOf: [0, "ngForOf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, 0, 1, null, To)),
+            (e()(), r["\u0275and"](16777216, null, 0, 1, null, Eo)),
             r["\u0275did"](
               21,
               16384,
@@ -72954,7 +73024,7 @@
           null
         );
       }
-      function Oo(e) {
+      function Io(e) {
         return r["\u0275vid"](
           0,
           [
@@ -73032,7 +73102,7 @@
           null
         );
       }
-      function Io(e) {
+      function Yo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -73051,7 +73121,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Oo)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Io)),
             r["\u0275did"](
               2,
               278528,
@@ -73069,7 +73139,7 @@
           null
         );
       }
-      function Yo(e) {
+      function Ro(e) {
         return r["\u0275vid"](
           0,
           [
@@ -73173,7 +73243,7 @@
           }
         );
       }
-      function Ro(e) {
+      function Ao(e) {
         return r["\u0275vid"](
           0,
           [
@@ -73238,7 +73308,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Yo)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ro)),
             r["\u0275did"](
               6,
               278528,
@@ -73256,7 +73326,7 @@
           null
         );
       }
-      function Ao(e) {
+      function Po(e) {
         return r["\u0275vid"](
           0,
           [
@@ -73360,7 +73430,7 @@
           }
         );
       }
-      function Po(e) {
+      function jo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -73425,7 +73495,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ao)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Po)),
             r["\u0275did"](
               6,
               278528,
@@ -73443,7 +73513,7 @@
           null
         );
       }
-      function jo(e) {
+      function No(e) {
         return r["\u0275vid"](
           0,
           [
@@ -73453,7 +73523,7 @@
               0,
               null,
               null,
-              74,
+              76,
               "div",
               [["class", "main-container"]],
               null,
@@ -73546,7 +73616,7 @@
               0,
               null,
               null,
-              2,
+              4,
               "div",
               [["class", "right top-tags-name"]],
               null,
@@ -73566,9 +73636,20 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, fo)),
+            r["\u0275did"](
+              15,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [r.ViewContainerRef, r.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
             (e()(),
             r["\u0275eld"](
-              14,
+              16,
               0,
               null,
               null,
@@ -73583,7 +73664,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              15,
+              17,
               0,
               null,
               null,
@@ -73598,29 +73679,13 @@
             )),
             (e()(),
             r["\u0275eld"](
-              16,
-              0,
-              null,
-              null,
-              1,
-              "div",
-              [["class", "right app-package right-align"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), r["\u0275ted"](17, null, ["", ""])),
-            (e()(),
-            r["\u0275eld"](
               18,
               0,
               null,
               null,
               1,
               "div",
-              [["class", "app-summary truncate"]],
+              [["class", "right app-package right-align"]],
               null,
               null,
               null,
@@ -73634,33 +73699,49 @@
               0,
               null,
               null,
-              0,
-              "br",
-              [],
+              1,
+              "div",
+              [["class", "app-summary truncate"]],
               null,
               null,
               null,
               null,
               null
             )),
-            (e()(),
-            r["\u0275eld"](
-              21,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
+            (e()(), r["\u0275ted"](21, null, ["", ""])),
             (e()(),
             r["\u0275eld"](
               22,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              23,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              24,
               0,
               null,
               null,
@@ -73675,7 +73756,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              23,
+              25,
               0,
               null,
               null,
@@ -73690,7 +73771,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              24,
+              26,
               0,
               null,
               null,
@@ -73705,30 +73786,19 @@
             )),
             (e()(),
             r["\u0275eld"](
-              25,
+              27,
               0,
               null,
               null,
               25,
               "div",
-              [["class", "col s7"]],
+              [["class", "col s12 m7"]],
               null,
               null,
               null,
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, mo)),
-            r["\u0275did"](
-              27,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [r.ViewContainerRef, r.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
             (e()(), r["\u0275and"](16777216, null, null, 1, null, go)),
             r["\u0275did"](
               29,
@@ -73740,9 +73810,20 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, _o)),
+            r["\u0275did"](
+              31,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [r.ViewContainerRef, r.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
             (e()(),
             r["\u0275eld"](
-              30,
+              32,
               0,
               null,
               null,
@@ -73757,7 +73838,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              31,
+              33,
               0,
               null,
               null,
@@ -73770,10 +73851,10 @@
               null,
               null
             )),
-            (e()(), r["\u0275ted"](32, null, ["", "\xa0\xa0"])),
+            (e()(), r["\u0275ted"](34, null, ["", "\xa0\xa0"])),
             (e()(),
             r["\u0275eld"](
-              33,
+              35,
               0,
               null,
               null,
@@ -73792,7 +73873,7 @@
               null
             )),
             r["\u0275did"](
-              34,
+              36,
               4931584,
               null,
               0,
@@ -73804,7 +73885,7 @@
             (e()(), r["\u0275ted"](-1, null, ["cloud_download"])),
             (e()(),
             r["\u0275eld"](
-              36,
+              38,
               0,
               null,
               null,
@@ -73817,10 +73898,10 @@
               null,
               null
             )),
-            (e()(), r["\u0275ted"](37, null, ["", "\xa0\xa0"])),
+            (e()(), r["\u0275ted"](39, null, ["", "\xa0\xa0"])),
             (e()(),
             r["\u0275eld"](
-              38,
+              40,
               0,
               null,
               null,
@@ -73839,7 +73920,7 @@
               null
             )),
             r["\u0275did"](
-              39,
+              41,
               4931584,
               null,
               0,
@@ -73851,7 +73932,7 @@
             (e()(), r["\u0275ted"](-1, null, ["visibility"])),
             (e()(),
             r["\u0275eld"](
-              41,
+              43,
               0,
               null,
               null,
@@ -73869,10 +73950,10 @@
               null,
               null
             )),
-            (e()(), r["\u0275ted"](42, null, ["", "\xa0\xa0"])),
+            (e()(), r["\u0275ted"](44, null, ["", "\xa0\xa0"])),
             (e()(),
             r["\u0275eld"](
-              43,
+              45,
               0,
               null,
               null,
@@ -73891,7 +73972,7 @@
               null
             )),
             r["\u0275did"](
-              44,
+              46,
               4931584,
               null,
               0,
@@ -73903,7 +73984,7 @@
             (e()(), r["\u0275ted"](-1, null, ["thumb_up"])),
             (e()(),
             r["\u0275eld"](
-              46,
+              48,
               0,
               null,
               null,
@@ -73916,9 +73997,9 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, _o)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, vo)),
             r["\u0275did"](
-              48,
+              50,
               16384,
               null,
               0,
@@ -73927,9 +74008,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, vo)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, yo)),
             r["\u0275did"](
-              50,
+              52,
               278528,
               null,
               0,
@@ -73940,13 +74021,13 @@
             ),
             (e()(),
             r["\u0275eld"](
-              51,
+              53,
               0,
               null,
               null,
               14,
               "div",
-              [["class", "col s5"]],
+              [["class", "col s12 m5"]],
               null,
               null,
               null,
@@ -73955,7 +74036,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              52,
+              54,
               0,
               null,
               null,
@@ -73970,7 +74051,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              53,
+              55,
               0,
               null,
               null,
@@ -73983,18 +74064,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, yo)),
-            r["\u0275did"](
-              55,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [r.ViewContainerRef, r.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, wo)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, bo)),
             r["\u0275did"](
               57,
               16384,
@@ -74049,7 +74119,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Eo)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, xo)),
             r["\u0275did"](
               67,
               16384,
@@ -74060,9 +74130,20 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Oo)),
+            r["\u0275did"](
+              69,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [r.ViewContainerRef, r.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
             (e()(),
             r["\u0275eld"](
-              68,
+              70,
               0,
               null,
               null,
@@ -74075,18 +74156,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Io)),
-            r["\u0275did"](
-              70,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [r.ViewContainerRef, r.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ro)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Yo)),
             r["\u0275did"](
               72,
               16384,
@@ -74097,9 +74167,20 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Po)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ao)),
             r["\u0275did"](
               74,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [r.ViewContainerRef, r.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, jo)),
+            r["\u0275did"](
+              76,
               16384,
               null,
               0,
@@ -74116,46 +74197,47 @@
               e(t, 6, 0, "/apps"),
               e(t, 9, 0, n.currentApp.image_url),
               e(t, 13, 0, n.apk_download_urls && n.apk_download_urls.length),
-              e(t, 27, 0, n.videoObject),
+              e(t, 15, 0, n.isMine),
+              e(t, 29, 0, n.videoObject),
               e(
                 t,
-                29,
+                31,
                 0,
                 !n.videoObject && n.currentApp.image_url && !n.is_loading_icon
               ),
-              e(t, 34, 0, "bottom", "Number of downloads"),
-              e(t, 39, 0, "bottom", "Number of views"),
-              e(t, 44, 0, "bottom", "Number of likes"),
+              e(t, 36, 0, "bottom", "Number of downloads"),
+              e(t, 41, 0, "bottom", "Number of views"),
+              e(t, 46, 0, "bottom", "Number of likes"),
               e(
                 t,
-                48,
+                50,
                 0,
                 n.videoObject && n.currentApp.image_url && !n.is_loading_icon
               ),
-              e(t, 50, 0, n.screenshots),
-              e(t, 55, 0, n.currentApp.description),
-              e(t, 57, 0, n.searchTags && n.searchTags.length),
-              e(t, 59, 0, n.currentApp.license),
-              e(t, 61, 0, n.currentApp.comfort),
-              e(t, 63, 0, n.currentApp.created),
-              e(t, 65, 0, n.currentApp.updated),
-              e(t, 67, 0, n.apk_download_urls && n.apk_download_urls.length),
-              e(t, 70, 0, n.website_url && n.website_url.length),
-              e(t, 72, 0, n.social_urls && n.social_urls.length),
-              e(t, 74, 0, n.donate_urls && n.donate_urls.length);
+              e(t, 52, 0, n.screenshots),
+              e(t, 57, 0, n.currentApp.description),
+              e(t, 59, 0, n.searchTags && n.searchTags.length),
+              e(t, 61, 0, n.currentApp.license),
+              e(t, 63, 0, n.currentApp.comfort),
+              e(t, 65, 0, n.currentApp.created),
+              e(t, 67, 0, n.currentApp.updated),
+              e(t, 69, 0, n.apk_download_urls && n.apk_download_urls.length),
+              e(t, 72, 0, n.website_url && n.website_url.length),
+              e(t, 74, 0, n.social_urls && n.social_urls.length),
+              e(t, 76, 0, n.donate_urls && n.donate_urls.length);
           },
           function(e, t) {
             var n = t.component;
             e(t, 10, 0, n.currentApp.name),
-              e(t, 17, 0, n.currentApp.packagename),
-              e(t, 19, 0, n.currentApp.summary),
-              e(t, 32, 0, n.counters.d),
-              e(t, 37, 0, n.counters.v),
-              e(t, 42, 0, n.counters.l);
+              e(t, 19, 0, n.currentApp.packagename),
+              e(t, 21, 0, n.currentApp.summary),
+              e(t, 34, 0, n.counters.d),
+              e(t, 39, 0, n.counters.v),
+              e(t, 44, 0, n.counters.l);
           }
         );
       }
-      function No(e) {
+      function Fo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -74170,7 +74252,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, jo)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, No)),
             r["\u0275did"](
               3,
               16384,
@@ -74189,7 +74271,7 @@
           null
         );
       }
-      function Fo(e) {
+      function Ho(e) {
         return r["\u0275vid"](
           0,
           [
@@ -74205,7 +74287,7 @@
               null,
               null,
               null,
-              No,
+              Fo,
               uo
             )),
             r["\u0275did"](
@@ -74225,11 +74307,11 @@
           null
         );
       }
-      var Ho = r["\u0275ccf"]("app-app-listing", oo, Fo, {}, {}, []),
-        Vo = n("wd/R"),
-        zo = Vo,
-        Wo = new r.InjectionToken("daterangepicker.config"),
-        Bo = {
+      var Vo = r["\u0275ccf"]("app-app-listing", oo, Ho, {}, {}, []),
+        zo = n("wd/R"),
+        Wo = zo,
+        Bo = new r.InjectionToken("daterangepicker.config"),
+        Uo = {
           direction: "ltr",
           separator: " - ",
           weekLabel: "W",
@@ -74237,11 +74319,11 @@
           cancelLabel: "Cancel",
           clearLabel: "Clear",
           customRangeLabel: "Custom range",
-          daysOfWeek: zo.weekdaysMin(),
-          monthNames: zo.monthsShort(),
-          firstDay: zo.localeData().firstDayOfWeek()
+          daysOfWeek: Wo.weekdaysMin(),
+          monthNames: Wo.monthsShort(),
+          firstDay: Wo.localeData().firstDayOfWeek()
         },
-        Uo = (function() {
+        Go = (function() {
           function e(e) {
             this._config = e;
           }
@@ -74249,8 +74331,8 @@
             Object.defineProperty(e.prototype, "config", {
               get: function() {
                 return this._config
-                  ? Object(l.__assign)({}, Bo, this._config)
-                  : Bo;
+                  ? Object(l.__assign)({}, Uo, this._config)
+                  : Uo;
               },
               enumerable: !0,
               configurable: !0
@@ -74258,11 +74340,11 @@
             e
           );
         })(),
-        Go = Vo,
-        qo = (function(e) {
+        qo = zo,
+        Ko = (function(e) {
           return (e.left = "left"), (e.right = "right"), e;
         })({}),
-        Ko = (function() {
+        Jo = (function() {
           function e(e, t, n) {
             (this.el = e),
               (this._ref = t),
@@ -74272,10 +74354,10 @@
               (this.timepickerVariables = { left: {}, right: {} }),
               (this.daterangepicker = { start: new Q(), end: new Q() }),
               (this.applyBtn = { disabled: !1 }),
-              (this.startDate = Go().startOf("day")),
-              (this.endDate = Go().endOf("day")),
+              (this.startDate = qo().startOf("day")),
+              (this.endDate = qo().endOf("day")),
               (this.dateLimit = null),
-              (this.sideEnum = qo),
+              (this.sideEnum = Ko),
               (this.minDate = null),
               (this.maxDate = null),
               (this.autoApply = !1),
@@ -74351,8 +74433,8 @@
                   ((this._old.start = this.startDate.clone()),
                   (this._old.end = this.endDate.clone())),
                 this.updateMonthsInView(),
-                this.renderCalendar(qo.left),
-                this.renderCalendar(qo.right),
+                this.renderCalendar(Ko.left),
+                this.renderCalendar(Ko.right),
                 this.renderRanges();
             }),
             (e.prototype.renderRanges = function() {
@@ -74362,12 +74444,12 @@
                   if (this.ranges[n]) {
                     (e =
                       "string" == typeof this.ranges[n][0]
-                        ? Go(this.ranges[n][0], this.locale.format)
-                        : Go(this.ranges[n][0])),
+                        ? qo(this.ranges[n][0], this.locale.format)
+                        : qo(this.ranges[n][0])),
                       (t =
                         "string" == typeof this.ranges[n][1]
-                          ? Go(this.ranges[n][1], this.locale.format)
-                          : Go(this.ranges[n][1])),
+                          ? qo(this.ranges[n][1], this.locale.format)
+                          : qo(this.ranges[n][1])),
                       this.minDate &&
                         e.isBefore(this.minDate) &&
                         (e = this.minDate.clone());
@@ -74405,13 +74487,13 @@
               }
             }),
             (e.prototype.renderTimePicker = function(e) {
-              if (e !== qo.right || this.endDate) {
+              if (e !== Ko.right || this.endDate) {
                 var t,
                   n,
                   r = this.maxDate;
-                e === qo.left
+                e === Ko.left
                   ? ((t = this.startDate.clone()), (n = this.minDate))
-                  : e === qo.right &&
+                  : e === Ko.right &&
                     ((t = this.endDate.clone()), (n = this.startDate));
                 var i = this.timePicker24Hour ? 0 : 1,
                   l = this.timePicker24Hour ? 23 : 12;
@@ -74496,22 +74578,22 @@
               }
             }),
             (e.prototype.renderCalendar = function(e) {
-              var t = e === qo.left ? this.leftCalendar : this.rightCalendar,
+              var t = e === Ko.left ? this.leftCalendar : this.rightCalendar,
                 n = t.month.month(),
                 r = t.month.year(),
                 i = t.month.hour(),
                 l = t.month.minute(),
                 o = t.month.second(),
-                a = Go([r, n]).daysInMonth(),
-                u = Go([r, n, 1]),
-                s = Go([r, n, a]),
-                c = Go(u)
+                a = qo([r, n]).daysInMonth(),
+                u = qo([r, n, 1]),
+                s = qo([r, n, a]),
+                c = qo(u)
                   .subtract(1, "month")
                   .month(),
-                d = Go(u)
+                d = qo(u)
                   .subtract(1, "month")
                   .year(),
-                h = Go([d, c]).daysInMonth(),
+                h = qo([d, c]).daysInMonth(),
                 f = u.day(),
                 p = [];
               (p.firstDay = u), (p.lastDay = s);
@@ -74519,9 +74601,9 @@
               var g = h - f + this.locale.firstDay + 1;
               g > h && (g -= 7), f === this.locale.firstDay && (g = h - 6);
               for (
-                var _ = Go([d, c, g, 12, l, o]), v = ((m = 0), 0), y = 0;
+                var _ = qo([d, c, g, 12, l, o]), v = ((m = 0), 0), y = 0;
                 m < 42;
-                m++, v++, _ = Go(_).add(24, "hour")
+                m++, v++, _ = qo(_).add(24, "hour")
               )
                 m > 0 && v % 7 == 0 && ((v = 0), y++),
                   (p[y][v] = _.clone()
@@ -74541,7 +74623,7 @@
                     p[y][v].isAfter(this.maxDate) &&
                     "right" === e &&
                     (p[y][v] = this.maxDate.clone());
-              e === qo.left
+              e === Ko.left
                 ? (this.leftCalendar.calendar = p)
                 : (this.rightCalendar.calendar = p);
               var b = "left" === e ? this.minDate : this.startDate,
@@ -74604,8 +74686,8 @@
             }),
             (e.prototype.setStartDate = function(e) {
               "string" == typeof e &&
-                (this.startDate = Go(e, this.locale.format)),
-                "object" == typeof e && (this.startDate = Go(e)),
+                (this.startDate = qo(e, this.locale.format)),
+                "object" == typeof e && (this.startDate = qo(e)),
                 this.timePicker ||
                   (this.startDate = this.startDate.startOf("day")),
                 this.timePicker &&
@@ -74640,8 +74722,8 @@
             }),
             (e.prototype.setEndDate = function(e) {
               "string" == typeof e &&
-                (this.endDate = Go(e, this.locale.format)),
-                "object" == typeof e && (this.endDate = Go(e)),
+                (this.endDate = qo(e, this.locale.format)),
+                "object" == typeof e && (this.endDate = qo(e)),
                 this.timePicker ||
                   (this.endDate = this.endDate
                     .add(1, "d")
@@ -74677,8 +74759,8 @@
             }),
             (e.prototype.updateView = function() {
               this.timePicker &&
-                (this.renderTimePicker(qo.left),
-                this.renderTimePicker(qo.right)),
+                (this.renderTimePicker(Ko.left),
+                this.renderTimePicker(Ko.right)),
                 this.updateMonthsInView(),
                 this.updateCalendars();
             }),
@@ -74734,8 +74816,8 @@
                   .subtract(1, "month")));
             }),
             (e.prototype.updateCalendars = function() {
-              this.renderCalendar(qo.left),
-                this.renderCalendar(qo.right),
+              this.renderCalendar(Ko.left),
+                this.renderCalendar(Ko.right),
                 null !== this.endDate && this.calculateChosenLabel();
             }),
             (e.prototype.updateElement = function() {
@@ -74857,7 +74939,7 @@
                 "PM" === l && n < 12 && (n += 12),
                   "AM" === l && 12 === n && (n = 0);
               }
-              if (t === qo.left) {
+              if (t === Ko.left) {
                 var o = this.startDate.clone();
                 o.hour(n),
                   o.minute(r),
@@ -74875,11 +74957,11 @@
                 a.hour(n), a.minute(r), a.second(i), this.setEndDate(a);
               }
               this.updateCalendars(),
-                this.renderTimePicker(qo.left),
-                this.renderTimePicker(qo.right);
+                this.renderTimePicker(Ko.left),
+                this.renderTimePicker(Ko.right);
             }),
             (e.prototype.monthOrYearChanged = function(e, t, n) {
-              var r = n === qo.left;
+              var r = n === Ko.left;
               r ||
                 ((t < this.startDate.year() ||
                   (t === this.startDate.year() &&
@@ -74909,7 +74991,7 @@
                 this.updateCalendars();
             }),
             (e.prototype.clickPrev = function(e) {
-              e === qo.left
+              e === Ko.left
                 ? (this.leftCalendar.month.subtract(1, "month"),
                   this.linkedCalendars &&
                     this.rightCalendar.month.subtract(1, "month"))
@@ -74917,7 +74999,7 @@
                 this.updateCalendars();
             }),
             (e.prototype.clickNext = function(e) {
-              e === qo.left
+              e === Ko.left
                 ? this.leftCalendar.month.add(1, "month")
                 : (this.rightCalendar.month.add(1, "month"),
                   this.linkedCalendars &&
@@ -74935,21 +75017,21 @@
               this.rangesArray.length &&
                 (this.chosenRange = this.locale.customRangeLabel);
               var i =
-                t === qo.left
+                t === Ko.left
                   ? this.leftCalendar.calendar[n][r]
                   : this.rightCalendar.calendar[n][r];
               (this.endDate ||
                 (i.isBefore(this.startDate, "day") &&
                   !1 === this.customRangeDirection)) &&
               !1 === this.lockStartDate
-                ? (this.timePicker && (i = this._getDateWithTime(i, qo.left)),
+                ? (this.timePicker && (i = this._getDateWithTime(i, Ko.left)),
                   (this.endDate = null),
                   this.setStartDate(i.clone()))
                 : !this.endDate &&
                   i.isBefore(this.startDate) &&
                   !1 === this.customRangeDirection
                 ? this.setEndDate(this.startDate.clone())
-                : (this.timePicker && (i = this._getDateWithTime(i, qo.right)),
+                : (this.timePicker && (i = this._getDateWithTime(i, Ko.right)),
                   !0 === i.isBefore(this.startDate, "day") &&
                   !0 === this.customRangeDirection
                     ? (this.setEndDate(this.startDate),
@@ -74991,8 +75073,8 @@
                     this.rightCalendar.month.year(n[1].year()),
                     this.updateCalendars(),
                     this.timePicker &&
-                      (this.renderTimePicker(qo.left),
-                      this.renderTimePicker(qo.right));
+                      (this.renderTimePicker(Ko.left),
+                      this.renderTimePicker(Ko.right));
                 } else this.clickApply();
               }
             }),
@@ -75022,8 +75104,8 @@
               for (var t in e) e.hasOwnProperty(t) && (this.locale[t] = e[t]);
             }),
             (e.prototype.clear = function() {
-              (this.startDate = Go().startOf("day")),
-                (this.endDate = Go().endOf("day")),
+              (this.startDate = qo().startOf("day")),
+                (this.endDate = qo().endOf("day")),
                 this.choosedDate.emit({
                   chosenLabel: "",
                   startDate: null,
@@ -75069,8 +75151,8 @@
               )),
                 this.locale.format ||
                   (this.locale.format = this.timePicker
-                    ? Go.localeData().longDateFormat("lll")
-                    : Go.localeData().longDateFormat("L"));
+                    ? qo.localeData().longDateFormat("lll")
+                    : qo.localeData().longDateFormat("L"));
             }),
             (e.prototype._buildCells = function(e, t) {
               for (var n = 0; n < 6; n++) {
@@ -75152,8 +75234,8 @@
             e
           );
         })(),
-        Jo = Vo,
-        $o = (function() {
+        $o = zo,
+        Zo = (function() {
           function e(e, t, n, i, l, o, a, u) {
             (this.viewContainerRef = e),
               (this._changeDetectorRef = t),
@@ -75182,7 +75264,7 @@
               (this.datesUpdated = new r.EventEmitter()),
               (this.drops = "down"),
               (this.opens = "right");
-            var s = this._componentFactoryResolver.resolveComponentFactory(Ko);
+            var s = this._componentFactoryResolver.resolveComponentFactory(Jo);
             e.clear();
             var c = e.createComponent(s);
             (this.picker = c.instance), (this.picker.inline = !1);
@@ -75349,10 +75431,10 @@
                 var n = null,
                   r = null;
                 2 === t.length &&
-                  ((n = Jo(t[0], this.picker.locale.format)),
-                  (r = Jo(t[1], this.picker.locale.format))),
+                  ((n = $o(t[0], this.picker.locale.format)),
+                  (r = $o(t[1], this.picker.locale.format))),
                   (this.singleDatePicker || null === n || null === r) &&
-                    (r = n = Jo(e.target.value, this.picker.locale.format)),
+                    (r = n = $o(e.target.value, this.picker.locale.format)),
                   n.isValid() &&
                     r.isValid() &&
                     (this.picker.setStartDate(n),
@@ -75369,7 +75451,7 @@
             e
           );
         })(),
-        Zo = (function() {
+        Qo = (function() {
           function e() {}
           var t;
           return (
@@ -75380,8 +75462,8 @@
                 {
                   ngModule: t,
                   providers: [
-                    { provide: Wo, useValue: e },
-                    { provide: Uo, useClass: Uo, deps: [Wo] }
+                    { provide: Bo, useValue: e },
+                    { provide: Go, useClass: Go, deps: [Bo] }
                   ]
                 }
               );
@@ -75389,9 +75471,9 @@
             e
           );
         })(),
-        Qo = n("MO+k"),
-        Xo = n("LvDl"),
-        ea = [
+        Xo = n("MO+k"),
+        ea = n("LvDl"),
+        ta = [
           [255, 99, 132],
           [54, 162, 235],
           [255, 206, 86],
@@ -75405,45 +75487,45 @@
           [148, 159, 177],
           [77, 83, 96]
         ];
-      function ta(e, t) {
+      function na(e, t) {
         return "rgba(" + e.concat(t).join(",") + ")";
       }
-      function na(e, t) {
+      function ra(e, t) {
         return Math.floor(Math.random() * (t - e + 1)) + e;
       }
-      function ra(e) {
+      function ia(e) {
         return {
           backgroundColor: e.map(function(e) {
-            return ta(e, 0.6);
+            return na(e, 0.6);
           }),
           borderColor: e.map(function() {
             return "#fff";
           }),
           pointBackgroundColor: e.map(function(e) {
-            return ta(e, 1);
+            return na(e, 1);
           }),
           pointBorderColor: e.map(function() {
             return "#fff";
           }),
           pointHoverBackgroundColor: e.map(function(e) {
-            return ta(e, 1);
+            return na(e, 1);
           }),
           pointHoverBorderColor: e.map(function(e) {
-            return ta(e, 1);
+            return na(e, 1);
           })
         };
       }
-      function ia() {
-        return [na(0, 255), na(0, 255), na(0, 255)];
-      }
-      function la(e) {
-        return ea[e] || ia();
+      function la() {
+        return [ra(0, 255), ra(0, 255), ra(0, 255)];
       }
       function oa(e) {
-        for (var t = new Array(e), n = 0; n < e; n++) t[n] = ea[n] || ia();
+        return ta[e] || la();
+      }
+      function aa(e) {
+        for (var t = new Array(e), n = 0; n < e; n++) t[n] = ta[n] || la();
         return t;
       }
-      var aa = (function() {
+      var ua = (function() {
           function e() {
             (this.pColorschemesOptions = {}),
               (this.colorschemesOptions = new Lt.a({}));
@@ -75465,7 +75547,7 @@
             e
           );
         })(),
-        ua = (function() {
+        sa = (function() {
           var e = { Default: 0, Update: 1, Refresh: 2 };
           return (
             (e[e.Default] = "Default"),
@@ -75474,7 +75556,7 @@
             e
           );
         })(),
-        sa = (function() {
+        ca = (function() {
           function e(e, t) {
             (this.element = e),
               (this.themeService = t),
@@ -75499,10 +75581,10 @@
           }
           return (
             (e.registerPlugin = function(e) {
-              Qo.Chart.plugins.register(e);
+              Xo.Chart.plugins.register(e);
             }),
             (e.unregisterPlugin = function(e) {
-              Qo.Chart.plugins.unregister(e);
+              Xo.Chart.plugins.unregister(e);
             }),
             (e.prototype.ngOnInit = function() {
               var e = this;
@@ -75520,7 +75602,7 @@
             (e.prototype.ngDoCheck = function() {
               var e = this;
               if (this.chart) {
-                var t = ua.Default,
+                var t = sa.Default,
                   n = function(e) {
                     t = e > t ? e : t;
                   };
@@ -75528,19 +75610,19 @@
                   (!!this.data !== this.old.dataExists &&
                     (this.propagateDataToDatasets(this.data),
                     (this.old.dataExists = !!this.data),
-                    n(ua.Update)),
+                    n(sa.Update)),
                   this.data &&
                     this.data.length !== this.old.dataLength &&
                     ((this.old.dataLength =
                       (this.data && this.data.length) || 0),
-                    n(ua.Update)),
+                    n(sa.Update)),
                   !!this.datasets !== this.old.datasetsExists &&
-                    ((this.old.datasetsExists = !!this.datasets), n(ua.Update)),
+                    ((this.old.datasetsExists = !!this.datasets), n(sa.Update)),
                   this.datasets &&
                     this.datasets.length !== this.old.datasetsLength &&
                     ((this.old.datasetsLength =
                       (this.datasets && this.datasets.length) || 0),
-                    n(ua.Update)),
+                    n(sa.Update)),
                   this.datasets &&
                     this.datasets.filter(function(t, n) {
                       return t.data !== e.old.datasetsDataObjects[n];
@@ -75550,7 +75632,7 @@
                     ) {
                       return e.data;
                     })),
-                    n(ua.Update)),
+                    n(sa.Update)),
                   this.datasets &&
                     this.datasets.filter(function(t, n) {
                       return t.data.length !== e.old.datasetsDataLengths[n];
@@ -75560,11 +75642,11 @@
                     ) {
                       return e.data.length;
                     })),
-                    n(ua.Update)),
+                    n(sa.Update)),
                   !!this.colors !== this.old.colorsExists &&
                     ((this.old.colorsExists = !!this.colors),
                     this.updateColors(),
-                    n(ua.Update)),
+                    n(sa.Update)),
                   this.colors &&
                     this.colors.filter(function(t, n) {
                       return !e.colorsEqual(t, e.old.colors[n]);
@@ -75573,9 +75655,9 @@
                       return e.copyColor(t);
                     })),
                     this.updateColors(),
-                    n(ua.Update)),
+                    n(sa.Update)),
                   !!this.labels !== this.old.labelsExist &&
-                    ((this.old.labelsExist = !!this.labels), n(ua.Update)),
+                    ((this.old.labelsExist = !!this.labels), n(sa.Update)),
                   this.labels &&
                     this.labels.filter(function(t, n) {
                       return !e.labelsEqual(t, e.old.labels[n]);
@@ -75583,22 +75665,22 @@
                     ((this.old.labels = this.labels.map(function(t) {
                       return e.copyLabel(t);
                     })),
-                    n(ua.Update)),
+                    n(sa.Update)),
                   !!this.options.legend !== this.old.legendExists &&
                     ((this.old.legendExists = !!this.options.legend),
-                    n(ua.Refresh)),
+                    n(sa.Refresh)),
                   this.options.legend &&
                     this.options.legend.position !== this.old.legend.position &&
                     ((this.old.legend.position = this.options.legend.position),
-                    n(ua.Refresh)),
+                    n(sa.Refresh)),
                   t)
                 ) {
-                  case ua.Default:
+                  case sa.Default:
                     break;
-                  case ua.Update:
+                  case sa.Update:
                     this.update();
                     break;
-                  case ua.Refresh:
+                  case sa.Refresh:
                     this.refresh();
                 }
               }
@@ -75677,45 +75759,45 @@
                   : Object.assign(
                       t,
                       (function(e, t, n) {
-                        if ("pie" === e || "doughnut" === e) return ra(oa(n));
+                        if ("pie" === e || "doughnut" === e) return ia(aa(n));
                         if ("polarArea" === e)
                           return {
-                            backgroundColor: (r = oa(n)).map(function(e) {
-                              return ta(e, 0.6);
+                            backgroundColor: (r = aa(n)).map(function(e) {
+                              return na(e, 0.6);
                             }),
                             borderColor: r.map(function(e) {
-                              return ta(e, 1);
+                              return na(e, 1);
                             }),
                             hoverBackgroundColor: r.map(function(e) {
-                              return ta(e, 0.8);
+                              return na(e, 0.8);
                             }),
                             hoverBorderColor: r.map(function(e) {
-                              return ta(e, 1);
+                              return na(e, 1);
                             })
                           };
                         var r;
                         if ("line" === e || "radar" === e)
                           return (function(e) {
                             return {
-                              backgroundColor: ta(e, 0.4),
-                              borderColor: ta(e, 1),
-                              pointBackgroundColor: ta(e, 1),
+                              backgroundColor: na(e, 0.4),
+                              borderColor: na(e, 1),
+                              pointBackgroundColor: na(e, 1),
                               pointBorderColor: "#fff",
                               pointHoverBackgroundColor: "#fff",
-                              pointHoverBorderColor: ta(e, 0.8)
+                              pointHoverBorderColor: na(e, 0.8)
                             };
-                          })(la(t));
+                          })(oa(t));
                         if ("bar" === e || "horizontalBar" === e)
                           return (function(e) {
                             return {
-                              backgroundColor: ta(e, 0.6),
-                              borderColor: ta(e, 1),
-                              hoverBackgroundColor: ta(e, 0.8),
-                              hoverBorderColor: ta(e, 1)
+                              backgroundColor: na(e, 0.6),
+                              borderColor: na(e, 1),
+                              hoverBackgroundColor: na(e, 0.8),
+                              hoverBorderColor: na(e, 1)
                             };
-                          })(la(t));
-                        if ("bubble" === e) return ra(oa(n));
-                        if ("scatter" === e) return ra(oa(n));
+                          })(oa(t));
+                        if ("bubble" === e) return ia(aa(n));
+                        if ("scatter" === e) return ia(aa(n));
                         throw new Error(
                           "getColors - Unsupported chart type " + e
                         );
@@ -75725,7 +75807,7 @@
               });
             }),
             (e.prototype.ngOnChanges = function(e) {
-              var t = ua.Default,
+              var t = sa.Default,
                 n = function(e) {
                   t = e > t ? e : t;
                 };
@@ -75733,29 +75815,29 @@
                 (e.hasOwnProperty("data") &&
                   e.data.currentValue &&
                   (this.propagateDataToDatasets(e.data.currentValue),
-                  n(ua.Update)),
+                  n(sa.Update)),
                 e.hasOwnProperty("datasets") &&
                   e.datasets.currentValue &&
                   (this.propagateDatasetsToData(e.datasets.currentValue),
-                  n(ua.Update)),
+                  n(sa.Update)),
                 e.hasOwnProperty("labels") &&
                   (this.chart &&
                     (this.chart.data.labels = e.labels.currentValue),
-                  n(ua.Update)),
+                  n(sa.Update)),
                 e.hasOwnProperty("legend") &&
                   (this.chart &&
                     ((this.chart.config.options.legend.display =
                       e.legend.currentValue),
                     this.chart.generateLegend()),
-                  n(ua.Update)),
-                e.hasOwnProperty("options") && n(ua.Refresh),
+                  n(sa.Update)),
+                e.hasOwnProperty("options") && n(sa.Refresh),
                 t)
               ) {
-                case ua.Update:
+                case sa.Update:
                   this.update();
                   break;
-                case ua.Refresh:
-                case ua.Default:
+                case sa.Refresh:
+                case sa.Default:
                   this.refresh();
               }
             }),
@@ -75805,13 +75887,13 @@
             }),
             (e.prototype.getChartBuilder = function(e) {
               var t = this.getChartConfiguration();
-              return new Qo.Chart(e, t);
+              return new Xo.Chart(e, t);
             }),
             (e.prototype.smartMerge = function(e, t, n) {
               var r = this;
               if (
                 (void 0 === n && (n = 0),
-                0 === n && (e = Object(Xo.cloneDeep)(e)),
+                0 === n && (e = Object(ea.cloneDeep)(e)),
                 Object.keys(t).forEach(function(i) {
                   if (Array.isArray(t[i])) {
                     var l = e[i];
@@ -75883,10 +75965,10 @@
             e
           );
         })(),
-        ca = (function() {
+        da = (function() {
           return function() {};
         })(),
-        da = (function() {
+        ha = (function() {
           function e(e) {
             (this.expanseService = e),
               (this.lineChartData = [
@@ -75946,8 +76028,8 @@
               (this.lineChartPlugins = []),
               (this.selectedFilter = "All"),
               (this.selectedDate = {
-                start: Vo().subtract(6, "days"),
-                end: Vo()
+                start: zo().subtract(6, "days"),
+                end: zo()
               });
           }
           return (
@@ -76077,7 +76159,7 @@
             e
           );
         })(),
-        ha = r["\u0275crt"]({
+        fa = r["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -76086,7 +76168,7 @@
           ],
           data: {}
         });
-      function fa(e) {
+      function pa(e) {
         return r["\u0275vid"](
           0,
           [
@@ -76111,7 +76193,7 @@
           null
         );
       }
-      function pa(e) {
+      function ma(e) {
         return r["\u0275vid"](
           0,
           [
@@ -76158,7 +76240,7 @@
           }
         );
       }
-      function ma(e) {
+      function ga(e) {
         return r["\u0275vid"](
           0,
           [
@@ -76179,7 +76261,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, fa)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, pa)),
             r["\u0275did"](
               4,
               16384,
@@ -76325,7 +76407,7 @@
               868352,
               null,
               0,
-              $o,
+              Zo,
               [
                 r.ViewContainerRef,
                 r.ChangeDetectorRef,
@@ -76333,7 +76415,7 @@
                 r.ElementRef,
                 r.Renderer2,
                 r.KeyValueDiffers,
-                Uo,
+                Go,
                 r.ElementRef
               ],
               {
@@ -76351,7 +76433,7 @@
               function(e, t) {
                 return [e, t];
               },
-              [p, $o]
+              [p, Zo]
             ),
             r["\u0275did"](
               13,
@@ -76480,7 +76562,7 @@
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
             r["\u0275did"](25, 16384, null, 0, y, [[4, v]], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, pa)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ma)),
             r["\u0275did"](
               27,
               278528,
@@ -76633,8 +76715,8 @@
               999424,
               [[1, 4]],
               0,
-              sa,
-              [r.ElementRef, aa],
+              ca,
+              [r.ElementRef, ua],
               {
                 datasets: [0, "datasets"],
                 options: [1, "options"],
@@ -76708,7 +76790,7 @@
           }
         );
       }
-      var ga = (function() {
+      var _a = (function() {
           function e(e, t, n, r, i) {
             var o = this;
             (this.router = e),
@@ -77148,7 +77230,7 @@
             e
           );
         })(),
-        _a = r["\u0275crt"]({
+        va = r["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -77157,7 +77239,7 @@
           ],
           data: {}
         });
-      function va(e) {
+      function ya(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77197,7 +77279,61 @@
           null
         );
       }
-      function ya(e) {
+      function ba(e) {
+        return r["\u0275vid"](
+          0,
+          [
+            (e()(),
+            r["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              2,
+              "div",
+              [
+                [
+                  "class",
+                  "btn waves-effect waves-light pink-button right margin-left"
+                ]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, t, n) {
+                var i = !0;
+                return (
+                  "click" === t &&
+                    (i = !1 !== r["\u0275nov"](e, 1).onClick() && i),
+                  i
+                );
+              },
+              null,
+              null
+            )),
+            r["\u0275did"](
+              1,
+              16384,
+              null,
+              0,
+              ki,
+              [Mi, hr, [8, null], r.Renderer2, r.ElementRef],
+              { routerLink: [0, "routerLink"] },
+              null
+            ),
+            (e()(), r["\u0275ted"](-1, null, ["View Listing"]))
+          ],
+          function(e, t) {
+            e(
+              t,
+              1,
+              0,
+              r["\u0275inlineInterpolate"](1, "/app/", t.component.apps_id, "")
+            );
+          },
+          null
+        );
+      }
+      function wa(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77228,15 +77364,15 @@
               null,
               null,
               null,
-              ma,
-              ha
+              ga,
+              fa
             )),
             r["\u0275did"](
               2,
               4308992,
               [[3, 4], ["chart", 4]],
               0,
-              da,
+              ha,
               [$i],
               { apps_id: [0, "apps_id"] },
               null
@@ -77278,7 +77414,7 @@
           null
         );
       }
-      function ba(e) {
+      function Ma(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77324,7 +77460,7 @@
           null
         );
       }
-      function wa(e) {
+      function ka(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77363,7 +77499,7 @@
           null
         );
       }
-      function Ma(e) {
+      function Da(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77404,7 +77540,7 @@
           }
         );
       }
-      function ka(e) {
+      function Ca(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77454,7 +77590,7 @@
           }
         );
       }
-      function Da(e) {
+      function xa(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77501,7 +77637,7 @@
           }
         );
       }
-      function Ca(e) {
+      function La(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77520,7 +77656,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ka)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ca)),
             r["\u0275did"](
               2,
               16384,
@@ -77531,7 +77667,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Da)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, xa)),
             r["\u0275did"](
               4,
               16384,
@@ -77551,7 +77687,7 @@
           null
         );
       }
-      function xa(e) {
+      function Sa(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77590,7 +77726,7 @@
           null
         );
       }
-      function La(e) {
+      function Ta(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77638,7 +77774,7 @@
           null
         );
       }
-      function Sa(e) {
+      function Ea(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77679,7 +77815,7 @@
           }
         );
       }
-      function Ta(e) {
+      function Oa(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77706,7 +77842,7 @@
           }
         );
       }
-      function Ea(e) {
+      function Ia(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77731,7 +77867,7 @@
           null
         );
       }
-      function Oa(e) {
+      function Ya(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77759,7 +77895,7 @@
           }
         );
       }
-      function Ia(e) {
+      function Ra(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77916,7 +78052,7 @@
           }
         );
       }
-      function Ya(e) {
+      function Aa(e) {
         return r["\u0275vid"](
           0,
           [
@@ -77963,7 +78099,7 @@
           }
         );
       }
-      function Ra(e) {
+      function Pa(e) {
         return r["\u0275vid"](
           0,
           [
@@ -78035,7 +78171,7 @@
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
             r["\u0275did"](5, 16384, null, 0, y, [[4, v]], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ya)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Aa)),
             r["\u0275did"](
               7,
               278528,
@@ -78067,7 +78203,7 @@
           }
         );
       }
-      function Aa(e) {
+      function ja(e) {
         return r["\u0275vid"](
           0,
           [
@@ -78169,7 +78305,7 @@
           }
         );
       }
-      function Pa(e) {
+      function Na(e) {
         return r["\u0275vid"](
           0,
           [
@@ -78231,7 +78367,7 @@
           null
         );
       }
-      function ja(e) {
+      function Fa(e) {
         return r["\u0275vid"](
           0,
           [
@@ -78278,7 +78414,7 @@
           }
         );
       }
-      function Na(e) {
+      function Ha(e) {
         return r["\u0275vid"](
           0,
           [
@@ -78414,7 +78550,7 @@
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
             r["\u0275did"](11, 16384, null, 0, y, [[4, v]], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ja)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Fa)),
             r["\u0275did"](
               13,
               278528,
@@ -78446,7 +78582,7 @@
           }
         );
       }
-      function Fa(e) {
+      function Va(e) {
         return r["\u0275vid"](
           0,
           [
@@ -78493,7 +78629,7 @@
           }
         );
       }
-      function Ha(e) {
+      function za(e) {
         return r["\u0275vid"](
           0,
           [
@@ -78627,7 +78763,7 @@
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
             r["\u0275did"](11, 16384, null, 0, y, [[4, v]], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Fa)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Va)),
             r["\u0275did"](
               13,
               278528,
@@ -78659,7 +78795,7 @@
           }
         );
       }
-      function Va(e) {
+      function Wa(e) {
         return r["\u0275vid"](
           0,
           [
@@ -78683,7 +78819,7 @@
           null
         );
       }
-      function za(e) {
+      function Ba(e) {
         return r["\u0275vid"](
           0,
           [
@@ -78836,7 +78972,7 @@
               null
             )),
             (e()(), r["\u0275ted"](-1, null, ["Github User/Org name"])),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Na)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ha)),
             r["\u0275did"](
               13,
               16384,
@@ -78847,7 +78983,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ha)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, za)),
             r["\u0275did"](
               15,
               16384,
@@ -78873,7 +79009,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Va)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Wa)),
             r["\u0275did"](
               18,
               16384,
@@ -78908,7 +79044,7 @@
           }
         );
       }
-      function Wa(e) {
+      function Ua(e) {
         return r["\u0275vid"](
           0,
           [
@@ -79127,7 +79263,7 @@
           null
         );
       }
-      function Ba(e) {
+      function Ga(e) {
         return r["\u0275vid"](
           0,
           [
@@ -79137,7 +79273,7 @@
               0,
               null,
               null,
-              388,
+              390,
               "div",
               [],
               null,
@@ -79164,9 +79300,20 @@
               null
             ),
             r["\u0275pod"](3, { padding: 0, container: 1 }),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ba)),
+            r["\u0275did"](
+              5,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [r.ViewContainerRef, r.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
             (e()(),
             r["\u0275eld"](
-              4,
+              6,
               0,
               null,
               null,
@@ -79192,7 +79339,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Save App"])),
             (e()(),
             r["\u0275eld"](
-              6,
+              8,
               0,
               null,
               null,
@@ -79213,7 +79360,7 @@
               [r.IterableDiffers, r.KeyValueDiffers, r.ElementRef, r.Renderer2]
             ),
             r["\u0275did"](
-              8,
+              10,
               278528,
               null,
               0,
@@ -79222,11 +79369,11 @@
               { klass: [0, "klass"], ngClass: [1, "ngClass"] },
               null
             ),
-            r["\u0275pod"](9, { "pink-button": 0, orange: 1 }),
-            (e()(), r["\u0275ted"](10, null, [" ", " "])),
+            r["\u0275pod"](11, { "pink-button": 0, orange: 1 }),
+            (e()(), r["\u0275ted"](12, null, [" ", " "])),
             (e()(),
             r["\u0275eld"](
-              11,
+              13,
               0,
               null,
               null,
@@ -79241,7 +79388,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              12,
+              14,
               0,
               null,
               null,
@@ -79257,7 +79404,7 @@
                 var i = !0;
                 return (
                   "click" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 13).onClick() && i),
+                    (i = !1 !== r["\u0275nov"](e, 15).onClick() && i),
                   i
                 );
               },
@@ -79265,7 +79412,7 @@
               null
             )),
             r["\u0275did"](
-              13,
+              15,
               16384,
               null,
               0,
@@ -79275,10 +79422,10 @@
               null
             ),
             (e()(), r["\u0275ted"](-1, null, ["reply"])),
-            (e()(), r["\u0275ted"](15, null, ["", ""])),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ya)),
+            (e()(), r["\u0275ted"](17, null, ["", ""])),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, wa)),
             r["\u0275did"](
-              17,
+              19,
               16384,
               null,
               0,
@@ -79289,7 +79436,7 @@
             ),
             (e()(),
             r["\u0275eld"](
-              18,
+              20,
               0,
               null,
               null,
@@ -79304,7 +79451,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              19,
+              21,
               0,
               null,
               null,
@@ -79319,7 +79466,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              20,
+              22,
               0,
               null,
               null,
@@ -79335,7 +79482,7 @@
             (e()(), r["\u0275ted"](-1, null, ["App Icon"])),
             (e()(),
             r["\u0275eld"](
-              22,
+              24,
               0,
               null,
               null,
@@ -79350,7 +79497,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              23,
+              25,
               0,
               null,
               null,
@@ -79367,18 +79514,7 @@
             r["\u0275ted"](-1, null, [
               "Add an icon - 512px X 512px is a good size."
             ])),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ba)),
-            r["\u0275did"](
-              26,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [r.ViewContainerRef, r.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, wa)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ma)),
             r["\u0275did"](
               28,
               16384,
@@ -79389,7 +79525,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ma)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ka)),
             r["\u0275did"](
               30,
               16384,
@@ -79400,39 +79536,50 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(),
-            r["\u0275eld"](
-              31,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Da)),
+            r["\u0275did"](
               32,
+              16384,
+              null,
               0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
+              o.NgIf,
+              [r.ViewContainerRef, r.TemplateRef],
+              { ngIf: [0, "ngIf"] },
               null
-            )),
+            ),
             (e()(),
             r["\u0275eld"](
               33,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              34,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              35,
               0,
               null,
               null,
@@ -79448,7 +79595,7 @@
             (e()(), r["\u0275ted"](-1, null, ["App Video"])),
             (e()(),
             r["\u0275eld"](
-              35,
+              37,
               0,
               null,
               null,
@@ -79463,7 +79610,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              36,
+              38,
               0,
               null,
               null,
@@ -79480,7 +79627,7 @@
             r["\u0275ted"](-1, null, ["Add game-play or trailer footage."])),
             (e()(),
             r["\u0275eld"](
-              38,
+              40,
               0,
               null,
               null,
@@ -79495,7 +79642,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              39,
+              41,
               0,
               null,
               null,
@@ -79510,7 +79657,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              40,
+              42,
               0,
               null,
               null,
@@ -79526,7 +79673,7 @@
             (e()(), r["\u0275ted"](-1, null, ["movie"])),
             (e()(),
             r["\u0275eld"](
-              42,
+              44,
               0,
               null,
               null,
@@ -79561,16 +79708,16 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 43)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 45)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 43).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 45).onTouched() && i),
                   "compositionstart" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 43)._compositionStart() && i),
+                    (i = !1 !== r["\u0275nov"](e, 45)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 43)._compositionEnd(n.target.value) &&
+                        r["\u0275nov"](e, 45)._compositionEnd(n.target.value) &&
                       i),
                   "input" === t && (i = !1 !== l.onVideoChange() && i),
                   "ngModelChange" === t &&
@@ -79582,7 +79729,7 @@
               null
             )),
             r["\u0275did"](
-              43,
+              45,
               16384,
               null,
               0,
@@ -79601,7 +79748,7 @@
               [p]
             ),
             r["\u0275did"](
-              45,
+              47,
               671744,
               null,
               0,
@@ -79611,10 +79758,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](47, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](49, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              48,
+              50,
               0,
               null,
               null,
@@ -79628,9 +79775,9 @@
               null
             )),
             (e()(), r["\u0275ted"](-1, null, ["Youtube/Vimeo Url"])),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ca)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, La)),
             r["\u0275did"](
-              51,
+              53,
               16384,
               null,
               0,
@@ -79641,7 +79788,7 @@
             ),
             (e()(),
             r["\u0275eld"](
-              52,
+              54,
               0,
               null,
               null,
@@ -79656,7 +79803,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              53,
+              55,
               0,
               null,
               null,
@@ -79672,7 +79819,7 @@
             (e()(), r["\u0275ted"](-1, null, ["App Screenshots"])),
             (e()(),
             r["\u0275eld"](
-              55,
+              57,
               0,
               null,
               null,
@@ -79687,7 +79834,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              56,
+              58,
               0,
               null,
               null,
@@ -79701,18 +79848,7 @@
               null
             )),
             (e()(), r["\u0275ted"](-1, null, ["Add an app screenshot."])),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, xa)),
-            r["\u0275did"](
-              59,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [r.ViewContainerRef, r.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, La)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Sa)),
             r["\u0275did"](
               61,
               16384,
@@ -79723,9 +79859,20 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Sa)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ta)),
             r["\u0275did"](
               63,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [r.ViewContainerRef, r.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ea)),
+            r["\u0275did"](
+              65,
               278528,
               null,
               0,
@@ -79736,37 +79883,37 @@
             ),
             (e()(),
             r["\u0275eld"](
-              64,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              65,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
               66,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              67,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              68,
               0,
               null,
               null,
@@ -79779,18 +79926,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ta)),
-            r["\u0275did"](
-              68,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [r.ViewContainerRef, r.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ea)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Oa)),
             r["\u0275did"](
               70,
               16384,
@@ -79801,7 +79937,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Oa)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ia)),
             r["\u0275did"](
               72,
               16384,
@@ -79812,9 +79948,20 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ya)),
+            r["\u0275did"](
+              74,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [r.ViewContainerRef, r.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
             (e()(),
             r["\u0275eld"](
-              73,
+              75,
               0,
               null,
               null,
@@ -79829,7 +79976,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              74,
+              76,
               0,
               null,
               null,
@@ -79848,7 +79995,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              76,
+              78,
               0,
               null,
               null,
@@ -79863,7 +80010,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              77,
+              79,
               0,
               null,
               null,
@@ -79878,7 +80025,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              78,
+              80,
               0,
               null,
               null,
@@ -79894,7 +80041,7 @@
             (e()(), r["\u0275ted"](-1, null, ["done"])),
             (e()(),
             r["\u0275eld"](
-              80,
+              82,
               0,
               null,
               null,
@@ -79929,16 +80076,16 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 81)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 83)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 81).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 83).onTouched() && i),
                   "compositionstart" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 81)._compositionStart() && i),
+                    (i = !1 !== r["\u0275nov"](e, 83)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 81)._compositionEnd(n.target.value) &&
+                        r["\u0275nov"](e, 83)._compositionEnd(n.target.value) &&
                       i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.name = n) && i),
@@ -79949,7 +80096,7 @@
               null
             )),
             r["\u0275did"](
-              81,
+              83,
               16384,
               null,
               0,
@@ -79968,7 +80115,7 @@
               [p]
             ),
             r["\u0275did"](
-              83,
+              85,
               671744,
               null,
               0,
@@ -79978,10 +80125,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](85, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](87, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              86,
+              88,
               0,
               null,
               null,
@@ -79995,9 +80142,9 @@
               null
             )),
             (e()(), r["\u0275ted"](-1, null, ["App Name"])),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ia)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ra)),
             r["\u0275did"](
-              89,
+              91,
               16384,
               null,
               0,
@@ -80008,7 +80155,7 @@
             ),
             (e()(),
             r["\u0275eld"](
-              90,
+              92,
               0,
               null,
               null,
@@ -80023,7 +80170,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              91,
+              93,
               0,
               null,
               null,
@@ -80039,7 +80186,7 @@
             (e()(), r["\u0275ted"](-1, null, ["mode_edit"])),
             (e()(),
             r["\u0275eld"](
-              93,
+              95,
               0,
               null,
               null,
@@ -80074,16 +80221,16 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 94)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 96)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 94).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 96).onTouched() && i),
                   "compositionstart" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 94)._compositionStart() && i),
+                    (i = !1 !== r["\u0275nov"](e, 96)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 94)._compositionEnd(n.target.value) &&
+                        r["\u0275nov"](e, 96)._compositionEnd(n.target.value) &&
                       i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.summary = n) && i),
@@ -80094,7 +80241,7 @@
               null
             )),
             r["\u0275did"](
-              94,
+              96,
               16384,
               null,
               0,
@@ -80113,7 +80260,7 @@
               [p]
             ),
             r["\u0275did"](
-              96,
+              98,
               671744,
               null,
               0,
@@ -80123,10 +80270,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](98, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](100, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              99,
+              101,
               0,
               null,
               null,
@@ -80142,7 +80289,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Summary"])),
             (e()(),
             r["\u0275eld"](
-              101,
+              103,
               0,
               null,
               null,
@@ -80157,7 +80304,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              102,
+              104,
               0,
               null,
               null,
@@ -80173,7 +80320,7 @@
             (e()(), r["\u0275ted"](-1, null, ["playlist_add"])),
             (e()(),
             r["\u0275eld"](
-              104,
+              106,
               0,
               null,
               null,
@@ -80210,17 +80357,17 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 105)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 107)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 105).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 107).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 105)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 107)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 105)._compositionEnd(
+                        r["\u0275nov"](e, 107)._compositionEnd(
                           n.target.value
                         ) && i),
                   "ngModelChange" === t &&
@@ -80232,7 +80379,7 @@
               null
             )),
             r["\u0275did"](
-              105,
+              107,
               16384,
               null,
               0,
@@ -80251,7 +80398,7 @@
               [p]
             ),
             r["\u0275did"](
-              107,
+              109,
               671744,
               null,
               0,
@@ -80261,10 +80408,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](109, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](111, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              110,
+              112,
               0,
               null,
               null,
@@ -80280,7 +80427,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Description"])),
             (e()(),
             r["\u0275eld"](
-              112,
+              114,
               0,
               null,
               null,
@@ -80295,7 +80442,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              113,
+              115,
               0,
               null,
               null,
@@ -80311,7 +80458,7 @@
             (e()(), r["\u0275ted"](-1, null, ["search"])),
             (e()(),
             r["\u0275eld"](
-              115,
+              117,
               0,
               null,
               null,
@@ -80327,7 +80474,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Search Tags"])),
             (e()(),
             r["\u0275eld"](
-              117,
+              119,
               0,
               null,
               null,
@@ -80356,7 +80503,7 @@
               Vl
             )),
             r["\u0275did"](
-              118,
+              120,
               245760,
               null,
               0,
@@ -80378,7 +80525,7 @@
               [qe]
             ),
             r["\u0275did"](
-              120,
+              122,
               671744,
               null,
               0,
@@ -80388,10 +80535,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](122, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](124, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              123,
+              125,
               0,
               null,
               null,
@@ -80406,7 +80553,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              124,
+              126,
               0,
               null,
               null,
@@ -80422,7 +80569,7 @@
             (e()(), r["\u0275ted"](-1, null, ["fingerprint"])),
             (e()(),
             r["\u0275eld"](
-              126,
+              128,
               0,
               null,
               null,
@@ -80459,29 +80606,29 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 127)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 129)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 127).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 129).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 127)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 129)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 127)._compositionEnd(
+                        r["\u0275nov"](e, 129)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 128).onChange(n.target.value) &&
+                      !1 !== r["\u0275nov"](e, 130).onChange(n.target.value) &&
                       i),
                   "input" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 128).onChange(n.target.value) &&
+                      !1 !== r["\u0275nov"](e, 130).onChange(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 128).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 130).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.versioncode = n) && i),
                   i
@@ -80491,7 +80638,7 @@
               null
             )),
             r["\u0275did"](
-              127,
+              129,
               16384,
               null,
               0,
@@ -80501,7 +80648,7 @@
               null
             ),
             r["\u0275did"](
-              128,
+              130,
               16384,
               null,
               0,
@@ -80520,7 +80667,7 @@
               [p, S]
             ),
             r["\u0275did"](
-              130,
+              132,
               671744,
               null,
               0,
@@ -80530,10 +80677,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](132, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](134, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              133,
+              135,
               0,
               null,
               null,
@@ -80552,7 +80699,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              135,
+              137,
               0,
               null,
               null,
@@ -80567,7 +80714,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              136,
+              138,
               0,
               null,
               null,
@@ -80583,7 +80730,7 @@
             (e()(), r["\u0275ted"](-1, null, ["toc"])),
             (e()(),
             r["\u0275eld"](
-              138,
+              140,
               0,
               null,
               null,
@@ -80618,17 +80765,17 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 139)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 141)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 139).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 141).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 139)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 141)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 139)._compositionEnd(
+                        r["\u0275nov"](e, 141)._compositionEnd(
                           n.target.value
                         ) && i),
                   "ngModelChange" === t &&
@@ -80640,7 +80787,7 @@
               null
             )),
             r["\u0275did"](
-              139,
+              141,
               16384,
               null,
               0,
@@ -80659,7 +80806,7 @@
               [p]
             ),
             r["\u0275did"](
-              141,
+              143,
               671744,
               null,
               0,
@@ -80669,10 +80816,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](143, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](145, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              144,
+              146,
               0,
               null,
               null,
@@ -80688,7 +80835,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Version Name"])),
             (e()(),
             r["\u0275eld"](
-              146,
+              148,
               0,
               null,
               null,
@@ -80703,7 +80850,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              147,
+              149,
               0,
               null,
               null,
@@ -80718,7 +80865,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              148,
+              150,
               0,
               null,
               null,
@@ -80734,7 +80881,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Type"])),
             (e()(),
             r["\u0275eld"](
-              150,
+              152,
               0,
               null,
               null,
@@ -80747,10 +80894,10 @@
               $l,
               Jl
             )),
-            r["\u0275did"](151, 49152, null, 0, st, [], null, null),
+            r["\u0275did"](153, 49152, null, 0, st, [], null, null),
             (e()(),
             r["\u0275eld"](
-              152,
+              154,
               0,
               null,
               0,
@@ -80788,23 +80935,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 154)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 156)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 154).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 156).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 154)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 156)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 154)._compositionEnd(
+                        r["\u0275nov"](e, 156)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 155).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 157).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 155).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 157).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.app_categories_id = n) && i),
                   i
@@ -80814,7 +80961,7 @@
               null
             )),
             r["\u0275did"](
-              153,
+              155,
               606208,
               null,
               0,
@@ -80824,7 +80971,7 @@
               null
             ),
             r["\u0275did"](
-              154,
+              156,
               16384,
               null,
               0,
@@ -80834,7 +80981,7 @@
               null
             ),
             r["\u0275did"](
-              155,
+              157,
               212992,
               null,
               0,
@@ -80853,7 +81000,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              157,
+              159,
               671744,
               null,
               0,
@@ -80863,10 +81010,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](159, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](161, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              160,
+              162,
               0,
               null,
               0,
@@ -80881,7 +81028,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              161,
+              163,
               0,
               null,
               0,
@@ -80919,23 +81066,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 163)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 165)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 163).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 165).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 163)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 165)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 163)._compositionEnd(
+                        r["\u0275nov"](e, 165)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 164).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 166).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 164).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 166).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.app_categories_id = n) && i),
                   i
@@ -80945,7 +81092,7 @@
               null
             )),
             r["\u0275did"](
-              162,
+              164,
               606208,
               null,
               0,
@@ -80955,7 +81102,7 @@
               null
             ),
             r["\u0275did"](
-              163,
+              165,
               16384,
               null,
               0,
@@ -80965,7 +81112,7 @@
               null
             ),
             r["\u0275did"](
-              164,
+              166,
               212992,
               null,
               0,
@@ -80984,7 +81131,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              166,
+              168,
               671744,
               null,
               0,
@@ -80994,10 +81141,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](168, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](170, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              169,
+              171,
               0,
               null,
               0,
@@ -81012,7 +81159,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              170,
+              172,
               0,
               null,
               0,
@@ -81050,23 +81197,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 172)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 174)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 172).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 174).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 172)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 174)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 172)._compositionEnd(
+                        r["\u0275nov"](e, 174)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 173).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 175).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 173).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 175).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.app_categories_id = n) && i),
                   i
@@ -81076,7 +81223,7 @@
               null
             )),
             r["\u0275did"](
-              171,
+              173,
               606208,
               null,
               0,
@@ -81086,7 +81233,7 @@
               null
             ),
             r["\u0275did"](
-              172,
+              174,
               16384,
               null,
               0,
@@ -81096,7 +81243,7 @@
               null
             ),
             r["\u0275did"](
-              173,
+              175,
               212992,
               null,
               0,
@@ -81115,7 +81262,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              175,
+              177,
               671744,
               null,
               0,
@@ -81125,10 +81272,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](177, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](179, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              178,
+              180,
               0,
               null,
               0,
@@ -81143,7 +81290,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              179,
+              181,
               0,
               null,
               0,
@@ -81181,23 +81328,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 181)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 183)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 181).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 183).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 181)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 183)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 181)._compositionEnd(
+                        r["\u0275nov"](e, 183)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 182).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 184).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 182).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 184).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.app_categories_id = n) && i),
                   i
@@ -81207,7 +81354,7 @@
               null
             )),
             r["\u0275did"](
-              180,
+              182,
               606208,
               null,
               0,
@@ -81217,7 +81364,7 @@
               null
             ),
             r["\u0275did"](
-              181,
+              183,
               16384,
               null,
               0,
@@ -81227,7 +81374,7 @@
               null
             ),
             r["\u0275did"](
-              182,
+              184,
               212992,
               null,
               0,
@@ -81246,7 +81393,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              184,
+              186,
               671744,
               null,
               0,
@@ -81256,10 +81403,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](186, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](188, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              187,
+              189,
               0,
               null,
               null,
@@ -81274,7 +81421,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              188,
+              190,
               0,
               null,
               null,
@@ -81289,7 +81436,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              189,
+              191,
               0,
               null,
               null,
@@ -81305,7 +81452,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Devices"])),
             (e()(),
             r["\u0275eld"](
-              191,
+              193,
               0,
               null,
               null,
@@ -81318,11 +81465,11 @@
               io,
               ro
             )),
-            r["\u0275did"](192, 49152, null, 1, vt, [], null, null),
+            r["\u0275did"](194, 49152, null, 1, vt, [], null, null),
             r["\u0275qud"](335544320, 4, { mzSwitchDirective: 0 }),
             (e()(),
             r["\u0275eld"](
-              194,
+              196,
               0,
               null,
               0,
@@ -81346,9 +81493,9 @@
                   "change" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 196).onChange(n.target.checked) && i),
+                        r["\u0275nov"](e, 198).onChange(n.target.checked) && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 196).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 198).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.supports_quest = n) && i),
                   i
@@ -81358,7 +81505,7 @@
               null
             )),
             r["\u0275did"](
-              195,
+              197,
               81920,
               [[4, 4]],
               0,
@@ -81368,7 +81515,7 @@
               null
             ),
             r["\u0275did"](
-              196,
+              198,
               16384,
               null,
               0,
@@ -81387,7 +81534,7 @@
               [h]
             ),
             r["\u0275did"](
-              198,
+              200,
               671744,
               null,
               0,
@@ -81397,10 +81544,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](200, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](202, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              201,
+              203,
               0,
               null,
               null,
@@ -81415,7 +81562,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              202,
+              204,
               0,
               null,
               null,
@@ -81428,11 +81575,11 @@
               io,
               ro
             )),
-            r["\u0275did"](203, 49152, null, 1, vt, [], null, null),
+            r["\u0275did"](205, 49152, null, 1, vt, [], null, null),
             r["\u0275qud"](335544320, 5, { mzSwitchDirective: 0 }),
             (e()(),
             r["\u0275eld"](
-              205,
+              207,
               0,
               null,
               0,
@@ -81456,9 +81603,9 @@
                   "change" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 207).onChange(n.target.checked) && i),
+                        r["\u0275nov"](e, 209).onChange(n.target.checked) && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 207).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 209).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.supports_go = n) && i),
                   i
@@ -81468,7 +81615,7 @@
               null
             )),
             r["\u0275did"](
-              206,
+              208,
               81920,
               [[5, 4]],
               0,
@@ -81478,7 +81625,7 @@
               null
             ),
             r["\u0275did"](
-              207,
+              209,
               16384,
               null,
               0,
@@ -81497,7 +81644,7 @@
               [h]
             ),
             r["\u0275did"](
-              209,
+              211,
               671744,
               null,
               0,
@@ -81507,10 +81654,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](211, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](213, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              212,
+              214,
               0,
               null,
               null,
@@ -81525,7 +81672,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              213,
+              215,
               0,
               null,
               null,
@@ -81538,11 +81685,11 @@
               io,
               ro
             )),
-            r["\u0275did"](214, 49152, null, 1, vt, [], null, null),
+            r["\u0275did"](216, 49152, null, 1, vt, [], null, null),
             r["\u0275qud"](335544320, 6, { mzSwitchDirective: 0 }),
             (e()(),
             r["\u0275eld"](
-              216,
+              218,
               0,
               null,
               0,
@@ -81566,9 +81713,9 @@
                   "change" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 218).onChange(n.target.checked) && i),
+                        r["\u0275nov"](e, 220).onChange(n.target.checked) && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 218).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 220).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.supports_other = n) && i),
                   i
@@ -81578,7 +81725,7 @@
               null
             )),
             r["\u0275did"](
-              217,
+              219,
               81920,
               [[6, 4]],
               0,
@@ -81588,7 +81735,7 @@
               null
             ),
             r["\u0275did"](
-              218,
+              220,
               16384,
               null,
               0,
@@ -81607,7 +81754,7 @@
               [h]
             ),
             r["\u0275did"](
-              220,
+              222,
               671744,
               null,
               0,
@@ -81617,10 +81764,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](222, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](224, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              223,
+              225,
               0,
               null,
               null,
@@ -81635,7 +81782,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              224,
+              226,
               0,
               null,
               null,
@@ -81650,7 +81797,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              225,
+              227,
               0,
               null,
               null,
@@ -81666,7 +81813,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Comfort Level"])),
             (e()(),
             r["\u0275eld"](
-              227,
+              229,
               0,
               null,
               null,
@@ -81679,10 +81826,10 @@
               $l,
               Jl
             )),
-            r["\u0275did"](228, 49152, null, 0, st, [], null, null),
+            r["\u0275did"](230, 49152, null, 0, st, [], null, null),
             (e()(),
             r["\u0275eld"](
-              229,
+              231,
               0,
               null,
               0,
@@ -81719,23 +81866,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 231)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 233)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 231).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 233).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 231)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 233)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 231)._compositionEnd(
+                        r["\u0275nov"](e, 233)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 232).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 234).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 232).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 234).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.comfort = n) && i),
                   i
@@ -81745,7 +81892,7 @@
               null
             )),
             r["\u0275did"](
-              230,
+              232,
               606208,
               null,
               0,
@@ -81755,7 +81902,7 @@
               null
             ),
             r["\u0275did"](
-              231,
+              233,
               16384,
               null,
               0,
@@ -81765,7 +81912,7 @@
               null
             ),
             r["\u0275did"](
-              232,
+              234,
               212992,
               null,
               0,
@@ -81784,7 +81931,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              234,
+              236,
               671744,
               null,
               0,
@@ -81794,10 +81941,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](236, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](238, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              237,
+              239,
               0,
               null,
               0,
@@ -81812,7 +81959,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              238,
+              240,
               0,
               null,
               0,
@@ -81849,23 +81996,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 240)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 242)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 240).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 242).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 240)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 242)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 240)._compositionEnd(
+                        r["\u0275nov"](e, 242)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 241).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 243).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 241).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 243).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.comfort = n) && i),
                   i
@@ -81875,7 +82022,7 @@
               null
             )),
             r["\u0275did"](
-              239,
+              241,
               606208,
               null,
               0,
@@ -81885,7 +82032,7 @@
               null
             ),
             r["\u0275did"](
-              240,
+              242,
               16384,
               null,
               0,
@@ -81895,7 +82042,7 @@
               null
             ),
             r["\u0275did"](
-              241,
+              243,
               212992,
               null,
               0,
@@ -81914,7 +82061,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              243,
+              245,
               671744,
               null,
               0,
@@ -81924,10 +82071,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](245, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](247, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              246,
+              248,
               0,
               null,
               0,
@@ -81942,7 +82089,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              247,
+              249,
               0,
               null,
               0,
@@ -81979,23 +82126,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 249)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 251)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 249).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 251).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 249)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 251)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 249)._compositionEnd(
+                        r["\u0275nov"](e, 251)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 250).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 252).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 250).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 252).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.comfort = n) && i),
                   i
@@ -82005,7 +82152,7 @@
               null
             )),
             r["\u0275did"](
-              248,
+              250,
               606208,
               null,
               0,
@@ -82015,7 +82162,7 @@
               null
             ),
             r["\u0275did"](
-              249,
+              251,
               16384,
               null,
               0,
@@ -82025,7 +82172,7 @@
               null
             ),
             r["\u0275did"](
-              250,
+              252,
               212992,
               null,
               0,
@@ -82044,7 +82191,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              252,
+              254,
               671744,
               null,
               0,
@@ -82054,10 +82201,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](254, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](256, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              255,
+              257,
               0,
               null,
               0,
@@ -82072,7 +82219,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              256,
+              258,
               0,
               null,
               0,
@@ -82109,23 +82256,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 258)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 260)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 258).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 260).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 258)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 260)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 258)._compositionEnd(
+                        r["\u0275nov"](e, 260)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 259).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 261).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 259).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 261).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.comfort = n) && i),
                   i
@@ -82135,7 +82282,7 @@
               null
             )),
             r["\u0275did"](
-              257,
+              259,
               606208,
               null,
               0,
@@ -82145,7 +82292,7 @@
               null
             ),
             r["\u0275did"](
-              258,
+              260,
               16384,
               null,
               0,
@@ -82155,7 +82302,7 @@
               null
             ),
             r["\u0275did"](
-              259,
+              261,
               212992,
               null,
               0,
@@ -82174,7 +82321,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              261,
+              263,
               671744,
               null,
               0,
@@ -82184,10 +82331,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](263, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](265, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              264,
+              266,
               0,
               null,
               0,
@@ -82202,7 +82349,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              265,
+              267,
               0,
               null,
               0,
@@ -82239,23 +82386,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 267)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 269)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 267).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 269).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 267)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 269)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 267)._compositionEnd(
+                        r["\u0275nov"](e, 269)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 268).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 270).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 268).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 270).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.comfort = n) && i),
                   i
@@ -82265,7 +82412,7 @@
               null
             )),
             r["\u0275did"](
-              266,
+              268,
               606208,
               null,
               0,
@@ -82275,7 +82422,7 @@
               null
             ),
             r["\u0275did"](
-              267,
+              269,
               16384,
               null,
               0,
@@ -82285,7 +82432,7 @@
               null
             ),
             r["\u0275did"](
-              268,
+              270,
               212992,
               null,
               0,
@@ -82304,7 +82451,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              270,
+              272,
               671744,
               null,
               0,
@@ -82314,10 +82461,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](272, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](274, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              273,
+              275,
               0,
               null,
               null,
@@ -82332,7 +82479,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              274,
+              276,
               0,
               null,
               null,
@@ -82347,7 +82494,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              275,
+              277,
               0,
               null,
               null,
@@ -82363,7 +82510,7 @@
             (e()(), r["\u0275ted"](-1, null, ["License"])),
             (e()(),
             r["\u0275eld"](
-              277,
+              279,
               0,
               null,
               null,
@@ -82376,10 +82523,10 @@
               $l,
               Jl
             )),
-            r["\u0275did"](278, 49152, null, 0, st, [], null, null),
+            r["\u0275did"](280, 49152, null, 0, st, [], null, null),
             (e()(),
             r["\u0275eld"](
-              279,
+              281,
               0,
               null,
               0,
@@ -82417,23 +82564,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 281)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 283)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 281).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 283).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 281)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 283)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 281)._compositionEnd(
+                        r["\u0275nov"](e, 283)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 282).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 284).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 282).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 284).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.license = n) && i),
                   i
@@ -82443,7 +82590,7 @@
               null
             )),
             r["\u0275did"](
-              280,
+              282,
               606208,
               null,
               0,
@@ -82453,7 +82600,7 @@
               null
             ),
             r["\u0275did"](
-              281,
+              283,
               16384,
               null,
               0,
@@ -82463,7 +82610,7 @@
               null
             ),
             r["\u0275did"](
-              282,
+              284,
               212992,
               null,
               0,
@@ -82482,7 +82629,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              284,
+              286,
               671744,
               null,
               0,
@@ -82492,10 +82639,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](286, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](288, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              287,
+              289,
               0,
               null,
               0,
@@ -82510,7 +82657,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              288,
+              290,
               0,
               null,
               0,
@@ -82548,23 +82695,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 290)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 292)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 290).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 292).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 290)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 292)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 290)._compositionEnd(
+                        r["\u0275nov"](e, 292)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 291).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 293).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 291).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 293).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.license = n) && i),
                   i
@@ -82574,7 +82721,7 @@
               null
             )),
             r["\u0275did"](
-              289,
+              291,
               606208,
               null,
               0,
@@ -82584,7 +82731,7 @@
               null
             ),
             r["\u0275did"](
-              290,
+              292,
               16384,
               null,
               0,
@@ -82594,7 +82741,7 @@
               null
             ),
             r["\u0275did"](
-              291,
+              293,
               212992,
               null,
               0,
@@ -82613,7 +82760,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              293,
+              295,
               671744,
               null,
               0,
@@ -82623,10 +82770,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](295, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](297, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              296,
+              298,
               0,
               null,
               0,
@@ -82641,7 +82788,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              297,
+              299,
               0,
               null,
               0,
@@ -82679,23 +82826,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 299)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 301)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 299).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 301).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 299)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 301)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 299)._compositionEnd(
+                        r["\u0275nov"](e, 301)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 300).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 302).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 300).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 302).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.license = n) && i),
                   i
@@ -82705,7 +82852,7 @@
               null
             )),
             r["\u0275did"](
-              298,
+              300,
               606208,
               null,
               0,
@@ -82715,7 +82862,7 @@
               null
             ),
             r["\u0275did"](
-              299,
+              301,
               16384,
               null,
               0,
@@ -82725,7 +82872,7 @@
               null
             ),
             r["\u0275did"](
-              300,
+              302,
               212992,
               null,
               0,
@@ -82744,7 +82891,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              302,
+              304,
               671744,
               null,
               0,
@@ -82754,10 +82901,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](304, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](306, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              305,
+              307,
               0,
               null,
               0,
@@ -82772,7 +82919,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              306,
+              308,
               0,
               null,
               0,
@@ -82810,23 +82957,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 308)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 310)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 308).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 310).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 308)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 310)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 308)._compositionEnd(
+                        r["\u0275nov"](e, 310)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 309).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 311).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 309).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 311).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.license = n) && i),
                   i
@@ -82836,7 +82983,7 @@
               null
             )),
             r["\u0275did"](
-              307,
+              309,
               606208,
               null,
               0,
@@ -82846,7 +82993,7 @@
               null
             ),
             r["\u0275did"](
-              308,
+              310,
               16384,
               null,
               0,
@@ -82856,7 +83003,7 @@
               null
             ),
             r["\u0275did"](
-              309,
+              311,
               212992,
               null,
               0,
@@ -82875,7 +83022,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              311,
+              313,
               671744,
               null,
               0,
@@ -82885,10 +83032,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](313, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](315, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              314,
+              316,
               0,
               null,
               0,
@@ -82903,7 +83050,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              315,
+              317,
               0,
               null,
               0,
@@ -82941,23 +83088,23 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 317)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 319)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 317).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 319).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 317)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 319)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 317)._compositionEnd(
+                        r["\u0275nov"](e, 319)._compositionEnd(
                           n.target.value
                         ) && i),
                   "change" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 318).onChange() && i),
+                    (i = !1 !== r["\u0275nov"](e, 320).onChange() && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 318).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 320).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.license = n) && i),
                   i
@@ -82967,7 +83114,7 @@
               null
             )),
             r["\u0275did"](
-              316,
+              318,
               606208,
               null,
               0,
@@ -82977,7 +83124,7 @@
               null
             ),
             r["\u0275did"](
-              317,
+              319,
               16384,
               null,
               0,
@@ -82987,7 +83134,7 @@
               null
             ),
             r["\u0275did"](
-              318,
+              320,
               212992,
               null,
               0,
@@ -83006,7 +83153,7 @@
               [p, E]
             ),
             r["\u0275did"](
-              320,
+              322,
               671744,
               null,
               0,
@@ -83016,10 +83163,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](322, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](324, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              323,
+              325,
               0,
               null,
               null,
@@ -83034,7 +83181,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              324,
+              326,
               0,
               null,
               null,
@@ -83050,7 +83197,7 @@
             (e()(), r["\u0275ted"](-1, null, ["App Urls"])),
             (e()(),
             r["\u0275eld"](
-              326,
+              328,
               0,
               null,
               null,
@@ -83065,7 +83212,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              327,
+              329,
               0,
               null,
               null,
@@ -83084,7 +83231,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              329,
+              331,
               0,
               null,
               null,
@@ -83099,7 +83246,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              330,
+              332,
               0,
               null,
               null,
@@ -83114,7 +83261,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              331,
+              333,
               0,
               null,
               null,
@@ -83129,7 +83276,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              332,
+              334,
               0,
               null,
               null,
@@ -83145,7 +83292,7 @@
             (e()(), r["\u0275ted"](-1, null, ["public"])),
             (e()(),
             r["\u0275eld"](
-              334,
+              336,
               0,
               null,
               null,
@@ -83180,17 +83327,17 @@
                   "input" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 335)._handleInput(n.target.value) &&
+                        r["\u0275nov"](e, 337)._handleInput(n.target.value) &&
                       i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 335).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 337).onTouched() && i),
                   "compositionstart" === t &&
                     (i =
-                      !1 !== r["\u0275nov"](e, 335)._compositionStart() && i),
+                      !1 !== r["\u0275nov"](e, 337)._compositionStart() && i),
                   "compositionend" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 335)._compositionEnd(
+                        r["\u0275nov"](e, 337)._compositionEnd(
                           n.target.value
                         ) && i),
                   "ngModelChange" === t &&
@@ -83202,7 +83349,7 @@
               null
             )),
             r["\u0275did"](
-              335,
+              337,
               16384,
               null,
               0,
@@ -83221,7 +83368,7 @@
               [p]
             ),
             r["\u0275did"](
-              337,
+              339,
               671744,
               null,
               0,
@@ -83231,10 +83378,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](339, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](341, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              340,
+              342,
               0,
               null,
               null,
@@ -83250,7 +83397,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Link Url"])),
             (e()(),
             r["\u0275eld"](
-              342,
+              344,
               0,
               null,
               null,
@@ -83265,7 +83412,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              343,
+              345,
               0,
               null,
               null,
@@ -83281,7 +83428,7 @@
             (e()(), r["\u0275ted"](-1, null, ["public"])),
             (e()(),
             r["\u0275eld"](
-              345,
+              347,
               0,
               null,
               null,
@@ -83296,7 +83443,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              346,
+              348,
               0,
               null,
               null,
@@ -83310,9 +83457,9 @@
               null
             )),
             (e()(), r["\u0275ted"](-1, null, ["Link Type"])),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ra)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Pa)),
             r["\u0275did"](
-              349,
+              351,
               16384,
               null,
               0,
@@ -83323,7 +83470,7 @@
             ),
             (e()(),
             r["\u0275eld"](
-              350,
+              352,
               0,
               null,
               null,
@@ -83338,7 +83485,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              351,
+              353,
               0,
               null,
               null,
@@ -83359,7 +83506,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Add"])),
             (e()(),
             r["\u0275eld"](
-              353,
+              355,
               0,
               null,
               null,
@@ -83374,37 +83521,37 @@
             )),
             (e()(),
             r["\u0275eld"](
-              354,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              355,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
               356,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              357,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              358,
               0,
               null,
               null,
@@ -83417,9 +83564,9 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Aa)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ja)),
             r["\u0275did"](
-              358,
+              360,
               278528,
               null,
               0,
@@ -83430,7 +83577,7 @@
             ),
             (e()(),
             r["\u0275eld"](
-              359,
+              361,
               0,
               null,
               null,
@@ -83445,7 +83592,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              360,
+              362,
               0,
               null,
               null,
@@ -83458,18 +83605,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Pa)),
-            r["\u0275did"](
-              362,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [r.ViewContainerRef, r.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, za)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Na)),
             r["\u0275did"](
               364,
               16384,
@@ -83480,9 +83616,20 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ba)),
+            r["\u0275did"](
+              366,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [r.ViewContainerRef, r.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
             (e()(),
             r["\u0275eld"](
-              365,
+              367,
               0,
               null,
               null,
@@ -83497,37 +83644,37 @@
             )),
             (e()(),
             r["\u0275eld"](
-              366,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              367,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
               368,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              369,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              370,
               0,
               null,
               null,
@@ -83543,7 +83690,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Enable"])),
             (e()(),
             r["\u0275eld"](
-              370,
+              372,
               0,
               null,
               null,
@@ -83559,7 +83706,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Github Releases"])),
             (e()(),
             r["\u0275eld"](
-              372,
+              374,
               0,
               null,
               null,
@@ -83574,7 +83721,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              373,
+              375,
               0,
               null,
               null,
@@ -83590,7 +83737,7 @@
             (e()(), r["\u0275ted"](-1, null, [" Off "])),
             (e()(),
             r["\u0275eld"](
-              375,
+              377,
               0,
               null,
               null,
@@ -83614,9 +83761,9 @@
                   "change" === t &&
                     (i =
                       !1 !==
-                        r["\u0275nov"](e, 376).onChange(n.target.checked) && i),
+                        r["\u0275nov"](e, 378).onChange(n.target.checked) && i),
                   "blur" === t &&
-                    (i = !1 !== r["\u0275nov"](e, 376).onTouched() && i),
+                    (i = !1 !== r["\u0275nov"](e, 378).onTouched() && i),
                   "ngModelChange" === t &&
                     (i = !1 !== (l.currentApp.github_enabled = n) && i),
                   i
@@ -83626,7 +83773,7 @@
               null
             )),
             r["\u0275did"](
-              376,
+              378,
               16384,
               null,
               0,
@@ -83645,7 +83792,7 @@
               [h]
             ),
             r["\u0275did"](
-              378,
+              380,
               671744,
               null,
               0,
@@ -83655,10 +83802,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
-            r["\u0275did"](380, 16384, null, 0, y, [[4, v]], null, null),
+            r["\u0275did"](382, 16384, null, 0, y, [[4, v]], null, null),
             (e()(),
             r["\u0275eld"](
-              381,
+              383,
               0,
               null,
               null,
@@ -83674,7 +83821,7 @@
             (e()(), r["\u0275ted"](-1, null, [" On "])),
             (e()(),
             r["\u0275eld"](
-              383,
+              385,
               0,
               null,
               null,
@@ -83693,7 +83840,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              385,
+              387,
               0,
               null,
               null,
@@ -83707,9 +83854,9 @@
               null
             )),
             (e()(), r["\u0275ted"](-1, null, ["More Info"])),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Wa)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ua)),
             r["\u0275did"](
-              388,
+              390,
               16384,
               null,
               0,
@@ -83722,420 +83869,420 @@
           function(e, t) {
             var n = t.component,
               r = e(t, 3, 0, n.service.hideLogo, !n.service.hideLogo);
-            e(t, 2, 0, r);
-            var i = e(t, 9, 0, n.currentApp.active, !n.currentApp.active);
-            e(t, 8, 0, "chip right white-text", i),
-              e(t, 13, 0, "/account"),
-              e(t, 17, 0, n.apps_id && n.currentApp.active),
-              e(t, 26, 0, !n.currentApp.image_url && !n.is_loading_icon),
-              e(t, 28, 0, n.is_loading_icon),
-              e(t, 30, 0, n.currentApp.image_url && !n.is_loading_icon),
-              e(t, 45, 0, n.currentApp.video_url),
-              e(t, 51, 0, n.videoObject),
-              e(t, 59, 0, n.is_loading_screenshot),
-              e(t, 61, 0, !n.is_loading_screenshot),
-              e(t, 63, 0, n.screenshots),
-              e(t, 68, 0, n.apps_id),
-              e(t, 70, 0, !n.apps_id),
-              e(t, 72, 0, n.apps_id),
-              e(t, 83, 0, n.currentApp.name),
-              e(t, 89, 0, !n.apps_id),
-              e(t, 96, 0, n.currentApp.summary),
-              e(t, 107, 0, n.currentApp.description),
-              e(t, 118, 0, "Hit enter to add...", "Another..."),
-              e(t, 120, 0, n.searchTags),
-              e(t, 130, 0, n.currentApp.versioncode),
-              e(t, 141, 0, n.currentApp.versionname),
-              e(t, 153, 0, "devices-Quest", "Games", !0),
-              e(t, 155, 0, "type-group", "1"),
-              e(t, 157, 0, "type-group", n.currentApp.app_categories_id),
-              e(t, 162, 0, "devices-Go", "Apps", !0),
-              e(t, 164, 0, "type-group", "2"),
-              e(t, 166, 0, "type-group", n.currentApp.app_categories_id),
-              e(t, 171, 0, "devices-Mods", "Mods", !0),
-              e(t, 173, 0, "type-group", "4"),
-              e(t, 175, 0, "type-group", n.currentApp.app_categories_id),
-              e(t, 180, 0, "devices-Other", "NSFW", !0),
-              e(t, 182, 0, "type-group", "3"),
-              e(t, 184, 0, "type-group", n.currentApp.app_categories_id),
-              e(t, 195, 0, "Quest"),
-              e(t, 198, 0, n.currentApp.supports_quest),
-              e(t, 206, 0, "Go"),
-              e(t, 209, 0, n.currentApp.supports_go),
-              e(t, 217, 0, "Other"),
-              e(t, 220, 0, n.currentApp.supports_other),
-              e(t, 230, 0, "comfort-Comfortable", "Comfortable", !0),
-              e(t, 232, 0, "comfort-group", 0),
-              e(t, 234, 0, "comfort-group", n.currentApp.comfort),
-              e(t, 239, 0, "comfort-Moderate", "Moderate", !0),
-              e(t, 241, 0, "comfort-group", 1),
-              e(t, 243, 0, "comfort-group", n.currentApp.comfort),
-              e(t, 248, 0, "comfort-Average", "Average", !0),
-              e(t, 250, 0, "comfort-group", 2),
-              e(t, 252, 0, "comfort-group", n.currentApp.comfort),
-              e(t, 257, 0, "comfort-Exciting", "Exciting", !0),
-              e(t, 259, 0, "comfort-group", 3),
-              e(t, 261, 0, "comfort-group", n.currentApp.comfort),
-              e(t, 266, 0, "comfort-Intense", "Intense", !0),
-              e(t, 268, 0, "comfort-group", 4),
-              e(t, 270, 0, "comfort-group", n.currentApp.comfort),
-              e(t, 280, 0, "license-FREE", "Free", !0),
-              e(t, 282, 0, "license-group", "FREE"),
-              e(t, 284, 0, "license-group", n.currentApp.license),
-              e(t, 289, 0, "license-DEMO", "Demo", !0),
-              e(t, 291, 0, "license-group", "DEMO"),
-              e(t, 293, 0, "license-group", n.currentApp.license),
-              e(t, 298, 0, "license-PRERELEASE", "Pre-Release", !0),
-              e(t, 300, 0, "license-group", "PRERELEASE"),
-              e(t, 302, 0, "license-group", n.currentApp.license),
-              e(t, 307, 0, "license-PAID", "Paid", !0),
-              e(t, 309, 0, "license-group", "PAID"),
-              e(t, 311, 0, "license-group", n.currentApp.license),
-              e(t, 316, 0, "license-OPENSOURCE", "Open Source", !0),
-              e(t, 318, 0, "license-group", "OPENSOURCE"),
-              e(t, 320, 0, "license-group", n.currentApp.license),
-              e(t, 337, 0, n.addNewUrlLink),
-              e(t, 349, 0, n.urlTypes),
-              e(t, 358, 0, n.app_urls),
-              e(t, 362, 0, !n.currentApp.github_enabled),
-              e(t, 364, 0, n.currentApp.github_enabled),
-              e(t, 378, 0, n.currentApp.github_enabled),
-              e(t, 388, 0, n.apps_id);
+            e(t, 2, 0, r), e(t, 5, 0, n.apps_id);
+            var i = e(t, 11, 0, n.currentApp.active, !n.currentApp.active);
+            e(t, 10, 0, "chip right white-text", i),
+              e(t, 15, 0, "/account"),
+              e(t, 19, 0, n.apps_id && n.currentApp.active),
+              e(t, 28, 0, !n.currentApp.image_url && !n.is_loading_icon),
+              e(t, 30, 0, n.is_loading_icon),
+              e(t, 32, 0, n.currentApp.image_url && !n.is_loading_icon),
+              e(t, 47, 0, n.currentApp.video_url),
+              e(t, 53, 0, n.videoObject),
+              e(t, 61, 0, n.is_loading_screenshot),
+              e(t, 63, 0, !n.is_loading_screenshot),
+              e(t, 65, 0, n.screenshots),
+              e(t, 70, 0, n.apps_id),
+              e(t, 72, 0, !n.apps_id),
+              e(t, 74, 0, n.apps_id),
+              e(t, 85, 0, n.currentApp.name),
+              e(t, 91, 0, !n.apps_id),
+              e(t, 98, 0, n.currentApp.summary),
+              e(t, 109, 0, n.currentApp.description),
+              e(t, 120, 0, "Hit enter to add...", "Another..."),
+              e(t, 122, 0, n.searchTags),
+              e(t, 132, 0, n.currentApp.versioncode),
+              e(t, 143, 0, n.currentApp.versionname),
+              e(t, 155, 0, "devices-Quest", "Games", !0),
+              e(t, 157, 0, "type-group", "1"),
+              e(t, 159, 0, "type-group", n.currentApp.app_categories_id),
+              e(t, 164, 0, "devices-Go", "Apps", !0),
+              e(t, 166, 0, "type-group", "2"),
+              e(t, 168, 0, "type-group", n.currentApp.app_categories_id),
+              e(t, 173, 0, "devices-Mods", "Mods", !0),
+              e(t, 175, 0, "type-group", "4"),
+              e(t, 177, 0, "type-group", n.currentApp.app_categories_id),
+              e(t, 182, 0, "devices-Other", "NSFW", !0),
+              e(t, 184, 0, "type-group", "3"),
+              e(t, 186, 0, "type-group", n.currentApp.app_categories_id),
+              e(t, 197, 0, "Quest"),
+              e(t, 200, 0, n.currentApp.supports_quest),
+              e(t, 208, 0, "Go"),
+              e(t, 211, 0, n.currentApp.supports_go),
+              e(t, 219, 0, "Other"),
+              e(t, 222, 0, n.currentApp.supports_other),
+              e(t, 232, 0, "comfort-Comfortable", "Comfortable", !0),
+              e(t, 234, 0, "comfort-group", 0),
+              e(t, 236, 0, "comfort-group", n.currentApp.comfort),
+              e(t, 241, 0, "comfort-Moderate", "Moderate", !0),
+              e(t, 243, 0, "comfort-group", 1),
+              e(t, 245, 0, "comfort-group", n.currentApp.comfort),
+              e(t, 250, 0, "comfort-Average", "Average", !0),
+              e(t, 252, 0, "comfort-group", 2),
+              e(t, 254, 0, "comfort-group", n.currentApp.comfort),
+              e(t, 259, 0, "comfort-Exciting", "Exciting", !0),
+              e(t, 261, 0, "comfort-group", 3),
+              e(t, 263, 0, "comfort-group", n.currentApp.comfort),
+              e(t, 268, 0, "comfort-Intense", "Intense", !0),
+              e(t, 270, 0, "comfort-group", 4),
+              e(t, 272, 0, "comfort-group", n.currentApp.comfort),
+              e(t, 282, 0, "license-FREE", "Free", !0),
+              e(t, 284, 0, "license-group", "FREE"),
+              e(t, 286, 0, "license-group", n.currentApp.license),
+              e(t, 291, 0, "license-DEMO", "Demo", !0),
+              e(t, 293, 0, "license-group", "DEMO"),
+              e(t, 295, 0, "license-group", n.currentApp.license),
+              e(t, 300, 0, "license-PRERELEASE", "Pre-Release", !0),
+              e(t, 302, 0, "license-group", "PRERELEASE"),
+              e(t, 304, 0, "license-group", n.currentApp.license),
+              e(t, 309, 0, "license-PAID", "Paid", !0),
+              e(t, 311, 0, "license-group", "PAID"),
+              e(t, 313, 0, "license-group", n.currentApp.license),
+              e(t, 318, 0, "license-OPENSOURCE", "Open Source", !0),
+              e(t, 320, 0, "license-group", "OPENSOURCE"),
+              e(t, 322, 0, "license-group", n.currentApp.license),
+              e(t, 339, 0, n.addNewUrlLink),
+              e(t, 351, 0, n.urlTypes),
+              e(t, 360, 0, n.app_urls),
+              e(t, 364, 0, !n.currentApp.github_enabled),
+              e(t, 366, 0, n.currentApp.github_enabled),
+              e(t, 380, 0, n.currentApp.github_enabled),
+              e(t, 390, 0, n.apps_id);
           },
           function(e, t) {
             var n = t.component;
-            e(t, 10, 0, n.currentApp.active ? "Published" : "Pending"),
-              e(t, 15, 0, n.apps_id ? "Manage App" : "Create App"),
+            e(t, 12, 0, n.currentApp.active ? "Published" : "Pending"),
+              e(t, 17, 0, n.apps_id ? "Manage App" : "Create App"),
               e(
                 t,
-                42,
+                44,
                 0,
-                r["\u0275nov"](t, 47).ngClassUntouched,
-                r["\u0275nov"](t, 47).ngClassTouched,
-                r["\u0275nov"](t, 47).ngClassPristine,
-                r["\u0275nov"](t, 47).ngClassDirty,
-                r["\u0275nov"](t, 47).ngClassValid,
-                r["\u0275nov"](t, 47).ngClassInvalid,
-                r["\u0275nov"](t, 47).ngClassPending
+                r["\u0275nov"](t, 49).ngClassUntouched,
+                r["\u0275nov"](t, 49).ngClassTouched,
+                r["\u0275nov"](t, 49).ngClassPristine,
+                r["\u0275nov"](t, 49).ngClassDirty,
+                r["\u0275nov"](t, 49).ngClassValid,
+                r["\u0275nov"](t, 49).ngClassInvalid,
+                r["\u0275nov"](t, 49).ngClassPending
               ),
               e(
                 t,
-                80,
+                82,
                 0,
-                r["\u0275nov"](t, 85).ngClassUntouched,
-                r["\u0275nov"](t, 85).ngClassTouched,
-                r["\u0275nov"](t, 85).ngClassPristine,
-                r["\u0275nov"](t, 85).ngClassDirty,
-                r["\u0275nov"](t, 85).ngClassValid,
-                r["\u0275nov"](t, 85).ngClassInvalid,
-                r["\u0275nov"](t, 85).ngClassPending
+                r["\u0275nov"](t, 87).ngClassUntouched,
+                r["\u0275nov"](t, 87).ngClassTouched,
+                r["\u0275nov"](t, 87).ngClassPristine,
+                r["\u0275nov"](t, 87).ngClassDirty,
+                r["\u0275nov"](t, 87).ngClassValid,
+                r["\u0275nov"](t, 87).ngClassInvalid,
+                r["\u0275nov"](t, 87).ngClassPending
               ),
               e(
                 t,
-                93,
+                95,
                 0,
-                r["\u0275nov"](t, 98).ngClassUntouched,
-                r["\u0275nov"](t, 98).ngClassTouched,
-                r["\u0275nov"](t, 98).ngClassPristine,
-                r["\u0275nov"](t, 98).ngClassDirty,
-                r["\u0275nov"](t, 98).ngClassValid,
-                r["\u0275nov"](t, 98).ngClassInvalid,
-                r["\u0275nov"](t, 98).ngClassPending
+                r["\u0275nov"](t, 100).ngClassUntouched,
+                r["\u0275nov"](t, 100).ngClassTouched,
+                r["\u0275nov"](t, 100).ngClassPristine,
+                r["\u0275nov"](t, 100).ngClassDirty,
+                r["\u0275nov"](t, 100).ngClassValid,
+                r["\u0275nov"](t, 100).ngClassInvalid,
+                r["\u0275nov"](t, 100).ngClassPending
               ),
               e(
                 t,
-                104,
+                106,
                 0,
-                r["\u0275nov"](t, 109).ngClassUntouched,
-                r["\u0275nov"](t, 109).ngClassTouched,
-                r["\u0275nov"](t, 109).ngClassPristine,
-                r["\u0275nov"](t, 109).ngClassDirty,
-                r["\u0275nov"](t, 109).ngClassValid,
-                r["\u0275nov"](t, 109).ngClassInvalid,
-                r["\u0275nov"](t, 109).ngClassPending
+                r["\u0275nov"](t, 111).ngClassUntouched,
+                r["\u0275nov"](t, 111).ngClassTouched,
+                r["\u0275nov"](t, 111).ngClassPristine,
+                r["\u0275nov"](t, 111).ngClassDirty,
+                r["\u0275nov"](t, 111).ngClassValid,
+                r["\u0275nov"](t, 111).ngClassInvalid,
+                r["\u0275nov"](t, 111).ngClassPending
               ),
               e(
                 t,
-                117,
+                119,
                 0,
-                r["\u0275nov"](t, 122).ngClassUntouched,
-                r["\u0275nov"](t, 122).ngClassTouched,
-                r["\u0275nov"](t, 122).ngClassPristine,
-                r["\u0275nov"](t, 122).ngClassDirty,
-                r["\u0275nov"](t, 122).ngClassValid,
-                r["\u0275nov"](t, 122).ngClassInvalid,
-                r["\u0275nov"](t, 122).ngClassPending
+                r["\u0275nov"](t, 124).ngClassUntouched,
+                r["\u0275nov"](t, 124).ngClassTouched,
+                r["\u0275nov"](t, 124).ngClassPristine,
+                r["\u0275nov"](t, 124).ngClassDirty,
+                r["\u0275nov"](t, 124).ngClassValid,
+                r["\u0275nov"](t, 124).ngClassInvalid,
+                r["\u0275nov"](t, 124).ngClassPending
               ),
               e(
                 t,
-                126,
+                128,
                 0,
-                r["\u0275nov"](t, 132).ngClassUntouched,
-                r["\u0275nov"](t, 132).ngClassTouched,
-                r["\u0275nov"](t, 132).ngClassPristine,
-                r["\u0275nov"](t, 132).ngClassDirty,
-                r["\u0275nov"](t, 132).ngClassValid,
-                r["\u0275nov"](t, 132).ngClassInvalid,
-                r["\u0275nov"](t, 132).ngClassPending
+                r["\u0275nov"](t, 134).ngClassUntouched,
+                r["\u0275nov"](t, 134).ngClassTouched,
+                r["\u0275nov"](t, 134).ngClassPristine,
+                r["\u0275nov"](t, 134).ngClassDirty,
+                r["\u0275nov"](t, 134).ngClassValid,
+                r["\u0275nov"](t, 134).ngClassInvalid,
+                r["\u0275nov"](t, 134).ngClassPending
               ),
               e(
                 t,
-                138,
+                140,
                 0,
-                r["\u0275nov"](t, 143).ngClassUntouched,
-                r["\u0275nov"](t, 143).ngClassTouched,
-                r["\u0275nov"](t, 143).ngClassPristine,
-                r["\u0275nov"](t, 143).ngClassDirty,
-                r["\u0275nov"](t, 143).ngClassValid,
-                r["\u0275nov"](t, 143).ngClassInvalid,
-                r["\u0275nov"](t, 143).ngClassPending
+                r["\u0275nov"](t, 145).ngClassUntouched,
+                r["\u0275nov"](t, 145).ngClassTouched,
+                r["\u0275nov"](t, 145).ngClassPristine,
+                r["\u0275nov"](t, 145).ngClassDirty,
+                r["\u0275nov"](t, 145).ngClassValid,
+                r["\u0275nov"](t, 145).ngClassInvalid,
+                r["\u0275nov"](t, 145).ngClassPending
               ),
               e(
                 t,
-                152,
+                154,
                 0,
-                r["\u0275nov"](t, 153).id,
-                r["\u0275nov"](t, 159).ngClassUntouched,
-                r["\u0275nov"](t, 159).ngClassTouched,
-                r["\u0275nov"](t, 159).ngClassPristine,
-                r["\u0275nov"](t, 159).ngClassDirty,
-                r["\u0275nov"](t, 159).ngClassValid,
-                r["\u0275nov"](t, 159).ngClassInvalid,
-                r["\u0275nov"](t, 159).ngClassPending
+                r["\u0275nov"](t, 155).id,
+                r["\u0275nov"](t, 161).ngClassUntouched,
+                r["\u0275nov"](t, 161).ngClassTouched,
+                r["\u0275nov"](t, 161).ngClassPristine,
+                r["\u0275nov"](t, 161).ngClassDirty,
+                r["\u0275nov"](t, 161).ngClassValid,
+                r["\u0275nov"](t, 161).ngClassInvalid,
+                r["\u0275nov"](t, 161).ngClassPending
               ),
               e(
                 t,
-                161,
+                163,
                 0,
-                r["\u0275nov"](t, 162).id,
-                r["\u0275nov"](t, 168).ngClassUntouched,
-                r["\u0275nov"](t, 168).ngClassTouched,
-                r["\u0275nov"](t, 168).ngClassPristine,
-                r["\u0275nov"](t, 168).ngClassDirty,
-                r["\u0275nov"](t, 168).ngClassValid,
-                r["\u0275nov"](t, 168).ngClassInvalid,
-                r["\u0275nov"](t, 168).ngClassPending
+                r["\u0275nov"](t, 164).id,
+                r["\u0275nov"](t, 170).ngClassUntouched,
+                r["\u0275nov"](t, 170).ngClassTouched,
+                r["\u0275nov"](t, 170).ngClassPristine,
+                r["\u0275nov"](t, 170).ngClassDirty,
+                r["\u0275nov"](t, 170).ngClassValid,
+                r["\u0275nov"](t, 170).ngClassInvalid,
+                r["\u0275nov"](t, 170).ngClassPending
               ),
               e(
                 t,
-                170,
+                172,
                 0,
-                r["\u0275nov"](t, 171).id,
-                r["\u0275nov"](t, 177).ngClassUntouched,
-                r["\u0275nov"](t, 177).ngClassTouched,
-                r["\u0275nov"](t, 177).ngClassPristine,
-                r["\u0275nov"](t, 177).ngClassDirty,
-                r["\u0275nov"](t, 177).ngClassValid,
-                r["\u0275nov"](t, 177).ngClassInvalid,
-                r["\u0275nov"](t, 177).ngClassPending
+                r["\u0275nov"](t, 173).id,
+                r["\u0275nov"](t, 179).ngClassUntouched,
+                r["\u0275nov"](t, 179).ngClassTouched,
+                r["\u0275nov"](t, 179).ngClassPristine,
+                r["\u0275nov"](t, 179).ngClassDirty,
+                r["\u0275nov"](t, 179).ngClassValid,
+                r["\u0275nov"](t, 179).ngClassInvalid,
+                r["\u0275nov"](t, 179).ngClassPending
               ),
               e(
                 t,
-                179,
+                181,
                 0,
-                r["\u0275nov"](t, 180).id,
-                r["\u0275nov"](t, 186).ngClassUntouched,
-                r["\u0275nov"](t, 186).ngClassTouched,
-                r["\u0275nov"](t, 186).ngClassPristine,
-                r["\u0275nov"](t, 186).ngClassDirty,
-                r["\u0275nov"](t, 186).ngClassValid,
-                r["\u0275nov"](t, 186).ngClassInvalid,
-                r["\u0275nov"](t, 186).ngClassPending
+                r["\u0275nov"](t, 182).id,
+                r["\u0275nov"](t, 188).ngClassUntouched,
+                r["\u0275nov"](t, 188).ngClassTouched,
+                r["\u0275nov"](t, 188).ngClassPristine,
+                r["\u0275nov"](t, 188).ngClassDirty,
+                r["\u0275nov"](t, 188).ngClassValid,
+                r["\u0275nov"](t, 188).ngClassInvalid,
+                r["\u0275nov"](t, 188).ngClassPending
               ),
               e(
                 t,
-                194,
+                196,
                 0,
-                r["\u0275nov"](t, 200).ngClassUntouched,
-                r["\u0275nov"](t, 200).ngClassTouched,
-                r["\u0275nov"](t, 200).ngClassPristine,
-                r["\u0275nov"](t, 200).ngClassDirty,
-                r["\u0275nov"](t, 200).ngClassValid,
-                r["\u0275nov"](t, 200).ngClassInvalid,
-                r["\u0275nov"](t, 200).ngClassPending
+                r["\u0275nov"](t, 202).ngClassUntouched,
+                r["\u0275nov"](t, 202).ngClassTouched,
+                r["\u0275nov"](t, 202).ngClassPristine,
+                r["\u0275nov"](t, 202).ngClassDirty,
+                r["\u0275nov"](t, 202).ngClassValid,
+                r["\u0275nov"](t, 202).ngClassInvalid,
+                r["\u0275nov"](t, 202).ngClassPending
               ),
               e(
                 t,
-                205,
+                207,
                 0,
-                r["\u0275nov"](t, 211).ngClassUntouched,
-                r["\u0275nov"](t, 211).ngClassTouched,
-                r["\u0275nov"](t, 211).ngClassPristine,
-                r["\u0275nov"](t, 211).ngClassDirty,
-                r["\u0275nov"](t, 211).ngClassValid,
-                r["\u0275nov"](t, 211).ngClassInvalid,
-                r["\u0275nov"](t, 211).ngClassPending
+                r["\u0275nov"](t, 213).ngClassUntouched,
+                r["\u0275nov"](t, 213).ngClassTouched,
+                r["\u0275nov"](t, 213).ngClassPristine,
+                r["\u0275nov"](t, 213).ngClassDirty,
+                r["\u0275nov"](t, 213).ngClassValid,
+                r["\u0275nov"](t, 213).ngClassInvalid,
+                r["\u0275nov"](t, 213).ngClassPending
               ),
               e(
                 t,
-                216,
+                218,
                 0,
-                r["\u0275nov"](t, 222).ngClassUntouched,
-                r["\u0275nov"](t, 222).ngClassTouched,
-                r["\u0275nov"](t, 222).ngClassPristine,
-                r["\u0275nov"](t, 222).ngClassDirty,
-                r["\u0275nov"](t, 222).ngClassValid,
-                r["\u0275nov"](t, 222).ngClassInvalid,
-                r["\u0275nov"](t, 222).ngClassPending
+                r["\u0275nov"](t, 224).ngClassUntouched,
+                r["\u0275nov"](t, 224).ngClassTouched,
+                r["\u0275nov"](t, 224).ngClassPristine,
+                r["\u0275nov"](t, 224).ngClassDirty,
+                r["\u0275nov"](t, 224).ngClassValid,
+                r["\u0275nov"](t, 224).ngClassInvalid,
+                r["\u0275nov"](t, 224).ngClassPending
               ),
               e(
                 t,
-                229,
+                231,
                 0,
-                r["\u0275nov"](t, 230).id,
-                r["\u0275nov"](t, 236).ngClassUntouched,
-                r["\u0275nov"](t, 236).ngClassTouched,
-                r["\u0275nov"](t, 236).ngClassPristine,
-                r["\u0275nov"](t, 236).ngClassDirty,
-                r["\u0275nov"](t, 236).ngClassValid,
-                r["\u0275nov"](t, 236).ngClassInvalid,
-                r["\u0275nov"](t, 236).ngClassPending
+                r["\u0275nov"](t, 232).id,
+                r["\u0275nov"](t, 238).ngClassUntouched,
+                r["\u0275nov"](t, 238).ngClassTouched,
+                r["\u0275nov"](t, 238).ngClassPristine,
+                r["\u0275nov"](t, 238).ngClassDirty,
+                r["\u0275nov"](t, 238).ngClassValid,
+                r["\u0275nov"](t, 238).ngClassInvalid,
+                r["\u0275nov"](t, 238).ngClassPending
               ),
               e(
                 t,
-                238,
+                240,
                 0,
-                r["\u0275nov"](t, 239).id,
-                r["\u0275nov"](t, 245).ngClassUntouched,
-                r["\u0275nov"](t, 245).ngClassTouched,
-                r["\u0275nov"](t, 245).ngClassPristine,
-                r["\u0275nov"](t, 245).ngClassDirty,
-                r["\u0275nov"](t, 245).ngClassValid,
-                r["\u0275nov"](t, 245).ngClassInvalid,
-                r["\u0275nov"](t, 245).ngClassPending
+                r["\u0275nov"](t, 241).id,
+                r["\u0275nov"](t, 247).ngClassUntouched,
+                r["\u0275nov"](t, 247).ngClassTouched,
+                r["\u0275nov"](t, 247).ngClassPristine,
+                r["\u0275nov"](t, 247).ngClassDirty,
+                r["\u0275nov"](t, 247).ngClassValid,
+                r["\u0275nov"](t, 247).ngClassInvalid,
+                r["\u0275nov"](t, 247).ngClassPending
               ),
               e(
                 t,
-                247,
+                249,
                 0,
-                r["\u0275nov"](t, 248).id,
-                r["\u0275nov"](t, 254).ngClassUntouched,
-                r["\u0275nov"](t, 254).ngClassTouched,
-                r["\u0275nov"](t, 254).ngClassPristine,
-                r["\u0275nov"](t, 254).ngClassDirty,
-                r["\u0275nov"](t, 254).ngClassValid,
-                r["\u0275nov"](t, 254).ngClassInvalid,
-                r["\u0275nov"](t, 254).ngClassPending
+                r["\u0275nov"](t, 250).id,
+                r["\u0275nov"](t, 256).ngClassUntouched,
+                r["\u0275nov"](t, 256).ngClassTouched,
+                r["\u0275nov"](t, 256).ngClassPristine,
+                r["\u0275nov"](t, 256).ngClassDirty,
+                r["\u0275nov"](t, 256).ngClassValid,
+                r["\u0275nov"](t, 256).ngClassInvalid,
+                r["\u0275nov"](t, 256).ngClassPending
               ),
               e(
                 t,
-                256,
+                258,
                 0,
-                r["\u0275nov"](t, 257).id,
-                r["\u0275nov"](t, 263).ngClassUntouched,
-                r["\u0275nov"](t, 263).ngClassTouched,
-                r["\u0275nov"](t, 263).ngClassPristine,
-                r["\u0275nov"](t, 263).ngClassDirty,
-                r["\u0275nov"](t, 263).ngClassValid,
-                r["\u0275nov"](t, 263).ngClassInvalid,
-                r["\u0275nov"](t, 263).ngClassPending
+                r["\u0275nov"](t, 259).id,
+                r["\u0275nov"](t, 265).ngClassUntouched,
+                r["\u0275nov"](t, 265).ngClassTouched,
+                r["\u0275nov"](t, 265).ngClassPristine,
+                r["\u0275nov"](t, 265).ngClassDirty,
+                r["\u0275nov"](t, 265).ngClassValid,
+                r["\u0275nov"](t, 265).ngClassInvalid,
+                r["\u0275nov"](t, 265).ngClassPending
               ),
               e(
                 t,
-                265,
+                267,
                 0,
-                r["\u0275nov"](t, 266).id,
-                r["\u0275nov"](t, 272).ngClassUntouched,
-                r["\u0275nov"](t, 272).ngClassTouched,
-                r["\u0275nov"](t, 272).ngClassPristine,
-                r["\u0275nov"](t, 272).ngClassDirty,
-                r["\u0275nov"](t, 272).ngClassValid,
-                r["\u0275nov"](t, 272).ngClassInvalid,
-                r["\u0275nov"](t, 272).ngClassPending
+                r["\u0275nov"](t, 268).id,
+                r["\u0275nov"](t, 274).ngClassUntouched,
+                r["\u0275nov"](t, 274).ngClassTouched,
+                r["\u0275nov"](t, 274).ngClassPristine,
+                r["\u0275nov"](t, 274).ngClassDirty,
+                r["\u0275nov"](t, 274).ngClassValid,
+                r["\u0275nov"](t, 274).ngClassInvalid,
+                r["\u0275nov"](t, 274).ngClassPending
               ),
               e(
                 t,
-                279,
+                281,
                 0,
-                r["\u0275nov"](t, 280).id,
-                r["\u0275nov"](t, 286).ngClassUntouched,
-                r["\u0275nov"](t, 286).ngClassTouched,
-                r["\u0275nov"](t, 286).ngClassPristine,
-                r["\u0275nov"](t, 286).ngClassDirty,
-                r["\u0275nov"](t, 286).ngClassValid,
-                r["\u0275nov"](t, 286).ngClassInvalid,
-                r["\u0275nov"](t, 286).ngClassPending
+                r["\u0275nov"](t, 282).id,
+                r["\u0275nov"](t, 288).ngClassUntouched,
+                r["\u0275nov"](t, 288).ngClassTouched,
+                r["\u0275nov"](t, 288).ngClassPristine,
+                r["\u0275nov"](t, 288).ngClassDirty,
+                r["\u0275nov"](t, 288).ngClassValid,
+                r["\u0275nov"](t, 288).ngClassInvalid,
+                r["\u0275nov"](t, 288).ngClassPending
               ),
               e(
                 t,
-                288,
+                290,
                 0,
-                r["\u0275nov"](t, 289).id,
-                r["\u0275nov"](t, 295).ngClassUntouched,
-                r["\u0275nov"](t, 295).ngClassTouched,
-                r["\u0275nov"](t, 295).ngClassPristine,
-                r["\u0275nov"](t, 295).ngClassDirty,
-                r["\u0275nov"](t, 295).ngClassValid,
-                r["\u0275nov"](t, 295).ngClassInvalid,
-                r["\u0275nov"](t, 295).ngClassPending
+                r["\u0275nov"](t, 291).id,
+                r["\u0275nov"](t, 297).ngClassUntouched,
+                r["\u0275nov"](t, 297).ngClassTouched,
+                r["\u0275nov"](t, 297).ngClassPristine,
+                r["\u0275nov"](t, 297).ngClassDirty,
+                r["\u0275nov"](t, 297).ngClassValid,
+                r["\u0275nov"](t, 297).ngClassInvalid,
+                r["\u0275nov"](t, 297).ngClassPending
               ),
               e(
                 t,
-                297,
+                299,
                 0,
-                r["\u0275nov"](t, 298).id,
-                r["\u0275nov"](t, 304).ngClassUntouched,
-                r["\u0275nov"](t, 304).ngClassTouched,
-                r["\u0275nov"](t, 304).ngClassPristine,
-                r["\u0275nov"](t, 304).ngClassDirty,
-                r["\u0275nov"](t, 304).ngClassValid,
-                r["\u0275nov"](t, 304).ngClassInvalid,
-                r["\u0275nov"](t, 304).ngClassPending
+                r["\u0275nov"](t, 300).id,
+                r["\u0275nov"](t, 306).ngClassUntouched,
+                r["\u0275nov"](t, 306).ngClassTouched,
+                r["\u0275nov"](t, 306).ngClassPristine,
+                r["\u0275nov"](t, 306).ngClassDirty,
+                r["\u0275nov"](t, 306).ngClassValid,
+                r["\u0275nov"](t, 306).ngClassInvalid,
+                r["\u0275nov"](t, 306).ngClassPending
               ),
               e(
                 t,
-                306,
+                308,
                 0,
-                r["\u0275nov"](t, 307).id,
-                r["\u0275nov"](t, 313).ngClassUntouched,
-                r["\u0275nov"](t, 313).ngClassTouched,
-                r["\u0275nov"](t, 313).ngClassPristine,
-                r["\u0275nov"](t, 313).ngClassDirty,
-                r["\u0275nov"](t, 313).ngClassValid,
-                r["\u0275nov"](t, 313).ngClassInvalid,
-                r["\u0275nov"](t, 313).ngClassPending
+                r["\u0275nov"](t, 309).id,
+                r["\u0275nov"](t, 315).ngClassUntouched,
+                r["\u0275nov"](t, 315).ngClassTouched,
+                r["\u0275nov"](t, 315).ngClassPristine,
+                r["\u0275nov"](t, 315).ngClassDirty,
+                r["\u0275nov"](t, 315).ngClassValid,
+                r["\u0275nov"](t, 315).ngClassInvalid,
+                r["\u0275nov"](t, 315).ngClassPending
               ),
               e(
                 t,
-                315,
+                317,
                 0,
-                r["\u0275nov"](t, 316).id,
-                r["\u0275nov"](t, 322).ngClassUntouched,
-                r["\u0275nov"](t, 322).ngClassTouched,
-                r["\u0275nov"](t, 322).ngClassPristine,
-                r["\u0275nov"](t, 322).ngClassDirty,
-                r["\u0275nov"](t, 322).ngClassValid,
-                r["\u0275nov"](t, 322).ngClassInvalid,
-                r["\u0275nov"](t, 322).ngClassPending
+                r["\u0275nov"](t, 318).id,
+                r["\u0275nov"](t, 324).ngClassUntouched,
+                r["\u0275nov"](t, 324).ngClassTouched,
+                r["\u0275nov"](t, 324).ngClassPristine,
+                r["\u0275nov"](t, 324).ngClassDirty,
+                r["\u0275nov"](t, 324).ngClassValid,
+                r["\u0275nov"](t, 324).ngClassInvalid,
+                r["\u0275nov"](t, 324).ngClassPending
               ),
               e(
                 t,
-                334,
+                336,
                 0,
-                r["\u0275nov"](t, 339).ngClassUntouched,
-                r["\u0275nov"](t, 339).ngClassTouched,
-                r["\u0275nov"](t, 339).ngClassPristine,
-                r["\u0275nov"](t, 339).ngClassDirty,
-                r["\u0275nov"](t, 339).ngClassValid,
-                r["\u0275nov"](t, 339).ngClassInvalid,
-                r["\u0275nov"](t, 339).ngClassPending
+                r["\u0275nov"](t, 341).ngClassUntouched,
+                r["\u0275nov"](t, 341).ngClassTouched,
+                r["\u0275nov"](t, 341).ngClassPristine,
+                r["\u0275nov"](t, 341).ngClassDirty,
+                r["\u0275nov"](t, 341).ngClassValid,
+                r["\u0275nov"](t, 341).ngClassInvalid,
+                r["\u0275nov"](t, 341).ngClassPending
               ),
               e(
                 t,
-                375,
+                377,
                 0,
-                r["\u0275nov"](t, 380).ngClassUntouched,
-                r["\u0275nov"](t, 380).ngClassTouched,
-                r["\u0275nov"](t, 380).ngClassPristine,
-                r["\u0275nov"](t, 380).ngClassDirty,
-                r["\u0275nov"](t, 380).ngClassValid,
-                r["\u0275nov"](t, 380).ngClassInvalid,
-                r["\u0275nov"](t, 380).ngClassPending
+                r["\u0275nov"](t, 382).ngClassUntouched,
+                r["\u0275nov"](t, 382).ngClassTouched,
+                r["\u0275nov"](t, 382).ngClassPristine,
+                r["\u0275nov"](t, 382).ngClassDirty,
+                r["\u0275nov"](t, 382).ngClassValid,
+                r["\u0275nov"](t, 382).ngClassInvalid,
+                r["\u0275nov"](t, 382).ngClassPending
               );
           }
         );
       }
-      function Ua(e) {
+      function qa(e) {
         return r["\u0275vid"](
           0,
           [
@@ -84235,14 +84382,14 @@
           }
         );
       }
-      function Ga(e) {
+      function Ka(e) {
         return r["\u0275vid"](
           0,
           [
             r["\u0275qud"](671088640, 1, { release_input: 0 }),
             r["\u0275qud"](671088640, 2, { repo_input: 0 }),
             r["\u0275qud"](671088640, 3, { chart: 0 }),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, va)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ya)),
             r["\u0275did"](
               4,
               16384,
@@ -84253,7 +84400,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ba)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ga)),
             r["\u0275did"](
               6,
               16384,
@@ -84504,7 +84651,7 @@
               null
             )),
             r["\u0275did"](33, 16384, null, 0, it, [], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ua)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, qa)),
             r["\u0275did"](
               35,
               16384,
@@ -84627,7 +84774,7 @@
           null
         );
       }
-      function qa(e) {
+      function Ja(e) {
         return r["\u0275vid"](
           0,
           [
@@ -84643,15 +84790,15 @@
               null,
               null,
               null,
-              Ga,
-              _a
+              Ka,
+              va
             )),
             r["\u0275did"](
               1,
               4440064,
               null,
               0,
-              ga,
+              _a,
               [Mi, Ct, $i, a.DomSanitizer, hr],
               null,
               null
@@ -84663,8 +84810,8 @@
           null
         );
       }
-      var Ka = r["\u0275ccf"]("app-app-manager", ga, qa, {}, {}, []),
-        Ja = (function() {
+      var $a = r["\u0275ccf"]("app-app-manager", _a, Ja, {}, {}, []),
+        Za = (function() {
           function e(e, t, n, r) {
             var i = this;
             (this.expanseService = e),
@@ -84801,7 +84948,7 @@
             e
           );
         })(),
-        $a = r["\u0275crt"]({
+        Qa = r["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -84810,7 +84957,7 @@
           ],
           data: {}
         });
-      function Za(e) {
+      function Xa(e) {
         return r["\u0275vid"](
           0,
           [
@@ -84865,7 +85012,7 @@
           null
         );
       }
-      function Qa(e) {
+      function eu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -84884,7 +85031,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Za)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Xa)),
             r["\u0275did"](
               2,
               16384,
@@ -85132,7 +85279,7 @@
           }
         );
       }
-      function Xa(e) {
+      function tu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -85151,7 +85298,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Qa)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, eu)),
             r["\u0275did"](
               2,
               278528,
@@ -85169,7 +85316,7 @@
           null
         );
       }
-      function eu(e) {
+      function nu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -85208,7 +85355,7 @@
           }
         );
       }
-      function tu(e) {
+      function ru(e) {
         return r["\u0275vid"](
           0,
           [
@@ -85267,7 +85414,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, eu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, nu)),
             r["\u0275did"](
               5,
               16384,
@@ -85458,7 +85605,7 @@
           }
         );
       }
-      function nu(e) {
+      function iu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -85492,7 +85639,7 @@
               gutter: 1,
               isAnimated: 2
             }),
-            (e()(), r["\u0275and"](16777216, null, 0, 1, null, tu)),
+            (e()(), r["\u0275and"](16777216, null, 0, 1, null, ru)),
             r["\u0275did"](
               4,
               278528,
@@ -85512,7 +85659,7 @@
           null
         );
       }
-      function ru(e) {
+      function lu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -85542,7 +85689,7 @@
           null
         );
       }
-      function iu(e) {
+      function ou(e) {
         return r["\u0275vid"](
           0,
           [
@@ -85567,7 +85714,7 @@
           null
         );
       }
-      function lu(e) {
+      function au(e) {
         return r["\u0275vid"](
           0,
           [
@@ -85698,7 +85845,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Xa)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, tu)),
             r["\u0275did"](
               13,
               16384,
@@ -85709,7 +85856,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, nu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, iu)),
             r["\u0275did"](
               15,
               16384,
@@ -85780,7 +85927,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ru)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, lu)),
             r["\u0275did"](
               21,
               16384,
@@ -85791,7 +85938,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, iu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ou)),
             r["\u0275did"](
               23,
               16384,
@@ -85860,7 +86007,7 @@
           null
         );
       }
-      function ou(e) {
+      function uu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -85876,10 +86023,10 @@
               null,
               null,
               null,
-              lu,
-              $a
+              au,
+              Qa
             )),
-            r["\u0275did"](1, 245760, null, 0, Ja, [$i, Ct, Mi, hr], null, null)
+            r["\u0275did"](1, 245760, null, 0, Za, [$i, Ct, Mi, hr], null, null)
           ],
           function(e, t) {
             e(t, 1, 0);
@@ -85887,8 +86034,8 @@
           null
         );
       }
-      var au = r["\u0275ccf"]("app-apps", Ja, ou, {}, {}, []),
-        uu = (function() {
+      var su = r["\u0275ccf"]("app-apps", Za, uu, {}, {}, []),
+        cu = (function() {
           function e(e, t) {
             (this.expanseService = e), (this.appService = t);
           }
@@ -85933,7 +86080,7 @@
             e
           );
         })(),
-        su = r["\u0275crt"]({
+        du = r["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -85942,7 +86089,7 @@
           ],
           data: {}
         });
-      function cu(e) {
+      function hu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -85997,7 +86144,7 @@
           null
         );
       }
-      function du(e) {
+      function fu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -86031,7 +86178,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, cu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, hu)),
             r["\u0275did"](
               3,
               16384,
@@ -86322,7 +86469,7 @@
           }
         );
       }
-      function hu(e) {
+      function pu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -86962,7 +87109,7 @@
             )),
             (e()(), r["\u0275ted"](-1, null, ["add"])),
             (e()(), r["\u0275ted"](-1, null, [" Add App "])),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, du)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, fu)),
             r["\u0275did"](
               55,
               278528,
@@ -87731,7 +87878,7 @@
           }
         );
       }
-      function fu(e) {
+      function mu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -87747,10 +87894,10 @@
               null,
               null,
               null,
-              hu,
-              su
+              pu,
+              du
             )),
-            r["\u0275did"](1, 114688, null, 0, uu, [$i, Ct], null, null)
+            r["\u0275did"](1, 114688, null, 0, cu, [$i, Ct], null, null)
           ],
           function(e, t) {
             e(t, 1, 0);
@@ -87758,8 +87905,8 @@
           null
         );
       }
-      var pu = r["\u0275ccf"]("app-account", uu, fu, {}, {}, []),
-        mu = (function() {
+      var gu = r["\u0275ccf"]("app-account", cu, mu, {}, {}, []),
+        _u = (function() {
           function e(e) {
             (this.lightbox = e), (this.album = []);
           }
@@ -87785,7 +87932,7 @@
             e
           );
         })(),
-        gu = r["\u0275crt"]({
+        vu = r["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -87794,7 +87941,7 @@
           ],
           data: {}
         });
-      function _u(e) {
+      function yu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -89768,7 +89915,7 @@
           null
         );
       }
-      function vu(e) {
+      function bu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -89784,10 +89931,10 @@
               null,
               null,
               null,
-              _u,
-              gu
+              yu,
+              vu
             )),
-            r["\u0275did"](1, 114688, null, 0, mu, [ao.Lightbox], null, null)
+            r["\u0275did"](1, 114688, null, 0, _u, [ao.Lightbox], null, null)
           ],
           function(e, t) {
             e(t, 1, 0);
@@ -89795,8 +89942,8 @@
           null
         );
       }
-      var yu = r["\u0275ccf"]("app-setup-howto", mu, vu, {}, {}, []),
-        bu = (function() {
+      var wu = r["\u0275ccf"]("app-setup-howto", _u, bu, {}, {}, []),
+        Mu = (function() {
           function e(e, t, n) {
             (this.service = e), (this.expanseService = t), (this.router = n);
           }
@@ -89823,7 +89970,7 @@
             e
           );
         })(),
-        wu = r["\u0275crt"]({
+        ku = r["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -89832,7 +89979,7 @@
           ],
           data: {}
         });
-      function Mu(e) {
+      function Du(e) {
         return r["\u0275vid"](
           0,
           [
@@ -90457,7 +90604,7 @@
           }
         );
       }
-      function ku(e) {
+      function Cu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -90473,10 +90620,10 @@
               null,
               null,
               null,
-              Mu,
-              wu
+              Du,
+              ku
             )),
-            r["\u0275did"](1, 114688, null, 0, bu, [Ct, $i, Mi], null, null)
+            r["\u0275did"](1, 114688, null, 0, Mu, [Ct, $i, Mi], null, null)
           ],
           function(e, t) {
             e(t, 1, 0);
@@ -90484,8 +90631,8 @@
           null
         );
       }
-      var Du = r["\u0275ccf"]("app-login", bu, ku, {}, {}, []),
-        Cu = (function() {
+      var xu = r["\u0275ccf"]("app-login", Mu, Cu, {}, {}, []),
+        Lu = (function() {
           function e(e, t) {
             (this.expanseService = e), (this.appService = t);
           }
@@ -90507,7 +90654,7 @@
             e
           );
         })(),
-        xu = r["\u0275crt"]({
+        Su = r["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -90516,7 +90663,7 @@
           ],
           data: {}
         });
-      function Lu(e) {
+      function Tu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -90998,7 +91145,7 @@
           }
         );
       }
-      function Su(e) {
+      function Eu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -91014,10 +91161,10 @@
               null,
               null,
               null,
-              Lu,
-              xu
+              Tu,
+              Su
             )),
-            r["\u0275did"](1, 114688, null, 0, Cu, [$i, Ct], null, null)
+            r["\u0275did"](1, 114688, null, 0, Lu, [$i, Ct], null, null)
           ],
           function(e, t) {
             e(t, 1, 0);
@@ -91025,8 +91172,8 @@
           null
         );
       }
-      var Tu = r["\u0275ccf"]("app-forgot-password", Cu, Su, {}, {}, []),
-        Eu = (function() {
+      var Ou = r["\u0275ccf"]("app-forgot-password", Lu, Eu, {}, {}, []),
+        Iu = (function() {
           function e(e, t, n, r) {
             var i = this;
             (this.router = e),
@@ -91063,7 +91210,7 @@
             e
           );
         })(),
-        Ou = r["\u0275crt"]({
+        Yu = r["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -91072,7 +91219,7 @@
           ],
           data: {}
         });
-      function Iu(e) {
+      function Ru(e) {
         return r["\u0275vid"](
           0,
           [
@@ -91703,7 +91850,7 @@
           }
         );
       }
-      function Yu(e) {
+      function Au(e) {
         return r["\u0275vid"](
           0,
           [
@@ -91719,10 +91866,10 @@
               null,
               null,
               null,
-              Iu,
-              Ou
+              Ru,
+              Yu
             )),
-            r["\u0275did"](1, 114688, null, 0, Eu, [Mi, hr, $i, Ct], null, null)
+            r["\u0275did"](1, 114688, null, 0, Iu, [Mi, hr, $i, Ct], null, null)
           ],
           function(e, t) {
             e(t, 1, 0);
@@ -91730,8 +91877,8 @@
           null
         );
       }
-      var Ru = r["\u0275ccf"]("app-reset-password", Eu, Yu, {}, {}, []),
-        Au = (function() {
+      var Pu = r["\u0275ccf"]("app-reset-password", Iu, Au, {}, {}, []),
+        ju = (function() {
           function e(e, t, n) {
             (this.expanseService = e), (this.service = t), (this.router = n);
           }
@@ -91797,7 +91944,7 @@
             e
           );
         })(),
-        Pu = r["\u0275crt"]({
+        Nu = r["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -91806,7 +91953,7 @@
           ],
           data: {}
         });
-      function ju(e) {
+      function Fu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -92866,7 +93013,7 @@
           }
         );
       }
-      function Nu(e) {
+      function Hu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -92882,10 +93029,10 @@
               null,
               null,
               null,
-              ju,
-              Pu
+              Fu,
+              Nu
             )),
-            r["\u0275did"](1, 114688, null, 0, Au, [$i, Ct, Mi], null, null)
+            r["\u0275did"](1, 114688, null, 0, ju, [$i, Ct, Mi], null, null)
           ],
           function(e, t) {
             e(t, 1, 0);
@@ -92893,15 +93040,15 @@
           null
         );
       }
-      var Fu = r["\u0275ccf"]("app-sign-up", Au, Nu, {}, {}, []),
-        Hu = r["\u0275crt"]({
+      var Vu = r["\u0275ccf"]("app-sign-up", ju, Hu, {}, {}, []),
+        zu = r["\u0275crt"]({
           encapsulation: 2,
           styles: [
             '.md-drppicker{position:absolute;font-family:Roboto,sans-serif;color:inherit;border-radius:4px;width:278px;padding:4px;margin-top:-10px;overflow:hidden;z-index:1000;font-size:14px;background-color:#fff;box-shadow:0 2px 4px 0 rgba(0,0,0,.16),0 2px 8px 0 rgba(0,0,0,.12)}.md-drppicker.double{width:auto}.md-drppicker.inline{position:relative;display:inline-block}.md-drppicker:after,.md-drppicker:before{position:absolute;display:inline-block;border-bottom-color:rgba(0,0,0,.2);content:""}.md-drppicker.openscenter:after,.md-drppicker.openscenter:before{left:0;right:0;width:0;margin-left:auto;margin-right:auto}.md-drppicker.single .calendar,.md-drppicker.single .ranges{float:none}.md-drppicker.shown{-webkit-transform:scale(1);transform:scale(1);-webkit-transition:.1s ease-in-out;transition:.1s ease-in-out;-webkit-transform-origin:0 0;transform-origin:0 0;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.md-drppicker.shown.drops-up-left{-webkit-transform-origin:100% 100%;transform-origin:100% 100%}.md-drppicker.shown.drops-up-right{-webkit-transform-origin:0 100%;transform-origin:0 100%}.md-drppicker.shown.drops-down-left{-webkit-transform-origin:100% 0;transform-origin:100% 0}.md-drppicker.shown.drops-down-right{-webkit-transform-origin:0 0;transform-origin:0 0}.md-drppicker.shown.drops-down-center{-webkit-transform-origin:NaN%;transform-origin:NaN%}.md-drppicker.shown.drops-up-center{-webkit-transform-origin:50%;transform-origin:50%}.md-drppicker.shown .calendar{display:block}.md-drppicker.hidden{-webkit-transition:.1s;transition:.1s;-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:0 0;transform-origin:0 0;cursor:default;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.md-drppicker.hidden.drops-up-left{-webkit-transform-origin:100% 100%;transform-origin:100% 100%}.md-drppicker.hidden.drops-up-right{-webkit-transform-origin:0 100%;transform-origin:0 100%}.md-drppicker.hidden.drops-down-left{-webkit-transform-origin:100% 0;transform-origin:100% 0}.md-drppicker.hidden.drops-down-right{-webkit-transform-origin:0 0;transform-origin:0 0}.md-drppicker.hidden.drops-down-center{-webkit-transform-origin:NaN%;transform-origin:NaN%}.md-drppicker.hidden.drops-up-center{-webkit-transform-origin:50%;transform-origin:50%}.md-drppicker.hidden .calendar{display:none}.md-drppicker .calendar{max-width:270px;margin:4px}.md-drppicker .calendar.single .calendar-table{border:none}.md-drppicker .calendar td,.md-drppicker .calendar th{padding:0;white-space:nowrap;text-align:center;min-width:32px}.md-drppicker .calendar td span,.md-drppicker .calendar th span{pointer-events:none}.md-drppicker .calendar-table{border:1px solid #fff;padding:4px;border-radius:4px;background-color:#fff}.md-drppicker table{width:100%;margin:0}.md-drppicker th{color:#988c8c}.md-drppicker td,.md-drppicker th{text-align:center;border-radius:4px;border:1px solid transparent;white-space:nowrap;cursor:pointer;height:2em;width:2em}.md-drppicker td.available.prev,.md-drppicker th.available.prev{display:block;background-image:url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMy43IDYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMuNyA2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGQ9Ik0zLjcsMC43TDEuNCwzbDIuMywyLjNMMyw2TDAsM2wzLTNMMy43LDAuN3oiLz4NCjwvZz4NCjwvc3ZnPg0K);background-repeat:no-repeat;background-size:.5em;background-position:center;opacity:.8;-webkit-transition:background-color .2s;transition:background-color .2s;border-radius:2em}.md-drppicker td.available.prev:hover,.md-drppicker th.available.prev:hover{margin:0}.md-drppicker td.available.next,.md-drppicker th.available.next{-webkit-transform:rotate(180deg);transform:rotate(180deg);display:block;background-image:url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMy43IDYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMuNyA2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGQ9Ik0zLjcsMC43TDEuNCwzbDIuMywyLjNMMyw2TDAsM2wzLTNMMy43LDAuN3oiLz4NCjwvZz4NCjwvc3ZnPg0K);background-repeat:no-repeat;background-size:.5em;background-position:center;opacity:.8;-webkit-transition:background-color .2s;transition:background-color .2s;border-radius:2em}.md-drppicker td.available.next:hover,.md-drppicker th.available.next:hover{margin:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.md-drppicker td.available:hover,.md-drppicker th.available:hover{background-color:#eee;border-color:transparent;color:inherit;background-repeat:no-repeat;background-size:.5em;background-position:center;margin:.25em 0;opacity:.8;border-radius:2em;-webkit-transform:scale(1);transform:scale(1);-webkit-transition:450ms cubic-bezier(.23,1,.32,1);transition:450ms cubic-bezier(.23,1,.32,1)}.md-drppicker td.week,.md-drppicker th.week{font-size:80%;color:#ccc}.md-drppicker td{margin:.25em 0;opacity:.8;-webkit-transition:450ms cubic-bezier(.23,1,.32,1);transition:450ms cubic-bezier(.23,1,.32,1);border-radius:2em;-webkit-transform:scale(1);transform:scale(1)}.md-drppicker td.off,.md-drppicker td.off.end-date,.md-drppicker td.off.in-range,.md-drppicker td.off.start-date{background-color:#fff;border-color:transparent;color:#999}.md-drppicker td.in-range{background-color:#dde2e4;border-color:transparent;color:#000;border-radius:0}.md-drppicker td.start-date{border-radius:2em 0 0 2em}.md-drppicker td.end-date{border-radius:0 2em 2em 0}.md-drppicker td.start-date.end-date{border-radius:4px}.md-drppicker td.active{-webkit-transition:background .3s ease-out;transition:background .3s ease-out;background:rgba(0,0,0,.1)}.md-drppicker td.active,.md-drppicker td.active:hover{background-color:#3f51b5;border-color:transparent;color:#fff}.md-drppicker th.month{width:auto}.md-drppicker option.disabled,.md-drppicker td.disabled{color:#999;cursor:not-allowed;text-decoration:line-through}.md-drppicker .dropdowns{background-repeat:no-repeat;background-size:10px;background-position-y:center;background-position-x:right;width:50px;background-image:url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDI1NSAyNTUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI1NSAyNTU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0iYXJyb3ctZHJvcC1kb3duIj4KCQk8cG9seWdvbiBwb2ludHM9IjAsNjMuNzUgMTI3LjUsMTkxLjI1IDI1NSw2My43NSAgICIgZmlsbD0iIzk4OGM4YyIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=)}.md-drppicker .dropdowns select{display:inline-block;background-color:rgba(255,255,255,.9);width:100%;padding:5px;border:1px solid #f2f2f2;border-radius:2px;height:3rem}.md-drppicker .dropdowns select.ampmselect,.md-drppicker .dropdowns select.hourselect,.md-drppicker .dropdowns select.minuteselect,.md-drppicker .dropdowns select.secondselect{width:50px;margin:0 auto;background:#eee;border:1px solid #eee;padding:2px;outline:0;font-size:12px}.md-drppicker .dropdowns select.monthselect,.md-drppicker .dropdowns select.yearselect{font-size:12px;height:auto;cursor:pointer;opacity:0;position:absolute;top:0;left:0;margin:0;padding:0}.md-drppicker th.month>div{position:relative;display:inline-block}.md-drppicker .calendar-time{text-align:center;margin:4px auto 0;line-height:30px;position:relative}.md-drppicker .calendar-time .select{display:inline}.md-drppicker .calendar-time .select .select-item{display:inline-block;width:auto;position:relative;font-family:inherit;background-color:transparent;padding:10px 10px 10px 0;font-size:18px;border-radius:0;border:none;border-bottom:1px solid rgba(0,0,0,.12)}.md-drppicker .calendar-time .select .select-item:after{position:absolute;top:18px;right:10px;width:0;height:0;padding:0;content:"";border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid rgba(0,0,0,.12);pointer-events:none}.md-drppicker .calendar-time .select .select-item:focus{outline:0}.md-drppicker .calendar-time .select .select-item .select-label{color:rgba(0,0,0,.26);font-size:16px;font-weight:400;position:absolute;pointer-events:none;left:0;top:10px;-webkit-transition:.2s;transition:.2s}.md-drppicker .calendar-time select.disabled{color:#ccc;cursor:not-allowed}.md-drppicker .label-input{border:1px solid #ccc;border-radius:4px;color:#555;height:30px;line-height:30px;display:block;vertical-align:middle;margin:0 auto 5px;padding:0 0 0 28px;width:100%}.md-drppicker .label-input.active{border:1px solid #08c;border-radius:4px}.md-drppicker .md-drppicker_input{position:relative;padding:0 30px 0 0}.md-drppicker .md-drppicker_input i,.md-drppicker .md-drppicker_input svg{position:absolute;left:8px;top:8px}.md-drppicker.rtl .label-input{padding-right:28px;padding-left:6px}.md-drppicker.rtl .md-drppicker_input i,.md-drppicker.rtl .md-drppicker_input svg{left:auto;right:8px}.md-drppicker .show-ranges .drp-calendar.left{border-left:1px solid #ddd}.md-drppicker .ranges{float:none;text-align:left;margin:0}.md-drppicker .ranges ul{list-style:none;margin:0 auto;padding:0;width:100%}.md-drppicker .ranges ul li{font-size:12px}.md-drppicker .ranges ul li button{padding:8px 12px;width:100%;background:0 0;border:none;text-align:left;cursor:pointer}.md-drppicker .ranges ul li button.active{background-color:#3f51b5;color:#fff}.md-drppicker .ranges ul li button[disabled]{opacity:.3}.md-drppicker .ranges ul li button:active{background:0 0}.md-drppicker .ranges ul li:hover{background-color:#eee}.md-drppicker .show-calendar .ranges{margin-top:8px}.md-drppicker [hidden]{display:none}.md-drppicker .buttons{text-align:right;margin:0 5px 5px 0}.md-drppicker .btn{position:relative;overflow:hidden;border-width:0;outline:0;padding:0 6px;cursor:pointer;border-radius:2px;box-shadow:0 1px 4px rgba(0,0,0,.6);background-color:#3f51b5;color:#ecf0f1;-webkit-transition:background-color .4s;transition:background-color .4s;height:auto;text-transform:uppercase;line-height:36px;border:none}.md-drppicker .btn:focus,.md-drppicker .btn:hover{background-color:#3f51b5}.md-drppicker .btn>*{position:relative}.md-drppicker .btn span{display:block;padding:12px 24px}.md-drppicker .btn:before{content:"";position:absolute;top:50%;left:50%;display:block;width:0;padding-top:0;border-radius:100%;background-color:rgba(236,240,241,.3);-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.md-drppicker .btn:active:before{width:120%;padding-top:120%;-webkit-transition:width .2s ease-out,padding-top .2s ease-out;transition:width .2s ease-out,padding-top .2s ease-out}.md-drppicker .btn:disabled{opacity:.5}.md-drppicker .btn.btn-default{color:#000;background-color:#dcdcdc}.md-drppicker .clear{box-shadow:none;background-color:#fff!important}.md-drppicker .clear svg{color:#eb3232;fill:currentColor}@media (min-width:564px){.md-drppicker{width:auto}.md-drppicker.single .calendar.left{clear:none}.md-drppicker.ltr{direction:ltr;text-align:left}.md-drppicker.ltr .calendar.left{clear:left}.md-drppicker.ltr .calendar.left .calendar-table{border-right:none;border-top-right-radius:0;border-bottom-right-radius:0;padding-right:12px}.md-drppicker.ltr .calendar.right{margin-left:0}.md-drppicker.ltr .calendar.right .calendar-table{border-left:none;border-top-left-radius:0;border-bottom-left-radius:0}.md-drppicker.ltr .left .md-drppicker_input,.md-drppicker.ltr .right .md-drppicker_input{padding-right:35px}.md-drppicker.ltr .calendar,.md-drppicker.ltr .ranges{float:left}.md-drppicker.rtl{direction:rtl;text-align:right}.md-drppicker.rtl .calendar.left{clear:right;margin-left:0}.md-drppicker.rtl .calendar.left .calendar-table{border-left:none;border-top-left-radius:0;border-bottom-left-radius:0}.md-drppicker.rtl .calendar.right{margin-right:0}.md-drppicker.rtl .calendar.right .calendar-table{border-right:none;border-top-right-radius:0;border-bottom-right-radius:0}.md-drppicker.rtl .calendar.left .calendar-table,.md-drppicker.rtl .left .md-drppicker_input{padding-left:12px}.md-drppicker.rtl .calendar,.md-drppicker.rtl .ranges{text-align:right;float:right}.drp-animate{-webkit-transform:translate(0);transform:translate(0);-webkit-transition:opacity .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s,-webkit-transform .2s}.drp-animate.drp-picker-site-this{-webkit-transition-timing-function:linear;transition-timing-function:linear}.drp-animate.drp-animate-right{-webkit-transform:translateX(10%);transform:translateX(10%);opacity:0}.drp-animate.drp-animate-left{-webkit-transform:translateX(-10%);transform:translateX(-10%);opacity:0}}@media (min-width:730px){.md-drppicker .ranges{width:auto}.md-drppicker.ltr .ranges{float:left}.md-drppicker.rtl .ranges{float:right}.md-drppicker .calendar.left{clear:none!important}}'
           ],
           data: {}
         });
-      function Vu(e) {
+      function Wu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -92974,7 +93121,7 @@
           }
         );
       }
-      function zu(e) {
+      function Bu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -92998,7 +93145,7 @@
           null
         );
       }
-      function Wu(e) {
+      function Uu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93045,7 +93192,7 @@
           null
         );
       }
-      function Bu(e) {
+      function Gu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93084,7 +93231,7 @@
           null
         );
       }
-      function Uu(e) {
+      function qu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93147,7 +93294,7 @@
           }
         );
       }
-      function Gu(e) {
+      function Ku(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93201,7 +93348,7 @@
           }
         );
       }
-      function qu(e) {
+      function Ju(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93259,7 +93406,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Uu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, qu)),
             r["\u0275did"](
               5,
               278528,
@@ -93309,7 +93456,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Gu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ku)),
             r["\u0275did"](
               10,
               278528,
@@ -93353,7 +93500,7 @@
           }
         );
       }
-      function Ku(e) {
+      function $u(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93397,7 +93544,7 @@
           }
         );
       }
-      function Ju(e) {
+      function Zu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93444,7 +93591,7 @@
           null
         );
       }
-      function $u(e) {
+      function Qu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93483,7 +93630,7 @@
           null
         );
       }
-      function Zu(e) {
+      function Xu(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93525,7 +93672,7 @@
           }
         );
       }
-      function Qu(e) {
+      function es(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93567,7 +93714,7 @@
           }
         );
       }
-      function Xu(e) {
+      function ts(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93616,7 +93763,7 @@
           }
         );
       }
-      function es(e) {
+      function ns(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93665,7 +93812,7 @@
           }
         );
       }
-      function ts(e) {
+      function rs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93738,7 +93885,7 @@
           }
         );
       }
-      function ns(e) {
+      function is(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93757,7 +93904,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Xu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ts)),
             r["\u0275did"](
               2,
               16384,
@@ -93768,7 +93915,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, es)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ns)),
             r["\u0275did"](
               4,
               16384,
@@ -93779,7 +93926,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ts)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, rs)),
             r["\u0275did"](
               6,
               278528,
@@ -93808,7 +93955,7 @@
           }
         );
       }
-      function rs(e) {
+      function ls(e) {
         return r["\u0275vid"](
           0,
           [
@@ -93857,7 +94004,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, zu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Bu)),
             r["\u0275did"](
               4,
               16384,
@@ -93868,7 +94015,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Wu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Uu)),
             r["\u0275did"](
               6,
               16384,
@@ -93879,7 +94026,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Bu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Gu)),
             r["\u0275did"](
               8,
               16384,
@@ -93905,7 +94052,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, qu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ju)),
             r["\u0275did"](
               11,
               16384,
@@ -93916,7 +94063,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ku)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, $u)),
             r["\u0275did"](
               13,
               16384,
@@ -93927,7 +94074,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ju)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Zu)),
             r["\u0275did"](
               15,
               16384,
@@ -93938,7 +94085,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, $u)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Qu)),
             r["\u0275did"](
               17,
               16384,
@@ -93964,7 +94111,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Zu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Xu)),
             r["\u0275did"](
               20,
               16384,
@@ -93975,7 +94122,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Qu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, es)),
             r["\u0275did"](
               22,
               278528,
@@ -94001,7 +94148,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ns)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, is)),
             r["\u0275did"](
               25,
               278528,
@@ -94078,7 +94225,7 @@
           null
         );
       }
-      function is(e) {
+      function os(e) {
         return r["\u0275vid"](
           0,
           [
@@ -94135,7 +94282,7 @@
           }
         );
       }
-      function ls(e) {
+      function as(e) {
         return r["\u0275vid"](
           0,
           [
@@ -94198,7 +94345,7 @@
           }
         );
       }
-      function os(e) {
+      function us(e) {
         return r["\u0275vid"](
           0,
           [
@@ -94261,7 +94408,7 @@
           }
         );
       }
-      function as(e) {
+      function ss(e) {
         return r["\u0275vid"](
           0,
           [
@@ -94337,7 +94484,7 @@
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
             r["\u0275did"](5, 16384, null, 0, y, [[4, v]], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, os)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, us)),
             r["\u0275did"](
               7,
               278528,
@@ -94370,7 +94517,7 @@
           }
         );
       }
-      function us(e) {
+      function cs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -94544,7 +94691,7 @@
           }
         );
       }
-      function ss(e) {
+      function ds(e) {
         return r["\u0275vid"](
           0,
           [
@@ -94650,7 +94797,7 @@
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
             r["\u0275did"](7, 16384, null, 0, y, [[4, v]], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, is)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, os)),
             r["\u0275did"](
               9,
               278528,
@@ -94748,7 +94895,7 @@
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
             r["\u0275did"](16, 16384, null, 0, y, [[4, v]], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ls)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, as)),
             r["\u0275did"](
               18,
               278528,
@@ -94804,7 +94951,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, as)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ss)),
             r["\u0275did"](
               23,
               16384,
@@ -94860,7 +95007,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, us)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, cs)),
             r["\u0275did"](
               28,
               16384,
@@ -94945,7 +95092,7 @@
           }
         );
       }
-      function cs(e) {
+      function hs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -94997,7 +95144,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, rs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ls)),
             r["\u0275did"](
               6,
               16384,
@@ -95008,7 +95155,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ss)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ds)),
             r["\u0275did"](
               8,
               16384,
@@ -95030,7 +95177,7 @@
           null
         );
       }
-      function ds(e) {
+      function fs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95054,7 +95201,7 @@
           null
         );
       }
-      function hs(e) {
+      function ps(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95101,7 +95248,7 @@
           null
         );
       }
-      function fs(e) {
+      function ms(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95140,7 +95287,7 @@
           null
         );
       }
-      function ps(e) {
+      function gs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95203,7 +95350,7 @@
           }
         );
       }
-      function ms(e) {
+      function _s(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95257,7 +95404,7 @@
           }
         );
       }
-      function gs(e) {
+      function vs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95315,7 +95462,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ps)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, gs)),
             r["\u0275did"](
               5,
               278528,
@@ -95365,7 +95512,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ms)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, _s)),
             r["\u0275did"](
               10,
               278528,
@@ -95409,7 +95556,7 @@
           }
         );
       }
-      function _s(e) {
+      function ys(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95453,7 +95600,7 @@
           }
         );
       }
-      function vs(e) {
+      function bs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95500,7 +95647,7 @@
           null
         );
       }
-      function ys(e) {
+      function ws(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95539,7 +95686,7 @@
           null
         );
       }
-      function bs(e) {
+      function Ms(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95581,7 +95728,7 @@
           }
         );
       }
-      function ws(e) {
+      function ks(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95623,7 +95770,7 @@
           }
         );
       }
-      function Ms(e) {
+      function Ds(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95672,7 +95819,7 @@
           }
         );
       }
-      function ks(e) {
+      function Cs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95721,7 +95868,7 @@
           }
         );
       }
-      function Ds(e) {
+      function xs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95794,7 +95941,7 @@
           }
         );
       }
-      function Cs(e) {
+      function Ls(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95813,7 +95960,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ms)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ds)),
             r["\u0275did"](
               2,
               16384,
@@ -95824,7 +95971,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ks)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Cs)),
             r["\u0275did"](
               4,
               16384,
@@ -95835,7 +95982,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ds)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, xs)),
             r["\u0275did"](
               6,
               278528,
@@ -95864,7 +96011,7 @@
           }
         );
       }
-      function xs(e) {
+      function Ss(e) {
         return r["\u0275vid"](
           0,
           [
@@ -95913,7 +96060,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ds)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, fs)),
             r["\u0275did"](
               4,
               16384,
@@ -95924,7 +96071,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, hs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ps)),
             r["\u0275did"](
               6,
               16384,
@@ -95935,7 +96082,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, fs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ms)),
             r["\u0275did"](
               8,
               16384,
@@ -95961,7 +96108,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, gs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, vs)),
             r["\u0275did"](
               11,
               16384,
@@ -95972,7 +96119,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, _s)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ys)),
             r["\u0275did"](
               13,
               16384,
@@ -95983,7 +96130,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, vs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, bs)),
             r["\u0275did"](
               15,
               16384,
@@ -95994,7 +96141,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ys)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ws)),
             r["\u0275did"](
               17,
               16384,
@@ -96020,7 +96167,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, bs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ms)),
             r["\u0275did"](
               20,
               16384,
@@ -96031,7 +96178,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ws)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ks)),
             r["\u0275did"](
               22,
               278528,
@@ -96057,7 +96204,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Cs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ls)),
             r["\u0275did"](
               25,
               278528,
@@ -96134,7 +96281,7 @@
           null
         );
       }
-      function Ls(e) {
+      function Ts(e) {
         return r["\u0275vid"](
           0,
           [
@@ -96191,7 +96338,7 @@
           }
         );
       }
-      function Ss(e) {
+      function Es(e) {
         return r["\u0275vid"](
           0,
           [
@@ -96254,7 +96401,7 @@
           }
         );
       }
-      function Ts(e) {
+      function Os(e) {
         return r["\u0275vid"](
           0,
           [
@@ -96317,7 +96464,7 @@
           }
         );
       }
-      function Es(e) {
+      function Is(e) {
         return r["\u0275vid"](
           0,
           [
@@ -96393,7 +96540,7 @@
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
             r["\u0275did"](5, 16384, null, 0, y, [[4, v]], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ts)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Os)),
             r["\u0275did"](
               7,
               278528,
@@ -96426,7 +96573,7 @@
           }
         );
       }
-      function Os(e) {
+      function Ys(e) {
         return r["\u0275vid"](
           0,
           [
@@ -96600,7 +96747,7 @@
           }
         );
       }
-      function Is(e) {
+      function Rs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -96706,7 +96853,7 @@
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
             r["\u0275did"](7, 16384, null, 0, y, [[4, v]], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ls)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ts)),
             r["\u0275did"](
               9,
               278528,
@@ -96834,7 +96981,7 @@
             ),
             r["\u0275prd"](2048, null, v, null, [ue]),
             r["\u0275did"](18, 16384, null, 0, y, [[4, v]], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ss)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Es)),
             r["\u0275did"](
               20,
               278528,
@@ -96890,7 +97037,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Es)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Is)),
             r["\u0275did"](
               25,
               16384,
@@ -96946,7 +97093,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Os)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ys)),
             r["\u0275did"](
               30,
               16384,
@@ -97031,7 +97178,7 @@
           }
         );
       }
-      function Ys(e) {
+      function As(e) {
         return r["\u0275vid"](
           0,
           [
@@ -97065,7 +97212,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, xs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ss)),
             r["\u0275did"](
               3,
               16384,
@@ -97076,7 +97223,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Is)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Rs)),
             r["\u0275did"](
               5,
               16384,
@@ -97095,7 +97242,7 @@
           null
         );
       }
-      function Rs(e) {
+      function Ps(e) {
         return r["\u0275vid"](
           0,
           [
@@ -97168,7 +97315,7 @@
           }
         );
       }
-      function As(e) {
+      function js(e) {
         return r["\u0275vid"](
           0,
           [
@@ -97201,7 +97348,7 @@
           }
         );
       }
-      function Ps(e) {
+      function Ns(e) {
         return r["\u0275vid"](
           0,
           [
@@ -97235,7 +97382,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Rs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ps)),
             r["\u0275did"](
               3,
               16384,
@@ -97246,7 +97393,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, As)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, js)),
             r["\u0275did"](
               5,
               16384,
@@ -97290,7 +97437,7 @@
           }
         );
       }
-      function js(e) {
+      function Fs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -97366,7 +97513,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Vu)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Wu)),
             r["\u0275did"](
               8,
               278528,
@@ -97377,7 +97524,7 @@
               { ngForOf: [0, "ngForOf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, cs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, hs)),
             r["\u0275did"](
               10,
               16384,
@@ -97388,7 +97535,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ys)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, As)),
             r["\u0275did"](
               12,
               16384,
@@ -97399,7 +97546,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ps)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ns)),
             r["\u0275did"](
               14,
               16384,
@@ -97442,7 +97589,7 @@
           null
         );
       }
-      function Ns(e) {
+      function Hs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -97466,8 +97613,8 @@
                   i
                 );
               },
-              js,
-              Hu
+              Fs,
+              zu
             )),
             r["\u0275prd"](
               5120,
@@ -97476,15 +97623,15 @@
               function(e) {
                 return [e];
               },
-              [Ko]
+              [Jo]
             ),
             r["\u0275did"](
               2,
               114688,
               null,
               0,
-              Ko,
-              [r.ElementRef, r.ChangeDetectorRef, Uo],
+              Jo,
+              [r.ElementRef, r.ChangeDetectorRef, Go],
               null,
               null
             )
@@ -97495,10 +97642,10 @@
           null
         );
       }
-      var Fs = r["\u0275ccf"](
+      var Vs = r["\u0275ccf"](
           "ngx-daterangepicker-material",
-          Ko,
-          Ns,
+          Jo,
+          Hs,
           {
             dateLimit: "dateLimit",
             minDate: "minDate",
@@ -97542,13 +97689,13 @@
           },
           []
         ),
-        Hs = n("E1+c"),
-        Vs = n("0NUV"),
-        zs = r["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
-      function Ws(e) {
+        zs = n("E1+c"),
+        Ws = n("0NUV"),
+        Bs = r["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
+      function Us(e) {
         return r["\u0275vid"](0, [], null, null);
       }
-      function Bs(e) {
+      function Gs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -97573,16 +97720,16 @@
                   i
                 );
               },
-              Ws,
-              zs
+              Us,
+              Bs
             )),
             r["\u0275did"](
               1,
               4374528,
               null,
               0,
-              Hs.LightboxOverlayComponent,
-              [r.ElementRef, r.Renderer, Vs.LightboxEvent, o.DOCUMENT],
+              zs.LightboxOverlayComponent,
+              [r.ElementRef, r.Renderer, Ws.LightboxEvent, o.DOCUMENT],
               null,
               null
             )
@@ -97593,17 +97740,17 @@
           }
         );
       }
-      var Us = r["\u0275ccf"](
+      var qs = r["\u0275ccf"](
           "[lb-overlay]",
-          Hs.LightboxOverlayComponent,
-          Bs,
+          zs.LightboxOverlayComponent,
+          Gs,
           { options: "options", cmpRef: "cmpRef" },
           {},
           []
         ),
-        Gs = n("kmun"),
-        qs = r["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
-      function Ks(e) {
+        Ks = n("kmun"),
+        Js = r["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
+      function $s(e) {
         return r["\u0275vid"](
           0,
           [
@@ -97884,7 +98031,7 @@
           }
         );
       }
-      function Js(e) {
+      function Zs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -97907,21 +98054,21 @@
                   i
                 );
               },
-              Ks,
-              qs
+              $s,
+              Js
             )),
             r["\u0275did"](
               1,
               4440064,
               null,
               0,
-              Gs.LightboxComponent,
+              Ks.LightboxComponent,
               [
                 r.ElementRef,
                 r.Renderer,
-                Vs.LightboxEvent,
+                Ws.LightboxEvent,
                 r.ElementRef,
-                Vs.LightboxWindowRef,
+                Ws.LightboxWindowRef,
                 a.DomSanitizer,
                 o.DOCUMENT
               ],
@@ -97937,10 +98084,10 @@
           }
         );
       }
-      var $s = r["\u0275ccf"](
+      var Qs = r["\u0275ccf"](
           "[lb-content]",
-          Gs.LightboxComponent,
-          Js,
+          Ks.LightboxComponent,
+          Zs,
           {
             album: "album",
             currentImageIndex: "currentImageIndex",
@@ -97950,7 +98097,7 @@
           {},
           []
         ),
-        Zs = r["\u0275crt"]({
+        Xs = r["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -97959,7 +98106,7 @@
           ],
           data: {}
         });
-      function Qs(e) {
+      function ec(e) {
         return r["\u0275vid"](
           0,
           [
@@ -98032,7 +98179,7 @@
           null
         );
       }
-      function Xs(e) {
+      function tc(e) {
         return r["\u0275vid"](
           0,
           [
@@ -98096,7 +98243,7 @@
           null
         );
       }
-      function ec(e) {
+      function nc(e) {
         return r["\u0275vid"](
           0,
           [
@@ -98179,7 +98326,7 @@
           }
         );
       }
-      function tc(e) {
+      function rc(e) {
         return r["\u0275vid"](
           0,
           [
@@ -98229,7 +98376,7 @@
           null
         );
       }
-      function nc(e) {
+      function ic(e) {
         return r["\u0275vid"](
           0,
           [
@@ -98485,7 +98632,7 @@
               null
             ),
             (e()(), r["\u0275ted"](-1, null, ["News & Events"])),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Qs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, ec)),
             r["\u0275did"](
               28,
               16384,
@@ -98496,7 +98643,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Xs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, tc)),
             r["\u0275did"](
               30,
               16384,
@@ -98507,7 +98654,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, ec)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, nc)),
             r["\u0275did"](
               32,
               16384,
@@ -98518,7 +98665,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, tc)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, rc)),
             r["\u0275did"](
               34,
               16384,
@@ -99065,7 +99212,7 @@
           }
         );
       }
-      function rc(e) {
+      function lc(e) {
         return r["\u0275vid"](
           0,
           [
@@ -99081,8 +99228,8 @@
               null,
               null,
               null,
-              nc,
-              Zs
+              ic,
+              Xs
             )),
             r["\u0275did"](
               1,
@@ -99099,9 +99246,9 @@
           null
         );
       }
-      var ic = r["\u0275ccf"]("app-root", Zi, rc, {}, {}, []),
-        lc = n("luWi"),
-        oc = (function() {
+      var oc = r["\u0275ccf"]("app-root", Zi, lc, {}, {}, []),
+        ac = n("luWi"),
+        uc = (function() {
           function e(e, t) {
             var n = this;
             (this.router = e),
@@ -99121,7 +99268,7 @@
             e
           );
         })(),
-        ac = (function() {
+        sc = (function() {
           function e(e, t, n) {
             var r = this;
             (this.router = e),
@@ -99146,11 +99293,11 @@
             e
           );
         })(),
-        uc = (function() {
+        cc = (function() {
           return function() {};
         })(),
-        sc = n("iAM3"),
-        cc = r["\u0275cmf"](i, [Zi], function(e) {
+        dc = n("iAM3"),
+        hc = r["\u0275cmf"](i, [Zi], function(e) {
           return r["\u0275mod"]([
             r["\u0275mpd"](
               512,
@@ -99164,19 +99311,19 @@
                     xl,
                     Al,
                     Hl,
-                    Ho,
-                    Ka,
-                    au,
-                    pu,
-                    yu,
-                    Du,
-                    Tu,
-                    Ru,
-                    Fu,
-                    Fs,
-                    Us,
-                    $s,
-                    ic
+                    Vo,
+                    $a,
+                    su,
+                    gu,
+                    wu,
+                    xu,
+                    Ou,
+                    Pu,
+                    Vu,
+                    Vs,
+                    qs,
+                    Qs,
+                    oc
                   ]
                 ],
                 [3, r.ComponentFactoryResolver],
@@ -99301,25 +99448,25 @@
             r["\u0275mpd"](4608, at, at, [ze]),
             r["\u0275mpd"](4608, T, T, []),
             r["\u0275mpd"](4608, de, de, []),
-            r["\u0275mpd"](4608, lc.LightboxConfig, lc.LightboxConfig, []),
-            r["\u0275mpd"](4608, Vs.LightboxEvent, Vs.LightboxEvent, []),
+            r["\u0275mpd"](4608, ac.LightboxConfig, ac.LightboxConfig, []),
+            r["\u0275mpd"](4608, Ws.LightboxEvent, Ws.LightboxEvent, []),
             r["\u0275mpd"](4608, ao.Lightbox, ao.Lightbox, [
               r.ComponentFactoryResolver,
               r.Injector,
               r.ApplicationRef,
-              lc.LightboxConfig,
-              Vs.LightboxEvent,
+              ac.LightboxConfig,
+              Ws.LightboxEvent,
               o.DOCUMENT
             ]),
             r["\u0275mpd"](
               4608,
-              Vs.LightboxWindowRef,
-              Vs.LightboxWindowRef,
+              Ws.LightboxWindowRef,
+              Ws.LightboxWindowRef,
               []
             ),
-            r["\u0275mpd"](4608, Uo, Uo, [Wo]),
-            r["\u0275mpd"](4608, oc, oc, [Mi, Ct]),
-            r["\u0275mpd"](4608, ac, ac, [Mi, Ct, $i]),
+            r["\u0275mpd"](4608, Go, Go, [Bo]),
+            r["\u0275mpd"](4608, uc, uc, [Mi, Ct]),
+            r["\u0275mpd"](4608, sc, sc, [Mi, Ct, $i]),
             r["\u0275mpd"](1073742336, o.CommonModule, o.CommonModule, []),
             r["\u0275mpd"](
               1024,
@@ -99402,29 +99549,29 @@
                     { path: "download", component: Ol },
                     { path: "what-is-sidequest", component: Pl },
                     { path: "app/:apps_id", component: oo },
-                    { path: "my-app", component: ga, canActivate: [ac] },
+                    { path: "my-app", component: _a, canActivate: [sc] },
                     {
                       path: "my-app/:apps_id",
-                      component: ga,
-                      canActivate: [ac]
+                      component: _a,
+                      canActivate: [sc]
                     },
-                    { path: "apps", component: Ja },
-                    { path: "apps/:category", component: Ja },
-                    { path: "account", component: uu, canActivate: [ac] },
+                    { path: "apps", component: Za },
+                    { path: "apps/:category", component: Za },
+                    { path: "account", component: cu, canActivate: [sc] },
                     { path: "the-expanse", component: hl },
-                    { path: "setup-howto", component: mu },
-                    { path: "login", component: bu, canActivate: [oc] },
+                    { path: "setup-howto", component: _u },
+                    { path: "login", component: Mu, canActivate: [uc] },
                     {
                       path: "forgot-password",
-                      component: Cu,
-                      canActivate: [oc]
+                      component: Lu,
+                      canActivate: [uc]
                     },
                     {
                       path: "reset-password/:token",
-                      component: Eu,
-                      canActivate: [oc]
+                      component: Iu,
+                      canActivate: [uc]
                     },
-                    { path: "sign-up", component: Au, canActivate: [oc] },
+                    { path: "sign-up", component: ju, canActivate: [uc] },
                     { path: "**", component: hl }
                   ]
                 ];
@@ -99445,7 +99592,7 @@
               [2, fi]
             ]),
             r["\u0275mpd"](1073742336, Fi, Fi, [[2, Pi], [2, Mi]]),
-            r["\u0275mpd"](1073742336, uc, uc, []),
+            r["\u0275mpd"](1073742336, cc, cc, []),
             r["\u0275mpd"](1073742336, sl, sl, []),
             r["\u0275mpd"](1073742336, Xe, Xe, []),
             r["\u0275mpd"](1073742336, Mt, Mt, []),
@@ -99463,24 +99610,24 @@
             r["\u0275mpd"](1073742336, ut, ut, []),
             r["\u0275mpd"](1073742336, ce, ce, []),
             r["\u0275mpd"](1073742336, he, he, []),
-            r["\u0275mpd"](1073742336, ca, ca, []),
+            r["\u0275mpd"](1073742336, da, da, []),
             r["\u0275mpd"](1073742336, fe, fe, []),
-            r["\u0275mpd"](1073742336, Zo, Zo, []),
+            r["\u0275mpd"](1073742336, Qo, Qo, []),
             r["\u0275mpd"](
               1073742336,
-              sc.LightboxModule,
-              sc.LightboxModule,
+              dc.LightboxModule,
+              dc.LightboxModule,
               []
             ),
             r["\u0275mpd"](1073742336, i, i, []),
             r["\u0275mpd"](256, r["\u0275APP_ROOT"], !0, []),
-            r["\u0275mpd"](256, Wo, {}, [])
+            r["\u0275mpd"](256, Bo, {}, [])
           ]);
         });
       Object(r.enableProdMode)(),
         a
           .platformBrowser()
-          .bootstrapModuleFactory(cc)
+          .bootstrapModuleFactory(hc)
           .catch(function(e) {
             return console.error(e);
           });
