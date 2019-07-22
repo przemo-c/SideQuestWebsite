@@ -60965,7 +60965,21 @@
               navigator.userAgent.toLowerCase().indexOf(" electron/") > -1 &&
                 (this.hideLogo = !0),
               this.loadAppIndex(),
-              this.loadAppMeta();
+              this.loadAppMeta(),
+              window.addEventListener(
+                "dragover",
+                function(e) {
+                  e.preventDefault();
+                },
+                !1
+              ),
+              window.addEventListener(
+                "drop",
+                function(e) {
+                  e.preventDefault();
+                },
+                !1
+              );
           }
           return (
             (e.prototype.getNews = function(e, t) {
@@ -77885,61 +77899,74 @@
             }),
             (e.prototype.setupDatePicker = function() {}),
             (e.prototype.ngAfterViewInit = function() {
-              var e,
-                t = this,
-                n = this.dropJson.nativeElement;
-              (n.ondragover = function() {
-                return clearTimeout(e), (t.isDragging = !0), !1;
+              var e = this;
+              (this.addImage.nativeElement.ondrop = function(t) {
+                t.preventDefault(),
+                  t.stopPropagation(),
+                  t.dataTransfer.files.length &&
+                    ((e.is_loading_icon = !0),
+                    e
+                      .uploadFile(
+                        t.dataTransfer.files[0],
+                        t.dataTransfer.files[0].name
+                      )
+                      .then(function(t) {
+                        (e.currentApp.image_url =
+                          e.expanseService.cdnUrl + t.path),
+                          (e.is_loading_icon = !1);
+                      }));
               }),
-                (n.ondragleave = function() {
-                  return (
-                    (e = setTimeout(function() {
-                      t.isDragging = !1;
-                    }, 1e3)),
-                    !1
-                  );
+                (this.addScreenshot.nativeElement.ondrop = function(t) {
+                  t.preventDefault(),
+                    t.stopPropagation(),
+                    (e.is_loading_screenshot = !0),
+                    t.dataTransfer.files.length &&
+                      e
+                        .uploadFile(
+                          t.dataTransfer.files[0],
+                          t.dataTransfer.files[0].name
+                        )
+                        .then(function(t) {
+                          e.screenshots.push(e.expanseService.cdnUrl + t.path),
+                            (e.is_loading_screenshot = !1);
+                        });
                 }),
-                (n.ondragend = function() {
-                  return (t.isDragging = !1), !1;
-                }),
-                (n.ondrop = function(e) {
+                (this.dropJson.nativeElement.ondrop = function(t) {
                   if (
-                    t.isDragging &&
-                    ((t.isDragging = !1),
-                    e.preventDefault(),
-                    console.log(e.dataTransfer.files),
-                    e.dataTransfer.files.length)
+                    (t.preventDefault(),
+                    t.stopPropagation(),
+                    t.dataTransfer.files.length)
                   ) {
                     var n = new FileReader();
-                    (n.onload = function(e) {
+                    (n.onload = function(t) {
                       try {
-                        var n = JSON.parse(e.target.result);
+                        var n = JSON.parse(t.target.result);
                         n.id &&
-                          (t.currentApp.packagename = "com.beatonmod." + n.id);
+                          (e.currentApp.packagename = "com.beatonmod." + n.id);
                         var r = [];
                         n.gameVersion &&
                           r.push({ tag: n.gameVersion.toString() }),
                           n.category && r.push({ tag: n.category.toString() }),
-                          (t.searchTags = r),
+                          (e.searchTags = r),
                           n.version &&
-                            (t.currentApp.versionname = n.version.toString()),
+                            (e.currentApp.versionname = n.version.toString()),
                           n.description &&
                             n.description.length &&
-                            (t.currentApp.description = n.description[0].toString()),
+                            (e.currentApp.description = n.description[0].toString()),
                           n.author &&
-                            (t.currentApp.summary =
+                            (e.currentApp.summary =
                               "by " + n.author.toString()),
-                          n.name && (t.currentApp.name = n.name.toString()),
-                          (t.currentApp.versioncode = 1),
-                          (t.currentApp.app_categories_id = "4");
-                      } catch (e) {
-                        t.service.showMessage(
+                          n.name && (e.currentApp.name = n.name.toString()),
+                          (e.currentApp.versioncode = 1),
+                          (e.currentApp.app_categories_id = "4");
+                      } catch (t) {
+                        e.service.showMessage(
                           { error: !0, data: "Could not parse json!!" },
                           ""
                         );
                       }
                     }),
-                      n.readAsText(e.dataTransfer.files[0]);
+                      n.readAsText(t.dataTransfer.files[0]);
                   }
                 });
             }),
@@ -78669,7 +78696,7 @@
             r["\u0275eld"](
               0,
               0,
-              null,
+              [[5, 0], ["addImage", 1]],
               null,
               3,
               "div",
@@ -78981,7 +79008,7 @@
             r["\u0275eld"](
               0,
               0,
-              null,
+              [[6, 0], ["addScreenshot", 1]],
               null,
               3,
               "div",
@@ -79042,7 +79069,7 @@
                   "click" === t &&
                     ((e.component.currentScreenshot = e.context.index),
                     (l =
-                      !1 !== r["\u0275nov"](e.parent.parent, 28).openModal() &&
+                      !1 !== r["\u0275nov"](e.parent.parent, 30).openModal() &&
                       l)),
                   l
                 );
@@ -80531,7 +80558,7 @@
                 return (
                   "click" === t &&
                     (l =
-                      !1 !== r["\u0275nov"](e.parent.parent, 9).openModal() &&
+                      !1 !== r["\u0275nov"](e.parent.parent, 11).openModal() &&
                       l),
                   l
                 );
@@ -82793,7 +82820,7 @@
               ro
             )),
             r["\u0275did"](195, 49152, null, 1, vt, [], null, null),
-            r["\u0275qud"](335544320, 5, { mzSwitchDirective: 0 }),
+            r["\u0275qud"](335544320, 7, { mzSwitchDirective: 0 }),
             (e()(),
             r["\u0275eld"](
               197,
@@ -82834,7 +82861,7 @@
             r["\u0275did"](
               198,
               81920,
-              [[5, 4]],
+              [[7, 4]],
               0,
               _t,
               [r.ElementRef, r.Renderer],
@@ -82903,7 +82930,7 @@
               ro
             )),
             r["\u0275did"](206, 49152, null, 1, vt, [], null, null),
-            r["\u0275qud"](335544320, 6, { mzSwitchDirective: 0 }),
+            r["\u0275qud"](335544320, 8, { mzSwitchDirective: 0 }),
             (e()(),
             r["\u0275eld"](
               208,
@@ -82944,7 +82971,7 @@
             r["\u0275did"](
               209,
               81920,
-              [[6, 4]],
+              [[8, 4]],
               0,
               _t,
               [r.ElementRef, r.Renderer],
@@ -83013,7 +83040,7 @@
               ro
             )),
             r["\u0275did"](217, 49152, null, 1, vt, [], null, null),
-            r["\u0275qud"](335544320, 7, { mzSwitchDirective: 0 }),
+            r["\u0275qud"](335544320, 9, { mzSwitchDirective: 0 }),
             (e()(),
             r["\u0275eld"](
               219,
@@ -83054,7 +83081,7 @@
             r["\u0275did"](
               220,
               81920,
-              [[7, 4]],
+              [[9, 4]],
               0,
               _t,
               [r.ElementRef, r.Renderer],
@@ -85717,18 +85744,9 @@
             r["\u0275qud"](671088640, 2, { repo_input: 0 }),
             r["\u0275qud"](671088640, 3, { chart: 0 }),
             r["\u0275qud"](671088640, 4, { dropJson: 0 }),
+            r["\u0275qud"](671088640, 5, { addImage: 0 }),
+            r["\u0275qud"](671088640, 6, { addScreenshot: 0 }),
             (e()(), r["\u0275and"](16777216, null, null, 1, null, Oa)),
-            r["\u0275did"](
-              5,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [r.ViewContainerRef, r.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, au)),
             r["\u0275did"](
               7,
               16384,
@@ -85739,9 +85757,20 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, au)),
+            r["\u0275did"](
+              9,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [r.ViewContainerRef, r.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
             (e()(),
             r["\u0275eld"](
-              8,
+              10,
               0,
               null,
               null,
@@ -85755,7 +85784,7 @@
               qi
             )),
             r["\u0275did"](
-              9,
+              11,
               4833280,
               [["confirmDelete", 4]],
               0,
@@ -85766,7 +85795,7 @@
             ),
             (e()(),
             r["\u0275eld"](
-              10,
+              12,
               0,
               null,
               0,
@@ -85779,10 +85808,10 @@
               null,
               null
             )),
-            r["\u0275did"](11, 16384, null, 0, rt, [], null, null),
+            r["\u0275did"](13, 16384, null, 0, rt, [], null, null),
             (e()(),
             r["\u0275eld"](
-              12,
+              14,
               0,
               null,
               null,
@@ -85798,7 +85827,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Delete this app?"])),
             (e()(),
             r["\u0275eld"](
-              14,
+              16,
               0,
               null,
               1,
@@ -85811,14 +85840,14 @@
               null,
               null
             )),
-            r["\u0275did"](15, 16384, null, 0, lt, [], null, null),
+            r["\u0275did"](17, 16384, null, 0, lt, [], null, null),
             (e()(),
             r["\u0275ted"](-1, null, [
               " Are you sure you want to delete this app? This cannot be undone! "
             ])),
             (e()(),
             r["\u0275eld"](
-              17,
+              19,
               0,
               null,
               2,
@@ -85831,10 +85860,10 @@
               null,
               null
             )),
-            r["\u0275did"](18, 16384, null, 0, it, [], null, null),
+            r["\u0275did"](20, 16384, null, 0, it, [], null, null),
             (e()(),
             r["\u0275eld"](
-              19,
+              21,
               0,
               null,
               null,
@@ -85851,7 +85880,7 @@
                 var l = !0;
                 return (
                   "click" === t &&
-                    (l = !1 !== r["\u0275nov"](e, 21).onclick() && l),
+                    (l = !1 !== r["\u0275nov"](e, 23).onclick() && l),
                   l
                 );
               },
@@ -85859,7 +85888,7 @@
               null
             )),
             r["\u0275did"](
-              20,
+              22,
               606208,
               null,
               0,
@@ -85868,11 +85897,11 @@
               { flat: [0, "flat"] },
               null
             ),
-            r["\u0275did"](21, 16384, null, 0, ot, [nt], null, null),
+            r["\u0275did"](23, 16384, null, 0, ot, [nt], null, null),
             (e()(), r["\u0275ted"](-1, null, ["Close"])),
             (e()(),
             r["\u0275eld"](
-              23,
+              25,
               0,
               null,
               null,
@@ -85886,7 +85915,7 @@
                   i = e.component;
                 return (
                   "click" === t &&
-                    (l = !1 !== r["\u0275nov"](e, 25).onclick() && l),
+                    (l = !1 !== r["\u0275nov"](e, 27).onclick() && l),
                   "click" === t && (l = !1 !== i.deleteApp() && l),
                   l
                 );
@@ -85895,7 +85924,7 @@
               null
             )),
             r["\u0275did"](
-              24,
+              26,
               606208,
               null,
               0,
@@ -85904,11 +85933,11 @@
               null,
               null
             ),
-            r["\u0275did"](25, 16384, null, 0, ot, [nt], null, null),
+            r["\u0275did"](27, 16384, null, 0, ot, [nt], null, null),
             (e()(), r["\u0275ted"](-1, null, ["DELETE APP"])),
             (e()(),
             r["\u0275eld"](
-              27,
+              29,
               0,
               null,
               null,
@@ -85922,7 +85951,7 @@
               qi
             )),
             r["\u0275did"](
-              28,
+              30,
               4833280,
               [["manageScreenshot", 4]],
               0,
@@ -85933,7 +85962,7 @@
             ),
             (e()(),
             r["\u0275eld"](
-              29,
+              31,
               0,
               null,
               0,
@@ -85946,10 +85975,10 @@
               null,
               null
             )),
-            r["\u0275did"](30, 16384, null, 0, rt, [], null, null),
+            r["\u0275did"](32, 16384, null, 0, rt, [], null, null),
             (e()(),
             r["\u0275eld"](
-              31,
+              33,
               0,
               null,
               null,
@@ -85965,7 +85994,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Screenshot"])),
             (e()(),
             r["\u0275eld"](
-              33,
+              35,
               0,
               null,
               1,
@@ -85978,10 +86007,10 @@
               null,
               null
             )),
-            r["\u0275did"](34, 16384, null, 0, lt, [], null, null),
+            r["\u0275did"](36, 16384, null, 0, lt, [], null, null),
             (e()(), r["\u0275and"](16777216, null, null, 1, null, uu)),
             r["\u0275did"](
-              36,
+              38,
               16384,
               null,
               0,
@@ -85992,7 +86021,7 @@
             ),
             (e()(),
             r["\u0275eld"](
-              37,
+              39,
               0,
               null,
               2,
@@ -86005,10 +86034,10 @@
               null,
               null
             )),
-            r["\u0275did"](38, 16384, null, 0, it, [], null, null),
+            r["\u0275did"](40, 16384, null, 0, it, [], null, null),
             (e()(),
             r["\u0275eld"](
-              39,
+              41,
               0,
               null,
               null,
@@ -86025,7 +86054,7 @@
                 var l = !0;
                 return (
                   "click" === t &&
-                    (l = !1 !== r["\u0275nov"](e, 41).onclick() && l),
+                    (l = !1 !== r["\u0275nov"](e, 43).onclick() && l),
                   l
                 );
               },
@@ -86033,7 +86062,7 @@
               null
             )),
             r["\u0275did"](
-              40,
+              42,
               606208,
               null,
               0,
@@ -86042,11 +86071,11 @@
               { flat: [0, "flat"] },
               null
             ),
-            r["\u0275did"](41, 16384, null, 0, ot, [nt], null, null),
+            r["\u0275did"](43, 16384, null, 0, ot, [nt], null, null),
             (e()(), r["\u0275ted"](-1, null, ["Close"])),
             (e()(),
             r["\u0275eld"](
-              43,
+              45,
               0,
               null,
               null,
@@ -86060,7 +86089,7 @@
                   i = e.component;
                 return (
                   "click" === t &&
-                    (l = !1 !== r["\u0275nov"](e, 45).onclick() && l),
+                    (l = !1 !== r["\u0275nov"](e, 47).onclick() && l),
                   "click" === t && (l = !1 !== i.deleteScreenShot() && l),
                   l
                 );
@@ -86069,7 +86098,7 @@
               null
             )),
             r["\u0275did"](
-              44,
+              46,
               606208,
               null,
               0,
@@ -86078,26 +86107,26 @@
               null,
               null
             ),
-            r["\u0275did"](45, 16384, null, 0, ot, [nt], null, null),
+            r["\u0275did"](47, 16384, null, 0, ot, [nt], null, null),
             (e()(), r["\u0275ted"](-1, null, ["DELETE SCREENSHOT"]))
           ],
           function(e, t) {
             var n = t.component;
-            e(t, 5, 0, n.is_not_found),
-              e(t, 7, 0, !n.is_not_found),
-              e(t, 9, 0, !0),
-              e(t, 20, 0, !0),
-              e(t, 24, 0),
-              e(t, 28, 0, !0),
+            e(t, 7, 0, n.is_not_found),
+              e(t, 9, 0, !n.is_not_found),
+              e(t, 11, 0, !0),
+              e(t, 22, 0, !0),
+              e(t, 26, 0),
+              e(t, 30, 0, !0),
               e(
                 t,
-                36,
+                38,
                 0,
                 (n.currentScreenshot || 0 === n.currentScreenshot) &&
                   n.screenshots[n.currentScreenshot]
               ),
-              e(t, 40, 0, !0),
-              e(t, 44, 0);
+              e(t, 42, 0, !0),
+              e(t, 46, 0);
           },
           null
         );

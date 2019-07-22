@@ -73,6 +73,8 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("repo_input", { static: false }) repo_input;
   @ViewChild("chart", { static: false }) chart;
   @ViewChild("dropJson", { static: false }) dropJson;
+  @ViewChild("addImage", { static: false }) addImage;
+  @ViewChild("addScreenshot", { static: false }) addScreenshot;
   apps_id: string;
   addNewUrlType = "APK";
   addNewUrlLink: string;
@@ -181,33 +183,42 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setupDatePicker() {}
   ngAfterViewInit() {
+    const eleImage = this.addImage.nativeElement;
+    eleImage.ondrop = e => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.dataTransfer.files.length) {
+        this.is_loading_icon = true;
+        this.uploadFile(
+          e.dataTransfer.files[0],
+          e.dataTransfer.files[0].name
+        ).then((res: any) => {
+          this.currentApp.image_url = this.expanseService.cdnUrl + res.path;
+          this.is_loading_icon = false;
+        });
+      }
+    };
+    const eleScreenshot = this.addScreenshot.nativeElement;
+    eleScreenshot.ondrop = e => {
+      e.preventDefault();
+      e.stopPropagation();
+      this.is_loading_screenshot = true;
+      if (e.dataTransfer.files.length) {
+        this.uploadFile(
+          e.dataTransfer.files[0],
+          e.dataTransfer.files[0].name
+        ).then((res: any) => {
+          this.screenshots.push(this.expanseService.cdnUrl + res.path);
+          this.is_loading_screenshot = false;
+        });
+      }
+    };
+
     const ele = this.dropJson.nativeElement;
-    let dragTimeout;
-    ele.ondragover = () => {
-      clearTimeout(dragTimeout);
-      this.isDragging = true;
-      return false;
-    };
-
-    ele.ondragleave = () => {
-      dragTimeout = setTimeout(() => {
-        this.isDragging = false;
-      }, 1000);
-      return false;
-    };
-
-    ele.ondragend = () => {
-      this.isDragging = false;
-      return false;
-    };
 
     ele.ondrop = e => {
-      if (!this.isDragging) {
-        return;
-      }
-      this.isDragging = false;
       e.preventDefault();
-      console.log(e.dataTransfer.files);
+      e.stopPropagation();
       if (e.dataTransfer.files.length) {
         const reader = new FileReader();
         // Closure to capture the file information.

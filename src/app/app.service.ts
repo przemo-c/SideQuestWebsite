@@ -18,7 +18,22 @@ export class AppService {
     }
     this.loadAppIndex();
     this.loadAppMeta();
-    //this.checkForUpdates();
+    // this.checkForUpdates();
+
+    window.addEventListener(
+      "dragover",
+      (e: any) => {
+        e.preventDefault();
+      },
+      false
+    );
+    window.addEventListener(
+      "drop",
+      (e: any) => {
+        e.preventDefault();
+      },
+      false
+    );
   }
   getNews(page: number = 0, filter: string = "none") {
     return fetch(

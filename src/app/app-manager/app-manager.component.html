@@ -32,7 +32,7 @@
       <h5>App Icon</h5>
       <hr>
       <div class="right-align grey-text">Add an icon - 512px X 512px is a good size.</div>
-      <div class="add-image" *ngIf="!currentApp.image_url && !is_loading_icon" (click)="uploadIcon()">
+      <div #addImage class="add-image" *ngIf="!currentApp.image_url && !is_loading_icon" (click)="uploadIcon()">
         <i class="material-icons">add</i> Add Image
       </div>
       <div class="loader-cont" *ngIf="is_loading_icon">
@@ -68,7 +68,7 @@
       <div class="loader-cont add-screenshot" *ngIf="is_loading_screenshot">
         <div class="loader-initial"></div>
       </div>
-      <div class="add-screenshot" *ngIf="!is_loading_screenshot" (click)="uploadScreenshot()">
+      <div #addScreenshot class="add-screenshot" *ngIf="!is_loading_screenshot" (click)="uploadScreenshot()">
         <i class="material-icons">add</i> Add Screenshot
       </div>
       <img class="responsive-img pointer" *ngFor="let screenshot of screenshots; let i = index" (click)="currentScreenshot = i; manageScreenshot.openModal()" src="{{screenshot}}"/>
