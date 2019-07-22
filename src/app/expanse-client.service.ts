@@ -68,6 +68,7 @@ export class ExpanseClientService {
     })
       .then(async () => {
         this.currentSession = await this.getCurrentSession();
+        console.log(this.currentSession.token);
         this.appService.isAuthenticated = !!this.currentSession;
       })
       .catch(e => {

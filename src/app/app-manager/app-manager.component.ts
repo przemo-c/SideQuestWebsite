@@ -214,61 +214,119 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     };
 
-    const ele = this.dropJson.nativeElement;
+    if (this.dropJson) {
+      const ele = this.dropJson.nativeElement;
 
-    ele.ondrop = e => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (e.dataTransfer.files.length) {
-        const reader = new FileReader();
-        // Closure to capture the file information.
-        reader.onload = (e: any) => {
-          // Render thumbnail.
-          try {
-            const json: BeatOnModJson = JSON.parse(
-              e.target.result
-            ) as BeatOnModJson;
-            if (json.id) {
-              this.currentApp.packagename = "com.beatonmod." + json.id;
+      ele.ondrop = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.dataTransfer.files.length) {
+          const reader = new FileReader();
+          // Closure to capture the file information.
+          reader.onload = (e: any) => {
+            // Render thumbnail.
+            try {
+              const json: BeatOnModJson = JSON.parse(
+                e.target.result
+              ) as BeatOnModJson;
+              if (json.id) {
+                this.currentApp.packagename = "com.beatonmod." + json.id;
+              }
+              const searchTags: Materialize.ChipDataObject[] = [];
+              if (json.gameVersion) {
+                searchTags.push({
+                  tag: json.gameVersion.toString()
+                } as Materialize.ChipDataObject);
+              }
+              if (json.category) {
+                searchTags.push({
+                  tag: json.category.toString()
+                } as Materialize.ChipDataObject);
+              }
+              this.searchTags = searchTags;
+              if (json.version) {
+                this.currentApp.versionname = json.version.toString();
+              }
+              if (json.description && json.description.length) {
+                this.currentApp.description = json.description[0].toString();
+              }
+              if (json.author) {
+                this.currentApp.summary = "by " + json.author.toString();
+              }
+              if (json.name) {
+                this.currentApp.name = json.name.toString();
+              }
+              this.currentApp.versioncode = 1;
+              this.currentApp.app_categories_id = "4";
+            } catch (e) {
+              this.service.showMessage(
+                { error: true, data: "Could not parse json!!" },
+                ""
+              );
             }
-            const searchTags: Materialize.ChipDataObject[] = [];
-            if (json.gameVersion) {
-              searchTags.push({
-                tag: json.gameVersion.toString()
-              } as Materialize.ChipDataObject);
-            }
-            if (json.category) {
-              searchTags.push({
-                tag: json.category.toString()
-              } as Materialize.ChipDataObject);
-            }
-            this.searchTags = searchTags;
-            if (json.version) {
-              this.currentApp.versionname = json.version.toString();
-            }
-            if (json.description && json.description.length) {
-              this.currentApp.description = json.description[0].toString();
-            }
-            if (json.author) {
-              this.currentApp.summary = "by " + json.author.toString();
-            }
-            if (json.name) {
-              this.currentApp.name = json.name.toString();
-            }
-            this.currentApp.versioncode = 1;
-            this.currentApp.app_categories_id = "4";
-          } catch (e) {
-            this.service.showMessage(
-              { error: true, data: "Could not parse json!!" },
-              ""
-            );
-          }
-        };
+          };
 
-        // Read in the image file as a data URL.
-        reader.readAsText(e.dataTransfer.files[0]);
+          // Read in the image file as a data URL.
+          reader.readAsText(e.dataTransfer.files[0]);
+        }
+      };
+    }
+  }
+
+  copyShareUrl() {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(this.currentApp.donate_url).then(
+        () => {
+          this.service.showMessage(
+            { error: false },
+            "Share URL Copied to clipboard!"
+          );
+        },
+        err => {
+          this.service.showMessage(
+            { error: true, data: "Cant copy share url!" },
+            ""
+          );
+        }
+      );
+    }
+  }
+
+  refreshShareLink() {
+    fetch(
+      "https://xpan.cc/delete-link/" +
+        this.expanseService.currentSession.token +
+        "/a-" +
+        this.apps_id,
+      {
+        method: "GET",
+        cache: "no-cache"
       }
-    };
+    )
+      .then(() =>
+        fetch(
+          "https://xpan.cc/get-link/" +
+            this.expanseService.currentSession.token +
+            "/a-" +
+            this.apps_id +
+            "/" +
+            (window as any).encodeURIComponent(
+              "https://sidequestvr.com/#/app/" + this.apps_id
+            ) +
+            "/" +
+            this.currentApp.name +
+            "/" +
+            (window as any).encodeURIComponent(this.currentApp.image_url) +
+            "/" +
+            (this.currentApp.description || "-"),
+          {
+            method: "GET",
+            cache: "no-cache"
+          }
+        )
+      )
+      .then(r => r.json())
+      .then(r => (this.currentApp.donate_url = r.url));
   }
 
   onAddTag(e) {

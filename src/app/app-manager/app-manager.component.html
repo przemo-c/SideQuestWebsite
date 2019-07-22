@@ -16,12 +16,20 @@
       </label>
     </div>
   </div>
+
   <h4><i class="material-icons back-icon" routerLink="/account">reply</i>{{apps_id?'Manage App':'Create App'}}
     <span *ngIf="apps_id" class="chip white-text"
           [ngClass]="{'pink-button': currentApp.active, 'orange': !currentApp.active}">
   {{currentApp.active ? 'Published' : 'Pending'}}
   </span>
   </h4>
+  <div *ngIf="currentApp.donate_url" class="right center-align">
+
+    <div class="btn waves-effect waves-light pink-button right margin-left" (click)="refreshShareLink()" *ngIf="apps_id">Refresh</div>
+    <div class="btn waves-effect waves-light pink-button right margin-left" (click)="copyShareUrl()" *ngIf="apps_id">Copy</div>
+
+    Share URL: {{currentApp.donate_url}}</div>
+  <div class="clearfix"></div>
   <div *ngIf="apps_id && currentApp.active">
     <app-stats-chart #chart [apps_id]="apps_id" ></app-stats-chart>
     <br>
