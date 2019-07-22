@@ -23,12 +23,12 @@
   {{currentApp.active ? 'Published' : 'Pending'}}
   </span>
   </h4>
-  <div *ngIf="currentApp.donate_url" class="right center-align">
+  <div class="right center-align">
 
     <div class="btn waves-effect waves-light pink-button right margin-left" (click)="refreshShareLink()" *ngIf="apps_id">Refresh</div>
-    <div class="btn waves-effect waves-light pink-button right margin-left" (click)="copyShareUrl()" *ngIf="apps_id">Copy</div>
+    <div *ngIf="currentApp.donate_url && apps_id" class="btn waves-effect waves-light pink-button right margin-left" (click)="copyShareUrl()">Copy</div>
 
-    Share URL: {{currentApp.donate_url}}</div>
+    <span *ngIf="currentApp.donate_url">Share URL: {{currentApp.donate_url}}</span></div>
   <div class="clearfix"></div>
   <div *ngIf="apps_id && currentApp.active">
     <app-stats-chart #chart [apps_id]="apps_id" ></app-stats-chart>
