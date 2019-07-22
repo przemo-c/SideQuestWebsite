@@ -77,9 +77,17 @@ export class AppListingComponent implements OnInit, OnDestroy {
   social_urls: AppUrl[];
   website_url: AppUrl[];
   apk_download_urls: AppUrl[];
+  store_urls: AppUrl[];
   videoObject: VideObject;
   videoUrl: SafeUrl;
   githubReleases: GithubRelease[];
+  comforts: string[] = [
+    "Comfortable",
+    "Moderate",
+    "Average",
+    "Exciting",
+    "Intense"
+  ];
   urlIcons: { [key: string]: { [key: string]: string } } = {
     Facebook: { icon: "assets/images/social/Facebook.png" },
     Twitter: { icon: "assets/images/social/Twitter.png" },
@@ -94,17 +102,19 @@ export class AppListingComponent implements OnInit, OnDestroy {
     Itch: { icon: "assets/images/social/Itch.png" },
     Paypal: { icon: "assets/images/social/Paypal.png" },
     Kofi: { icon: "assets/images/social/Kofi.png" },
-    "Oculus Quest Listing": {
+    "Oculus Quest": {
       icon: "assets/images/social/Oculus Quest Listing.png"
     },
-    "Oculus Go Listing": { icon: "assets/images/social/Oculus Go Listing.png" },
-    "Oculus Rift Listing": {
+    "Oculus Go": { icon: "assets/images/social/Oculus Go Listing.png" },
+    "Oculus Rift": {
       icon: "assets/images/social/Oculus Rift Listing.png"
     },
-    "Oculus GearVR Listing": {
+    "Oculus GearVR": {
       icon: "assets/images/social/Oculus GearVR Listing.png"
     },
-    "Steam Page": { icon: "assets/images/social/Steam Page.png" }
+    "Steam Page": { icon: "assets/images/social/Steam Page.png" },
+    "Epic Store": { icon: "assets/images/social/EpicStore.png" },
+    Viveport: { icon: "assets/images/social/Viveport.png" }
   };
   album: IAlbum[] = [];
   app_meta: any;
@@ -255,6 +265,18 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.donate_urls = this.app_urls.filter(
           (url: AppUrl) =>
             ["Patreon", "Paypal", "Itch", "Kofi"].indexOf(url.provider) > -1
+        );
+        this.store_urls = this.app_urls.filter(
+          (url: AppUrl) =>
+            [
+              "Oculus Quest",
+              "Oculus Go",
+              "Steam Page",
+              "Oculus Rift",
+              "Oculus GearVR",
+              "Viveport",
+              "Epic Store"
+            ].indexOf(url.provider) > -1
         );
         this.donate_urls.sort(sort);
         this.social_urls = this.app_urls.filter(

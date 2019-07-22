@@ -107,10 +107,19 @@
               </div>
 
               <div *ngIf="currentApp.comfort">
+                <br>
                 <div class="input-field radio-top">
                   <label class="active">Comfort</label>
                 </div>
-                <p>{{currentApp.comfort}}</p>
+                <p>{{comforts[currentApp.comfort]}}</p>
+              </div>
+
+              <div *ngIf="currentApp.versionname">
+                <br>
+                <div class="input-field radio-top">
+                  <label class="active">Latest Version</label>
+                </div>
+                <p>[{{currentApp.versioncode}}] {{currentApp.versionname}}</p>
               </div>
               <div *ngIf="currentApp.created">
                 <br>
@@ -191,6 +200,20 @@
                (click)="openUrl(url.link_url)">
             <!--<img src="{{urlIcons[url.provider].icon}}">-->
             Open Website
+          </div>
+        </div>
+      </div>
+      <div *ngIf="store_urls && store_urls.length">
+        <div class="input-field radio-top">
+          <label class="active">Stores & Reviews</label>
+        </div><br>
+        <div *ngFor="let url of store_urls">
+          <div class="chip pointer"
+               mz-tooltip tooltip="{{url.provider}}"
+               position="bottom"
+               (click)="openUrl(url.link_url)">
+            <img src="{{urlIcons[url.provider].icon}}">
+            {{url.provider}}
           </div>
         </div>
       </div>
