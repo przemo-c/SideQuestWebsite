@@ -23,13 +23,7 @@
   {{currentApp.active ? 'Published' : 'Pending'}}
   </span>
   </h4>
-  <div class="right center-align">
 
-    <div class="btn waves-effect waves-light pink-button right margin-left" (click)="refreshShareLink()" *ngIf="apps_id">Refresh</div>
-    <div *ngIf="currentApp.donate_url && apps_id" class="btn waves-effect waves-light pink-button right margin-left" (click)="copyShareUrl()">Copy</div>
-
-    <span *ngIf="currentApp.donate_url">Share URL: {{currentApp.donate_url}}</span></div>
-  <div class="clearfix"></div>
   <div *ngIf="apps_id && currentApp.active">
     <app-stats-chart #chart [apps_id]="apps_id" ></app-stats-chart>
     <br>
@@ -415,6 +409,25 @@
           <br>
           Enable github release support to allow for automated deployments to suit you.
           <a href="https://developer.github.com/v3/repos/releases/">More Info</a>
+        </div>
+      </div>
+      <div *ngIf="apps_id" class="col s12">
+        <br>
+        <h5>Share URL</h5>
+        <hr>
+        <div class="right-align grey-text">This url will show your apps description when shared on social media.</div>
+        <div class="center-align">
+          <br><br><br>
+          <div class="btn waves-effect waves-light pink-button margin-left" (click)="refreshShareLink()" *ngIf="apps_id">Refresh</div>
+          <div *ngIf="currentApp.donate_url && apps_id" class="btn waves-effect waves-light pink-button margin-left" (click)="copyShareUrl()">Copy</div>
+
+          <br><br>
+          <span *ngIf="currentApp.donate_url">Share URL: {{currentApp.donate_url}}</span>
+          <br>
+        </div>
+        <div class="right center-align">
+
+
         </div>
       </div>
       <div *ngIf="apps_id" class="col s12">

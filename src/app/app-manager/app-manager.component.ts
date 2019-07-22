@@ -273,13 +273,15 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  copyShareUrl() {
+  copyShareUrl(isRefresh?) {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(this.currentApp.donate_url).then(
         () => {
           this.service.showMessage(
             { error: false },
-            "Share URL Copied to clipboard!"
+            isRefresh
+              ? "Share URL Refreshed and Copied to clipboard!"
+              : "Share URL Copied to clipboard!"
           );
         },
         err => {
@@ -314,12 +316,13 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
               "https://sidequestvr.com/#/app/" + this.apps_id
             ) +
             "/" +
-            this.currentApp.name +
+            (window as any).encodeURIComponent(this.currentApp.name) +
             " on SideQuest" +
             "/" +
             (window as any).encodeURIComponent(this.currentApp.image_url) +
             "/" +
-            (this.currentApp.description || "-"),
+            ((window as any).encodeURIComponent(this.currentApp.description) ||
+              "-"),
           {
             method: "GET",
             cache: "no-cache"
@@ -327,7 +330,8 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
         )
       )
       .then(r => r.json())
-      .then(r => (this.currentApp.donate_url = r.url));
+      .then(r => (this.currentApp.donate_url = r.url))
+      .then(() => this.copyShareUrl(true));
   }
 
   onAddTag(e) {
