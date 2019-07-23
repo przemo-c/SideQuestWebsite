@@ -87801,7 +87801,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275ted"](-1, null, ["Apps"])),
+            (e()(), r["\u0275ted"](10, null, ["", ""])),
             (e()(),
             r["\u0275eld"](
               11,
@@ -87976,7 +87976,21 @@
               e(t, 21, 0, !n.isLoading && !n.hasNoMore),
               e(t, 23, 0, n.hasNoMore);
           },
-          null
+          function(e, t) {
+            var n = t.component;
+            e(
+              t,
+              10,
+              0,
+              1 === n.category
+                ? "Games"
+                : 2 === n.category
+                ? "Apps"
+                : 4 === n.category
+                ? "Mods"
+                : "NSFW"
+            );
+          }
         );
       }
       function Su(e) {

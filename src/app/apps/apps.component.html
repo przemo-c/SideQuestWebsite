@@ -3,7 +3,7 @@
     <i class="material-icons layout-button" (click)="isGrid = true;saveGrid()">dashboard</i>
     <i class="material-icons layout-button" (click)="isGrid = false;saveGrid()">list</i>
   </div>
-  <h4>Apps</h4>
+  <h4>{{category === 1 ? 'Games' : category === 2 ? 'Apps' : category === 4 ? 'Mods' : 'NSFW'}}</h4>
   <hr class="grey">
   <div *ngIf="!isGrid">
     <div class="card card-height" *ngFor="let app of apps">
