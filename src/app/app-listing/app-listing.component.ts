@@ -153,6 +153,29 @@ export class AppListingComponent implements OnInit, OnDestroy {
     });
   }
 
+  backClicked() {
+    (window as any).history.back();
+  }
+
+  copyShareUrl(isRefresh?) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(this.currentApp.donate_url).then(
+        () => {
+          this.service.showMessage(
+            { error: false },
+            "Share URL Copied to clipboard!"
+          );
+        },
+        err => {
+          this.service.showMessage(
+            { error: true, data: "Cant copy share url!" },
+            ""
+          );
+        }
+      );
+    }
+  }
+
   downloadCount() {
     if (!this.app_meta.d) {
       return this.expanseService

@@ -51,7 +51,14 @@
     <a routerLink="what-is-sidequest" (click)="sidenav.opened = !sidenav.opened">What is SideQuest?</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
+    <a routerLink="apps/1" (click)="sidenav.opened = !sidenav.opened">Apps</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
     <a routerLink="download" (click)="sidenav.opened = !sidenav.opened">Download</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a [routerLink]="appService.isAuthenticated ? 'account' : 'login'"
+       (click)="sidenav.opened = !sidenav.opened">{{appService.isAuthenticated? 'Dashboard' : 'Sign In'}}</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
     <a routerLink="setup-howto" (click)="sidenav.opened = !sidenav.opened">Setup & How To</a>
