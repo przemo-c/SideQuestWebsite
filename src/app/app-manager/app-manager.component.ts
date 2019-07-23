@@ -263,6 +263,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
               this.searchTags = searchTags;
               this.currentApp.versioncode = 1;
               this.currentApp.app_categories_id = "4";
+              this.currentApp.website = "BeatOn";
             } catch (e) {
               this.service.showMessage(
                 { error: true, data: "Could not parse json!!" },
