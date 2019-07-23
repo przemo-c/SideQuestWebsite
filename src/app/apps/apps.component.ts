@@ -13,6 +13,7 @@ import { Subscription } from "rxjs";
 })
 export class AppsComponent implements OnInit, OnDestroy {
   apps: AppListing[] = [];
+  searchString: string;
   isGrid: boolean = true;
   updateMasonryLayout: boolean = false;
   isLoading: boolean = false;
@@ -21,6 +22,8 @@ export class AppsComponent implements OnInit, OnDestroy {
   sub: Subscription;
   category: number;
   isLoaded: boolean;
+  searchTimeout: number;
+  isRecent: boolean = true;
   constructor(
     private expanseService: ExpanseClientService,
     public appService: AppService,
@@ -45,6 +48,14 @@ export class AppsComponent implements OnInit, OnDestroy {
     });
   }
 
+  debounceSearch() {
+    clearTimeout(this.searchTimeout);
+    this.searchTimeout = setTimeout(() => {
+      this.page = 0;
+      this.getApps();
+    }, 750);
+  }
+
   saveGrid() {
     localStorage.setItem("isGrid", this.isGrid.toString());
   }
@@ -61,7 +72,13 @@ export class AppsComponent implements OnInit, OnDestroy {
     this.isLoading = true;
     this.expanseService.start().then(() =>
       this.expanseService
-        .searchApps("", this.page, this.category)
+        .searchApps(
+          this.searchString,
+          this.page,
+          this.isRecent ? "created" : "name",
+          this.isRecent ? "desc" : "asc",
+          this.category
+        )
         .then(async (resp: AppListing[]) => {
           await this.fixImages(resp);
           this.hasNoMore = !resp.length;

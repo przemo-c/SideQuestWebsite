@@ -669,8 +669,14 @@ export class ExpanseClientService {
   getAppScreenshots(apps_id) {
     return this.emit("get-app-screenshots", { apps_id });
   }
-  searchApps(search, page, app_categories_id?) {
-    return this.emit("search-apps", { search, page, app_categories_id });
+  searchApps(search, page, order, direction, app_categories_id?) {
+    return this.emit("search-apps", {
+      search,
+      page,
+      order,
+      direction,
+      app_categories_id
+    });
   }
   searchMyApps(search, page) {
     return this.emit("search-my-apps", { search, page });

@@ -1,10 +1,50 @@
 <div class="padding" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
-  <div class="right">
-    <i class="material-icons layout-button" (click)="isGrid = true;saveGrid()">dashboard</i>
-    <i class="material-icons layout-button" (click)="isGrid = false;saveGrid()">list</i>
+  <div class="right search-box input-field">
+    <i class="material-icons prefix">search</i>
+    <input id="searchBox" type="text" class="validate"
+           [(ngModel)]="searchString"
+           (input)="debounceSearch()"
+    >
+    <label for="searchBox">Search</label>
   </div>
-  <h4>{{category === 1 ? 'Games' : category === 2 ? 'Apps' : category === 4 ? 'Mods' : 'NSFW'}}</h4>
+  <div class="right margin-top-icons">
+    <i mz-tooltip tooltip="Enable Grid view mode" position="bottom" class="material-icons layout-button" (click)="isGrid = true;saveGrid()">dashboard</i>
+    <i mz-tooltip tooltip="Enable List view mode" position="bottom" class="material-icons layout-button" (click)="isGrid = false;saveGrid()">list</i>
+    <i mz-tooltip tooltip="Sort by name" position="bottom" class="material-icons layout-button" (click)="isRecent = false; page = 0; getApps()">sort</i>
+    <i mz-tooltip tooltip="Sort by recent" position="bottom" class="material-icons layout-button" (click)="isRecent = true; page = 0; getApps()">swap_vert</i>
+  </div>
+
+  <div class="chip pointer right margin-right margin-top" *ngIf="!appService.hideLogo"
+       mz-tooltip tooltip="Official VR Games for Go and Quest."
+       position="bottom"
+       routerLink="/apps">
+    <img src="assets/images/logo-large icony.png"/>
+    All
+  </div>
+  <div class="chip pointer right margin-right margin-top" *ngIf="!appService.hideLogo"
+       mz-tooltip tooltip="VR Mods for Go and Quest."
+       position="bottom"
+       routerLink="/apps/4">
+    <img src="https://the-expanse.github.io/SideQuestRepos/android-games/icons/games.png"/>
+    Mods
+  </div>
+  <div class="chip pointer right margin-right margin-top" *ngIf="!appService.hideLogo"
+       mz-tooltip tooltip="Official VR Apps for Go and Quest."
+       position="bottom"
+       routerLink="/apps/2">
+    <img src="https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png"/>
+    Apps
+  </div>
+  <div class="chip pointer right margin-right margin-top" *ngIf="!appService.hideLogo"
+       mz-tooltip tooltip="Official VR Games for Go and Quest."
+       position="bottom"
+       routerLink="/apps/1">
+    <img src="https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png"/>
+    Games
+  </div>
+  <h4 class="inline-block">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 3 ? 'NSFW' : 'Apps'}}</h4>
   <hr class="grey">
+
   <div *ngIf="!isGrid">
     <div class="card card-height" *ngFor="let app of apps">
       <div class="card-image card-image-left waves-effect waves-block waves-light activator"
