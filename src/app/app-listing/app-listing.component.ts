@@ -213,7 +213,10 @@ export class AppListingComponent implements OnInit, OnDestroy {
 
   openItems(apps: any, isRelease: boolean) {
     window.location.href =
-      "sidequest://sideload-multi/#" +
+      (this.currentApp.app_categories_id === "4" &&
+      this.currentApp.website === "BeatOn"
+        ? "sidequest://bsaber-multi/#"
+        : "sidequest://sideload-multi/#") +
       JSON.stringify(
         isRelease
           ? apps.map(app => app.browser_download_url)

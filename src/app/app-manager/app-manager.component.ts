@@ -96,7 +96,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     versioncode: 0,
     versionname: "",
     license: "FREE",
-    website: "",
+    website: "BeatOn",
     donate_url: "",
     github_name: "",
     github_repo: "",
@@ -232,7 +232,9 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
               if (json.id) {
                 this.currentApp.packagename = "com.beatonmod." + json.id;
               }
-              const searchTags: Materialize.ChipDataObject[] = [];
+              const searchTags: Materialize.ChipDataObject[] = [
+                { tag: "BeatOn" }
+              ];
               if (json.gameVersion) {
                 searchTags.push({
                   tag: json.gameVersion.toString()
@@ -243,7 +245,6 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
                   tag: json.category.toString()
                 } as Materialize.ChipDataObject);
               }
-              this.searchTags = searchTags;
               if (json.version) {
                 this.currentApp.versionname = json.version.toString();
               }
@@ -251,11 +252,15 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
                 this.currentApp.description = json.description[0].toString();
               }
               if (json.author) {
+                searchTags.push({
+                  tag: json.author.toString()
+                } as Materialize.ChipDataObject);
                 this.currentApp.summary = "by " + json.author.toString();
               }
               if (json.name) {
                 this.currentApp.name = json.name.toString();
               }
+              this.searchTags = searchTags;
               this.currentApp.versioncode = 1;
               this.currentApp.app_categories_id = "4";
             } catch (e) {

@@ -179,6 +179,17 @@
                    value="3"
                    type="radio" [(ngModel)]="currentApp.app_categories_id">
           </mz-radio-button-container>
+
+          <div *ngIf="currentApp.app_categories_id === '4'">
+            <i class="material-icons select-icon">public</i>
+            <div class="select-drop-down">
+              <label class="active">Mod Type</label>
+              <select class="browser-default black-text "
+                      [(ngModel)]="currentApp.website">
+                <option>BeatOn</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div class="col s6 m3 fixed-height">
           <div class="input-field radio-top">
@@ -424,10 +435,6 @@
           <br><br>
           <span *ngIf="currentApp.donate_url">Share URL: {{currentApp.donate_url}}</span>
           <br>
-        </div>
-        <div class="right center-align">
-
-
         </div>
       </div>
       <div *ngIf="apps_id" class="col s12">
