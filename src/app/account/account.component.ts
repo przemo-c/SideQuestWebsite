@@ -32,6 +32,7 @@ export interface AppListing {
   is_first_publish: boolean;
   active: boolean;
   deleted: boolean;
+  user_name?: string;
 }
 @Component({
   selector: "app-account",

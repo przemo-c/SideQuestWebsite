@@ -19,6 +19,7 @@
   <hr>
   <div class="right app-package right-align truncate">{{currentApp.packagename}}</div>
   <div class="app-summary truncate">{{currentApp.summary}}</div>
+  <div *ngIf="currentApp.user_name" class="app-summary truncate">By {{currentApp.user_name}}</div>
   <br><br>
   <div class="row">
     <div class="col s12 m10">
