@@ -18,8 +18,20 @@ export class AppService {
     }
     this.loadAppIndex();
     this.loadAppMeta();
+    // (window as any).sideQuestRemove = (pkg) => {
+    //   let isChanged = false;
+    //   Object.keys(this.app_index).forEach(apps_id =>{
+    //     if (this.app_index[apps_id] === pkg && this.app_meta[apps_id]) {
+    //       delete this.app_meta[apps_id];
+    //       console.log('Removing App Meta: ', pkg, apps_id);
+    //       isChanged = true;
+    //     }
+    //   });
+    //   if (isChanged) {
+    //     this.saveAppMeta();
+    //   }
+    // };
     // this.checkForUpdates();
-
     window.addEventListener(
       "dragover",
       (e: any) => {
@@ -117,5 +129,29 @@ export class AppService {
         versioncode: this.app_meta[apps_id].vc
       }));
     console.log(installed);
+  }
+
+  removeUninstalledMeta() {
+    const sideQuest = (window as any).sideQuest;
+    if (sideQuest) {
+      let cachedPackages = Object.keys(this.app_index).map(key => ({
+        apps_id: key,
+        packagename: this.app_index[key]
+      }));
+      let isChanged = false;
+      cachedPackages.forEach(app => {
+        if (
+          sideQuest.installed.indexOf(app.packagename) === -1 &&
+          this.app_meta[app.apps_id]
+        ) {
+          console.log("Removing App Meta: ", app.packagename, app.apps_id);
+          delete this.app_meta[app.apps_id];
+          isChanged = true;
+        }
+      });
+      if (isChanged) {
+        this.saveAppMeta();
+      }
+    }
   }
 }

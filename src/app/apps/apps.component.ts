@@ -44,6 +44,7 @@ export class AppsComponent implements OnInit, OnDestroy {
           this.page = 0;
           this.getApps();
         }
+        this.appService.removeUninstalledMeta();
       }
     });
   }

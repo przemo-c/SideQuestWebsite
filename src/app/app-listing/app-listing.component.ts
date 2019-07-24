@@ -247,6 +247,10 @@ export class AppListingComponent implements OnInit, OnDestroy {
       );
   }
 
+  uninstallApp(packageName) {
+    window.location.href = "sidequest://unload/#" + packageName;
+  }
+
   openItem(url: string) {
     window.location.href = url;
   }

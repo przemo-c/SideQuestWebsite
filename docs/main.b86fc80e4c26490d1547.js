@@ -2812,7 +2812,7 @@
           return dg;
         }),
         t.d(n, "\u0275angular_packages_core_core_t", function() {
-          return Rv;
+          return Yv;
         }),
         t.d(n, "\u0275angular_packages_core_core_v", function() {
           return Ev;
@@ -2821,7 +2821,7 @@
           return Tv;
         }),
         t.d(n, "\u0275angular_packages_core_core_y", function() {
-          return Yv;
+          return Rv;
         }),
         t.d(n, "\u0275angular_packages_core_core_w", function() {
           return Ov;
@@ -2947,7 +2947,7 @@
           return C_;
         }),
         t.d(n, "getDebugNode", function() {
-          return Y_;
+          return R_;
         }),
         t.d(n, "Testability", function() {
           return Jv;
@@ -3388,7 +3388,7 @@
           return jc;
         }),
         t.d(n, "\u0275LifecycleHooksFeature", function() {
-          return Rc;
+          return Yc;
         }),
         t.d(n, "\u0275Render3NgModuleRef", function() {
           return mm;
@@ -3403,7 +3403,7 @@
           return lo;
         }),
         t.d(n, "\u0275\u0275container", function() {
-          return Yu;
+          return Ru;
         }),
         t.d(n, "\u0275\u0275nextContext", function() {
           return ks;
@@ -3478,7 +3478,7 @@
           return Im;
         }),
         t.d(n, "\u0275\u0275pipeBindV", function() {
-          return Ym;
+          return Rm;
         }),
         t.d(n, "\u0275\u0275pureFunction0", function() {
           return _m;
@@ -3658,7 +3658,7 @@
           return dc;
         }),
         t.d(n, "\u0275\u0275template", function() {
-          return Ru;
+          return Yu;
         }),
         t.d(n, "\u0275\u0275embeddedViewEnd", function() {
           return fs;
@@ -3784,7 +3784,7 @@
           return Fn;
         }),
         t.d(n, "\u0275NG_COMPONENT_DEF", function() {
-          return Rn;
+          return Yn;
         }),
         t.d(n, "\u0275NG_DIRECTIVE_DEF", function() {
           return An;
@@ -3799,7 +3799,7 @@
           return Nn;
         }),
         t.d(n, "\u0275NG_INJECTABLE_DEF", function() {
-          return R;
+          return Y;
         }),
         t.d(n, "\u0275NG_INJECTOR_DEF", function() {
           return A;
@@ -3868,7 +3868,7 @@
           }
         ),
         t.d(n, "\u0275SWITCH_ELEMENT_REF_FACTORY__POST_R3__", function() {
-          return Yd;
+          return Rd;
         }),
         t.d(n, "\u0275SWITCH_TEMPLATE_REF_FACTORY__POST_R3__", function() {
           return dh;
@@ -3917,7 +3917,7 @@
           return kb;
         }),
         t.d(n, "\u0275crt", function() {
-          return Rh;
+          return Yh;
         }),
         t.d(n, "\u0275did", function() {
           return Zp;
@@ -4119,12 +4119,12 @@
         };
       }
       function I(e) {
-        return e && e.hasOwnProperty(R) ? e[R] : null;
+        return e && e.hasOwnProperty(Y) ? e[Y] : null;
       }
-      function Y(e) {
+      function R(e) {
         return e && e.hasOwnProperty(A) ? e[A] : null;
       }
-      var R = L({ ngInjectableDef: L }),
+      var Y = L({ ngInjectableDef: L }),
         A = L({ ngInjectorDef: L });
       function P(e) {
         if ("string" == typeof e) return e;
@@ -4231,7 +4231,7 @@
           ɵɵinject: K,
           ɵɵgetFactoryOf: function(e) {
             var n = e,
-              t = I(n) || Y(n);
+              t = I(n) || R(n);
             return t && void 0 !== t.factory ? t.factory : null;
           }
         },
@@ -4486,8 +4486,8 @@
       }
       function he(e, n) {
         var t = null;
-        e.hasOwnProperty(R) ||
-          Object.defineProperty(e, R, {
+        e.hasOwnProperty(Y) ||
+          Object.defineProperty(e, Y, {
             get: function() {
               if (null === t) {
                 var r = n || { providedIn: null },
@@ -4663,8 +4663,8 @@
           return e;
         },
         Ie = [],
-        Ye = Oe,
-        Re = function() {
+        Re = Oe,
+        Ye = function() {
           return Array.prototype.slice.call(arguments);
         },
         Ae = L({ provide: String, useValue: L }),
@@ -4748,7 +4748,7 @@
                     if (!0 === t.multi) {
                       var o = n.get(l);
                       if (o) {
-                        if (o.fn !== Re) throw Ve(l);
+                        if (o.fn !== Ye) throw Ve(l);
                       } else
                         n.set(
                           l,
@@ -4756,14 +4756,14 @@
                             token: t.provide,
                             deps: [],
                             useNew: !1,
-                            fn: Re,
+                            fn: Ye,
                             value: Ie
                           })
                         );
                       o.deps.push({ token: (l = t), options: 6 });
                     }
                     var a = n.get(l);
-                    if (a && a.fn == Re) throw Ve(l);
+                    if (a && a.fn == Ye) throw Ve(l);
                     n.set(l, i);
                   }
               })(r, e);
@@ -4780,10 +4780,10 @@
                       if (!t || a & x.SkipSelf)
                         a & x.Self || (s = i.get(n, o, x.Default));
                       else {
-                        if ((s = t.value) == Ye)
+                        if ((s = t.value) == Re)
                           throw Error(Fe + "Circular dependency");
                         if (s === Ie) {
-                          t.value = Ye;
+                          t.value = Re;
                           var c = t.useNew,
                             d = t.fn,
                             h = t.deps,
@@ -4819,7 +4819,7 @@
                   } catch (u) {
                     throw (u instanceof Error || (u = new Error(u)),
                     (u[je] = u[je] || []).unshift(n),
-                    t && t.value == Ye && (t.value = Ie),
+                    t && t.value == Re && (t.value = Ie),
                     u);
                   }
                 })(e, l, this._records, this.parent, n, t);
@@ -5493,8 +5493,8 @@
         return "" + { toString: e };
       }
       var In = {},
-        Yn = [],
-        Rn = L({ ngComponentDef: L }),
+        Rn = [],
+        Yn = L({ ngComponentDef: L }),
         An = L({ ngDirectiveDef: L }),
         Pn = L({ ngPipeDef: L }),
         jn = L({ ngModuleDef: L }),
@@ -5536,7 +5536,7 @@
             data: e.data || {},
             encapsulation: e.encapsulation || En.Emulated,
             id: "c",
-            styles: e.styles || Yn,
+            styles: e.styles || Rn,
             _: null,
             setInput: null,
             schemas: e.schemas || null
@@ -5563,7 +5563,7 @@
                     return ("function" == typeof o ? o() : o).map(Bn);
                   }
                 : null),
-              n.hasOwnProperty(R) || (n[R] = T({ factory: e.factory }));
+              n.hasOwnProperty(Y) || (n[Y] = T({ factory: e.factory }));
           })),
           l
         );
@@ -5586,10 +5586,10 @@
       function Un(e) {
         return {
           type: e.type,
-          bootstrap: e.bootstrap || Yn,
-          declarations: e.declarations || Yn,
-          imports: e.imports || Yn,
-          exports: e.exports || Yn,
+          bootstrap: e.bootstrap || Rn,
+          declarations: e.declarations || Rn,
+          imports: e.imports || Rn,
+          exports: e.exports || Rn,
           transitiveCompileScopes: null,
           schemas: e.schemas || null
         };
@@ -5597,9 +5597,9 @@
       function Gn(e, n) {
         return On(function() {
           var t = nt(e, !0);
-          (t.declarations = n.declarations || Yn),
-            (t.imports = n.imports || Yn),
-            (t.exports = n.exports || Yn);
+          (t.declarations = n.declarations || Rn),
+            (t.imports = n.imports || Rn),
+            (t.exports = n.exports || Rn);
         });
       }
       function qn(e, n) {
@@ -5635,7 +5635,7 @@
         };
       }
       function Zn(e) {
-        return e[Rn] || null;
+        return e[Yn] || null;
       }
       function Qn(e) {
         return e[An] || null;
@@ -5713,8 +5713,8 @@
         Et = 20,
         Ot = 1,
         It = 2,
-        Yt = 7,
-        Rt = 8,
+        Rt = 7,
+        Yt = 8,
         At = "__ngContext__";
       function Pt(e) {
         for (; Array.isArray(e); ) e = e[dt];
@@ -5913,7 +5913,7 @@
         (wr += e), (Mr = Math.max(Mr, wr));
       }
       function xr(e) {
-        Yr = e;
+        Rr = e;
       }
       function Lr() {
         return gr;
@@ -5933,13 +5933,13 @@
       function Ir(e) {
         return void 0 === e && (e = _r), 4 == (4 & e[pt]);
       }
-      var Yr = null,
-        Rr = !1;
+      var Rr = null,
+        Yr = !1;
       function Ar() {
-        return Rr;
+        return Yr;
       }
       function Pr(e) {
-        Rr = e;
+        Yr = e;
       }
       var jr = -1;
       function Nr() {
@@ -5961,17 +5961,17 @@
           e && (jr = e[ht].bindingStartIndex),
           (gr = n),
           (vr = !0),
-          (_r = Yr = e),
+          (_r = Rr = e),
           t
         );
       }
       function Br(e) {
         return (
           void 0 === e && (e = 1),
-          (Yr = (function(e, n) {
+          (Rr = (function(e, n) {
             for (; e > 0; ) (n = n[St]), e--;
             return n;
-          })(e, Yr))[bt]
+          })(e, Rr))[bt]
         );
       }
       function Ur(e) {
@@ -5979,7 +5979,7 @@
         if (Ir(_r)) _r[pt] &= -5;
         else
           try {
-            $t(_r), ir(_r, n.viewHooks, n.viewCheckHooks, Rr, 2, void 0);
+            $t(_r), ir(_r, n.viewHooks, n.viewCheckHooks, Yr, 2, void 0);
           } finally {
             (_r[pt] &= -73), (_r[_t] = n.bindingStartIndex);
           }
@@ -6136,7 +6136,7 @@
         var r = n[ht].data[e],
           l = r.directiveStart;
         return 0 == l
-          ? Yn
+          ? Rn
           : (!t && 1 & r.flags && l++, n.slice(l, r.directiveEnd));
       }
       var cl = (function() {
@@ -6287,11 +6287,11 @@
         })(e)[bt];
       }
       var Il = !0;
-      function Yl(e) {
+      function Rl(e) {
         var n = Il;
         return (Il = e), n;
       }
-      var Rl = 255,
+      var Yl = 255,
         Al = 0;
       function Pl(e, n) {
         var t = Nl(e, n);
@@ -6332,7 +6332,7 @@
         !(function(e, n, t) {
           var r = "string" != typeof t ? t[Fn] : t.charCodeAt(0) || 0;
           null == r && (r = t[Fn] = Al++);
-          var l = r & Rl,
+          var l = r & Yl,
             i = 1 << l,
             o = 64 & l,
             a = 32 & l,
@@ -6385,7 +6385,7 @@
           var i = (function(e) {
             if ("string" == typeof e) return e.charCodeAt(0) || 0;
             var n = e[Fn];
-            return "number" == typeof n && n > 0 ? n & Rl : n;
+            return "number" == typeof n && n > 0 ? n & Yl : n;
           })(t);
           if ("function" == typeof i) {
             var o = Lr(),
@@ -6484,7 +6484,7 @@
         ) {
           var o = i;
           if (o.resolving) throw new Error("Circular dep for " + rt(e[t]));
-          var a = Yl(o.canSeeViewProviders);
+          var a = Rl(o.canSeeViewProviders);
           o.resolving = !0;
           var u = void 0;
           o.injectImpl && (u = G(o.injectImpl));
@@ -6494,7 +6494,7 @@
           try {
             i = n[t] = o.factory(null, e, n, r);
           } finally {
-            o.injectImpl && G(u), Yl(a), (o.resolving = !1), Tr(s, c);
+            o.injectImpl && G(u), Rl(a), (o.resolving = !1), Tr(s, c);
           }
         }
         return i;
@@ -6537,7 +6537,7 @@
       })();
       function $l(e) {
         var n = e,
-          t = Zn(n) || Qn(n) || Xn(n) || I(n) || Y(n);
+          t = Zn(n) || Qn(n) || Xn(n) || I(n) || R(n);
         return t && void 0 !== t.factory ? t.factory : null;
       }
       function Zl(e) {
@@ -6804,7 +6804,7 @@
           )
         ),
         Ii = wi("script,style,template"),
-        Yi = (function() {
+        Ri = (function() {
           function e() {
             (this.sanitizedSomething = !1), (this.buf = []);
           }
@@ -6875,12 +6875,12 @@
             e
           );
         })(),
-        Ri = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g,
+        Yi = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g,
         Ai = /([^\#-~ |!])/g;
       function Pi(e) {
         return e
           .replace(/&/g, "&amp;")
-          .replace(Ri, function(e) {
+          .replace(Yi, function(e) {
             return (
               "&#" +
               (1024 * (e.charCodeAt(0) - 55296) +
@@ -6910,7 +6910,7 @@
               );
             l--, (r = i), (i = t.innerHTML), (t = ki.getInertBodyElement(r));
           } while (r !== i);
-          var o = new Yi(),
+          var o = new Ri(),
             a = o.sanitizeChildren(Ni(t) || t);
           return (
             fi() &&
@@ -7125,24 +7125,24 @@
             u = t instanceof ao ? new $o(t, o, 2) : null,
             s = a ? n.value : n,
             c = u ? t.value : t,
-            d = Yn,
+            d = Rn,
             h = !1,
             p = !1,
             f = a ? 1 : 0;
-          Yo(e, a, 1) && (Ro(e, a, 1), (p = !0));
+          Ro(e, a, 1) && (Yo(e, a, 1), (p = !0));
           var m = u ? 3 : 0;
-          Yo(e, u, 3) && (Ro(e, u, 3), (p = !0)),
+          Ro(e, u, 3) && (Yo(e, u, 3), (p = !0)),
             l ||
               ("string" == typeof s
                 ? ((d = s.split(/\s+/)), (h = !0))
-                : (d = s ? Object.keys(s) : Yn));
+                : (d = s ? Object.keys(s) : Rn));
           var g = Eo(e),
             v = (function(e) {
               return e[6][2];
             })(e),
             _ = e.length;
           if (!i) {
-            var y = go(e, r, m, g, v, c ? Object.keys(c) : Yn, c || In, t, !1);
+            var y = go(e, r, m, g, v, c ? Object.keys(c) : Rn, c || In, t, !1);
             y && ((v += 4 * y), (_ += 4 * y));
           }
           l || go(e, r, f, v, _, d, h || s || In, n, !0), p && Wo(e, !0);
@@ -7193,14 +7193,14 @@
                 if (Vo(e, E) === S) {
                   var O = Zo(e, E),
                     I = Po(e, E),
-                    Y = Ho(e, E),
-                    R = Fo(e, E);
-                  ea(Y, C, O, n) &&
+                    R = Ho(e, E),
+                    Y = Fo(e, E);
+                  ea(R, C, O, n) &&
                     (T && (Bo(e, _, E), m++),
-                    Jo(R, Y, C) &&
-                      ((null === C || (void 0 === C && C !== Y)) && (f = !0),
+                    Jo(Y, R, C) &&
+                      ((null === C || (void 0 === C && C !== R)) && (f = !0),
                       Io(e, _, C),
-                      (null !== Y || Ko(e, R, C)) && (Mo(e, _, !0), (s = !0))),
+                      (null !== R || Ko(e, Y, C)) && (Mo(e, _, !0), (s = !0))),
                     (O === n && t === I) || Ao(e, _, t, n)),
                     (_ += 4);
                   continue e;
@@ -7272,8 +7272,8 @@
             p = Po(e, o),
             f = !1,
             m = d ? p : 0;
-          if (Yo(e, d, p)) {
-            var g = Ro(e, d, p);
+          if (Ro(e, d, p)) {
+            var g = Yo(e, d, p);
             (m = d ? g : 0), (f = !0);
           }
           if (((f || s !== l) && Ao(e, o, m, l), s !== l)) {
@@ -7358,14 +7358,14 @@
       function Io(e, n, t) {
         e[n + 2] = t;
       }
-      function Yo(e, n, t) {
+      function Ro(e, n, t) {
         var r = e[9];
         if (n) {
           if (!r || 0 === t) return !0;
         } else if (!r) return !1;
         return r[t] !== n;
       }
-      function Ro(e, n, t) {
+      function Yo(e, n, t) {
         var r = e[9] || wl(e);
         return (
           t > 0 ? (r[t] = n) : (r.splice((t = r[0]), 0, n, null), (r[0] += 2)),
@@ -7698,8 +7698,8 @@
             (function(e) {
               for (var n = e[Dt]; null !== n; n = n[mt])
                 if (n.length < Et && -1 === n[It])
-                  for (var t = n, r = 0; r < t[Rt].length; r++) {
-                    var l = t[Rt][r];
+                  for (var t = n, r = 0; r < t[Yt].length; r++) {
+                    var l = t[Yt][r];
                     ka(l, l[ht], l[bt]);
                   }
             })(e),
@@ -7798,7 +7798,7 @@
           c = o.data[a];
         if (null == c) {
           var d = s ? u : u && u.parent;
-          c = o.data[a] = Ya(d && d !== i[vt] ? d : null, n, a, r, l);
+          c = o.data[a] = Ra(d && d !== i[vt] ? d : null, n, a, r, l);
         }
         return (
           u &&
@@ -7813,7 +7813,7 @@
       }
       function Ma(e, n, t, r) {
         var l = e.node;
-        return null == l && (e.node = l = Ya(n, 2, t, null, null)), (r[vt] = l);
+        return null == l && (e.node = l = Ra(n, 2, t, null, null)), (r[vt] = l);
       }
       function ka(e, n, t) {
         var r,
@@ -8026,7 +8026,7 @@
             : t.querySelector(n)
           : n;
       }
-      function Ya(e, n, t, r, l) {
+      function Ra(e, n, t, r, l) {
         return {
           type: n,
           index: t,
@@ -8053,7 +8053,7 @@
           onElementCreationFns: null
         };
       }
-      function Ra(e, n) {
+      function Ya(e, n) {
         var t = mr()[ht],
           r = null,
           l = e.directiveStart,
@@ -8294,7 +8294,7 @@
       var tu = ga;
       function ru(e) {
         return e
-          ? (void 0 === e.inputs && (e.inputs = Ra(e, 0)), e.inputs)
+          ? (void 0 === e.inputs && (e.inputs = Ya(e, 0)), e.inputs)
           : null;
       }
       function lu(e) {
@@ -8356,7 +8356,7 @@
       }
       function fu(e, n) {
         var t = pu(e, n);
-        return t ? Su(n[kt], t[Yt]) : null;
+        return t ? Su(n[kt], t[Rt]) : null;
       }
       var mu = [];
       function gu(e, n, t, l, i) {
@@ -8366,12 +8366,12 @@
             vu(n, t, l, Ht(d, c), d, i);
             var p = c[d.index];
             Nt(p) &&
-              (vu(n, t, l, p[Yt], d, i),
-              p[Rt].length && ((h = (c = p[Rt][0])[ht].node), (i = p[Yt])));
+              (vu(n, t, l, p[Rt], d, i),
+              p[Yt].length && ((h = (c = p[Yt][0])[ht].node), (i = p[Rt])));
           } else if (0 === d.type) {
             var f = c[d.index];
-            vu(n, t, l, f[Yt], d, i),
-              f[Rt].length && ((h = (c = f[Rt][0])[ht].node), (i = f[Yt]));
+            vu(n, t, l, f[Rt], d, i),
+              f[Yt].length && ((h = (c = f[Yt][0])[ht].node), (i = f[Rt]));
           } else if (1 === d.type) {
             var m = El(c),
               g = m[vt].projection[d.projection];
@@ -8411,12 +8411,12 @@
             ) {
               if (null === (d = d.parent || c[vt]) || d === u) return;
               if (
-                (0 === d.type && (i = (c = Tl(c))[d.index][Yt]), 2 === d.type)
+                (0 === d.type && (i = (c = Tl(c))[d.index][Rt]), 2 === d.type)
               ) {
                 for (; !c[mt] && c[ft] && (!d.parent || !d.parent.next); ) {
                   if (d === u) return;
                   if (Nt((c = c[ft]))) {
-                    (d = c[vt]), (i = (c = c[ft])[d.index][Yt]);
+                    (d = c[vt]), (i = (c = c[ft])[d.index][Rt]);
                     break;
                   }
                   d = c[vt];
@@ -8444,7 +8444,7 @@
         r && gu(e, n ? 0 : 1, e[kt], r, t);
       }
       function bu(e, n, t) {
-        var r = n[Rt];
+        var r = n[Yt];
         t > 0 && (r[t - 1][mt] = e),
           t < r.length
             ? ((e[mt] = r[t]), r.splice(t, 0, e))
@@ -8454,7 +8454,7 @@
           (e[pt] |= 128);
       }
       function wu(e, n) {
-        var t = e[Rt],
+        var t = e[Yt],
           r = t[n];
         return (
           r &&
@@ -8469,7 +8469,7 @@
         );
       }
       function Mu(e, n) {
-        var t = e[Rt][n];
+        var t = e[Yt][n];
         t && (wu(e, n), ku(t));
       }
       function ku(e) {
@@ -8483,7 +8483,7 @@
                 var t = null;
                 if (jt(n)) t = n[Dt];
                 else {
-                  var r = n[Rt];
+                  var r = n[Yt];
                   r.length > 0 && (t = r[0]);
                 }
                 if (!t) {
@@ -8588,8 +8588,8 @@
             u = (function(e, n) {
               if (2 === e.type) {
                 var t = pu(e, n),
-                  r = t[Rt];
-                return Eu(r.indexOf(n), r, t[Yt]);
+                  r = t[Yt];
+                return Eu(r.indexOf(n), r, t[Rt]);
               }
               return 4 === e.type || 5 === e.type ? Ht(e, n) : null;
             })(n.parent || t[vt], t);
@@ -8633,19 +8633,19 @@
         Tu(l, n, t), il(l, r);
         var i = r[e.index];
         if (0 === e.type)
-          for (var o = i[Rt], a = 0; a < o.length; a++) yu(o[a], !0, i[Yt]);
+          for (var o = i[Yt], a = 0; a < o.length; a++) yu(o[a], !0, i[Rt]);
         else {
           if (4 === e.type)
             for (var u = e.child; u; ) Iu(u, n, t, r), (u = u.next);
-          Nt(i) && Tu(i[Yt], n, t);
+          Nt(i) && Tu(i[Rt], n, t);
         }
       }
-      function Yu(e) {
+      function Ru(e) {
         var n = Nu(e, null, null),
           t = mr();
         t[ht].firstTemplatePass && (n.tViews = []), ju(t, n), Or(!1);
       }
-      function Ru(e, n, t, r, l, i, o, a) {
+      function Yu(e, n, t, r, l, i, o, a) {
         var u = mr(),
           s = u[ht],
           c = Nu(e, l || null, i || null);
@@ -8674,7 +8674,7 @@
       function Pu() {
         var e = Lr();
         Er() ? Or(!1) : Sr((e = e.parent));
-        for (var n = mr()[e.index], t = n[It]; t < n[Rt].length; ) Mu(n, t);
+        for (var n = mr()[e.index], t = n[It]; t < n[Yt].length; ) Mu(n, t);
       }
       function ju(e, n) {
         var t = e[gt];
@@ -8701,7 +8701,7 @@
           (t[l] = n);
       }
       function Hu(e) {
-        return zt(Yr, e);
+        return zt(Rr, e);
       }
       function Vu(e) {
         return zt(mr(), e);
@@ -8795,15 +8795,15 @@
               var E = T >= h,
                 O = T >= (E ? p : d),
                 I = Fo(e, T),
-                Y = So(I),
-                R = To(I);
+                R = So(I),
+                Y = To(I);
               No(
                 e,
                 T,
                 xo(
                   I,
-                  Y,
-                  (R += E
+                  R,
+                  (Y += E
                     ? O
                       ? 4 * g.length
                       : 0
@@ -9113,7 +9113,7 @@
           i = 2 === l.type ? l.parent : l,
           o = r[i.index],
           a = (function(e, n, t) {
-            for (var r = e[Rt], l = n; l < r.length; l++) {
+            for (var r = e[Yt], l = n; l < r.length; l++) {
               var i = r[l][ht].id;
               if (i === t) return r[l];
               if (!(i < t)) break;
@@ -9234,7 +9234,7 @@
               w.push(n),
               u && u.push(e, m, f, t);
         }
-        void 0 === o.outputs && (o.outputs = Ra(o, 1));
+        void 0 === o.outputs && (o.outputs = Ya(o, 1));
         var _,
           y = o.outputs;
         if (s && y && (_ = y[e])) {
@@ -9389,13 +9389,13 @@
       })();
       function Is(e) {
         return (
-          !!Ys(e) && (Array.isArray(e) || (!(e instanceof Map) && Ss() in e))
+          !!Rs(e) && (Array.isArray(e) || (!(e instanceof Map) && Ss() in e))
         );
       }
-      function Ys(e) {
+      function Rs(e) {
         return null !== e && ("function" == typeof e || "object" == typeof e);
       }
-      function Rs(e, n, t) {
+      function Ys(e, n, t) {
         return (e[n] = t);
       }
       function As(e, n) {
@@ -9782,7 +9782,7 @@
         var i,
           o = Ia(t, n.host || l.selectors[0][0]),
           a = l.onPush ? 576 : 528,
-          u = Yc(n.scheduler, n.playerHandler),
+          u = Rc(n.scheduler, n.playerHandler),
           s = t.createRenderer(o, l),
           c = ba(
             null,
@@ -9873,7 +9873,7 @@
         }
         return o;
       }
-      function Yc(e, n) {
+      function Rc(e, n) {
         return {
           components: [],
           scheduler: e || lt,
@@ -9882,7 +9882,7 @@
           flags: 0
         };
       }
-      function Rc(e, n) {
+      function Yc(e, n) {
         var t = Kt(e)[ht],
           r = t.data.length - 1;
         tr(r, n, t, -1, -1, -1),
@@ -10041,7 +10041,7 @@
           t();
       }
       function Wc(e) {
-        return e === In ? {} : e === Yn ? [] : e;
+        return e === In ? {} : e === Rn ? [] : e;
       }
       function Bc(e, n) {
         var t = e.viewQuery;
@@ -10162,12 +10162,12 @@
           (e.prototype.processInjectorType = function(e, n, t) {
             var r = this;
             if ((e = F(e))) {
-              var l = Y(e),
+              var l = R(e),
                 i = (null == l && e.ngModule) || void 0,
                 o = void 0 === i ? e : i,
                 a = -1 !== t.indexOf(o),
                 u = (void 0 !== i && e.providers) || Jc;
-              if ((void 0 !== i && (l = Y(i)), null != l)) {
+              if ((void 0 !== i && (l = R(i)), null != l)) {
                 if (
                   (this.injectorDefTypes.add(o),
                   this.records.set(o, td(l.factory, qc)),
@@ -10249,7 +10249,7 @@
       function ed(e) {
         var n = I(e);
         if (null === n) {
-          var t = Y(e);
+          var t = R(e);
           if (null !== t) return t.factory;
           if (e instanceof Ce)
             throw new Error(
@@ -10749,15 +10749,15 @@
           }
           return (
             (e.__NG_ELEMENT_ID__ = function() {
-              return Rd(e);
+              return Yd(e);
             }),
             e
           );
         })(),
-        Yd = function(e) {
+        Rd = function(e) {
           return Sd(e, Lr(), mr());
         },
-        Rd = Od,
+        Yd = Od,
         Ad = (function() {
           return function(e, n, t, r, l, i) {
             (this.id = e),
@@ -11235,7 +11235,7 @@
           function e() {}
           return (
             (e.prototype.supports = function(e) {
-              return e instanceof Map || Ys(e);
+              return e instanceof Map || Rs(e);
             }),
             (e.prototype.create = function() {
               return new eh();
@@ -11291,7 +11291,7 @@
             }),
             (e.prototype.diff = function(e) {
               if (e) {
-                if (!(e instanceof Map || Ys(e)))
+                if (!(e instanceof Map || Rs(e)))
                   throw new Error(
                     "Error trying to diff '" +
                       P(e) +
@@ -11628,14 +11628,14 @@
                     configurable: !0
                   }),
                   (t.prototype.clear = function() {
-                    for (; this._lContainer[Rt].length; ) this.remove(0);
+                    for (; this._lContainer[Yt].length; ) this.remove(0);
                   }),
                   (t.prototype.get = function(e) {
                     return this._viewRefs[e] || null;
                   }),
                   Object.defineProperty(t.prototype, "length", {
                     get: function() {
-                      return this._lContainer[Rt].length;
+                      return this._lContainer[Yt].length;
                     },
                     enumerable: !0,
                     configurable: !0
@@ -11668,7 +11668,7 @@
                         yu(
                           t,
                           !0,
-                          Eu(r, this._lContainer[Rt], this._lContainer[Yt])
+                          Eu(r, this._lContainer[Yt], this._lContainer[Rt])
                         ),
                         e.attachToViewContainerRef(this),
                         this._viewRefs.splice(r, 0, e),
@@ -11699,7 +11699,7 @@
                   (t.prototype._adjustIndex = function(e, n) {
                     return (
                       void 0 === n && (n = 0),
-                      null == e ? this._lContainer[Rt].length + n : e
+                      null == e ? this._lContainer[Yt].length + n : e
                     );
                   }),
                   t
@@ -11819,8 +11819,8 @@
         return r;
       }
       var Ih = "$$undefined",
-        Yh = "$$empty";
-      function Rh(e) {
+        Rh = "$$empty";
+      function Yh(e) {
         return {
           id: Ih,
           styles: e.styles,
@@ -12344,7 +12344,7 @@
                     "ng-version",
                     Ud.full
                   ),
-                new Tp(o, new Yp(o), a)
+                new Tp(o, new Rp(o), a)
               );
             }),
             n
@@ -12441,7 +12441,7 @@
           (e.prototype.get = function(e) {
             var n = this._embeddedViews[e];
             if (n) {
-              var t = new Yp(n);
+              var t = new Rp(n);
               return t.attachToViewContainerRef(this), t;
             }
             return null;
@@ -12534,15 +12534,15 @@
           }),
           (e.prototype.detach = function(e) {
             var n = bp(this._data, e);
-            return n ? new Yp(n) : null;
+            return n ? new Rp(n) : null;
           }),
           e
         );
       })();
       function Ip(e) {
-        return new Yp(e);
+        return new Rp(e);
       }
-      var Yp = (function() {
+      var Rp = (function() {
         function e(e) {
           (this._view = e),
             (this._viewContainerRef = null),
@@ -12627,7 +12627,7 @@
           e
         );
       })();
-      function Rp(e, n) {
+      function Yp(e, n) {
         return new Ap(e, n);
       }
       var Ap = (function(e) {
@@ -12638,7 +12638,7 @@
         return (
           Object(r.__extends)(n, e),
           (n.prototype.createEmbeddedView = function(e) {
-            return new Yp(
+            return new Rp(
               Lh.createEmbeddedView(
                 this._parentView,
                 this._def,
@@ -13147,7 +13147,7 @@
       var vf = new Ce("ROOT_CONTEXT_TOKEN", {
           providedIn: "root",
           factory: function() {
-            return Yc(K(_f));
+            return Rc(K(_f));
           }
         }),
         _f = new Ce("SCHEDULER_TOKEN", {
@@ -13208,7 +13208,7 @@
                 c =
                   "string" == typeof t &&
                   /^#root-ng-internal-isolated-\d+/.test(t),
-                d = l || c ? Yc() : i.get(vf),
+                d = l || c ? Rc() : i.get(vf),
                 h = o.createRenderer(u, this.componentDef);
               t &&
                 u &&
@@ -13237,7 +13237,7 @@
                     (f.projection = n.map(function(e) {
                       return Array.from(e);
                     })),
-                  (p = Ic(v, this.componentDef, m, d, [Rc])),
+                  (p = Ic(v, this.componentDef, m, d, [Yc])),
                   qa(m, v),
                   va(m);
               } finally {
@@ -13309,8 +13309,8 @@
         Ef = /\[(\ufffd.+?\ufffd?)\]/,
         Of = /\[(\ufffd.+?\ufffd?)\]|(\ufffd\/?\*\d+:\d+\ufffd)/g,
         If = /({\s*)(VAR_(PLURAL|SELECT)(_\d+)?)(\s*,)/g,
-        Yf = /\ufffdI18N_EXP_(ICU(_\d+)?)\ufffd/g,
-        Rf = /\/\*/,
+        Rf = /\ufffdI18N_EXP_(ICU(_\d+)?)\ufffd/g,
+        Yf = /\/\*/,
         Af = /\d+\:(\d+)/;
       function Pf(e) {
         if (!e) return [];
@@ -13521,7 +13521,7 @@
         for (var i = e.next; i; ) i.next === e && (i.next = r), (i = i.next);
         Tu(Ht(e, l), e, l);
         var o = l[e.index];
-        return 0 !== e.type && Nt(o) && Tu(o[Yt], e, l), e;
+        return 0 !== e.type && Nt(o) && Tu(o[Rt], e, l), e;
       }
       function Kf(e, n) {
         void 0 === n && (n = {});
@@ -13537,7 +13537,7 @@
                 o.split("|").forEach(function(e) {
                   var n = e.match(Af),
                     t = n ? parseInt(n[1], 10) : Tf,
-                    r = Rf.test(e);
+                    r = Yf.test(e);
                   a.push([t, r, e]);
                 }),
                   (l[o] = a);
@@ -13571,7 +13571,7 @@
         return Object.keys(n).length
           ? (t = (t = t.replace(If, function(e, t, r, l, i, o) {
               return n.hasOwnProperty(r) ? "" + t + n[r] + o : e;
-            })).replace(Yf, function(e, t) {
+            })).replace(Rf, function(e, t) {
               if (n.hasOwnProperty(t)) {
                 var r = n[t];
                 if (!r.length)
@@ -13675,7 +13675,7 @@
           r = Ft(e, n);
         r && Ou(n[kt], r);
         var l = Vu(e);
-        Nt(l) && 0 !== t.type && Ou(n[kt], l[Yt]);
+        Nt(l) && 0 !== t.type && Ou(n[kt], l[Rt]);
       }
       function Xf(e, n, t) {
         Gf(e, n, t), Jf();
@@ -14469,34 +14469,34 @@
       function _m(e, n, t) {
         var r = Nr() + e,
           l = mr();
-        return Ir() ? Rs(l, r, t ? n.call(t) : n()) : As(l, r);
+        return Ir() ? Ys(l, r, t ? n.call(t) : n()) : As(l, r);
       }
       function ym(e, n, t, r) {
         var l = mr(),
           i = Nr() + e;
         return Ps(l, i, t)
-          ? Rs(l, i + 1, r ? n.call(r, t) : n(t))
+          ? Ys(l, i + 1, r ? n.call(r, t) : n(t))
           : As(l, i + 1);
       }
       function bm(e, n, t, r, l) {
         var i = Nr() + e,
           o = mr();
         return js(o, i, t, r)
-          ? Rs(o, i + 2, l ? n.call(l, t, r) : n(t, r))
+          ? Ys(o, i + 2, l ? n.call(l, t, r) : n(t, r))
           : As(o, i + 2);
       }
       function wm(e, n, t, r, l, i) {
         var o = Nr() + e,
           a = mr();
         return Ns(a, o, t, r, l)
-          ? Rs(a, o + 3, i ? n.call(i, t, r, l) : n(t, r, l))
+          ? Ys(a, o + 3, i ? n.call(i, t, r, l) : n(t, r, l))
           : As(a, o + 3);
       }
       function Mm(e, n, t, r, l, i, o) {
         var a = Nr() + e,
           u = mr();
         return Fs(u, a, t, r, l, i)
-          ? Rs(u, a + 4, o ? n.call(o, t, r, l, i) : n(t, r, l, i))
+          ? Ys(u, a + 4, o ? n.call(o, t, r, l, i) : n(t, r, l, i))
           : As(u, a + 4);
       }
       function km(e, n, t, r, l, i, o, a) {
@@ -14504,7 +14504,7 @@
           s = mr(),
           c = Fs(s, u, t, r, l, i);
         return Ps(s, u + 4, o) || c
-          ? Rs(s, u + 5, a ? n.call(a, t, r, l, i, o) : n(t, r, l, i, o))
+          ? Ys(s, u + 5, a ? n.call(a, t, r, l, i, o) : n(t, r, l, i, o))
           : As(s, u + 5);
       }
       function Cm(e, n, t, r, l, i, o, a, u) {
@@ -14512,7 +14512,7 @@
           c = mr(),
           d = Fs(c, s, t, r, l, i);
         return js(c, s + 4, o, a) || d
-          ? Rs(c, s + 6, u ? n.call(u, t, r, l, i, o, a) : n(t, r, l, i, o, a))
+          ? Ys(c, s + 6, u ? n.call(u, t, r, l, i, o, a) : n(t, r, l, i, o, a))
           : As(c, s + 6);
       }
       function Dm(e, n, t, r, l, i, o, a, u, s) {
@@ -14520,7 +14520,7 @@
           d = mr(),
           h = Fs(d, c, t, r, l, i);
         return Ns(d, c + 4, o, a, u) || h
-          ? Rs(
+          ? Ys(
               d,
               c + 7,
               s ? n.call(s, t, r, l, i, o, a, u) : n(t, r, l, i, o, a, u)
@@ -14532,7 +14532,7 @@
           h = mr(),
           p = Fs(h, d, t, r, l, i);
         return Fs(h, d + 4, o, a, u, s) || p
-          ? Rs(
+          ? Ys(
               h,
               d + 8,
               c ? n.call(c, t, r, l, i, o, a, u, s) : n(t, r, l, i, o, a, u, s)
@@ -14542,7 +14542,7 @@
       function Lm(e, n, t, r) {
         for (var l = Nr() + e, i = !1, o = mr(), a = 0; a < t.length; a++)
           Ps(o, l++, t[a]) && (i = !0);
-        return i ? Rs(o, l, n.apply(r, t)) : As(o, l);
+        return i ? Ys(o, l, n.apply(r, t)) : As(o, l);
       }
       function Sm(e, n) {
         var t,
@@ -14566,29 +14566,29 @@
       }
       function Tm(e, n, t) {
         var r = Vu(e);
-        return Am(Rm(e) ? ym(n, r.transform, t, r) : r.transform(t));
+        return Am(Ym(e) ? ym(n, r.transform, t, r) : r.transform(t));
       }
       function Em(e, n, t, r) {
         var l = Vu(e);
-        return Am(Rm(e) ? bm(n, l.transform, t, r, l) : l.transform(t, r));
+        return Am(Ym(e) ? bm(n, l.transform, t, r, l) : l.transform(t, r));
       }
       function Om(e, n, t, r, l) {
         var i = Vu(e);
         return Am(
-          Rm(e) ? wm(n, i.transform, t, r, l, i) : i.transform(t, r, l)
+          Ym(e) ? wm(n, i.transform, t, r, l, i) : i.transform(t, r, l)
         );
       }
       function Im(e, n, t, r, l, i) {
         var o = Vu(e);
         return Am(
-          Rm(e) ? Mm(n, o.transform, t, r, l, i, o) : o.transform(t, r, l, i)
+          Ym(e) ? Mm(n, o.transform, t, r, l, i, o) : o.transform(t, r, l, i)
         );
       }
-      function Ym(e, n, t) {
+      function Rm(e, n, t) {
         var r = Vu(e);
-        return Am(Rm(e) ? Lm(n, r.transform, t, r) : r.transform.apply(r, t));
+        return Am(Ym(e) ? Lm(n, r.transform, t, r) : r.transform.apply(r, t));
       }
-      function Rm(e) {
+      function Ym(e) {
         return mr()[ht].data[e + Et].pure;
       }
       function Am(e) {
@@ -15003,7 +15003,7 @@
             ɵɵInheritDefinitionFeature: zc,
             ɵɵelementAttribute: ss,
             ɵɵbind: Vs,
-            ɵɵcontainer: Yu,
+            ɵɵcontainer: Ru,
             ɵɵnextContext: ks,
             ɵɵcontainerRefreshStart: Au,
             ɵɵcontainerRefreshEnd: Pu,
@@ -15049,7 +15049,7 @@
             ɵɵpipeBind2: Em,
             ɵɵpipeBind3: Om,
             ɵɵpipeBind4: Im,
-            ɵɵpipeBindV: Ym,
+            ɵɵpipeBindV: Rm,
             ɵɵprojectionDef: Ds,
             ɵɵproperty: Hs,
             ɵɵpropertyInterpolate: Xs,
@@ -15083,7 +15083,7 @@
             ɵɵelementHostStylingApply: ts,
             ɵɵelementHostClassProp: Zu,
             ɵɵselect: sc,
-            ɵɵtemplate: Ru,
+            ɵɵtemplate: Yu,
             ɵɵtext: cc,
             ɵɵtextBinding: dc,
             ɵɵembeddedViewStart: ps,
@@ -15200,7 +15200,7 @@
         var t = Mf(n.declarations || gg),
           r = xg(e);
         t.forEach(function(n) {
-          n.hasOwnProperty(Rn)
+          n.hasOwnProperty(Yn)
             ? Dg(Zn(n), r)
             : n.hasOwnProperty(An) ||
               n.hasOwnProperty(Pn) ||
@@ -15211,7 +15211,7 @@
         (e.directiveDefs = function() {
           return Array.from(n.compilation.directives)
             .map(function(e) {
-              return e.hasOwnProperty(Rn) ? Zn(e) : Qn(e);
+              return e.hasOwnProperty(Yn) ? Zn(e) : Qn(e);
             })
             .filter(function(e) {
               return !!e;
@@ -15288,7 +15288,7 @@
         !(function(e, n) {
           Ln(n) && (Dn.set(e, n), xn.add(e));
         })(e, n),
-          Object.defineProperty(e, Rn, {
+          Object.defineProperty(e, Yn, {
             get: function() {
               var l = z();
               if (null === t) {
@@ -15313,7 +15313,7 @@
                     ),
                     template: n.template || "",
                     preserveWhitespaces: n.preserveWhitespaces || !1,
-                    styles: n.styles || Yn,
+                    styles: n.styles || Rn,
                     animations: n.animations,
                     directives: [],
                     changeDetection: n.changeDetection,
@@ -15323,7 +15323,7 @@
                     viewProviders: n.viewProviders || null
                   });
                 if (
-                  (a.usesInheritance && Yg(e),
+                  (a.usesInheritance && Rg(e),
                   (t = l.compileComponent(mg, o, a)),
                   yg(),
                   void 0 !== e.ngSelectorScope)
@@ -15348,7 +15348,7 @@
                 i = z(),
                 o = Ig(e, n);
               (o.typeSourceSpan = i.createParseSourceSpan("Directive", r, l)),
-                o.usesInheritance && Yg(e),
+                o.usesInheritance && Rg(e),
                 (t = i.compileDirective(mg, l, o));
             }
             return t;
@@ -15371,8 +15371,8 @@
           deps: ce(e),
           host: n.host || In,
           propMetadata: r,
-          inputs: n.inputs || Yn,
-          outputs: n.outputs || Yn,
+          inputs: n.inputs || Rn,
+          outputs: n.outputs || Rn,
           queries: Pg(e, r, jg),
           lifecycle: {
             usesOnChanges: e.prototype.hasOwnProperty("ngOnChanges")
@@ -15390,7 +15390,7 @@
           viewQueries: Pg(e, r, Ng)
         };
       }
-      function Yg(e) {
+      function Rg(e) {
         for (
           var n = Object.prototype, t = Object.getPrototypeOf(e);
           t && t !== n;
@@ -15398,12 +15398,12 @@
         ) {
           if (!Qn(t) && !Zn(t) && !et(t)) {
             var r = Ag(t);
-            r && Rg(t, r);
+            r && Yg(t, r);
           }
           t = Object.getPrototypeOf(t);
         }
       }
-      function Rg(e, n) {
+      function Yg(e, n) {
         var t = null;
         Object.defineProperty(e, Nn, {
           get: function() {
@@ -15713,30 +15713,30 @@
       function Iv(e, n) {
         return gv.beginTimeRange(e, n);
       }
-      function Yv(e) {
+      function Rv(e) {
         gv.endTimeRange(e);
       }
-      var Rv = Tv();
+      var Yv = Tv();
       function Av(e, n) {
         return null;
       }
-      var Pv = Rv
+      var Pv = Yv
           ? Ev
           : function(e, n) {
               return Av;
             },
-        jv = Rv
+        jv = Yv
           ? Ov
           : function(e, n) {
               return n;
             },
-        Nv = Rv
+        Nv = Yv
           ? Iv
           : function(e, n) {
               return null;
             },
-        Fv = Rv
-          ? Yv
+        Fv = Yv
+          ? Rv
           : function(e) {
               return null;
             },
@@ -17001,7 +17001,7 @@
           Nt(s) && T_(s, t, l, i, o);
         } else if (0 === e.type) {
           var c = n[e.index];
-          E_(c[Yt], t, l, i, o), T_(c, t, l, i, o);
+          E_(c[Rt], t, l, i, o), T_(c, t, l, i, o);
         } else if (1 === e.type) {
           var d,
             h = (d = El(n))[vt].projection[e.projection];
@@ -17031,14 +17031,14 @@
         g && S_(g, n, t, l, i, o);
       }
       function T_(e, n, t, r, l) {
-        for (var i = 0; i < e[Rt].length; i++) {
-          var o = e[Rt][i];
+        for (var i = 0; i < e[Yt].length; i++) {
+          var o = e[Yt][i];
           S_(o[ht].node, o, n, t, r, l);
         }
       }
       function E_(e, n, t, r, l) {
         if (l !== e) {
-          var i = Y_(e);
+          var i = R_(e);
           i && (!r || i instanceof x_) && n(i) && t.push(i);
         }
       }
@@ -17050,10 +17050,10 @@
             : new D_(e)
           : null;
       }
-      var Y_ = function(e) {
+      var R_ = function(e) {
         return O_.get(e) || null;
       };
-      function R_(e) {
+      function Y_(e) {
         O_.set(e.nativeNode, e);
       }
       var A_ = M_,
@@ -17192,7 +17192,7 @@
           var I = Object(r.__read)(s[w], 2);
           O[w] = { type: 0, target: I[0], eventName: I[1], propName: null };
         }
-        var Y = (a = a || []).map(function(e) {
+        var R = (a = a || []).map(function(e) {
           var n = Object(r.__read)(e, 2),
             t = n[0],
             l = n[1],
@@ -17206,9 +17206,9 @@
                 (null != e.encapsulation && e.encapsulation !== En.None) ||
                 e.styles.length ||
                 Object.keys(e.data).length;
-              e.id = n ? "c" + Ah++ : Yh;
+              e.id = n ? "c" + Ah++ : Rh;
             }
-            return e && e.id === Yh && (e = null), e || null;
+            return e && e.id === Rh && (e = null), e || null;
           })(h)),
           d && (n |= 33554432),
           {
@@ -17233,7 +17233,7 @@
             element: {
               ns: _,
               name: y,
-              attrs: Y,
+              attrs: R,
               template: null,
               componentProvider: null,
               componentView: d || null,
@@ -17817,7 +17817,7 @@
                   renderElement: a,
                   componentView: u,
                   viewContainer: null,
-                  template: i.element.template ? Rp(e, i) : void 0
+                  template: i.element.template ? Yp(e, i) : void 0
                 }),
                 16777216 & i.flags && (o.viewContainer = Ep(e, i, o));
               break;
@@ -18246,7 +18246,7 @@
           for (var r = 0; r < t.nodes.length; r++) {
             var l = t.nodes[r];
             33554432 & l.flags
-              ? Yy(Mh(e, r).componentView, n)
+              ? Ry(Mh(e, r).componentView, n)
               : 0 == (33554432 & l.childFlags) && (r += l.childCount);
           }
       }
@@ -18261,30 +18261,30 @@
                 o < i.length;
                 o++
               )
-                Yy(i[o], n);
+                Ry(i[o], n);
             else 0 == (16777216 & l.childFlags) && (r += l.childCount);
           }
       }
-      function Yy(e, n) {
+      function Ry(e, n) {
         var t = e.state;
         switch (n) {
           case Ey.CheckNoChanges:
             0 == (128 & t) &&
               (12 == (12 & t)
                 ? ky(e)
-                : 64 & t && Ry(e, Ey.CheckNoChangesProjectedViews));
+                : 64 & t && Yy(e, Ey.CheckNoChangesProjectedViews));
             break;
           case Ey.CheckNoChangesProjectedViews:
-            0 == (128 & t) && (32 & t ? ky(e) : 64 & t && Ry(e, n));
+            0 == (128 & t) && (32 & t ? ky(e) : 64 & t && Yy(e, n));
             break;
           case Ey.CheckAndUpdate:
             0 == (128 & t) &&
               (12 == (12 & t)
                 ? Cy(e)
-                : 64 & t && Ry(e, Ey.CheckAndUpdateProjectedViews));
+                : 64 & t && Yy(e, Ey.CheckAndUpdateProjectedViews));
             break;
           case Ey.CheckAndUpdateProjectedViews:
-            0 == (128 & t) && (32 & t ? Cy(e) : 64 & t && Ry(e, n));
+            0 == (128 & t) && (32 & t ? Cy(e) : 64 & t && Yy(e, n));
             break;
           case Ey.Destroy:
             Ty(e);
@@ -18293,7 +18293,7 @@
             My(e);
         }
       }
-      function Ry(e, n) {
+      function Yy(e, n) {
         Iy(e, n), Oy(e, n);
       }
       function Ay(e, n, t, r) {
@@ -18837,7 +18837,7 @@
             (e.prototype.destroyNode = function(e) {
               !(function(e) {
                 O_.delete(e.nativeNode);
-              })(Y_(e)),
+              })(R_(e)),
                 this.delegate.destroyNode && this.delegate.destroyNode(e);
             }),
             (e.prototype.destroy = function() {
@@ -18848,84 +18848,84 @@
                 r = this.createDebugContext(t);
               if (r) {
                 var l = new k_(t, null, r);
-                (l.name = e), R_(l);
+                (l.name = e), Y_(l);
               }
               return t;
             }),
             (e.prototype.createComment = function(e) {
               var n = this.delegate.createComment(e),
                 t = this.createDebugContext(n);
-              return t && R_(new M_(n, null, t)), n;
+              return t && Y_(new M_(n, null, t)), n;
             }),
             (e.prototype.createText = function(e) {
               var n = this.delegate.createText(e),
                 t = this.createDebugContext(n);
-              return t && R_(new M_(n, null, t)), n;
+              return t && Y_(new M_(n, null, t)), n;
             }),
             (e.prototype.appendChild = function(e, n) {
-              var t = Y_(e),
-                r = Y_(n);
+              var t = R_(e),
+                r = R_(n);
               t && r && t instanceof k_ && t.addChild(r),
                 this.delegate.appendChild(e, n);
             }),
             (e.prototype.insertBefore = function(e, n, t) {
-              var r = Y_(e),
-                l = Y_(n),
-                i = Y_(t);
+              var r = R_(e),
+                l = R_(n),
+                i = R_(t);
               r && l && r instanceof k_ && r.insertBefore(i, l),
                 this.delegate.insertBefore(e, n, t);
             }),
             (e.prototype.removeChild = function(e, n) {
-              var t = Y_(e),
-                r = Y_(n);
+              var t = R_(e),
+                r = R_(n);
               t && r && t instanceof k_ && t.removeChild(r),
                 this.delegate.removeChild(e, n);
             }),
             (e.prototype.selectRootElement = function(e, n) {
               var t = this.delegate.selectRootElement(e, n),
                 r = vb();
-              return r && R_(new k_(t, null, r)), t;
+              return r && Y_(new k_(t, null, r)), t;
             }),
             (e.prototype.setAttribute = function(e, n, t, r) {
-              var l = Y_(e);
+              var l = R_(e);
               l && l instanceof k_ && (l.attributes[r ? r + ":" + n : n] = t),
                 this.delegate.setAttribute(e, n, t, r);
             }),
             (e.prototype.removeAttribute = function(e, n, t) {
-              var r = Y_(e);
+              var r = R_(e);
               r &&
                 r instanceof k_ &&
                 (r.attributes[t ? t + ":" + n : n] = null),
                 this.delegate.removeAttribute(e, n, t);
             }),
             (e.prototype.addClass = function(e, n) {
-              var t = Y_(e);
+              var t = R_(e);
               t && t instanceof k_ && (t.classes[n] = !0),
                 this.delegate.addClass(e, n);
             }),
             (e.prototype.removeClass = function(e, n) {
-              var t = Y_(e);
+              var t = R_(e);
               t && t instanceof k_ && (t.classes[n] = !1),
                 this.delegate.removeClass(e, n);
             }),
             (e.prototype.setStyle = function(e, n, t, r) {
-              var l = Y_(e);
+              var l = R_(e);
               l && l instanceof k_ && (l.styles[n] = t),
                 this.delegate.setStyle(e, n, t, r);
             }),
             (e.prototype.removeStyle = function(e, n, t) {
-              var r = Y_(e);
+              var r = R_(e);
               r && r instanceof k_ && (r.styles[n] = null),
                 this.delegate.removeStyle(e, n, t);
             }),
             (e.prototype.setProperty = function(e, n, t) {
-              var r = Y_(e);
+              var r = R_(e);
               r && r instanceof k_ && (r.properties[n] = t),
                 this.delegate.setProperty(e, n, t);
             }),
             (e.prototype.listen = function(e, n, t) {
               if ("string" != typeof e) {
-                var r = Y_(e);
+                var r = R_(e);
                 r && r.listeners.push(new w_(n, t));
               }
               return this.delegate.listen(e, n, t);
@@ -20049,8 +20049,8 @@
             ("function" == typeof e.lift && "function" == typeof e.subscribe))
         );
       }
-      var Y = t("b7mW"),
-        R = t("3fWJ"),
+      var R = t("b7mW"),
+        Y = t("3fWJ"),
         A = t("8g8A"),
         P = t("awvh");
       function j() {
@@ -20626,10 +20626,10 @@
             (n.prototype._next = function(e) {
               var n = this.iterators;
               Object(V.a)(e)
-                ? n.push(new Re(e))
+                ? n.push(new Ye(e))
                 : n.push(
                     "function" == typeof e[Te.a]
-                      ? new Ye(e[Te.a]())
+                      ? new Re(e[Te.a]())
                       : new Ae(this.destination, this, e)
                   );
             }),
@@ -20684,7 +20684,7 @@
             n
           );
         })(o.a),
-        Ye = (function() {
+        Re = (function() {
           function e(e) {
             (this.iterator = e), (this.nextResult = e.next());
           }
@@ -20703,7 +20703,7 @@
             e
           );
         })(),
-        Re = (function() {
+        Ye = (function() {
           function e(e) {
             (this.array = e),
               (this.index = 0),
@@ -20840,10 +20840,10 @@
           return I;
         }),
         t.d(n, "ArgumentOutOfRangeError", function() {
-          return Y.a;
+          return R.a;
         }),
         t.d(n, "EmptyError", function() {
-          return R.a;
+          return Y.a;
         }),
         t.d(n, "ObjectUnsubscribedError", function() {
           return A.a;
@@ -22670,7 +22670,7 @@
           return Te;
         }),
         t.d(n, "\u0275angular_packages_common_common_b", function() {
-          return Ye;
+          return Re;
         }),
         t.d(n, "\u0275angular_packages_common_common_g", function() {
           return Bn;
@@ -22754,7 +22754,7 @@
           return I;
         }),
         t.d(n, "getLocaleDateTimeFormat", function() {
-          return R;
+          return Y;
         }),
         t.d(n, "getLocaleExtraDayPeriodRules", function() {
           return V;
@@ -22766,7 +22766,7 @@
           return F;
         }),
         t.d(n, "getLocaleTimeFormat", function() {
-          return Y;
+          return R;
         }),
         t.d(n, "getLocaleNumberSymbol", function() {
           return A;
@@ -22781,7 +22781,7 @@
           return j;
         }),
         t.d(n, "\u0275parseCookieValue", function() {
-          return Re;
+          return Ye;
         }),
         t.d(n, "CommonModule", function() {
           return pt;
@@ -23523,10 +23523,10 @@
       function I(e, n) {
         return W(U(e)[10], n);
       }
-      function Y(e, n) {
+      function R(e, n) {
         return W(U(e)[11], n);
       }
-      function R(e, n) {
+      function Y(e, n) {
         return W(U(e)[12], n);
       }
       function A(e, n) {
@@ -23685,36 +23685,36 @@
                 l = I(n, M.Full);
                 break;
               case "shortTime":
-                l = Y(n, M.Short);
+                l = R(n, M.Short);
                 break;
               case "mediumTime":
-                l = Y(n, M.Medium);
+                l = R(n, M.Medium);
                 break;
               case "longTime":
-                l = Y(n, M.Long);
+                l = R(n, M.Long);
                 break;
               case "fullTime":
-                l = Y(n, M.Full);
+                l = R(n, M.Full);
                 break;
               case "short":
                 var i = e(n, "shortTime"),
                   o = e(n, "shortDate");
-                l = te(R(n, M.Short), [i, o]);
+                l = te(Y(n, M.Short), [i, o]);
                 break;
               case "medium":
                 var a = e(n, "mediumTime"),
                   u = e(n, "mediumDate");
-                l = te(R(n, M.Medium), [a, u]);
+                l = te(Y(n, M.Medium), [a, u]);
                 break;
               case "long":
                 var s = e(n, "longTime"),
                   c = e(n, "longDate");
-                l = te(R(n, M.Long), [s, c]);
+                l = te(Y(n, M.Long), [s, c]);
                 break;
               case "full":
                 var d = e(n, "fullTime"),
                   h = e(n, "fullDate");
-                l = te(R(n, M.Full), [d, h]);
+                l = te(Y(n, M.Full), [d, h]);
             }
             return l && ($[r][t] = l), l;
           })(t, n) || n;
@@ -24372,7 +24372,7 @@
           n
         );
       })(Ee);
-      function Ye(e, n) {
+      function Re(e, n) {
         "string" == typeof n && (n = parseInt(n, 10));
         var t = n,
           r = t.toString().replace(/^[^.]*\.?/, ""),
@@ -24785,7 +24785,7 @@
             return y.Other;
         }
       }
-      function Re(e, n) {
+      function Ye(e, n) {
         var t, r;
         n = encodeURIComponent(n);
         try {
@@ -25748,9 +25748,9 @@
         kn = /((?:[^yMLdHhmsazZEwGjJ']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|L+|d+|H+|h+|J+|j+|m+|s+|a|z|Z|G+|w+))(.*)/,
         Cn = {
           yMMMdjms: An(
-            Rn([
+            Yn([
               In("year", 1),
-              Yn("month", 3),
+              Rn("month", 3),
               In("day", 1),
               In("hour", 1),
               In("minute", 1),
@@ -25758,7 +25758,7 @@
             ])
           ),
           yMdjm: An(
-            Rn([
+            Yn([
               In("year", 1),
               In("month", 1),
               In("day", 1),
@@ -25767,24 +25767,24 @@
             ])
           ),
           yMMMMEEEEd: An(
-            Rn([In("year", 1), Yn("month", 4), Yn("weekday", 4), In("day", 1)])
+            Yn([In("year", 1), Rn("month", 4), Rn("weekday", 4), In("day", 1)])
           ),
-          yMMMMd: An(Rn([In("year", 1), Yn("month", 4), In("day", 1)])),
-          yMMMd: An(Rn([In("year", 1), Yn("month", 3), In("day", 1)])),
-          yMd: An(Rn([In("year", 1), In("month", 1), In("day", 1)])),
-          jms: An(Rn([In("hour", 1), In("second", 1), In("minute", 1)])),
-          jm: An(Rn([In("hour", 1), In("minute", 1)]))
+          yMMMMd: An(Yn([In("year", 1), Rn("month", 4), In("day", 1)])),
+          yMMMd: An(Yn([In("year", 1), Rn("month", 3), In("day", 1)])),
+          yMd: An(Yn([In("year", 1), In("month", 1), In("day", 1)])),
+          jms: An(Yn([In("hour", 1), In("second", 1), In("minute", 1)])),
+          jm: An(Yn([In("hour", 1), In("minute", 1)]))
         },
         Dn = {
           yyyy: An(In("year", 4)),
           yy: An(In("year", 2)),
           y: An(In("year", 1)),
-          MMMM: An(Yn("month", 4)),
-          MMM: An(Yn("month", 3)),
+          MMMM: An(Rn("month", 4)),
+          MMM: An(Rn("month", 3)),
           MM: An(In("month", 2)),
           M: An(In("month", 1)),
-          LLLL: An(Yn("month", 4)),
-          L: An(Yn("month", 1)),
+          LLLL: An(Rn("month", 4)),
+          L: An(Rn("month", 1)),
           dd: An(In("day", 2)),
           d: An(In("day", 1)),
           HH: xn(Sn(An(On(In("hour", 2), !1)))),
@@ -25798,19 +25798,19 @@
           ss: xn(An(In("second", 2))),
           s: An(In("second", 1)),
           sss: An(In("second", 3)),
-          EEEE: An(Yn("weekday", 4)),
-          EEE: An(Yn("weekday", 3)),
-          EE: An(Yn("weekday", 2)),
-          E: An(Yn("weekday", 1)),
+          EEEE: An(Rn("weekday", 4)),
+          EEE: An(Rn("weekday", 3)),
+          EE: An(Rn("weekday", 2)),
+          E: An(Rn("weekday", 1)),
           a: Ln(An(On(In("hour", 1), !0))),
           Z: En("short"),
           z: En("long"),
           ww: An({}),
           w: An({}),
-          G: An(Yn("era", 1)),
-          GG: An(Yn("era", 2)),
-          GGG: An(Yn("era", 3)),
-          GGGG: An(Yn("era", 4))
+          G: An(Rn("era", 1)),
+          GG: An(Rn("era", 2)),
+          GGG: An(Rn("era", 3)),
+          GGGG: An(Rn("era", 4))
         };
       function xn(e) {
         return function(n, t) {
@@ -25847,11 +25847,11 @@
         var t = {};
         return (t[e] = 2 === n ? "2-digit" : "numeric"), t;
       }
-      function Yn(e, n) {
+      function Rn(e, n) {
         var t = {};
         return (t[e] = n < 4 ? (n > 1 ? "short" : "narrow") : "long"), t;
       }
-      function Rn(e) {
+      function Yn(e) {
         return e.reduce(function(e, n) {
           return Object(l.__assign)({}, e, n);
         }, {});
@@ -27807,8 +27807,8 @@
               ["partialRight", y],
               ["rearg", w]
             ],
-            Y = "[object Arguments]",
-            R = "[object Array]",
+            R = "[object Arguments]",
+            Y = "[object Array]",
             A = "[object AsyncFunction]",
             P = "[object Boolean]",
             j = "[object Date]",
@@ -27861,8 +27861,8 @@
             Ee = /,? & /,
             Oe = /[^\x00-\x2f\x3a-\x40\x5b-\x60\x7b-\x7f]+/g,
             Ie = /\\(\\)?/g,
-            Ye = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
-            Re = /\w*$/,
+            Re = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
+            Ye = /\w*$/,
             Ae = /^[-+]0x[0-9a-f]+$/i,
             Pe = /^0b[01]+$/i,
             je = /^\[object .+?Constructor\]$/,
@@ -27967,11 +27967,11 @@
           (gn[ne] = gn[te] = gn[re] = gn[le] = gn[ie] = gn[oe] = gn[ae] = gn[
             ue
           ] = gn[se] = !0),
-            (gn[Y] = gn[R] = gn[X] = gn[P] = gn[ee] = gn[j] = gn[F] = gn[
+            (gn[R] = gn[Y] = gn[X] = gn[P] = gn[ee] = gn[j] = gn[F] = gn[
               H
             ] = gn[z] = gn[W] = gn[U] = gn[q] = gn[K] = gn[J] = gn[Q] = !1);
           var vn = {};
-          (vn[Y] = vn[R] = vn[X] = vn[ee] = vn[P] = vn[j] = vn[ne] = vn[
+          (vn[R] = vn[Y] = vn[X] = vn[ee] = vn[P] = vn[j] = vn[ne] = vn[
             te
           ] = vn[re] = vn[le] = vn[ie] = vn[z] = vn[W] = vn[U] = vn[q] = vn[
             K
@@ -28011,8 +28011,8 @@
             En = Sn && Sn.isDate,
             On = Sn && Sn.isMap,
             In = Sn && Sn.isRegExp,
-            Yn = Sn && Sn.isSet,
-            Rn = Sn && Sn.isTypedArray;
+            Rn = Sn && Sn.isSet,
+            Yn = Sn && Sn.isTypedArray;
           function An(e, n, t) {
             switch (t.length) {
               case 0:
@@ -28515,8 +28515,8 @@
                 Et = qe.getOwnPropertySymbols,
                 Ot = hn ? hn.isBuffer : l,
                 It = n.isFinite,
-                Yt = Ze.join,
-                Rt = mt(qe.keys, qe),
+                Rt = Ze.join,
+                Yt = mt(qe.keys, qe),
                 At = Ge.max,
                 Pt = Ge.min,
                 jt = We.now,
@@ -28709,8 +28709,8 @@
                 } else {
                   var m = Di(e),
                     g = m == H || m == V;
-                  if (ia(e)) return Rl(e, d);
-                  if (m == U || m == Y || (g && !i)) {
+                  if (ia(e)) return Yl(e, d);
+                  if (m == U || m == R || (g && !i)) {
                     if (((a = h || g ? {} : Li(e)), !d))
                       return h
                         ? (function(e, n) {
@@ -28764,7 +28764,7 @@
                           return (
                             ((l = new (r = e).constructor(
                               r.source,
-                              Re.exec(r)
+                              Ye.exec(r)
                             )).lastIndex = r.lastIndex),
                             l
                           );
@@ -29002,13 +29002,13 @@
                 }
                 return l;
               }
-              var Yr = Ul(),
-                Rr = Ul(!0);
+              var Rr = Ul(),
+                Yr = Ul(!0);
               function Ar(e, n) {
-                return e && Yr(e, n, za);
+                return e && Rr(e, n, za);
               }
               function Pr(e, n) {
-                return e && Rr(e, n, za);
+                return e && Yr(e, n, za);
               }
               function jr(e, n) {
                 return Fn(n, function(n) {
@@ -29096,7 +29096,7 @@
                 return null == r ? l : An(r, e, t);
               }
               function Gr(e) {
-                return ha(e) && Hr(e) == Y;
+                return ha(e) && Hr(e) == R;
               }
               function qr(e, n, t, r, i) {
                 return (
@@ -29106,10 +29106,10 @@
                     : (function(e, n, t, r, i, o) {
                         var a = na(e),
                           u = na(n),
-                          s = a ? R : Di(e),
-                          c = u ? R : Di(n),
-                          p = (s = s == Y ? U : s) == U,
-                          f = (c = c == Y ? U : c) == U,
+                          s = a ? Y : Di(e),
+                          c = u ? Y : Di(n),
+                          p = (s = s == R ? U : s) == U,
+                          f = (c = c == R ? U : c) == U,
                           m = s == c;
                         if (m && ia(e)) {
                           if (!ia(n)) return !1;
@@ -29267,7 +29267,7 @@
                   : ku(e);
               }
               function Zr(e) {
-                if (!Ri(e)) return Rt(e);
+                if (!Yi(e)) return Yt(e);
                 var n = [];
                 for (var t in qe(e))
                   nn.call(e, t) && "constructor" != t && n.push(t);
@@ -29304,7 +29304,7 @@
               }
               function tl(e, n, t, r, i) {
                 e !== n &&
-                  Yr(
+                  Rr(
                     n,
                     function(o, a) {
                       if (da(o))
@@ -29328,7 +29328,7 @@
                                       : la(u)
                                       ? (d = Hl(u))
                                       : f
-                                      ? ((h = !1), (d = Rl(s, !0)))
+                                      ? ((h = !1), (d = Yl(s, !0)))
                                       : m
                                       ? ((h = !1), (d = Pl(s, !0)))
                                       : (d = [])
@@ -29644,12 +29644,12 @@
                 var r = e.length;
                 return (t = t === l ? r : t), !n && t >= r ? e : fl(e, n, t);
               }
-              var Yl =
+              var Rl =
                 Dt ||
                 function(e) {
                   return kn.clearTimeout(e);
                 };
-              function Rl(e, n) {
+              function Yl(e, n) {
                 if (n) return e.slice();
                 var t = e.length,
                   r = Mn ? Mn(t) : new e.constructor(t);
@@ -30338,7 +30338,7 @@
                       (na(e) || ea(e));
               }
               function Li(e) {
-                return "function" != typeof e.constructor || Ri(e)
+                return "function" != typeof e.constructor || Yi(e)
                   ? {}
                   : lr(Cn(e));
               }
@@ -30412,8 +30412,8 @@
                     }
                   return n;
                 });
-              var Yi = Xe ? ua : Lu;
-              function Ri(e) {
+              var Ri = Xe ? ua : Lu;
+              function Yi(e) {
                 var n = e && e.constructor;
                 return e === (("function" == typeof n && n.prototype) || Qe);
               }
@@ -30760,10 +30760,10 @@
                     o
                   );
                 }),
-                Yo = zl(function(e, n, t) {
+                Ro = zl(function(e, n, t) {
                   br(e, t, n);
                 });
-              function Ro(e, n) {
+              function Yo(e, n) {
                 return (na(e) ? zn : Xr)(e, yi(n, 3));
               }
               var Ao = zl(
@@ -30879,7 +30879,7 @@
                     (a = (p = "maxWait" in t) ? At(La(t.maxWait) || 0, n) : a),
                     (f = "trailing" in t ? !!t.trailing : f)),
                   (y.cancel = function() {
-                    s !== l && Yl(s), (d = 0), (r = c = i = s = l);
+                    s !== l && Rl(s), (d = 0), (r = c = i = s = l);
                   }),
                   (y.flush = function() {
                     return s === l ? u : _(jo());
@@ -31036,8 +31036,8 @@
                   : function(e) {
                       return ha(e) && Hr(e) == q;
                     },
-                va = Yn
-                  ? it(Yn)
+                va = Rn
+                  ? it(Rn)
                   : function(e) {
                       return ha(e) && Di(e) == K;
                     };
@@ -31047,8 +31047,8 @@
               function ya(e) {
                 return "symbol" == typeof e || (ha(e) && Hr(e) == $);
               }
-              var ba = Rn
-                  ? it(Rn)
+              var ba = Yn
+                  ? it(Yn)
                   : function(e) {
                       return ha(e) && ca(e.length) && !!gn[Hr(e)];
                     },
@@ -31109,7 +31109,7 @@
                 return null == e ? "" : bl(e);
               }
               var Ea = Wl(function(e, n) {
-                  if (Ri(n) || ra(n)) Vl(n, za(n), e);
+                  if (Yi(n) || ra(n)) Vl(n, za(n), e);
                   else for (var t in n) nn.call(n, t) && gr(e, t, n[t]);
                 }),
                 Oa = Wl(function(e, n) {
@@ -31118,10 +31118,10 @@
                 Ia = Wl(function(e, n, t, r) {
                   Vl(n, Wa(n), e, r);
                 }),
-                Ya = Wl(function(e, n, t, r) {
+                Ra = Wl(function(e, n, t, r) {
                   Vl(n, za(n), e, r);
                 }),
-                Ra = pi(wr),
+                Ya = pi(wr),
                 Aa = cl(function(e, n) {
                   e = qe(e);
                   var t = -1,
@@ -31176,7 +31176,7 @@
                           if (null != e) for (var t in qe(e)) n.push(t);
                           return n;
                         })(e);
-                      var n = Ri(e),
+                      var n = Yi(e),
                         t = [];
                       for (var r in e)
                         ("constructor" != r || (!n && nn.call(e, r))) &&
@@ -31371,10 +31371,10 @@
                   return e / n;
                 }, 1),
                 Iu = ii("floor"),
-                Yu = Xl(function(e, n) {
+                Ru = Xl(function(e, n) {
                   return e * n;
                 }, 1),
-                Ru = ii("round"),
+                Yu = ii("round"),
                 Au = Xl(function(e, n) {
                   return e - n;
                 }, 0);
@@ -31392,8 +31392,8 @@
                 (rr.assign = Ea),
                 (rr.assignIn = Oa),
                 (rr.assignInWith = Ia),
-                (rr.assignWith = Ya),
-                (rr.at = Ra),
+                (rr.assignWith = Ra),
+                (rr.at = Ya),
                 (rr.before = Fo),
                 (rr.bind = Ho),
                 (rr.bindAll = cu),
@@ -31525,13 +31525,13 @@
                   return (na(e) ? Fn : Or)(e, yi(n, 3));
                 }),
                 (rr.flatMap = function(e, n) {
-                  return Ir(Ro(e, n), 1);
+                  return Ir(Yo(e, n), 1);
                 }),
                 (rr.flatMapDeep = function(e, n) {
-                  return Ir(Ro(e, n), D);
+                  return Ir(Yo(e, n), D);
                 }),
                 (rr.flatMapDepth = function(e, n, t) {
-                  return (t = t === l ? 1 : Da(t)), Ir(Ro(e, n), t);
+                  return (t = t === l ? 1 : Da(t)), Ir(Yo(e, n), t);
                 }),
                 (rr.flatten = no),
                 (rr.flattenDeep = function(e) {
@@ -31575,10 +31575,10 @@
                 (rr.invertBy = Ha),
                 (rr.invokeMap = Io),
                 (rr.iteratee = mu),
-                (rr.keyBy = Yo),
+                (rr.keyBy = Ro),
                 (rr.keys = za),
                 (rr.keysIn = Wa),
-                (rr.map = Ro),
+                (rr.map = Yo),
                 (rr.mapKeys = function(e, n) {
                   var t = {};
                   return (
@@ -31943,10 +31943,10 @@
                 (rr.forEach = To),
                 (rr.forEachRight = Eo),
                 (rr.forIn = function(e, n) {
-                  return null == e ? e : Yr(e, yi(n, 3), Wa);
+                  return null == e ? e : Rr(e, yi(n, 3), Wa);
                 }),
                 (rr.forInRight = function(e, n) {
-                  return null == e ? e : Rr(e, yi(n, 3), Wa);
+                  return null == e ? e : Yr(e, yi(n, 3), Wa);
                 }),
                 (rr.forOwn = function(e, n) {
                   return e && Ar(e, yi(n, 3));
@@ -32016,7 +32016,7 @@
                     return !e.length;
                   var n = Di(e);
                   if (n == z || n == K) return !e.size;
-                  if (Ri(e)) return !Zr(e).length;
+                  if (Yi(e)) return !Zr(e).length;
                   for (var t in e) if (nn.call(e, t)) return !1;
                   return !0;
                 }),
@@ -32047,7 +32047,7 @@
                   return fa(e) && e != +e;
                 }),
                 (rr.isNative = function(e) {
-                  if (Yi(e))
+                  if (Ri(e))
                     throw new Be(
                       "Unsupported core-js use. Try https://npms.io/search?q=ponyfill."
                     );
@@ -32081,7 +32081,7 @@
                   return ha(e) && "[object WeakSet]" == Hr(e);
                 }),
                 (rr.join = function(e, n) {
-                  return null == e ? "" : Yt.call(e, n);
+                  return null == e ? "" : Rt.call(e, n);
                 }),
                 (rr.kebabCase = nu),
                 (rr.last = oo),
@@ -32133,7 +32133,7 @@
                 (rr.stubTrue = function() {
                   return !0;
                 }),
-                (rr.multiply = Yu),
+                (rr.multiply = Ru),
                 (rr.nth = function(e, n) {
                   return e && e.length ? rl(e, Da(n)) : l;
                 }),
@@ -32219,7 +32219,7 @@
                   }
                   return e;
                 }),
-                (rr.round = Ru),
+                (rr.round = Yu),
                 (rr.runInContext = e),
                 (rr.sample = function(e) {
                   return (na(e)
@@ -32300,7 +32300,7 @@
                         "|" +
                         d.source +
                         "|" +
-                        (d === ye ? Ye : Ve).source +
+                        (d === ye ? Re : Ve).source +
                         "|" +
                         (n.evaluate || Ve).source +
                         "|$",
@@ -32413,7 +32413,7 @@
                       var c,
                         d = s;
                       for (
-                        i.global || (i = Ke(i.source, Ta(Re.exec(i)) + "g")),
+                        i.global || (i = Ke(i.source, Ta(Ye.exec(i)) + "g")),
                           i.lastIndex = 0;
                         (c = i.exec(d));
 
@@ -33421,7 +33421,7 @@
             };
           });
         var I = x,
-          Y = {
+          R = {
             aliceblue: [240, 248, 255],
             antiquewhite: [250, 235, 215],
             aqua: [0, 255, 255],
@@ -33571,7 +33571,7 @@
             yellow: [255, 255, 0],
             yellowgreen: [154, 205, 50]
           },
-          R = {
+          Y = {
             getRgba: A,
             getHsla: P,
             getRgb: function(e) {
@@ -33671,7 +33671,7 @@
               t = parseFloat(r[4]);
             } else if ((r = e.match(/(\w+)/))) {
               if ("transparent" == r[1]) return [0, 0, 0, 0];
-              if (!(n = Y[r[1]])) return;
+              if (!(n = R[r[1]])) return;
             }
             for (i = 0; i < n.length; i++) n[i] = V(n[i], 0, 255);
             return (t = t || 0 == t ? V(t, 0, 1) : 1), (n[3] = t), n;
@@ -33742,7 +33742,7 @@
           return n.length < 2 ? "0" + n : n;
         }
         var W = {};
-        for (var B in Y) W[Y[B]] = B;
+        for (var B in R) W[R[B]] = B;
         var U = function(e) {
           return e instanceof U
             ? e
@@ -33757,11 +33757,11 @@
                 alpha: 1
               }),
               void ("string" == typeof e
-                ? (n = R.getRgba(e))
+                ? (n = Y.getRgba(e))
                   ? this.setValues("rgb", n)
-                  : (n = R.getHsla(e))
+                  : (n = Y.getHsla(e))
                   ? this.setValues("hsl", n)
-                  : (n = R.getHwb(e)) && this.setValues("hwb", n)
+                  : (n = Y.getHwb(e)) && this.setValues("hwb", n)
                 : "object" == typeof e &&
                   (void 0 !== (n = e).r || void 0 !== n.red
                     ? this.setValues("rgb", n)
@@ -33870,28 +33870,28 @@
             return this.setChannel("cmyk", 3, e);
           },
           hexString: function() {
-            return R.hexString(this.values.rgb);
+            return Y.hexString(this.values.rgb);
           },
           rgbString: function() {
-            return R.rgbString(this.values.rgb, this.values.alpha);
+            return Y.rgbString(this.values.rgb, this.values.alpha);
           },
           rgbaString: function() {
-            return R.rgbaString(this.values.rgb, this.values.alpha);
+            return Y.rgbaString(this.values.rgb, this.values.alpha);
           },
           percentString: function() {
-            return R.percentString(this.values.rgb, this.values.alpha);
+            return Y.percentString(this.values.rgb, this.values.alpha);
           },
           hslString: function() {
-            return R.hslString(this.values.hsl, this.values.alpha);
+            return Y.hslString(this.values.hsl, this.values.alpha);
           },
           hslaString: function() {
-            return R.hslaString(this.values.hsl, this.values.alpha);
+            return Y.hslaString(this.values.hsl, this.values.alpha);
           },
           hwbString: function() {
-            return R.hwbString(this.values.hwb, this.values.alpha);
+            return Y.hwbString(this.values.hwb, this.values.alpha);
           },
           keyword: function() {
-            return R.keyword(this.values.rgb, this.values.alpha);
+            return Y.keyword(this.values.rgb, this.values.alpha);
           },
           rgbNumber: function() {
             var e = this.values.rgb;
@@ -35258,7 +35258,7 @@
         function Ie(e) {
           return e && void 0 !== e.width;
         }
-        function Ye(e) {
+        function Re(e) {
           var n, t, r, l, i;
           return (
             Ie(e)
@@ -35274,13 +35274,13 @@
             { left: n, top: r, right: t, bottom: l }
           );
         }
-        function Re(e, n, t) {
+        function Ye(e, n, t) {
           return e === n ? t : e === t ? n : e;
         }
         function Ae(e, n, t) {
           var r = null === n,
             l = null === t,
-            i = !(!e || (r && l)) && Ye(e);
+            i = !(!e || (r && l)) && Re(e);
           return (
             i &&
             (r || (n >= i.left && n <= i.right)) &&
@@ -35302,7 +35302,7 @@
               var e = this._chart.ctx,
                 n = this._view,
                 t = (function(e) {
-                  var n = Ye(e),
+                  var n = Re(e),
                     t = n.right - n.left,
                     r = n.bottom - n.top,
                     l = (function(e, n, t) {
@@ -35316,8 +35316,8 @@
                             t = {};
                           return n
                             ? (e.horizontal
-                                ? e.base > e.x && (n = Re(n, "left", "right"))
-                                : e.base < e.y && (n = Re(n, "bottom", "top")),
+                                ? e.base > e.x && (n = Ye(n, "left", "right"))
+                                : e.base < e.y && (n = Ye(n, "bottom", "top")),
                               (t[n] = !0),
                               t)
                             : t;
@@ -37511,7 +37511,7 @@
               delete e.$plugins;
             }
           },
-          Yn = {
+          Rn = {
             constructors: {},
             defaults: {},
             registerScaleType: function(e, n, t) {
@@ -37540,7 +37540,7 @@
               });
             }
           },
-          Rn = ce.valueOrDefault;
+          Yn = ce.valueOrDefault;
         ae._set("global", {
           tooltips: {
             enabled: !0,
@@ -37675,22 +37675,22 @@
             xAlign: e.xAlign,
             yAlign: e.yAlign,
             bodyFontColor: e.bodyFontColor,
-            _bodyFontFamily: Rn(e.bodyFontFamily, n.defaultFontFamily),
-            _bodyFontStyle: Rn(e.bodyFontStyle, n.defaultFontStyle),
+            _bodyFontFamily: Yn(e.bodyFontFamily, n.defaultFontFamily),
+            _bodyFontStyle: Yn(e.bodyFontStyle, n.defaultFontStyle),
             _bodyAlign: e.bodyAlign,
-            bodyFontSize: Rn(e.bodyFontSize, n.defaultFontSize),
+            bodyFontSize: Yn(e.bodyFontSize, n.defaultFontSize),
             bodySpacing: e.bodySpacing,
             titleFontColor: e.titleFontColor,
-            _titleFontFamily: Rn(e.titleFontFamily, n.defaultFontFamily),
-            _titleFontStyle: Rn(e.titleFontStyle, n.defaultFontStyle),
-            titleFontSize: Rn(e.titleFontSize, n.defaultFontSize),
+            _titleFontFamily: Yn(e.titleFontFamily, n.defaultFontFamily),
+            _titleFontStyle: Yn(e.titleFontStyle, n.defaultFontStyle),
+            titleFontSize: Yn(e.titleFontSize, n.defaultFontSize),
             _titleAlign: e.titleAlign,
             titleSpacing: e.titleSpacing,
             titleMarginBottom: e.titleMarginBottom,
             footerFontColor: e.footerFontColor,
-            _footerFontFamily: Rn(e.footerFontFamily, n.defaultFontFamily),
-            _footerFontStyle: Rn(e.footerFontStyle, n.defaultFontStyle),
-            footerFontSize: Rn(e.footerFontSize, n.defaultFontSize),
+            _footerFontFamily: Yn(e.footerFontFamily, n.defaultFontFamily),
+            _footerFontStyle: Yn(e.footerFontStyle, n.defaultFontStyle),
+            footerFontSize: Yn(e.footerFontSize, n.defaultFontSize),
             _footerAlign: e.footerAlign,
             footerSpacing: e.footerSpacing,
             footerMarginTop: e.footerMarginTop,
@@ -38211,7 +38211,7 @@
                     ce.merge(
                       n[e][l],
                       !n[e][l].type || (o.type && o.type !== n[e][l].type)
-                        ? [Yn.getScaleDefaults(i), o]
+                        ? [Rn.getScaleDefaults(i), o]
                         : o
                     );
               } else ce._merger(e, n, t, r);
@@ -38226,7 +38226,7 @@
               "scales" === e
                 ? (n[e] = Wn(l, i))
                 : "scale" === e
-                ? (n[e] = ce.merge(l, [Yn.getScaleDefaults(i.type), i]))
+                ? (n[e] = ce.merge(l, [Rn.getScaleDefaults(i.type), i]))
                 : ce._merger(e, n, t, r);
             }
           });
@@ -38383,7 +38383,7 @@
                 if (i in t && t[i].type === o)
                   ((a = t[i]).options = r), (a.ctx = e.ctx), (a.chart = e);
                 else {
-                  var u = Yn.getScaleConstructor(o);
+                  var u = Rn.getScaleConstructor(o);
                   if (!u) return;
                   (a = new u({
                     id: i,
@@ -38400,7 +38400,7 @@
                 e || delete t[n];
               }),
               (e.scales = t),
-              Yn.addScalesToLayout(this);
+              Rn.addScalesToLayout(this);
           },
           buildOrUpdateControllers: function() {
             var e = this,
@@ -39288,19 +39288,19 @@
                   E = ce.toRadians(n.labelRotation),
                   O = [],
                   I = d.drawBorder ? Xn(d.lineWidth, 0, 0) : 0,
-                  Y = ce._alignPixel;
+                  R = ce._alignPixel;
                 if (
                   ("top" === p
-                    ? ((r = Y(o, n.bottom, I)),
+                    ? ((r = R(o, n.bottom, I)),
                       (l = n.bottom - x),
                       (i = r - I / 2))
                     : "bottom" === p
-                    ? ((r = Y(o, n.top, I)), (l = r + I / 2), (i = n.top + x))
+                    ? ((r = R(o, n.top, I)), (l = r + I / 2), (i = n.top + x))
                     : "left" === p
-                    ? ((r = Y(o, n.right, I)),
+                    ? ((r = R(o, n.right, I)),
                       (l = n.right - x),
                       (i = r - I / 2))
-                    : ((r = Y(o, n.left, I)),
+                    : ((r = R(o, n.left, I)),
                       (l = r + I / 2),
                       (i = n.left + x)),
                   ce.each(_, function(r, a) {
@@ -39318,7 +39318,7 @@
                         L,
                         S,
                         T,
-                        R,
+                        Y,
                         A,
                         P,
                         j = r.label;
@@ -39350,36 +39350,36 @@
                       if (g) {
                         var H = x + C;
                         F < n.left - 1e-7 && (s = "rgba(0,0,0,0)"),
-                          (v = y = M = L = Y(o, F, u)),
+                          (v = y = M = L = R(o, F, u)),
                           (_ = l),
                           (b = i),
                           (T = n.getPixelForTick(a) + D),
                           "top" === p
-                            ? ((k = Y(o, e.top, I) + I / 2),
+                            ? ((k = R(o, e.top, I) + I / 2),
                               (S = e.bottom),
                               (A = ((f ? 1 : 0.5) - N) * w),
                               (P = f ? "left" : "center"),
-                              (R = n.bottom - H))
+                              (Y = n.bottom - H))
                             : ((k = e.top),
-                              (S = Y(o, e.bottom, I) - I / 2),
+                              (S = R(o, e.bottom, I) - I / 2),
                               (A = (f ? 0 : 0.5) * w),
                               (P = f ? "right" : "center"),
-                              (R = n.top + H));
+                              (Y = n.top + H));
                       } else {
                         var V = (m ? 0 : x) + C;
                         F < n.top - 1e-7 && (s = "rgba(0,0,0,0)"),
                           (v = l),
                           (y = i),
-                          (_ = b = k = S = Y(o, F, u)),
-                          (R = n.getPixelForTick(a) + D),
+                          (_ = b = k = S = R(o, F, u)),
+                          (Y = n.getPixelForTick(a) + D),
                           (A = ((1 - N) * w) / 2),
                           "left" === p
-                            ? ((M = Y(o, e.left, I) + I / 2),
+                            ? ((M = R(o, e.left, I) + I / 2),
                               (L = e.right),
                               (P = m ? "left" : "right"),
                               (T = n.right - V))
                             : ((M = e.left),
-                              (L = Y(o, e.right, I) - I / 2),
+                              (L = R(o, e.right, I) - I / 2),
                               (P = m ? "right" : "left"),
                               (T = n.left + V));
                       }
@@ -39393,7 +39393,7 @@
                         x2: L,
                         y2: S,
                         labelX: T,
-                        labelY: R,
+                        labelY: Y,
                         glWidth: u,
                         glColor: s,
                         glBorderDash: c,
@@ -39446,24 +39446,24 @@
                   }),
                   h.display)
                 ) {
-                  var R,
+                  var Y,
                     A,
                     P = 0,
                     j = S.lineHeight / 2;
                   if (g)
-                    (R = n.left + (n.right - n.left) / 2),
+                    (Y = n.left + (n.right - n.left) / 2),
                       (A =
                         "bottom" === p
                           ? n.bottom - j - T.bottom
                           : n.top + j + T.top);
                   else {
                     var N = "left" === p;
-                    (R = N ? n.left + j + T.top : n.right - j - T.top),
+                    (Y = N ? n.left + j + T.top : n.right - j - T.top),
                       (A = n.top + (n.bottom - n.top) / 2),
                       (P = N ? -0.5 * Math.PI : 0.5 * Math.PI);
                   }
                   a.save(),
-                    a.translate(R, A),
+                    a.translate(Y, A),
                     a.rotate(P),
                     (a.textAlign = "center"),
                     (a.textBaseline = "middle"),
@@ -39480,11 +39480,11 @@
                     W = I,
                     B = Xn(d.lineWidth, _.length - 1, 0);
                   g
-                    ? ((F = Y(o, n.left, W) - W / 2),
-                      (H = Y(o, n.right, B) + B / 2),
+                    ? ((F = R(o, n.left, W) - W / 2),
+                      (H = R(o, n.right, B) + B / 2),
                       (V = z = r))
-                    : ((V = Y(o, n.top, W) - W / 2),
-                      (z = Y(o, n.bottom, B) + B / 2),
+                    : ((V = R(o, n.top, W) - W / 2),
+                      (z = R(o, n.bottom, B) + B / 2),
                       (F = H = r)),
                     (a.lineWidth = I),
                     (a.strokeStyle = Xn(d.color, 0)),
@@ -40431,7 +40431,7 @@
                 o)
           );
         }
-        function Yt(e, n) {
+        function Rt(e, n) {
           if (ce.isNullOrUndef(n)) return null;
           var t = e.options.time,
             r = It(e, e.getRightValue(n));
@@ -40439,7 +40439,7 @@
             ? r
             : (t.round && (r = +e._adapter.startOf(r, t.round)), r);
         }
-        function Rt(e) {
+        function Yt(e) {
           for (var n = St.indexOf(e) + 1, t = St.length; n < t; ++n)
             if (Lt[St[n]].common) return St[n];
         }
@@ -40484,12 +40484,12 @@
               f = [],
               m = [],
               g = a.data.labels || [];
-            for (e = 0, t = g.length; e < t; ++e) m.push(Yt(o, g[e]));
+            for (e = 0, t = g.length; e < t; ++e) m.push(Rt(o, g[e]));
             for (e = 0, t = (a.data.datasets || []).length; e < t; ++e)
               if (a.isDatasetVisible(e))
                 if (ce.isObject((l = a.data.datasets[e].data)[0]))
                   for (f[e] = [], n = 0, r = l.length; n < r; ++n)
-                    (i = Yt(o, l[n])), p.push(i), (f[e][n] = i);
+                    (i = Rt(o, l[n])), p.push(i), (f[e][n] = i);
                 else {
                   for (n = 0, r = m.length; n < r; ++n) p.push(m[n]);
                   f[e] = m.slice(0);
@@ -40503,8 +40503,8 @@
                 ((p = Et(p).sort(Tt)),
                 (d = Math.min(d, p[0])),
                 (h = Math.max(h, p[p.length - 1]))),
-              (d = Yt(o, s.min) || d),
-              (h = Yt(o, s.max) || h),
+              (d = Rt(o, s.min) || d),
+              (h = Rt(o, s.max) || h),
               (d = d === xt ? +u.startOf(Date.now(), c) : d),
               (h = h === Dt ? +u.endOf(Date.now(), c) + 1 : h),
               (o.min = Math.min(d, h)),
@@ -40555,7 +40555,7 @@
                             return St[l];
                         return St[u - 1];
                       })(0, n, t, r),
-                    s = Rt(u),
+                    s = Yt(u),
                     c = Ct(a.stepSize, a.unitStepSize),
                     d = "week" === u && a.isoWeekday,
                     h = o.ticks.major.enabled,
@@ -40605,8 +40605,8 @@
               "ticks" === o.bounds &&
                 u.length &&
                 ((l = u[0]), (i = u[u.length - 1])),
-                l = Yt(r, a.min) || l,
-                i = Yt(r, a.max) || i,
+                l = Rt(r, a.min) || l,
+                i = Rt(r, a.max) || i,
                 e = 0,
                 n = u.length;
               e < n;
@@ -40628,7 +40628,7 @@
                       return o;
                   return St[t ? St.indexOf(t) : 0];
                 })(r, s, a.minUnit, r.min, r.max)),
-              (r._majorUnit = Rt(r._unit)),
+              (r._majorUnit = Yt(r._unit)),
               (r._table = (function(e, n, t, r) {
                 if ("linear" === o.distribution || !e.length)
                   return [{ time: n, pos: 0 }, { time: t, pos: 1 }];
@@ -40744,7 +40744,7 @@
               (void 0 !== n &&
                 void 0 !== t &&
                 (r = this._timestamps.datasets[t][n]),
-              null === r && (r = Yt(this, e)),
+              null === r && (r = Rt(this, e)),
               null !== r)
             )
               return this.getPixelForOffset(r);
@@ -41962,7 +41962,7 @@
         (qn.platform = On),
         (qn.plugins = In),
         (qn.Scale = tt),
-        (qn.scaleService = Yn),
+        (qn.scaleService = Rn),
         (qn.Ticks = Zn),
         (qn.Tooltip = Vn),
         qn.helpers.each(Pt, function(e, n) {
@@ -45595,7 +45595,7 @@
           n,
           "\u0275angular_packages_platform_browser_platform_browser_e",
           function() {
-            return Ye;
+            return Re;
           }
         ),
         t.d(
@@ -45636,7 +45636,7 @@
           return Ie;
         }),
         t.d(n, "Title", function() {
-          return Re;
+          return Ye;
         }),
         t.d(n, "disableDebugTools", function() {
           return He;
@@ -45657,10 +45657,10 @@
           return Ge;
         }),
         t.d(n, "EVENT_MANAGER_PLUGINS", function() {
-          return Y;
+          return R;
         }),
         t.d(n, "EventManager", function() {
-          return R;
+          return Y;
         }),
         t.d(n, "HAMMER_GESTURE_CONFIG", function() {
           return ue;
@@ -46528,8 +46528,8 @@
           }
         ],
         I = O,
-        Y = new i.InjectionToken("EventManagerPlugins"),
-        R = (function() {
+        R = new i.InjectionToken("EventManagerPlugins"),
+        Y = (function() {
           function e(e, n) {
             var t = this;
             (this._zone = n),
@@ -47401,25 +47401,25 @@
           { provide: i["\u0275APP_ROOT"], useValue: !0 },
           { provide: i.ErrorHandler, useFactory: Le, deps: [] },
           {
-            provide: Y,
+            provide: R,
             useClass: oe,
             multi: !0,
             deps: [l.DOCUMENT, i.NgZone, i.PLATFORM_ID]
           },
-          { provide: Y, useClass: fe, multi: !0, deps: [l.DOCUMENT] },
+          { provide: R, useClass: fe, multi: !0, deps: [l.DOCUMENT] },
           {
-            provide: Y,
+            provide: R,
             useClass: de,
             multi: !0,
             deps: [l.DOCUMENT, ue, i["\u0275Console"], [new i.Optional(), se]]
           },
           { provide: ue, useClass: ce, deps: [] },
-          { provide: G, useClass: G, deps: [R, j, i.APP_ID] },
+          { provide: G, useClass: G, deps: [Y, j, i.APP_ID] },
           { provide: i.RendererFactory2, useExisting: G },
           { provide: P, useExisting: j },
           { provide: j, useClass: j, deps: [l.DOCUMENT] },
           { provide: i.Testability, useClass: i.Testability, deps: [i.NgZone] },
-          { provide: R, useClass: R, deps: [Y, i.NgZone] },
+          { provide: Y, useClass: Y, deps: [R, i.NgZone] },
           I
         ],
         Ee = (function() {
@@ -47533,10 +47533,10 @@
           e
         );
       })();
-      function Ye() {
-        return new Re(Object(i["\u0275\u0275inject"])(l.DOCUMENT));
+      function Re() {
+        return new Ye(Object(i["\u0275\u0275inject"])(l.DOCUMENT));
       }
-      var Re = (function() {
+      var Ye = (function() {
           function e(e) {
             this._doc = e;
           }
@@ -47548,7 +47548,7 @@
               a().setTitle(this._doc, e);
             }),
             (e.ngInjectableDef = Object(i["\u0275\u0275defineInjectable"])({
-              factory: Ye,
+              factory: Re,
               token: e,
               providedIn: "root"
             })),
@@ -54408,13 +54408,13 @@
                   for (n in e) d(e, n) && t.push(n);
                   return t;
                 });
-          var Y = {};
-          function R(e, n) {
+          var R = {};
+          function Y(e, n) {
             var t = e.toLowerCase();
-            Y[t] = Y[t + "s"] = Y[n] = e;
+            R[t] = R[t + "s"] = R[n] = e;
           }
           function A(e) {
-            return "string" == typeof e ? Y[e] || Y[e.toLowerCase()] : void 0;
+            return "string" == typeof e ? R[e] || R[e.toLowerCase()] : void 0;
           }
           function P(e) {
             var n,
@@ -54588,7 +54588,7 @@
             B(0, ["YYYY", 4], 0, "year"),
             B(0, ["YYYYY", 5], 0, "year"),
             B(0, ["YYYYYY", 6, !0], 0, "year"),
-            R("year", "y"),
+            Y("year", "y"),
             N("year", 1),
             ce("Y", ie),
             ce("YY", Q, K),
@@ -54632,11 +54632,11 @@
                 ? e._d["set" + (e._isUTC ? "UTC" : "") + n](
                     t,
                     e.month(),
-                    Ye(t, e.month())
+                    Re(t, e.month())
                   )
                 : e._d["set" + (e._isUTC ? "UTC" : "") + n](t));
           }
-          function Ye(e, n) {
+          function Re(e, n) {
             if (isNaN(e) || isNaN(n)) return NaN;
             var t = ((n % 12) + 12) % 12;
             return (
@@ -54660,7 +54660,7 @@
             B("MMMM", 0, 0, function(e) {
               return this.localeData().months(this, e);
             }),
-            R("month", "M"),
+            Y("month", "M"),
             N("month", 8),
             ce("M", Q),
             ce("MM", Q, K),
@@ -54677,7 +54677,7 @@
               var l = t._locale.monthsParse(e, r, t._strict);
               null != l ? (n[_e] = l) : (f(t).invalidMonth = e);
             });
-          var Re = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,
+          var Ye = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,
             Ae = "January_February_March_April_May_June_July_August_September_October_November_December".split(
               "_"
             ),
@@ -54689,7 +54689,7 @@
               if (/^\d+$/.test(n)) n = k(n);
               else if (!u((n = e.localeData().monthsParse(n)))) return e;
             return (
-              (t = Math.min(e.date(), Ye(e.year(), n))),
+              (t = Math.min(e.date(), Re(e.year(), n))),
               e._d["set" + (e._isUTC ? "UTC" : "") + "Month"](n, t),
               e
             );
@@ -54781,8 +54781,8 @@
           }
           B("w", ["ww", 2], "wo", "week"),
             B("W", ["WW", 2], "Wo", "isoWeek"),
-            R("week", "w"),
-            R("isoWeek", "W"),
+            Y("week", "w"),
+            Y("isoWeek", "W"),
             N("week", 5),
             N("isoWeek", 5),
             ce("w", Q),
@@ -54804,9 +54804,9 @@
             }),
             B("e", 0, 0, "weekday"),
             B("E", 0, 0, "isoWeekday"),
-            R("day", "d"),
-            R("weekday", "e"),
-            R("isoWeekday", "E"),
+            Y("day", "d"),
+            Y("weekday", "e"),
+            Y("isoWeekday", "E"),
             N("day", 11),
             N("weekday", 11),
             N("isoWeekday", 11),
@@ -54920,7 +54920,7 @@
             }),
             tn("a", !0),
             tn("A", !1),
-            R("hour", "h"),
+            Y("hour", "h"),
             N("hour", 13),
             ce("a", rn),
             ce("A", rn),
@@ -55112,7 +55112,7 @@
                 ((n =
                   t[_e] < 0 || t[_e] > 11
                     ? _e
-                    : t[ye] < 1 || t[ye] > Ye(t[ve], t[_e])
+                    : t[ye] < 1 || t[ye] > Re(t[ve], t[_e])
                     ? ye
                     : t[be] < 0 ||
                       t[be] > 24 ||
@@ -55530,7 +55530,7 @@
           )),
             (l.ISO_8601 = function() {}),
             (l.RFC_2822 = function() {});
-          var Yn = x(
+          var Rn = x(
               "moment().min is deprecated, use moment.max instead. http://momentjs.com/guides/#/warnings/min-max/",
               function() {
                 var e = In.apply(null, arguments);
@@ -55541,7 +55541,7 @@
                   : g();
               }
             ),
-            Rn = x(
+            Yn = x(
               "moment().max is deprecated, use moment.min instead. http://momentjs.com/guides/#/warnings/min-max/",
               function() {
                 var e = In.apply(null, arguments);
@@ -55834,8 +55834,8 @@
             st("ggggg", "weekYear"),
             st("GGGG", "isoWeekYear"),
             st("GGGGG", "isoWeekYear"),
-            R("weekYear", "gg"),
-            R("isoWeekYear", "GG"),
+            Y("weekYear", "gg"),
+            Y("isoWeekYear", "GG"),
             N("weekYear", 1),
             N("isoWeekYear", 1),
             ce("G", ie),
@@ -55853,14 +55853,14 @@
               n[r] = l.parseTwoDigitYear(e);
             }),
             B("Q", 0, "Qo", "quarter"),
-            R("quarter", "Q"),
+            Y("quarter", "Q"),
             N("quarter", 7),
             ce("Q", q),
             fe("Q", function(e, n) {
               n[_e] = 3 * (k(e) - 1);
             }),
             B("D", ["DD", 2], "Do", "date"),
-            R("date", "D"),
+            Y("date", "D"),
             N("date", 9),
             ce("D", Q),
             ce("DD", Q, K),
@@ -55875,7 +55875,7 @@
             });
           var dt = Ee("Date", !0);
           B("DDD", ["DDDD", 3], "DDDo", "dayOfYear"),
-            R("dayOfYear", "DDD"),
+            Y("dayOfYear", "DDD"),
             N("dayOfYear", 4),
             ce("DDD", ne),
             ce("DDDD", J),
@@ -55883,14 +55883,14 @@
               t._dayOfYear = k(e);
             }),
             B("m", ["mm", 2], 0, "minute"),
-            R("minute", "m"),
+            Y("minute", "m"),
             N("minute", 14),
             ce("m", Q),
             ce("mm", Q, K),
             fe(["m", "mm"], we);
           var ht = Ee("Minutes", !1);
           B("s", ["ss", 2], 0, "second"),
-            R("second", "s"),
+            Y("second", "s"),
             N("second", 15),
             ce("s", Q),
             ce("ss", Q, K),
@@ -55923,7 +55923,7 @@
               B(0, ["SSSSSSSSS", 9], 0, function() {
                 return 1e6 * this.millisecond();
               }),
-              R("millisecond", "ms"),
+              Y("millisecond", "ms"),
               N("millisecond", 16),
               ce("S", ne, q),
               ce("SS", ne, K),
@@ -56144,8 +56144,8 @@
             (vt.lang = rt),
             (vt.locale = tt),
             (vt.localeData = lt),
-            (vt.max = Rn),
-            (vt.min = Yn),
+            (vt.max = Yn),
+            (vt.min = Rn),
             (vt.parsingFlags = function() {
               return h({}, f(this));
             }),
@@ -56334,7 +56334,7 @@
             }),
             (vt.month = Ne),
             (vt.daysInMonth = function() {
-              return Ye(this.year(), this.month());
+              return Re(this.year(), this.month());
             }),
             (vt.week = vt.weeks = function(e) {
               var n = this.localeData().week(this);
@@ -56590,7 +56590,7 @@
                 ? i(this._months)
                   ? this._months[e.month()]
                   : this._months[
-                      (this._months.isFormat || Re).test(n)
+                      (this._months.isFormat || Ye).test(n)
                         ? "format"
                         : "standalone"
                     ][e.month()]
@@ -56602,7 +56602,7 @@
               return e
                 ? i(this._monthsShort)
                   ? this._monthsShort[e.month()]
-                  : this._monthsShort[Re.test(n) ? "format" : "standalone"][
+                  : this._monthsShort[Ye.test(n) ? "format" : "standalone"][
                       e.month()
                     ]
                 : i(this._monthsShort)
@@ -56952,8 +56952,8 @@
             Et = St("s"),
             Ot = St("m"),
             It = St("h"),
-            Yt = St("d"),
-            Rt = St("w"),
+            Rt = St("d"),
+            Yt = St("w"),
             At = St("M"),
             Pt = St("Q"),
             jt = St("y");
@@ -57071,8 +57071,8 @@
             (Zt.asSeconds = Et),
             (Zt.asMinutes = Ot),
             (Zt.asHours = It),
-            (Zt.asDays = Yt),
-            (Zt.asWeeks = Rt),
+            (Zt.asDays = Rt),
+            (Zt.asWeeks = Yt),
             (Zt.asMonths = At),
             (Zt.asQuarters = Pt),
             (Zt.asYears = jt),
@@ -58450,9 +58450,9 @@
         })(),
         I =
           '\n    <div [formGroup]="myGroup">\n       <div formGroupName="person">\n          <input formControlName="firstName">\n       </div>\n    </div>\n\n    In your class:\n\n    this.myGroup = new FormGroup({\n       person: new FormGroup({ firstName: new FormControl() })\n    });',
-        Y =
+        R =
           '\n    <form>\n       <div ngModelGroup="person">\n          <input [(ngModel)]="person.name" name="firstName">\n       </div>\n    </form>';
-      function R(e, n) {
+      function Y(e, n) {
         return null == e
           ? "" + n
           : (n && "object" == typeof n && (n = "Object"),
@@ -58490,7 +58490,7 @@
                   "selectedIndex",
                   -1
                 );
-              var t = R(n, e);
+              var t = Y(n, e);
               this._renderer.setProperty(
                 this._elementRef.nativeElement,
                 "value",
@@ -58562,7 +58562,7 @@
               set: function(e) {
                 null != this._select &&
                   (this._select._optionMap.set(this.id, e),
-                  this._setElementValue(R(this.id, e)),
+                  this._setElementValue(Y(this.id, e)),
                   this._select.writeValue(this._select.value));
               },
               enumerable: !0,
@@ -59751,7 +59751,7 @@
                 "\n      ngModel cannot be used to register form controls with a parent formGroupName or formArrayName directive.\n\n      Option 1: Use formControlName instead of ngModel (reactive strategy):\n\n      " +
                   I +
                   "\n\n      Option 2:  Update ngModel's parent be ngModelGroup (template-driven strategy):\n\n      " +
-                  Y
+                  R
               );
             }),
             (e.missingNameException = function() {
@@ -59764,7 +59764,7 @@
                 "\n      ngModelGroup cannot be used with a parent formGroup directive.\n\n      Option 1: Use formGroupName instead of ngModelGroup (reactive strategy):\n\n      " +
                   I +
                   "\n\n      Option 2:  Use a regular form tag instead of the formGroup directive (template-driven strategy):\n\n      " +
-                  Y
+                  R
               );
             }),
             (e.ngFormWarning = function() {
@@ -60284,9 +60284,9 @@
             n
           );
         })(me.a),
-        Ye = function(e) {
+        Re = function(e) {
           return (
-            void 0 === e && (e = Re),
+            void 0 === e && (e = Ye),
             Ee({
               hasValue: !1,
               next: function() {
@@ -60298,7 +60298,7 @@
             })
           );
         };
-      function Re() {
+      function Ye() {
         return new ge.a();
       }
       var Ae = t("mChF");
@@ -60314,7 +60314,7 @@
             Me(1),
             t
               ? De(n)
-              : Ye(function() {
+              : Re(function() {
                   return new ge.a();
                 })
           );
@@ -61058,6 +61058,28 @@
                   });
               console.log(n);
             }),
+            (e.prototype.removeUninstalledMeta = function() {
+              var e = this,
+                n = window.sideQuest;
+              if (n) {
+                var t = Object.keys(this.app_index).map(function(n) {
+                    return { apps_id: n, packagename: e.app_index[n] };
+                  }),
+                  r = !1;
+                t.forEach(function(t) {
+                  -1 === n.installed.indexOf(t.packagename) &&
+                    e.app_meta[t.apps_id] &&
+                    (console.log(
+                      "Removing App Meta: ",
+                      t.packagename,
+                      t.apps_id
+                    ),
+                    delete e.app_meta[t.apps_id],
+                    (r = !0));
+                }),
+                  r && this.saveAppMeta();
+              }
+            }),
             (e.ngInjectableDef = r["\u0275\u0275defineInjectable"]({
               factory: function() {
                 return new e(r["\u0275\u0275inject"](Mn));
@@ -61074,12 +61096,12 @@
         En = t("lYZG"),
         On = t("K9Ia"),
         In = t("Txjg");
-      function Yn(e) {
+      function Rn(e) {
         return function(n) {
-          return 0 === e ? Object(we.b)() : n.lift(new Rn(e));
+          return 0 === e ? Object(we.b)() : n.lift(new Yn(e));
         };
       }
-      var Rn = (function() {
+      var Yn = (function() {
           function e(e) {
             if (((this.total = e), this.total < 0)) throw new be.a();
           }
@@ -61131,10 +61153,10 @@
                   return e(n, t, r);
                 })
               : Ae.a,
-            Yn(1),
+            Rn(1),
             t
               ? De(n)
-              : Ye(function() {
+              : Re(function() {
                   return new ge.a();
                 })
           );
@@ -61896,7 +61918,7 @@
           t
         );
       }
-      function Yt(e, n) {
+      function Rt(e, n) {
         var t,
           r = Object.keys(e),
           l = Object.keys(n);
@@ -61905,7 +61927,7 @@
           if (e[(t = r[i])] !== n[t]) return !1;
         return !0;
       }
-      function Rt(e) {
+      function Yt(e) {
         return Array.prototype.concat.apply([], e);
       }
       function At(e) {
@@ -61924,7 +61946,7 @@
       function Nt(e, n, t) {
         return t
           ? (function(e, n) {
-              return Yt(e, n);
+              return Rt(e, n);
             })(e.queryParams, n.queryParams) &&
               (function e(n, t) {
                 if (!zt(n.segments, t.segments)) return !1;
@@ -62682,26 +62704,26 @@
           var n = e.snapshot,
             t = e._futureSnapshot;
           (e.snapshot = t),
-            Yt(n.queryParams, t.queryParams) ||
+            Rt(n.queryParams, t.queryParams) ||
               e.queryParams.next(t.queryParams),
             n.fragment !== t.fragment && e.fragment.next(t.fragment),
-            Yt(n.params, t.params) || e.params.next(t.params),
+            Rt(n.params, t.params) || e.params.next(t.params),
             (function(e, n) {
               if (e.length !== n.length) return !1;
-              for (var t = 0; t < e.length; ++t) if (!Yt(e[t], n[t])) return !1;
+              for (var t = 0; t < e.length; ++t) if (!Rt(e[t], n[t])) return !1;
               return !0;
             })(n.url, t.url) || e.url.next(t.url),
-            Yt(n.data, t.data) || e.data.next(t.data);
+            Rt(n.data, t.data) || e.data.next(t.data);
         } else
           (e.snapshot = e._futureSnapshot), e.data.next(e._futureSnapshot.data);
       }
       function yr(e, n) {
         var t, r;
         return (
-          Yt(e.params, n.params) &&
+          Rt(e.params, n.params) &&
           zt((t = e.url), (r = n.url)) &&
           t.every(function(e, n) {
-            return Yt(e.parameters, r[n].parameters);
+            return Rt(e.parameters, r[n].parameters);
           }) &&
           !(!e.parent != !n.parent) &&
           (!e.parent || yr(e.parent, n.parent))
@@ -62885,7 +62907,7 @@
         );
       }
       function Er(e, n, t) {
-        return e == t.path && Yt(n, t.parameters);
+        return e == t.path && Rt(n, t.parameters);
       }
       var Or = (function() {
         function e(e, n, t, r) {
@@ -63006,10 +63028,10 @@
       function Ir(e) {
         _r(e.value), e.children.forEach(Ir);
       }
-      function Yr(e) {
+      function Rr(e) {
         return "function" == typeof e;
       }
-      function Rr(e) {
+      function Yr(e) {
         return e instanceof Ft;
       }
       var Ar = (function() {
@@ -63404,12 +63426,12 @@
                                 i = e.get(r);
                               if (
                                 (function(e) {
-                                  return e && Yr(e.canLoad);
+                                  return e && Rr(e.canLoad);
                                 })(i)
                               )
                                 l = i.canLoad(n, t);
                               else {
-                                if (!Yr(i))
+                                if (!Rr(i))
                                   throw new Error("Invalid CanLoad guard");
                                 l = i(n, t);
                               }
@@ -63629,12 +63651,12 @@
                       return !zt(e.url, n.url);
                     case "pathParamsOrQueryParamsChange":
                       return (
-                        !zt(e.url, n.url) || !Yt(e.queryParams, n.queryParams)
+                        !zt(e.url, n.url) || !Rt(e.queryParams, n.queryParams)
                       );
                     case "always":
                       return !0;
                     case "paramsOrQueryParamsChange":
-                      return !yr(e, n) || !Yt(e.queryParams, n.queryParams);
+                      return !yr(e, n) || !Rt(e.queryParams, n.queryParams);
                     case "paramsChange":
                     default:
                       return !yr(e, n);
@@ -63711,7 +63733,7 @@
                   if (e !== $r) return e;
                   if ((r === $r && (t = !0), !t)) {
                     if (!1 === r) return r;
-                    if (l === n.length - 1 || Rr(r)) return r;
+                    if (l === n.length - 1 || Yr(r)) return r;
                   }
                   return e;
                 }, e);
@@ -63720,7 +63742,7 @@
                 return e !== $r;
               }),
               Object(c.a)(function(e) {
-                return Rr(e) ? e : !0 === e;
+                return Yr(e) ? e : !0 === e;
               }),
               Me(1)
             );
@@ -63741,12 +63763,12 @@
               i = qr(r, n, t);
             if (
               (function(e) {
-                return e && Yr(e.canActivate);
+                return e && Rr(e.canActivate);
               })(i)
             )
               l = jt(i.canActivate(n, e));
             else {
-              if (!Yr(i)) throw new Error("Invalid CanActivate guard");
+              if (!Rr(i)) throw new Error("Invalid CanActivate guard");
               l = jt(i(n, e));
             }
             return l.pipe(Pe());
@@ -63775,12 +63797,12 @@
                     o = qr(l, n.node, t);
                   if (
                     (function(e) {
-                      return e && Yr(e.canActivateChild);
+                      return e && Rr(e.canActivateChild);
                     })(o)
                   )
                     i = jt(o.canActivateChild(r, e));
                   else {
-                    if (!Yr(o))
+                    if (!Rr(o))
                       throw new Error("Invalid CanActivateChild guard");
                     i = jt(o(r, e));
                   }
@@ -64214,7 +64236,7 @@
                   Object(c.a)(function(r) {
                     t.onLoadEndListener && t.onLoadEndListener(n);
                     var l = r.create(e);
-                    return new St(Rt(l.injector.get(ml)).map(It), l);
+                    return new St(Yt(l.injector.get(ml)).map(It), l);
                   })
                 )
               );
@@ -64577,12 +64599,12 @@
                                             a = qr(i, n, l);
                                           if (
                                             (function(e) {
-                                              return e && Yr(e.canDeactivate);
+                                              return e && Rr(e.canDeactivate);
                                             })(a)
                                           )
                                             o = jt(a.canDeactivate(e, n, t, r));
                                           else {
-                                            if (!Yr(a))
+                                            if (!Rr(a))
                                               throw new Error(
                                                 "Invalid CanDeactivate guard"
                                               );
@@ -64635,7 +64657,7 @@
                       return n.triggerEvent(e);
                     }),
                     Ee(function(e) {
-                      if (Rr(e.guardsResult)) {
+                      if (Yr(e.guardsResult)) {
                         var t = xt(
                           'Redirecting to "' +
                             n.serializeUrl(e.guardsResult) +
@@ -64739,7 +64761,7 @@
                                           ? function(n) {
                                               return Object(Xn.a)(
                                                 Jn(e, void 0),
-                                                Yn(1),
+                                                Rn(1),
                                                 De(void 0)
                                               )(n);
                                             }
@@ -64748,7 +64770,7 @@
                                                 Jn(function(n, t, r) {
                                                   return e(n);
                                                 }),
-                                                Yn(1)
+                                                Rn(1)
                                               )(n);
                                             };
                                       })(function(e, n) {
@@ -64941,7 +64963,7 @@
                     }),
                     Hn(function(r) {
                       if (((d = !0), (a = r) && a[Dt])) {
-                        var l = Rr(r.url);
+                        var l = Yr(r.url);
                         l ||
                           ((n.navigated = !0),
                           n.resetStateAndUrl(
@@ -65150,7 +65172,7 @@
                   this.console.warn(
                     "Navigation triggered outside Angular zone, did you forget to call 'ngZone.run()'?"
                   );
-              var t = Rr(e) ? e : this.parseUrl(e),
+              var t = Yr(e) ? e : this.parseUrl(e),
                 l = this.urlHandlingStrategy.merge(t, this.rawUrlTree);
               return this.scheduleNavigation(l, "imperative", null, n);
             }),
@@ -65185,7 +65207,7 @@
               return n;
             }),
             (e.prototype.isActive = function(e, n) {
-              if (Rr(e)) return Nt(this.currentUrlTree, e, n);
+              if (Yr(e)) return Nt(this.currentUrlTree, e, n);
               var t = this.parseUrl(e);
               return Nt(this.currentUrlTree, t, n);
             }),
@@ -65614,7 +65636,7 @@
             e
           );
         })(),
-        Yl = (function() {
+        Rl = (function() {
           function e(e, n, t, r, l) {
             (this.router = e),
               (this.injector = r),
@@ -65699,7 +65721,7 @@
             e
           );
         })(),
-        Rl = (function() {
+        Yl = (function() {
           function e(e, n, t) {
             void 0 === t && (t = {}),
               (this.router = e),
@@ -65802,7 +65824,7 @@
             provide: r.NgModuleFactoryLoader,
             useClass: r.SystemJsNgModuleLoader
           },
-          Yl,
+          Rl,
           Il,
           Ol,
           { provide: Al, useValue: { enableTracing: !1 } }
@@ -65837,7 +65859,7 @@
                   ]
                 },
                 {
-                  provide: Rl,
+                  provide: Yl,
                   useFactory: Hl,
                   deps: [Ml, o.ViewportScroller, Al]
                 },
@@ -65872,7 +65894,7 @@
         );
       })();
       function Hl(e, n, t) {
-        return t.scrollOffset && n.setOffset(t.scrollOffset), new Rl(e, n, t);
+        return t.scrollOffset && n.setOffset(t.scrollOffset), new Yl(e, n, t);
       }
       function Vl(e, n, t) {
         return (
@@ -65897,7 +65919,7 @@
       }
       function Bl(e, n, t, r, l, i, o, u, s, c, d) {
         void 0 === s && (s = {});
-        var h = new Ml(null, n, t, r, l, i, o, Rt(u));
+        var h = new Ml(null, n, t, r, l, i, o, Yt(u));
         if (
           (c && (h.urlHandlingStrategy = c),
           d && (h.routeReuseStrategy = d),
@@ -65970,8 +65992,8 @@
           }),
           (e.prototype.bootstrapListener = function(e) {
             var n = this.injector.get(Al),
-              t = this.injector.get(Yl),
-              l = this.injector.get(Rl),
+              t = this.injector.get(Rl),
+              l = this.injector.get(Yl),
               i = this.injector.get(Ml),
               o = this.injector.get(r.ApplicationRef);
             e === o.components[0] &&
@@ -67170,7 +67192,18 @@
               (this.isGrid = !0),
               (this.isLoading = !1),
               (this.hasNoMore = !1),
-              (this.page = 0);
+              (this.page = 0),
+              (this.expanseNews = {
+                title: "The Expanse VR",
+                description: "Create your social expereince",
+                type: "app",
+                message_type: "",
+                url: "https://sidequestvr.com/#/app/12",
+                image:
+                  "https://cdn.theexpanse.app/file/1119/Untitled-1 (2).jpg",
+                video: "",
+                created: 0
+              });
             var t = localStorage.getItem("isGrid");
             t && (this.isGrid = "true" === t),
               (this.appService.scrollContainer.onscroll = function(e) {
@@ -67547,7 +67580,7 @@
                   l = e.component;
                 return (
                   "output" === n &&
-                    (r = !1 !== l.openItem(l.firstNews[1].url) && r),
+                    (r = !1 !== l.openItem(l.expanseNews.url) && r),
                   r
                 );
               },
@@ -67957,19 +67990,19 @@
           ],
           function(e, n) {
             var t = n.component,
-              r = e(n, 5, 0, "url(" + t.firstNews[0].image + ")");
+              r = e(n, 5, 0, "url('" + t.firstNews[0].image + "')");
             e(n, 4, 0, r), e(n, 7, 0, t.firstNews[0]);
-            var l = e(n, 12, 0, "url(" + t.firstNews[1].image + ")");
-            e(n, 11, 0, l), e(n, 14, 0, t.firstNews[1]);
-            var i = e(n, 18, 0, "url(" + t.firstNews[2].image + ")");
+            var l = e(n, 12, 0, "url('" + t.expanseNews.image + "')");
+            e(n, 11, 0, l), e(n, 14, 0, t.expanseNews);
+            var i = e(n, 18, 0, "url('" + t.firstNews[2].image + "')");
             e(n, 17, 0, i), e(n, 20, 0, t.firstNews[2]);
-            var o = e(n, 25, 0, "url(" + t.firstNews[3].image + ")");
+            var o = e(n, 25, 0, "url('" + t.firstNews[3].image + "')");
             e(n, 24, 0, o), e(n, 27, 0, t.firstNews[3]);
-            var a = e(n, 32, 0, "url(" + t.firstNews[4].image + ")");
+            var a = e(n, 32, 0, "url('" + t.firstNews[4].image + "')");
             e(n, 31, 0, a), e(n, 34, 0, t.firstNews[4]);
-            var u = e(n, 39, 0, "url(" + t.firstNews[5].image + ")");
+            var u = e(n, 39, 0, "url('" + t.firstNews[5].image + "')");
             e(n, 38, 0, u), e(n, 41, 0, t.firstNews[5]);
-            var s = e(n, 46, 0, "url(" + t.firstNews[6].image + ")");
+            var s = e(n, 46, 0, "url('" + t.firstNews[6].image + "')");
             e(n, 45, 0, s), e(n, 48, 0, t.firstNews[6]);
           },
           null
@@ -69517,7 +69550,7 @@
           return (e.prototype.ngOnInit = function() {}), e;
         })(),
         Ii = r["\u0275crt"]({ encapsulation: 0, styles: [[""]], data: {} });
-      function Yi(e) {
+      function Ri(e) {
         return r["\u0275vid"](
           0,
           [
@@ -69527,9 +69560,9 @@
               0,
               null,
               null,
-              0,
-              "br",
-              [],
+              41,
+              "div",
+              [["class", "container"]],
               null,
               null,
               null,
@@ -69542,9 +69575,9 @@
               0,
               null,
               null,
-              0,
-              "br",
-              [],
+              8,
+              "div",
+              [["class", "right"]],
               null,
               null,
               null,
@@ -69557,18 +69590,109 @@
               0,
               null,
               null,
-              29,
-              "div",
-              [["class", "container"]],
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "People have been so kind, we are humbled."]
+              ],
               null,
               null,
               null,
               null,
               null
             )),
+            r["\u0275did"](
+              3,
+              4931584,
+              null,
+              0,
+              Cn,
+              [r.ElementRef, r.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
             (e()(),
             r["\u0275eld"](
+              4,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Support us on Patreon."],
+                ["src", "assets/images/patreon.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), r["\u0275ted"](-1, null, [" Support us on Patreon "])),
+            (e()(),
+            r["\u0275eld"](
+              6,
+              0,
+              null,
+              null,
               3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=744A6C394Q8JG&source=url'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "Use this option if you prefer a one off donation."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            r["\u0275did"](
+              7,
+              4931584,
+              null,
+              0,
+              Cn,
+              [r.ElementRef, r.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            r["\u0275eld"](
+              8,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Donate on Paypal"],
+                ["src", "assets/images/paypal.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), r["\u0275ted"](-1, null, [" Donate on Paypal "])),
+            (e()(),
+            r["\u0275eld"](
+              10,
               0,
               null,
               null,
@@ -69585,7 +69709,52 @@
             r["\u0275ted"](-1, null, ["Download the latest SideQuest!"])),
             (e()(),
             r["\u0275eld"](
-              5,
+              12,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              13,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              14,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              15,
               0,
               null,
               null,
@@ -69600,7 +69769,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              6,
+              16,
               0,
               null,
               null,
@@ -69615,7 +69784,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              7,
+              17,
               0,
               null,
               null,
@@ -69628,10 +69797,10 @@
               Ei,
               Si
             )),
-            r["\u0275did"](8, 114688, null, 0, Li, [], null, null),
+            r["\u0275did"](18, 114688, null, 0, Li, [], null, null),
             (e()(),
             r["\u0275eld"](
-              9,
+              19,
               0,
               null,
               null,
@@ -69648,7 +69817,7 @@
             r["\u0275ted"](-1, null, [" If your using windows, get the "])),
             (e()(),
             r["\u0275eld"](
-              11,
+              21,
               0,
               null,
               null,
@@ -69665,7 +69834,7 @@
             (e()(), r["\u0275ted"](-1, null, [" setup file, or the "])),
             (e()(),
             r["\u0275eld"](
-              14,
+              24,
               0,
               null,
               null,
@@ -69682,7 +69851,7 @@
             (e()(), r["\u0275ted"](-1, null, [" portable file. "])),
             (e()(),
             r["\u0275eld"](
-              17,
+              27,
               0,
               null,
               null,
@@ -69697,7 +69866,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              18,
+              28,
               0,
               null,
               null,
@@ -69713,7 +69882,7 @@
             (e()(), r["\u0275ted"](-1, null, [" For mac its the "])),
             (e()(),
             r["\u0275eld"](
-              20,
+              30,
               0,
               null,
               null,
@@ -69730,7 +69899,7 @@
             (e()(), r["\u0275ted"](-1, null, [" image file, or the "])),
             (e()(),
             r["\u0275eld"](
-              23,
+              33,
               0,
               null,
               null,
@@ -69747,7 +69916,7 @@
             (e()(), r["\u0275ted"](-1, null, [" portable file. "])),
             (e()(),
             r["\u0275eld"](
-              26,
+              36,
               0,
               null,
               null,
@@ -69762,7 +69931,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              27,
+              37,
               0,
               null,
               null,
@@ -69778,7 +69947,7 @@
             (e()(), r["\u0275ted"](-1, null, [" For linux its the "])),
             (e()(),
             r["\u0275eld"](
-              29,
+              39,
               0,
               null,
               null,
@@ -69795,12 +69964,20 @@
             (e()(), r["\u0275ted"](-1, null, [" file. "]))
           ],
           function(e, n) {
-            e(n, 8, 0);
+            e(n, 3, 0, "bottom", "People have been so kind, we are humbled."),
+              e(
+                n,
+                7,
+                0,
+                "bottom",
+                "Use this option if you prefer a one off donation."
+              ),
+              e(n, 18, 0);
           },
           null
         );
       }
-      function Ri(e) {
+      function Yi(e) {
         return r["\u0275vid"](
           0,
           [
@@ -69816,7 +69993,7 @@
               null,
               null,
               null,
-              Yi,
+              Ri,
               Ii
             )),
             r["\u0275did"](1, 114688, null, 0, Oi, [], null, null)
@@ -69827,7 +70004,7 @@
           null
         );
       }
-      var Ai = r["\u0275ccf"]("app-download-side-quest", Oi, Ri, {}, {}, []),
+      var Ai = r["\u0275ccf"]("app-download-side-quest", Oi, Yi, {}, {}, []),
         Pi = (function() {
           function e() {}
           return (e.prototype.ngOnInit = function() {}), e;
@@ -71233,6 +71410,9 @@
                     )
                   );
               }),
+              (e.prototype.uninstallApp = function(e) {
+                window.location.href = "sidequest://unload/#" + e;
+              }),
               (e.prototype.openItem = function(e) {
                 window.location.href = e;
               }),
@@ -72036,8 +72216,16 @@
               "div",
               [["class", "btn waves-effect waves-light pink-button"]],
               null,
-              null,
-              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0,
+                  l = e.component;
+                return (
+                  "click" === n &&
+                    (r = !1 !== l.uninstallApp(l.currentApp.packagename) && r),
+                  r
+                );
+              },
               null,
               null
             )),
@@ -72874,7 +73062,7 @@
           }
         );
       }
-      function Yo(e) {
+      function Ro(e) {
         return r["\u0275vid"](
           0,
           [
@@ -72963,7 +73151,7 @@
           }
         );
       }
-      function Ro(e) {
+      function Yo(e) {
         return r["\u0275vid"](
           0,
           [
@@ -75194,7 +75382,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Yo)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ro)),
             r["\u0275did"](
               75,
               16384,
@@ -75205,7 +75393,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ro)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Yo)),
             r["\u0275did"](
               77,
               16384,
@@ -75325,7 +75513,14 @@
               e(n, 47, 0, "bottom", "Number of likes"),
               e(n, 51, 0, t.screenshots),
               e(n, 54, 0, t.app_meta.vc && t.service.app_index[t.apps_id]),
-              e(n, 56, 0, t.app_meta.vc && t.service.app_index[t.apps_id]),
+              e(
+                n,
+                56,
+                0,
+                t.app_meta.vc &&
+                  t.service.app_index[t.apps_id] &&
+                  "BeatOn" !== t.currentApp.website
+              ),
               e(
                 n,
                 58,
@@ -77176,116 +77371,114 @@
             }),
             (e.prototype.getData = function() {
               var e = this;
-              console.log(this.selectedDate.start),
-                this.expanseService
-                  .start()
-                  .then(function() {
-                    return e.expanseService.getAppCounters(
-                      e.apps_id,
-                      Math.floor(
-                        e.selectedDate.start.toDate().getTime() / 1e3 / 3600
-                      ),
-                      Math.floor(
-                        e.selectedDate.end.toDate().getTime() / 1e3 / 3600
-                      ),
-                      e.selectedFilter
-                    );
-                  })
-                  .then(function(n) {
-                    console.log(n),
-                      (e.versionFilter = ["All"].concat(
-                        (n || [])
-                          .map(function(e) {
-                            return e.versionname;
-                          })
-                          .filter(function(e, n, t) {
-                            return t.indexOf(e) === n;
-                          })
-                      ));
-                    var t = (n || []).filter(function(e) {
-                        return "view" === e.type;
+              this.expanseService
+                .start()
+                .then(function() {
+                  return e.expanseService.getAppCounters(
+                    e.apps_id,
+                    Math.floor(
+                      e.selectedDate.start.toDate().getTime() / 1e3 / 3600
+                    ),
+                    Math.floor(
+                      e.selectedDate.end.toDate().getTime() / 1e3 / 3600
+                    ),
+                    e.selectedFilter
+                  );
+                })
+                .then(function(n) {
+                  e.versionFilter = ["All"].concat(
+                    (n || [])
+                      .map(function(e) {
+                        return e.versionname;
+                      })
+                      .filter(function(e, n, t) {
+                        return t.indexOf(e) === n;
+                      })
+                  );
+                  var t = (n || []).filter(function(e) {
+                      return "view" === e.type;
+                    }),
+                    r = {
+                      label: "Views",
+                      data: t.map(function(e) {
+                        return {
+                          x: 3600 * (e.hour_time || e.day_time) * 1e3,
+                          y: e.counter
+                        };
                       }),
-                      r = {
-                        label: "Views",
-                        data: t.map(function(e) {
-                          return {
-                            x: 3600 * (e.hour_time || e.day_time) * 1e3,
-                            y: e.counter
-                          };
-                        }),
-                        pointRadius: []
-                      },
-                      l = (n || []).filter(function(e) {
-                        return "download" === e.type;
+                      pointRadius: []
+                    },
+                    l = (n || []).filter(function(e) {
+                      return "download" === e.type;
+                    }),
+                    i = {
+                      label: "Downloads",
+                      data: l.map(function(e) {
+                        return {
+                          x: 3600 * (e.hour_time || e.day_time) * 1e3,
+                          y: e.counter
+                        };
                       }),
-                      i = {
-                        label: "Downloads",
-                        data: l.map(function(e) {
-                          return {
-                            x: 3600 * (e.hour_time || e.day_time) * 1e3,
-                            y: e.counter
-                          };
-                        }),
-                        pointRadius: []
-                      },
-                      o = (n || []).filter(function(e) {
-                        return "like" === e.type;
+                      pointRadius: []
+                    },
+                    o = (n || []).filter(function(e) {
+                      return "like" === e.type;
+                    }),
+                    a = {
+                      label: "Likes",
+                      data: o.map(function(e) {
+                        return {
+                          x: 3600 * (e.hour_time || e.day_time) * 1e3,
+                          y: e.counter
+                        };
                       }),
-                      a = {
-                        label: "Likes",
-                        data: o.map(function(e) {
-                          return {
-                            x: 3600 * (e.hour_time || e.day_time) * 1e3,
-                            y: e.counter
-                          };
-                        }),
-                        pointRadius: []
-                      },
-                      u = [];
-                    t.length > 1 &&
-                      (r.data.unshift({
-                        y: r.data[0].y,
+                      pointRadius: []
+                    },
+                    u = [];
+                  t.length > 0 &&
+                    (r.data.unshift({
+                      y: r.data[0].y,
+                      x: e.selectedDate.start.toDate()
+                    }),
+                    r.data.push({
+                      y: r.data[r.data.length - 1].y,
+                      x: e.selectedDate.end.toDate()
+                    }),
+                    (r.pointRadius = r.data.map(function(e, n) {
+                      return 0 === n ? 0 : n === r.data.length - 1 ? 0 : 5;
+                    })),
+                    u.push(r)),
+                    l.length > 0 &&
+                      (i.data.unshift({
+                        y: i.data[0].y,
                         x: e.selectedDate.start.toDate()
                       }),
-                      r.data.push({
-                        y: r.data[r.data.length - 1].y,
+                      i.data.push({
+                        y: i.data[i.data.length - 1].y,
                         x: e.selectedDate.end.toDate()
                       }),
-                      (r.pointRadius = r.data.map(function(e, n) {
-                        return 0 === n ? 0 : n === r.data.length - 1 ? 0 : 5;
+                      (i.pointRadius = i.data.map(function(e, n) {
+                        return 0 === n ? 0 : n === i.data.length - 1 ? 0 : 5;
                       })),
-                      u.push(r)),
-                      l.length > 1 &&
-                        (i.data.unshift({
-                          y: i.data[0].y,
-                          x: e.selectedDate.start.toDate()
-                        }),
-                        i.data.push({
-                          y: i.data[i.data.length - 1].y,
-                          x: e.selectedDate.end.toDate()
-                        }),
-                        (i.pointRadius = i.data.map(function(e, n) {
-                          return 0 === n ? 0 : n === i.data.length - 1 ? 0 : 5;
-                        })),
-                        u.push(i)),
-                      o.length > 1 &&
-                        (a.data.unshift({
-                          y: a.data[0].y,
-                          x: e.selectedDate.start.toDate()
-                        }),
-                        a.data.push({
-                          y: a.data[a.data.length - 1].y,
-                          x: e.selectedDate.end.toDate()
-                        }),
-                        (a.pointRadius = a.data.map(function(e, n) {
-                          return 0 === n ? 0 : n === a.data.length - 1 ? 0 : 5;
-                        })),
-                        u.push(a)),
-                      (e.lineChartData = u),
-                      (e.notEnough = !u.length),
-                      (e.chart.chart.config.options.scales.xAxes[0].time.min = e.selectedDate.start.toDate()),
-                      (e.chart.chart.config.options.scales.xAxes[0].time.max = e.selectedDate.end.toDate());
-                  });
+                      u.push(i)),
+                    o.length > 0 &&
+                      (a.data.unshift({
+                        y: a.data[0].y,
+                        x: e.selectedDate.start.toDate()
+                      }),
+                      a.data.push({
+                        y: a.data[a.data.length - 1].y,
+                        x: e.selectedDate.end.toDate()
+                      }),
+                      (a.pointRadius = a.data.map(function(e, n) {
+                        return 0 === n ? 0 : n === a.data.length - 1 ? 0 : 5;
+                      })),
+                      u.push(a)),
+                    (e.lineChartData = u),
+                    (e.notEnough = !u.length),
+                    (e.chart.chart.config.options.scales.xAxes[0].time.min = e.selectedDate.start.toDate()),
+                    (e.chart.chart.config.options.scales.xAxes[0].time.max = e.selectedDate.end.toDate());
+                });
             }),
             (e.prototype.ngOnInit = function() {}),
             (e.prototype.ngAfterViewInit = function() {}),
@@ -78522,7 +78715,7 @@
           encapsulation: 0,
           styles: [
             [
-              ".add-image[_ngcontent-%COMP%], .add-screenshot[_ngcontent-%COMP%], .loader-cont[_ngcontent-%COMP%]{width:100%;line-height:256px;font-size:1.5rem;height:256px;border:3px dashed #cfcfcf;margin:.5rem 0 1rem;color:#fff;text-align:center;cursor:pointer}.add-screenshot[_ngcontent-%COMP%]{height:124px;line-height:124px}.loader-cont[_ngcontent-%COMP%]{border:0 dashed #cfcfcf;position:relative}.apk-height[_ngcontent-%COMP%]{height:240px}.url-row-padding[_ngcontent-%COMP%]{padding-left:4em;padding-right:4em}.margin-bottom[_ngcontent-%COMP%]{margin-bottom:.2em}.url-col[_ngcontent-%COMP%]{padding-top:.7em}.select-drop-down[_ngcontent-%COMP%]{width:calc(100% - 45px);position:relative;display:inline-block}.select-icon[_ngcontent-%COMP%]{width:3rem;font-size:2rem;-webkit-transition:color .2s;transition:color .2s}.loader-small[_ngcontent-%COMP%]{border:3px solid #f3f3f3;border-top:3px solid #ed4e7a;border-radius:50%;width:40px;height:40px;-webkit-animation:2s linear infinite spin;animation:2s linear infinite spin;display:inline-block}.back-icon[_ngcontent-%COMP%]{margin-right:10px;font-size:1.5em;cursor:pointer}.back-icon[_ngcontent-%COMP%]:focus{outline:0}.screenshot-container[_ngcontent-%COMP%]{width:300px;position:relative;margin:auto}.radio-top[_ngcontent-%COMP%]{margin-bottom:30px}.fixed-height[_ngcontent-%COMP%]{height:160px}.extra-padding-left-small[_ngcontent-%COMP%]{padding-left:2em}.extra-padding-left[_ngcontent-%COMP%]{padding-left:3.8em}.top-package-name[_ngcontent-%COMP%]{margin-top:22px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.margin-top[_ngcontent-%COMP%]{margin-top:2em}.bottom-border[_ngcontent-%COMP%]{border-bottom:1px solid #cfcfcf}.add-app[_ngcontent-%COMP%]{width:100%;line-height:40px;font-size:1rem;height:50px;border:3px dashed #cfcfcf;margin:.5rem 0 1rem;color:#fff;text-align:center;cursor:pointer}"
+              ".add-image[_ngcontent-%COMP%], .add-screenshot[_ngcontent-%COMP%], .loader-cont[_ngcontent-%COMP%]{width:100%;line-height:256px;font-size:1.5rem;height:256px;border:3px dashed #cfcfcf;margin:.5rem 0 1rem;color:#fff;text-align:center;cursor:pointer}.add-screenshot[_ngcontent-%COMP%]{height:124px;line-height:124px}.loader-cont[_ngcontent-%COMP%]{border:0 dashed #cfcfcf;position:relative}.apk-height[_ngcontent-%COMP%]{height:240px}.url-row-padding[_ngcontent-%COMP%]{padding-left:4em;padding-right:4em}.margin-bottom[_ngcontent-%COMP%]{margin-bottom:.2em}.url-col[_ngcontent-%COMP%]{padding-top:.7em}.select-drop-down[_ngcontent-%COMP%]{width:calc(100% - 45px);position:relative;display:inline-block}.select-icon[_ngcontent-%COMP%]{width:3rem;font-size:2rem;-webkit-transition:color .2s;transition:color .2s}.loader-small[_ngcontent-%COMP%]{border:3px solid #f3f3f3;border-top:3px solid #ed4e7a;border-radius:50%;width:40px;height:40px;-webkit-animation:2s linear infinite spin;animation:2s linear infinite spin;display:inline-block}.back-icon[_ngcontent-%COMP%]{margin-right:10px;font-size:1.5em;cursor:pointer}.back-icon[_ngcontent-%COMP%]:focus{outline:0}.screenshot-container[_ngcontent-%COMP%]{width:300px;position:relative;margin:auto}.radio-top[_ngcontent-%COMP%]{margin-bottom:30px}.fixed-height[_ngcontent-%COMP%]{height:160px}.extra-padding-left-small[_ngcontent-%COMP%]{padding-left:2em}.extra-padding-left[_ngcontent-%COMP%]{padding-left:3.8em}.top-package-name[_ngcontent-%COMP%]{margin-top:22px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.margin-top[_ngcontent-%COMP%]{margin-top:2em}.bottom-border[_ngcontent-%COMP%]{border-bottom:1px solid #cfcfcf}.add-app[_ngcontent-%COMP%]{width:100%;line-height:40px;font-size:1rem;height:50px;border:3px dashed #cfcfcf;margin:.5rem 0 1rem;color:#fff;text-align:center;cursor:pointer}.top-chip[_ngcontent-%COMP%]{margin-left:1em;margin-right:1em}"
             ]
           ],
           data: {}
@@ -78567,7 +78760,7 @@
           null
         );
       }
-      function Ya(e) {
+      function Ra(e) {
         return r["\u0275vid"](
           0,
           [
@@ -78621,7 +78814,7 @@
           null
         );
       }
-      function Ra(e) {
+      function Ya(e) {
         return r["\u0275vid"](
           0,
           [
@@ -78631,19 +78824,37 @@
               0,
               null,
               null,
-              12,
+              13,
               "div",
-              [["class", "right center-align"]],
+              [
+                ["class", "right center-align"],
+                ["mz-tooltip", ""],
+                ["position", "bottom"],
+                [
+                  "tooltip",
+                  "This will disable downloads of your app and you can provide keys to users to be able to install ( this is only partially implemented so i have disabled it for now )"
+                ]
+              ],
               null,
               null,
               null,
               null,
               null
             )),
+            r["\u0275did"](
+              1,
+              4931584,
+              null,
+              0,
+              Cn,
+              [r.ElementRef, r.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
             (e()(), r["\u0275ted"](-1, null, [" Early Access "])),
             (e()(),
             r["\u0275eld"](
-              2,
+              3,
               0,
               null,
               null,
@@ -78658,7 +78869,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              3,
+              4,
               0,
               null,
               null,
@@ -78674,7 +78885,7 @@
             (e()(), r["\u0275ted"](-1, null, [" Off "])),
             (e()(),
             r["\u0275eld"](
-              5,
+              6,
               0,
               null,
               null,
@@ -78690,19 +78901,26 @@
                 [2, "ng-invalid", null],
                 [2, "ng-pending", null]
               ],
-              [[null, "ngModelChange"], [null, "change"], [null, "blur"]],
+              [
+                [null, "ngModelChange"],
+                [null, "click"],
+                [null, "change"],
+                [null, "blur"]
+              ],
               function(e, n, t) {
                 var l = !0,
                   i = e.component;
                 return (
                   "change" === n &&
                     (l =
-                      !1 !== r["\u0275nov"](e, 6).onChange(t.target.checked) &&
+                      !1 !== r["\u0275nov"](e, 7).onChange(t.target.checked) &&
                       l),
                   "blur" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 6).onTouched() && l),
+                    (l = !1 !== r["\u0275nov"](e, 7).onTouched() && l),
                   "ngModelChange" === n &&
                     (l = !1 !== (i.currentApp.early_access = t) && l),
+                  "click" === n &&
+                    (l = 0 != (i.currentApp.early_access = !1) && l),
                   l
                 );
               },
@@ -78710,7 +78928,7 @@
               null
             )),
             r["\u0275did"](
-              6,
+              7,
               16384,
               null,
               0,
@@ -78729,7 +78947,7 @@
               [h]
             ),
             r["\u0275did"](
-              8,
+              9,
               671744,
               null,
               0,
@@ -78739,10 +78957,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, _, null, [ue]),
-            r["\u0275did"](10, 16384, null, 0, y, [[4, _]], null, null),
+            r["\u0275did"](11, 16384, null, 0, y, [[4, _]], null, null),
             (e()(),
             r["\u0275eld"](
-              11,
+              12,
               0,
               null,
               null,
@@ -78758,20 +78976,28 @@
             (e()(), r["\u0275ted"](-1, null, [" On "]))
           ],
           function(e, n) {
-            e(n, 8, 0, n.component.currentApp.early_access);
+            var t = n.component;
+            e(
+              n,
+              1,
+              0,
+              "bottom",
+              "This will disable downloads of your app and you can provide keys to users to be able to install ( this is only partially implemented so i have disabled it for now )"
+            ),
+              e(n, 9, 0, t.currentApp.early_access);
           },
           function(e, n) {
             e(
               n,
-              5,
+              6,
               0,
-              r["\u0275nov"](n, 10).ngClassUntouched,
-              r["\u0275nov"](n, 10).ngClassTouched,
-              r["\u0275nov"](n, 10).ngClassPristine,
-              r["\u0275nov"](n, 10).ngClassDirty,
-              r["\u0275nov"](n, 10).ngClassValid,
-              r["\u0275nov"](n, 10).ngClassInvalid,
-              r["\u0275nov"](n, 10).ngClassPending
+              r["\u0275nov"](n, 11).ngClassUntouched,
+              r["\u0275nov"](n, 11).ngClassTouched,
+              r["\u0275nov"](n, 11).ngClassPristine,
+              r["\u0275nov"](n, 11).ngClassDirty,
+              r["\u0275nov"](n, 11).ngClassValid,
+              r["\u0275nov"](n, 11).ngClassInvalid,
+              r["\u0275nov"](n, 11).ngClassPending
             );
           }
         );
@@ -78835,7 +79061,7 @@
               0,
               null,
               null,
-              4,
+              13,
               "div",
               [],
               null,
@@ -78890,6 +79116,127 @@
               0,
               null,
               null,
+              8,
+              "div",
+              [["class", "center-align"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              5,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "People have been so kind, we are humbled."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            r["\u0275did"](
+              6,
+              4931584,
+              null,
+              0,
+              Cn,
+              [r.ElementRef, r.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            r["\u0275eld"](
+              7,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Support us on Patreon."],
+                ["src", "assets/images/patreon.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), r["\u0275ted"](-1, null, [" Support us on Patreon "])),
+            (e()(),
+            r["\u0275eld"](
+              9,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=744A6C394Q8JG&source=url'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "Use this option if you prefer a one off donation."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            r["\u0275did"](
+              10,
+              4931584,
+              null,
+              0,
+              Cn,
+              [r.ElementRef, r.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            r["\u0275eld"](
+              11,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Donate on Paypal"],
+                ["src", "assets/images/paypal.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), r["\u0275ted"](-1, null, [" Donate on Paypal "])),
+            (e()(),
+            r["\u0275eld"](
+              13,
+              0,
+              null,
+              null,
               0,
               "br",
               [],
@@ -78901,7 +79248,15 @@
             ))
           ],
           function(e, n) {
-            e(n, 2, 0, n.component.apps_id);
+            e(n, 2, 0, n.component.apps_id),
+              e(n, 6, 0, "bottom", "People have been so kind, we are humbled."),
+              e(
+                n,
+                10,
+                0,
+                "bottom",
+                "Use this option if you prefer a one off donation."
+              );
           },
           null
         );
@@ -81430,7 +81785,7 @@
               null
             ),
             r["\u0275pod"](3, { padding: 0, container: 1 }),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ya)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ra)),
             r["\u0275did"](
               5,
               16384,
@@ -81467,7 +81822,7 @@
               null
             )),
             (e()(), r["\u0275ted"](-1, null, ["Save App"])),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ra)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ya)),
             r["\u0275did"](
               9,
               16384,
@@ -86993,7 +87348,8 @@
                         )),
                         Number.isInteger(this.category) ||
                           (this.category = null),
-                        this.isLoaded && ((this.page = 0), this.getApps())),
+                        this.isLoaded && ((this.page = 0), this.getApps()),
+                        this.appService.removeUninstalledMeta()),
                       [2]
                     );
                   });
@@ -88817,7 +89173,7 @@
           }
         );
       }
-      function Yu(e) {
+      function Ru(e) {
         return r["\u0275vid"](
           0,
           [
@@ -88844,7 +89200,7 @@
           null
         );
       }
-      var Ru = r["\u0275ccf"]("app-apps", _u, Yu, {}, {}, []),
+      var Yu = r["\u0275ccf"]("app-apps", _u, Ru, {}, {}, []),
         Au = (function() {
           function e(e, n) {
             (this.expanseService = e), (this.appService = n);
@@ -88894,7 +89250,7 @@
           encapsulation: 0,
           styles: [
             [
-              ".card-image-left[_ngcontent-%COMP%]{height:124px;float:left;width:164.6666666666667px;background-size:cover;background-position:center center;margin-right:2em}.card-title-small[_ngcontent-%COMP%]{width:calc(100% - 300px)!important}.card-title.truncate[_ngcontent-%COMP%], .description.truncate[_ngcontent-%COMP%]{width:calc(100% - 50px)}.card-content[_ngcontent-%COMP%]{background-color:#312249}.add-app[_ngcontent-%COMP%]{width:100%;line-height:124px;font-size:2rem;height:124px;border:3px dashed #cfcfcf;margin:.5rem 0 1rem;color:#fff;text-align:center;cursor:pointer}.card-height[_ngcontent-%COMP%]{height:124px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}"
+              ".card-image-left[_ngcontent-%COMP%]{height:124px;float:left;width:164.6666666666667px;background-size:cover;background-position:center center;margin-right:2em}.card-title-small[_ngcontent-%COMP%]{width:calc(100% - 300px)!important}.card-title.truncate[_ngcontent-%COMP%], .description.truncate[_ngcontent-%COMP%]{width:calc(100% - 50px)}.card-content[_ngcontent-%COMP%]{background-color:#312249}.add-app[_ngcontent-%COMP%]{width:100%;line-height:124px;font-size:2rem;height:124px;border:3px dashed #cfcfcf;margin:.5rem 0 1rem;color:#fff;text-align:center;cursor:pointer}.card-height[_ngcontent-%COMP%]{height:124px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.top-chip[_ngcontent-%COMP%]{margin-left:1em;margin-right:1em}"
             ]
           ],
           data: {}
@@ -89289,7 +89645,7 @@
               0,
               null,
               null,
-              75,
+              84,
               "div",
               [],
               null,
@@ -89322,6 +89678,127 @@
               0,
               null,
               null,
+              8,
+              "div",
+              [["class", "right"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              5,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "People have been so kind, we are humbled."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            r["\u0275did"](
+              6,
+              4931584,
+              null,
+              0,
+              Cn,
+              [r.ElementRef, r.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            r["\u0275eld"](
+              7,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Support us on Patreon."],
+                ["src", "assets/images/patreon.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), r["\u0275ted"](-1, null, [" Support us on Patreon "])),
+            (e()(),
+            r["\u0275eld"](
+              9,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=744A6C394Q8JG&source=url'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "Use this option if you prefer a one off donation."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            r["\u0275did"](
+              10,
+              4931584,
+              null,
+              0,
+              Cn,
+              [r.ElementRef, r.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            r["\u0275eld"](
+              11,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Donate on Paypal"],
+                ["src", "assets/images/paypal.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), r["\u0275ted"](-1, null, [" Donate on Paypal "])),
+            (e()(),
+            r["\u0275eld"](
+              13,
+              0,
+              null,
+              null,
               1,
               "h4",
               [],
@@ -89331,10 +89808,10 @@
               null,
               null
             )),
-            (e()(), r["\u0275ted"](5, null, ["Hi ", "!"])),
+            (e()(), r["\u0275ted"](14, null, ["Hi ", "!"])),
             (e()(),
             r["\u0275eld"](
-              6,
+              15,
               0,
               null,
               null,
@@ -89349,7 +89826,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              7,
+              16,
               0,
               null,
               null,
@@ -89364,7 +89841,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              8,
+              17,
               0,
               null,
               null,
@@ -89383,7 +89860,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              10,
+              19,
               0,
               null,
               null,
@@ -89399,7 +89876,7 @@
             (e()(), r["\u0275ted"](-1, null, ["https://discord.gg/xPYu565"])),
             (e()(),
             r["\u0275eld"](
-              12,
+              21,
               0,
               null,
               null,
@@ -89414,7 +89891,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              13,
+              22,
               0,
               null,
               null,
@@ -89433,7 +89910,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              15,
+              24,
               0,
               null,
               null,
@@ -89448,7 +89925,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              16,
+              25,
               0,
               null,
               null,
@@ -89463,7 +89940,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              17,
+              26,
               0,
               null,
               null,
@@ -89478,7 +89955,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              18,
+              27,
               0,
               null,
               null,
@@ -89493,7 +89970,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              19,
+              28,
               0,
               null,
               null,
@@ -89511,7 +89988,7 @@
                 var l = !0;
                 return (
                   "click" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 77).openModal() && l),
+                    (l = !1 !== r["\u0275nov"](e, 86).openModal() && l),
                   l
                 );
               },
@@ -89521,7 +89998,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Change Password"])),
             (e()(),
             r["\u0275eld"](
-              21,
+              30,
               0,
               null,
               null,
@@ -89536,7 +90013,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              22,
+              31,
               0,
               null,
               null,
@@ -89551,7 +90028,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              23,
+              32,
               0,
               null,
               null,
@@ -89567,7 +90044,7 @@
             (e()(), r["\u0275ted"](-1, null, ["face"])),
             (e()(),
             r["\u0275eld"](
-              25,
+              34,
               0,
               null,
               null,
@@ -89601,16 +90078,16 @@
                   "input" === n &&
                     (l =
                       !1 !==
-                        r["\u0275nov"](e, 26)._handleInput(t.target.value) &&
+                        r["\u0275nov"](e, 35)._handleInput(t.target.value) &&
                       l),
                   "blur" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 26).onTouched() && l),
+                    (l = !1 !== r["\u0275nov"](e, 35).onTouched() && l),
                   "compositionstart" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 26)._compositionStart() && l),
+                    (l = !1 !== r["\u0275nov"](e, 35)._compositionStart() && l),
                   "compositionend" === n &&
                     (l =
                       !1 !==
-                        r["\u0275nov"](e, 26)._compositionEnd(t.target.value) &&
+                        r["\u0275nov"](e, 35)._compositionEnd(t.target.value) &&
                       l),
                   "ngModelChange" === n &&
                     (l =
@@ -89622,7 +90099,7 @@
               null
             )),
             r["\u0275did"](
-              26,
+              35,
               16384,
               null,
               0,
@@ -89641,7 +90118,7 @@
               [f]
             ),
             r["\u0275did"](
-              28,
+              37,
               671744,
               null,
               0,
@@ -89651,10 +90128,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, _, null, [ue]),
-            r["\u0275did"](30, 16384, null, 0, y, [[4, _]], null, null),
+            r["\u0275did"](39, 16384, null, 0, y, [[4, _]], null, null),
             (e()(),
             r["\u0275eld"](
-              31,
+              40,
               0,
               null,
               null,
@@ -89670,7 +90147,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Name"])),
             (e()(),
             r["\u0275eld"](
-              33,
+              42,
               0,
               null,
               null,
@@ -89685,7 +90162,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              34,
+              43,
               0,
               null,
               null,
@@ -89701,7 +90178,7 @@
             (e()(), r["\u0275ted"](-1, null, ["mail"])),
             (e()(),
             r["\u0275eld"](
-              36,
+              45,
               0,
               null,
               null,
@@ -89735,16 +90212,16 @@
                   "input" === n &&
                     (l =
                       !1 !==
-                        r["\u0275nov"](e, 37)._handleInput(t.target.value) &&
+                        r["\u0275nov"](e, 46)._handleInput(t.target.value) &&
                       l),
                   "blur" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 37).onTouched() && l),
+                    (l = !1 !== r["\u0275nov"](e, 46).onTouched() && l),
                   "compositionstart" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 37)._compositionStart() && l),
+                    (l = !1 !== r["\u0275nov"](e, 46)._compositionStart() && l),
                   "compositionend" === n &&
                     (l =
                       !1 !==
-                        r["\u0275nov"](e, 37)._compositionEnd(t.target.value) &&
+                        r["\u0275nov"](e, 46)._compositionEnd(t.target.value) &&
                       l),
                   "ngModelChange" === n &&
                     (l =
@@ -89756,7 +90233,7 @@
               null
             )),
             r["\u0275did"](
-              37,
+              46,
               16384,
               null,
               0,
@@ -89775,7 +90252,7 @@
               [f]
             ),
             r["\u0275did"](
-              39,
+              48,
               671744,
               null,
               0,
@@ -89785,10 +90262,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, _, null, [ue]),
-            r["\u0275did"](41, 16384, null, 0, y, [[4, _]], null, null),
+            r["\u0275did"](50, 16384, null, 0, y, [[4, _]], null, null),
             (e()(),
             r["\u0275eld"](
-              42,
+              51,
               0,
               null,
               null,
@@ -89804,7 +90281,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Email"])),
             (e()(),
             r["\u0275eld"](
-              44,
+              53,
               0,
               null,
               null,
@@ -89827,7 +90304,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Save"])),
             (e()(),
             r["\u0275eld"](
-              46,
+              55,
               0,
               null,
               null,
@@ -89843,7 +90320,7 @@
             (e()(), r["\u0275ted"](-1, null, ["My Apps"])),
             (e()(),
             r["\u0275eld"](
-              48,
+              57,
               0,
               null,
               null,
@@ -89858,7 +90335,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              49,
+              58,
               0,
               null,
               null,
@@ -89873,7 +90350,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              50,
+              59,
               0,
               null,
               null,
@@ -89888,7 +90365,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              51,
+              60,
               0,
               null,
               null,
@@ -89901,7 +90378,7 @@
                 var l = !0;
                 return (
                   "click" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 52).onClick() && l),
+                    (l = !1 !== r["\u0275nov"](e, 61).onClick() && l),
                   l
                 );
               },
@@ -89909,7 +90386,7 @@
               null
             )),
             r["\u0275did"](
-              52,
+              61,
               16384,
               null,
               0,
@@ -89920,7 +90397,7 @@
             ),
             (e()(),
             r["\u0275eld"](
-              53,
+              62,
               0,
               null,
               null,
@@ -89937,7 +90414,7 @@
             (e()(), r["\u0275ted"](-1, null, [" Add App "])),
             (e()(), r["\u0275and"](16777216, null, null, 1, null, Nu)),
             r["\u0275did"](
-              57,
+              66,
               278528,
               null,
               0,
@@ -89946,113 +90423,6 @@
               { ngForOf: [0, "ngForOf"] },
               null
             ),
-            (e()(),
-            r["\u0275eld"](
-              58,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              59,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              60,
-              0,
-              null,
-              null,
-              1,
-              "h4",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), r["\u0275ted"](-1, null, ["My Repos"])),
-            (e()(),
-            r["\u0275eld"](
-              62,
-              0,
-              null,
-              null,
-              0,
-              "hr",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              63,
-              0,
-              null,
-              null,
-              3,
-              "div",
-              [["class", "row"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              64,
-              0,
-              null,
-              null,
-              2,
-              "div",
-              [["class", "col s12 m6"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              65,
-              0,
-              null,
-              null,
-              1,
-              "div",
-              [["class", "add-app"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), r["\u0275ted"](-1, null, [" Coming soon... "])),
             (e()(),
             r["\u0275eld"](
               67,
@@ -90098,7 +90468,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275ted"](-1, null, ["My Events"])),
+            (e()(), r["\u0275ted"](-1, null, ["My Repos"])),
             (e()(),
             r["\u0275eld"](
               71,
@@ -90166,6 +90536,113 @@
               0,
               null,
               null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              77,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              78,
+              0,
+              null,
+              null,
+              1,
+              "h4",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), r["\u0275ted"](-1, null, ["My Events"])),
+            (e()(),
+            r["\u0275eld"](
+              80,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              81,
+              0,
+              null,
+              null,
+              3,
+              "div",
+              [["class", "row"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              82,
+              0,
+              null,
+              null,
+              2,
+              "div",
+              [["class", "col s12 m6"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              83,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "add-app"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), r["\u0275ted"](-1, null, [" Coming soon... "])),
+            (e()(),
+            r["\u0275eld"](
+              85,
+              0,
+              null,
+              null,
               41,
               "mz-modal",
               [],
@@ -90176,7 +90653,7 @@
               qi
             )),
             r["\u0275did"](
-              77,
+              86,
               4833280,
               [["passwordModal", 4]],
               0,
@@ -90187,7 +90664,7 @@
             ),
             (e()(),
             r["\u0275eld"](
-              78,
+              87,
               0,
               null,
               0,
@@ -90200,10 +90677,10 @@
               null,
               null
             )),
-            r["\u0275did"](79, 16384, null, 0, rn, [], null, null),
+            r["\u0275did"](88, 16384, null, 0, rn, [], null, null),
             (e()(),
             r["\u0275eld"](
-              80,
+              89,
               0,
               null,
               null,
@@ -90219,7 +90696,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Change Password"])),
             (e()(),
             r["\u0275eld"](
-              82,
+              91,
               0,
               null,
               1,
@@ -90232,10 +90709,10 @@
               null,
               null
             )),
-            r["\u0275did"](83, 16384, null, 0, ln, [], null, null),
+            r["\u0275did"](92, 16384, null, 0, ln, [], null, null),
             (e()(),
             r["\u0275eld"](
-              84,
+              93,
               0,
               null,
               null,
@@ -90250,7 +90727,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              85,
+              94,
               0,
               null,
               null,
@@ -90265,7 +90742,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              86,
+              95,
               0,
               null,
               null,
@@ -90280,7 +90757,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              87,
+              96,
               0,
               null,
               null,
@@ -90296,7 +90773,7 @@
             (e()(), r["\u0275ted"](-1, null, ["face"])),
             (e()(),
             r["\u0275eld"](
-              89,
+              98,
               0,
               null,
               null,
@@ -90330,16 +90807,16 @@
                   "input" === n &&
                     (l =
                       !1 !==
-                        r["\u0275nov"](e, 90)._handleInput(t.target.value) &&
+                        r["\u0275nov"](e, 99)._handleInput(t.target.value) &&
                       l),
                   "blur" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 90).onTouched() && l),
+                    (l = !1 !== r["\u0275nov"](e, 99).onTouched() && l),
                   "compositionstart" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 90)._compositionStart() && l),
+                    (l = !1 !== r["\u0275nov"](e, 99)._compositionStart() && l),
                   "compositionend" === n &&
                     (l =
                       !1 !==
-                        r["\u0275nov"](e, 90)._compositionEnd(t.target.value) &&
+                        r["\u0275nov"](e, 99)._compositionEnd(t.target.value) &&
                       l),
                   "ngModelChange" === n &&
                     (l = !1 !== (i.newPassword = t) && l),
@@ -90350,7 +90827,7 @@
               null
             )),
             r["\u0275did"](
-              90,
+              99,
               16384,
               null,
               0,
@@ -90369,7 +90846,7 @@
               [f]
             ),
             r["\u0275did"](
-              92,
+              101,
               671744,
               null,
               0,
@@ -90379,10 +90856,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, _, null, [ue]),
-            r["\u0275did"](94, 16384, null, 0, y, [[4, _]], null, null),
+            r["\u0275did"](103, 16384, null, 0, y, [[4, _]], null, null),
             (e()(),
             r["\u0275eld"](
-              95,
+              104,
               0,
               null,
               null,
@@ -90398,7 +90875,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Password"])),
             (e()(),
             r["\u0275eld"](
-              97,
+              106,
               0,
               null,
               null,
@@ -90413,7 +90890,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              98,
+              107,
               0,
               null,
               null,
@@ -90429,7 +90906,7 @@
             (e()(), r["\u0275ted"](-1, null, ["mail"])),
             (e()(),
             r["\u0275eld"](
-              100,
+              109,
               0,
               null,
               null,
@@ -90463,17 +90940,17 @@
                   "input" === n &&
                     (l =
                       !1 !==
-                        r["\u0275nov"](e, 101)._handleInput(t.target.value) &&
+                        r["\u0275nov"](e, 110)._handleInput(t.target.value) &&
                       l),
                   "blur" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 101).onTouched() && l),
+                    (l = !1 !== r["\u0275nov"](e, 110).onTouched() && l),
                   "compositionstart" === n &&
                     (l =
-                      !1 !== r["\u0275nov"](e, 101)._compositionStart() && l),
+                      !1 !== r["\u0275nov"](e, 110)._compositionStart() && l),
                   "compositionend" === n &&
                     (l =
                       !1 !==
-                        r["\u0275nov"](e, 101)._compositionEnd(
+                        r["\u0275nov"](e, 110)._compositionEnd(
                           t.target.value
                         ) && l),
                   "ngModelChange" === n &&
@@ -90485,7 +90962,7 @@
               null
             )),
             r["\u0275did"](
-              101,
+              110,
               16384,
               null,
               0,
@@ -90504,7 +90981,7 @@
               [f]
             ),
             r["\u0275did"](
-              103,
+              112,
               671744,
               null,
               0,
@@ -90514,10 +90991,10 @@
               { update: "ngModelChange" }
             ),
             r["\u0275prd"](2048, null, _, null, [ue]),
-            r["\u0275did"](105, 16384, null, 0, y, [[4, _]], null, null),
+            r["\u0275did"](114, 16384, null, 0, y, [[4, _]], null, null),
             (e()(),
             r["\u0275eld"](
-              106,
+              115,
               0,
               null,
               null,
@@ -90533,7 +91010,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Password Again"])),
             (e()(),
             r["\u0275eld"](
-              108,
+              117,
               0,
               null,
               2,
@@ -90546,10 +91023,10 @@
               null,
               null
             )),
-            r["\u0275did"](109, 16384, null, 0, on, [], null, null),
+            r["\u0275did"](118, 16384, null, 0, on, [], null, null),
             (e()(),
             r["\u0275eld"](
-              110,
+              119,
               0,
               null,
               null,
@@ -90566,7 +91043,7 @@
                 var l = !0;
                 return (
                   "click" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 112).onclick() && l),
+                    (l = !1 !== r["\u0275nov"](e, 121).onclick() && l),
                   l
                 );
               },
@@ -90574,7 +91051,7 @@
               null
             )),
             r["\u0275did"](
-              111,
+              120,
               606208,
               null,
               0,
@@ -90583,11 +91060,11 @@
               { flat: [0, "flat"] },
               null
             ),
-            r["\u0275did"](112, 16384, null, 0, an, [tn], null, null),
+            r["\u0275did"](121, 16384, null, 0, an, [tn], null, null),
             (e()(), r["\u0275ted"](-1, null, ["Close"])),
             (e()(),
             r["\u0275eld"](
-              114,
+              123,
               0,
               null,
               null,
@@ -90605,7 +91082,7 @@
                   i = e.component;
                 return (
                   "click" === n &&
-                    (l = !1 !== r["\u0275nov"](e, 116).onclick() && l),
+                    (l = !1 !== r["\u0275nov"](e, 125).onclick() && l),
                   "click" === n && (l = !1 !== i.changePassword() && l),
                   l
                 );
@@ -90614,7 +91091,7 @@
               null
             )),
             r["\u0275did"](
-              115,
+              124,
               606208,
               null,
               0,
@@ -90623,29 +91100,37 @@
               null,
               null
             ),
-            r["\u0275did"](116, 16384, null, 0, an, [tn], null, null),
+            r["\u0275did"](125, 16384, null, 0, an, [tn], null, null),
             (e()(), r["\u0275ted"](-1, null, ["Change Password"]))
           ],
           function(e, n) {
             var t = n.component,
               r = e(n, 3, 0, t.appService.hideLogo, !t.appService.hideLogo);
             e(n, 2, 0, r),
-              e(n, 28, 0, t.expanseService.currentSession.name),
-              e(n, 39, 0, t.expanseService.currentSession.email),
-              e(n, 52, 0, "/my-app"),
-              e(n, 57, 0, t.myApps),
-              e(n, 77, 0, !0),
-              e(n, 92, 0, t.newPassword),
-              e(n, 103, 0, t.newPassword1),
-              e(n, 111, 0, !0),
-              e(n, 115, 0);
+              e(n, 6, 0, "bottom", "People have been so kind, we are humbled."),
+              e(
+                n,
+                10,
+                0,
+                "bottom",
+                "Use this option if you prefer a one off donation."
+              ),
+              e(n, 37, 0, t.expanseService.currentSession.name),
+              e(n, 48, 0, t.expanseService.currentSession.email),
+              e(n, 61, 0, "/my-app"),
+              e(n, 66, 0, t.myApps),
+              e(n, 86, 0, !0),
+              e(n, 101, 0, t.newPassword),
+              e(n, 112, 0, t.newPassword1),
+              e(n, 120, 0, !0),
+              e(n, 124, 0);
           },
           function(e, n) {
             var t = n.component;
-            e(n, 5, 0, t.expanseService.currentSession.name),
+            e(n, 14, 0, t.expanseService.currentSession.name),
               e(
                 n,
-                16,
+                25,
                 0,
                 r["\u0275inlineInterpolate"](
                   1,
@@ -90657,51 +91142,51 @@
               ),
               e(
                 n,
-                25,
+                34,
                 0,
-                r["\u0275nov"](n, 30).ngClassUntouched,
-                r["\u0275nov"](n, 30).ngClassTouched,
-                r["\u0275nov"](n, 30).ngClassPristine,
-                r["\u0275nov"](n, 30).ngClassDirty,
-                r["\u0275nov"](n, 30).ngClassValid,
-                r["\u0275nov"](n, 30).ngClassInvalid,
-                r["\u0275nov"](n, 30).ngClassPending
+                r["\u0275nov"](n, 39).ngClassUntouched,
+                r["\u0275nov"](n, 39).ngClassTouched,
+                r["\u0275nov"](n, 39).ngClassPristine,
+                r["\u0275nov"](n, 39).ngClassDirty,
+                r["\u0275nov"](n, 39).ngClassValid,
+                r["\u0275nov"](n, 39).ngClassInvalid,
+                r["\u0275nov"](n, 39).ngClassPending
               ),
               e(
                 n,
-                36,
+                45,
                 0,
-                r["\u0275nov"](n, 41).ngClassUntouched,
-                r["\u0275nov"](n, 41).ngClassTouched,
-                r["\u0275nov"](n, 41).ngClassPristine,
-                r["\u0275nov"](n, 41).ngClassDirty,
-                r["\u0275nov"](n, 41).ngClassValid,
-                r["\u0275nov"](n, 41).ngClassInvalid,
-                r["\u0275nov"](n, 41).ngClassPending
+                r["\u0275nov"](n, 50).ngClassUntouched,
+                r["\u0275nov"](n, 50).ngClassTouched,
+                r["\u0275nov"](n, 50).ngClassPristine,
+                r["\u0275nov"](n, 50).ngClassDirty,
+                r["\u0275nov"](n, 50).ngClassValid,
+                r["\u0275nov"](n, 50).ngClassInvalid,
+                r["\u0275nov"](n, 50).ngClassPending
               ),
               e(
                 n,
-                89,
+                98,
                 0,
-                r["\u0275nov"](n, 94).ngClassUntouched,
-                r["\u0275nov"](n, 94).ngClassTouched,
-                r["\u0275nov"](n, 94).ngClassPristine,
-                r["\u0275nov"](n, 94).ngClassDirty,
-                r["\u0275nov"](n, 94).ngClassValid,
-                r["\u0275nov"](n, 94).ngClassInvalid,
-                r["\u0275nov"](n, 94).ngClassPending
+                r["\u0275nov"](n, 103).ngClassUntouched,
+                r["\u0275nov"](n, 103).ngClassTouched,
+                r["\u0275nov"](n, 103).ngClassPristine,
+                r["\u0275nov"](n, 103).ngClassDirty,
+                r["\u0275nov"](n, 103).ngClassValid,
+                r["\u0275nov"](n, 103).ngClassInvalid,
+                r["\u0275nov"](n, 103).ngClassPending
               ),
               e(
                 n,
-                100,
+                109,
                 0,
-                r["\u0275nov"](n, 105).ngClassUntouched,
-                r["\u0275nov"](n, 105).ngClassTouched,
-                r["\u0275nov"](n, 105).ngClassPristine,
-                r["\u0275nov"](n, 105).ngClassDirty,
-                r["\u0275nov"](n, 105).ngClassValid,
-                r["\u0275nov"](n, 105).ngClassInvalid,
-                r["\u0275nov"](n, 105).ngClassPending
+                r["\u0275nov"](n, 114).ngClassUntouched,
+                r["\u0275nov"](n, 114).ngClassTouched,
+                r["\u0275nov"](n, 114).ngClassPristine,
+                r["\u0275nov"](n, 114).ngClassDirty,
+                r["\u0275nov"](n, 114).ngClassValid,
+                r["\u0275nov"](n, 114).ngClassInvalid,
+                r["\u0275nov"](n, 114).ngClassPending
               );
           }
         );
@@ -90779,7 +91264,7 @@
               0,
               null,
               null,
-              168,
+              180,
               "div",
               [["class", "container"]],
               null,
@@ -90794,6 +91279,158 @@
               0,
               null,
               null,
+              8,
+              "div",
+              [["class", "right"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              2,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "People have been so kind, we are humbled."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            r["\u0275did"](
+              3,
+              4931584,
+              null,
+              0,
+              Cn,
+              [r.ElementRef, r.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            r["\u0275eld"](
+              4,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Support us on Patreon."],
+                ["src", "assets/images/patreon.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), r["\u0275ted"](-1, null, [" Support us on Patreon "])),
+            (e()(),
+            r["\u0275eld"](
+              6,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=744A6C394Q8JG&source=url'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "Use this option if you prefer a one off donation."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            r["\u0275did"](
+              7,
+              4931584,
+              null,
+              0,
+              Cn,
+              [r.ElementRef, r.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            r["\u0275eld"](
+              8,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Donate on Paypal"],
+                ["src", "assets/images/paypal.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), r["\u0275ted"](-1, null, [" Donate on Paypal "])),
+            (e()(),
+            r["\u0275eld"](
+              10,
+              0,
+              null,
+              null,
+              1,
+              "h4",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), r["\u0275ted"](-1, null, ["Setup & How To!"])),
+            (e()(),
+            r["\u0275eld"](
+              12,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              13,
+              0,
+              null,
+              null,
               29,
               "div",
               [["class", "row"]],
@@ -90805,7 +91442,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              2,
+              14,
               0,
               null,
               null,
@@ -90820,7 +91457,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              3,
+              15,
               0,
               null,
               null,
@@ -90835,7 +91472,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              4,
+              16,
               0,
               null,
               null,
@@ -90852,7 +91489,7 @@
             r["\u0275ted"](-1, null, [" Step 1: Create Organisation "])),
             (e()(),
             r["\u0275eld"](
-              6,
+              18,
               0,
               null,
               null,
@@ -90871,7 +91508,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              8,
+              20,
               0,
               null,
               null,
@@ -90891,7 +91528,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              11,
+              23,
               0,
               null,
               null,
@@ -90906,7 +91543,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              12,
+              24,
               0,
               null,
               null,
@@ -90921,7 +91558,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              13,
+              25,
               0,
               null,
               null,
@@ -90944,7 +91581,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              14,
+              26,
               0,
               null,
               null,
@@ -90967,7 +91604,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              15,
+              27,
               0,
               null,
               null,
@@ -90982,7 +91619,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              16,
+              28,
               0,
               null,
               null,
@@ -90997,7 +91634,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              17,
+              29,
               0,
               null,
               null,
@@ -91016,7 +91653,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              19,
+              31,
               0,
               null,
               null,
@@ -91035,7 +91672,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              21,
+              33,
               0,
               null,
               null,
@@ -91061,7 +91698,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              24,
+              36,
               0,
               null,
               null,
@@ -91076,180 +91713,6 @@
             )),
             (e()(), r["\u0275ted"](-1, null, ["android_winusb.inf"])),
             (e()(), r["\u0275ted"](-1, null, [" file and click install. "])),
-            (e()(),
-            r["\u0275eld"](
-              27,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              28,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              29,
-              0,
-              null,
-              null,
-              0,
-              "img",
-              [
-                ["class", "setup-image"],
-                ["src", "assets/images/ADB Drivers.png"]
-              ],
-              null,
-              [[null, "click"]],
-              function(e, n, t) {
-                var r = !0;
-                return (
-                  "click" === n && (r = !1 !== e.component.openImage(2) && r), r
-                );
-              },
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              30,
-              0,
-              null,
-              null,
-              0,
-              "img",
-              [
-                ["class", "setup-image"],
-                ["src", "assets/images/right-click.png"]
-              ],
-              null,
-              [[null, "click"]],
-              function(e, n, t) {
-                var r = !0;
-                return (
-                  "click" === n && (r = !1 !== e.component.openImage(3) && r), r
-                );
-              },
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              31,
-              0,
-              null,
-              null,
-              0,
-              "div",
-              [["class", "clear-fix"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              32,
-              0,
-              null,
-              null,
-              29,
-              "div",
-              [["class", "row"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              33,
-              0,
-              null,
-              null,
-              8,
-              "div",
-              [["class", "col s12 m6"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              34,
-              0,
-              null,
-              null,
-              7,
-              "div",
-              [["class", "setup-content"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              35,
-              0,
-              null,
-              null,
-              1,
-              "div",
-              [["class", "section-title"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275ted"](-1, null, [
-              " Step 3: Enable Developer Mode and Reboot "
-            ])),
-            (e()(),
-            r["\u0275eld"](
-              37,
-              0,
-              null,
-              null,
-              1,
-              "p",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275ted"](-1, null, [
-              " Now that you\u2019re a \"developer\", open the Oculus app on your smartphone or tablet. In the Settings tab, tap on the Go headset and tap 'More settings'. In the list, you should now see Developer Mode. Once you have enabled developer mode it is a good idea to reboot your headset to be able to see it on the device. "
-            ])),
             (e()(),
             r["\u0275eld"](
               39,
@@ -91290,6 +91753,180 @@
               "img",
               [
                 ["class", "setup-image"],
+                ["src", "assets/images/ADB Drivers.png"]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0;
+                return (
+                  "click" === n && (r = !1 !== e.component.openImage(2) && r), r
+                );
+              },
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              42,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["class", "setup-image"],
+                ["src", "assets/images/right-click.png"]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0;
+                return (
+                  "click" === n && (r = !1 !== e.component.openImage(3) && r), r
+                );
+              },
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              43,
+              0,
+              null,
+              null,
+              0,
+              "div",
+              [["class", "clear-fix"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              44,
+              0,
+              null,
+              null,
+              29,
+              "div",
+              [["class", "row"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              45,
+              0,
+              null,
+              null,
+              8,
+              "div",
+              [["class", "col s12 m6"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              46,
+              0,
+              null,
+              null,
+              7,
+              "div",
+              [["class", "setup-content"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              47,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "section-title"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275ted"](-1, null, [
+              " Step 3: Enable Developer Mode and Reboot "
+            ])),
+            (e()(),
+            r["\u0275eld"](
+              49,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275ted"](-1, null, [
+              " Now that you\u2019re a \"developer\", open the Oculus app on your smartphone or tablet. In the Settings tab, tap on the Go headset and tap 'More settings'. In the list, you should now see Developer Mode. Once you have enabled developer mode it is a good idea to reboot your headset to be able to see it on the device. "
+            ])),
+            (e()(),
+            r["\u0275eld"](
+              51,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              52,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              53,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["class", "setup-image"],
                 ["src", "assets/images/OculusAppDevModeSteps.png"]
               ],
               null,
@@ -91305,7 +91942,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              42,
+              54,
               0,
               null,
               null,
@@ -91320,7 +91957,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              43,
+              55,
               0,
               null,
               null,
@@ -91335,7 +91972,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              44,
+              56,
               0,
               null,
               null,
@@ -91354,7 +91991,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              46,
+              58,
               0,
               null,
               null,
@@ -91371,128 +92008,6 @@
             r["\u0275ted"](-1, null, [
               " Now its time to connect the USB cable. Once you are connected you will have to allow USB debugging access on your headset. If you put your headset on at this point you will see something like the below. You should also select 'Always allow from this computer' to prevent this message from coming up every time you connect. "
             ])),
-            (e()(),
-            r["\u0275eld"](
-              48,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              49,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275ted"](-1, null, [
-              " Important 1): Disable Unlock Pattern in the Oculus app in "
-            ])),
-            (e()(),
-            r["\u0275eld"](
-              51,
-              0,
-              null,
-              null,
-              1,
-              "div",
-              [["class", "chip"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275ted"](-1, null, [
-              "Settings > Quest > More Settings > Unlock Pattern"
-            ])),
-            (e()(), r["\u0275ted"](-1, null, [". "])),
-            (e()(),
-            r["\u0275eld"](
-              54,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275ted"](-1, null, [
-              "See the image in Step 2 for more info. "
-            ])),
-            (e()(),
-            r["\u0275eld"](
-              56,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              57,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275ted"](-1, null, [
-              " Important 2): Try a phone USB cable instead of the cable that comes with your Quest. "
-            ])),
-            (e()(),
-            r["\u0275eld"](
-              59,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
             (e()(),
             r["\u0275eld"](
               60,
@@ -91515,6 +92030,128 @@
               null,
               null,
               0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275ted"](-1, null, [
+              " Important 1): Disable Unlock Pattern in the Oculus app in "
+            ])),
+            (e()(),
+            r["\u0275eld"](
+              63,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "chip"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275ted"](-1, null, [
+              "Settings > Quest > More Settings > Unlock Pattern"
+            ])),
+            (e()(), r["\u0275ted"](-1, null, [". "])),
+            (e()(),
+            r["\u0275eld"](
+              66,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275ted"](-1, null, [
+              "See the image in Step 2 for more info. "
+            ])),
+            (e()(),
+            r["\u0275eld"](
+              68,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              69,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275ted"](-1, null, [
+              " Important 2): Try a phone USB cable instead of the cable that comes with your Quest. "
+            ])),
+            (e()(),
+            r["\u0275eld"](
+              71,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              72,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              73,
+              0,
+              null,
+              null,
+              0,
               "img",
               [
                 ["class", "setup-image"],
@@ -91533,7 +92170,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              62,
+              74,
               0,
               null,
               null,
@@ -91548,7 +92185,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              63,
+              75,
               0,
               null,
               null,
@@ -91563,7 +92200,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              64,
+              76,
               0,
               null,
               null,
@@ -91578,7 +92215,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              65,
+              77,
               0,
               null,
               null,
@@ -91593,7 +92230,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              66,
+              78,
               0,
               null,
               null,
@@ -91610,7 +92247,7 @@
             r["\u0275ted"](-1, null, [" Step 5: Install App Launcher "])),
             (e()(),
             r["\u0275eld"](
-              68,
+              80,
               0,
               null,
               null,
@@ -91629,7 +92266,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              70,
+              82,
               0,
               null,
               null,
@@ -91644,7 +92281,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              71,
+              83,
               0,
               null,
               null,
@@ -91669,7 +92306,7 @@
             (e()(), r["\u0275ted"](-1, null, [" Install SideQuest Launcher "])),
             (e()(),
             r["\u0275eld"](
-              73,
+              85,
               0,
               null,
               null,
@@ -91684,7 +92321,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              74,
+              86,
               0,
               null,
               null,
@@ -91699,7 +92336,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              75,
+              87,
               0,
               null,
               null,
@@ -91718,7 +92355,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              77,
+              89,
               0,
               null,
               null,
@@ -91735,7 +92372,7 @@
             (e()(), r["\u0275ted"](-1, null, [" and "])),
             (e()(),
             r["\u0275eld"](
-              80,
+              92,
               0,
               null,
               null,
@@ -91755,7 +92392,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              83,
+              95,
               0,
               null,
               null,
@@ -91770,7 +92407,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              84,
+              96,
               0,
               null,
               null,
@@ -91800,7 +92437,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              86,
+              98,
               0,
               null,
               null,
@@ -91815,7 +92452,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              87,
+              99,
               0,
               null,
               null,
@@ -91830,7 +92467,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              88,
+              100,
               0,
               null,
               null,
@@ -91849,7 +92486,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              90,
+              102,
               0,
               null,
               null,
@@ -91868,7 +92505,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              92,
+              104,
               0,
               null,
               null,
@@ -91887,7 +92524,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              94,
+              106,
               0,
               null,
               null,
@@ -91904,7 +92541,7 @@
             (e()(), r["\u0275ted"](-1, null, [". "])),
             (e()(),
             r["\u0275eld"](
-              97,
+              109,
               0,
               null,
               null,
@@ -91919,7 +92556,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              98,
+              110,
               0,
               null,
               null,
@@ -91934,7 +92571,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              99,
+              111,
               0,
               null,
               null,
@@ -91949,7 +92586,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              100,
+              112,
               0,
               null,
               null,
@@ -91965,7 +92602,7 @@
             (e()(), r["\u0275ted"](-1, null, [" How To Video: RaMarcus "])),
             (e()(),
             r["\u0275eld"](
-              102,
+              114,
               0,
               null,
               null,
@@ -91987,7 +92624,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              103,
+              115,
               0,
               null,
               null,
@@ -92003,7 +92640,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Kindly provided by "])),
             (e()(),
             r["\u0275eld"](
-              105,
+              117,
               0,
               null,
               null,
@@ -92019,7 +92656,7 @@
             (e()(), r["\u0275ted"](-1, null, ["@RaMarcus"])),
             (e()(),
             r["\u0275eld"](
-              107,
+              119,
               0,
               null,
               null,
@@ -92034,7 +92671,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              108,
+              120,
               0,
               null,
               null,
@@ -92049,7 +92686,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              109,
+              121,
               0,
               null,
               null,
@@ -92065,7 +92702,7 @@
             (e()(), r["\u0275ted"](-1, null, [" How To Video: VR Oasis "])),
             (e()(),
             r["\u0275eld"](
-              111,
+              123,
               0,
               null,
               null,
@@ -92087,7 +92724,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              112,
+              124,
               0,
               null,
               null,
@@ -92103,7 +92740,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Kindly provided by "])),
             (e()(),
             r["\u0275eld"](
-              114,
+              126,
               0,
               null,
               null,
@@ -92124,7 +92761,7 @@
             (e()(), r["\u0275ted"](-1, null, ["@Virtual Reality Oasis"])),
             (e()(),
             r["\u0275eld"](
-              116,
+              128,
               0,
               null,
               null,
@@ -92139,7 +92776,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              117,
+              129,
               0,
               null,
               null,
@@ -92154,7 +92791,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              118,
+              130,
               0,
               null,
               null,
@@ -92170,7 +92807,7 @@
             (e()(), r["\u0275ted"](-1, null, [" How To Video: Tyco Tech "])),
             (e()(),
             r["\u0275eld"](
-              120,
+              132,
               0,
               null,
               null,
@@ -92192,7 +92829,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              121,
+              133,
               0,
               null,
               null,
@@ -92208,7 +92845,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Kindly provided by "])),
             (e()(),
             r["\u0275eld"](
-              123,
+              135,
               0,
               null,
               null,
@@ -92229,7 +92866,7 @@
             (e()(), r["\u0275ted"](-1, null, ["@Tyco Tech"])),
             (e()(),
             r["\u0275eld"](
-              125,
+              137,
               0,
               null,
               null,
@@ -92244,7 +92881,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              126,
+              138,
               0,
               null,
               null,
@@ -92259,7 +92896,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              127,
+              139,
               0,
               null,
               null,
@@ -92274,7 +92911,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              128,
+              140,
               0,
               null,
               null,
@@ -92291,7 +92928,7 @@
             r["\u0275ted"](-1, null, [" App Developers Link to your apps! "])),
             (e()(),
             r["\u0275eld"](
-              130,
+              142,
               0,
               null,
               null,
@@ -92310,7 +92947,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              132,
+              144,
               0,
               null,
               null,
@@ -92332,7 +92969,7 @@
               null
             )),
             r["\u0275did"](
-              133,
+              145,
               4931584,
               null,
               0,
@@ -92344,7 +92981,7 @@
             (e()(), r["\u0275ted"](-1, null, ["sidequest://repo#URL_OF_REPO"])),
             (e()(),
             r["\u0275eld"](
-              135,
+              147,
               0,
               null,
               null,
@@ -92359,7 +92996,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              136,
+              148,
               0,
               null,
               null,
@@ -92383,7 +93020,7 @@
             r["\u0275ted"](-1, null, ["sidequest://sideload#URL_OF_APK"])),
             (e()(),
             r["\u0275eld"](
-              138,
+              150,
               0,
               null,
               null,
@@ -92398,7 +93035,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              139,
+              151,
               0,
               null,
               null,
@@ -92422,7 +93059,7 @@
             r["\u0275ted"](-1, null, ["sidequest://bsaber#URL_OR_ID_OF_SONG"])),
             (e()(),
             r["\u0275eld"](
-              141,
+              153,
               0,
               null,
               null,
@@ -92437,7 +93074,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              142,
+              154,
               0,
               null,
               null,
@@ -92452,7 +93089,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              143,
+              155,
               0,
               null,
               null,
@@ -92467,7 +93104,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              144,
+              156,
               0,
               null,
               null,
@@ -92482,7 +93119,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              145,
+              157,
               0,
               null,
               null,
@@ -92497,7 +93134,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              146,
+              158,
               0,
               null,
               null,
@@ -92512,7 +93149,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              147,
+              159,
               0,
               null,
               null,
@@ -92531,7 +93168,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              148,
+              160,
               0,
               null,
               null,
@@ -92547,7 +93184,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Address"])),
             (e()(),
             r["\u0275eld"](
-              150,
+              162,
               0,
               null,
               null,
@@ -92562,7 +93199,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              151,
+              163,
               0,
               null,
               null,
@@ -92577,7 +93214,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              152,
+              164,
               0,
               null,
               null,
@@ -92591,7 +93228,7 @@
               null
             )),
             r["\u0275did"](
-              153,
+              165,
               147456,
               null,
               0,
@@ -92601,7 +93238,7 @@
               null
             ),
             r["\u0275did"](
-              154,
+              166,
               147456,
               null,
               0,
@@ -92613,7 +93250,7 @@
             (e()(), r["\u0275ted"](-1, null, ["repo"])),
             (e()(),
             r["\u0275eld"](
-              156,
+              168,
               0,
               null,
               null,
@@ -92627,7 +93264,7 @@
               null
             )),
             r["\u0275did"](
-              157,
+              169,
               147456,
               null,
               0,
@@ -92637,7 +93274,7 @@
               null
             ),
             r["\u0275did"](
-              158,
+              170,
               147456,
               null,
               0,
@@ -92649,7 +93286,7 @@
             (e()(), r["\u0275ted"](-1, null, ["sideload"])),
             (e()(),
             r["\u0275eld"](
-              160,
+              172,
               0,
               null,
               null,
@@ -92663,7 +93300,7 @@
               null
             )),
             r["\u0275did"](
-              161,
+              173,
               147456,
               null,
               0,
@@ -92673,7 +93310,7 @@
               null
             ),
             r["\u0275did"](
-              162,
+              174,
               147456,
               null,
               0,
@@ -92685,7 +93322,7 @@
             (e()(), r["\u0275ted"](-1, null, ["bsaber"])),
             (e()(),
             r["\u0275eld"](
-              164,
+              176,
               0,
               null,
               null,
@@ -92701,7 +93338,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Link Type"])),
             (e()(),
             r["\u0275eld"](
-              166,
+              178,
               0,
               null,
               null,
@@ -92716,7 +93353,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              167,
+              179,
               0,
               null,
               null,
@@ -92732,13 +93369,21 @@
             (e()(), r["\u0275ted"](-1, null, ["Copy Embed Code"]))
           ],
           function(e, n) {
-            e(
-              n,
-              133,
-              0,
-              "right",
-              "Example: sidequest://repo#https://example.com/fdroid/repo"
-            );
+            e(n, 3, 0, "bottom", "People have been so kind, we are humbled."),
+              e(
+                n,
+                7,
+                0,
+                "bottom",
+                "Use this option if you prefer a one off donation."
+              ),
+              e(
+                n,
+                145,
+                0,
+                "right",
+                "Example: sidequest://repo#https://example.com/fdroid/repo"
+              );
           },
           null
         );
@@ -97173,7 +97818,7 @@
           }
         );
       }
-      function Ys(e) {
+      function Rs(e) {
         return r["\u0275vid"](
           0,
           [
@@ -97236,7 +97881,7 @@
           }
         );
       }
-      function Rs(e) {
+      function Ys(e) {
         return r["\u0275vid"](
           0,
           [
@@ -97312,7 +97957,7 @@
             ),
             r["\u0275prd"](2048, null, _, null, [ue]),
             r["\u0275did"](5, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ys)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Rs)),
             r["\u0275did"](
               7,
               278528,
@@ -97779,7 +98424,7 @@
               null,
               null
             )),
-            (e()(), r["\u0275and"](16777216, null, null, 1, null, Rs)),
+            (e()(), r["\u0275and"](16777216, null, null, 1, null, Ys)),
             r["\u0275did"](
               23,
               16384,
@@ -102215,10 +102860,10 @@
             e
           );
         })(),
-        Yc = (function() {
+        Rc = (function() {
           return function() {};
         })(),
-        Rc = t("iAM3"),
+        Yc = t("iAM3"),
         Ac = r["\u0275cmf"](l, [Zl], function(e) {
           return r["\u0275mod"]([
             r["\u0275mpd"](
@@ -102235,7 +102880,7 @@
                     Hi,
                     ea,
                     vu,
-                    Ru,
+                    Yu,
                     Vu,
                     Gu,
                     Zu,
@@ -102343,7 +102988,7 @@
             r["\u0275mpd"](5120, hr, Ul, [Ml]),
             r["\u0275mpd"](4608, Il, Il, []),
             r["\u0275mpd"](6144, El, null, [Il]),
-            r["\u0275mpd"](135680, Yl, Yl, [
+            r["\u0275mpd"](135680, Rl, Rl, [
               Ml,
               r.NgModuleFactoryLoader,
               r.Compiler,
@@ -102351,7 +102996,7 @@
               El
             ]),
             r["\u0275mpd"](4608, Ol, Ol, []),
-            r["\u0275mpd"](5120, Rl, Hl, [Ml, o.ViewportScroller, Al]),
+            r["\u0275mpd"](5120, Yl, Hl, [Ml, o.ViewportScroller, Al]),
             r["\u0275mpd"](5120, Jl, Kl, [Gl]),
             r["\u0275mpd"](
               5120,
@@ -102514,7 +103159,7 @@
               [2, pl]
             ]),
             r["\u0275mpd"](1073742336, Fl, Fl, [[2, Pl], [2, Ml]]),
-            r["\u0275mpd"](1073742336, Yc, Yc, []),
+            r["\u0275mpd"](1073742336, Rc, Rc, []),
             r["\u0275mpd"](1073742336, si, si, []),
             r["\u0275mpd"](1073742336, Xe, Xe, []),
             r["\u0275mpd"](1073742336, kn, kn, []),
@@ -102537,8 +103182,8 @@
             r["\u0275mpd"](1073742336, da, da, []),
             r["\u0275mpd"](
               1073742336,
-              Rc.LightboxModule,
-              Rc.LightboxModule,
+              Yc.LightboxModule,
+              Yc.LightboxModule,
               []
             ),
             r["\u0275mpd"](1073742336, l, l, []),

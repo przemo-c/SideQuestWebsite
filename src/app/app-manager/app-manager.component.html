@@ -5,12 +5,12 @@
 
   <div class="btn waves-effect waves-light pink-button right margin-left" routerLink="/app/{{apps_id}}" *ngIf="apps_id">View Listing</div>
   <div class="btn waves-effect waves-light right pink-button margin-left" (click)="saveApp()">Save App</div>
-  <div *ngIf="apps_id" class="right center-align">
+  <div *ngIf="apps_id" class="right center-align" mz-tooltip tooltip="This will disable downloads of your app and you can provide keys to users to be able to install ( this is only partially implemented so i have disabled it for now )" position="bottom">
     Early Access
     <div class="switch">
       <label>
         Off
-        <input type="checkbox" [(ngModel)]="currentApp.early_access">
+        <input type="checkbox" [(ngModel)]="currentApp.early_access" (click)="currentApp.early_access = false">
         <span class="lever"></span>
         On
       </label>
@@ -26,7 +26,25 @@
 
   <div *ngIf="apps_id && currentApp.active">
     <app-stats-chart #chart [apps_id]="apps_id" ></app-stats-chart>
+
     <br>
+
+    <div class="center-align">
+  <span class="chip pointer top-chip"
+        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+        mz-tooltip tooltip="People have been so kind, we are humbled."
+        position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+      Support us on Patreon
+    </span>
+      <span class="chip pointer top-chip"
+            onclick="window.location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=744A6C394Q8JG&source=url'"
+            mz-tooltip tooltip="Use this option if you prefer a one off donation."
+            position="bottom">
+      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+      Donate on Paypal
+    </span>
+    </div>
     <br>
   </div>
   <div class="row">

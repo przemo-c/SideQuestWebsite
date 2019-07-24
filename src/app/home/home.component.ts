@@ -31,6 +31,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
   hasNoMore: boolean = false;
   firstNews: NewsItem[];
   page: number = 0;
+  expanseNews: NewsItem = {
+    title: "The Expanse VR",
+    description: "Create your social expereince",
+    type: "app",
+    message_type: "",
+    url: "https://sidequestvr.com/#/app/12",
+    image: "https://cdn.theexpanse.app/file/1119/Untitled-1 (2).jpg",
+    video: "",
+    created: 0
+  };
   constructor(public appService: AppService) {
     const isGrid = localStorage.getItem("isGrid");
     if (isGrid) {

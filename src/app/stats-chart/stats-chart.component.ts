@@ -159,7 +159,6 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
   }
 
   getData() {
-    console.log(this.selectedDate.start);
     this.expanseService
       .start()
       .then(() =>
@@ -171,7 +170,6 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
         )
       )
       .then((res: any) => {
-        console.log(res);
         this.versionFilter = ["All"].concat(
           (res || [])
             .map(count => count.versionname)
@@ -207,7 +205,7 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           pointRadius: []
         };
         const lineChartData = [];
-        if (views.length > 1) {
+        if (views.length > 0) {
           viewsObject.data.unshift({
             y: viewsObject.data[0].y,
             x: this.selectedDate.start.toDate()
@@ -221,7 +219,7 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           ) as any;
           lineChartData.push(viewsObject);
         }
-        if (downloads.length > 1) {
+        if (downloads.length > 0) {
           downloadsObject.data.unshift({
             y: downloadsObject.data[0].y,
             x: this.selectedDate.start.toDate()
@@ -235,7 +233,7 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           ) as any;
           lineChartData.push(downloadsObject);
         }
-        if (likes.length > 1) {
+        if (likes.length > 0) {
           likesObject.data.unshift({
             y: likesObject.data[0].y,
             x: this.selectedDate.start.toDate()
