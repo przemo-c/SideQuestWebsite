@@ -102042,7 +102042,7 @@
               { position: [0, "position"], tooltip: [1, "tooltip"] },
               null
             ),
-            (e()(), r["\u0275ted"](-1, null, ["Apps"])),
+            (e()(), r["\u0275ted"](-1, null, ["Games"])),
             (e()(), r["\u0275and"](16777216, null, null, 1, null, xc)),
             r["\u0275did"](
               32,
