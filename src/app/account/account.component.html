@@ -88,41 +88,44 @@
     </div>
     <br><br>
   </div>
-  <div *ngIf="appsNeedingUpdated && appsNeedingUpdated.length" class="right btn waves-effect waves-light pink-button"
-       mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
-       position="bottom"
-       (click)="updateAll()"
-  >Update All</div>
+  <div style="display: none;">
 
-  <h4>My Installed Apps</h4>
-  <hr>
-  <div class="row">
-    <h5 *ngIf="!myInstalledApps.length">
-      <br><br>
-      Nothing here yet.
-    </h5>
-    <div class="col s12 m4" *ngFor="let app of myInstalledApps">
-      <div class="card card-height">
-        <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-             *ngIf="app.image_url" [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
-          <div class="btn waves-effect waves-light white-text pink-button small-button" *ngIf="app.needsUpdate" routerLink="/app/{{app.apps_id}}">Update</div>
-        </div>
-        <div class="card-content card-height">
-          <i class="material-icons activator pointer right">more_vert</i>
-          <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
-          <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
-          <div class="right-align">
-            <div class="btn-flat waves-effect waves-light white-text" routerLink="/app/{{app.apps_id}}">Open</div>
+    <div *ngIf="appsNeedingUpdated && appsNeedingUpdated.length" class="right btn waves-effect waves-light pink-button"
+         mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
+         position="bottom"
+         (click)="updateAll()"
+    >Update All</div>
+    <h4>My Installed Apps</h4>
+    <hr>
+    <div class="row">
+      <h5 *ngIf="!myInstalledApps.length">
+        <br><br>
+        Nothing here yet.
+      </h5>
+      <div class="col s12 m4" *ngFor="let app of myInstalledApps">
+        <div class="card card-height">
+          <div class="card-image card-image-left waves-effect waves-block waves-light activator"
+               *ngIf="app.image_url" [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
+            <div class="btn waves-effect waves-light white-text pink-button small-button" *ngIf="app.needsUpdate" routerLink="/app/{{app.apps_id}}">Update</div>
           </div>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{app.name||'No Name...'}}</span>
-          <p class="grey-text">{{app.summary}}</p>
+          <div class="card-content card-height">
+            <i class="material-icons activator pointer right">more_vert</i>
+            <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
+            <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
+            <div class="right-align">
+              <div class="btn-flat waves-effect waves-light white-text" routerLink="/app/{{app.apps_id}}">Open</div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{app.name||'No Name...'}}</span>
+            <p class="grey-text">{{app.summary}}</p>
+          </div>
         </div>
       </div>
     </div>
+    <br><br>
   </div>
-  <br><br>
+
 
   <h4>My Events</h4>
   <hr>

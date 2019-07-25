@@ -79,9 +79,9 @@ export class AccountComponent implements OnInit {
       .then(() => this.expanseService.searchMyApps("", 0))
       .then((resp: AppListing[]) => {
         this.myApps = resp;
-      })
-      .then(() => this.getInstalledApps())
-      .then(() => this.setAppsToImport());
+      });
+    //.then(() => this.getInstalledApps())
+    //.then(() => this.setAppsToImport());
   }
 
   getInstalledApps() {

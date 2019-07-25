@@ -34,6 +34,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   hasGithubRepo: boolean;
   isGettingGithub: boolean;
   isAllReleases: boolean;
+  isInstalled: boolean;
   currentApp: AppListing = {
     name: "",
     users_id: 0,
@@ -257,7 +258,9 @@ export class AppListingComponent implements OnInit, OnDestroy {
   }
 
   uninstallApp(packageName) {
-    this.service.openSidequestUrl("sidequest://unload/#" + packageName);
+    this.service
+      .openSidequestUrl("sidequest://unload/#" + packageName)
+      .then(() => this.expanseService.uninstallApp(this.currentApp.apps_id));
   }
 
   openItem(url: string) {
@@ -359,6 +362,13 @@ export class AppListingComponent implements OnInit, OnDestroy {
                   "?byline=0&portrait=0&transparent=0"
           );
         }
+
+        const sideQuest = (window as any).sideQuest;
+        if (sideQuest) {
+          this.isInstalled =
+            sideQuest.installed.indexOf(this.currentApp.packagename) > -1;
+        }
+
         if (
           this.currentApp.github_enabled &&
           this.currentApp.github_repo &&

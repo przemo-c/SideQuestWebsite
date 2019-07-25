@@ -74,7 +74,7 @@
           <h5 *ngIf="app_meta.vc && service.app_index[apps_id]">Currently Installed: [v{{app_meta.vc}}]</h5>
 
           <div class="btn waves-effect waves-light pink-button"
-               *ngIf="app_meta.vc && service.app_index[apps_id] && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')" (click)="uninstallApp(currentApp.packagename)">Uninstall</div>
+               *ngIf="isInstalled && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')" (click)="uninstallApp(currentApp.packagename)">Uninstall</div>
           <div *ngIf="currentApp.donate_url">
             <br><br>
             <div class="btn waves-effect waves-light pink-button"
