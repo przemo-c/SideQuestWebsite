@@ -109,7 +109,7 @@
         </div>
         <div class="card-content card-height">
           <i class="material-icons activator pointer right">more_vert</i>
-          <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':app.image_url}">[{{app.versioncode}}] {{app.name||'No Name...'}}</span>
+          <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
           <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
           <div class="right-align">
             <div class="btn-flat waves-effect waves-light white-text" routerLink="/app/{{app.apps_id}}">Open</div>

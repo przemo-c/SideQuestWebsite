@@ -87536,11 +87536,7 @@
                                     return (t.isGrid = e);
                                   }),
                                 this.page++,
-                                n.forEach(function(e) {
-                                  t.appService.app_index[e.apps_id] =
-                                    e.packagename;
-                                }),
-                                this.appService.saveAppMeta(),
+                                this.parseInstalled(n),
                                 [2]
                               );
                           }
@@ -87548,6 +87544,19 @@
                       });
                     });
                 });
+            }),
+            (e.prototype.parseInstalled = function(e) {
+              var n = this,
+                t = window.sideQuest;
+              t &&
+                (e.forEach(function(e) {
+                  (n.appService.app_index[e.apps_id] = e.packagename),
+                    !(t.installed.indexOf(e.packagename) > -1) ||
+                      (n.appService.app_meta[e.apps_id] &&
+                        n.appService.app_meta[e.apps_id].vc) ||
+                      (n.appService.getAppMeta(e.apps_id).vc = e.versioncode);
+                }),
+                this.appService.saveAppMeta());
             }),
             (e.prototype.fixImages = function(e) {
               return i.__awaiter(this, void 0, void 0, function() {
@@ -90509,7 +90518,7 @@
               null
             ),
             r["\u0275pod"](10, { "card-title-small": 0 }),
-            (e()(), r["\u0275ted"](11, null, ["[", "] ", ""])),
+            (e()(), r["\u0275ted"](11, null, ["", ""])),
             (e()(),
             r["\u0275eld"](
               12,
@@ -90675,13 +90684,7 @@
               );
           },
           function(e, n) {
-            e(
-              n,
-              11,
-              0,
-              n.context.$implicit.versioncode,
-              n.context.$implicit.name || "No Name..."
-            ),
+            e(n, 11, 0, n.context.$implicit.name || "No Name..."),
               e(n, 16, 0, n.context.$implicit.summary),
               e(n, 25, 0, n.context.$implicit.name || "No Name..."),
               e(n, 27, 0, n.context.$implicit.summary);

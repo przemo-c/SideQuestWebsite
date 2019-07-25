@@ -74,12 +74,7 @@
           <h5 *ngIf="app_meta.vc && service.app_index[apps_id]">Currently Installed: [v{{app_meta.vc}}]</h5>
 
           <div class="btn waves-effect waves-light pink-button"
-               *ngIf="app_meta.vc && service.app_index[apps_id] && currentApp.website !== 'BeatOn'" (click)="uninstallApp(currentApp.packagename)">Uninstall</div>
-          <div *ngIf="app_meta.vc && service.app_index[apps_id] && currentApp.versioncode < app_meta.vc">
-            <br><br>
-            <div class="btn waves-effect waves-light pink-button"
-                 (click)="openItems(apk_download_urls, false)">Update Available</div>
-          </div>
+               *ngIf="app_meta.vc && service.app_index[apps_id] && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')" (click)="uninstallApp(currentApp.packagename)">Uninstall</div>
           <div *ngIf="currentApp.donate_url">
             <br><br>
             <div class="btn waves-effect waves-light pink-button"
