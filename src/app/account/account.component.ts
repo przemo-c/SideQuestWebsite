@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ExpanseClientService } from "../expanse-client.service";
 import { AppService } from "../app.service";
+import { GithubRelease } from "../app-manager/app-manager.component";
 export interface AppListing {
   name: string;
   apps_id?: number;
@@ -40,22 +41,82 @@ export interface AppListing {
   styleUrls: ["./account.component.css"]
 })
 export class AccountComponent implements OnInit {
-  myApps: AppListing[];
+  myApps: AppListing[] = [];
+  appsNeedingUpdated: (AppListing & {
+    needsUpdate?: boolean;
+    current_version?: number;
+    urls?: any[];
+  })[] = [];
+  myInstalledApps: (AppListing & {
+    needsUpdate?: boolean;
+    current_version?: number;
+    urls?: any[];
+  })[] = [];
+  appsToImport: any[];
   newPassword: string;
   newPassword1: string;
+  isDev: boolean;
+  showAll: boolean;
+  githubReleases: GithubRelease[];
   constructor(
     public expanseService: ExpanseClientService,
     public appService: AppService
-  ) {}
-
-  ngOnInit() {
-    this.expanseService.start().then(() =>
-      this.expanseService.searchMyApps("", 0).then((resp: AppListing[]) => {
-        this.myApps = resp;
-      })
-    );
+  ) {
+    this.isDev = !!localStorage.getItem("isDeveloper");
   }
 
+  setDev() {
+    if (this.isDev) {
+      localStorage.setItem("isDeveloper", "t");
+    } else {
+      localStorage.removeItem("isDeveloper");
+    }
+  }
+
+  ngOnInit() {
+    this.expanseService
+      .start()
+      .then(() => this.expanseService.searchMyApps("", 0))
+      .then((resp: AppListing[]) => {
+        this.myApps = resp;
+      })
+      .then(() => this.getInstalledApps())
+      .then(() => this.setAppsToImport());
+  }
+
+  getInstalledApps() {
+    return this.expanseService
+      .searchInstalledApps("", 0)
+      .then((resp: AppListing[]) => {
+        this.myInstalledApps = resp;
+        this.checkForUpdates();
+      });
+  }
+  async setAppsToImport() {
+    this.appsToImport = Object.keys(this.appService.app_meta)
+      .filter(k => this.appService.app_meta[k].vc)
+      .map(k => {
+        return {
+          apps_id: k,
+          versioncode: this.appService.app_meta[k].vc
+        };
+      });
+    let isChanged = false;
+    for (let i = 0; i < this.appsToImport.length; i++) {
+      await this.expanseService.addInstalledApp(
+        this.appsToImport[i].apps_id,
+        this.appsToImport[i].versioncode
+      );
+      let meta = this.appService.app_meta[this.appsToImport[i].apps_id];
+      if (meta) {
+        isChanged = true;
+        meta.vc = null;
+      }
+    }
+    if (isChanged) {
+      this.appService.saveAppMeta();
+    }
+  }
   saveNameAndEmail() {
     this.expanseService
       .saveUserDetails(
@@ -79,5 +140,96 @@ export class AccountComponent implements OnInit {
         .saveUserPassword(this.newPassword)
         .then(res => this.appService.showMessage(res, "Password Saved!"));
     }
+  }
+
+  updateAll() {
+    this.appService
+      .openSidequestUrl(
+        "sidequest://sideload-multi/#" +
+          JSON.stringify(
+            this.appsNeedingUpdated
+              .reduce((a, b) => {
+                a = a.concat(b.urls);
+                return a;
+              }, [])
+              .map(a => a.link_url)
+          )
+      )
+      .then(async () => {
+        for (let i = 0; i < this.appsNeedingUpdated.length; i++) {
+          await this.expanseService.addInstalledApp(
+            this.appsNeedingUpdated[i].apps_id,
+            this.appsNeedingUpdated[i].versioncode
+          );
+        }
+      });
+  }
+
+  async checkForUpdates() {
+    for (let i = 0; i < this.myInstalledApps.length; i++) {
+      const app = this.myInstalledApps[i];
+      if (app.github_enabled) {
+        let releases = await this.findGitReleases(app);
+        if (releases.message) {
+          return this.appService.showMessage(
+            { error: true, data: releases.message },
+            ""
+          );
+        }
+        let release = releases[0];
+        if (app.github_tag !== "[ all ]" && app.github_tag !== "[ latest ]") {
+          releases.forEach(rel => {
+            if (rel.tag_name === app.github_tag) {
+              release = rel;
+            }
+          });
+        }
+        app.versioncode = release.id;
+        app.urls = app.urls
+          .filter(u => u)
+          .concat(
+            release.assets
+              .filter((asset: any) => {
+                return (
+                  ["apk", "obb"].indexOf(
+                    asset.name
+                      .split(".")
+                      .pop()
+                      .toLowerCase()
+                  ) > -1
+                );
+              })
+              .map(asset => {
+                return {
+                  link_url: asset.browser_download_url,
+                  provider: asset.name
+                    .split(".")
+                    .pop()
+                    .toUpperCase()
+                };
+              })
+          );
+      }
+      app.needsUpdate = app.versioncode > app.current_version;
+    }
+    this.appsNeedingUpdated = this.myInstalledApps.filter(
+      a =>
+        a.needsUpdate &&
+        !(a.app_categories_id === "4" && a.website === "BeatOn")
+    );
+  }
+
+  findGitReleases(app) {
+    return fetch(
+      "https://api.github.com/repos/" +
+        app.github_name +
+        "/" +
+        app.github_repo +
+        "/releases"
+    ).then(async r => {
+      if (r.ok) {
+        return r.json();
+      }
+    });
   }
 }

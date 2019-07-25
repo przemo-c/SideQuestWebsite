@@ -124,6 +124,8 @@ export class AppListingComponent implements OnInit, OnDestroy {
     like: 0,
     download: 0
   };
+  latest_tag: string;
+  latest_id: number;
   constructor(
     private router: Router,
     public service: AppService,
@@ -234,25 +236,32 @@ export class AppListingComponent implements OnInit, OnDestroy {
     this.lightbox.open(this.album, i);
   }
 
-  openItems(apps: any, isRelease: boolean) {
-    window.location.href =
-      (this.currentApp.app_categories_id === "4" &&
-      this.currentApp.website === "BeatOn"
-        ? "sidequest://bsaber-multi/#"
-        : "sidequest://sideload-multi/#") +
-      JSON.stringify(
-        isRelease
-          ? apps.map(app => app.browser_download_url)
-          : apps.map(app => app.link_url)
+  openItems(apps: any) {
+    this.service
+      .openSidequestUrl(
+        (this.currentApp.app_categories_id === "4" &&
+        this.currentApp.website === "BeatOn"
+          ? "sidequest://bsaber-multi/#"
+          : "sidequest://sideload-multi/#") +
+          JSON.stringify(
+            apps.map(app => app.browser_download_url || app.link_url)
+          )
+      )
+      .then(() => this.downloadCount())
+      .then(() =>
+        this.expanseService.addInstalledApp(
+          this.currentApp.apps_id,
+          this.latest_id || this.currentApp.versioncode
+        )
       );
   }
 
   uninstallApp(packageName) {
-    window.location.href = "sidequest://unload/#" + packageName;
+    this.service.openSidequestUrl("sidequest://unload/#" + packageName);
   }
 
   openItem(url: string) {
-    window.location.href = url;
+    this.service.openSidequestUrl(url);
   }
 
   async setupApp() {
@@ -364,6 +373,8 @@ export class AppListingComponent implements OnInit, OnDestroy {
           ) {
             this.isAllReleases = true;
             const first_release = this.githubReleases.shift();
+            this.latest_tag = first_release.tag_name;
+            this.latest_id = first_release.id;
             this.apk_download_urls = this.apk_download_urls.concat(
               first_release.assets
                 .filter((asset: any) => {
@@ -407,6 +418,8 @@ export class AppListingComponent implements OnInit, OnDestroy {
               release => release.tag_name === this.currentApp.github_tag
             );
             if (tag_release.length) {
+              this.latest_tag = tag_release[0].tag_name;
+              this.latest_id = tag_release[0].id;
               this.apk_download_urls = this.apk_download_urls.concat(
                 tag_release[0].assets
                   .filter((asset: any) => {

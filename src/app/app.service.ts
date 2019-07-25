@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { MzToastService } from "ngx-materialize";
+import { MzModalComponent, MzToastService } from "ngx-materialize";
 
 @Injectable({
   providedIn: "root"
@@ -11,6 +11,12 @@ export class AppService {
   currentUrl: string;
   app_meta: any;
   app_index: any;
+  sidequestResolve: any;
+  sidequestReject: any;
+  sidequestUrl: string;
+  urlTimeout: number;
+  urlTimeoutValue: number;
+  confirmOpen: MzModalComponent;
   constructor(private toastService: MzToastService) {
     const userAgent = (navigator as any).userAgent.toLowerCase();
     if (userAgent.indexOf(" electron/") > -1) {
@@ -18,20 +24,6 @@ export class AppService {
     }
     this.loadAppIndex();
     this.loadAppMeta();
-    // (window as any).sideQuestRemove = (pkg) => {
-    //   let isChanged = false;
-    //   Object.keys(this.app_index).forEach(apps_id =>{
-    //     if (this.app_index[apps_id] === pkg && this.app_meta[apps_id]) {
-    //       delete this.app_meta[apps_id];
-    //       console.log('Removing App Meta: ', pkg, apps_id);
-    //       isChanged = true;
-    //     }
-    //   });
-    //   if (isChanged) {
-    //     this.saveAppMeta();
-    //   }
-    // };
-    // this.checkForUpdates();
     window.addEventListener(
       "dragover",
       (e: any) => {
@@ -120,38 +112,55 @@ export class AppService {
     localStorage.setItem("app_index", JSON.stringify(this.app_index));
   }
 
-  checkForUpdates() {
-    const installed = Object.keys(this.app_meta)
-      .filter(apps_id => this.app_meta[apps_id].vc)
-      .map(apps_id => ({
-        apps_id,
-        packagename: this.app_index[apps_id],
-        versioncode: this.app_meta[apps_id].vc
-      }));
-    console.log(installed);
+  retrySidequestUrl() {
+    if (this.sidequestUrl) {
+      (window as any).location = this.sidequestUrl;
+    }
   }
 
-  removeUninstalledMeta() {
-    const sideQuest = (window as any).sideQuest;
-    if (sideQuest) {
-      let cachedPackages = Object.keys(this.app_index).map(key => ({
-        apps_id: key,
-        packagename: this.app_index[key]
-      }));
-      let isChanged = false;
-      cachedPackages.forEach(app => {
-        if (
-          sideQuest.installed.indexOf(app.packagename) === -1 &&
-          this.app_meta[app.apps_id]
-        ) {
-          console.log("Removing App Meta: ", app.packagename, app.apps_id);
-          delete this.app_meta[app.apps_id];
-          isChanged = true;
-        }
-      });
-      if (isChanged) {
-        this.saveAppMeta();
-      }
+  cancelSidequestUrl() {
+    this.clearUrlTimeout();
+    if (this.sidequestReject) {
+      this.sidequestReject();
     }
+  }
+
+  confirmSidequestUrl() {
+    this.clearUrlTimeout();
+    if (this.sidequestResolve) {
+      this.sidequestResolve();
+    }
+  }
+
+  clearUrlTimeout() {
+    clearTimeout(this.urlTimeout);
+    this.urlTimeoutValue = 0;
+  }
+
+  startUrlTimer() {
+    this.urlTimeout = setTimeout(() => {
+      this.urlTimeoutValue--;
+      if (this.urlTimeoutValue > 0) {
+        this.startUrlTimer();
+      } else {
+        this.confirmOpen.closeModal();
+        this.confirmSidequestUrl();
+      }
+    }, 1000);
+  }
+
+  openSidequestUrl(url) {
+    this.sidequestUrl = url;
+    this.retrySidequestUrl();
+    if (this.hideLogo) {
+      return Promise.resolve();
+    }
+    this.urlTimeoutValue = 30;
+    this.startUrlTimer();
+    this.confirmOpen.openModal();
+    return new Promise<void>((resolve, reject) => {
+      this.sidequestResolve = resolve;
+      this.sidequestReject = reject;
+    });
   }
 }

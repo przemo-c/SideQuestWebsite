@@ -4,6 +4,7 @@ import { Subscription } from "rxjs";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { MzToastService } from "ngx-materialize";
 import { ExpanseClientService } from "./expanse-client.service";
+import { AppListing } from "./account/account.component";
 declare const M;
 @Component({
   selector: "app-root",
@@ -12,6 +13,7 @@ declare const M;
 })
 export class AppComponent implements AfterViewInit {
   @ViewChild("scrollContainer", { static: false }) scrollContainer;
+  @ViewChild("confirmOpen", { static: false }) confirmOpen;
   title = "SideQuestWebsite";
   sub: Subscription;
   @ViewChild("sideNav", { static: false }) sideNav;
@@ -26,6 +28,24 @@ export class AppComponent implements AfterViewInit {
       if (val instanceof NavigationEnd) {
       }
     });
+    this.expanseService.getInstalledApps("", 0);
+    this.setupAppUninstall();
+  }
+
+  setupAppUninstall() {
+    (window as any).sideQuestRemove = pkg => {
+      let isChanged = false;
+      Object.keys(this.appService.app_index).forEach(apps_id => {
+        if (this.appService.app_index[apps_id] === pkg) {
+          this.expanseService.uninstallApp(apps_id);
+          console.log("Removing App Meta: ", pkg, apps_id);
+          isChanged = true;
+        }
+      });
+      if (isChanged) {
+        this.appService.saveAppMeta();
+      }
+    };
   }
 
   signOut() {
@@ -35,34 +55,7 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.appService.scrollContainer = this.scrollContainer.nativeElement;
-    // const patreonClick = 'onclick="window.location.href = ' +
-    //   '\'https://www.patreon.com/TheExpanseVR\'"';
-    // setTimeout(() => this.toastService.show(
-    //     '<span class="chip pointer offset-toast-chip" ' +
-    //   patreonClick +
-    //   '>' +
-    //   '<img src="assets/images/patreon.jpg" alt="Support us on Patreon"/>' +
-    //   'Support us on Patreon</span> <a class="btn-flat waves-effect waves-light white-text" ' +
-    //   patreonClick +
-    //   '">Open</a>',
-    //   45000,
-    //     'orange move-down',
-    //     () => {
-    // }), 5000);
-    // const paypalClick = 'onclick="window.location.href = ' +
-    //   '\'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=744A6C394Q8JG&source=url\'"';
-    // setTimeout(() => this.toastService.show(
-    //   '<span class="chip pointer offset-toast-chip" ' +
-    //   paypalClick +
-    //   '>' +
-    //   '<img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>' +
-    //   'Donate on Paypal</span> <a class="btn-flat waves-effect waves-light white-text" ' +
-    //   paypalClick +
-    //   '">Open</a>',
-    //   45000,
-    //   'blue move-down',
-    //   () => {
-    // }), 5500);
+    this.appService.confirmOpen = this.confirmOpen;
   }
 
   openLink(url: string) {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { IAlbum, Lightbox } from "ngx-lightbox";
+import { AppService } from "../app.service";
 
 @Component({
   selector: "app-setup-howto",
@@ -8,7 +9,7 @@ import { IAlbum, Lightbox } from "ngx-lightbox";
 })
 export class SetupHowtoComponent implements OnInit {
   album: IAlbum[] = [];
-  constructor(public lightbox: Lightbox) {}
+  constructor(public lightbox: Lightbox, private appService: AppService) {}
 
   ngOnInit() {
     const images = [
@@ -23,7 +24,7 @@ export class SetupHowtoComponent implements OnInit {
   }
 
   openItem(url: string) {
-    window.location.href = url;
+    this.appService.openSidequestUrl(url);
   }
   openImage(i: number) {
     this.lightbox.open(this.album, i);

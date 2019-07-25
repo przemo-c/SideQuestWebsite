@@ -69,8 +69,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   getNews() {
     this.isLoading = true;
-    return this.appService
-      .getNews(this.page)
+    return this.getEvents()
+      .then(() => this.appService.getNews(this.page))
       .then(async (result: NewsItem[]) => {
         await this.fixImages(result);
         this.hasNoMore = !result.length;
@@ -80,8 +80,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         this.isLoading = false;
         this.news = this.news.concat(result);
         this.page++;
-      })
-      .then(() => this.getEvents());
+      });
   }
 
   async fixImages(result) {

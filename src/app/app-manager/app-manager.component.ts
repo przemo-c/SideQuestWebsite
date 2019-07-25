@@ -61,6 +61,7 @@ export interface GithubRelease {
   name?: string;
   tag_name: string;
   assets?: any[];
+  id?: number;
 }
 
 @Component({
@@ -96,7 +97,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     versioncode: 1,
     versionname: "0.0.1",
     license: "FREE",
-    website: "BeatOn",
+    website: "",
     donate_url: "",
     github_name: "",
     github_repo: "",

@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AppService } from "./app.service";
+import { AppListing } from "./account/account.component";
 
 @Injectable({
   providedIn: "root"
@@ -22,6 +23,7 @@ export class ExpanseClientService {
   ws: WebSocket;
   socketId: any;
   currentSession: any;
+  installedApps: AppListing[];
   constructor(private appService: AppService) {
     this.messageResolves = {}; // localStorage.setItem('isDev','true');
     // localStorage.removeItem("isDev");
@@ -73,6 +75,13 @@ export class ExpanseClientService {
       })
       .catch(e => {
         console.log(e);
+      });
+  }
+  getInstalledApps(search, page) {
+    return this.start()
+      .then(() => this.searchInstalledApps(search, page))
+      .then((resp: AppListing[]) => {
+        this.installedApps = resp;
       });
   }
   updateLoop() {
@@ -680,6 +689,15 @@ export class ExpanseClientService {
   }
   searchMyApps(search, page) {
     return this.emit("search-my-apps", { search, page });
+  }
+  searchInstalledApps(search, page) {
+    return this.emit("search-installed-apps", { search, page });
+  }
+  addInstalledApp(apps_id, versioncode) {
+    return this.emit("add-edit-installed-app", { apps_id, versioncode });
+  }
+  uninstallApp(apps_id) {
+    return this.emit("uninstall-app", { apps_id });
   }
   addApp(
     name,

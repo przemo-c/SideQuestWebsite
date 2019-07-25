@@ -91,3 +91,27 @@
 <div #scrollContainer [ngClass]="{'scroll-container-small':appService.hideLogo,'scroll-container':!appService.hideLogo}">
   <router-outlet></router-outlet>
 </div>
+
+
+<mz-modal #confirmOpen [fixedFooter]="true" [options]="{dismissible: false}" >
+  <mz-modal-header>
+    <h4>Opening With SideQuest</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    <div class="center-align">
+      We have sent a message to SideQuest. <br><br>
+      Please check the SideQuest app for progress and click confirm when your done for us to update things on this end.
+      If you need to install SideQuest please click download below and come back here to try this again.<br><br>
+      <button mz-button class="white-text pink-button" mz-modal-close routerLink="/download" (click)="appService.cancelSidequestUrl()">Download</button>
+      <br><br>
+      <span *ngIf="appService.urlTimeoutValue">This screen will auto confirm in 30s, click wait to stop the clock</span>
+      <br><br><span *ngIf="appService.urlTimeoutValue">{{appService.urlTimeoutValue}}</span><br><br>
+      <button mz-button *ngIf="appService.urlTimeoutValue" class="white-text pink-button margin-left" (click)="appService.clearUrlTimeout()">Wait</button>
+    </div>
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button class="white-text waves-light" [flat]="true" (click)="appService.cancelSidequestUrl()" mz-modal-close>Cancel</button>
+    <button mz-button class="white-text margin-left" [flat]="true"  (click)="appService.retrySidequestUrl()">Retry</button>
+    <button mz-button class="white-text pink-button margin-left" mz-modal-close (click)="appService.confirmSidequestUrl()">Confirm</button>
+  </mz-modal-footer>
+</mz-modal>
