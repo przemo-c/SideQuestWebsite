@@ -71459,9 +71459,12 @@
                     return n.downloadCount();
                   })
                   .then(function() {
-                    return n.expanseService.addInstalledApp(
-                      n.apps_id,
-                      n.currentApp.versioncode
+                    return (
+                      console.log(n.apps_id, n.currentApp.versioncode),
+                      n.expanseService.addInstalledApp(
+                        n.apps_id,
+                        n.currentApp.versioncode
+                      )
                     );
                   })
                   .then(function(e) {
@@ -71725,7 +71728,6 @@
                     .then(function(n) {
                       n.length &&
                         ((e.installedVersion = n[0].current_version),
-                        console.log(e.installedVersion),
                         (e.isInstalled = !0));
                     });
               }),
@@ -77368,8 +77370,9 @@
                       return t.indexOf(e) === n;
                     })
                 );
-                var n = e || [],
-                  t = {},
+                var n = e || [];
+                console.log(e);
+                var t = {},
                   r = [],
                   l = n.length,
                   i = void 0;
@@ -90367,7 +90370,6 @@
                             );
                           }
                         )),
-                        console.log(this.appsNeedingUpdated),
                         [2]
                       );
                   }
@@ -90397,7 +90399,7 @@
           encapsulation: 0,
           styles: [
             [
-              ".card-image-left[_ngcontent-%COMP%]{height:124px;float:left;width:164.6666666666667px;background-size:cover;background-position:center center;margin-right:2em}.card-title-small[_ngcontent-%COMP%]{width:calc(100% - 300px)!important}.card-title.truncate[_ngcontent-%COMP%], .description.truncate[_ngcontent-%COMP%]{width:calc(100% - 50px)}.card-title-small.installed[_ngcontent-%COMP%]{width:calc(100% - 230px)!important}.card-title.truncate[_ngcontent-%COMP%], .description.truncate.installed[_ngcontent-%COMP%]{width:calc(100% - 20px)}.card-content[_ngcontent-%COMP%]{background-color:#312249}.add-app[_ngcontent-%COMP%]{width:100%;line-height:124px;font-size:2rem;height:124px;border:3px dashed #cfcfcf;margin:.5rem 0 1rem;color:#fff;text-align:center;cursor:pointer}.card-height[_ngcontent-%COMP%]{height:124px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.top-chip[_ngcontent-%COMP%]{margin-left:1em;margin-right:1em}"
+              ".card-image-left[_ngcontent-%COMP%]{height:100px;float:left;width:106.236559139px;background-size:cover;background-position:center center;margin-right:1em}.card-title-small[_ngcontent-%COMP%]{width:calc(100% - 300px)!important}.card-title.truncate[_ngcontent-%COMP%], .description.truncate[_ngcontent-%COMP%]{width:calc(100% - 50px)}.card-title-small.installed[_ngcontent-%COMP%]{width:calc(100% - 170px)!important}.card-title.truncate[_ngcontent-%COMP%], .description.truncate.installed[_ngcontent-%COMP%]{width:calc(100% - 5px)}.card-content[_ngcontent-%COMP%]{background-color:#312249;padding:5px}.add-app[_ngcontent-%COMP%]{width:100%;line-height:100px;font-size:2rem;height:100px;border:3px dashed #cfcfcf;margin:.5rem 0 1rem;color:#fff;text-align:center;cursor:pointer}.card-height[_ngcontent-%COMP%]{height:100px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.top-chip[_ngcontent-%COMP%]{margin-left:1em;margin-right:1em}"
             ]
           ],
           data: {}
@@ -90658,7 +90660,12 @@
               null,
               2,
               "div",
-              [["class", "btn-flat waves-effect waves-light white-text"]],
+              [
+                [
+                  "class",
+                  "btn-flat waves-effect waves-light white-text small-button"
+                ]
+              ],
               null,
               [[null, "click"]],
               function(e, n, t) {
@@ -91218,7 +91225,7 @@
               null,
               27,
               "div",
-              [["class", "col s12 m4"]],
+              [["class", "col s12 m6 l4"]],
               null,
               null,
               null,
@@ -91373,7 +91380,12 @@
               null,
               2,
               "div",
-              [["class", "btn-flat waves-effect waves-light white-text"]],
+              [
+                [
+                  "class",
+                  "btn-flat waves-effect waves-light white-text open-app-button small-button"
+                ]
+              ],
               null,
               [[null, "click"]],
               function(e, n, t) {

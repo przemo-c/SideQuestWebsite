@@ -254,12 +254,13 @@ export class AppListingComponent implements OnInit, OnDestroy {
           )
       )
       .then(() => this.downloadCount())
-      .then(() =>
-        this.expanseService.addInstalledApp(
+      .then(() => {
+        console.log(this.apps_id, this.currentApp.versioncode);
+        return this.expanseService.addInstalledApp(
           this.apps_id,
           this.currentApp.versioncode
-        )
-      )
+        );
+      })
       .then(r => console.log(r));
   }
 
@@ -466,7 +467,6 @@ export class AppListingComponent implements OnInit, OnDestroy {
         .then((r: any) => {
           if (r.length) {
             this.installedVersion = r[0].current_version;
-            console.log(this.installedVersion);
             this.isInstalled = true;
           }
         });

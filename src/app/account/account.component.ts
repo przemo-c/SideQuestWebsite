@@ -237,7 +237,6 @@ export class AccountComponent implements OnInit {
         a.needsUpdate &&
         !(a.app_categories_id === "4" && a.website === "BeatOn")
     );
-    console.log(this.appsNeedingUpdated);
   }
 
   findGitReleases(app) {

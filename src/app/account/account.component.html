@@ -76,7 +76,7 @@
                   [ngClass]="{'pink-button': app.active, 'orange': !app.active}">
             {{app.active ? 'Published' : 'Pending'}}
           </span>
-              <div class="btn-flat waves-effect waves-light white-text" routerLink="/my-app/{{app.apps_id}}">Open</div>
+              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/my-app/{{app.apps_id}}">Open</div>
             </div>
           </div>
           <div class="card-reveal">
@@ -123,7 +123,7 @@
         <br><br>
         Nothing here yet.
       </h5>
-      <div class="col s12 m4" *ngFor="let app of myInstalledApps">
+      <div class="col s12 m6 l4" *ngFor="let app of myInstalledApps">
         <div class="card card-height">
           <div class="card-image card-image-left waves-effect waves-block waves-light activator"
                *ngIf="app.image_url" [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
@@ -134,7 +134,7 @@
             <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
             <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
             <div class="right-align">
-              <div class="btn-flat waves-effect waves-light white-text" routerLink="/app/{{app.apps_id}}">Open</div>
+              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button" routerLink="/app/{{app.apps_id}}">Open</div>
             </div>
           </div>
           <div class="card-reveal">

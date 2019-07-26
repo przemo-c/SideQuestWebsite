@@ -258,6 +258,7 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           .filter((item, i, ar) => ar.indexOf(item) === i)
       );
       let array = res || [];
+      console.log(res);
       let flags = {},
         output = [],
         l = array.length,
