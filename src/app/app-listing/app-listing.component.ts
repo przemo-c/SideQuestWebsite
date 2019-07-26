@@ -35,6 +35,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   isGettingGithub: boolean;
   isAllReleases: boolean;
   isInstalled: boolean;
+  installedVersion: number;
   currentApp: AppListing = {
     name: "",
     users_id: 0,
@@ -245,26 +246,32 @@ export class AppListingComponent implements OnInit, OnDestroy {
           ? "sidequest://bsaber-multi/#"
           : "sidequest://sideload-multi/#") +
           JSON.stringify(
-            apps.map(app => app.browser_download_url || app.link_url)
+            apps.map(app =>
+              app.browser_download_url
+                ? app.browser_download_url.trim()
+                : app.link_url.trim()
+            )
           )
       )
       .then(() => this.downloadCount())
       .then(() =>
         this.expanseService.addInstalledApp(
-          this.currentApp.apps_id,
-          this.latest_id || this.currentApp.versioncode
+          this.apps_id,
+          this.currentApp.versioncode
         )
-      );
+      )
+      .then(r => console.log(r));
   }
 
   uninstallApp(packageName) {
     this.service
       .openSidequestUrl("sidequest://unload/#" + packageName)
-      .then(() => this.expanseService.uninstallApp(this.currentApp.apps_id));
+      .then(() => this.expanseService.uninstallApp(this.apps_id))
+      .then(() => (this.isInstalled = false));
   }
 
   openItem(url: string) {
-    this.service.openSidequestUrl(url);
+    this.service.openSidequestUrl(url.trim());
   }
 
   async setupApp() {
@@ -272,6 +279,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
       const apps = (await this.expanseService.start().then(() => {
         return this.expanseService.getApp(this.apps_id);
       })) as AppListing[];
+      this.getUserInstalled();
       if (!apps.length) {
         this.apps_id = null;
         this.is_not_found = true;
@@ -280,7 +288,6 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.searchTags = (this.currentApp.search_tags || "")
           .split(",")
           .filter(t => t);
-        console.log(apps[0]);
         const counters = (await this.expanseService.getAppTotals(
           this.apps_id
         )) as AppCounter[];
@@ -342,7 +349,9 @@ export class AppListingComponent implements OnInit, OnDestroy {
         );
         this.apk_download_urls = this.app_urls.filter(
           (url: AppUrl) =>
-            ["OBB", "APK", "BeatOn Mod"].indexOf(url.provider) > -1
+            ["OBB", "APK", "BeatOn Mod", "Github Release"].indexOf(
+              url.provider
+            ) > -1
         );
         this.screenshots = (screenshots || []).map(s => s.image_url);
         this.album = this.screenshots.map(s => ({ src: s, thumb: s }));
@@ -368,12 +377,15 @@ export class AppListingComponent implements OnInit, OnDestroy {
           this.isInstalled =
             sideQuest.installed.indexOf(this.currentApp.packagename) > -1;
         }
-
+        const githubRelesUrls = this.app_urls.filter(
+          (url: AppUrl) => url.provider === "Github Release"
+        );
         if (
           this.currentApp.github_enabled &&
           this.currentApp.github_repo &&
           this.currentApp.github_name &&
-          this.currentApp.github_tag
+          this.currentApp.github_tag &&
+          !githubRelesUrls.length
         ) {
           await this.findGitReleases();
           if (
@@ -407,22 +419,6 @@ export class AppListingComponent implements OnInit, OnDestroy {
                   };
                 })
             );
-            if (this.currentApp.github_tag === "[ all ]") {
-              this.githubReleases.forEach(release => {
-                release.assets = release.assets.filter(
-                  asset =>
-                    ["apk", "obb"].indexOf(
-                      asset.name
-                        .split(".")
-                        .pop()
-                        .toLowerCase()
-                    ) > -1
-                );
-              });
-              this.githubReleases = this.githubReleases.filter(
-                release => release.assets.length
-              );
-            }
           } else {
             const tag_release = this.githubReleases.filter(
               release => release.tag_name === this.currentApp.github_tag
@@ -461,6 +457,20 @@ export class AppListingComponent implements OnInit, OnDestroy {
 
   openUrl(link: string) {
     window.location.href = link;
+  }
+
+  getUserInstalled() {
+    if (this.service.isAuthenticated) {
+      this.expanseService
+        .searchInstalledApps("", 0, false, false, this.apps_id)
+        .then((r: any) => {
+          if (r.length) {
+            this.installedVersion = r[0].current_version;
+            console.log(this.installedVersion);
+            this.isInstalled = true;
+          }
+        });
+    }
   }
 
   findGitReleases() {

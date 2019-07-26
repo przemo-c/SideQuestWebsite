@@ -170,11 +170,7 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
         )
       )
       .then((res: any) => {
-        this.versionFilter = ["All"].concat(
-          (res || [])
-            .map(count => count.versionname)
-            .filter((item, i, ar) => ar.indexOf(item) === i)
-        );
+        res = this.groupRes(res);
         const views = (res || []).filter(count => count.type === "view");
         const viewsObject = {
           label: "Views",
@@ -252,6 +248,33 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
         this.chart.chart.config.options.scales.xAxes[0].time.min = this.selectedDate.start.toDate() as any;
         this.chart.chart.config.options.scales.xAxes[0].time.max = this.selectedDate.end.toDate() as any;
       });
+  }
+
+  groupRes(res) {
+    if (this.selectedFilter === "All") {
+      this.versionFilter = ["All"].concat(
+        (res || [])
+          .map(count => count.versionname)
+          .filter((item, i, ar) => ar.indexOf(item) === i)
+      );
+      let array = res || [];
+      let flags = {},
+        output = [],
+        l = array.length,
+        i;
+      for (i = 0; i < l; i++) {
+        array[i].counter = +array[i].counter;
+        let key = (array[i].hour_time || array[i].day_time) + array[i].type;
+        if (flags[key]) {
+          output[flags[key]].counter += +array[i].counter;
+          continue;
+        }
+        flags[key] = i;
+        output.push(array[i]);
+      }
+      return output;
+    }
+    return res;
   }
 
   ngOnInit() {}

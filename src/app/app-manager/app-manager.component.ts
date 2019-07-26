@@ -62,6 +62,7 @@ export interface GithubRelease {
   tag_name: string;
   assets?: any[];
   id?: number;
+  isSideQuestOption?: boolean;
 }
 
 @Component({
@@ -151,6 +152,11 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
             this.is_not_found = true;
           } else {
             this.currentApp = apps[0];
+            if (!this.currentApp.apk_url) {
+              this.currentApp.apk_url = (await this.expanseService.getAppWebhook(
+                this.apps_id
+              )) as string;
+            }
             this.searchTags = (this.currentApp.search_tags || "")
               .split(",")
               .filter(t => t)
@@ -301,6 +307,25 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
+  copyUrl(url) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(
+        () => {
+          this.service.showMessage(
+            { error: false },
+            "URL Copied to clipboard!"
+          );
+        },
+        err => {
+          this.service.showMessage(
+            { error: true, data: "Cant copy share url!" },
+            ""
+          );
+        }
+      );
+    }
+  }
+
   refreshShareLink() {
     fetch(
       "https://xpan.cc/delete-link/" +
@@ -419,8 +444,10 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     ).then(async r => {
       if (r.ok) {
         this.githubReleases = await r.json();
-        this.githubReleases.unshift({ tag_name: "[ latest ]" });
-        this.githubReleases.unshift({ tag_name: "[ all ]" });
+        this.githubReleases.unshift({
+          tag_name: "[ latest ]",
+          isSideQuestOption: true
+        });
         this.hasGithubRepo = true;
       } else {
         this.hasGithubRepo = false;
@@ -535,7 +562,54 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       .then(res => res.json());
   }
 
+  backFillGithubRelease() {
+    let releases = this.githubReleases.filter(r => !r.isSideQuestOption);
+    if (
+      this.currentApp.github_enabled &&
+      this.hasGithubRepo &&
+      this.hasGithubRepo &&
+      releases.length
+    ) {
+      let release = releases[0];
+      if (
+        this.currentApp.github_tag !== "[ all ]" &&
+        this.currentApp.github_tag !== "[ latest ]"
+      ) {
+        releases.forEach(rel => {
+          if (rel.tag_name === this.currentApp.github_tag) {
+            release = rel;
+          }
+        });
+      }
+      console.log(release);
+      this.currentApp.versioncode = release.id;
+      this.currentApp.versionname = release.tag_name;
+      this.app_urls = this.app_urls
+        .filter(url => url.provider !== "Github Release")
+        .concat(
+          release.assets
+            .filter((asset: any) => {
+              return (
+                ["apk", "obb"].indexOf(
+                  asset.name
+                    .split(".")
+                    .pop()
+                    .toLowerCase()
+                ) > -1
+              );
+            })
+            .map(asset => {
+              return {
+                link_url: asset.browser_download_url,
+                provider: "Github Release"
+              };
+            })
+        );
+    }
+  }
+
   async saveApp() {
+    this.backFillGithubRelease();
     this.currentApp.search_tags = (this.searchTags || [])
       .map(t => t.tag)
       .join(",");
@@ -557,12 +631,8 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
           this.currentApp.website,
           this.currentApp.donate_url,
           this.currentApp.github_name,
-          this.repo_input
-            ? this.repo_input.nativeElement.value
-            : this.currentApp.github_repo,
-          this.release_input
-            ? this.release_input.nativeElement.value
-            : this.currentApp.github_tag,
+          this.currentApp.github_repo,
+          this.currentApp.github_tag,
           this.currentApp.github_enabled,
           this.currentApp.app_categories_id,
           this.screenshots,

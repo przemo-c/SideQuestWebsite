@@ -19,11 +19,11 @@
   <h4>Hi {{expanseService.currentSession.name}}!</h4>
   <hr>
   <div class="row">
-    <div class="col s12 m2 center-align">
+    <div class="col s12 m3 center-align">
       <img class="responsive-img" src="{{expanseService.cdnUrl+expanseService.currentSession.preview_image}}"/><br><br>
       <div class="btn waves-effect waves-light pink-button small-button" (click)="passwordModal.openModal()">Change Password</div>
     </div>
-    <div class="input-field col s12 m4">
+    <div class="input-field col s12 m3">
       <div class="input-field">
         <i class="material-icons prefix">face</i>
         <input id="user_name" type="text" placeholder="Your name..." [(ngModel)]="expanseService.currentSession.name">
@@ -88,14 +88,35 @@
     </div>
     <br><br>
   </div>
-  <div style="display: none;">
-
-    <div *ngIf="appsNeedingUpdated && appsNeedingUpdated.length" class="right btn waves-effect waves-light pink-button"
+  <div>
+    <div *ngIf="appsNeedingUpdated && appsNeedingUpdated.length"
+         class="right btn waves-effect waves-light pink-button small-button margin-left"
          mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
          position="bottom"
          (click)="updateAll()"
     >Update All</div>
-    <h4>My Installed Apps</h4>
+
+    <div
+         class="right btn waves-effect waves-light pink-button small-button margin-left"
+         mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
+         position="bottom"
+         (click)="isUpdated = false;isUninstalled = true; saveMyAppsView(); getInstalledApps()"
+    >Uninstalled</div>
+
+    <div
+         class="right btn waves-effect waves-light pink-button small-button margin-left"
+         mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
+         position="bottom"
+         (click)="isUpdated = false;isUninstalled = false; saveMyAppsView(); getInstalledApps()"
+    >Installed</div>
+
+    <div
+         class="right btn waves-effect waves-light pink-button small-button margin-left"
+         mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
+         position="bottom"
+         (click)="isUpdated = true;isUninstalled = false; saveMyAppsView(); getInstalledApps()"
+    >Updates</div>
+    <h4>My {{isUpdated? 'App Updates' : isUninstalled? 'Uninstalled Apps' : 'Installed Apps' }}</h4>
     <hr>
     <div class="row">
       <h5 *ngIf="!myInstalledApps.length">
@@ -106,7 +127,7 @@
         <div class="card card-height">
           <div class="card-image card-image-left waves-effect waves-block waves-light activator"
                *ngIf="app.image_url" [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
-            <div class="btn waves-effect waves-light white-text pink-button small-button" *ngIf="app.needsUpdate" routerLink="/app/{{app.apps_id}}">Update</div>
+            <div class="btn waves-effect waves-light white-text pink-button small-button" *ngIf="app.needsUpdate && !isUninstalled" routerLink="/app/{{app.apps_id}}">Update</div>
           </div>
           <div class="card-content card-height">
             <i class="material-icons activator pointer right">more_vert</i>

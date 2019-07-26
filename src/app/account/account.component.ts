@@ -57,12 +57,16 @@ export class AccountComponent implements OnInit {
   newPassword1: string;
   isDev: boolean;
   showAll: boolean;
+  isUpdated = true;
+  isUninstalled: boolean;
   githubReleases: GithubRelease[];
   constructor(
     public expanseService: ExpanseClientService,
     public appService: AppService
   ) {
     this.isDev = !!localStorage.getItem("isDeveloper");
+    this.isUpdated = !!localStorage.getItem("viewIsUpdated");
+    this.isUninstalled = !!localStorage.getItem("viewIsUninstalled");
   }
 
   setDev() {
@@ -73,20 +77,33 @@ export class AccountComponent implements OnInit {
     }
   }
 
+  saveMyAppsView() {
+    if (this.isUninstalled) {
+      localStorage.setItem("viewIsUninstalled", "t");
+    } else {
+      localStorage.removeItem("viewIsUninstalled");
+    }
+    if (this.isUpdated) {
+      localStorage.setItem("viewIsUpdated", "t");
+    } else {
+      localStorage.removeItem("viewIsUpdated");
+    }
+  }
+
   ngOnInit() {
     this.expanseService
       .start()
       .then(() => this.expanseService.searchMyApps("", 0))
       .then((resp: AppListing[]) => {
         this.myApps = resp;
-      });
-    //.then(() => this.getInstalledApps())
-    //.then(() => this.setAppsToImport());
+      })
+      .then(() => this.setAppsToImport())
+      .then(() => this.getInstalledApps());
   }
 
   getInstalledApps() {
     return this.expanseService
-      .searchInstalledApps("", 0)
+      .searchInstalledApps("", 0, this.isUpdated, this.isUninstalled)
       .then((resp: AppListing[]) => {
         this.myInstalledApps = resp;
         this.checkForUpdates();
@@ -152,7 +169,7 @@ export class AccountComponent implements OnInit {
                 a = a.concat(b.urls);
                 return a;
               }, [])
-              .map(a => a.link_url)
+              .map(a => a.link_url.trim())
           )
       )
       .then(async () => {
@@ -162,13 +179,18 @@ export class AccountComponent implements OnInit {
             this.appsNeedingUpdated[i].versioncode
           );
         }
+        this.getInstalledApps();
       });
   }
 
   async checkForUpdates() {
     for (let i = 0; i < this.myInstalledApps.length; i++) {
       const app = this.myInstalledApps[i];
-      if (app.github_enabled) {
+      app.urls = app.urls.filter(u => u);
+      if (
+        app.github_enabled &&
+        !app.urls.filter(u => u.provider === "Github Release").length
+      ) {
         let releases = await this.findGitReleases(app);
         if (releases.message) {
           return this.appService.showMessage(
@@ -185,30 +207,28 @@ export class AccountComponent implements OnInit {
           });
         }
         app.versioncode = release.id;
-        app.urls = app.urls
-          .filter(u => u)
-          .concat(
-            release.assets
-              .filter((asset: any) => {
-                return (
-                  ["apk", "obb"].indexOf(
-                    asset.name
-                      .split(".")
-                      .pop()
-                      .toLowerCase()
-                  ) > -1
-                );
-              })
-              .map(asset => {
-                return {
-                  link_url: asset.browser_download_url,
-                  provider: asset.name
+        app.urls = app.urls.concat(
+          release.assets
+            .filter((asset: any) => {
+              return (
+                ["apk", "obb"].indexOf(
+                  asset.name
                     .split(".")
                     .pop()
-                    .toUpperCase()
-                };
-              })
-          );
+                    .toLowerCase()
+                ) > -1
+              );
+            })
+            .map(asset => {
+              return {
+                link_url: asset.browser_download_url,
+                provider: asset.name
+                  .split(".")
+                  .pop()
+                  .toUpperCase()
+              };
+            })
+        );
       }
       app.needsUpdate = app.versioncode > app.current_version;
     }
@@ -217,6 +237,7 @@ export class AccountComponent implements OnInit {
         a.needsUpdate &&
         !(a.app_categories_id === "4" && a.website === "BeatOn")
     );
+    console.log(this.appsNeedingUpdated);
   }
 
   findGitReleases(app) {

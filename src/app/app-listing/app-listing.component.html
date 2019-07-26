@@ -9,11 +9,15 @@
          src="{{currentApp.image_url}}" (click)="openImage(screenshots.length)"/>
     {{currentApp.name}}
     <span *ngIf="!currentApp.active" class="chip white-text orange">Pending</span>
+    <div class="btn waves-effect waves-light white-text pink-button small-button"
+         *ngIf="isInstalled && installedVersion < currentApp.versioncode && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')"
+         (click)="openItems(apk_download_urls)">Update Available</div>
+
   </h4>
   <div class="right top-tags-name">
     <div class="btn waves-effect waves-light pink-button"
          *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access"
-         (click)="openItems(apk_download_urls, false)">Install Latest</div>
+         (click)="openItems(apk_download_urls)">Install Latest</div>
     <div class="btn waves-effect waves-light pink-button margin-left" routerLink="/my-app/{{apps_id}}" *ngIf="isMine">Edit App</div>
   </div>
   <div class="clearfix"></div>
@@ -71,8 +75,12 @@
           <img class="screen-shot pointer" *ngFor="let screenshot of screenshots; let i = index" src="{{screenshot}}" (click)="openImage(i)"/>
 
           <br>
-          <h5 *ngIf="app_meta.vc && service.app_index[apps_id]">Currently Installed: [v{{app_meta.vc}}]</h5>
+          <div *ngIf="isInstalled && installedVersion < currentApp.versioncode && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')">
+            <br>
+            <div class="btn waves-effect waves-light pink-button"
+                 (click)="openItems(apk_download_urls)">Update To {{currentApp.versionname}}</div><br><br><br>
 
+          </div>
           <div class="btn waves-effect waves-light pink-button"
                *ngIf="isInstalled && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')" (click)="uninstallApp(currentApp.packagename)">Uninstall</div>
           <div *ngIf="currentApp.donate_url">
@@ -92,7 +100,7 @@
                   <label class="active">Description</label>
                 </div>
                 <p [innerHTML]="currentApp.description"></p>
-                <div *ngIf="currentApp.user_name" class="app-summary truncate"><br>By {{currentApp.user_name}}</div>
+                <div *ngIf="currentApp.user_name" class="truncate"><br>By {{currentApp.user_name}}</div>
               </div>
               <div *ngIf="searchTags && searchTags.length">
                 <br>
@@ -193,29 +201,29 @@
               </ng-container>
             </mz-collapsible-item-body>
           </mz-collapsible-item>
-          <ng-container *ngIf="hasGithubRepo && currentApp.github_enabled && currentApp.github_tag === '[ all ]'">
-            <mz-collapsible-item *ngFor="let release of githubReleases">
-              <mz-collapsible-item-header>
-                <div class="btn right waves-effect waves-light pink-button install-button"
-                     (click)="openItems(release.assets);">{{release.assets.length > 1 ? 'Install All' : 'Install Now'}}</div>
-                [{{release.tag_name}}] {{release.name}}
-              </mz-collapsible-item-header>
-              <mz-collapsible-item-body>
-                <ng-container >
-                  <div *ngFor="let asset of release.assets">
-                    <div class="row">
-                      <div class="col s11 vertical-align line-height truncate full-width">
-                        {{asset.browser_download_url}}
-                      </div>
-                      <div class="col s1 right-align vertical-align">
-                        <a *ngIf="release.assets.length > 1" class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"><i class="material-icons">cloud_download</i></a>
-                      </div>
-                    </div>
-                  </div>
-                </ng-container>
-              </mz-collapsible-item-body>
-            </mz-collapsible-item>
-          </ng-container>
+          <!--<ng-container *ngIf="hasGithubRepo && currentApp.github_enabled && currentApp.github_tag === '[ all ]'">-->
+            <!--<mz-collapsible-item *ngFor="let release of githubReleases">-->
+              <!--<mz-collapsible-item-header>-->
+                <!--<div class="btn right waves-effect waves-light pink-button install-button"-->
+                     <!--(click)="openItems(release.assets);">{{release.assets.length > 1 ? 'Install All' : 'Install Now'}}</div>-->
+                <!--[{{release.tag_name}}] {{release.name}}-->
+              <!--</mz-collapsible-item-header>-->
+              <!--<mz-collapsible-item-body>-->
+                <!--<ng-container >-->
+                  <!--<div *ngFor="let asset of release.assets">-->
+                    <!--<div class="row">-->
+                      <!--<div class="col s11 vertical-align line-height truncate full-width">-->
+                        <!--{{asset.browser_download_url}}-->
+                      <!--</div>-->
+                      <!--<div class="col s1 right-align vertical-align">-->
+                        <!--<a *ngIf="release.assets.length > 1" class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"><i class="material-icons">cloud_download</i></a>-->
+                      <!--</div>-->
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</ng-container>-->
+              <!--</mz-collapsible-item-body>-->
+            <!--</mz-collapsible-item>-->
+          <!--</ng-container>-->
         </mz-collapsible>
       </div>
     </div>

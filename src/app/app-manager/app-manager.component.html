@@ -370,7 +370,7 @@
               {{app_url.provider}}
             </div>
             <div class="col s2 ">
-              <div class="right btn waves-effect waves-light pink-button margin-bottom" (click)="removeUrl(i)">Remove</div>
+              <div class="right btn waves-effect waves-light pink-button margin-bottom small-button" (click)="removeUrl(i)">Remove</div>
             </div>
           </div>
         </div>
@@ -437,8 +437,10 @@
             </label>
           </div>
           <br>
-          Enable github release support to allow for automated deployments to suit you.
-          <a href="https://developer.github.com/v3/repos/releases/">More Info</a>
+          Enable github release support to allow for automated deployments to suit you. <br><br>
+          <div *ngIf="currentApp.apk_url" class="btn waves-light waves-effect pink-button small-button" (click)="copyUrl('https://xpan.cc/release-webhook/'+currentApp.apk_url)">Copy Webhook URL</div><br><br>
+          Setup a webhook to enable automatic updates for users.<br><br>
+          <div class="btn waves-light waves-effect pink-button small-button" (click)="githubHowTo.openModal()">Github How To</div>
         </div>
       </div>
       <div *ngIf="apps_id" class="col s12">
@@ -448,8 +450,8 @@
         <div class="right-align grey-text">This url will show your apps description when shared on social media.</div>
         <div class="center-align">
           <br><br><br>
-          <div class="btn waves-effect waves-light pink-button margin-left" (click)="refreshShareLink()" *ngIf="apps_id">Refresh</div>
-          <div *ngIf="currentApp.donate_url && apps_id" class="btn waves-effect waves-light pink-button margin-left" (click)="copyShareUrl()">Copy</div>
+          <div class="btn waves-effect waves-light pink-button margin-left small-button" (click)="refreshShareLink()" *ngIf="apps_id">Refresh</div>
+          <div *ngIf="currentApp.donate_url && apps_id" class="btn waves-effect waves-light pink-button margin-left small-button" (click)="copyShareUrl()">Copy</div>
 
           <br><br>
           <span *ngIf="currentApp.donate_url">Share URL: {{currentApp.donate_url}}</span>
@@ -463,7 +465,7 @@
         <div class="right-align grey-text">WARNING: This cannot be undone. This will remove the app from the listings.</div>
         <div class="center-align">
           <br><br><br>
-          <div class="btn waves-effect waves-light red" (click)="confirmDelete.openModal()">Delete app</div>
+          <div class="btn waves-effect waves-light red small-button" (click)="confirmDelete.openModal()">Delete app</div>
           <br><br><br>
         </div>
       </div>
@@ -502,5 +504,57 @@
   <mz-modal-footer>
     <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
     <button mz-button class="red" mz-modal-close (click)="deleteScreenShot()">DELETE SCREENSHOT</button>
+  </mz-modal-footer>
+</mz-modal>
+
+
+<mz-modal #githubHowTo [fixedFooter]="true">
+  <mz-modal-header>
+    <h4>Github Release How To</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    <h5>Video Tutorial</h5>
+    <div class="video-container">
+      <iframe
+        width="655.609756097561"
+        height="420"
+        style="width: 100%;"
+        src="https://www.youtube.com/embed/B0IZv-ljwSI"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <br><br>
+    <h5>Step 1</h5>
+    To use github releases the first thing to do is to create a repository on github:
+    <img class="responsive-img" src="assets/images/githubCreateRepo1.png"/>
+    <br><br>
+
+    <img class="responsive-img" src="assets/images/githubCreateRepo2.png"/>
+    <br><br>
+    <h5>Step 2</h5>
+    Create a release on the new empty repository:
+    <img class="responsive-img" src="assets/images/githubCreateReleaase1.png"/>
+    <br><br>
+    <img class="responsive-img" src="assets/images/githubCreateReleaase2.png"/>
+    <br><br>
+    <img class="responsive-img" src="assets/images/githubCreateReleaase3.png"/>
+    <br><br>
+    <h5>Step 3</h5>
+    Create a webhook on the new empty repository:
+    <img class="responsive-img" src="assets/images/githubCreateWebhook1.png"/>
+    <br><br>
+    <img class="responsive-img" src="assets/images/githubCreateWebhook2.png"/>
+    <br><br>
+    <img class="responsive-img" src="assets/images/githubCreateWebhook3.png"/>
+    <br><br>
+    <img class="responsive-img" src="assets/images/githubCreateWebhook4.png"/>
+    <br><br>
+    <img class="responsive-img" src="assets/images/githubCreateWebhook5.png"/>
+    <br><br>
+    <a href="https://developer.github.com/v3/repos/releases/">Github Release API Docs</a>
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
   </mz-modal-footer>
 </mz-modal>

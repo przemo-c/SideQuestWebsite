@@ -690,14 +690,23 @@ export class ExpanseClientService {
   searchMyApps(search, page) {
     return this.emit("search-my-apps", { search, page });
   }
-  searchInstalledApps(search, page) {
-    return this.emit("search-installed-apps", { search, page });
+  searchInstalledApps(search, page, is_updated?, is_uninstalled?, apps_id?) {
+    return this.emit("search-installed-apps", {
+      search,
+      page,
+      is_updated,
+      is_uninstalled,
+      apps_id
+    });
   }
   addInstalledApp(apps_id, versioncode) {
     return this.emit("add-edit-installed-app", { apps_id, versioncode });
   }
   uninstallApp(apps_id) {
     return this.emit("uninstall-app", { apps_id });
+  }
+  getAppWebhook(apps_id) {
+    return this.emit("get-app-webhook", { apps_id });
   }
   addApp(
     name,
