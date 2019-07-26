@@ -78532,7 +78532,7 @@
             }),
             (e.prototype.backFillGithubRelease = function() {
               var e = this,
-                n = this.githubReleases.filter(function(e) {
+                n = (this.githubReleases || []).filter(function(e) {
                   return !e.isSideQuestOption;
                 });
               if (

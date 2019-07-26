@@ -563,7 +563,9 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   backFillGithubRelease() {
-    let releases = this.githubReleases.filter(r => !r.isSideQuestOption);
+    let releases = (this.githubReleases || []).filter(
+      r => !r.isSideQuestOption
+    );
     if (
       this.currentApp.github_enabled &&
       this.hasGithubRepo &&
