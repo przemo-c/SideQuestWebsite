@@ -93828,7 +93828,7 @@
               0,
               null,
               null,
-              180,
+              191,
               "div",
               [["class", "container"]],
               null,
@@ -93995,7 +93995,7 @@
               0,
               null,
               null,
-              29,
+              22,
               "div",
               [["class", "row"]],
               null,
@@ -94010,7 +94010,7 @@
               0,
               null,
               null,
-              12,
+              17,
               "div",
               [["class", "col s12 m6"]],
               null,
@@ -94025,7 +94025,7 @@
               0,
               null,
               null,
-              11,
+              4,
               "div",
               [["class", "setup-content"]],
               null,
@@ -94050,10 +94050,63 @@
               null
             )),
             (e()(),
-            r["\u0275ted"](-1, null, [" Step 1: Create Organisation "])),
+            r["\u0275ted"](-1, null, [
+              " Step 1: Install SideQuest ( Skip if you are in SideQuest already ) "
+            ])),
             (e()(),
             r["\u0275eld"](
               18,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275ted"](-1, null, [
+              " Install SideQuest on windows, linux or mac. "
+            ])),
+            (e()(),
+            r["\u0275eld"](
+              20,
+              0,
+              null,
+              null,
+              11,
+              "div",
+              [["class", "setup-content"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              21,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "section-title"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275ted"](-1, null, [" Step 2: Create Organisation "])),
+            (e()(),
+            r["\u0275eld"](
+              23,
               0,
               null,
               null,
@@ -94072,7 +94125,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              20,
+              25,
               0,
               null,
               null,
@@ -94092,7 +94145,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              23,
+              28,
               0,
               null,
               null,
@@ -94107,7 +94160,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              24,
+              29,
               0,
               null,
               null,
@@ -94122,7 +94175,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              25,
+              30,
               0,
               null,
               null,
@@ -94145,7 +94198,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              26,
+              31,
               0,
               null,
               null,
@@ -94168,7 +94221,68 @@
             )),
             (e()(),
             r["\u0275eld"](
-              27,
+              32,
+              0,
+              null,
+              null,
+              3,
+              "div",
+              [["class", "col s12 m6"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              33,
+              0,
+              null,
+              null,
+              2,
+              "div",
+              [["class", "setup-content"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              34,
+              0,
+              null,
+              null,
+              1,
+              "app-download-box",
+              [],
+              null,
+              null,
+              null,
+              Ii,
+              Si
+            )),
+            r["\u0275did"](35, 114688, null, 0, Li, [], null, null),
+            (e()(),
+            r["\u0275eld"](
+              36,
+              0,
+              null,
+              null,
+              25,
+              "div",
+              [["class", "row"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              37,
               0,
               null,
               null,
@@ -94183,7 +94297,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              28,
+              38,
               0,
               null,
               null,
@@ -94198,7 +94312,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              29,
+              39,
               0,
               null,
               null,
@@ -94213,11 +94327,11 @@
             )),
             (e()(),
             r["\u0275ted"](-1, null, [
-              " Step 2: Install Drivers ( Windows Only - skip this on Mac / Linux ) "
+              " Step 3: Install Drivers ( Windows Only - skip this on Mac / Linux ) "
             ])),
             (e()(),
             r["\u0275eld"](
-              31,
+              41,
               0,
               null,
               null,
@@ -94236,7 +94350,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              33,
+              43,
               0,
               null,
               null,
@@ -94262,7 +94376,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              36,
+              46,
               0,
               null,
               null,
@@ -94279,7 +94393,7 @@
             (e()(), r["\u0275ted"](-1, null, [" file and click install. "])),
             (e()(),
             r["\u0275eld"](
-              39,
+              49,
               0,
               null,
               null,
@@ -94294,7 +94408,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              40,
+              50,
               0,
               null,
               null,
@@ -94309,7 +94423,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              41,
+              51,
               0,
               null,
               null,
@@ -94332,7 +94446,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              42,
+              52,
               0,
               null,
               null,
@@ -94355,37 +94469,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              43,
-              0,
-              null,
-              null,
-              0,
-              "div",
-              [["class", "clear-fix"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              44,
-              0,
-              null,
-              null,
-              29,
-              "div",
-              [["class", "row"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              45,
+              53,
               0,
               null,
               null,
@@ -94400,7 +94484,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              46,
+              54,
               0,
               null,
               null,
@@ -94415,7 +94499,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              47,
+              55,
               0,
               null,
               null,
@@ -94430,11 +94514,11 @@
             )),
             (e()(),
             r["\u0275ted"](-1, null, [
-              " Step 3: Enable Developer Mode and Reboot "
+              " Step 4: Enable Developer Mode and Reboot "
             ])),
             (e()(),
             r["\u0275eld"](
-              49,
+              57,
               0,
               null,
               null,
@@ -94453,7 +94537,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              51,
+              59,
               0,
               null,
               null,
@@ -94466,112 +94550,6 @@
               null,
               null
             )),
-            (e()(),
-            r["\u0275eld"](
-              52,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              53,
-              0,
-              null,
-              null,
-              0,
-              "img",
-              [
-                ["class", "setup-image"],
-                ["src", "assets/images/OculusAppDevModeSteps.png"]
-              ],
-              null,
-              [[null, "click"]],
-              function(e, n, t) {
-                var r = !0;
-                return (
-                  "click" === n && (r = !1 !== e.component.openImage(4) && r), r
-                );
-              },
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              54,
-              0,
-              null,
-              null,
-              19,
-              "div",
-              [["class", "col s12 m6"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              55,
-              0,
-              null,
-              null,
-              18,
-              "div",
-              [["class", "setup-content"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              56,
-              0,
-              null,
-              null,
-              1,
-              "div",
-              [["class", "section-title"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275ted"](-1, null, [
-              " Step 4: Connect USB Cable and Allow USB Debugging "
-            ])),
-            (e()(),
-            r["\u0275eld"](
-              58,
-              0,
-              null,
-              null,
-              12,
-              "div",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275ted"](-1, null, [
-              " Now its time to connect the USB cable. Once you are connected you will have to allow USB debugging access on your headset. If you put your headset on at this point you will see something like the below. You should also select 'Always allow from this computer' to prevent this message from coming up every time you connect. "
-            ])),
             (e()(),
             r["\u0275eld"](
               60,
@@ -94594,6 +94572,142 @@
               null,
               null,
               0,
+              "img",
+              [
+                ["class", "setup-image"],
+                ["src", "assets/images/OculusAppDevModeSteps.png"]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0;
+                return (
+                  "click" === n && (r = !1 !== e.component.openImage(4) && r), r
+                );
+              },
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              62,
+              0,
+              null,
+              null,
+              0,
+              "div",
+              [["class", "clear-fix"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              63,
+              0,
+              null,
+              null,
+              53,
+              "div",
+              [["class", "row"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              64,
+              0,
+              null,
+              null,
+              19,
+              "div",
+              [["class", "col s12 m6"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              65,
+              0,
+              null,
+              null,
+              18,
+              "div",
+              [["class", "setup-content"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              66,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "section-title"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275ted"](-1, null, [
+              " Step 5: Connect USB Cable and Allow USB Debugging "
+            ])),
+            (e()(),
+            r["\u0275eld"](
+              68,
+              0,
+              null,
+              null,
+              12,
+              "div",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275ted"](-1, null, [
+              " Now its time to connect the USB cable. Once you are connected you will have to allow USB debugging access on your headset. If you put your headset on at this point you will see something like the below. You should also select 'Always allow from this computer' to prevent this message from coming up every time you connect. "
+            ])),
+            (e()(),
+            r["\u0275eld"](
+              70,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              71,
+              0,
+              null,
+              null,
+              0,
               "br",
               [],
               null,
@@ -94608,7 +94722,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              63,
+              73,
               0,
               null,
               null,
@@ -94628,7 +94742,7 @@
             (e()(), r["\u0275ted"](-1, null, [". "])),
             (e()(),
             r["\u0275eld"](
-              66,
+              76,
               0,
               null,
               null,
@@ -94647,7 +94761,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              68,
+              78,
               0,
               null,
               null,
@@ -94662,7 +94776,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              69,
+              79,
               0,
               null,
               null,
@@ -94681,7 +94795,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              71,
+              81,
               0,
               null,
               null,
@@ -94696,7 +94810,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              72,
+              82,
               0,
               null,
               null,
@@ -94711,7 +94825,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              73,
+              83,
               0,
               null,
               null,
@@ -94734,43 +94848,13 @@
             )),
             (e()(),
             r["\u0275eld"](
-              74,
-              0,
-              null,
-              null,
-              0,
-              "div",
-              [["class", "clear-fix"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              75,
-              0,
-              null,
-              null,
-              33,
-              "div",
-              [["class", "row"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            r["\u0275eld"](
-              76,
+              84,
               0,
               null,
               null,
               32,
               "div",
-              [["class", "col s12"]],
+              [["class", "col s12 m6"]],
               null,
               null,
               null,
@@ -94779,7 +94863,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              77,
+              85,
               0,
               null,
               null,
@@ -94794,7 +94878,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              78,
+              86,
               0,
               null,
               null,
@@ -94808,10 +94892,10 @@
               null
             )),
             (e()(),
-            r["\u0275ted"](-1, null, [" Step 5: Install App Launcher "])),
+            r["\u0275ted"](-1, null, [" Step 6: Install App Launcher "])),
             (e()(),
             r["\u0275eld"](
-              80,
+              88,
               0,
               null,
               null,
@@ -94830,7 +94914,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              82,
+              90,
               0,
               null,
               null,
@@ -94845,7 +94929,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              83,
+              91,
               0,
               null,
               null,
@@ -94870,7 +94954,7 @@
             (e()(), r["\u0275ted"](-1, null, [" Install SideQuest Launcher "])),
             (e()(),
             r["\u0275eld"](
-              85,
+              93,
               0,
               null,
               null,
@@ -94885,7 +94969,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              86,
+              94,
               0,
               null,
               null,
@@ -94900,7 +94984,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              87,
+              95,
               0,
               null,
               null,
@@ -94919,7 +95003,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              89,
+              97,
               0,
               null,
               null,
@@ -94936,7 +95020,7 @@
             (e()(), r["\u0275ted"](-1, null, [" and "])),
             (e()(),
             r["\u0275eld"](
-              92,
+              100,
               0,
               null,
               null,
@@ -94956,7 +95040,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              95,
+              103,
               0,
               null,
               null,
@@ -94971,7 +95055,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              96,
+              104,
               0,
               null,
               null,
@@ -95001,7 +95085,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              98,
+              106,
               0,
               null,
               null,
@@ -95016,7 +95100,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              99,
+              107,
               0,
               null,
               null,
@@ -95031,7 +95115,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              100,
+              108,
               0,
               null,
               null,
@@ -95050,7 +95134,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              102,
+              110,
               0,
               null,
               null,
@@ -95069,7 +95153,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              104,
+              112,
               0,
               null,
               null,
@@ -95088,7 +95172,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              106,
+              114,
               0,
               null,
               null,
@@ -95105,7 +95189,52 @@
             (e()(), r["\u0275ted"](-1, null, [". "])),
             (e()(),
             r["\u0275eld"](
-              109,
+              117,
+              0,
+              null,
+              null,
+              0,
+              "div",
+              [["class", "clear-fix"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              118,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "row"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              119,
+              0,
+              null,
+              null,
+              0,
+              "div",
+              [["class", "col s12"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            r["\u0275eld"](
+              120,
               0,
               null,
               null,
@@ -95120,7 +95249,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              110,
+              121,
               0,
               null,
               null,
@@ -95135,7 +95264,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              111,
+              122,
               0,
               null,
               null,
@@ -95150,7 +95279,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              112,
+              123,
               0,
               null,
               null,
@@ -95166,7 +95295,7 @@
             (e()(), r["\u0275ted"](-1, null, [" How To Video: RaMarcus "])),
             (e()(),
             r["\u0275eld"](
-              114,
+              125,
               0,
               null,
               null,
@@ -95188,7 +95317,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              115,
+              126,
               0,
               null,
               null,
@@ -95204,7 +95333,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Kindly provided by "])),
             (e()(),
             r["\u0275eld"](
-              117,
+              128,
               0,
               null,
               null,
@@ -95220,7 +95349,7 @@
             (e()(), r["\u0275ted"](-1, null, ["@RaMarcus"])),
             (e()(),
             r["\u0275eld"](
-              119,
+              130,
               0,
               null,
               null,
@@ -95235,7 +95364,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              120,
+              131,
               0,
               null,
               null,
@@ -95250,7 +95379,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              121,
+              132,
               0,
               null,
               null,
@@ -95266,7 +95395,7 @@
             (e()(), r["\u0275ted"](-1, null, [" How To Video: VR Oasis "])),
             (e()(),
             r["\u0275eld"](
-              123,
+              134,
               0,
               null,
               null,
@@ -95288,7 +95417,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              124,
+              135,
               0,
               null,
               null,
@@ -95304,7 +95433,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Kindly provided by "])),
             (e()(),
             r["\u0275eld"](
-              126,
+              137,
               0,
               null,
               null,
@@ -95325,7 +95454,7 @@
             (e()(), r["\u0275ted"](-1, null, ["@Virtual Reality Oasis"])),
             (e()(),
             r["\u0275eld"](
-              128,
+              139,
               0,
               null,
               null,
@@ -95340,7 +95469,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              129,
+              140,
               0,
               null,
               null,
@@ -95355,7 +95484,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              130,
+              141,
               0,
               null,
               null,
@@ -95371,7 +95500,7 @@
             (e()(), r["\u0275ted"](-1, null, [" How To Video: Tyco Tech "])),
             (e()(),
             r["\u0275eld"](
-              132,
+              143,
               0,
               null,
               null,
@@ -95393,7 +95522,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              133,
+              144,
               0,
               null,
               null,
@@ -95409,7 +95538,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Kindly provided by "])),
             (e()(),
             r["\u0275eld"](
-              135,
+              146,
               0,
               null,
               null,
@@ -95430,7 +95559,7 @@
             (e()(), r["\u0275ted"](-1, null, ["@Tyco Tech"])),
             (e()(),
             r["\u0275eld"](
-              137,
+              148,
               0,
               null,
               null,
@@ -95445,7 +95574,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              138,
+              149,
               0,
               null,
               null,
@@ -95460,7 +95589,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              139,
+              150,
               0,
               null,
               null,
@@ -95475,7 +95604,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              140,
+              151,
               0,
               null,
               null,
@@ -95492,7 +95621,7 @@
             r["\u0275ted"](-1, null, [" App Developers Link to your apps! "])),
             (e()(),
             r["\u0275eld"](
-              142,
+              153,
               0,
               null,
               null,
@@ -95511,7 +95640,7 @@
             ])),
             (e()(),
             r["\u0275eld"](
-              144,
+              155,
               0,
               null,
               null,
@@ -95533,7 +95662,7 @@
               null
             )),
             r["\u0275did"](
-              145,
+              156,
               4931584,
               null,
               0,
@@ -95545,7 +95674,7 @@
             (e()(), r["\u0275ted"](-1, null, ["sidequest://repo#URL_OF_REPO"])),
             (e()(),
             r["\u0275eld"](
-              147,
+              158,
               0,
               null,
               null,
@@ -95560,7 +95689,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              148,
+              159,
               0,
               null,
               null,
@@ -95584,7 +95713,7 @@
             r["\u0275ted"](-1, null, ["sidequest://sideload#URL_OF_APK"])),
             (e()(),
             r["\u0275eld"](
-              150,
+              161,
               0,
               null,
               null,
@@ -95599,7 +95728,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              151,
+              162,
               0,
               null,
               null,
@@ -95623,7 +95752,7 @@
             r["\u0275ted"](-1, null, ["sidequest://bsaber#URL_OR_ID_OF_SONG"])),
             (e()(),
             r["\u0275eld"](
-              153,
+              164,
               0,
               null,
               null,
@@ -95638,7 +95767,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              154,
+              165,
               0,
               null,
               null,
@@ -95653,7 +95782,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              155,
+              166,
               0,
               null,
               null,
@@ -95668,7 +95797,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              156,
+              167,
               0,
               null,
               null,
@@ -95683,7 +95812,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              157,
+              168,
               0,
               null,
               null,
@@ -95698,7 +95827,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              158,
+              169,
               0,
               null,
               null,
@@ -95713,7 +95842,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              159,
+              170,
               0,
               null,
               null,
@@ -95732,7 +95861,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              160,
+              171,
               0,
               null,
               null,
@@ -95748,7 +95877,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Address"])),
             (e()(),
             r["\u0275eld"](
-              162,
+              173,
               0,
               null,
               null,
@@ -95763,7 +95892,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              163,
+              174,
               0,
               null,
               null,
@@ -95778,7 +95907,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              164,
+              175,
               0,
               null,
               null,
@@ -95792,7 +95921,7 @@
               null
             )),
             r["\u0275did"](
-              165,
+              176,
               147456,
               null,
               0,
@@ -95802,7 +95931,7 @@
               null
             ),
             r["\u0275did"](
-              166,
+              177,
               147456,
               null,
               0,
@@ -95814,7 +95943,7 @@
             (e()(), r["\u0275ted"](-1, null, ["repo"])),
             (e()(),
             r["\u0275eld"](
-              168,
+              179,
               0,
               null,
               null,
@@ -95828,7 +95957,7 @@
               null
             )),
             r["\u0275did"](
-              169,
+              180,
               147456,
               null,
               0,
@@ -95838,7 +95967,7 @@
               null
             ),
             r["\u0275did"](
-              170,
+              181,
               147456,
               null,
               0,
@@ -95850,7 +95979,7 @@
             (e()(), r["\u0275ted"](-1, null, ["sideload"])),
             (e()(),
             r["\u0275eld"](
-              172,
+              183,
               0,
               null,
               null,
@@ -95864,7 +95993,7 @@
               null
             )),
             r["\u0275did"](
-              173,
+              184,
               147456,
               null,
               0,
@@ -95874,7 +96003,7 @@
               null
             ),
             r["\u0275did"](
-              174,
+              185,
               147456,
               null,
               0,
@@ -95886,7 +96015,7 @@
             (e()(), r["\u0275ted"](-1, null, ["bsaber"])),
             (e()(),
             r["\u0275eld"](
-              176,
+              187,
               0,
               null,
               null,
@@ -95902,7 +96031,7 @@
             (e()(), r["\u0275ted"](-1, null, ["Link Type"])),
             (e()(),
             r["\u0275eld"](
-              178,
+              189,
               0,
               null,
               null,
@@ -95917,7 +96046,7 @@
             )),
             (e()(),
             r["\u0275eld"](
-              179,
+              190,
               0,
               null,
               null,
@@ -95941,9 +96070,10 @@
                 "bottom",
                 "Use this option if you prefer a one off donation."
               ),
+              e(n, 35, 0),
               e(
                 n,
-                145,
+                156,
                 0,
                 "right",
                 "Example: sidequest://repo#https://example.com/fdroid/repo"
