@@ -43,10 +43,10 @@
   background-size: cover;
   background-position: center center;
   position: relative;
+  margin-bottom: 20px;
 }
 .small-image{
   height: 165px;
-  margin-bottom: 20px;
 }
 .tall-placeholder{
   height: 525px;

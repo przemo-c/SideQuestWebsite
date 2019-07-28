@@ -67389,7 +67389,7 @@
           encapsulation: 0,
           styles: [
             [
-              ".side-border[_ngcontent-%COMP%]{border-left:1px solid #fff}.side-border[_ngcontent-%COMP%]:first-child{border-left:0 solid #fff}.masonry-layout[_ngcontent-%COMP%]{text-align:center;margin-left:10px}.masonry-item[_ngcontent-%COMP%]{width:calc(25% - 17.5px)}.card-image-left[_ngcontent-%COMP%]{height:146px;float:left;width:194.6666666666667px;background-size:cover;background-position:center center;margin-right:2em}.card-title-small[_ngcontent-%COMP%]{width:calc(100% - 300px)!important}.card-title.truncate[_ngcontent-%COMP%], .description.truncate[_ngcontent-%COMP%]{width:calc(100% - 50px)}@media screen and (max-width:992px){.masonry-item[_ngcontent-%COMP%]{width:calc(50% - 17.5px)}}.card-content[_ngcontent-%COMP%]{background-color:#312249}.layout-button[_ngcontent-%COMP%]{margin:.5em;cursor:pointer}.small-image[_ngcontent-%COMP%], .tall-image[_ngcontent-%COMP%], .tall-placeholder[_ngcontent-%COMP%]{height:350px;width:100%;background-size:cover;background-position:center center;position:relative}.small-image[_ngcontent-%COMP%]{height:165px;margin-bottom:20px}.tall-placeholder[_ngcontent-%COMP%]{height:525px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.top-chip[_ngcontent-%COMP%]{margin-left:1em;margin-right:1em}"
+              ".side-border[_ngcontent-%COMP%]{border-left:1px solid #fff}.side-border[_ngcontent-%COMP%]:first-child{border-left:0 solid #fff}.masonry-layout[_ngcontent-%COMP%]{text-align:center;margin-left:10px}.masonry-item[_ngcontent-%COMP%]{width:calc(25% - 17.5px)}.card-image-left[_ngcontent-%COMP%]{height:146px;float:left;width:194.6666666666667px;background-size:cover;background-position:center center;margin-right:2em}.card-title-small[_ngcontent-%COMP%]{width:calc(100% - 300px)!important}.card-title.truncate[_ngcontent-%COMP%], .description.truncate[_ngcontent-%COMP%]{width:calc(100% - 50px)}@media screen and (max-width:992px){.masonry-item[_ngcontent-%COMP%]{width:calc(50% - 17.5px)}}.card-content[_ngcontent-%COMP%]{background-color:#312249}.layout-button[_ngcontent-%COMP%]{margin:.5em;cursor:pointer}.small-image[_ngcontent-%COMP%], .tall-image[_ngcontent-%COMP%], .tall-placeholder[_ngcontent-%COMP%]{height:350px;width:100%;background-size:cover;background-position:center center;position:relative;margin-bottom:20px}.small-image[_ngcontent-%COMP%]{height:165px}.tall-placeholder[_ngcontent-%COMP%]{height:525px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.top-chip[_ngcontent-%COMP%]{margin-left:1em;margin-right:1em}"
             ]
           ],
           data: {}
@@ -67490,7 +67490,7 @@
               null,
               6,
               "div",
-              [["class", "col s6"]],
+              [["class", "col s12 m6"]],
               null,
               null,
               null,
@@ -67571,7 +67571,7 @@
               null,
               12,
               "div",
-              [["class", "col s6"]],
+              [["class", "col s12 m6"]],
               null,
               null,
               null,
@@ -67718,7 +67718,7 @@
               null,
               6,
               "div",
-              [["class", "col s3"]],
+              [["class", "col s6 m3"]],
               null,
               null,
               null,
@@ -67799,7 +67799,7 @@
               null,
               6,
               "div",
-              [["class", "col s3"]],
+              [["class", "col s6 m3"]],
               null,
               null,
               null,
@@ -67880,7 +67880,7 @@
               null,
               6,
               "div",
-              [["class", "col s3"]],
+              [["class", "col s6 m3"]],
               null,
               null,
               null,
@@ -67961,7 +67961,7 @@
               null,
               6,
               "div",
-              [["class", "col s3"]],
+              [["class", "col s6 m3"]],
               null,
               null,
               null,
