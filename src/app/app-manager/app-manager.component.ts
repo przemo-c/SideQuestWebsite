@@ -327,7 +327,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   refreshShareLink() {
-    fetch(
+    return fetch(
       "https://xpan.cc/delete-link/" +
         this.expanseService.currentSession.token +
         "/a-" +
@@ -362,8 +362,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
         )
       )
       .then(r => r.json())
-      .then(r => (this.currentApp.donate_url = r.url))
-      .then(() => this.copyShareUrl(true));
+      .then(r => (this.currentApp.donate_url = r.url));
   }
 
   onAddTag(e) {
@@ -616,40 +615,41 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       .map(t => t.tag)
       .join(",");
     if (this.apps_id) {
-      this.expanseService
-        .editApp(
-          this.apps_id,
-          this.currentApp.name,
-          this.currentApp.image_url,
-          this.currentApp.video_url,
-          this.currentApp.comfort,
-          this.currentApp.summary,
-          this.currentApp.description,
-          this.currentApp.apk_url,
-          this.currentApp.packagename,
-          this.currentApp.versioncode,
-          this.currentApp.versionname,
-          this.currentApp.license,
-          this.currentApp.website,
-          this.currentApp.donate_url,
-          this.currentApp.github_name,
-          this.currentApp.github_repo,
-          this.currentApp.github_tag,
-          this.currentApp.github_enabled,
-          this.currentApp.app_categories_id,
-          this.screenshots,
-          this.currentApp.supports_quest,
-          this.currentApp.supports_go,
-          this.currentApp.supports_other,
-          this.currentApp.search_tags,
-          this.app_urls,
-          this.currentApp.early_access
+      this.refreshShareLink()
+        .then(() =>
+          this.expanseService.editApp(
+            this.apps_id,
+            this.currentApp.name,
+            this.currentApp.image_url,
+            this.currentApp.video_url,
+            this.currentApp.comfort,
+            this.currentApp.summary,
+            this.currentApp.description,
+            this.currentApp.apk_url,
+            this.currentApp.packagename,
+            this.currentApp.versioncode,
+            this.currentApp.versionname,
+            this.currentApp.license,
+            this.currentApp.website,
+            this.currentApp.donate_url,
+            this.currentApp.github_name,
+            this.currentApp.github_repo,
+            this.currentApp.github_tag,
+            this.currentApp.github_enabled,
+            this.currentApp.app_categories_id,
+            this.screenshots,
+            this.currentApp.supports_quest,
+            this.currentApp.supports_go,
+            this.currentApp.supports_other,
+            this.currentApp.search_tags,
+            this.app_urls,
+            this.currentApp.early_access
+          )
         )
         .then((res: any) => {
           this.service.showMessage(res, "App Saved!");
           if (!this.currentApp.active) {
             this.sendForApproval(this.apps_id);
-            this.refreshShareLink();
           }
         });
     } else {
