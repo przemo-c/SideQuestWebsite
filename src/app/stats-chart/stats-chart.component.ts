@@ -264,14 +264,14 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
         l = array.length,
         i;
       for (i = 0; i < l; i++) {
-        array[i].counter = +array[i].counter;
+        array[i].counter = Number(array[i].counter);
         let key = (array[i].hour_time || array[i].day_time) + array[i].type;
         if (flags[key]) {
           output[flags[key]].counter += +array[i].counter;
-          continue;
+        } else {
+          output.push(array[i]);
+          flags[key] = output.length - 1;
         }
-        flags[key] = i;
-        output.push(array[i]);
       }
       return output;
     }

@@ -647,9 +647,9 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
         )
         .then((res: any) => {
           this.service.showMessage(res, "App Saved!");
-          console.log(this.currentApp.active);
           if (!this.currentApp.active) {
             this.sendForApproval(this.apps_id);
+            this.refreshShareLink();
           }
         });
     } else {
@@ -684,6 +684,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
         .then((res: any) => {
           this.service.showMessage(res, "App Saved!");
           if (!res.error && res.length) {
+            this.refreshShareLink();
             this.sendForApproval(res[0].apps_id).then(() =>
               this.router.navigateByUrl("/my-app/" + res[0].apps_id)
             );

@@ -450,8 +450,7 @@
         <div class="right-align grey-text">This url will show your apps description when shared on social media.</div>
         <div class="center-align">
           <br><br><br>
-          <div class="btn waves-effect waves-light pink-button margin-left small-button" (click)="refreshShareLink()" *ngIf="apps_id">Refresh</div>
-          <div *ngIf="currentApp.donate_url && apps_id" class="btn waves-effect waves-light pink-button margin-left small-button" (click)="copyShareUrl()">Copy</div>
+          <div *ngIf="currentApp.donate_url && apps_id" class="btn waves-effect waves-light pink-button margin-left" (click)="copyShareUrl()">Copy To Clipboard</div>
 
           <br><br>
           <span *ngIf="currentApp.donate_url">Share URL: {{currentApp.donate_url}}</span>

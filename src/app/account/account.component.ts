@@ -107,6 +107,7 @@ export class AccountComponent implements OnInit {
       .then((resp: AppListing[]) => {
         this.myInstalledApps = resp;
         this.checkForUpdates();
+        console.log(this.myInstalledApps);
       });
   }
   async setAppsToImport() {
