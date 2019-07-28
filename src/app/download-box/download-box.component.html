@@ -1,4 +1,29 @@
-<div *ngFor="let asset of assets">
-  <div (click)="openUrl(asset.browser_download_url)" class="waves-effect waves-light btn pink-button">{{asset.name}}</div> <br>
-  <i>{{asset.download_count}} downloads</i><br><br>
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Windows</span>
+    <div class="download-buttons" *ngFor="let asset of assetsWindows">
+      <div (click)="openUrl(asset.browser_download_url)" class="waves-effect waves-light btn pink-button">{{asset.name}}</div> <br>
+      <i>{{asset.size / 1024 / 1024 | number:'1.1-2'}}MB / {{asset.download_count}} downloads</i><br><br>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">macOS</span>
+    <div class="download-buttons" *ngFor="let asset of assetsMac">
+      <div (click)="openUrl(asset.browser_download_url)" class="waves-effect waves-light btn pink-button">{{asset.name}}</div> <br>
+      <i>{{asset.size / 1024 / 1024 | number:'1.1-2'}}MB / {{asset.download_count}} downloads</i><br><br>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Linux</span>
+      <div class="download-buttons" *ngFor="let asset of assetsLinux">
+        <div (click)="openUrl(asset.browser_download_url)" class="waves-effect waves-light btn pink-button">{{asset.name}}</div> <br>
+        <i>{{asset.size / 1024 / 1024 | number:'1.1-2'}}MB / {{asset.download_count}} downloads</i><br><br>
+      </div>
+  </div>
 </div>
