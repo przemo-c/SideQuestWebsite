@@ -48,6 +48,9 @@
   cursor: pointer;
   border: 2px solid white;
 }
+.top-image:first-of-type{
+  margin-right: 0.3em;
+}
 .top-image{
   height: 45px;
   vertical-align: middle;

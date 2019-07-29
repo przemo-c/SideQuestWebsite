@@ -7,6 +7,9 @@
     <img class="responsive-img top-image pointer"
          *ngIf="currentApp.image_url"
          src="{{currentApp.image_url}}" (click)="openImage(screenshots.length)"/>
+    <img class="responsive-img top-image circle"
+         *ngIf="currentApp.preview_image"
+         src="{{expanseService.cdnUrl+currentApp.preview_image}}"/>
     {{currentApp.name}}
     <span *ngIf="!currentApp.active" class="chip white-text orange">Pending</span>
     <div class="btn waves-effect waves-light white-text pink-button small-button"
