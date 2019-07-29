@@ -41,6 +41,8 @@ import { LightboxModule } from "ngx-lightbox";
 import { ChartsModule } from "ng2-charts";
 import { StatsChartComponent } from "./stats-chart/stats-chart.component";
 import { NgxDaterangepickerMd } from "ngx-daterangepicker-material";
+import { AvatarPickerComponent } from "./avatar-picker/avatar-picker.component";
+import { AvatarEditorComponent } from "./avatar-editor/avatar-editor.component";
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { NgxDaterangepickerMd } from "ngx-daterangepicker-material";
     AppsComponent,
     ResetPasswordComponent,
     AppListingComponent,
-    StatsChartComponent
+    StatsChartComponent,
+    AvatarPickerComponent,
+    AvatarEditorComponent
   ],
   imports: [
     BrowserModule,

@@ -14,10 +14,22 @@ import { AccountComponent } from "./account/account.component";
 import { AppsComponent } from "./apps/apps.component";
 import { ResetPasswordComponent } from "./reset-password/reset-password.component";
 import { AppListingComponent } from "./app-listing/app-listing.component";
+import { AvatarPickerComponent } from "./avatar-picker/avatar-picker.component";
+import { AvatarEditorComponent } from "./avatar-editor/avatar-editor.component";
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
   { path: "download", component: DownloadSideQuestComponent },
+  {
+    path: "avatar-editor",
+    component: AvatarEditorComponent,
+    canActivate: [LoginGuard]
+  },
+  {
+    path: "avatar-picker",
+    component: AvatarPickerComponent,
+    canActivate: [LoginGuard]
+  },
   { path: "what-is-sidequest", component: WhatIsSideQuestComponent },
   { path: "app/:apps_id", component: AppListingComponent },
   { path: "my-app", component: AppManagerComponent, canActivate: [LoginGuard] },

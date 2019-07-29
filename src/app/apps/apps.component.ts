@@ -24,6 +24,14 @@ export class AppsComponent implements OnInit, OnDestroy {
   isLoaded: boolean;
   searchTimeout: number;
   isRecent: boolean = true;
+  searchTags: Materialize.AutoCompleteOptions;
+  autocompleteOptions: Materialize.AutoCompleteOptions = {
+    data: {
+      Apple: null,
+      Microsoft: null,
+      Google: "assets/google_g_logo.png"
+    }
+  };
   constructor(
     private expanseService: ExpanseClientService,
     public appService: AppService,
@@ -46,6 +54,13 @@ export class AppsComponent implements OnInit, OnDestroy {
         }
       }
     });
+    this.searchTags = {
+      data: {
+        Apple: null,
+        Microsoft: null,
+        Google: null
+      }
+    };
   }
 
   debounceSearch() {
@@ -120,4 +135,8 @@ export class AppsComponent implements OnInit, OnDestroy {
       })
     );
   }
+
+  onAdd() {}
+  onDelete() {}
+  onSelect() {}
 }

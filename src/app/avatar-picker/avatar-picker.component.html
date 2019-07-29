@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="waves-effect waves-light btn right pink-button" (click)="saveBody()">Save Body Type</div>
+  <h4>Select Body Type</h4>
+  <hr>
+  <div class="row">
+    <div class="col s6 m4 l3" *ngFor="let body of bodyTypes">
+      <img class="responsive-img pointer" [ngClass]="{'selected':body.selected}" mz-tooltip tooltip="{{body.name}}" position="top"
+           (click)="resetBody();body.selected = true" src="{{expanseService.cdnUrl+body.image}}"/>
+    </div>
+  </div>
+  <div class="waves-effect waves-light btn right pink-button" (click)="saveTexture()">Save Texture</div>
+  <h4>Select Texture</h4>
+  <hr>
+  <div class="row">
+    <!--<div class="col s6 m4 l3">-->
+      <!--<div class="add-avatar pointer" routerLink="/avatar-editor">-->
+        <!--<div class="add-avatar-inner">Add Custom Avatar</div>-->
+      <!--</div>-->
+    <!--</div>-->
+    <div class="col s6 m4 l3" *ngFor="let texture of textureTypes">
+      <div class="small-image" [ngClass]="{'selected':texture.selected}" [ngStyle]="{'background-image':'url(\''+expanseService.cdnUrl+texture.image+'\')'}">
+        <app-over-image [firstNews]="{title: '', description: texture.name}" (output)="resetTexture();texture.selected = true"></app-over-image>
+      </div>
+    </div>
+  </div>
+</div>

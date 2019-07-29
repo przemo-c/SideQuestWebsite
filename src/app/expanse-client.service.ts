@@ -68,14 +68,14 @@ export class ExpanseClientService {
       }
       this.openResolves.push(resolve);
     })
-      .then(async () => {
-        this.currentSession = await this.getCurrentSession();
-        console.log(this.currentSession.token);
-        this.appService.isAuthenticated = !!this.currentSession;
-      })
+      .then(() => this.refreshSession())
       .catch(e => {
         console.log(e);
       });
+  }
+  async refreshSession() {
+    this.currentSession = await this.getCurrentSession();
+    this.appService.isAuthenticated = !!this.currentSession;
   }
   getInstalledApps(search, page) {
     return this.start()
@@ -615,6 +615,9 @@ export class ExpanseClientService {
   }
   setUserAvatarImage(avatar_images_id) {
     return this.emit("set-user-avatar-image", { avatar_images_id });
+  }
+  setUserAvatarMesh(type) {
+    return this.emit("set-user-avatar-mesh", { type });
   }
   saveAvatarImage(image, preview) {
     return this.emit("save-avatar-images", { image, preview });
