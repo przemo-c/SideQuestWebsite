@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from "@angular/core";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { Subscription } from "rxjs";
 
@@ -7,7 +13,7 @@ import { Subscription } from "rxjs";
   templateUrl: "./avatar-editor.component.html",
   styleUrls: ["./avatar-editor.component.css"]
 })
-export class AvatarEditorComponent implements OnInit, AfterViewInit {
+export class AvatarEditorComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild("editorFrame", { static: true }) editorFrame;
   origin = "http://localhost:4201";
   loadUrl: string;
@@ -63,5 +69,9 @@ export class AvatarEditorComponent implements OnInit, AfterViewInit {
       message,
       this.origin
     );
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }

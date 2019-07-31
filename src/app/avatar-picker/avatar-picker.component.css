@@ -32,6 +32,11 @@
   left: initial;
   right: 0;
 }
+.pending-chip{
+  position:absolute;
+  top: 30px;
+  left: 5px;
+}
 .small-image{
   height: 350px;
   width: 100%;

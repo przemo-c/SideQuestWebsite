@@ -40,6 +40,14 @@ export class UploadService {
           .then(() =>
             this.expanseService
               .saveAvatarImage(avatarImage, avatarPreview)
+              .then((res: any) => {
+                if (res.length) {
+                  return fetch(
+                    "https://shanesedit.org:5678/new_avatar/" +
+                      res[0].avatar_images_id
+                  );
+                }
+              })
               .then(() => this.appService.showMessage({}, "Avatar saved!!"))
               .then(() => this.router.navigateByUrl("/avatar-picker"))
           );

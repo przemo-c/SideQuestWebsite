@@ -22,8 +22,9 @@
       <div class="small-image" [ngClass]="{'selected':texture.selected}" [ngStyle]="{'background-image':'url(\''+expanseService.cdnUrl+texture.image+'\')'}">
         <i class="material-icons edit-avatar" (click)="editAvatar(texture.avatar_images_id)">edit</i>
         <i *ngIf="texture.is_custom" class="material-icons delete-avatar" (click)="currentId = texture.avatar_images_id;deleteAvatar.openModal()">close</i>
-
-        <app-over-image [firstNews]="{title: '', description: texture.name}" (output)="resetTexture();texture.selected = true"></app-over-image>
+        <span *ngIf="!texture.is_approved" class="chip orange white-text pending-chip">Pending</span>
+        <app-over-image *ngIf="texture.is_approved" [firstNews]="{title: '', description: texture.name}" (output)="resetTexture();texture.selected = true"></app-over-image>
+        <app-over-image *ngIf="!texture.is_approved" [firstNews]="{title: '', description: texture.name}"></app-over-image>
       </div>
     </div>
   </div>
