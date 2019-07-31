@@ -1,6 +1,9 @@
 <div class="container">
-  <div class="waves-effect waves-light btn right pink-button">Save Custom Avatar</div>
+  <div class="waves-effect waves-light btn right pink-button" (click)="saveAvatar()">Save Custom Avatar</div>
   <h4>Custom Avatar Painter</h4>
   <hr>
-  <iframe width="100%" height="550px" src="https://app.theexpanse.app/avatar-editor.html" allow="vr" style="border: 2px solid #cfcfcf"></iframe>
+  <iframe #editorFrame width="100%" height="550px" src="/assets/avatar-editor.html" allow="vr" style="border: 2px solid #cfcfcf"></iframe>
+  <div class="waves-effect waves-light btn right pink-button" (click)="clearImage()">Clear Image</div>
+  <div class="waves-effect waves-light btn pink-button margin-right" (click)="pickImage()">Upload Image</div>
+  <div class="waves-effect waves-light btn pink-button margin-right" (click)="downloadImage()">Download Image</div>
 </div>

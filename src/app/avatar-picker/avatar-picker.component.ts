@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { ExpanseClientService } from "../expanse-client.service";
 import { AppService } from "../app.service";
+import { Router } from "@angular/router";
+import { UploadService } from "../upload.service";
 
 @Component({
   selector: "app-avatar-picker",
@@ -16,8 +18,8 @@ export class AvatarPickerComponent implements OnInit {
     },
     { name: "Male", image: "avatars/previews/geometry/male.png", type: "male" }
   ];
-
-  textureTypes: any[] = [
+  textureTypes: any[] = [];
+  defaultTextureTypes: any[] = [
     {
       name: "Archer Girl",
       image: "avatars/previews/texture/archer.png",
@@ -169,24 +171,40 @@ export class AvatarPickerComponent implements OnInit {
       is_approved: true
     }
   ];
+  currentId: any;
   constructor(
     public expanseService: ExpanseClientService,
-    private appService: AppService
+    private uploadService: UploadService,
+    private appService: AppService,
+    private router: Router
   ) {
+    this.getAvatars();
+  }
+
+  ngOnInit() {}
+
+  resetBody() {
+    this.bodyTypes.forEach((type: any) => (type.selected = false));
+  }
+
+  getAvatars() {
     this.expanseService
       .start()
       .then(() => this.expanseService.getAvatarImages())
       .then((images: any) => {
+        console.log(images);
         this.textureTypes = images
           .map(image => {
             return {
               name: "Custom Avatar " + image.avatar_images_id,
               image: image.preview_image,
+              src_image: image.image,
               avatar_images_id: image.avatar_images_id,
-              is_approved: image.is_approved
+              is_approved: image.is_approved,
+              is_custom: true
             };
           })
-          .concat(this.textureTypes);
+          .concat(this.defaultTextureTypes);
         this.textureTypes.forEach(tex => {
           if (
             this.expanseService.currentSession.avatar_images_id ===
@@ -205,10 +223,22 @@ export class AvatarPickerComponent implements OnInit {
       });
   }
 
-  ngOnInit() {}
+  deleteAvatarImage() {
+    this.expanseService
+      .deleteAvatarImage(this.currentId)
+      .then(() => this.getAvatars());
+  }
 
-  resetBody() {
-    this.bodyTypes.forEach((type: any) => (type.selected = false));
+  editAvatar(avatar_images_id) {
+    this.expanseService
+      .getAvatarImages(avatar_images_id)
+      .then((images: any) => {
+        if (images.length) {
+          this.router.navigateByUrl(
+            "/avatar-editor/" + encodeURIComponent(images[0].image)
+          );
+        }
+      });
   }
 
   resetTexture() {

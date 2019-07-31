@@ -40,6 +40,7 @@ export class ExpanseClientService {
     this.openResolves = [];
     this.storageKey = "";
   }
+
   setStorageKey(storageKey: string) {
     this.storageKey = storageKey || "";
   }
@@ -610,8 +611,8 @@ export class ExpanseClientService {
   saveUserPassword(password) {
     return this.emit("save-user-password", { password });
   }
-  getAvatarImages() {
-    return this.emit("get-avatar-images", {});
+  getAvatarImages(avatar_images_id?) {
+    return this.emit("get-avatar-images", { avatar_images_id });
   }
   setUserAvatarImage(avatar_images_id) {
     return this.emit("set-user-avatar-image", { avatar_images_id });

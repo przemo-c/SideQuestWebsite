@@ -5,6 +5,7 @@ import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { MzToastService } from "ngx-materialize";
 import { ExpanseClientService } from "./expanse-client.service";
 import { AppListing } from "./account/account.component";
+import { UploadService } from "./upload.service";
 declare const M;
 @Component({
   selector: "app-root",
@@ -22,7 +23,8 @@ export class AppComponent implements AfterViewInit {
     public appService: AppService,
     private router: Router,
     route: ActivatedRoute,
-    private toastService: MzToastService
+    private toastService: MzToastService,
+    private uploadService: UploadService
   ) {
     this.sub = router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {

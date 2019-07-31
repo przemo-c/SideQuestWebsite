@@ -26,6 +26,11 @@ const routes: Routes = [
     canActivate: [LoginGuard]
   },
   {
+    path: "avatar-editor/:url",
+    component: AvatarEditorComponent,
+    canActivate: [LoginGuard]
+  },
+  {
     path: "avatar-picker",
     component: AvatarPickerComponent,
     canActivate: [LoginGuard]

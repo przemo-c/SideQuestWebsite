@@ -25,6 +25,7 @@ import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
 import * as moment from "moment";
 import DateOptions = Pickadate.DateOptions;
 import DateItem = Pickadate.DateItem;
+import { UploadService } from "../upload.service";
 export interface VideObject {
   id: string;
   mediaType: string;
@@ -136,7 +137,8 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     private service: AppService,
     private expanseService: ExpanseClientService,
     private sanitizer: DomSanitizer,
-    route: ActivatedRoute
+    route: ActivatedRoute,
+    private uploadService: UploadService
   ) {
     this.sub = this.router.events.subscribe(async val => {
       if (val instanceof NavigationEnd) {
@@ -196,13 +198,12 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       e.stopPropagation();
       if (e.dataTransfer.files.length) {
         this.is_loading_icon = true;
-        this.uploadFile(
-          e.dataTransfer.files[0],
-          e.dataTransfer.files[0].name
-        ).then((res: any) => {
-          this.currentApp.image_url = this.expanseService.cdnUrl + res.path;
-          this.is_loading_icon = false;
-        });
+        this.uploadService
+          .uploadFile(e.dataTransfer.files[0], e.dataTransfer.files[0].name)
+          .then((res: any) => {
+            this.currentApp.image_url = this.expanseService.cdnUrl + res.path;
+            this.is_loading_icon = false;
+          });
       }
     };
     const eleScreenshot = this.addScreenshot.nativeElement;
@@ -211,13 +212,12 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       e.stopPropagation();
       this.is_loading_screenshot = true;
       if (e.dataTransfer.files.length) {
-        this.uploadFile(
-          e.dataTransfer.files[0],
-          e.dataTransfer.files[0].name
-        ).then((res: any) => {
-          this.screenshots.push(this.expanseService.cdnUrl + res.path);
-          this.is_loading_screenshot = false;
-        });
+        this.uploadService
+          .uploadFile(e.dataTransfer.files[0], e.dataTransfer.files[0].name)
+          .then((res: any) => {
+            this.screenshots.push(this.expanseService.cdnUrl + res.path);
+            this.is_loading_screenshot = false;
+          });
       }
     };
 
@@ -497,17 +497,19 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
           } else {
             this.is_loading_screenshot = true;
           }
-          this.uploadFile(
-            (e.target as any).files[0],
-            (e.target as any).files[0].name
-          ).then(res => {
-            if (is_icon) {
-              this.is_loading_icon = false;
-            } else {
-              this.is_loading_screenshot = false;
-            }
-            resolve(res);
-          });
+          this.uploadService
+            .uploadFile(
+              (e.target as any).files[0],
+              (e.target as any).files[0].name
+            )
+            .then(res => {
+              if (is_icon) {
+                this.is_loading_icon = false;
+              } else {
+                this.is_loading_screenshot = false;
+              }
+              resolve(res);
+            });
         }
         document.body.removeChild(upload);
       });
@@ -523,42 +525,6 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       document.body.appendChild(upload);
       upload.click();
     });
-  }
-  uploadFile(file, filename) {
-    let formData = new FormData();
-    formData.append("file", file, filename);
-    let cdnToken;
-    return this.expanseService
-      .getCurrentSession()
-      .then((resp: any) => {
-        cdnToken = resp.token;
-      })
-      .then(() =>
-        fetch(
-          this.expanseService.cdnUrl +
-            "create-upload/" +
-            cdnToken +
-            "/?" +
-            new Date().getTime()
-        )
-      )
-      .then(res => res.json())
-      .then(json =>
-        fetch(
-          this.expanseService.cdnUrl +
-            "upload-file/" +
-            cdnToken +
-            "/" +
-            json.fileId +
-            "/" +
-            (filename || file.name),
-          {
-            method: "post",
-            body: formData
-          }
-        )
-      )
-      .then(res => res.json());
   }
 
   backFillGithubRelease() {

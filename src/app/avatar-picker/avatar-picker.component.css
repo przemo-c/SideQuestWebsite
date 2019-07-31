@@ -20,7 +20,18 @@
   transform: translate(-50%, -50%);
   font-size: 1.1em;
 }
-
+.edit-avatar, .delete-avatar{
+  position: absolute;
+  background: rgba(100, 100, 100, 0.4);
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+.delete-avatar{
+  left: initial;
+  right: 0;
+}
 .small-image{
   height: 350px;
   width: 100%;

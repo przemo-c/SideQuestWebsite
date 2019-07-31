@@ -43,6 +43,7 @@ import { StatsChartComponent } from "./stats-chart/stats-chart.component";
 import { NgxDaterangepickerMd } from "ngx-daterangepicker-material";
 import { AvatarPickerComponent } from "./avatar-picker/avatar-picker.component";
 import { AvatarEditorComponent } from "./avatar-editor/avatar-editor.component";
+import { EncodeURIComponentPipe } from "./encode-uricomponent.pipe";
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AvatarEditorComponent } from "./avatar-editor/avatar-editor.component";
     AppListingComponent,
     StatsChartComponent,
     AvatarPickerComponent,
-    AvatarEditorComponent
+    AvatarEditorComponent,
+    EncodeURIComponentPipe
   ],
   imports: [
     BrowserModule,

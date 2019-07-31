@@ -12,15 +12,32 @@
   <h4>Select Texture</h4>
   <hr>
   <div class="row">
-    <!--<div class="col s6 m4 l3">-->
-      <!--<div class="add-avatar pointer" routerLink="/avatar-editor">-->
-        <!--<div class="add-avatar-inner">Add Custom Avatar</div>-->
-      <!--</div>-->
-    <!--</div>-->
-    <div class="col s6 m4 l3" *ngFor="let texture of textureTypes">
+    <div class="col s6 m4 l3">
+      <div class="add-avatar pointer" routerLink="/avatar-editor">
+        <div class="add-avatar-inner">Add Custom Avatar</div>
+      </div>
+    </div>
+
+    <div class="col s6 m4 l3 relative" *ngFor="let texture of textureTypes">
       <div class="small-image" [ngClass]="{'selected':texture.selected}" [ngStyle]="{'background-image':'url(\''+expanseService.cdnUrl+texture.image+'\')'}">
+        <i class="material-icons edit-avatar" (click)="editAvatar(texture.avatar_images_id)">edit</i>
+        <i *ngIf="texture.is_custom" class="material-icons delete-avatar" (click)="currentId = texture.avatar_images_id;deleteAvatar.openModal()">close</i>
+
         <app-over-image [firstNews]="{title: '', description: texture.name}" (output)="resetTexture();texture.selected = true"></app-over-image>
       </div>
     </div>
   </div>
 </div>
+
+<mz-modal #deleteAvatar [fixedFooter]="true">
+  <mz-modal-header>
+    <h4>Delete this Avatar?</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    Are you sure you want to delete this avatar texture? You cannot undo this!
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
+    <button mz-button class="red" mz-modal-close (click)="deleteAvatarImage()">DELETE Avatar</button>
+  </mz-modal-footer>
+</mz-modal>
