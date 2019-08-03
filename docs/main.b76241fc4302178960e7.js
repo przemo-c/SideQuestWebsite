@@ -100203,314 +100203,6 @@
               0,
               null,
               null,
-              5,
-              "div",
-              [
-                ["class", "chip pointer margin-right menu-chip"],
-                ["mz-tooltip", ""],
-                ["position", "bottom"],
-                ["routerLink", "/apps/2"],
-                ["tooltip", "Official VR Apps for Go and Quest."]
-              ],
-              null,
-              [[null, "click"]],
-              function(e, n, t) {
-                var r = !0;
-                return (
-                  "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 1).onClick() && r),
-                  r
-                );
-              },
-              null,
-              null
-            )),
-            l["\u0275did"](
-              1,
-              16384,
-              null,
-              0,
-              Dr,
-              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
-              { routerLink: [0, "routerLink"] },
-              null
-            ),
-            l["\u0275did"](
-              2,
-              4931584,
-              null,
-              0,
-              xn,
-              [l.ElementRef, l.Renderer],
-              { position: [0, "position"], tooltip: [1, "tooltip"] },
-              null
-            ),
-            (e()(),
-            l["\u0275eld"](
-              3,
-              0,
-              null,
-              null,
-              1,
-              "i",
-              [["class", "material-icons prefix"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](-1, null, ["apps"])),
-            (e()(), l["\u0275ted"](-1, null, [" Installed Apps "]))
-          ],
-          function(e, n) {
-            e(n, 1, 0, "/apps/2"),
-              e(n, 2, 0, "bottom", "Official VR Apps for Go and Quest.");
-          },
-          null
-        );
-      }
-      function Yd(e) {
-        return l["\u0275vid"](
-          0,
-          [
-            (e()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
-              5,
-              "div",
-              [
-                ["class", "chip pointer margin-right menu-chip"],
-                ["mz-tooltip", ""],
-                ["position", "bottom"],
-                ["routerLink", "/apps/4"],
-                ["tooltip", "VR Mods for Go and Quest."]
-              ],
-              null,
-              [[null, "click"]],
-              function(e, n, t) {
-                var r = !0;
-                return (
-                  "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 1).onClick() && r),
-                  r
-                );
-              },
-              null,
-              null
-            )),
-            l["\u0275did"](
-              1,
-              16384,
-              null,
-              0,
-              Dr,
-              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
-              { routerLink: [0, "routerLink"] },
-              null
-            ),
-            l["\u0275did"](
-              2,
-              4931584,
-              null,
-              0,
-              xn,
-              [l.ElementRef, l.Renderer],
-              { position: [0, "position"], tooltip: [1, "tooltip"] },
-              null
-            ),
-            (e()(),
-            l["\u0275eld"](
-              3,
-              0,
-              null,
-              null,
-              1,
-              "i",
-              [["class", "material-icons prefix"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](-1, null, ["list"])),
-            (e()(), l["\u0275ted"](-1, null, [" App Listings "]))
-          ],
-          function(e, n) {
-            e(n, 1, 0, "/apps/4"),
-              e(n, 2, 0, "bottom", "VR Mods for Go and Quest.");
-          },
-          null
-        );
-      }
-      function Pd(e) {
-        return l["\u0275vid"](
-          0,
-          [
-            (e()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
-              5,
-              "div",
-              [
-                ["class", "chip pointer margin-right menu-chip"],
-                ["mz-tooltip", ""],
-                ["position", "bottom"],
-                ["routerLink", "/apps"],
-                ["tooltip", "Official VR Games for Go and Quest."]
-              ],
-              null,
-              [[null, "click"]],
-              function(e, n, t) {
-                var r = !0;
-                return (
-                  "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 1).onClick() && r),
-                  r
-                );
-              },
-              null,
-              null
-            )),
-            l["\u0275did"](
-              1,
-              16384,
-              null,
-              0,
-              Dr,
-              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
-              { routerLink: [0, "routerLink"] },
-              null
-            ),
-            l["\u0275did"](
-              2,
-              4931584,
-              null,
-              0,
-              xn,
-              [l.ElementRef, l.Renderer],
-              { position: [0, "position"], tooltip: [1, "tooltip"] },
-              null
-            ),
-            (e()(),
-            l["\u0275eld"](
-              3,
-              0,
-              null,
-              null,
-              1,
-              "i",
-              [["class", "material-icons prefix"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](-1, null, ["event"])),
-            (e()(), l["\u0275ted"](-1, null, [" Events "]))
-          ],
-          function(e, n) {
-            e(n, 1, 0, "/apps"),
-              e(n, 2, 0, "bottom", "Official VR Games for Go and Quest.");
-          },
-          null
-        );
-      }
-      function jd(e) {
-        return l["\u0275vid"](
-          0,
-          [
-            (e()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
-              5,
-              "div",
-              [
-                ["class", "chip pointer margin-right menu-chip"],
-                ["mz-tooltip", ""],
-                ["position", "bottom"],
-                ["routerLink", "/apps"],
-                ["tooltip", "Official VR Games for Go and Quest."]
-              ],
-              null,
-              [[null, "click"]],
-              function(e, n, t) {
-                var r = !0;
-                return (
-                  "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 1).onClick() && r),
-                  r
-                );
-              },
-              null,
-              null
-            )),
-            l["\u0275did"](
-              1,
-              16384,
-              null,
-              0,
-              Dr,
-              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
-              { routerLink: [0, "routerLink"] },
-              null
-            ),
-            l["\u0275did"](
-              2,
-              4931584,
-              null,
-              0,
-              xn,
-              [l.ElementRef, l.Renderer],
-              { position: [0, "position"], tooltip: [1, "tooltip"] },
-              null
-            ),
-            (e()(),
-            l["\u0275eld"](
-              3,
-              0,
-              null,
-              null,
-              1,
-              "i",
-              [["class", "material-icons prefix"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](-1, null, ["location_on"])),
-            (e()(), l["\u0275ted"](-1, null, [" Spaces "]))
-          ],
-          function(e, n) {
-            e(n, 1, 0, "/apps"),
-              e(n, 2, 0, "bottom", "Official VR Games for Go and Quest.");
-          },
-          null
-        );
-      }
-      function Nd(e) {
-        return l["\u0275vid"](
-          0,
-          [
-            (e()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
               3,
               "div",
               [
@@ -100556,7 +100248,7 @@
           null
         );
       }
-      function Fd(e) {
+      function Yd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -100590,7 +100282,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Nd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ad)),
             l["\u0275did"](
               3,
               16384,
@@ -100886,7 +100578,7 @@
           }
         );
       }
-      function Vd(e) {
+      function Pd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -101015,7 +100707,7 @@
             )),
             (e()(), l["\u0275ted"](-1, null, ["add"])),
             (e()(), l["\u0275ted"](-1, null, [" Add App "])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Yd)),
             l["\u0275did"](
               12,
               278528,
@@ -101064,7 +100756,7 @@
           null
         );
       }
-      function Hd(e) {
+      function jd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -101123,7 +100815,7 @@
           null
         );
       }
-      function zd(e) {
+      function Nd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -101178,7 +100870,7 @@
           null
         );
       }
-      function Ud(e) {
+      function Fd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -101237,7 +100929,7 @@
           null
         );
       }
-      function Wd(e) {
+      function Vd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -101279,7 +100971,7 @@
               null
             ),
             l["\u0275pod"](3, { "background-image": 0 }),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ud)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fd)),
             l["\u0275did"](
               5,
               16384,
@@ -101310,7 +101002,7 @@
           null
         );
       }
-      function Bd(e) {
+      function Hd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -101344,7 +101036,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Wd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vd)),
             l["\u0275did"](
               3,
               16384,
@@ -101597,7 +101289,7 @@
           }
         );
       }
-      function Gd(e) {
+      function zd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -101655,7 +101347,7 @@
           null
         );
       }
-      function $d(e) {
+      function Ud(e) {
         return l["\u0275vid"](
           0,
           [
@@ -101689,7 +101381,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Gd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, zd)),
             l["\u0275did"](
               3,
               16384,
@@ -102093,7 +101785,7 @@
           }
         );
       }
-      function qd(e) {
+      function Wd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -102105,7 +101797,7 @@
               0,
               null,
               null,
-              150,
+              141,
               "div",
               [],
               null,
@@ -102483,7 +102175,7 @@
                 var r = !0;
                 return (
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 154).openModal() && r),
+                    (r = !1 !== l["\u0275nov"](e, 145).openModal() && r),
                   r
                 );
               },
@@ -103234,68 +102926,9 @@
               null,
               null
             )),
-            (e()(),
-            l["\u0275eld"](
-              98,
-              0,
-              null,
-              null,
-              8,
-              "div",
-              [["class", ""]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ad)),
-            l["\u0275did"](
-              100,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Yd)),
-            l["\u0275did"](
-              102,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
             (e()(), l["\u0275and"](16777216, null, null, 1, null, Pd)),
             l["\u0275did"](
-              104,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, jd)),
-            l["\u0275did"](
-              106,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vd)),
-            l["\u0275did"](
-              108,
+              99,
               16384,
               null,
               0,
@@ -103306,7 +102939,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              109,
+              100,
               0,
               null,
               null,
@@ -103319,9 +102952,9 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, jd)),
             l["\u0275did"](
-              111,
+              102,
               16384,
               null,
               0,
@@ -103332,7 +102965,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              112,
+              103,
               0,
               null,
               null,
@@ -103368,7 +103001,7 @@
               null
             )),
             l["\u0275did"](
-              113,
+              104,
               4931584,
               null,
               0,
@@ -103380,7 +103013,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Uninstalled"])),
             (e()(),
             l["\u0275eld"](
-              115,
+              106,
               0,
               null,
               null,
@@ -103416,7 +103049,7 @@
               null
             )),
             l["\u0275did"](
-              116,
+              107,
               4931584,
               null,
               0,
@@ -103428,7 +103061,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Installed"])),
             (e()(),
             l["\u0275eld"](
-              118,
+              109,
               0,
               null,
               null,
@@ -103464,7 +103097,7 @@
               null
             )),
             l["\u0275did"](
-              119,
+              110,
               4931584,
               null,
               0,
@@ -103476,7 +103109,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Updates"])),
             (e()(),
             l["\u0275eld"](
-              121,
+              112,
               0,
               null,
               null,
@@ -103489,10 +103122,10 @@
               null,
               null
             )),
-            (e()(), l["\u0275ted"](122, null, ["My ", ""])),
+            (e()(), l["\u0275ted"](113, null, ["My ", ""])),
             (e()(),
             l["\u0275eld"](
-              123,
+              114,
               0,
               null,
               null,
@@ -103507,7 +103140,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              124,
+              115,
               0,
               null,
               null,
@@ -103520,9 +103153,9 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, zd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Nd)),
             l["\u0275did"](
-              126,
+              117,
               16384,
               null,
               0,
@@ -103531,9 +103164,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Bd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hd)),
             l["\u0275did"](
-              128,
+              119,
               278528,
               null,
               0,
@@ -103544,7 +103177,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              129,
+              120,
               0,
               null,
               null,
@@ -103559,7 +103192,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              130,
+              121,
               0,
               null,
               null,
@@ -103574,7 +103207,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              131,
+              122,
               0,
               null,
               null,
@@ -103589,7 +103222,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              132,
+              123,
               0,
               null,
               null,
@@ -103624,7 +103257,7 @@
               null
             )),
             l["\u0275did"](
-              133,
+              124,
               4931584,
               null,
               0,
@@ -103636,7 +103269,7 @@
             (e()(), l["\u0275ted"](-1, null, ["All"])),
             (e()(),
             l["\u0275eld"](
-              135,
+              126,
               0,
               null,
               null,
@@ -103671,7 +103304,7 @@
               null
             )),
             l["\u0275did"](
-              136,
+              127,
               4931584,
               null,
               0,
@@ -103683,7 +103316,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Past"])),
             (e()(),
             l["\u0275eld"](
-              138,
+              129,
               0,
               null,
               null,
@@ -103718,7 +103351,7 @@
               null
             )),
             l["\u0275did"](
-              139,
+              130,
               4931584,
               null,
               0,
@@ -103730,7 +103363,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Upcoming"])),
             (e()(),
             l["\u0275eld"](
-              141,
+              132,
               0,
               null,
               null,
@@ -103746,7 +103379,7 @@
             (e()(), l["\u0275ted"](-1, null, ["My Events"])),
             (e()(),
             l["\u0275eld"](
-              143,
+              134,
               0,
               null,
               null,
@@ -103761,7 +103394,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              144,
+              135,
               0,
               null,
               null,
@@ -103776,7 +103409,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              145,
+              136,
               0,
               null,
               null,
@@ -103791,7 +103424,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              146,
+              137,
               0,
               null,
               null,
@@ -103804,7 +103437,7 @@
                 var r = !0;
                 return (
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 147).onClick() && r),
+                    (r = !1 !== l["\u0275nov"](e, 138).onClick() && r),
                   r
                 );
               },
@@ -103812,7 +103445,7 @@
               null
             )),
             l["\u0275did"](
-              147,
+              138,
               16384,
               null,
               0,
@@ -103823,7 +103456,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              148,
+              139,
               0,
               null,
               null,
@@ -103838,9 +103471,9 @@
             )),
             (e()(), l["\u0275ted"](-1, null, ["add"])),
             (e()(), l["\u0275ted"](-1, null, [" Add Event "])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, $d)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ud)),
             l["\u0275did"](
-              152,
+              143,
               278528,
               null,
               0,
@@ -103851,7 +103484,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              153,
+              144,
               0,
               null,
               null,
@@ -103865,7 +103498,7 @@
               xo
             )),
             l["\u0275did"](
-              154,
+              145,
               4833280,
               [["passwordModal", 4]],
               0,
@@ -103876,7 +103509,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              155,
+              146,
               0,
               null,
               0,
@@ -103889,10 +103522,10 @@
               null,
               null
             )),
-            l["\u0275did"](156, 16384, null, 0, ln, [], null, null),
+            l["\u0275did"](147, 16384, null, 0, ln, [], null, null),
             (e()(),
             l["\u0275eld"](
-              157,
+              148,
               0,
               null,
               null,
@@ -103908,7 +103541,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Change Password"])),
             (e()(),
             l["\u0275eld"](
-              159,
+              150,
               0,
               null,
               1,
@@ -103921,10 +103554,10 @@
               null,
               null
             )),
-            l["\u0275did"](160, 16384, null, 0, rn, [], null, null),
+            l["\u0275did"](151, 16384, null, 0, rn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              161,
+              152,
               0,
               null,
               null,
@@ -103939,7 +103572,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              162,
+              153,
               0,
               null,
               null,
@@ -103954,7 +103587,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              163,
+              154,
               0,
               null,
               null,
@@ -103969,7 +103602,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              164,
+              155,
               0,
               null,
               null,
@@ -103985,7 +103618,7 @@
             (e()(), l["\u0275ted"](-1, null, ["lock"])),
             (e()(),
             l["\u0275eld"](
-              166,
+              157,
               0,
               null,
               null,
@@ -104019,17 +103652,17 @@
                   "input" === n &&
                     (r =
                       !1 !==
-                        l["\u0275nov"](e, 167)._handleInput(t.target.value) &&
+                        l["\u0275nov"](e, 158)._handleInput(t.target.value) &&
                       r),
                   "blur" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 167).onTouched() && r),
+                    (r = !1 !== l["\u0275nov"](e, 158).onTouched() && r),
                   "compositionstart" === n &&
                     (r =
-                      !1 !== l["\u0275nov"](e, 167)._compositionStart() && r),
+                      !1 !== l["\u0275nov"](e, 158)._compositionStart() && r),
                   "compositionend" === n &&
                     (r =
                       !1 !==
-                        l["\u0275nov"](e, 167)._compositionEnd(
+                        l["\u0275nov"](e, 158)._compositionEnd(
                           t.target.value
                         ) && r),
                   "ngModelChange" === n &&
@@ -104041,7 +103674,7 @@
               null
             )),
             l["\u0275did"](
-              167,
+              158,
               16384,
               null,
               0,
@@ -104060,7 +103693,7 @@
               [f]
             ),
             l["\u0275did"](
-              169,
+              160,
               671744,
               null,
               0,
@@ -104070,10 +103703,10 @@
               { update: "ngModelChange" }
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
-            l["\u0275did"](171, 16384, null, 0, y, [[4, _]], null, null),
+            l["\u0275did"](162, 16384, null, 0, y, [[4, _]], null, null),
             (e()(),
             l["\u0275eld"](
-              172,
+              163,
               0,
               null,
               null,
@@ -104089,7 +103722,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Password"])),
             (e()(),
             l["\u0275eld"](
-              174,
+              165,
               0,
               null,
               null,
@@ -104104,7 +103737,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              175,
+              166,
               0,
               null,
               null,
@@ -104120,7 +103753,7 @@
             (e()(), l["\u0275ted"](-1, null, ["lock"])),
             (e()(),
             l["\u0275eld"](
-              177,
+              168,
               0,
               null,
               null,
@@ -104154,17 +103787,17 @@
                   "input" === n &&
                     (r =
                       !1 !==
-                        l["\u0275nov"](e, 178)._handleInput(t.target.value) &&
+                        l["\u0275nov"](e, 169)._handleInput(t.target.value) &&
                       r),
                   "blur" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 178).onTouched() && r),
+                    (r = !1 !== l["\u0275nov"](e, 169).onTouched() && r),
                   "compositionstart" === n &&
                     (r =
-                      !1 !== l["\u0275nov"](e, 178)._compositionStart() && r),
+                      !1 !== l["\u0275nov"](e, 169)._compositionStart() && r),
                   "compositionend" === n &&
                     (r =
                       !1 !==
-                        l["\u0275nov"](e, 178)._compositionEnd(
+                        l["\u0275nov"](e, 169)._compositionEnd(
                           t.target.value
                         ) && r),
                   "ngModelChange" === n &&
@@ -104176,7 +103809,7 @@
               null
             )),
             l["\u0275did"](
-              178,
+              169,
               16384,
               null,
               0,
@@ -104195,7 +103828,7 @@
               [f]
             ),
             l["\u0275did"](
-              180,
+              171,
               671744,
               null,
               0,
@@ -104205,10 +103838,10 @@
               { update: "ngModelChange" }
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
-            l["\u0275did"](182, 16384, null, 0, y, [[4, _]], null, null),
+            l["\u0275did"](173, 16384, null, 0, y, [[4, _]], null, null),
             (e()(),
             l["\u0275eld"](
-              183,
+              174,
               0,
               null,
               null,
@@ -104224,7 +103857,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Password Again"])),
             (e()(),
             l["\u0275eld"](
-              185,
+              176,
               0,
               null,
               2,
@@ -104237,10 +103870,10 @@
               null,
               null
             )),
-            l["\u0275did"](186, 16384, null, 0, on, [], null, null),
+            l["\u0275did"](177, 16384, null, 0, on, [], null, null),
             (e()(),
             l["\u0275eld"](
-              187,
+              178,
               0,
               null,
               null,
@@ -104257,7 +103890,7 @@
                 var r = !0;
                 return (
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 189).onclick() && r),
+                    (r = !1 !== l["\u0275nov"](e, 180).onclick() && r),
                   r
                 );
               },
@@ -104265,7 +103898,7 @@
               null
             )),
             l["\u0275did"](
-              188,
+              179,
               606208,
               null,
               0,
@@ -104274,11 +103907,11 @@
               { flat: [0, "flat"] },
               null
             ),
-            l["\u0275did"](189, 16384, null, 0, un, [tn], null, null),
+            l["\u0275did"](180, 16384, null, 0, un, [tn], null, null),
             (e()(), l["\u0275ted"](-1, null, ["Close"])),
             (e()(),
             l["\u0275eld"](
-              191,
+              182,
               0,
               null,
               null,
@@ -104296,7 +103929,7 @@
                   i = e.component;
                 return (
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 193).onclick() && r),
+                    (r = !1 !== l["\u0275nov"](e, 184).onclick() && r),
                   "click" === n && (r = !1 !== i.changePassword() && r),
                   r
                 );
@@ -104305,7 +103938,7 @@
               null
             )),
             l["\u0275did"](
-              192,
+              183,
               606208,
               null,
               0,
@@ -104314,7 +103947,7 @@
               null,
               null
             ),
-            l["\u0275did"](193, 16384, null, 0, un, [tn], null, null),
+            l["\u0275did"](184, 16384, null, 0, un, [tn], null, null),
             (e()(), l["\u0275ted"](-1, null, ["Change Password"]))
           ],
           function(e, n) {
@@ -104335,63 +103968,59 @@
               e(n, 50, 0, t.expanseService.currentSession.email),
               e(n, 69, 0, t.isDev),
               e(n, 89, 0, t.isDev),
-              e(n, 100, 0, !t.appService.hideLogo),
-              e(n, 102, 0, !t.appService.hideLogo),
-              e(n, 104, 0, !t.appService.hideLogo),
-              e(n, 106, 0, !t.appService.hideLogo),
-              e(n, 108, 0, t.isDev),
-              e(n, 111, 0, t.appsNeedingUpdated && t.appsNeedingUpdated.length),
+              e(n, 99, 0, t.isDev),
+              e(n, 102, 0, t.appsNeedingUpdated && t.appsNeedingUpdated.length),
               e(
                 n,
-                113,
+                104,
                 0,
                 "bottom",
                 "Install all of the apps that have updates available, this can take some time."
               ),
               e(
                 n,
-                116,
+                107,
                 0,
                 "bottom",
                 "Install all of the apps that have updates available, this can take some time."
               ),
               e(
                 n,
-                119,
+                110,
                 0,
                 "bottom",
                 "Install all of the apps that have updates available, this can take some time."
               ),
-              e(n, 126, 0, !t.myInstalledApps.length),
-              e(n, 128, 0, t.myInstalledApps),
+              e(n, 117, 0, !t.myInstalledApps.length),
+              e(n, 119, 0, t.myInstalledApps),
               e(
                 n,
-                133,
-                0,
-                "bottom",
-                "Install all of the apps that have updates available, this can take some time."
-              ),
-              e(
-                n,
-                136,
+                124,
                 0,
                 "bottom",
                 "Install all of the apps that have updates available, this can take some time."
               ),
               e(
                 n,
-                139,
+                127,
                 0,
                 "bottom",
                 "Install all of the apps that have updates available, this can take some time."
               ),
-              e(n, 147, 0, "/my-event"),
-              e(n, 152, 0, t.myEvents),
-              e(n, 154, 0, !0),
-              e(n, 169, 0, t.newPassword),
-              e(n, 180, 0, t.newPassword1),
-              e(n, 188, 0, !0),
-              e(n, 192, 0);
+              e(
+                n,
+                130,
+                0,
+                "bottom",
+                "Install all of the apps that have updates available, this can take some time."
+              ),
+              e(n, 138, 0, "/my-event"),
+              e(n, 143, 0, t.myEvents),
+              e(n, 145, 0, !0),
+              e(n, 160, 0, t.newPassword),
+              e(n, 171, 0, t.newPassword1),
+              e(n, 179, 0, !0),
+              e(n, 183, 0);
           },
           function(e, n) {
             var t = n.component;
@@ -104458,7 +104087,7 @@
               ),
               e(
                 n,
-                122,
+                113,
                 0,
                 t.isUpdated
                   ? "App Updates"
@@ -104468,32 +104097,32 @@
               ),
               e(
                 n,
-                166,
+                157,
                 0,
-                l["\u0275nov"](n, 171).ngClassUntouched,
-                l["\u0275nov"](n, 171).ngClassTouched,
-                l["\u0275nov"](n, 171).ngClassPristine,
-                l["\u0275nov"](n, 171).ngClassDirty,
-                l["\u0275nov"](n, 171).ngClassValid,
-                l["\u0275nov"](n, 171).ngClassInvalid,
-                l["\u0275nov"](n, 171).ngClassPending
+                l["\u0275nov"](n, 162).ngClassUntouched,
+                l["\u0275nov"](n, 162).ngClassTouched,
+                l["\u0275nov"](n, 162).ngClassPristine,
+                l["\u0275nov"](n, 162).ngClassDirty,
+                l["\u0275nov"](n, 162).ngClassValid,
+                l["\u0275nov"](n, 162).ngClassInvalid,
+                l["\u0275nov"](n, 162).ngClassPending
               ),
               e(
                 n,
-                177,
+                168,
                 0,
-                l["\u0275nov"](n, 182).ngClassUntouched,
-                l["\u0275nov"](n, 182).ngClassTouched,
-                l["\u0275nov"](n, 182).ngClassPristine,
-                l["\u0275nov"](n, 182).ngClassDirty,
-                l["\u0275nov"](n, 182).ngClassValid,
-                l["\u0275nov"](n, 182).ngClassInvalid,
-                l["\u0275nov"](n, 182).ngClassPending
+                l["\u0275nov"](n, 173).ngClassUntouched,
+                l["\u0275nov"](n, 173).ngClassTouched,
+                l["\u0275nov"](n, 173).ngClassPristine,
+                l["\u0275nov"](n, 173).ngClassDirty,
+                l["\u0275nov"](n, 173).ngClassValid,
+                l["\u0275nov"](n, 173).ngClassInvalid,
+                l["\u0275nov"](n, 173).ngClassPending
               );
           }
         );
       }
-      function Kd(e) {
+      function Bd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -104509,7 +104138,7 @@
               null,
               null,
               null,
-              qd,
+              Wd,
               Rd
             )),
             l["\u0275did"](1, 114688, null, 0, Ju, [Zr, Sn], null, null)
@@ -104520,8 +104149,8 @@
           null
         );
       }
-      var Jd = l["\u0275ccf"]("app-account", Ju, Kd, {}, {}, []),
-        Qd = (function() {
+      var Gd = l["\u0275ccf"]("app-account", Ju, Bd, {}, {}, []),
+        $d = (function() {
           function e(e, n) {
             (this.lightbox = e), (this.appService = n), (this.album = []);
           }
@@ -104547,7 +104176,7 @@
             e
           );
         })(),
-        Zd = l["\u0275crt"]({
+        qd = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -104556,7 +104185,7 @@
           ],
           data: {}
         });
-      function Xd(e) {
+      function Kd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -106820,7 +106449,7 @@
           null
         );
       }
-      function ec(e) {
+      function Jd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -106836,15 +106465,15 @@
               null,
               null,
               null,
-              Xd,
-              Zd
+              Kd,
+              qd
             )),
             l["\u0275did"](
               1,
               114688,
               null,
               0,
-              Qd,
+              $d,
               [ru.Lightbox, Sn],
               null,
               null
@@ -106856,8 +106485,8 @@
           null
         );
       }
-      var nc = l["\u0275ccf"]("app-setup-howto", Qd, ec, {}, {}, []),
-        tc = (function() {
+      var Qd = l["\u0275ccf"]("app-setup-howto", $d, Jd, {}, {}, []),
+        Zd = (function() {
           function e(e, n, t) {
             (this.service = e), (this.expanseService = n), (this.router = t);
           }
@@ -106884,7 +106513,7 @@
             e
           );
         })(),
-        lc = l["\u0275crt"]({
+        Xd = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -106893,7 +106522,7 @@
           ],
           data: {}
         });
-      function rc(e) {
+      function ec(e) {
         return l["\u0275vid"](
           0,
           [
@@ -107518,7 +107147,7 @@
           }
         );
       }
-      function ic(e) {
+      function nc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -107534,10 +107163,10 @@
               null,
               null,
               null,
-              rc,
-              lc
+              ec,
+              Xd
             )),
-            l["\u0275did"](1, 114688, null, 0, tc, [Sn, Zr, Cr], null, null)
+            l["\u0275did"](1, 114688, null, 0, Zd, [Sn, Zr, Cr], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -107545,8 +107174,8 @@
           null
         );
       }
-      var oc = l["\u0275ccf"]("app-login", tc, ic, {}, {}, []),
-        uc = (function() {
+      var tc = l["\u0275ccf"]("app-login", Zd, nc, {}, {}, []),
+        lc = (function() {
           function e(e, n) {
             (this.expanseService = e), (this.appService = n);
           }
@@ -107568,7 +107197,7 @@
             e
           );
         })(),
-        ac = l["\u0275crt"]({
+        rc = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -107577,7 +107206,7 @@
           ],
           data: {}
         });
-      function sc(e) {
+      function ic(e) {
         return l["\u0275vid"](
           0,
           [
@@ -108059,7 +107688,7 @@
           }
         );
       }
-      function dc(e) {
+      function oc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -108075,10 +107704,10 @@
               null,
               null,
               null,
-              sc,
-              ac
+              ic,
+              rc
             )),
-            l["\u0275did"](1, 114688, null, 0, uc, [Zr, Sn], null, null)
+            l["\u0275did"](1, 114688, null, 0, lc, [Zr, Sn], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -108086,8 +107715,8 @@
           null
         );
       }
-      var cc = l["\u0275ccf"]("app-forgot-password", uc, dc, {}, {}, []),
-        pc = (function() {
+      var uc = l["\u0275ccf"]("app-forgot-password", lc, oc, {}, {}, []),
+        ac = (function() {
           function e(e, n, t, l) {
             var r = this;
             (this.router = e),
@@ -108124,7 +107753,7 @@
             e
           );
         })(),
-        hc = l["\u0275crt"]({
+        sc = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -108133,7 +107762,7 @@
           ],
           data: {}
         });
-      function fc(e) {
+      function dc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -108764,7 +108393,7 @@
           }
         );
       }
-      function mc(e) {
+      function cc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -108780,10 +108409,10 @@
               null,
               null,
               null,
-              fc,
-              hc
+              dc,
+              sc
             )),
-            l["\u0275did"](1, 114688, null, 0, pc, [Cr, fl, Zr, Sn], null, null)
+            l["\u0275did"](1, 114688, null, 0, ac, [Cr, fl, Zr, Sn], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -108791,8 +108420,8 @@
           null
         );
       }
-      var gc = l["\u0275ccf"]("app-reset-password", pc, mc, {}, {}, []),
-        vc = (function() {
+      var pc = l["\u0275ccf"]("app-reset-password", ac, cc, {}, {}, []),
+        hc = (function() {
           function e(e, n, t) {
             (this.expanseService = e), (this.service = n), (this.router = t);
           }
@@ -108858,7 +108487,7 @@
             e
           );
         })(),
-        _c = l["\u0275crt"]({
+        fc = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -108867,7 +108496,7 @@
           ],
           data: {}
         });
-      function yc(e) {
+      function mc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -109927,7 +109556,7 @@
           }
         );
       }
-      function bc(e) {
+      function gc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -109943,10 +109572,10 @@
               null,
               null,
               null,
-              yc,
-              _c
+              mc,
+              fc
             )),
-            l["\u0275did"](1, 114688, null, 0, vc, [Zr, Sn, Cr], null, null)
+            l["\u0275did"](1, 114688, null, 0, hc, [Zr, Sn, Cr], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -109954,15 +109583,15 @@
           null
         );
       }
-      var wc = l["\u0275ccf"]("app-sign-up", vc, bc, {}, {}, []),
-        Mc = l["\u0275crt"]({
+      var vc = l["\u0275ccf"]("app-sign-up", hc, gc, {}, {}, []),
+        _c = l["\u0275crt"]({
           encapsulation: 2,
           styles: [
             '.md-drppicker{position:absolute;font-family:Roboto,sans-serif;color:inherit;border-radius:4px;width:278px;padding:4px;margin-top:-10px;overflow:hidden;z-index:1000;font-size:14px;background-color:#fff;box-shadow:0 2px 4px 0 rgba(0,0,0,.16),0 2px 8px 0 rgba(0,0,0,.12)}.md-drppicker.double{width:auto}.md-drppicker.inline{position:relative;display:inline-block}.md-drppicker:after,.md-drppicker:before{position:absolute;display:inline-block;border-bottom-color:rgba(0,0,0,.2);content:""}.md-drppicker.openscenter:after,.md-drppicker.openscenter:before{left:0;right:0;width:0;margin-left:auto;margin-right:auto}.md-drppicker.single .calendar,.md-drppicker.single .ranges{float:none}.md-drppicker.shown{-webkit-transform:scale(1);transform:scale(1);-webkit-transition:.1s ease-in-out;transition:.1s ease-in-out;-webkit-transform-origin:0 0;transform-origin:0 0;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.md-drppicker.shown.drops-up-left{-webkit-transform-origin:100% 100%;transform-origin:100% 100%}.md-drppicker.shown.drops-up-right{-webkit-transform-origin:0 100%;transform-origin:0 100%}.md-drppicker.shown.drops-down-left{-webkit-transform-origin:100% 0;transform-origin:100% 0}.md-drppicker.shown.drops-down-right{-webkit-transform-origin:0 0;transform-origin:0 0}.md-drppicker.shown.drops-down-center{-webkit-transform-origin:NaN%;transform-origin:NaN%}.md-drppicker.shown.drops-up-center{-webkit-transform-origin:50%;transform-origin:50%}.md-drppicker.shown .calendar{display:block}.md-drppicker.hidden{-webkit-transition:.1s;transition:.1s;-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:0 0;transform-origin:0 0;cursor:default;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.md-drppicker.hidden.drops-up-left{-webkit-transform-origin:100% 100%;transform-origin:100% 100%}.md-drppicker.hidden.drops-up-right{-webkit-transform-origin:0 100%;transform-origin:0 100%}.md-drppicker.hidden.drops-down-left{-webkit-transform-origin:100% 0;transform-origin:100% 0}.md-drppicker.hidden.drops-down-right{-webkit-transform-origin:0 0;transform-origin:0 0}.md-drppicker.hidden.drops-down-center{-webkit-transform-origin:NaN%;transform-origin:NaN%}.md-drppicker.hidden.drops-up-center{-webkit-transform-origin:50%;transform-origin:50%}.md-drppicker.hidden .calendar{display:none}.md-drppicker .calendar{max-width:270px;margin:4px}.md-drppicker .calendar.single .calendar-table{border:none}.md-drppicker .calendar td,.md-drppicker .calendar th{padding:0;white-space:nowrap;text-align:center;min-width:32px}.md-drppicker .calendar td span,.md-drppicker .calendar th span{pointer-events:none}.md-drppicker .calendar-table{border:1px solid #fff;padding:4px;border-radius:4px;background-color:#fff}.md-drppicker table{width:100%;margin:0}.md-drppicker th{color:#988c8c}.md-drppicker td,.md-drppicker th{text-align:center;border-radius:4px;border:1px solid transparent;white-space:nowrap;cursor:pointer;height:2em;width:2em}.md-drppicker td.available.prev,.md-drppicker th.available.prev{display:block;background-image:url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMy43IDYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMuNyA2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGQ9Ik0zLjcsMC43TDEuNCwzbDIuMywyLjNMMyw2TDAsM2wzLTNMMy43LDAuN3oiLz4NCjwvZz4NCjwvc3ZnPg0K);background-repeat:no-repeat;background-size:.5em;background-position:center;opacity:.8;-webkit-transition:background-color .2s;transition:background-color .2s;border-radius:2em}.md-drppicker td.available.prev:hover,.md-drppicker th.available.prev:hover{margin:0}.md-drppicker td.available.next,.md-drppicker th.available.next{-webkit-transform:rotate(180deg);transform:rotate(180deg);display:block;background-image:url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMy43IDYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMuNyA2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGQ9Ik0zLjcsMC43TDEuNCwzbDIuMywyLjNMMyw2TDAsM2wzLTNMMy43LDAuN3oiLz4NCjwvZz4NCjwvc3ZnPg0K);background-repeat:no-repeat;background-size:.5em;background-position:center;opacity:.8;-webkit-transition:background-color .2s;transition:background-color .2s;border-radius:2em}.md-drppicker td.available.next:hover,.md-drppicker th.available.next:hover{margin:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.md-drppicker td.available:hover,.md-drppicker th.available:hover{background-color:#eee;border-color:transparent;color:inherit;background-repeat:no-repeat;background-size:.5em;background-position:center;margin:.25em 0;opacity:.8;border-radius:2em;-webkit-transform:scale(1);transform:scale(1);-webkit-transition:450ms cubic-bezier(.23,1,.32,1);transition:450ms cubic-bezier(.23,1,.32,1)}.md-drppicker td.week,.md-drppicker th.week{font-size:80%;color:#ccc}.md-drppicker td{margin:.25em 0;opacity:.8;-webkit-transition:450ms cubic-bezier(.23,1,.32,1);transition:450ms cubic-bezier(.23,1,.32,1);border-radius:2em;-webkit-transform:scale(1);transform:scale(1)}.md-drppicker td.off,.md-drppicker td.off.end-date,.md-drppicker td.off.in-range,.md-drppicker td.off.start-date{background-color:#fff;border-color:transparent;color:#999}.md-drppicker td.in-range{background-color:#dde2e4;border-color:transparent;color:#000;border-radius:0}.md-drppicker td.start-date{border-radius:2em 0 0 2em}.md-drppicker td.end-date{border-radius:0 2em 2em 0}.md-drppicker td.start-date.end-date{border-radius:4px}.md-drppicker td.active{-webkit-transition:background .3s ease-out;transition:background .3s ease-out;background:rgba(0,0,0,.1)}.md-drppicker td.active,.md-drppicker td.active:hover{background-color:#3f51b5;border-color:transparent;color:#fff}.md-drppicker th.month{width:auto}.md-drppicker option.disabled,.md-drppicker td.disabled{color:#999;cursor:not-allowed;text-decoration:line-through}.md-drppicker .dropdowns{background-repeat:no-repeat;background-size:10px;background-position-y:center;background-position-x:right;width:50px;background-image:url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDI1NSAyNTUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI1NSAyNTU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0iYXJyb3ctZHJvcC1kb3duIj4KCQk8cG9seWdvbiBwb2ludHM9IjAsNjMuNzUgMTI3LjUsMTkxLjI1IDI1NSw2My43NSAgICIgZmlsbD0iIzk4OGM4YyIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=)}.md-drppicker .dropdowns select{display:inline-block;background-color:rgba(255,255,255,.9);width:100%;padding:5px;border:1px solid #f2f2f2;border-radius:2px;height:3rem}.md-drppicker .dropdowns select.ampmselect,.md-drppicker .dropdowns select.hourselect,.md-drppicker .dropdowns select.minuteselect,.md-drppicker .dropdowns select.secondselect{width:50px;margin:0 auto;background:#eee;border:1px solid #eee;padding:2px;outline:0;font-size:12px}.md-drppicker .dropdowns select.monthselect,.md-drppicker .dropdowns select.yearselect{font-size:12px;height:auto;cursor:pointer;opacity:0;position:absolute;top:0;left:0;margin:0;padding:0}.md-drppicker th.month>div{position:relative;display:inline-block}.md-drppicker .calendar-time{text-align:center;margin:4px auto 0;line-height:30px;position:relative}.md-drppicker .calendar-time .select{display:inline}.md-drppicker .calendar-time .select .select-item{display:inline-block;width:auto;position:relative;font-family:inherit;background-color:transparent;padding:10px 10px 10px 0;font-size:18px;border-radius:0;border:none;border-bottom:1px solid rgba(0,0,0,.12)}.md-drppicker .calendar-time .select .select-item:after{position:absolute;top:18px;right:10px;width:0;height:0;padding:0;content:"";border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid rgba(0,0,0,.12);pointer-events:none}.md-drppicker .calendar-time .select .select-item:focus{outline:0}.md-drppicker .calendar-time .select .select-item .select-label{color:rgba(0,0,0,.26);font-size:16px;font-weight:400;position:absolute;pointer-events:none;left:0;top:10px;-webkit-transition:.2s;transition:.2s}.md-drppicker .calendar-time select.disabled{color:#ccc;cursor:not-allowed}.md-drppicker .label-input{border:1px solid #ccc;border-radius:4px;color:#555;height:30px;line-height:30px;display:block;vertical-align:middle;margin:0 auto 5px;padding:0 0 0 28px;width:100%}.md-drppicker .label-input.active{border:1px solid #08c;border-radius:4px}.md-drppicker .md-drppicker_input{position:relative;padding:0 30px 0 0}.md-drppicker .md-drppicker_input i,.md-drppicker .md-drppicker_input svg{position:absolute;left:8px;top:8px}.md-drppicker.rtl .label-input{padding-right:28px;padding-left:6px}.md-drppicker.rtl .md-drppicker_input i,.md-drppicker.rtl .md-drppicker_input svg{left:auto;right:8px}.md-drppicker .show-ranges .drp-calendar.left{border-left:1px solid #ddd}.md-drppicker .ranges{float:none;text-align:left;margin:0}.md-drppicker .ranges ul{list-style:none;margin:0 auto;padding:0;width:100%}.md-drppicker .ranges ul li{font-size:12px}.md-drppicker .ranges ul li button{padding:8px 12px;width:100%;background:0 0;border:none;text-align:left;cursor:pointer}.md-drppicker .ranges ul li button.active{background-color:#3f51b5;color:#fff}.md-drppicker .ranges ul li button[disabled]{opacity:.3}.md-drppicker .ranges ul li button:active{background:0 0}.md-drppicker .ranges ul li:hover{background-color:#eee}.md-drppicker .show-calendar .ranges{margin-top:8px}.md-drppicker [hidden]{display:none}.md-drppicker .buttons{text-align:right;margin:0 5px 5px 0}.md-drppicker .btn{position:relative;overflow:hidden;border-width:0;outline:0;padding:0 6px;cursor:pointer;border-radius:2px;box-shadow:0 1px 4px rgba(0,0,0,.6);background-color:#3f51b5;color:#ecf0f1;-webkit-transition:background-color .4s;transition:background-color .4s;height:auto;text-transform:uppercase;line-height:36px;border:none}.md-drppicker .btn:focus,.md-drppicker .btn:hover{background-color:#3f51b5}.md-drppicker .btn>*{position:relative}.md-drppicker .btn span{display:block;padding:12px 24px}.md-drppicker .btn:before{content:"";position:absolute;top:50%;left:50%;display:block;width:0;padding-top:0;border-radius:100%;background-color:rgba(236,240,241,.3);-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.md-drppicker .btn:active:before{width:120%;padding-top:120%;-webkit-transition:width .2s ease-out,padding-top .2s ease-out;transition:width .2s ease-out,padding-top .2s ease-out}.md-drppicker .btn:disabled{opacity:.5}.md-drppicker .btn.btn-default{color:#000;background-color:#dcdcdc}.md-drppicker .clear{box-shadow:none;background-color:#fff!important}.md-drppicker .clear svg{color:#eb3232;fill:currentColor}@media (min-width:564px){.md-drppicker{width:auto}.md-drppicker.single .calendar.left{clear:none}.md-drppicker.ltr{direction:ltr;text-align:left}.md-drppicker.ltr .calendar.left{clear:left}.md-drppicker.ltr .calendar.left .calendar-table{border-right:none;border-top-right-radius:0;border-bottom-right-radius:0;padding-right:12px}.md-drppicker.ltr .calendar.right{margin-left:0}.md-drppicker.ltr .calendar.right .calendar-table{border-left:none;border-top-left-radius:0;border-bottom-left-radius:0}.md-drppicker.ltr .left .md-drppicker_input,.md-drppicker.ltr .right .md-drppicker_input{padding-right:35px}.md-drppicker.ltr .calendar,.md-drppicker.ltr .ranges{float:left}.md-drppicker.rtl{direction:rtl;text-align:right}.md-drppicker.rtl .calendar.left{clear:right;margin-left:0}.md-drppicker.rtl .calendar.left .calendar-table{border-left:none;border-top-left-radius:0;border-bottom-left-radius:0}.md-drppicker.rtl .calendar.right{margin-right:0}.md-drppicker.rtl .calendar.right .calendar-table{border-right:none;border-top-right-radius:0;border-bottom-right-radius:0}.md-drppicker.rtl .calendar.left .calendar-table,.md-drppicker.rtl .left .md-drppicker_input{padding-left:12px}.md-drppicker.rtl .calendar,.md-drppicker.rtl .ranges{text-align:right;float:right}.drp-animate{-webkit-transform:translate(0);transform:translate(0);-webkit-transition:opacity .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s,-webkit-transform .2s}.drp-animate.drp-picker-site-this{-webkit-transition-timing-function:linear;transition-timing-function:linear}.drp-animate.drp-animate-right{-webkit-transform:translateX(10%);transform:translateX(10%);opacity:0}.drp-animate.drp-animate-left{-webkit-transform:translateX(-10%);transform:translateX(-10%);opacity:0}}@media (min-width:730px){.md-drppicker .ranges{width:auto}.md-drppicker.ltr .ranges{float:left}.md-drppicker.rtl .ranges{float:right}.md-drppicker .calendar.left{clear:none!important}}'
           ],
           data: {}
         });
-      function kc(e) {
+      function yc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110035,7 +109664,7 @@
           }
         );
       }
-      function Cc(e) {
+      function bc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110059,7 +109688,7 @@
           null
         );
       }
-      function Dc(e) {
+      function wc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110106,7 +109735,7 @@
           null
         );
       }
-      function xc(e) {
+      function Mc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110145,7 +109774,7 @@
           null
         );
       }
-      function Lc(e) {
+      function kc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110208,7 +109837,7 @@
           }
         );
       }
-      function Sc(e) {
+      function Cc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110262,7 +109891,7 @@
           }
         );
       }
-      function Tc(e) {
+      function Dc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110320,7 +109949,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Lc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, kc)),
             l["\u0275did"](
               5,
               278528,
@@ -110370,7 +109999,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Sc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Cc)),
             l["\u0275did"](
               10,
               278528,
@@ -110414,7 +110043,7 @@
           }
         );
       }
-      function Ec(e) {
+      function xc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110458,7 +110087,7 @@
           }
         );
       }
-      function Ic(e) {
+      function Lc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110505,7 +110134,7 @@
           null
         );
       }
-      function Oc(e) {
+      function Sc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110544,7 +110173,7 @@
           null
         );
       }
-      function Rc(e) {
+      function Tc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110586,7 +110215,7 @@
           }
         );
       }
-      function Ac(e) {
+      function Ec(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110628,7 +110257,7 @@
           }
         );
       }
-      function Yc(e) {
+      function Ic(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110677,7 +110306,7 @@
           }
         );
       }
-      function Pc(e) {
+      function Oc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110726,7 +110355,7 @@
           }
         );
       }
-      function jc(e) {
+      function Rc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110799,7 +110428,7 @@
           }
         );
       }
-      function Nc(e) {
+      function Ac(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110818,7 +110447,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Yc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ic)),
             l["\u0275did"](
               2,
               16384,
@@ -110829,7 +110458,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Pc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Oc)),
             l["\u0275did"](
               4,
               16384,
@@ -110840,7 +110469,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, jc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Rc)),
             l["\u0275did"](
               6,
               278528,
@@ -110869,7 +110498,7 @@
           }
         );
       }
-      function Fc(e) {
+      function Yc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110918,7 +110547,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Cc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, bc)),
             l["\u0275did"](
               4,
               16384,
@@ -110929,7 +110558,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Dc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, wc)),
             l["\u0275did"](
               6,
               16384,
@@ -110940,7 +110569,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, xc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Mc)),
             l["\u0275did"](
               8,
               16384,
@@ -110966,7 +110595,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Tc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Dc)),
             l["\u0275did"](
               11,
               16384,
@@ -110977,7 +110606,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ec)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, xc)),
             l["\u0275did"](
               13,
               16384,
@@ -110988,7 +110617,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ic)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Lc)),
             l["\u0275did"](
               15,
               16384,
@@ -110999,7 +110628,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Oc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Sc)),
             l["\u0275did"](
               17,
               16384,
@@ -111025,7 +110654,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Rc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Tc)),
             l["\u0275did"](
               20,
               16384,
@@ -111036,7 +110665,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ac)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ec)),
             l["\u0275did"](
               22,
               278528,
@@ -111062,7 +110691,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Nc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ac)),
             l["\u0275did"](
               25,
               278528,
@@ -111139,7 +110768,7 @@
           null
         );
       }
-      function Vc(e) {
+      function Pc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111196,7 +110825,7 @@
           }
         );
       }
-      function Hc(e) {
+      function jc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111259,7 +110888,7 @@
           }
         );
       }
-      function zc(e) {
+      function Nc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111322,7 +110951,7 @@
           }
         );
       }
-      function Uc(e) {
+      function Fc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111398,7 +111027,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](5, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, zc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Nc)),
             l["\u0275did"](
               7,
               278528,
@@ -111431,7 +111060,7 @@
           }
         );
       }
-      function Wc(e) {
+      function Vc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111605,7 +111234,7 @@
           }
         );
       }
-      function Bc(e) {
+      function Hc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111711,7 +111340,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](7, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Pc)),
             l["\u0275did"](
               9,
               278528,
@@ -111809,7 +111438,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](16, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, jc)),
             l["\u0275did"](
               18,
               278528,
@@ -111865,7 +111494,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Uc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fc)),
             l["\u0275did"](
               23,
               16384,
@@ -111921,7 +111550,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Wc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vc)),
             l["\u0275did"](
               28,
               16384,
@@ -112006,7 +111635,7 @@
           }
         );
       }
-      function Gc(e) {
+      function zc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112058,7 +111687,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Yc)),
             l["\u0275did"](
               6,
               16384,
@@ -112069,7 +111698,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Bc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hc)),
             l["\u0275did"](
               8,
               16384,
@@ -112091,7 +111720,7 @@
           null
         );
       }
-      function $c(e) {
+      function Uc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112115,7 +111744,7 @@
           null
         );
       }
-      function qc(e) {
+      function Wc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112162,7 +111791,7 @@
           null
         );
       }
-      function Kc(e) {
+      function Bc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112201,7 +111830,7 @@
           null
         );
       }
-      function Jc(e) {
+      function Gc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112264,7 +111893,7 @@
           }
         );
       }
-      function Qc(e) {
+      function $c(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112318,7 +111947,7 @@
           }
         );
       }
-      function Zc(e) {
+      function qc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112376,7 +112005,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Jc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Gc)),
             l["\u0275did"](
               5,
               278528,
@@ -112426,7 +112055,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Qc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, $c)),
             l["\u0275did"](
               10,
               278528,
@@ -112470,7 +112099,7 @@
           }
         );
       }
-      function Xc(e) {
+      function Kc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112514,7 +112143,7 @@
           }
         );
       }
-      function ep(e) {
+      function Jc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112561,7 +112190,7 @@
           null
         );
       }
-      function np(e) {
+      function Qc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112600,7 +112229,7 @@
           null
         );
       }
-      function tp(e) {
+      function Zc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112642,7 +112271,7 @@
           }
         );
       }
-      function lp(e) {
+      function Xc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112684,7 +112313,7 @@
           }
         );
       }
-      function rp(e) {
+      function ep(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112733,7 +112362,7 @@
           }
         );
       }
-      function ip(e) {
+      function np(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112782,7 +112411,7 @@
           }
         );
       }
-      function op(e) {
+      function tp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112855,7 +112484,7 @@
           }
         );
       }
-      function up(e) {
+      function lp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112874,7 +112503,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, rp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ep)),
             l["\u0275did"](
               2,
               16384,
@@ -112885,7 +112514,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ip)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, np)),
             l["\u0275did"](
               4,
               16384,
@@ -112896,7 +112525,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, op)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, tp)),
             l["\u0275did"](
               6,
               278528,
@@ -112925,7 +112554,7 @@
           }
         );
       }
-      function ap(e) {
+      function rp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112974,7 +112603,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, $c)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Uc)),
             l["\u0275did"](
               4,
               16384,
@@ -112985,7 +112614,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, qc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Wc)),
             l["\u0275did"](
               6,
               16384,
@@ -112996,7 +112625,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Kc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Bc)),
             l["\u0275did"](
               8,
               16384,
@@ -113022,7 +112651,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Zc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, qc)),
             l["\u0275did"](
               11,
               16384,
@@ -113033,7 +112662,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Xc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Kc)),
             l["\u0275did"](
               13,
               16384,
@@ -113044,7 +112673,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ep)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Jc)),
             l["\u0275did"](
               15,
               16384,
@@ -113055,7 +112684,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, np)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Qc)),
             l["\u0275did"](
               17,
               16384,
@@ -113081,7 +112710,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, tp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Zc)),
             l["\u0275did"](
               20,
               16384,
@@ -113092,7 +112721,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, lp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Xc)),
             l["\u0275did"](
               22,
               278528,
@@ -113118,7 +112747,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, up)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, lp)),
             l["\u0275did"](
               25,
               278528,
@@ -113195,7 +112824,7 @@
           null
         );
       }
-      function sp(e) {
+      function ip(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113252,7 +112881,7 @@
           }
         );
       }
-      function dp(e) {
+      function op(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113315,7 +112944,7 @@
           }
         );
       }
-      function cp(e) {
+      function up(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113378,7 +113007,7 @@
           }
         );
       }
-      function pp(e) {
+      function ap(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113454,7 +113083,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](5, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, cp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, up)),
             l["\u0275did"](
               7,
               278528,
@@ -113487,7 +113116,7 @@
           }
         );
       }
-      function hp(e) {
+      function sp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113661,7 +113290,7 @@
           }
         );
       }
-      function fp(e) {
+      function dp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113767,7 +113396,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](7, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, sp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ip)),
             l["\u0275did"](
               9,
               278528,
@@ -113895,7 +113524,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](18, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, dp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, op)),
             l["\u0275did"](
               20,
               278528,
@@ -113951,7 +113580,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, pp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ap)),
             l["\u0275did"](
               25,
               16384,
@@ -114007,7 +113636,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, hp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, sp)),
             l["\u0275did"](
               30,
               16384,
@@ -114092,7 +113721,7 @@
           }
         );
       }
-      function mp(e) {
+      function cp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114126,7 +113755,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ap)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, rp)),
             l["\u0275did"](
               3,
               16384,
@@ -114137,7 +113766,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, fp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, dp)),
             l["\u0275did"](
               5,
               16384,
@@ -114156,7 +113785,7 @@
           null
         );
       }
-      function gp(e) {
+      function pp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114229,7 +113858,7 @@
           }
         );
       }
-      function vp(e) {
+      function hp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114262,7 +113891,7 @@
           }
         );
       }
-      function _p(e) {
+      function fp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114296,7 +113925,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, gp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, pp)),
             l["\u0275did"](
               3,
               16384,
@@ -114307,7 +113936,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, vp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, hp)),
             l["\u0275did"](
               5,
               16384,
@@ -114351,7 +113980,7 @@
           }
         );
       }
-      function yp(e) {
+      function mp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114427,7 +114056,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, kc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, yc)),
             l["\u0275did"](
               8,
               278528,
@@ -114438,7 +114067,7 @@
               { ngForOf: [0, "ngForOf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Gc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, zc)),
             l["\u0275did"](
               10,
               16384,
@@ -114449,7 +114078,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, mp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, cp)),
             l["\u0275did"](
               12,
               16384,
@@ -114460,7 +114089,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, _p)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, fp)),
             l["\u0275did"](
               14,
               16384,
@@ -114503,7 +114132,7 @@
           null
         );
       }
-      function bp(e) {
+      function gp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114527,8 +114156,8 @@
                   r
                 );
               },
-              yp,
-              Mc
+              mp,
+              _c
             )),
             l["\u0275prd"](
               5120,
@@ -114556,10 +114185,10 @@
           null
         );
       }
-      var wp = l["\u0275ccf"](
+      var vp = l["\u0275ccf"](
           "ngx-daterangepicker-material",
           La,
-          bp,
+          gp,
           {
             dateLimit: "dateLimit",
             minDate: "minDate",
@@ -114603,13 +114232,13 @@
           },
           []
         ),
-        Mp = t("E1+c"),
-        kp = t("0NUV"),
-        Cp = l["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
-      function Dp(e) {
+        _p = t("E1+c"),
+        yp = t("0NUV"),
+        bp = l["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
+      function wp(e) {
         return l["\u0275vid"](0, [], null, null);
       }
-      function xp(e) {
+      function Mp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114634,16 +114263,16 @@
                   r
                 );
               },
-              Dp,
-              Cp
+              wp,
+              bp
             )),
             l["\u0275did"](
               1,
               4374528,
               null,
               0,
-              Mp.LightboxOverlayComponent,
-              [l.ElementRef, l.Renderer, kp.LightboxEvent, o.DOCUMENT],
+              _p.LightboxOverlayComponent,
+              [l.ElementRef, l.Renderer, yp.LightboxEvent, o.DOCUMENT],
               null,
               null
             )
@@ -114654,17 +114283,17 @@
           }
         );
       }
-      var Lp = l["\u0275ccf"](
+      var kp = l["\u0275ccf"](
           "[lb-overlay]",
-          Mp.LightboxOverlayComponent,
-          xp,
+          _p.LightboxOverlayComponent,
+          Mp,
           { options: "options", cmpRef: "cmpRef" },
           {},
           []
         ),
-        Sp = t("kmun"),
-        Tp = l["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
-      function Ep(e) {
+        Cp = t("kmun"),
+        Dp = l["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
+      function xp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114945,7 +114574,7 @@
           }
         );
       }
-      function Ip(e) {
+      function Lp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114968,21 +114597,21 @@
                   r
                 );
               },
-              Ep,
-              Tp
+              xp,
+              Dp
             )),
             l["\u0275did"](
               1,
               4440064,
               null,
               0,
-              Sp.LightboxComponent,
+              Cp.LightboxComponent,
               [
                 l.ElementRef,
                 l.Renderer,
-                kp.LightboxEvent,
+                yp.LightboxEvent,
                 l.ElementRef,
-                kp.LightboxWindowRef,
+                yp.LightboxWindowRef,
                 u.DomSanitizer,
                 o.DOCUMENT
               ],
@@ -114998,10 +114627,10 @@
           }
         );
       }
-      var Op = l["\u0275ccf"](
+      var Sp = l["\u0275ccf"](
           "[lb-content]",
-          Sp.LightboxComponent,
-          Ip,
+          Cp.LightboxComponent,
+          Lp,
           {
             album: "album",
             currentImageIndex: "currentImageIndex",
@@ -115011,7 +114640,7 @@
           {},
           []
         ),
-        Rp = l["\u0275crt"]({
+        Tp = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -115020,7 +114649,7 @@
           ],
           data: {}
         });
-      function Ap(e) {
+      function Ep(e) {
         return l["\u0275vid"](
           0,
           [
@@ -115084,7 +114713,7 @@
           null
         );
       }
-      function Yp(e) {
+      function Ip(e) {
         return l["\u0275vid"](
           0,
           [
@@ -115134,7 +114763,7 @@
           null
         );
       }
-      function Pp(e) {
+      function Op(e) {
         return l["\u0275vid"](
           0,
           [
@@ -115162,7 +114791,7 @@
           null
         );
       }
-      function jp(e) {
+      function Rp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -115189,7 +114818,7 @@
           }
         );
       }
-      function Np(e) {
+      function Ap(e) {
         return l["\u0275vid"](
           0,
           [
@@ -115236,7 +114865,7 @@
           null
         );
       }
-      function Fp(e) {
+      function Yp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -115545,7 +115174,7 @@
               null
             ),
             (e()(), l["\u0275ted"](-1, null, ["Games"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ap)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ep)),
             l["\u0275did"](
               33,
               16384,
@@ -115606,7 +115235,7 @@
               null
             ),
             (e()(), l["\u0275ted"](37, null, ["", ""])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Yp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ip)),
             l["\u0275did"](
               39,
               16384,
@@ -116482,7 +116111,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Pp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Op)),
             l["\u0275did"](
               118,
               16384,
@@ -116523,7 +116152,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, jp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Rp)),
             l["\u0275did"](
               122,
               16384,
@@ -116564,7 +116193,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Np)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ap)),
             l["\u0275did"](
               126,
               16384,
@@ -116826,7 +116455,7 @@
           }
         );
       }
-      function Vp(e) {
+      function Pp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -116842,8 +116471,8 @@
               null,
               null,
               null,
-              Fp,
-              Rp
+              Yp,
+              Tp
             )),
             l["\u0275did"](
               1,
@@ -116860,9 +116489,9 @@
           null
         );
       }
-      var Hp = l["\u0275ccf"]("app-root", ei, Vp, {}, {}, []),
-        zp = t("luWi"),
-        Up = (function() {
+      var jp = l["\u0275ccf"]("app-root", ei, Pp, {}, {}, []),
+        Np = t("luWi"),
+        Fp = (function() {
           function e(e, n) {
             var t = this;
             (this.router = e),
@@ -116882,7 +116511,7 @@
             e
           );
         })(),
-        Wp = (function() {
+        Vp = (function() {
           function e(e, n, t) {
             var l = this;
             (this.router = e),
@@ -116907,11 +116536,11 @@
             e
           );
         })(),
-        Bp = (function() {
+        Hp = (function() {
           return function() {};
         })(),
-        Gp = t("iAM3"),
-        $p = l["\u0275cmf"](r, [ei], function(e) {
+        zp = t("iAM3"),
+        Up = l["\u0275cmf"](r, [ei], function(e) {
           return l["\u0275mod"]([
             l["\u0275mpd"](
               512,
@@ -116933,16 +116562,16 @@
                     rd,
                     md,
                     Od,
-                    Jd,
-                    nc,
-                    oc,
-                    cc,
-                    gc,
-                    wc,
-                    wp,
-                    Lp,
-                    Op,
-                    Hp
+                    Gd,
+                    Qd,
+                    tc,
+                    uc,
+                    pc,
+                    vc,
+                    vp,
+                    kp,
+                    Sp,
+                    jp
                   ]
                 ],
                 [3, l.ComponentFactoryResolver],
@@ -117067,25 +116696,25 @@
             l["\u0275mpd"](4608, an, an, [ze]),
             l["\u0275mpd"](4608, T, T, []),
             l["\u0275mpd"](4608, ce, ce, []),
-            l["\u0275mpd"](4608, zp.LightboxConfig, zp.LightboxConfig, []),
-            l["\u0275mpd"](4608, kp.LightboxEvent, kp.LightboxEvent, []),
+            l["\u0275mpd"](4608, Np.LightboxConfig, Np.LightboxConfig, []),
+            l["\u0275mpd"](4608, yp.LightboxEvent, yp.LightboxEvent, []),
             l["\u0275mpd"](4608, ru.Lightbox, ru.Lightbox, [
               l.ComponentFactoryResolver,
               l.Injector,
               l.ApplicationRef,
-              zp.LightboxConfig,
-              kp.LightboxEvent,
+              Np.LightboxConfig,
+              yp.LightboxEvent,
               o.DOCUMENT
             ]),
             l["\u0275mpd"](
               4608,
-              kp.LightboxWindowRef,
-              kp.LightboxWindowRef,
+              yp.LightboxWindowRef,
+              yp.LightboxWindowRef,
               []
             ),
             l["\u0275mpd"](4608, Ca, Ca, [Ma]),
-            l["\u0275mpd"](4608, Up, Up, [Cr, Sn]),
-            l["\u0275mpd"](4608, Wp, Wp, [Cr, Sn, Zr]),
+            l["\u0275mpd"](4608, Fp, Fp, [Cr, Sn]),
+            l["\u0275mpd"](4608, Vp, Vp, [Cr, Sn, Zr]),
             l["\u0275mpd"](1073742336, o.CommonModule, o.CommonModule, []),
             l["\u0275mpd"](
               1024,
@@ -117166,46 +116795,46 @@
                   [
                     { path: "news", component: zi },
                     { path: "download", component: so },
-                    { path: "avatar-editor", component: mo, canActivate: [Wp] },
+                    { path: "avatar-editor", component: mo, canActivate: [Vp] },
                     {
                       path: "avatar-editor/:url",
                       component: mo,
-                      canActivate: [Wp]
+                      canActivate: [Vp]
                     },
-                    { path: "avatar-picker", component: Vo, canActivate: [Wp] },
+                    { path: "avatar-picker", component: Vo, canActivate: [Vp] },
                     { path: "what-is-sidequest", component: Qo },
                     { path: "app/:apps_id", component: lu },
                     { path: "event/:events_id", component: Zu },
-                    { path: "my-event", component: Qa, canActivate: [Wp] },
+                    { path: "my-event", component: Qa, canActivate: [Vp] },
                     {
                       path: "my-event/:events_id",
                       component: Qa,
-                      canActivate: [Wp]
+                      canActivate: [Vp]
                     },
-                    { path: "my-app", component: Qu, canActivate: [Wp] },
+                    { path: "my-app", component: Qu, canActivate: [Vp] },
                     {
                       path: "my-app/:apps_id",
                       component: Qu,
-                      canActivate: [Wp]
+                      canActivate: [Vp]
                     },
                     { path: "events", component: id },
                     { path: "apps", component: gd },
                     { path: "apps/:category", component: gd },
-                    { path: "account", component: Ju, canActivate: [Wp] },
+                    { path: "account", component: Ju, canActivate: [Vp] },
                     { path: "the-expanse", component: zi },
-                    { path: "setup-howto", component: Qd },
-                    { path: "login", component: tc, canActivate: [Up] },
+                    { path: "setup-howto", component: $d },
+                    { path: "login", component: Zd, canActivate: [Fp] },
                     {
                       path: "forgot-password",
-                      component: uc,
-                      canActivate: [Up]
+                      component: lc,
+                      canActivate: [Fp]
                     },
                     {
                       path: "reset-password/:token",
-                      component: pc,
-                      canActivate: [Up]
+                      component: ac,
+                      canActivate: [Fp]
                     },
-                    { path: "sign-up", component: vc, canActivate: [Up] },
+                    { path: "sign-up", component: hc, canActivate: [Fp] },
                     { path: "**", component: zi }
                   ]
                 ];
@@ -117226,7 +116855,7 @@
               [2, mr]
             ]),
             l["\u0275mpd"](1073742336, Hr, Hr, [[2, Nr], [2, Cr]]),
-            l["\u0275mpd"](1073742336, Bp, Bp, []),
+            l["\u0275mpd"](1073742336, Hp, Hp, []),
             l["\u0275mpd"](1073742336, Si, Si, []),
             l["\u0275mpd"](1073742336, Xe, Xe, []),
             l["\u0275mpd"](1073742336, Dn, Dn, []),
@@ -117250,8 +116879,8 @@
             l["\u0275mpd"](1073742336, Ea, Ea, []),
             l["\u0275mpd"](
               1073742336,
-              Gp.LightboxModule,
-              Gp.LightboxModule,
+              zp.LightboxModule,
+              zp.LightboxModule,
               []
             ),
             l["\u0275mpd"](1073742336, r, r, []),
@@ -117262,7 +116891,7 @@
       Object(l.enableProdMode)(),
         u
           .platformBrowser()
-          .bootstrapModuleFactory($p)
+          .bootstrapModuleFactory(Up)
           .catch(function(e) {
             return console.error(e);
           });
