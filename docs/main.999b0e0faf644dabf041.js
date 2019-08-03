@@ -84545,7 +84545,7 @@
               });
             }),
             (e.prototype.onVideoChange = function() {
-              (this.videoObject = tu.parse(this.currentApp.video_url)),
+              (this.videoObject = tu.parse(this.currentApp.video_url || "")),
                 this.videoObject &&
                   (this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
                     "youtube" === this.videoObject.provider
@@ -84651,7 +84651,9 @@
                         !n.error &&
                           n.length &&
                           (e.refreshShareLink(),
-                          e.router.navigateByUrl("/my-event/" + n[0].apps_id));
+                          e.router.navigateByUrl(
+                            "/my-event/" + n[0].events_id
+                          ));
                     });
             }),
             (e.prototype.sendForApproval = function(e) {

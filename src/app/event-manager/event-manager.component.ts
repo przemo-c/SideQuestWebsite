@@ -102,7 +102,7 @@ export class EventManagerComponent implements OnInit, OnDestroy {
   }
 
   onVideoChange() {
-    this.videoObject = urlParser.parse(this.currentApp.video_url);
+    this.videoObject = urlParser.parse(this.currentApp.video_url || "");
     if (this.videoObject) {
       this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
         this.videoObject.provider === "youtube"
@@ -212,7 +212,7 @@ export class EventManagerComponent implements OnInit, OnDestroy {
           if (!res.error && res.length) {
             this.refreshShareLink();
             // this.sendForApproval(res[0].apps_id).then(() =>
-            this.router.navigateByUrl("/my-event/" + res[0].apps_id);
+            this.router.navigateByUrl("/my-event/" + res[0].events_id);
             // );
           }
         });
