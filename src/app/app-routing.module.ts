@@ -16,6 +16,9 @@ import { ResetPasswordComponent } from "./reset-password/reset-password.componen
 import { AppListingComponent } from "./app-listing/app-listing.component";
 import { AvatarPickerComponent } from "./avatar-picker/avatar-picker.component";
 import { AvatarEditorComponent } from "./avatar-editor/avatar-editor.component";
+import { EventListingComponent } from "./event-listing/event-listing.component";
+import { EventManagerComponent } from "./event-manager/event-manager.component";
+import { EventsComponent } from "./events/events.component";
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
@@ -37,12 +40,24 @@ const routes: Routes = [
   },
   { path: "what-is-sidequest", component: WhatIsSideQuestComponent },
   { path: "app/:apps_id", component: AppListingComponent },
+  { path: "event/:events_id", component: EventListingComponent },
+  {
+    path: "my-event",
+    component: EventManagerComponent,
+    canActivate: [LoginGuard]
+  },
+  {
+    path: "my-event/:events_id",
+    component: EventManagerComponent,
+    canActivate: [LoginGuard]
+  },
   { path: "my-app", component: AppManagerComponent, canActivate: [LoginGuard] },
   {
     path: "my-app/:apps_id",
     component: AppManagerComponent,
     canActivate: [LoginGuard]
   },
+  { path: "events", component: EventsComponent },
   { path: "apps", component: AppsComponent },
   { path: "apps/:category", component: AppsComponent },
   { path: "account", component: AccountComponent, canActivate: [LoginGuard] },

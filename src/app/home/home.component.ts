@@ -7,6 +7,7 @@ import {
 } from "@angular/core";
 import { AppService } from "../app.service";
 import { DomSanitizer } from "@angular/platform-browser";
+import { AppListing } from "../account/account.component";
 
 export interface NewsItem {
   title: string;
@@ -17,6 +18,8 @@ export interface NewsItem {
   image: string;
   video: string;
   created: number;
+  date_string?: string;
+  show_date?: boolean;
 }
 @Component({
   selector: "app-home",
@@ -79,6 +82,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }
         this.isLoading = false;
         this.news = this.news.concat(result);
+        this.news.forEach((d: NewsItem, i) => {
+          const date = new Date(+d.created);
+          d.date_string =
+            date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+          d.show_date =
+            i === 0 || this.news[i - 1].date_string !== d.date_string;
+        });
         this.page++;
       });
   }

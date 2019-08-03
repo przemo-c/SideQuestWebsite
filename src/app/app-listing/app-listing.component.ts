@@ -239,6 +239,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   }
 
   openItems(apps: any) {
+    this.downloadCount();
     this.service
       .openSidequestUrl(
         (this.currentApp.app_categories_id === "4" &&
@@ -253,9 +254,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
             )
           )
       )
-      .then(() => this.downloadCount())
       .then(() => {
-        console.log(this.apps_id, this.currentApp.versioncode);
         return this.expanseService.addInstalledApp(
           this.apps_id,
           this.currentApp.versioncode

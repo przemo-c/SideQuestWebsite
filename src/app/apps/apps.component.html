@@ -1,10 +1,7 @@
 <div class="padding" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
-  <div class="right margin-top-icons">
-    <i mz-tooltip tooltip="Enable Grid view mode" position="bottom" class="material-icons layout-button" (click)="isGrid = true;saveGrid()">dashboard</i>
-    <i mz-tooltip tooltip="Enable List view mode" position="bottom" class="material-icons layout-button" (click)="isGrid = false;saveGrid()">list</i>
-    <i mz-tooltip tooltip="Sort by name" position="bottom" class="material-icons layout-button" (click)="isRecent = false; page = 0; getApps()">sort</i>
-    <i mz-tooltip tooltip="Sort by recent" position="bottom" class="material-icons layout-button" (click)="isRecent = true; page = 0; getApps()">swap_vert</i>
-  </div>
+  <app-listing-modes [show_sort]="!appService.isTimeline"
+                     (recent)="isRecent = true; page = 0; getApps()"
+                     (name)="isRecent = false; page = 0; getApps()"></app-listing-modes>
   <h4 class="inline-block">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 3 ? 'NSFW' : 'Apps'}}</h4>
   <hr class="grey">
   <!--<mz-chip-input-->
@@ -55,46 +52,37 @@
     All
   </div>
   <div class="clearfix"></div>
-  <div *ngIf="!isGrid">
-    <div class="card card-height" *ngFor="let app of apps">
-      <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-           *ngIf="app.image_url" [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
-      </div>
-      <div class="card-content">
-        <i class="material-icons activator pointer right">more_vert</i>
-        <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':app.image_url}">{{app.name}}</span>
-        <p class="grey-text description truncate" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
-        <div class="right-align">
-          <div class="btn-flat waves-effect waves-light white-text" routerLink="/app/{{app.apps_id}}">more info</div>
-        </div>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{app.name}}</span>
-        <p class="grey-text">{{app.summary}}</p>
-      </div>
-    </div>
+  <div *ngIf="!appService.isGrid&&appService.isTimeline" class="row">
+    <app-timeline-item *ngFor="let app of apps;let i = index;"
+                   [name]="app.name"
+                   [description]="app.summary"
+                   [image]="app.image_url"
+                   [start_time]="app.created/1000"
+                   [show_date]="app.show_date"
+                   [show_date_first]="app.show_date"
+                   [hide_time]="true"
+                   (open)="router.navigateByUrl('/app/'+app.apps_id)"
+    ></app-timeline-item>
+  </div>
+  <div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">
+    <app-list-item *ngFor="let app of apps;"
+       [name]="app.name"
+       [description]="app.summary"
+       [image]="app.image_url"
+       (open)="router.navigateByUrl('/app/'+app.apps_id)"
+    ></app-list-item>
   </div>
 
   <ngx-masonry class="masonry-layout"
-               *ngIf="isGrid"
+               *ngIf="appService.isGrid&&!appService.isTimeline"
                [updateLayout]="updateMasonryLayout"
                [options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">
     <ngxMasonryItem class="masonry-item" *ngFor="let app of apps">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" *ngIf="app.image_url" onerror="this.style.display='none'" src="{{app.image_url}}">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator white-text">{{app.name}}<i class="material-icons right">more_vert</i></span>
-          <div class="right-align">
-            <div class="btn-flat waves-effect waves-light white-text" routerLink="/app/{{app.apps_id}}">more info</div>
-          </div>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{app.name}}</span>
-          <p class="grey-text">{{app.summary}}</p>
-        </div>
-      </div>
+      <app-grid-item [name]="app.name"
+                     [description]="app.summary"
+                     [image]="app.image_url"
+                     (open)="router.navigateByUrl('/app/'+app.apps_id)"
+      ></app-grid-item>
     </ngxMasonryItem>
   </ngx-masonry>
 </div>

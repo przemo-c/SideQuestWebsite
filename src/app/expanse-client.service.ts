@@ -391,11 +391,25 @@ export class ExpanseClientService {
   getEvent(events_id) {
     return this.emit("event", { events_id });
   }
-  getEvents(page, search) {
-    return this.emit("events-list", { page, search });
+  getEvents(page, search, filter) {
+    return this.emit("events-list", { page, search, filter });
   }
-  getMyEvents(page, search) {
-    return this.emit("my-events", { page, search });
+  getMyEvents(page, search, filter) {
+    return this.emit("my-events", { page, search, filter });
+  }
+  getEventTotals(events_id) {
+    return this.emit("get-event-totals", { events_id });
+  }
+  getEventCounters(events_id, start_time, end_time, filter) {
+    return this.emit("get-event-counters", {
+      events_id,
+      start_time,
+      end_time,
+      filter
+    });
+  }
+  eventCount(type, events_id) {
+    return this.emit("update-count-event", { type, events_id });
   }
   getSpace(spaces_id) {
     return this.emit("space", { spaces_id });

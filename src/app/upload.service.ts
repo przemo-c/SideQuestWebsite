@@ -9,6 +9,8 @@ import { AppService } from "./app.service";
 })
 export class UploadService {
   editorComponent: AvatarPickerComponent;
+  is_loading_icon: boolean;
+  is_loading_screenshot: boolean;
   constructor(
     private expanseService: ExpanseClientService,
     private router: Router,
@@ -90,5 +92,46 @@ export class UploadService {
         )
       )
       .then(res => res.json());
+  }
+
+  uploadImage(is_icon) {
+    return new Promise((resolve, reject) => {
+      let upload = document.createElement("input");
+      upload.setAttribute("type", "file");
+      upload.style.display = "none";
+      let has_files = false;
+      upload.addEventListener("change", e => {
+        if ((e.target as any).files.length) {
+          if (is_icon) {
+            this.is_loading_icon = true;
+          } else {
+            this.is_loading_screenshot = true;
+          }
+          this.uploadFile(
+            (e.target as any).files[0],
+            (e.target as any).files[0].name
+          ).then(res => {
+            if (is_icon) {
+              this.is_loading_icon = false;
+            } else {
+              this.is_loading_screenshot = false;
+            }
+            resolve(res);
+          });
+        }
+        document.body.removeChild(upload);
+      });
+      document.onfocus = function() {
+        console.log("on focus");
+        document.onfocus = null;
+        setTimeout(function() {
+          if (!has_files) {
+            reject();
+          }
+        }, 1000);
+      };
+      document.body.appendChild(upload);
+      upload.click();
+    });
   }
 }

@@ -1,0 +1,47 @@
+<div class="padding" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
+  <app-listing-modes></app-listing-modes>
+  <h4 class="inline-block">Events</h4>
+  <hr class="grey">
+  <div *ngIf="!appService.isGrid&&appService.isTimeline" class="row">
+    <app-timeline-item *ngFor="let event of events; let i = index"
+                       [name]="event.event_name||event.name"
+                       [description]="event.event_description||event.description"
+                       [image]="event.event_image||event.image"
+                       [start_time]="event.start_time"
+                       [show_date]="event.show_date"
+                       [show_date_first]="event.show_date && i > 0"
+                       [duration]="event.event_duration"
+                       (open)="router.navigateByUrl('/event/'+event.events_id)"
+    ></app-timeline-item>
+  </div>
+  <div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">
+    <app-list-item *ngFor="let event of events; let i = index"
+                   [name]="event.event_name||event.name"
+                   [description]="event.event_description||event.description"
+                   [image]="event.event_image||event.image"
+                   [start_time]="event.start_time"
+                   [show_date]="event.show_date"
+                   [show_date_first]="event.show_date && i > 0"
+                   [duration]="event.event_duration"
+                   (open)="router.navigateByUrl('/event/'+event.events_id)"
+    ></app-list-item>
+  </div>
+
+  <ngx-masonry class="masonry-layout"
+               *ngIf="appService.isGrid&&!appService.isTimeline"
+               [updateLayout]="updateMasonryLayout"
+               [options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">
+    <ngxMasonryItem class="masonry-item" *ngFor="let event of events; let i = index">
+      <app-grid-item
+        [name]="event.event_name||event.name"
+        [description]="event.event_description||event.description"
+        [image]="event.event_image||event.image"
+        [start_time]="event.start_time"
+        [show_date]="event.show_date"
+        [show_date_first]="event.show_date && i > 0"
+        [duration]="event.event_duration"
+        (open)="router.navigateByUrl('/event/'+event.events_id)"
+      ></app-grid-item>
+    </ngxMasonryItem>
+  </ngx-masonry>
+</div>

@@ -58,6 +58,9 @@ export class AppComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.appService.scrollContainer = this.scrollContainer.nativeElement;
     this.appService.confirmOpen = this.confirmOpen;
+    this.appService.scrollContainer.addEventListener("scroll", () =>
+      window.dispatchEvent(new Event("scroll"))
+    );
   }
 
   openLink(url: string) {

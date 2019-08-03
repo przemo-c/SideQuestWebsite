@@ -21,7 +21,8 @@ import {
   MzSwitchModule,
   MzTabModule,
   MzToastModule,
-  MzTooltipModule
+  MzTooltipModule,
+  MzParallaxModule
 } from "ngx-materialize";
 import { WhatIsSideQuestComponent } from "./what-is-side-quest/what-is-side-quest.component";
 import { DownloadSideQuestComponent } from "./download-side-quest/download-side-quest.component";
@@ -44,6 +45,16 @@ import { NgxDaterangepickerMd } from "ngx-daterangepicker-material";
 import { AvatarPickerComponent } from "./avatar-picker/avatar-picker.component";
 import { AvatarEditorComponent } from "./avatar-editor/avatar-editor.component";
 import { EncodeURIComponentPipe } from "./encode-uricomponent.pipe";
+import { EventManagerComponent } from "./event-manager/event-manager.component";
+import { EventListingComponent } from "./event-listing/event-listing.component";
+import { EventsComponent } from "./events/events.component";
+import { ShowDatePipe } from "./show-date.pipe";
+import { ShowDurationPipe } from "./show-duration.pipe";
+import { ShowTimePipe } from "./show-time.pipe";
+import { GridItemComponent } from "./grid-item/grid-item.component";
+import { ListItemComponent } from "./list-item/list-item.component";
+import { TimelineItemComponent } from "./timeline-item/timeline-item.component";
+import { ListingModesComponent } from "./listing-modes/listing-modes.component";
 
 @NgModule({
   declarations: [
@@ -65,7 +76,17 @@ import { EncodeURIComponentPipe } from "./encode-uricomponent.pipe";
     StatsChartComponent,
     AvatarPickerComponent,
     AvatarEditorComponent,
-    EncodeURIComponentPipe
+    EncodeURIComponentPipe,
+    EventManagerComponent,
+    EventListingComponent,
+    EventsComponent,
+    ShowDatePipe,
+    ShowDurationPipe,
+    ShowTimePipe,
+    GridItemComponent,
+    ListItemComponent,
+    TimelineItemComponent,
+    ListingModesComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +107,7 @@ import { EncodeURIComponentPipe } from "./encode-uricomponent.pipe";
     MzModalModule,
     FormsModule,
     ChartsModule,
+    MzParallaxModule,
     NgxDaterangepickerMd.forRoot(),
     LightboxModule
   ],

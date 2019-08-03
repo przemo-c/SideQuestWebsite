@@ -55,7 +55,7 @@
       <div #addImage class="add-image" *ngIf="!currentApp.image_url && !is_loading_icon" (click)="uploadIcon()">
         <i class="material-icons">add</i> Add Image
       </div>
-      <div class="loader-cont" *ngIf="is_loading_icon">
+      <div class="loader-cont" *ngIf="uploadService.is_loading_icon">
         <div class="loader-initial"></div>
       </div>
       <img class="responsive-img pointer" *ngIf="currentApp.image_url && !is_loading_icon" src="{{currentApp.image_url}}" (click)="uploadIcon()"/>
@@ -85,10 +85,10 @@
       <h5>App Screenshots</h5>
       <hr>
       <div class="right-align grey-text">Add an app screenshot.</div>
-      <div class="loader-cont add-screenshot" *ngIf="is_loading_screenshot">
+      <div class="loader-cont add-screenshot" *ngIf="uploadService.is_loading_screenshot">
         <div class="loader-initial"></div>
       </div>
-      <div #addScreenshot class="add-screenshot" *ngIf="!is_loading_screenshot" (click)="uploadScreenshot()">
+      <div #addScreenshot class="add-screenshot" *ngIf="!uploadService.is_loading_screenshot" (click)="uploadScreenshot()">
         <i class="material-icons">add</i> Add Screenshot
       </div>
       <img class="responsive-img pointer" *ngFor="let screenshot of screenshots; let i = index" (click)="currentScreenshot = i; manageScreenshot.openModal()" src="{{screenshot}}"/>

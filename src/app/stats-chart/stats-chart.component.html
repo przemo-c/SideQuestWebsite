@@ -10,7 +10,7 @@
            (datesUpdated)="getData()"
            id="dateRangePicker" class="form-control"/>
   </div>
-  <div class="date-range">
+  <div class="date-range" *ngIf="!events_id">
     <div class="select-drop-down">
       <label class="active">Release</label>
       <select class="browser-default black-text" [(ngModel)]="selectedFilter" (change)="getData()">
@@ -19,10 +19,10 @@
     </div>
   </div>
 </div>
-<h5 class="left metrics-title">App Metrics</h5>
+<h5 class="left metrics-title">{{events_id?'Event':'App'}} Metrics</h5>
 <div class="clearfix"></div>
 <hr>
-<div class="right-align grey-text">View the historical unique views, downloads and likes for your app or specific app versions.</div>
+<div class="right-align grey-text">View the historical unique views, {{events_id?'attending':'downloads'}} and likes for your {{events_id?'event':'app or specific app versions'}}.</div>
 {{getTopDate(false)|date:'mediumDate'}}
 <div class="right">
   {{getTopDate(true)|date:'mediumDate'}}

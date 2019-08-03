@@ -140,12 +140,12 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
   public lineChartLegend = true;
   public lineChartType = "line";
   public lineChartPlugins = [];
+  @Input() events_id;
   @Input() apps_id;
   notEnough: boolean;
   selectedFilter = "All";
   versionFilter: string[];
   @ViewChild(BaseChartDirective, { static: true }) chart: BaseChartDirective;
-  private var;
   selectedDate = {
     start: moment().subtract(6, "days"), // new Date(new Date().getTime() - (1000 * 3600 * 24 * 7)),
     end: moment()
@@ -162,19 +162,34 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
     this.expanseService
       .start()
       .then(() =>
-        this.expanseService.getAppCounters(
-          this.apps_id,
+        this.expanseService[
+          this.events_id ? "getEventCounters" : "getAppCounters"
+        ](
+          this.events_id || this.apps_id,
           Math.floor(this.selectedDate.start.toDate().getTime() / 1000 / 3600),
           Math.floor(this.selectedDate.end.toDate().getTime() / 1000 / 3600),
           this.selectedFilter
         )
       )
       .then((res: any) => {
-        res = this.groupRes(res);
+        if (!this.events_id) {
+          res = this.groupRes(res);
+        }
         const views = (res || []).filter(count => count.type === "view");
         const viewsObject = {
           label: "Views",
           data: views.map(count => ({
+            x: (count.hour_time || count.day_time) * 3600 * 1000,
+            y: count.counter
+          })),
+          pointRadius: []
+        };
+        const attending = (res || []).filter(
+          count => count.type === "attending"
+        );
+        const attendingObject = {
+          label: "Attending",
+          data: attending.map(count => ({
             x: (count.hour_time || count.day_time) * 3600 * 1000,
             y: count.counter
           })),
@@ -215,7 +230,21 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           ) as any;
           lineChartData.push(viewsObject);
         }
-        if (downloads.length > 0) {
+        if (attending.length > 0 && this.events_id) {
+          attendingObject.data.unshift({
+            y: attendingObject.data[0].y,
+            x: this.selectedDate.start.toDate()
+          });
+          attendingObject.data.push({
+            y: attendingObject.data[attendingObject.data.length - 1].y,
+            x: this.selectedDate.end.toDate()
+          });
+          attendingObject.pointRadius = attendingObject.data.map((d, i) =>
+            i === 0 ? 0 : i === attendingObject.data.length - 1 ? 0 : 5
+          ) as any;
+          lineChartData.push(attendingObject);
+        }
+        if (downloads.length > 0 && !this.events_id) {
           downloadsObject.data.unshift({
             y: downloadsObject.data[0].y,
             x: this.selectedDate.start.toDate()

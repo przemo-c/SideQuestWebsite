@@ -1,0 +1,16 @@
+
+.margin-top-icons{
+  margin-top: 1em;
+}
+.layout-button{
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+.top-splitter{
+  border-right: 1px solid #cfcfcf;
+  display: inline-block;
+  height: 25px;
+  margin-left: 11px;
+  margin-right: 11px;
+}

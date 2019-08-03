@@ -138,7 +138,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     private expanseService: ExpanseClientService,
     private sanitizer: DomSanitizer,
     route: ActivatedRoute,
-    private uploadService: UploadService
+    public uploadService: UploadService
   ) {
     this.sub = this.router.events.subscribe(async val => {
       if (val instanceof NavigationEnd) {
@@ -473,57 +473,14 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   uploadIcon() {
-    this.uploadImage(true).then((res: any) => {
+    this.uploadService.uploadImage(true).then((res: any) => {
       this.currentApp.image_url = this.expanseService.cdnUrl + res.path;
     });
   }
 
   uploadScreenshot() {
-    this.uploadImage(false).then((res: any) => {
+    this.uploadService.uploadImage(false).then((res: any) => {
       this.screenshots.push(this.expanseService.cdnUrl + res.path);
-    });
-  }
-
-  uploadImage(is_icon) {
-    return new Promise((resolve, reject) => {
-      let upload = document.createElement("input");
-      upload.setAttribute("type", "file");
-      upload.style.display = "none";
-      let has_files = false;
-      upload.addEventListener("change", e => {
-        if ((e.target as any).files.length) {
-          if (is_icon) {
-            this.is_loading_icon = true;
-          } else {
-            this.is_loading_screenshot = true;
-          }
-          this.uploadService
-            .uploadFile(
-              (e.target as any).files[0],
-              (e.target as any).files[0].name
-            )
-            .then(res => {
-              if (is_icon) {
-                this.is_loading_icon = false;
-              } else {
-                this.is_loading_screenshot = false;
-              }
-              resolve(res);
-            });
-        }
-        document.body.removeChild(upload);
-      });
-      document.onfocus = function() {
-        console.log("on focus");
-        document.onfocus = null;
-        setTimeout(function() {
-          if (!has_files) {
-            reject();
-          }
-        }, 1000);
-      };
-      document.body.appendChild(upload);
-      upload.click();
     });
   }
 
@@ -548,7 +505,6 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
           }
         });
       }
-      console.log(release);
       this.currentApp.versioncode = release.id;
       this.currentApp.versionname = release.tag_name;
       this.app_urls = this.app_urls
@@ -582,6 +538,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       .join(",");
     if (this.apps_id) {
       this.refreshShareLink()
+        .then(() => console.log("here1"))
         .then(() =>
           this.expanseService.editApp(
             this.apps_id,

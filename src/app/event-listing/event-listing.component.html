@@ -1,0 +1,111 @@
+<div class="container" *ngIf="is_not_found">
+  <h4>Not found...</h4>
+</div>
+<mz-parallax *ngIf="currentApp.event_image || currentApp.image" [height]="350">
+  <img src="{{currentApp.event_image || currentApp.image}}">
+</mz-parallax>
+<div *ngIf="!is_not_found" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}"
+     [ngStyle]="{'margin-top': currentApp.event_image || currentApp.image ? '-150px' : '0'}">
+  <div class="top-back">
+
+  </div>
+  <h4>
+    <i class="material-icons back-icon" (click)="backClicked()">reply</i>
+    <img class="responsive-img top-image"
+         *ngIf="currentApp.event_image || currentApp.image"
+         src="{{currentApp.event_image || currentApp.image}}"/>
+    <img class="responsive-img top-image circle"
+         *ngIf="currentApp.preview_image"
+         src="{{expanseService.cdnUrl+currentApp.preview_image}}"/>
+    {{currentApp.event_name||currentApp.name}}
+    <span *ngIf="!currentApp.is_approved" class="chip white-text orange">Private</span>
+
+  </h4>
+  <div class="right top-tags-name">
+    <a class="btn waves-effect waves-light pink-button" *ngIf="currentApp.event_url" href="{{currentApp.event_url}}">More Info</a>
+    <div class="btn waves-effect waves-light pink-button margin-left" routerLink="/my-event/{{events_id}}" *ngIf="isMine">Edit Event</div>
+  </div>
+  <div class="clearfix"></div>
+  <hr>
+  <div class="right app-package right-align truncate">{{currentApp.start_time*1000|date:'mediumDate'}} {{currentApp.start_time*1000|date:'shortTime'}}</div>
+
+  <div>
+    <span class="counter">{{counters.a}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+     mz-tooltip tooltip="Number of downloads"
+     position="bottom"
+    >event</i></span>
+    <span class="counter">{{counters.v}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+     mz-tooltip tooltip="Number of views"
+     position="bottom"
+    >visibility</i></span>
+    <span class="counter pointer" (click)="likeEvent()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+     mz-tooltip tooltip="Number of likes"
+     position="bottom"
+    >thumb_up</i></span>
+
+    <a class="btn waves-effect waves-light pink-button small-button margin-left" *ngIf="currentApp.app_url" href="{{currentApp.app_url}}">App Page</a>&nbsp;
+    <a class="btn waves-effect waves-light pink-button small-button margin-left" *ngIf="currentApp.share_url" (click)="copyUrl(currentApp.share_url)">Share</a>
+    <div class="btn waves-effect waves-light pink-button small-button margin-left" (click)="attendingCount()">Im Going</div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="col s12 m5" [ngClass]="{'m5' : !!videoObject}">
+          <div class="row">
+            <div class="col s12">
+              <div *ngIf="currentApp.event_description||currentApp.description">
+                <div class="input-field radio-top">
+                  <label class="active">Description</label>
+                </div>
+                <p [innerHTML]="currentApp.event_description||currentApp.description"></p>
+                <div *ngIf="currentApp.user_name" class="truncate"><br>By {{currentApp.user_name}}</div>
+              </div>
+
+              <div *ngIf="currentApp.created">
+                <br>
+                <div class="input-field radio-top">
+                  <label class="active">Added</label>
+                </div>
+                <p>{{currentApp.created}}</p>
+              </div>
+
+              <div *ngIf="currentApp.updated">
+                <br>
+                <div class="input-field radio-top">
+                  <label class="active">Updated</label>
+                </div>
+                <p>{{currentApp.updated}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col s12 m7" *ngIf="videoObject">
+          <div>
+            <div *ngIf="videoObject.provider === 'youtube'">
+              <iframe width="100%" height="360" [src]="videoUrl" frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen></iframe>
+            </div>
+            <div *ngIf="videoObject.provider === 'vimeo'">
+              <iframe [src]="videoUrl" width="100%" height="360"
+                      frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<div class="col s12 m2">-->
+      <!--<div *ngIf="website_url && website_url.length">-->
+        <!--<div *ngFor="let url of website_url">-->
+          <!--<div class="chip pointer"-->
+               <!--mz-tooltip tooltip="{{url.provider}} {{url.link_url}}"-->
+               <!--position="bottom"-->
+               <!--(click)="openUrl(url.link_url)">-->
+            <!--App Page-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
+</div>

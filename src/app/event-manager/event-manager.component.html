@@ -1,0 +1,220 @@
+<div class="container" *ngIf="is_not_found">
+  <h4>Not found...</h4>
+</div>
+<div *ngIf="!is_not_found" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
+
+  <div class="btn waves-effect waves-light pink-button right margin-left" routerLink="/event/{{events_id}}" *ngIf="events_id">View Listing</div>
+  <div class="btn waves-effect waves-light right pink-button margin-left" (click)="saveEvent()">Save Event</div>
+
+  <h4><i class="material-icons back-icon" routerLink="/account">reply</i>{{events_id?'Manage Event':'Create Event'}}
+    <span *ngIf="events_id" class="chip white-text"
+          [ngClass]="{'pink-button': currentApp.is_approved, 'orange': !currentApp.is_approved}">
+  {{currentApp.is_approved ? 'Published' : 'Pending'}}
+  </span>
+  </h4>
+
+  <div *ngIf="events_id && currentApp.is_approved">
+    <app-stats-chart #chart [events_id]="events_id" ></app-stats-chart>
+
+    <br>
+
+    <div class="center-align">
+  <span class="chip pointer top-chip"
+        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+        mz-tooltip tooltip="People have been so kind, we are humbled."
+        position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+      Support us on Patreon
+    </span>
+      <span class="chip pointer top-chip"
+            onclick="window.location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=744A6C394Q8JG&source=url'"
+            mz-tooltip tooltip="Use this option if you prefer a one off donation."
+            position="bottom">
+      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+      Donate on Paypal
+    </span>
+    </div>
+    <br>
+  </div>
+  <div class="row">
+    <div class="col s12 m3">
+      <h5>Event Image</h5>
+      <hr>
+      <div class="right-align grey-text">Add an image - 2048px X 1024px is a good size.</div>
+      <div #addImage class="add-image" *ngIf="!currentApp.event_image && !uploadService.is_loading_icon" (click)="uploadIcon()">
+        <i class="material-icons">add</i> Add Image
+      </div>
+      <div class="loader-cont" *ngIf="uploadService.is_loading_icon">
+        <div class="loader-initial"></div>
+      </div>
+      <img class="responsive-img pointer" *ngIf="currentApp.event_image && !uploadService.is_loading_icon" src="{{currentApp.event_image}}" (click)="uploadIcon()"/>
+      <br><br>
+      <h5>Event Video</h5>
+      <hr>
+      <div class="right-align grey-text">Add promotional footage.</div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">movie</i>
+          <input id="video_url" type="text" class="validate" (input)="onVideoChange()" placeholder="http://www.example.com" [(ngModel)]="currentApp.video_url">
+          <label for="video_url" class="active">Youtube/Vimeo Url</label>
+        </div>
+        <div class="col s12" *ngIf="videoObject">
+          <div *ngIf="videoObject.provider === 'youtube'">
+            <iframe width="100%" height="200" [src]="videoUrl" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <div *ngIf="videoObject.provider === 'vimeo'">
+            <iframe [src]="videoUrl" width="100%" height="200"
+                    frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m9 extra-padding-left-small">
+      <h5 *ngIf="!events_id">Event Listing Details</h5>
+      <h5 *ngIf="events_id">[{{events_id}}] {{currentApp.event_name}} Listing Details</h5>
+      <hr>
+      <div class="right-align grey-text">Enter the basic info for your event.</div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">done</i>
+          <input id="app_name" type="text" placeholder="My Cool Event" class="validate"
+                 [(ngModel)]="currentApp.event_name">
+          <label for="app_name" class="active">Event Name</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">playlist_add</i>
+          <textarea id="description" class="materialize-textarea"  placeholder="Event description..."
+                    [(ngModel)]="currentApp.event_description"
+          ></textarea>
+          <label for="description" class="active">Description</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">event_note</i>
+          <input id="event_url" type="text" placeholder="https://example.com" class="validate"
+                 [(ngModel)]="currentApp.event_url">
+          <label for="app_name" class="active">Event Url</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">exit_to_app</i>
+          <input id="app_url" type="text" placeholder="https://example.com" class="validate"
+                 [(ngModel)]="currentApp.app_url">
+          <label for="app_name" class="active">App Page Url</label>
+        </div>
+        <div class="col s12 l4 input-field">
+          <i class="material-icons prefix">event</i>
+          <label for="dateRangePicker" class="active">Date</label>
+          <input type="text" ngxDaterangepickerMd
+                 startKey="start" [singleDatePicker]="true"
+                 [(ngModel)]="selectedDate" [opens]="'left'" [isCustomDate]="customCss"
+                 (choosedDate)="null"
+                 id="dateRangePicker" class="form-control"/>
+        </div>
+        <div class="col s12 l4">
+          <i class="material-icons select-icon">access_time</i>
+          <p class="range-field select-drop-down">
+            <label class="active">Time - {{selectedTime*60|showDuration}}</label>
+            <input type="range" id="event_time"
+                   [(ngModel)]="selectedTime"
+                   min="0" step="15" max="1425" />
+          </p>
+        </div>
+        <div class="col s12 l4">
+          <i class="material-icons select-icon">timelapse</i>
+          <p class="range-field select-drop-down">
+            <label class="active">Duration - {{currentApp.event_duration|showDuration}} hrs</label>
+            <input type="range" id="event_duration"
+                   [(ngModel)]="currentApp.event_duration"
+                   min="0" step="900" max="21600" />
+          </p>
+        </div>
+        <div class="col s12">
+          <i class="material-icons select-icon">done_all</i>
+          <div class="select-drop-down">
+            <label class="active">Repeats</label>
+            <mz-radio-button-container>
+              <input mz-radio-button
+                     [label]="'One Off'"
+                     [withGap]="true"
+                     id="repeat-Type-OneOff"
+                     name="type-group"
+                     value="oneoff"
+                     type="radio" [(ngModel)]="currentApp.event_repeat_type">
+              &nbsp;&nbsp;
+              <input mz-radio-button
+                     [label]="'Daily'"
+                     [withGap]="true"
+                     id="repeat-Type-Daily"
+                     name="type-group"
+                     value="daily"
+                     type="radio" [(ngModel)]="currentApp.event_repeat_type">
+              &nbsp;&nbsp;
+              <input mz-radio-button
+                     [label]="'Weekly'"
+                     [withGap]="true"
+                     id="repeat-Type-Weekly"
+                     name="type-group"
+                     value="weekly"
+                     type="radio" [(ngModel)]="currentApp.event_repeat_type">
+              &nbsp;&nbsp;
+              <input mz-radio-button
+                     [label]="'Fortnightly'"
+                     [withGap]="true"
+                     id="repeat-Type-Fortnightly"
+                     name="type-group"
+                     value="fortnightly"
+                     type="radio" [(ngModel)]="currentApp.event_repeat_type">
+            </mz-radio-button-container>
+          </div>
+        </div>
+        <div class="col s12 l6" *ngIf="currentApp.event_repeat_type !== 'oneoff'">
+          <i class="material-icons select-icon">date_range</i>
+          <p class="range-field select-drop-down">
+            <label class="active">{{currentApp.event_repeat_amount+1}} {{currentApp.event_repeat_type}} events</label>
+            <input type="range" [(ngModel)]="currentApp.event_repeat_amount" id="repeat_amount" min="1" max="100" />
+          </p>
+        </div>
+      </div>
+      <div *ngIf="events_id" class="col s12">
+        <br>
+        <h5>Share URL</h5>
+        <hr>
+        <div class="right-align grey-text">This url will show your apps description when shared on social media.</div>
+        <div class="center-align">
+          <br><br><br>
+          <div class="btn waves-effect waves-light pink-button margin-left" (click)="copyUrl(currentApp.share_url)">Copy To Clipboard</div>
+
+          <br><br>
+          <span *ngIf="currentApp.share_url">Share URL: {{currentApp.share_url}}</span>
+          <br>
+        </div>
+      </div>
+      <div *ngIf="events_id" class="col s12">
+        <br>
+        <h5>Delete Event</h5>
+        <hr>
+        <div class="right-align grey-text">WARNING: This cannot be undone. This will remove the event from the listings.</div>
+        <div class="center-align">
+          <br><br><br>
+          <div class="btn waves-effect waves-light red small-button" (click)="confirmDelete.openModal()">Delete event</div>
+          <br><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<mz-modal #confirmDelete [fixedFooter]="true">
+  <mz-modal-header>
+    <h4>Delete this event?</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    Are you sure you want to delete this event? This cannot be undone!
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
+    <button mz-button class="red" mz-modal-close (click)="deleteEvent()">DELETE event</button>
+  </mz-modal-footer>
+</mz-modal>

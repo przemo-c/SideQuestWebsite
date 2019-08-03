@@ -136,3 +136,64 @@ input[type=number]::-webkit-outer-spin-button {
 .vertical-align{
   vertical-align: middle;
 }
+input[type=range] {
+  border: 0 solid white!important;
+}
+.thumb{
+  display: none;
+}
+.radio-button-field{
+  white-space: nowrap;
+}
+
+.masonry-layout{
+  text-align:center;
+  margin-left: 10px;
+}
+.masonry-item {
+  width: calc(25% - 17.5px);
+}
+@media screen and (max-width: 992px) {
+  .masonry-item {
+    width: calc(50% - 17.5px);
+  }
+}
+
+.card-image-left{
+  height: 146px;
+  float: left;
+  width: 194.6666666666667px;
+  background-size: cover;
+  background-position: center center;
+  margin-right: 2em;
+}
+.card-title-small{
+  width: calc(100% - 300px)!important;
+}
+.card-title.truncate, .description.truncate{
+  width: calc(100% - 50px);
+}
+.card-content{
+  background-color: #312249;
+}
+
+.card-title-small.installed{
+  width: calc(100% - 170px)!important;
+}
+.card-title.truncate, .description.truncate.installed{
+  width: calc(100% - 39px);
+}
+.chip>i {
+  float: left;
+  margin: 0 8px 0 -8px;
+  font-size: 28px;
+  line-height: 32px;
+  border-radius: 50%;
+}
+
+.bottom-border{
+  border-bottom: 1px solid #cfcfcf;
+}
+.parallax{
+  z-index: 0!important;
+}

@@ -14,7 +14,6 @@ import { Subscription } from "rxjs";
 export class AppsComponent implements OnInit, OnDestroy {
   apps: AppListing[] = [];
   searchString: string;
-  isGrid: boolean = true;
   updateMasonryLayout: boolean = false;
   isLoading: boolean = false;
   hasNoMore: boolean = false;
@@ -35,13 +34,9 @@ export class AppsComponent implements OnInit, OnDestroy {
   constructor(
     private expanseService: ExpanseClientService,
     public appService: AppService,
-    private router: Router,
+    public router: Router,
     route: ActivatedRoute
   ) {
-    const isGrid = localStorage.getItem("isGrid");
-    if (isGrid) {
-      this.isGrid = isGrid === "true";
-    }
     this.sub = this.router.events.subscribe(async val => {
       if (val instanceof NavigationEnd) {
         this.category = Number(route.snapshot.paramMap.get("category"));
@@ -71,10 +66,6 @@ export class AppsComponent implements OnInit, OnDestroy {
     }, 750);
   }
 
-  saveGrid() {
-    localStorage.setItem("isGrid", this.isGrid.toString());
-  }
-
   ngOnInit() {
     return this.getApps();
   }
@@ -95,19 +86,26 @@ export class AppsComponent implements OnInit, OnDestroy {
           this.category
         )
         .then(async (resp: AppListing[]) => {
-          await this.fixImages(resp);
+          await this.appService.fixImages(resp);
           this.hasNoMore = !resp.length;
-          let isGrid = this.isGrid;
+          let isGrid = this.appService.isGrid;
           if (this.page === 0) {
-            this.isGrid = false;
+            this.appService.isGrid = false;
             this.apps.length = 0;
           }
           this.isLoading = false;
           this.apps = this.apps.concat(resp);
+          this.apps.forEach((d: AppListing, i) => {
+            const date = new Date(+d.created);
+            d.date_string =
+              date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+            d.show_date =
+              i === 0 || this.apps[i - 1].date_string !== d.date_string;
+          });
           // this.updateMasonryLayout = true;
           this.isLoaded = true;
           if (this.page === 0) {
-            setTimeout(() => (this.isGrid = isGrid));
+            setTimeout(() => (this.appService.isGrid = isGrid));
           }
           this.page++;
 
@@ -116,23 +114,6 @@ export class AppsComponent implements OnInit, OnDestroy {
           });
           this.appService.saveAppMeta();
         })
-    );
-  }
-
-  async fixImages(result) {
-    await Promise.all(
-      (result && result.length ? result : []).map(async d => {
-        const img = new Image();
-        let notLoaded = false;
-        await new Promise((resolve, reject) => {
-          img.onload = resolve;
-          img.onerror = reject;
-          img.src = d.image_url;
-        }).catch(e => {
-          d.image_url = null;
-          notLoaded = true;
-        });
-      })
     );
   }
 

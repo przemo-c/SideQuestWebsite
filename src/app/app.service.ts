@@ -9,6 +9,7 @@ export class AppService {
   scrollContainer: HTMLElement;
   isAuthenticated: boolean;
   currentUrl: string;
+  event_meta: any;
   app_meta: any;
   app_index: any;
   sidequestResolve: any;
@@ -17,6 +18,8 @@ export class AppService {
   urlTimeout: number;
   urlTimeoutValue: number;
   confirmOpen: MzModalComponent;
+  isGrid: boolean = true;
+  isTimeline: boolean = false;
   constructor(private toastService: MzToastService) {
     const userAgent = (navigator as any).userAgent.toLowerCase();
     if (userAgent.indexOf(" electron/") > -1) {
@@ -24,7 +27,41 @@ export class AppService {
     }
     this.loadAppIndex();
     this.loadAppMeta();
+    this.saveAppMeta();
     this.setupWindowEvents();
+    const isGrid = localStorage.getItem("isGrid");
+    if (isGrid) {
+      this.isGrid = isGrid === "true";
+    }
+    const isTimeline = localStorage.getItem("isTimeline");
+    if (isTimeline) {
+      this.isTimeline = isTimeline === "true";
+    }
+  }
+
+  async fixImages(result) {
+    const items = result && result.length ? result : [];
+    await Promise.all(
+      items.map(async d => {
+        const img = new Image();
+        let notLoaded = false;
+        await new Promise((resolve, reject) => {
+          img.onload = resolve;
+          img.onerror = reject;
+          img.src = d.image_url || d.event_image || d.image;
+        }).catch(e => {
+          d.image_url = null;
+          d.event_image = null;
+          d.image = null;
+          notLoaded = true;
+        });
+      })
+    );
+  }
+
+  saveGrid() {
+    localStorage.setItem("isGrid", this.isGrid.toString());
+    localStorage.setItem("isTimeline", this.isTimeline.toString());
   }
 
   setupWindowEvents() {
@@ -64,6 +101,17 @@ export class AppService {
     }
   }
 
+  getEventMeta(events_id) {
+    if (!this.event_meta[events_id]) {
+      this.event_meta[events_id] = {
+        v: 0,
+        a: 0,
+        l: 0
+      };
+    }
+    return this.event_meta[events_id];
+  }
+
   getAppMeta(apps_id) {
     if (!this.app_meta[apps_id]) {
       this.app_meta[apps_id] = {
@@ -77,12 +125,12 @@ export class AppService {
   }
 
   loadAppIndex() {
-    let app_meta = localStorage.getItem("app_index");
-    if (!app_meta) {
+    let app_index = localStorage.getItem("app_index");
+    if (!app_index) {
       this.defaultAppIndex();
     } else {
       try {
-        this.app_index = JSON.parse(app_meta);
+        this.app_index = JSON.parse(app_index);
       } catch (e) {
         this.defaultAppIndex();
       }
@@ -91,7 +139,6 @@ export class AppService {
 
   defaultAppIndex() {
     this.app_index = {};
-    this.saveAppMeta();
   }
 
   loadAppMeta() {
@@ -105,14 +152,28 @@ export class AppService {
         this.defaultAppMeta();
       }
     }
+    let event_meta = localStorage.getItem("event_meta");
+    if (!event_meta) {
+      this.defaultEventMeta();
+    } else {
+      try {
+        this.event_meta = JSON.parse(event_meta);
+      } catch (e) {
+        this.defaultEventMeta();
+      }
+    }
   }
 
   defaultAppMeta() {
     this.app_meta = {};
-    this.saveAppMeta();
+  }
+
+  defaultEventMeta() {
+    this.event_meta = {};
   }
 
   saveAppMeta() {
+    localStorage.setItem("event_meta", JSON.stringify(this.event_meta));
     localStorage.setItem("app_meta", JSON.stringify(this.app_meta));
     localStorage.setItem("app_index", JSON.stringify(this.app_index));
   }

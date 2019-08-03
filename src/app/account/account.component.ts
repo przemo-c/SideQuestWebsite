@@ -34,6 +34,29 @@ export interface AppListing {
   active: boolean;
   deleted: boolean;
   user_name?: string;
+  date_string?: string;
+  show_date?: boolean;
+}
+export interface EventListing {
+  name: string;
+  description: string;
+  events_id?: number;
+  users_id?: number;
+  event_name: string;
+  event_description: string;
+  event_repeat_type: string;
+  event_repeat_amount: number;
+  event_duration: number;
+  start_time?: number;
+  share_url: string;
+  app_url: string;
+  video_url: string;
+  event_url: string;
+  image: string;
+  event_image: string;
+  is_approved: boolean;
+  date_string?: string;
+  show_date?: boolean;
 }
 @Component({
   selector: "app-account",
@@ -60,6 +83,9 @@ export class AccountComponent implements OnInit {
   isUpdated = true;
   isUninstalled: boolean;
   githubReleases: GithubRelease[];
+  eventsType = "upcoming";
+  eventPage = 0;
+  myEvents: any[];
   constructor(
     public expanseService: ExpanseClientService,
     public appService: AppService
@@ -98,7 +124,15 @@ export class AccountComponent implements OnInit {
         this.myApps = resp;
       })
       .then(() => this.setAppsToImport())
-      .then(() => this.getInstalledApps());
+      .then(() => this.getInstalledApps())
+      .then(() => this.getEvents());
+  }
+
+  getEvents() {
+    this.expanseService.getMyEvents(0, "", this.eventsType).then((res: any) => {
+      console.log(res);
+      this.myEvents = res;
+    });
   }
 
   getInstalledApps() {

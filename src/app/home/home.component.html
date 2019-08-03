@@ -63,54 +63,85 @@
     </ng-container>
   </div>
   <br><br>
-  <div class="right">
-    <i class="material-icons layout-button" (click)="isGrid = true;saveGrid()">dashboard</i>
-    <i class="material-icons layout-button" (click)="isGrid = false;saveGrid()">list</i>
-  </div>
+  <app-listing-modes ></app-listing-modes>
   <h4>News Feed</h4>
   <hr class="grey">
-  <div *ngIf="!isGrid">
-    <div class="card" *ngFor="let newsItem of news">
-      <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-           *ngIf="newsItem.image" [ngStyle]="{'background-image':'url('+newsItem.image+')'}">
-      </div>
-      <div class="card-content">
-        <i class="material-icons activator pointer right">more_vert</i>
-        <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':newsItem.image}">{{newsItem.title}}</span>
-        <p class="grey-text description truncate" [ngClass]="{'card-title-small':newsItem.image}">{{newsItem.description}}</p>
-        <div class="right-align">
-          <div class="btn-flat waves-effect waves-light white-text" (click)="openItem(newsItem.url)">link</div>
-        </div>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{newsItem.title}}</span>
-        <p class="grey-text">{{newsItem.description}}</p>
-      </div>
-    </div>
+  <div *ngIf="!appService.isGrid&&appService.isTimeline" class="row">
+    <app-timeline-item *ngFor="let newsItem of news; let i = index"
+     [name]="newsItem.title"
+     [description]="newsItem.description"
+     [image]="newsItem.image"
+     [start_time]="newsItem.created/1000"
+     [show_date]="newsItem.show_date"
+     [show_date_first]="newsItem.show_date && i > 0"
+     [hide_time]="true"
+     (open)="openItem(newsItem.url)"
+    ></app-timeline-item>
+  </div>
+  <div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">
+    <app-list-item *ngFor="let newsItem of news"
+                   [name]="newsItem.title"
+                   [description]="newsItem.description"
+                   [image]="newsItem.image"
+                   (open)="openItem(newsItem.url)"
+    ></app-list-item>
   </div>
 
   <ngx-masonry class="masonry-layout"
-               *ngIf="isGrid"
+               *ngIf="appService.isGrid&&!appService.isTimeline"
                [updateLayout]="updateMasonryLayout"
                [options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">
     <ngxMasonryItem class="masonry-item" *ngFor="let newsItem of news">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" *ngIf="newsItem.image" onerror="this.style.display='none'" src="{{newsItem.image}}">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator white-text">{{newsItem.title}}<i class="material-icons right">more_vert</i></span>
-          <div class="right-align">
-            <div class="btn-flat waves-effect waves-light white-text" (click)="openItem(newsItem.url)">link</div>
-          </div>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{newsItem.title}}</span>
-          <p class="grey-text">{{newsItem.description}}</p>
-        </div>
-      </div>
+      <app-grid-item [name]="newsItem.title"
+                     [description]="newsItem.description"
+                     [image]="newsItem.image"
+                     (open)="openItem(newsItem.url)"
+      ></app-grid-item>
     </ngxMasonryItem>
   </ngx-masonry>
+
+  <!--<div *ngIf="!appService.isGrid">-->
+    <!--<div class="card" *ngFor="let newsItem of news">-->
+      <!--<div class="card-image card-image-left waves-effect waves-block waves-light activator"-->
+           <!--*ngIf="newsItem.image" [ngStyle]="{'background-image':'url('+newsItem.image+')'}">-->
+      <!--</div>-->
+      <!--<div class="card-content">-->
+        <!--<i class="material-icons activator pointer right">more_vert</i>-->
+        <!--<span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':newsItem.image}">{{newsItem.title}}</span>-->
+        <!--<p class="grey-text description truncate" [ngClass]="{'card-title-small':newsItem.image}">{{newsItem.description}}</p>-->
+        <!--<div class="right-align">-->
+          <!--<div class="btn-flat waves-effect waves-light white-text" (click)="openItem(newsItem.url)">link</div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="card-reveal">-->
+        <!--<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{newsItem.title}}</span>-->
+        <!--<p class="grey-text">{{newsItem.description}}</p>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <!--<ngx-masonry class="masonry-layout"-->
+               <!--*ngIf="appService.isGrid"-->
+               <!--[updateLayout]="updateMasonryLayout"-->
+               <!--[options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">-->
+    <!--<ngxMasonryItem class="masonry-item" *ngFor="let newsItem of news">-->
+      <!--<div class="card">-->
+        <!--<div class="card-image waves-effect waves-block waves-light">-->
+          <!--<img class="activator" *ngIf="newsItem.image" onerror="this.style.display='none'" src="{{newsItem.image}}">-->
+        <!--</div>-->
+        <!--<div class="card-content">-->
+          <!--<span class="card-title activator white-text">{{newsItem.title}}<i class="material-icons right">more_vert</i></span>-->
+          <!--<div class="right-align">-->
+            <!--<div class="btn-flat waves-effect waves-light white-text" (click)="openItem(newsItem.url)">link</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="card-reveal">-->
+          <!--<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{newsItem.title}}</span>-->
+          <!--<p class="grey-text">{{newsItem.description}}</p>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</ngxMasonryItem>-->
+  <!--</ngx-masonry>-->
 </div>
 <br><br><br>
 <div class="center-align">
