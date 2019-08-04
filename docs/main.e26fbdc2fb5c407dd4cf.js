@@ -77856,7 +77856,7 @@
               [
                 [
                   "allow",
-                  "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture fullscreen"
                 ],
                 ["allowfullscreen", ""],
                 ["frameborder", "0"],
@@ -82843,7 +82843,7 @@
               [
                 [
                   "allow",
-                  "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture fullscreen"
                 ],
                 ["allowfullscreen", ""],
                 ["frameborder", "0"],
