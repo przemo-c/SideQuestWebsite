@@ -340,24 +340,20 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       .then(() =>
         fetch(
           "https://xpan.cc/get-link/" +
-            this.expanseService.currentSession.token +
-            "/a-" +
-            this.apps_id +
-            "/" +
-            (window as any).encodeURIComponent(
-              "https://sidequestvr.com/#/app/" + this.apps_id
-            ) +
-            "/" +
-            (window as any).encodeURIComponent(this.currentApp.name) +
-            " on SideQuest" +
-            "/" +
-            (window as any).encodeURIComponent(this.currentApp.image_url) +
-            "/" +
-            ((window as any).encodeURIComponent(this.currentApp.description) ||
-              "-"),
+            this.expanseService.currentSession.token,
           {
-            method: "GET",
-            cache: "no-cache"
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              title: this.currentApp.name,
+              description: this.currentApp.description,
+              image: this.currentApp.image_url,
+              name: "a-" + this.apps_id,
+              external: "https://sidequestvr.com/#/app/" + this.apps_id
+            })
           }
         )
       )

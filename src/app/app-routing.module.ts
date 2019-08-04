@@ -19,10 +19,12 @@ import { AvatarEditorComponent } from "./avatar-editor/avatar-editor.component";
 import { EventListingComponent } from "./event-listing/event-listing.component";
 import { EventManagerComponent } from "./event-manager/event-manager.component";
 import { EventsComponent } from "./events/events.component";
+import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.component";
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
   { path: "download", component: DownloadSideQuestComponent },
+  { path: "privacy", component: PrivacyPolicyComponent },
   {
     path: "avatar-editor",
     component: AvatarEditorComponent,

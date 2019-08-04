@@ -73,6 +73,7 @@ export class EventListingComponent implements OnInit, OnDestroy {
           this.setupEvent()
             .then(() => this.viewEvent())
             .then(() => {
+              console.log("here");
               this.isMine =
                 this.service.isAuthenticated &&
                 Number(this.currentApp.users_id) ===
@@ -136,6 +137,25 @@ export class EventListingComponent implements OnInit, OnDestroy {
     }
   }
 
+  copyShareUrl(isRefresh?) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(this.currentApp.share_url).then(
+        () => {
+          this.service.showMessage(
+            { error: false },
+            "Share URL Copied to clipboard!"
+          );
+        },
+        err => {
+          this.service.showMessage(
+            { error: true, data: "Cant copy share url!" },
+            ""
+          );
+        }
+      );
+    }
+  }
+
   async setupEvent() {
     if (this.events_id) {
       const events = (await this.expanseService.start().then(() => {
@@ -162,15 +182,17 @@ export class EventListingComponent implements OnInit, OnDestroy {
               break;
           }
         });
-        this.videoObject = urlParser.parse(this.currentApp.video_url);
-        if (this.videoObject) {
-          this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-            this.videoObject.provider === "youtube"
-              ? "https://www.youtube.com/embed/" + this.videoObject.id
-              : "https://player.vimeo.com/video/" +
-                  this.videoObject.id +
-                  "?byline=0&portrait=0&transparent=0"
-          );
+        if (this.currentApp.video_url) {
+          this.videoObject = urlParser.parse(this.currentApp.video_url);
+          if (this.videoObject) {
+            this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+              this.videoObject.provider === "youtube"
+                ? "https://www.youtube.com/embed/" + this.videoObject.id
+                : "https://player.vimeo.com/video/" +
+                    this.videoObject.id +
+                    "?byline=0&portrait=0&transparent=0"
+            );
+          }
         }
       }
     }

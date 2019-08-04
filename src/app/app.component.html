@@ -15,7 +15,7 @@
          position="bottom"
          routerLink="news">Home</div>
     <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="Games you can get on SIdeQuest"
+         mz-tooltip tooltip="Games you can get on SideQuest"
          position="bottom"
          routerLink="apps/1">Games</div>
     <!--<div class="waves-effect waves-light btn-flat white-text top-button"-->
@@ -53,13 +53,16 @@
   </mz-sidenav-header>
   <!--<mz-sidenav-subheader>Link Subheader</mz-sidenav-subheader>-->
   <mz-sidenav-link>
-    <a routerLink="news" (click)="sidenav.opened = !sidenav.opened">News & Events</a>
+    <a routerLink="news" (click)="sidenav.opened = !sidenav.opened">News</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a routerLink="events" (click)="sidenav.opened = !sidenav.opened">Events</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a routerLink="apps/1" (click)="sidenav.opened = !sidenav.opened">Games</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
     <a routerLink="what-is-sidequest" (click)="sidenav.opened = !sidenav.opened">What is SideQuest?</a>
-  </mz-sidenav-link>
-  <mz-sidenav-link>
-    <a routerLink="apps/1" (click)="sidenav.opened = !sidenav.opened">Apps</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
     <a routerLink="download" (click)="sidenav.opened = !sidenav.opened">Download</a>
@@ -98,6 +101,7 @@
 
 <div #scrollContainer [ngClass]="{'scroll-container-small':appService.hideLogo,'scroll-container':!appService.hideLogo}">
   <router-outlet></router-outlet>
+  <app-footer></app-footer>
 </div>
 
 

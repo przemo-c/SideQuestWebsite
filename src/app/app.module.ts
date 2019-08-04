@@ -55,6 +55,8 @@ import { GridItemComponent } from "./grid-item/grid-item.component";
 import { ListItemComponent } from "./list-item/list-item.component";
 import { TimelineItemComponent } from "./timeline-item/timeline-item.component";
 import { ListingModesComponent } from "./listing-modes/listing-modes.component";
+import { FooterComponent } from "./footer/footer.component";
+import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.component";
 
 @NgModule({
   declarations: [
@@ -86,7 +88,9 @@ import { ListingModesComponent } from "./listing-modes/listing-modes.component";
     GridItemComponent,
     ListItemComponent,
     TimelineItemComponent,
-    ListingModesComponent
+    ListingModesComponent,
+    FooterComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,

@@ -2935,13 +2935,13 @@
           return rv;
         }),
         t.d(n, "DebugElement", function() {
-          return P_;
+          return Y_;
         }),
         t.d(n, "DebugEventListener", function() {
           return w_;
         }),
         t.d(n, "DebugNode", function() {
-          return Y_;
+          return P_;
         }),
         t.d(n, "asNativeElements", function() {
           return C_;
@@ -2974,7 +2974,7 @@
           return $_;
         }),
         t.d(n, "wtfCreateScope", function() {
-          return Pv;
+          return Yv;
         }),
         t.d(n, "wtfLeave", function() {
           return jv;
@@ -2989,7 +2989,7 @@
           return X;
         }),
         t.d(n, "EventEmitter", function() {
-          return Pm;
+          return Ym;
         }),
         t.d(n, "ErrorHandler", function() {
           return ni;
@@ -3133,7 +3133,7 @@
           return qv;
         }),
         t.d(n, "RenderComponentType", function() {
-          return Yc;
+          return Pc;
         }),
         t.d(n, "Renderer", function() {
           return jc;
@@ -3226,7 +3226,7 @@
           return lp;
         }),
         t.d(n, "SimpleChange", function() {
-          return Pd;
+          return Yd;
         }),
         t.d(n, "WrappedValue", function() {
           return Is;
@@ -3286,7 +3286,7 @@
           return ie;
         }),
         t.d(n, "\u0275RenderDebugInfo", function() {
-          return Pc;
+          return Yc;
         }),
         t.d(n, "\u0275_sanitizeHtml", function() {
           return ji;
@@ -3304,7 +3304,7 @@
           return Ts;
         }),
         t.d(n, "\u0275stringify", function() {
-          return P;
+          return Y;
         }),
         t.d(n, "\u0275makeDecorator", function() {
           return f;
@@ -3523,10 +3523,10 @@
           return xl;
         }),
         t.d(n, "\u0275\u0275containerRefreshStart", function() {
-          return Ya;
+          return Pa;
         }),
         t.d(n, "\u0275\u0275containerRefreshEnd", function() {
-          return Pa;
+          return Ya;
         }),
         t.d(n, "\u0275\u0275queryRefresh", function() {
           return Zm;
@@ -3673,7 +3673,7 @@
           return Sm;
         }),
         t.d(n, "\u0275whenRendered", function() {
-          return Yd;
+          return Pd;
         }),
         t.d(n, "\u0275\u0275i18n", function() {
           return Xf;
@@ -3787,10 +3787,10 @@
           return An;
         }),
         t.d(n, "\u0275NG_DIRECTIVE_DEF", function() {
-          return Yn;
+          return Pn;
         }),
         t.d(n, "\u0275NG_PIPE_DEF", function() {
-          return Pn;
+          return Yn;
         }),
         t.d(n, "\u0275NG_MODULE_DEF", function() {
           return jn;
@@ -3802,7 +3802,7 @@
           return A;
         }),
         t.d(n, "\u0275NG_INJECTOR_DEF", function() {
-          return Y;
+          return P;
         }),
         t.d(n, "\u0275bindPlayerFactory", function() {
           return oo;
@@ -4122,13 +4122,13 @@
         return e && e.hasOwnProperty(A) ? e[A] : null;
       }
       function R(e) {
-        return e && e.hasOwnProperty(Y) ? e[Y] : null;
+        return e && e.hasOwnProperty(P) ? e[P] : null;
       }
       var A = L({ ngInjectableDef: L }),
-        Y = L({ ngInjectorDef: L });
-      function P(e) {
+        P = L({ ngInjectorDef: L });
+      function Y(e) {
         if ("string" == typeof e) return e;
-        if (e instanceof Array) return "[" + e.map(P).join(", ") + "]";
+        if (e instanceof Array) return "[" + e.map(Y).join(", ") + "]";
         if (null == e) return "" + e;
         if (e.overriddenName) return "" + e.overriddenName;
         if (e.name) return "" + e.name;
@@ -4142,7 +4142,7 @@
         return (
           (e.__forward_ref__ = N),
           (e.toString = function() {
-            return P(this());
+            return Y(this());
           }),
           e
         );
@@ -4202,7 +4202,7 @@
           return void 0 === l.value ? (l.value = l.factory()) : l.value;
         if (t & x.Optional) return null;
         if (void 0 !== n) return n;
-        throw new Error("Injector: NOT_FOUND [" + P(e) + "]");
+        throw new Error("Injector: NOT_FOUND [" + Y(e) + "]");
       }
       function Q(e) {
         for (var n = [], t = 0; t < e.length; t++) {
@@ -4396,10 +4396,10 @@
             (e.prototype.importUri = function(e) {
               return "object" == typeof e && e.filePath
                 ? e.filePath
-                : "./" + P(e);
+                : "./" + Y(e);
             }),
             (e.prototype.resourceUri = function(e) {
-              return "./" + P(e);
+              return "./" + Y(e);
             }),
             (e.prototype.resolveIdentifier = function(e, n, t, l) {
               return l;
@@ -4630,7 +4630,7 @@
             (e.prototype.get = function(e, n) {
               if ((void 0 === n && (n = xe), n === xe)) {
                 var t = new Error(
-                  "NullInjectorError: No provider for " + P(e) + "!"
+                  "NullInjectorError: No provider for " + Y(e) + "!"
                 );
                 throw ((t.name = "NullInjectorError"), t);
               }
@@ -4667,8 +4667,8 @@
         Ae = function() {
           return Array.prototype.slice.call(arguments);
         },
-        Ye = L({ provide: String, useValue: L }),
-        Pe = "ngTokenPath",
+        Pe = L({ provide: String, useValue: L }),
+        Ye = "ngTokenPath",
         je = "ngTempTokenPath",
         Ne = /\n/gm,
         Fe = "\u0275",
@@ -4723,7 +4723,7 @@
                               n = [
                                 { token: (a = F(e.useExisting)), options: 6 }
                               ];
-                            } else if (!(t || Ye in e))
+                            } else if (!(t || Pe in e))
                               throw We("'deps' required", e);
                             return n;
                           })(e),
@@ -4731,7 +4731,7 @@
                           l = Oe,
                           r = !1,
                           i = F(e.provide);
-                        if (Ye in e) l = e.useValue;
+                        if (Pe in e) l = e.useValue;
                         else if (e.useFactory) t = e.useFactory;
                         else if (e.useExisting);
                         else if (e.useClass) (r = !0), (t = F(e.useClass));
@@ -4831,7 +4831,7 @@
               var e = [];
               return (
                 this._records.forEach(function(n, t) {
-                  return e.push(P(t));
+                  return e.push(Y(t));
                 }),
                 "StaticInjector[" + e.join(", ") + "]"
               );
@@ -4846,7 +4846,7 @@
         var r = e[je];
         throw (n[De] && r.unshift(n[De]),
         (e.message = Ue("\n" + e.message, r, t, l)),
-        (e[Pe] = r),
+        (e[Ye] = r),
         (e[je] = null),
         e);
       }
@@ -4854,15 +4854,15 @@
         void 0 === l && (l = null),
           (e =
             e && "\n" === e.charAt(0) && e.charAt(1) == Fe ? e.substr(2) : e);
-        var r = P(n);
-        if (n instanceof Array) r = n.map(P).join(" -> ");
+        var r = Y(n);
+        if (n instanceof Array) r = n.map(Y).join(" -> ");
         else if ("object" == typeof n) {
           var i = [];
           for (var o in n)
             if (n.hasOwnProperty(o)) {
               var u = n[o];
               i.push(
-                o + ":" + ("string" == typeof u ? JSON.stringify(u) : P(u))
+                o + ":" + ("string" == typeof u ? JSON.stringify(u) : Y(u))
               );
             }
           r = "{" + i.join(", ") + "}";
@@ -4888,7 +4888,7 @@
                 return n;
               })(e.slice().reverse())
                 .map(function(e) {
-                  return P(e.token);
+                  return Y(e.token);
                 })
                 .join(" -> ") +
               ")"
@@ -4922,15 +4922,15 @@
       function Qe(e, n) {
         for (var t = [], l = 0, r = n.length; l < r; l++) {
           var i = n[l];
-          t.push(i && 0 != i.length ? i.map(P).join(" ") : "?");
+          t.push(i && 0 != i.length ? i.map(Y).join(" ") : "?");
         }
         return Error(
           "Cannot resolve all parameters for '" +
-            P(e) +
+            Y(e) +
             "'(" +
             t.join(", ") +
             "). Make sure that all the parameters are decorated with Inject or have valid type annotations and that '" +
-            P(e) +
+            Y(e) +
             "' is decorated with Injectable."
         );
       }
@@ -4938,7 +4938,7 @@
           function e(e, n) {
             if (((this.token = e), (this.id = n), !e))
               throw new Error("Token must be defined!");
-            this.displayName = P(this.token);
+            this.displayName = Y(this.token);
           }
           return (
             (e.get = function(e) {
@@ -5260,7 +5260,7 @@
                   this,
                   e.key,
                   function(e) {
-                    var n = P(e[0].token);
+                    var n = Y(e[0].token);
                     return (
                       i.message +
                       ": Error during instantiation of " +
@@ -5303,7 +5303,7 @@
               if (n !== Le) return n;
               throw (function(e, n) {
                 return Ke(e, n, function(e) {
-                  return "No provider for " + P(e[0].token) + "!" + qe(e);
+                  return "No provider for " + Y(e[0].token) + "!" + qe(e);
                 });
               })(this, e);
             }),
@@ -5495,8 +5495,8 @@
       var On = {},
         Rn = [],
         An = L({ ngComponentDef: L }),
-        Yn = L({ ngDirectiveDef: L }),
-        Pn = L({ ngPipeDef: L }),
+        Pn = L({ ngDirectiveDef: L }),
+        Yn = L({ ngPipeDef: L }),
         jn = L({ ngModuleDef: L }),
         Nn = L({ ngBaseDef: L }),
         Fn = L({ __NG_ELEMENT_ID__: L }),
@@ -5638,10 +5638,10 @@
         return e[An] || null;
       }
       function Zn(e) {
-        return e[Yn] || null;
+        return e[Pn] || null;
       }
       function Xn(e) {
-        return e[Pn] || null;
+        return e[Yn] || null;
       }
       function et(e) {
         return e[Nn] || null;
@@ -5650,7 +5650,7 @@
         var t = e[jn] || null;
         if (!t && !0 === n)
           throw new Error(
-            "Type " + P(e) + " does not have 'ngModuleDef' property."
+            "Type " + Y(e) + " does not have 'ngModuleDef' property."
           );
         return t;
       }
@@ -5715,8 +5715,8 @@
         Ot = 2,
         Rt = 7,
         At = 8,
-        Yt = "__ngContext__";
-      function Pt(e) {
+        Pt = "__ngContext__";
+      function Yt(e) {
         for (; Array.isArray(e); ) e = e[ct];
         return e;
       }
@@ -5727,10 +5727,10 @@
         return Array.isArray(e) && !0 === e[It];
       }
       function Ft(e, n) {
-        return Pt(n[e + Et]);
+        return Yt(n[e + Et]);
       }
       function Vt(e, n) {
-        return Pt(n[e.index]);
+        return Yt(n[e.index]);
       }
       function Ht(e, n) {
         return n[pt].data[e + Et];
@@ -5752,7 +5752,7 @@
         return 0 != (512 & e[ht]);
       }
       function $t(e) {
-        return e[Yt];
+        return e[Pt];
       }
       function qt(e) {
         var n = $t(e);
@@ -5935,10 +5935,10 @@
       }
       var Rl = null,
         Al = !1;
-      function Yl() {
+      function Pl() {
         return Al;
       }
-      function Pl(e) {
+      function Yl(e) {
         Al = e;
       }
       var jl = -1;
@@ -6053,7 +6053,7 @@
                 );
               o = sr(r, l, !1);
             } else if (-1 == (r = or(l, e))) return null;
-            var u = $t((f = Pt(l[r]))),
+            var u = $t((f = Yt(l[r]))),
               a = u && !Array.isArray(u) ? u : lr(l, r, f);
             if (
               (i &&
@@ -6075,7 +6075,7 @@
               var h = or(l, d);
               if (h >= 0) {
                 var f;
-                ir((f = Pt(l[h])), (a = lr(l, h, f))), (t = a);
+                ir((f = Yt(l[h])), (a = lr(l, h, f))), (t = a);
                 break;
               }
             }
@@ -6107,7 +6107,7 @@
         return n;
       }
       function ir(e, n) {
-        e[Yt] = n;
+        e[Pt] = n;
       }
       function or(e, n) {
         for (var t = e[pt].firstChild; t; ) {
@@ -6292,8 +6292,8 @@
         return (Or = e), n;
       }
       var Ar = 255,
-        Yr = 0;
-      function Pr(e, n) {
+        Pr = 0;
+      function Yr(e, n) {
         var t = Nr(e, n);
         if (-1 !== t) return t;
         var l = n[pt];
@@ -6331,7 +6331,7 @@
       function Vr(e, n, t) {
         !(function(e, n, t) {
           var l = "string" != typeof t ? t[Fn] : t.charCodeAt(0) || 0;
-          null == l && (l = t[Fn] = Yr++);
+          null == l && (l = t[Fn] = Pr++);
           var r = l & Ar,
             i = 1 << r,
             o = 64 & r,
@@ -6845,7 +6845,7 @@
                   var u = r.value;
                   Ti[o] && (u = yi(u)),
                     Ei[o] && (u = bi(u)),
-                    this.buf.push(" ", i, '="', Pi(u), '"');
+                    this.buf.push(" ", i, '="', Yi(u), '"');
                 } else this.sanitizedSomething = !0;
               }
               return this.buf.push(">"), !0;
@@ -6857,7 +6857,7 @@
                 (this.buf.push("</"), this.buf.push(n), this.buf.push(">"));
             }),
             (e.prototype.chars = function(e) {
-              this.buf.push(Pi(e));
+              this.buf.push(Yi(e));
             }),
             (e.prototype.checkClobberedElement = function(e, n) {
               if (
@@ -6876,8 +6876,8 @@
           );
         })(),
         Ai = /[\uD800-\uDBFF][\uDC00-\uDFFF]/g,
-        Yi = /([^\#-~ |!])/g;
-      function Pi(e) {
+        Pi = /([^\#-~ |!])/g;
+      function Yi(e) {
         return e
           .replace(/&/g, "&amp;")
           .replace(Ai, function(e) {
@@ -6889,7 +6889,7 @@
               ";"
             );
           })
-          .replace(Yi, function(e) {
+          .replace(Pi, function(e) {
             return "&#" + e.charCodeAt(0) + ";";
           })
           .replace(/</g, "&lt;")
@@ -7175,7 +7175,7 @@
                 Ko(D, M, C) &&
                   eu(M, C, k, n) &&
                   (Oo(e, _, C),
-                  Yo(e, _, t, n),
+                  Po(e, _, t, n),
                   qo(e, D, C) && (Mo(e, _, !0), (s = !0))),
                   (i[w] = null),
                   y--;
@@ -7192,7 +7192,7 @@
               for (var S = a ? L : ru(L), T = _ >= p, E = _; E < r; E += 4)
                 if (Ho(e, E) === S) {
                   var I = Qo(e, E),
-                    O = Po(e, E),
+                    O = Yo(e, E),
                     R = Vo(e, E),
                     A = Fo(e, E);
                   eu(R, C, I, n) &&
@@ -7201,7 +7201,7 @@
                       ((null === C || (void 0 === C && C !== R)) && (f = !0),
                       Oo(e, _, C),
                       (null !== R || qo(e, A, C)) && (Mo(e, _, !0), (s = !0))),
-                    (I === n && t === O) || Yo(e, _, t, n)),
+                    (I === n && t === O) || Po(e, _, t, n)),
                     (_ += 4);
                   continue e;
                 }
@@ -7218,14 +7218,14 @@
         }
         for (; _ < r; ) {
           f = !0;
-          var Y = Vo(e, _),
-            P = Fo(e, _);
+          var P = Vo(e, _),
+            Y = Fo(e, _);
           Qo(e, _),
-            null != Y && (f = !0),
-            Ko(P, Y, null) &&
+            null != P && (f = !0),
+            Ko(Y, P, null) &&
               (Oo(e, _, null),
-              qo(e, P, Y) && (Mo(e, _, !0), (s = !0)),
-              Yo(e, _, t, n)),
+              qo(e, Y, P) && (Mo(e, _, !0), (s = !0)),
+              Po(e, _, t, n)),
             (_ += 4);
         }
         return (
@@ -7269,14 +7269,14 @@
           var c =
               t instanceof uo ? new Jo(t, e[0], 2 == (2 & a) ? 1 : 2) : null,
             p = c ? t.value : t,
-            h = Po(e, o),
+            h = Yo(e, o),
             f = !1,
             m = c ? h : 0;
           if (Ro(e, c, h)) {
             var g = Ao(e, c, h);
             (m = c ? g : 0), (f = !0);
           }
-          if (((f || s !== r) && Yo(e, o, m, r), s !== r)) {
+          if (((f || s !== r) && Po(e, o, m, r), s !== r)) {
             var v = Ho(e, o),
               _ = Xo(e, r);
             !(function(e, n, t) {
@@ -7372,17 +7372,17 @@
           t
         );
       }
-      function Yo(e, n, t, l) {
+      function Po(e, n, t, l) {
         var r = (function(e, n) {
           return (t << 16) | e;
         })(l);
         e[n + 3] = r;
       }
-      function Po(e, n) {
+      function Yo(e, n) {
         return (e[n + 3] >> 16) & 65535;
       }
       function jo(e, n) {
-        var t = Po(e, n);
+        var t = Yo(e, n);
         if (t) {
           var l = e[9];
           if (l) return l[t];
@@ -7412,7 +7412,7 @@
           var l = Vo(e, n),
             r = Ho(e, n),
             i = Fo(e, n),
-            o = Po(e, n),
+            o = Yo(e, n),
             u = Qo(e, n),
             a = i,
             s = Fo(e, t),
@@ -7424,17 +7424,17 @@
             Oo(e, n, Vo(e, t)),
             Io(e, n, Ho(e, t)),
             No(e, n, Fo(e, t)),
-            Yo(e, n, Po(e, t), Qo(e, t)),
+            Po(e, n, Yo(e, t), Qo(e, t)),
             Oo(e, t, l),
             Io(e, t, r),
             No(e, t, i),
-            Yo(e, t, o, u);
+            Po(e, t, o, u);
         }
       }
       function Bo(e, n, t, l, r, i, o, u) {
         var a = n < e.length;
         e.splice(n, 0, 1 | r | (t ? 2 : 0), l, i, 0),
-          Yo(e, n, u, o),
+          Po(e, n, u, o),
           a &&
             (function(e, t) {
               for (var l = n + 4; l < e.length; l += 4) {
@@ -7693,7 +7693,7 @@
         var n = e[pt],
           t = Ol(e);
         if (((n.firstTemplatePass = !1), (e[_t] = n.bindingStartIndex), !t)) {
-          var l = Yl();
+          var l = Pl();
           rl(e, n, l, void 0),
             (function(e) {
               for (var n = e[Dt]; null !== n; n = n[mt])
@@ -7726,7 +7726,7 @@
                       } else l += u;
                       Fl(l);
                     } else
-                      null !== u && ((n[_t] = l), u(2, Pt(n[r]), i), Cl()), r++;
+                      null !== u && ((n[_t] = l), u(2, Yt(n[r]), i), Cl()), r++;
                   }
                 }
               } finally {
@@ -7836,7 +7836,7 @@
       function Cu(e, n, t) {
         var l = e[Mt],
           r = Ul(e, e[vt]),
-          i = !Yl(),
+          i = !Pl(),
           o = Ol(e);
         try {
           i && !o && l.begin && l.begin(),
@@ -7927,7 +7927,7 @@
                     var o = l[i];
                     fu(t, o.selectors, !1) &&
                       (r || (r = []),
-                      Vr(Pr(Ll(), n), n, o.type),
+                      Vr(Yr(Ll(), n), n, o.type),
                       Bt(o)
                         ? (1 & t.flags && lo(t), (t.flags = 1), r.unshift(o))
                         : r.push(o));
@@ -7940,7 +7940,7 @@
             (function(e, n, t) {
               var l = t.directiveStart,
                 r = t.directiveEnd;
-              !e.firstTemplatePass && l < r && Pr(t, n);
+              !e.firstTemplatePass && l < r && Yr(t, n);
               for (var i = l; i < r; i++) {
                 var o = e.data[i];
                 Bt(o) && Bu(n, t, o), Fu(n, Gr(e.data, n, i, t), o, i);
@@ -8072,7 +8072,7 @@
           }
         return l;
       }
-      var Yu = {
+      var Pu = {
         class: "className",
         for: "htmlFor",
         formaction: "formAction",
@@ -8080,7 +8080,7 @@
         readonly: "readOnly",
         tabindex: "tabIndex"
       };
-      function Pu(e, n, t, l, r, i) {
+      function Yu(e, n, t, l, r, i) {
         if (t !== ro) {
           var o,
             u,
@@ -8104,7 +8104,7 @@
                   (-1 == e.propertyMetadataStartIndex &&
                     (e.propertyMetadataStartIndex = i),
                   (e.propertyMetadataEndIndex = i + 1)));
-            })(d, a, (n = Yu[n] || n), a[pt].data, r);
+            })(d, a, (n = Pu[n] || n), a[pt].data, r);
             var c = i ? i(d, a) : a[kt];
             (t = null != l ? l(t, d.tagName || "", n) : t),
               er(c)
@@ -8522,7 +8522,7 @@
                 for (var t = e[yt], l = 0; l < n.length - 1; l += 2)
                   if ("string" == typeof n[l]) {
                     var r = n[l + 1],
-                      i = "function" == typeof r ? r(e) : Pt(e[r]),
+                      i = "function" == typeof r ? r(e) : Yt(e[r]),
                       o = n[l + 3];
                     "boolean" == typeof o
                       ? i.removeEventListener(n[l], t[n[l + 2]], o)
@@ -8666,12 +8666,12 @@
           ll(s, d),
           Il(!1);
       }
-      function Ya(e) {
+      function Pa(e) {
         var n = ml(),
           t = n[pt];
-        Sl(zt(t.data, e)), Il(!0), (n[e + Et][Ot] = 0), rl(n, t, Yl(), void 0);
+        Sl(zt(t.data, e)), Il(!0), (n[e + Et][Ot] = 0), rl(n, t, Pl(), void 0);
       }
-      function Pa() {
+      function Ya() {
         var e = Ll();
         El() ? Il(!1) : Sl((e = e.parent));
         for (var n = ml()[e.index], t = n[Ot]; t < n[At].length; ) Ma(n, t);
@@ -8811,9 +8811,9 @@
                 )
               );
             }
-            for (var Y = 0; Y < 4 * g.length; Y++)
+            for (var P = 0; P < 4 * g.length; P++)
               e.splice(h, 0, null), e.splice(c, 0, null), c++, p++, (h += 2);
-            for (var P = 0; P < 4 * y.length; P++)
+            for (var Y = 0; Y < 4 * y.length; Y++)
               e.splice(p, 0, null), e.push(null), p++, h++;
             for (var j = e[4], N = e[3], F = 0; F < S; F++) {
               var V = F >= g.length,
@@ -8831,11 +8831,11 @@
               No(e, W, xo($, G, U)),
                 Io(e, W, z),
                 Oo(e, W, null),
-                Yo(e, W, 0, n),
+                Po(e, W, 0, n),
                 No(e, U, xo($, G, W)),
                 Io(e, U, z),
                 Oo(e, U, null),
-                Yo(e, U, 0, n);
+                Po(e, U, 0, n);
             }
             (i[1] = o + y.length),
               (i[0] = u + g.length),
@@ -9194,7 +9194,7 @@
             f = (w = ra(i)).length,
             m = l
               ? function(e) {
-                  return l(Pt(e[o.index])).target;
+                  return l(Yt(e[o.index])).target;
                 }
               : o.index;
           if (er(h)) {
@@ -9398,40 +9398,40 @@
       function As(e, n, t) {
         return (e[n] = t);
       }
-      function Ys(e, n) {
+      function Ps(e, n) {
         return e[n];
       }
-      function Ps(e, n, t) {
+      function Ys(e, n, t) {
         var l, r;
         return (
           (r = t), ((l = e[n]) == l || r == r) && l !== r && ((e[n] = t), !0)
         );
       }
       function js(e, n, t, l) {
-        var r = Ps(e, n, t);
-        return Ps(e, n + 1, l) || r;
+        var r = Ys(e, n, t);
+        return Ys(e, n + 1, l) || r;
       }
       function Ns(e, n, t, l, r) {
         var i = js(e, n, t, l);
-        return Ps(e, n + 2, r) || i;
+        return Ys(e, n + 2, r) || i;
       }
       function Fs(e, n, t, l, r, i) {
         var o = js(e, n, t, l);
         return js(e, n + 2, r, i) || o;
       }
       function Vs(e, n, t, l) {
-        return Pu($l(), e, Hs(n), t, l), Vs;
+        return Yu($l(), e, Hs(n), t, l), Vs;
       }
       function Hs(e) {
         var n = ml(),
           t = n[_t]++;
-        return na(n), Ps(n, t, e) ? e : ro;
+        return na(n), Ys(n, t, e) ? e : ro;
       }
       function zs(e, n, t, l, r) {
-        Pu(e, n, t, l, r);
+        Yu(e, n, t, l, r);
       }
       function Us(e, n, t, l, r) {
-        Pu(e, n, t, l, r, oa);
+        Yu(e, n, t, l, r, oa);
       }
       function Ws(e) {
         var n = !1,
@@ -9442,7 +9442,7 @@
           for (var i = 2; i < e.length; i += 2) l[r++] = e[i];
           r = t[_t];
         }
-        for (i = 1; i < e.length; i += 2) Ps(t, r++, e[i]) && (n = !0);
+        for (i = 1; i < e.length; i += 2) Ys(t, r++, e[i]) && (n = !0);
         if (((t[_t] = r), na(t, e[0], e[e.length - 1]), !n)) return ro;
         var o = e[0];
         for (i = 1; i < e.length; i += 2) o += tt(e[i]) + e[i + 1];
@@ -9450,7 +9450,7 @@
       }
       function Bs(e, n, t) {
         var l = ml(),
-          r = Ps(l, l[_t]++, n);
+          r = Ys(l, l[_t]++, n);
         return na(l, e, t), r ? e + tt(n) + t : ro;
       }
       function Gs(e, n, t, l, r) {
@@ -9487,7 +9487,7 @@
         var c = ml(),
           p = c[_t],
           h = Fs(c, p, n, l, i, u);
-        if (((h = Ps(c, p + 4, s) || h), (c[_t] += 5), na(c, e, d))) {
+        if (((h = Ys(c, p + 4, s) || h), (c[_t] += 5), na(c, e, d))) {
           var f = c[pt].data;
           (f[p] = t), (f[p + 1] = r), (f[p + 2] = o), (f[p + 3] = a);
         }
@@ -9592,40 +9592,40 @@
         return ed(e, "", n, "", t), Xs;
       }
       function ed(e, n, t, l, r) {
-        return Pu($l(), e, Bs(n, t, l), r), ed;
+        return Yu($l(), e, Bs(n, t, l), r), ed;
       }
       function nd(e, n, t, l, r, i, o) {
-        return Pu($l(), e, Gs(n, t, l, r, i), o), nd;
+        return Yu($l(), e, Gs(n, t, l, r, i), o), nd;
       }
       function td(e, n, t, l, r, i, o, u, a) {
-        return Pu($l(), e, $s(n, t, l, r, i, o, u), a), td;
+        return Yu($l(), e, $s(n, t, l, r, i, o, u), a), td;
       }
       function ld(e, n, t, l, r, i, o, u, a, s, d) {
-        return Pu($l(), e, qs(n, t, l, r, i, o, u, a, s), d), ld;
+        return Yu($l(), e, qs(n, t, l, r, i, o, u, a, s), d), ld;
       }
       function rd(e, n, t, l, r, i, o, u, a, s, d, c, p) {
-        return Pu($l(), e, Ks(n, t, l, r, i, o, u, a, s, d, c), p), rd;
+        return Yu($l(), e, Ks(n, t, l, r, i, o, u, a, s, d, c), p), rd;
       }
       function id(e, n, t, l, r, i, o, u, a, s, d, c, p, h, f) {
-        return Pu($l(), e, Js(n, t, l, r, i, o, u, a, s, d, c, p, h), f), id;
+        return Yu($l(), e, Js(n, t, l, r, i, o, u, a, s, d, c, p, h), f), id;
       }
       function od(e, n, t, l, r, i, o, u, a, s, d, c, p, h, f, m, g) {
         return (
-          Pu($l(), e, Qs(n, t, l, r, i, o, u, a, s, d, c, p, h, f, m), g), od
+          Yu($l(), e, Qs(n, t, l, r, i, o, u, a, s, d, c, p, h, f, m), g), od
         );
       }
       function ud(e, n, t, l, r, i, o, u, a, s, d, c, p, h, f, m, g, v, _) {
         return (
-          Pu($l(), e, Zs(n, t, l, r, i, o, u, a, s, d, c, p, h, f, m, g, v), _),
+          Yu($l(), e, Zs(n, t, l, r, i, o, u, a, s, d, c, p, h, f, m, g, v), _),
           ud
         );
       }
       function ad(e, n, t) {
-        return Pu($l(), e, Ws(n), t), ad;
+        return Yu($l(), e, Ws(n), t), ad;
       }
       function sd(e) {
         var n = ml();
-        rl(n, n[pt], Yl(), e), ql(e);
+        rl(n, n[pt], Pl(), e), ql(e);
       }
       function dd(e, n) {
         var t = ml(),
@@ -9734,7 +9734,7 @@
               u = l[i++];
             if ("string" == typeof o) {
               var a = o,
-                s = Pt(n[u]),
+                s = Yt(n[u]),
                 d = t[l[i++]],
                 c = l[i++];
               e == s &&
@@ -9836,7 +9836,7 @@
           );
         return (
           o.firstTemplatePass &&
-            (Vr(Pr(u, t), t, n.type), (u.flags = 1), Uu(u, t.length, 1), Hu(u)),
+            (Vr(Yr(u, t), t, n.type), (u.flags = 1), Uu(u, t.length, 1), Hu(u)),
           (t[Et] = a)
         );
       }
@@ -9888,10 +9888,10 @@
         tl(l, n, t, -1, -1, -1),
           ll(t, { directiveStart: l, directiveEnd: l + 1 });
       }
-      function Yd(e) {
+      function Pd(e) {
         return Ir(e).clean;
       }
-      var Pd = (function() {
+      var Yd = (function() {
         function e(e, n, t) {
           (this.previousValue = e),
             (this.currentValue = n),
@@ -9931,7 +9931,7 @@
           o = r.previous,
           u = this.declaredInputs[t],
           a = o[u];
-        (i[u] = new Pd(a && a.currentValue, n, o === On)), (e[l] = n);
+        (i[u] = new Yd(a && a.currentValue, n, o === On)), (e[l] = n);
       }
       var Vd = "__ngSimpleChanges__";
       function Hd(e) {
@@ -10099,7 +10099,7 @@
             this.injectorDefTypes.forEach(function(e) {
               return r.get(e);
             }),
-            (this.source = l || (e instanceof Array ? null : P(e)));
+            (this.source = l || (e instanceof Array ? null : Y(e)));
         }
         return (
           Object.defineProperty(e.prototype, "destroyed", {
@@ -10147,7 +10147,7 @@
               );
             } catch (u) {
               if ("NullInjectorError" === u.name) {
-                if (((u[je] = u[je] || []).unshift(P(e)), r)) throw u;
+                if (((u[je] = u[je] || []).unshift(Y(e)), r)) throw u;
                 return ze(u, e, "R3InjectorError", this.source);
               }
               throw u;
@@ -10204,7 +10204,7 @@
             if (ic(e) || !0 !== e.multi) {
               var i = this.records.get(l);
               if (i && void 0 !== i.multi)
-                throw new Error("Mixed multi-provider for " + P(l));
+                throw new Error("Mixed multi-provider for " + Y(l));
             } else {
               var o = this.records.get(l);
               if (o) {
@@ -10221,7 +10221,7 @@
           }),
           (e.prototype.hydrate = function(e, n) {
             if (n.value === qd)
-              throw new Error("Cannot instantiate cyclic dependency! " + P(e));
+              throw new Error("Cannot instantiate cyclic dependency! " + Y(e));
             var t;
             return (
               n.value === $d && ((n.value = qd), (n.value = n.factory())),
@@ -10253,7 +10253,7 @@
           if (null !== t) return t.factory;
           if (e instanceof Ce)
             throw new Error(
-              "Token " + P(e) + " is missing an ngInjectableDef definition."
+              "Token " + Y(e) + " is missing an ngInjectableDef definition."
             );
           if (e instanceof Function) {
             var l = e.length;
@@ -10261,7 +10261,7 @@
               var r = new Array(l).fill("?");
               throw new Error(
                 "Can't resolve all parameters for " +
-                  P(e) +
+                  Y(e) +
                   ": (" +
                   r.join(", ") +
                   ")."
@@ -10305,7 +10305,7 @@
                   })
                   .join(", ") +
                 "]"),
-            new Error("Invalid provider for the NgModule '" + P(n) + "'" + u));
+            new Error("Invalid provider for the NgModule '" + Y(n) + "'" + u));
           }
           if (!e.deps) return ec(o);
           i = function() {
@@ -10329,7 +10329,7 @@
         });
       }
       function rc(e) {
-        return null !== e && "object" == typeof e && Ye in e;
+        return null !== e && "object" == typeof e && Pe in e;
       }
       function ic(e) {
         return "function" == typeof e;
@@ -10356,7 +10356,7 @@
             var m = new nl(a, r, za),
               g = ac(u, n, r ? d : d + p, c);
             -1 == g
-              ? (Vr(Pr(s, o), o, u),
+              ? (Vr(Yr(s, o), o, u),
                 n.push(u),
                 s.directiveStart++,
                 s.directiveEnd++,
@@ -10369,7 +10369,7 @@
               _ = ac(u, n, d, d + p),
               y = _ >= 0 && t[_];
             (r && !y) || (!r && !(v >= 0 && t[v]))
-              ? (Vr(Pr(s, o), o, u),
+              ? (Vr(Yr(s, o), o, u),
                 (m = (function(e, n, t, l, r) {
                   var i = new nl(e, t, za);
                   return (
@@ -10443,7 +10443,7 @@
       function mc(e) {
         var n = Error(
           "No component factory found for " +
-            P(e) +
+            Y(e) +
             ". Did you add it to @NgModule.entryComponents?"
         );
         return (n[yc] = e), n;
@@ -10597,11 +10597,11 @@
             }),
             (e.prototype.checkNoChanges = function() {
               !(function(e, n) {
-                Pl(!0);
+                Yl(!0);
                 try {
                   Qu(e, n);
                 } finally {
-                  Pl(!1);
+                  Yl(!1);
                 }
               })(this._lView, this.context);
             }),
@@ -10641,11 +10641,11 @@
             }),
             (n.prototype.checkNoChanges = function() {
               !(function(e) {
-                Pl(!0);
+                Yl(!0);
                 try {
                   Zu(e);
                 } finally {
-                  Pl(!1);
+                  Yl(!1);
                 }
               })(this._view);
             }),
@@ -10758,7 +10758,7 @@
           return Sc(e, Ll(), ml());
         },
         Ac = Ic,
-        Yc = (function() {
+        Pc = (function() {
           return function(e, n, t, l, r, i) {
             (this.id = e),
               (this.templateUrl = n),
@@ -10768,7 +10768,7 @@
               (this.animations = i);
           };
         })(),
-        Pc = (function() {
+        Yc = (function() {
           return function() {};
         })(),
         jc = (function() {
@@ -10913,7 +10913,7 @@
               if ((null == e && (e = []), !Os(e)))
                 throw new Error(
                   "Error trying to diff '" +
-                    P(e) +
+                    Y(e) +
                     "'. Only arrays and iterables are allowed"
                 );
               return this.check(e) ? this : null;
@@ -11294,7 +11294,7 @@
                 if (!(e instanceof Map || Rs(e)))
                   throw new Error(
                     "Error trying to diff '" +
-                      P(e) +
+                      Y(e) +
                       "'. Only maps and objects are allowed"
                   );
               } else e = new Map();
@@ -11807,7 +11807,7 @@
         Tp = new Map();
       function Ep(e) {
         var n = Tp.get(e);
-        return n || ((n = P(e) + "_" + Tp.size), Tp.set(e, n)), n;
+        return n || ((n = Y(e) + "_" + Tp.size), Tp.set(e, n)), n;
       }
       function Ip(e, n, t, l) {
         if (Is.isWrapped(l)) {
@@ -11828,12 +11828,12 @@
           data: e.data
         };
       }
-      var Yp = 0;
-      function Pp(e, n, t, l) {
+      var Pp = 0;
+      function Yp(e, n, t, l) {
         return !(!(2 & e.state) && Ts(e.oldValues[n.bindingIndex + t], l));
       }
       function jp(e, n, t, l) {
-        return !!Pp(e, n, t, l) && ((e.oldValues[n.bindingIndex + t] = l), !0);
+        return !!Yp(e, n, t, l) && ((e.oldValues[n.bindingIndex + t] = l), !0);
       }
       function Np(e, n, t, l) {
         var r = e.oldValues[n.bindingIndex + t];
@@ -12131,7 +12131,7 @@
       function gh(e, n, t, l) {
         return (
           (t = F(t)),
-          { index: -1, deps: Kp(l, P(n)), flags: e, token: n, value: t }
+          { index: -1, deps: Kp(l, Y(n)), flags: e, token: n, value: t }
         );
       }
       function vh(e) {
@@ -12628,9 +12628,9 @@
         );
       })();
       function Ah(e, n) {
-        return new Yh(e, n);
+        return new Ph(e, n);
       }
-      var Yh = (function(e) {
+      var Ph = (function(e) {
         function n(n, t) {
           var l = e.call(this) || this;
           return (l._parentView = n), (l._def = t), l;
@@ -12659,7 +12659,7 @@
           n
         );
       })(dp);
-      function Ph(e, n) {
+      function Yh(e, n) {
         return new jh(e, n);
       }
       var jh = (function() {
@@ -12834,7 +12834,7 @@
               if (this._destroyed)
                 throw new Error(
                   "The ng module " +
-                    P(this.instance.constructor) +
+                    Y(this.instance.constructor) +
                     " has already been destroyed."
                 );
               (this._destroyed = !0),
@@ -12904,7 +12904,7 @@
           c = s.references,
           p = s.matchedQueryIds;
         a || (a = []), u || (u = []), (i = F(i));
-        var h = Kp(o, P(r));
+        var h = Kp(o, Y(r));
         return {
           nodeIndex: -1,
           parent: null,
@@ -13050,7 +13050,7 @@
                 return Oh(df(u, n, t));
               case Kh:
               case Jh:
-                return Ph(u, n);
+                return Yh(u, n);
               default:
                 var a = (t
                   ? n.element.allProviders
@@ -13086,7 +13086,7 @@
         if (((n.instance[t.bindings[l].name] = r), 524288 & t.flags)) {
           i = i || {};
           var u = Is.unwrap(e.oldValues[t.bindingIndex + l]);
-          i[t.bindings[l].nonMinifiedName] = new Pd(u, r, 0 != (2 & e.state));
+          i[t.bindings[l].nonMinifiedName] = new Yd(u, r, 0 != (2 & e.state));
         }
         return (e.oldValues[t.bindingIndex + l] = r), i;
       }
@@ -13311,8 +13311,8 @@
         Of = /({\s*)(VAR_(PLURAL|SELECT)(_\d+)?)(\s*,)/g,
         Rf = /\ufffdI18N_EXP_(ICU(_\d+)?)\ufffd/g,
         Af = /\/\*/,
-        Yf = /\d+\:(\d+)/;
-      function Pf(e) {
+        Pf = /\d+\:(\d+)/;
+      function Yf(e) {
         if (!e) return [];
         var n,
           t = 0,
@@ -13343,7 +13343,7 @@
             t = [],
             l = 1,
             r = 0,
-            i = Pf(
+            i = Yf(
               (e = e.replace(Cf, function(e, n, t) {
                 return (
                   (l = "select" === t ? 0 : 1),
@@ -13359,7 +13359,7 @@
           var u = i[o++].trim();
           1 === l && (u = u.replace(/\s*(?:=)?(\w+)\s*/, "$1")),
             u.length && n.push(u);
-          var a = Pf(i[o++]);
+          var a = Yf(i[o++]);
           a.length && t.push(a);
         }
         return (
@@ -13463,7 +13463,7 @@
                       d.push((g << 3) | 0, (a << 17) | 1),
                       "#" === m.charAt(0) && (Bf[++s] = a = g);
                 else
-                  for (var v = Pf(m), _ = 0; _ < v.length; _++)
+                  for (var v = Yf(m), _ = 0; _ < v.length; _++)
                     if (1 & _) {
                       var y = i + Wf++;
                       d.push(to, "", y, (a << 17) | 1);
@@ -13535,7 +13535,7 @@
               if (!r[o]) {
                 var u = [];
                 o.split("|").forEach(function(e) {
-                  var n = e.match(Yf),
+                  var n = e.match(Pf),
                     t = n ? parseInt(n[1], 10) : Tf,
                     l = Af.test(e);
                   u.push([t, l, e]);
@@ -14396,7 +14396,7 @@
                 n,
                 t,
                 [{ provide: Cc, useValue: l }, fm],
-                P(n)
+                Y(n)
               )),
               (l.instance = l.get(n)),
               l
@@ -14469,43 +14469,43 @@
       function _m(e, n, t) {
         var l = Nl() + e,
           r = ml();
-        return Ol() ? As(r, l, t ? n.call(t) : n()) : Ys(r, l);
+        return Ol() ? As(r, l, t ? n.call(t) : n()) : Ps(r, l);
       }
       function ym(e, n, t, l) {
         var r = ml(),
           i = Nl() + e;
-        return Ps(r, i, t)
+        return Ys(r, i, t)
           ? As(r, i + 1, l ? n.call(l, t) : n(t))
-          : Ys(r, i + 1);
+          : Ps(r, i + 1);
       }
       function bm(e, n, t, l, r) {
         var i = Nl() + e,
           o = ml();
         return js(o, i, t, l)
           ? As(o, i + 2, r ? n.call(r, t, l) : n(t, l))
-          : Ys(o, i + 2);
+          : Ps(o, i + 2);
       }
       function wm(e, n, t, l, r, i) {
         var o = Nl() + e,
           u = ml();
         return Ns(u, o, t, l, r)
           ? As(u, o + 3, i ? n.call(i, t, l, r) : n(t, l, r))
-          : Ys(u, o + 3);
+          : Ps(u, o + 3);
       }
       function Mm(e, n, t, l, r, i, o) {
         var u = Nl() + e,
           a = ml();
         return Fs(a, u, t, l, r, i)
           ? As(a, u + 4, o ? n.call(o, t, l, r, i) : n(t, l, r, i))
-          : Ys(a, u + 4);
+          : Ps(a, u + 4);
       }
       function km(e, n, t, l, r, i, o, u) {
         var a = Nl() + e,
           s = ml(),
           d = Fs(s, a, t, l, r, i);
-        return Ps(s, a + 4, o) || d
+        return Ys(s, a + 4, o) || d
           ? As(s, a + 5, u ? n.call(u, t, l, r, i, o) : n(t, l, r, i, o))
-          : Ys(s, a + 5);
+          : Ps(s, a + 5);
       }
       function Cm(e, n, t, l, r, i, o, u, a) {
         var s = Nl() + e,
@@ -14513,7 +14513,7 @@
           c = Fs(d, s, t, l, r, i);
         return js(d, s + 4, o, u) || c
           ? As(d, s + 6, a ? n.call(a, t, l, r, i, o, u) : n(t, l, r, i, o, u))
-          : Ys(d, s + 6);
+          : Ps(d, s + 6);
       }
       function Dm(e, n, t, l, r, i, o, u, a, s) {
         var d = Nl() + e,
@@ -14525,7 +14525,7 @@
               d + 7,
               s ? n.call(s, t, l, r, i, o, u, a) : n(t, l, r, i, o, u, a)
             )
-          : Ys(c, d + 7);
+          : Ps(c, d + 7);
       }
       function xm(e, n, t, l, r, i, o, u, a, s, d) {
         var c = Nl() + e,
@@ -14537,12 +14537,12 @@
               c + 8,
               d ? n.call(d, t, l, r, i, o, u, a, s) : n(t, l, r, i, o, u, a, s)
             )
-          : Ys(p, c + 8);
+          : Ps(p, c + 8);
       }
       function Lm(e, n, t, l) {
         for (var r = Nl() + e, i = !1, o = ml(), u = 0; u < t.length; u++)
-          Ps(o, r++, t[u]) && (i = !0);
-        return i ? As(o, r, n.apply(l, t)) : Ys(o, r);
+          Ys(o, r++, t[u]) && (i = !0);
+        return i ? As(o, r, n.apply(l, t)) : Ps(o, r);
       }
       function Sm(e, n) {
         var t,
@@ -14566,32 +14566,32 @@
       }
       function Tm(e, n, t) {
         var l = Ha(e);
-        return Ym(Am(e) ? ym(n, l.transform, t, l) : l.transform(t));
+        return Pm(Am(e) ? ym(n, l.transform, t, l) : l.transform(t));
       }
       function Em(e, n, t, l) {
         var r = Ha(e);
-        return Ym(Am(e) ? bm(n, r.transform, t, l, r) : r.transform(t, l));
+        return Pm(Am(e) ? bm(n, r.transform, t, l, r) : r.transform(t, l));
       }
       function Im(e, n, t, l, r) {
         var i = Ha(e);
-        return Ym(
+        return Pm(
           Am(e) ? wm(n, i.transform, t, l, r, i) : i.transform(t, l, r)
         );
       }
       function Om(e, n, t, l, r, i) {
         var o = Ha(e);
-        return Ym(
+        return Pm(
           Am(e) ? Mm(n, o.transform, t, l, r, i, o) : o.transform(t, l, r, i)
         );
       }
       function Rm(e, n, t) {
         var l = Ha(e);
-        return Ym(Am(e) ? Lm(n, l.transform, t, l) : l.transform.apply(l, t));
+        return Pm(Am(e) ? Lm(n, l.transform, t, l) : l.transform.apply(l, t));
       }
       function Am(e) {
         return ml()[pt].data[e + Et].pure;
       }
-      function Ym(e) {
+      function Pm(e) {
         if (Is.isWrapped(e)) {
           e = Is.unwrap(e);
           var n = ml();
@@ -14599,7 +14599,7 @@
         }
         return e;
       }
-      var Pm = (function(e) {
+      var Ym = (function(e) {
           function n(n) {
             void 0 === n && (n = !1);
             var t = e.call(this) || this;
@@ -14687,7 +14687,7 @@
           function e() {
             (this.dirty = !0),
               (this._results = []),
-              (this.changes = new Pm()),
+              (this.changes = new Ym()),
               (this.length = 0);
           }
           return (
@@ -14961,9 +14961,9 @@
             "Duplicate module registered for " +
               e +
               " - " +
-              P(n) +
+              Y(n) +
               " vs " +
-              P(n.name)
+              Y(n.name)
           );
       }
       function dg(e, n) {
@@ -15005,8 +15005,8 @@
             ɵɵbind: Hs,
             ɵɵcontainer: Ra,
             ɵɵnextContext: ks,
-            ɵɵcontainerRefreshStart: Ya,
-            ɵɵcontainerRefreshEnd: Pa,
+            ɵɵcontainerRefreshStart: Pa,
+            ɵɵcontainerRefreshEnd: Ya,
             ɵɵnamespaceHTML: Zl,
             ɵɵnamespaceMathML: Ql,
             ɵɵnamespaceSVG: Jl,
@@ -15172,7 +15172,7 @@
         }),
           n.id && dg(n.id, e);
         var r = null;
-        Object.defineProperty(e, Y, {
+        Object.defineProperty(e, P, {
           get: function() {
             if (null === r) {
               var t = {
@@ -15202,8 +15202,8 @@
         t.forEach(function(n) {
           n.hasOwnProperty(An)
             ? Dg(Qn(n), l)
-            : n.hasOwnProperty(Yn) ||
-              n.hasOwnProperty(Pn) ||
+            : n.hasOwnProperty(Pn) ||
+              n.hasOwnProperty(Yn) ||
               (n.ngSelectorScope = e);
         });
       }
@@ -15340,7 +15340,7 @@
       }
       function Eg(e, n) {
         var t = null;
-        Object.defineProperty(e, Yn, {
+        Object.defineProperty(e, Pn, {
           get: function() {
             if (null === t) {
               var l = e && e.name,
@@ -15373,7 +15373,7 @@
           propMetadata: l,
           inputs: n.inputs || Rn,
           outputs: n.outputs || Rn,
-          queries: Pg(e, l, jg),
+          queries: Yg(e, l, jg),
           lifecycle: {
             usesOnChanges: e.prototype.hasOwnProperty("ngOnChanges")
           },
@@ -15387,7 +15387,7 @@
                   return e.trim();
                 })),
           providers: n.providers || null,
-          viewQueries: Pg(e, l, Ng)
+          viewQueries: Yg(e, l, Ng)
         };
       }
       function Rg(e) {
@@ -15397,7 +15397,7 @@
 
         ) {
           if (!Zn(t) && !Qn(t) && !et(t)) {
-            var l = Yg(t);
+            var l = Pg(t);
             l && Ag(t, l);
           }
           t = Object.getPrototypeOf(t);
@@ -15417,12 +15417,12 @@
           configurable: !1
         });
       }
-      function Yg(e) {
+      function Pg(e) {
         var n,
           t,
           l = se().ownPropMetadata(e),
-          r = Pg(e, l, Ng),
-          i = Pg(e, l, jg),
+          r = Yg(e, l, Ng),
+          i = Yg(e, l, jg),
           o = function(e) {
             l[e].forEach(function(l) {
               "Input" === l.ngMetadataName
@@ -15438,7 +15438,7 @@
           ? { inputs: n, outputs: t, viewQueries: r, queries: i }
           : null;
       }
-      function Pg(e, n, t) {
+      function Yg(e, n, t) {
         var l = [],
           r = function(r) {
             if (n.hasOwnProperty(r)) {
@@ -15496,7 +15496,7 @@
       }
       function Vg(e, n) {
         var t = null;
-        Object.defineProperty(e, Pn, {
+        Object.defineProperty(e, Yn, {
           get: function() {
             if (null === t) {
               var l = e.name;
@@ -15717,13 +15717,13 @@
         gv.endTimeRange(e);
       }
       var Av = Tv();
-      function Yv(e, n) {
+      function Pv(e, n) {
         return null;
       }
-      var Pv = Av
+      var Yv = Av
           ? Ev
           : function(e, n) {
-              return Yv;
+              return Pv;
             },
         jv = Av
           ? Iv
@@ -15759,10 +15759,10 @@
             ((this.hasPendingMicrotasks = !1),
             (this.hasPendingMacrotasks = !1),
             (this.isStable = !0),
-            (this.onUnstable = new Pm(!1)),
-            (this.onMicrotaskEmpty = new Pm(!1)),
-            (this.onStable = new Pm(!1)),
-            (this.onError = new Pm(!1)),
+            (this.onUnstable = new Ym(!1)),
+            (this.onMicrotaskEmpty = new Ym(!1)),
+            (this.onStable = new Ym(!1)),
+            (this.onError = new Ym(!1)),
             "undefined" == typeof Zone)
           )
             throw new Error("In this configuration Angular requires Zone.js");
@@ -15874,10 +15874,10 @@
             (this.hasPendingMicrotasks = !1),
               (this.hasPendingMacrotasks = !1),
               (this.isStable = !0),
-              (this.onUnstable = new Pm()),
-              (this.onMicrotaskEmpty = new Pm()),
-              (this.onStable = new Pm()),
-              (this.onError = new Pm());
+              (this.onUnstable = new Ym()),
+              (this.onMicrotaskEmpty = new Ym()),
+              (this.onStable = new Ym()),
+              (this.onError = new Ym());
           }
           return (
             (e.prototype.run = function(e) {
@@ -16230,7 +16230,7 @@
               if (!e.instance.ngDoBootstrap)
                 throw new Error(
                   "The module " +
-                    P(e.instance.constructor) +
+                    Y(e.instance.constructor) +
                     ' was bootstrapped, but it does not declare "@NgModule.bootstrap" components nor a "ngDoBootstrap" method. Please define one of these.'
                 );
               e.instance.ngDoBootstrap(n);
@@ -16458,7 +16458,7 @@
             enumerable: !0,
             configurable: !0
           }),
-          (e._tickScope = Pv("ApplicationRef#tick()")),
+          (e._tickScope = Yv("ApplicationRef#tick()")),
           e
         );
       })();
@@ -17056,8 +17056,8 @@
       function A_(e) {
         I_.set(e.nativeNode, e);
       }
-      var Y_ = M_,
-        P_ = k_,
+      var P_ = M_,
+        Y_ = k_,
         j_ = i_(null, "core", [
           { provide: dv, useValue: "unknown" },
           { provide: s_, deps: [Ee] },
@@ -17206,7 +17206,7 @@
                 (null != e.encapsulation && e.encapsulation !== En.None) ||
                 e.styles.length ||
                 Object.keys(e.data).length;
-              e.id = n ? "c" + Yp++ : Rp;
+              e.id = n ? "c" + Pp++ : Rp;
             }
             return e && e.id === Rp && (e = null), e || null;
           })(p)),
@@ -17856,7 +17856,7 @@
           }
           l[r] = o;
         }
-        Iy(e, Ey.CreateViewNodes), Yy(e, 201326592, 268435456, 0);
+        Iy(e, Ey.CreateViewNodes), Py(e, 201326592, 268435456, 0);
       }
       function ky(e) {
         xy(e),
@@ -17872,12 +17872,12 @@
           xy(e),
           Lp.updateDirectives(e, 0),
           Oy(e, Ey.CheckAndUpdate),
-          Yy(e, 67108864, 536870912, 0);
+          Py(e, 67108864, 536870912, 0);
         var n = yp(e, 256, 512);
         pf(e, 2097152 | (n ? 1048576 : 0)),
           Lp.updateRenderer(e, 0),
           Iy(e, Ey.CheckAndUpdate),
-          Yy(e, 134217728, 536870912, 0),
+          Py(e, 134217728, 536870912, 0),
           pf(e, 8388608 | ((n = yp(e, 512, 768)) ? 4194304 : 0)),
           2 & e.def.flags && (e.state &= -9),
           (e.state &= -97),
@@ -17948,34 +17948,34 @@
                       g = n.bindings.length;
                     return (
                       g > 0 &&
-                        Pp(e, n, 0, t) &&
+                        Yp(e, n, 0, t) &&
                         ((f = !0), (m = cf(e, p, n, 0, t, m))),
                       g > 1 &&
-                        Pp(e, n, 1, l) &&
+                        Yp(e, n, 1, l) &&
                         ((f = !0), (m = cf(e, p, n, 1, l, m))),
                       g > 2 &&
-                        Pp(e, n, 2, r) &&
+                        Yp(e, n, 2, r) &&
                         ((f = !0), (m = cf(e, p, n, 2, r, m))),
                       g > 3 &&
-                        Pp(e, n, 3, i) &&
+                        Yp(e, n, 3, i) &&
                         ((f = !0), (m = cf(e, p, n, 3, i, m))),
                       g > 4 &&
-                        Pp(e, n, 4, o) &&
+                        Yp(e, n, 4, o) &&
                         ((f = !0), (m = cf(e, p, n, 4, o, m))),
                       g > 5 &&
-                        Pp(e, n, 5, u) &&
+                        Yp(e, n, 5, u) &&
                         ((f = !0), (m = cf(e, p, n, 5, u, m))),
                       g > 6 &&
-                        Pp(e, n, 6, a) &&
+                        Yp(e, n, 6, a) &&
                         ((f = !0), (m = cf(e, p, n, 6, a, m))),
                       g > 7 &&
-                        Pp(e, n, 7, s) &&
+                        Yp(e, n, 7, s) &&
                         ((f = !0), (m = cf(e, p, n, 7, s, m))),
                       g > 8 &&
-                        Pp(e, n, 8, d) &&
+                        Yp(e, n, 8, d) &&
                         ((f = !0), (m = cf(e, p, n, 8, d, m))),
                       g > 9 &&
-                        Pp(e, n, 9, c) &&
+                        Yp(e, n, 9, c) &&
                         ((f = !0), (m = cf(e, p, n, 9, c, m))),
                       m && h.ngOnChanges(m),
                       65536 & n.flags &&
@@ -18108,7 +18108,7 @@
                       u < t.length;
                       u++
                     )
-                      Pp(e, n, u, t[u]) &&
+                      Yp(e, n, u, t[u]) &&
                         ((i = !0), (o = cf(e, l, n, u, t[u], o)));
                     return (
                       o && r.ngOnChanges(o),
@@ -18296,7 +18296,7 @@
       function Ay(e, n) {
         Oy(e, n), Iy(e, n);
       }
-      function Yy(e, n, t, l) {
+      function Py(e, n, t, l) {
         if (e.def.nodeFlags & n && e.def.nodeFlags & t)
           for (var r = e.def.nodes.length, i = 0; i < r; i++) {
             var o = e.def.nodes[i];
@@ -18311,10 +18311,10 @@
             (o.childFlags & n && o.childFlags & t) || (i += o.childCount);
           }
       }
-      var Py = !1;
+      var Yy = !1;
       function jy() {
-        if (!Py) {
-          Py = !0;
+        if (!Yy) {
+          Yy = !0;
           var e = fi()
             ? {
                 setCurrentNode: ob,
@@ -18676,7 +18676,7 @@
           }),
           Object.defineProperty(e.prototype, "injector", {
             get: function() {
-              return Ph(this.elView, this.elDef);
+              return Yh(this.elView, this.elDef);
             },
             enumerable: !0,
             configurable: !0
@@ -20051,8 +20051,8 @@
       }
       var R = t("b7mW"),
         A = t("3fWJ"),
-        Y = t("8g8A"),
-        P = t("awvh");
+        P = t("8g8A"),
+        Y = t("awvh");
       function j() {
         return (
           Error.call(this),
@@ -20630,7 +20630,7 @@
                 : n.push(
                     "function" == typeof e[Te.a]
                       ? new Re(e[Te.a]())
-                      : new Ye(this.destination, this, e)
+                      : new Pe(this.destination, this, e)
                   );
             }),
             (n.prototype._complete = function() {
@@ -20729,7 +20729,7 @@
             e
           );
         })(),
-        Ye = (function(e) {
+        Pe = (function(e) {
           function n(n, t, l) {
             var r = e.call(this, n) || this;
             return (
@@ -20772,7 +20772,7 @@
             n
           );
         })(ve.a),
-        Pe = t("iLxQ");
+        Ye = t("iLxQ");
       t.d(n, "Observable", function() {
         return l.a;
       }),
@@ -20846,10 +20846,10 @@
           return A.a;
         }),
         t.d(n, "ObjectUnsubscribedError", function() {
-          return Y.a;
+          return P.a;
         }),
         t.d(n, "UnsubscriptionError", function() {
-          return P.a;
+          return Y.a;
         }),
         t.d(n, "TimeoutError", function() {
           return N;
@@ -20933,7 +20933,7 @@
           return de;
         }),
         t.d(n, "config", function() {
-          return Pe.a;
+          return Ye.a;
         });
     },
     DxQv: function(e, n, t) {
@@ -22769,10 +22769,10 @@
           return R;
         }),
         t.d(n, "getLocaleNumberSymbol", function() {
-          return Y;
+          return P;
         }),
         t.d(n, "getLocaleNumberFormat", function() {
-          return P;
+          return Y;
         }),
         t.d(n, "getLocaleCurrencyName", function() {
           return N;
@@ -23529,7 +23529,7 @@
       function A(e, n) {
         return U(B(e)[12], n);
       }
-      function Y(e, n) {
+      function P(e, n) {
         var t = B(e),
           l = t[13][n];
         if (void 0 === l) {
@@ -23538,7 +23538,7 @@
         }
         return l;
       }
-      function P(e, n) {
+      function Y(e, n) {
         return B(e)[14][n];
       }
       function j(e) {
@@ -23973,7 +23973,7 @@
               0 === a && -12 === t && (a = 12);
             else if (e === X.FractionalSeconds)
               return (u = n), le(a, 3).substr(0, u);
-            var s = Y(o, k.MinusSign);
+            var s = P(o, k.MinusSign);
             return le(a, n, s, l, r);
           }
         );
@@ -24025,7 +24025,7 @@
       function oe(e) {
         return function(n, t, l) {
           var r = -1 * l,
-            i = Y(t, k.MinusSign),
+            i = P(t, k.MinusSign),
             o = r > 0 ? Math.floor(r / 60) : Math.ceil(r / 60);
           switch (e) {
             case Z.Short:
@@ -24079,7 +24079,7 @@
                   )).getTime() - d.getTime();
               r = 1 + Math.round(c / 6048e5);
             }
-            return le(r, e, Y(l, k.MinusSign));
+            return le(r, e, P(l, k.MinusSign));
           }
         );
       }
@@ -24241,14 +24241,14 @@
           )
             w.unshift(v.splice(-n.gSize, v.length).join(""));
           v.length && w.unshift(v.join("")),
-            (u = w.join(Y(t, l))),
-            b.length && (u += Y(t, r) + b.join("")),
-            y && (u += Y(t, k.Exponential) + "+" + y);
-        } else u = Y(t, k.Infinity);
+            (u = w.join(P(t, l))),
+            b.length && (u += P(t, r) + b.join("")),
+            y && (u += P(t, k.Exponential) + "+" + y);
+        } else u = P(t, k.Infinity);
         return e < 0 && !a ? n.negPre + u + n.negSuf : n.posPre + u + n.posSuf;
       }
       function Ce(e, n, t, l, r) {
-        var i = Le(P(n, _.Currency), Y(n, k.MinusSign));
+        var i = Le(Y(n, _.Currency), P(n, k.MinusSign));
         return (
           (i.minFrac = q(l)),
           (i.maxFrac = i.minFrac),
@@ -24260,18 +24260,18 @@
       function De(e, n, t) {
         return ke(
           e,
-          Le(P(n, _.Percent), Y(n, k.MinusSign)),
+          Le(Y(n, _.Percent), P(n, k.MinusSign)),
           n,
           k.Group,
           k.Decimal,
           t,
           !0
-        ).replace(new RegExp(Me, "g"), Y(n, k.PercentSign));
+        ).replace(new RegExp(Me, "g"), P(n, k.PercentSign));
       }
       function xe(e, n, t) {
         return ke(
           e,
-          Le(P(n, _.Decimal), Y(n, k.MinusSign)),
+          Le(Y(n, _.Decimal), P(n, k.MinusSign)),
           n,
           k.Group,
           k.Decimal,
@@ -24814,7 +24814,7 @@
         }
         return null;
       }
-      var Ye = (function() {
+      var Pe = (function() {
         function e(e, n) {
           (this._name = e),
             (this._options = n),
@@ -24869,13 +24869,13 @@
                       }
                       return !1;
                     })(u, this.value, o)),
-                  e && (n = Pe(this._name, t, l, r, o, u));
+                  e && (n = Ye(this._name, t, l, r, o, u));
                 break;
               case 4:
               case 8:
                 var a = Array.from(this._lastSetValue);
                 e || (e = !Ve(Object.keys(this.value), a)),
-                  e && (n = Pe(this._name, t, l, r, a));
+                  e && (n = Ye(this._name, t, l, r, a));
                 break;
               default:
                 n = null;
@@ -24885,7 +24885,7 @@
           e
         );
       })();
-      function Pe(e, n, t, l, r, i) {
+      function Ye(e, n, t, l, r, i) {
         var o = {};
         if (i)
           for (var u = 0; u < i.length; u++) {
@@ -25043,7 +25043,7 @@
         Ue = (function() {
           function e() {
             (this._value = null),
-              (this._ngClassDiffer = new Ye("NgClass", 23)),
+              (this._ngClassDiffer = new Pe("NgClass", 23)),
               (this._classStringDiffer = null);
           }
           return (
@@ -25053,7 +25053,7 @@
             (e.prototype.setClass = function(e) {
               (e || this._classStringDiffer) &&
                 ((this._classStringDiffer =
-                  this._classStringDiffer || new Ye("class", 20)),
+                  this._classStringDiffer || new Pe("class", 20)),
                 this._classStringDiffer.setValue(e));
             }),
             (e.prototype.setNgClass = function(e) {
@@ -25568,7 +25568,7 @@
         })(),
         pn = (function() {
           function e() {
-            (this._differ = new Ye("NgStyle", 8)), (this._value = null);
+            (this._differ = new Pe("NgStyle", 8)), (this._value = null);
           }
           return (
             (e.prototype.getValue = function() {
@@ -25747,7 +25747,7 @@
         })(),
         kn = /((?:[^yMLdHhmsazZEwGjJ']+)|(?:'(?:[^']|'')*')|(?:E+|y+|M+|L+|d+|H+|h+|J+|j+|m+|s+|a|z|Z|G+|w+))(.*)/,
         Cn = {
-          yMMMdjms: Yn(
+          yMMMdjms: Pn(
             An([
               On("year", 1),
               Rn("month", 3),
@@ -25757,7 +25757,7 @@
               On("second", 1)
             ])
           ),
-          yMdjm: Yn(
+          yMdjm: Pn(
             An([
               On("year", 1),
               On("month", 1),
@@ -25766,51 +25766,51 @@
               On("minute", 1)
             ])
           ),
-          yMMMMEEEEd: Yn(
+          yMMMMEEEEd: Pn(
             An([On("year", 1), Rn("month", 4), Rn("weekday", 4), On("day", 1)])
           ),
-          yMMMMd: Yn(An([On("year", 1), Rn("month", 4), On("day", 1)])),
-          yMMMd: Yn(An([On("year", 1), Rn("month", 3), On("day", 1)])),
-          yMd: Yn(An([On("year", 1), On("month", 1), On("day", 1)])),
-          jms: Yn(An([On("hour", 1), On("second", 1), On("minute", 1)])),
-          jm: Yn(An([On("hour", 1), On("minute", 1)]))
+          yMMMMd: Pn(An([On("year", 1), Rn("month", 4), On("day", 1)])),
+          yMMMd: Pn(An([On("year", 1), Rn("month", 3), On("day", 1)])),
+          yMd: Pn(An([On("year", 1), On("month", 1), On("day", 1)])),
+          jms: Pn(An([On("hour", 1), On("second", 1), On("minute", 1)])),
+          jm: Pn(An([On("hour", 1), On("minute", 1)]))
         },
         Dn = {
-          yyyy: Yn(On("year", 4)),
-          yy: Yn(On("year", 2)),
-          y: Yn(On("year", 1)),
-          MMMM: Yn(Rn("month", 4)),
-          MMM: Yn(Rn("month", 3)),
-          MM: Yn(On("month", 2)),
-          M: Yn(On("month", 1)),
-          LLLL: Yn(Rn("month", 4)),
-          L: Yn(Rn("month", 1)),
-          dd: Yn(On("day", 2)),
-          d: Yn(On("day", 1)),
-          HH: xn(Sn(Yn(In(On("hour", 2), !1)))),
-          H: Sn(Yn(In(On("hour", 1), !1))),
-          hh: xn(Sn(Yn(In(On("hour", 2), !0)))),
-          h: Sn(Yn(In(On("hour", 1), !0))),
-          jj: Yn(On("hour", 2)),
-          j: Yn(On("hour", 1)),
-          mm: xn(Yn(On("minute", 2))),
-          m: Yn(On("minute", 1)),
-          ss: xn(Yn(On("second", 2))),
-          s: Yn(On("second", 1)),
-          sss: Yn(On("second", 3)),
-          EEEE: Yn(Rn("weekday", 4)),
-          EEE: Yn(Rn("weekday", 3)),
-          EE: Yn(Rn("weekday", 2)),
-          E: Yn(Rn("weekday", 1)),
-          a: Ln(Yn(In(On("hour", 1), !0))),
+          yyyy: Pn(On("year", 4)),
+          yy: Pn(On("year", 2)),
+          y: Pn(On("year", 1)),
+          MMMM: Pn(Rn("month", 4)),
+          MMM: Pn(Rn("month", 3)),
+          MM: Pn(On("month", 2)),
+          M: Pn(On("month", 1)),
+          LLLL: Pn(Rn("month", 4)),
+          L: Pn(Rn("month", 1)),
+          dd: Pn(On("day", 2)),
+          d: Pn(On("day", 1)),
+          HH: xn(Sn(Pn(In(On("hour", 2), !1)))),
+          H: Sn(Pn(In(On("hour", 1), !1))),
+          hh: xn(Sn(Pn(In(On("hour", 2), !0)))),
+          h: Sn(Pn(In(On("hour", 1), !0))),
+          jj: Pn(On("hour", 2)),
+          j: Pn(On("hour", 1)),
+          mm: xn(Pn(On("minute", 2))),
+          m: Pn(On("minute", 1)),
+          ss: xn(Pn(On("second", 2))),
+          s: Pn(On("second", 1)),
+          sss: Pn(On("second", 3)),
+          EEEE: Pn(Rn("weekday", 4)),
+          EEE: Pn(Rn("weekday", 3)),
+          EE: Pn(Rn("weekday", 2)),
+          E: Pn(Rn("weekday", 1)),
+          a: Ln(Pn(In(On("hour", 1), !0))),
           Z: En("short"),
           z: En("long"),
-          ww: Yn({}),
-          w: Yn({}),
-          G: Yn(Rn("era", 1)),
-          GG: Yn(Rn("era", 2)),
-          GGG: Yn(Rn("era", 3)),
-          GGGG: Yn(Rn("era", 4))
+          ww: Pn({}),
+          w: Pn({}),
+          G: Pn(Rn("era", 1)),
+          GG: Pn(Rn("era", 2)),
+          GGG: Pn(Rn("era", 3)),
+          GGGG: Pn(Rn("era", 4))
         };
       function xn(e) {
         return function(n, t) {
@@ -25856,12 +25856,12 @@
           return Object(r.__assign)({}, e, n);
         }, {});
       }
-      function Yn(e) {
+      function Pn(e) {
         return function(n, t) {
           return Tn(n, t, e);
         };
       }
-      var Pn = new Map(),
+      var Yn = new Map(),
         jn = (function() {
           function e() {}
           return (
@@ -25870,7 +25870,7 @@
                 var l = Cn[e];
                 if (l) return l(n, t);
                 var r = e,
-                  i = Pn.get(r);
+                  i = Yn.get(r);
                 if (!i) {
                   i = [];
                   var o = void 0;
@@ -25879,7 +25879,7 @@
                     (o = kn.exec(u))
                       ? (u = (i = i.concat(o.slice(1))).pop())
                       : (i.push(u), (u = null));
-                  Pn.set(r, i);
+                  Yn.set(r, i);
                 }
                 return i.reduce(function(e, l) {
                   var r = Dn[l];
@@ -27809,8 +27809,8 @@
             ],
             R = "[object Arguments]",
             A = "[object Array]",
-            Y = "[object AsyncFunction]",
-            P = "[object Boolean]",
+            P = "[object AsyncFunction]",
+            Y = "[object Boolean]",
             j = "[object Date]",
             N = "[object DOMException]",
             F = "[object Error]",
@@ -27863,8 +27863,8 @@
             Oe = /\\(\\)?/g,
             Re = /\$\{([^\\}]*(?:\\.[^\\}]*)*)\}/g,
             Ae = /\w*$/,
-            Ye = /^[-+]0x[0-9a-f]+$/i,
-            Pe = /^0b[01]+$/i,
+            Pe = /^[-+]0x[0-9a-f]+$/i,
+            Ye = /^0b[01]+$/i,
             je = /^\[object .+?Constructor\]$/,
             Ne = /^0o[0-7]+$/i,
             Fe = /^(?:0|[1-9]\d*)$/,
@@ -27967,11 +27967,11 @@
           (gn[ne] = gn[te] = gn[le] = gn[re] = gn[ie] = gn[oe] = gn[ue] = gn[
             ae
           ] = gn[se] = !0),
-            (gn[R] = gn[A] = gn[X] = gn[P] = gn[ee] = gn[j] = gn[F] = gn[
+            (gn[R] = gn[A] = gn[X] = gn[Y] = gn[ee] = gn[j] = gn[F] = gn[
               V
             ] = gn[z] = gn[U] = gn[B] = gn[$] = gn[q] = gn[K] = gn[Z] = !1);
           var vn = {};
-          (vn[R] = vn[A] = vn[X] = vn[ee] = vn[P] = vn[j] = vn[ne] = vn[
+          (vn[R] = vn[A] = vn[X] = vn[ee] = vn[Y] = vn[j] = vn[ne] = vn[
             te
           ] = vn[le] = vn[re] = vn[ie] = vn[z] = vn[U] = vn[B] = vn[$] = vn[
             q
@@ -28013,7 +28013,7 @@
             On = Sn && Sn.isRegExp,
             Rn = Sn && Sn.isSet,
             An = Sn && Sn.isTypedArray;
-          function Yn(e, n, t) {
+          function Pn(e, n, t) {
             switch (t.length) {
               case 0:
                 return e.call(n);
@@ -28026,7 +28026,7 @@
             }
             return e.apply(n, t);
           }
-          function Pn(e, n, t, l) {
+          function Yn(e, n, t, l) {
             for (var r = -1, i = null == e ? 0 : e.length; ++r < i; ) {
               var o = e[r];
               n(l, o, t(o), e);
@@ -28517,8 +28517,8 @@
                 Ot = n.isFinite,
                 Rt = Qe.join,
                 At = mt($e.keys, $e),
-                Yt = Ge.max,
-                Pt = Ge.min,
+                Pt = Ge.max,
+                Yt = Ge.min,
                 jt = Ue.now,
                 Nt = n.parseInt,
                 Ft = Ge.random,
@@ -28732,13 +28732,13 @@
                         i = e.constructor;
                       switch (n) {
                         case X:
-                          return Yr(e);
-                        case P:
+                          return Pr(e);
+                        case Y:
                         case j:
                           return new i(+e);
                         case ee:
                           return (function(e, n) {
-                            var t = n ? Yr(e.buffer) : e.buffer;
+                            var t = n ? Pr(e.buffer) : e.buffer;
                             return new e.constructor(
                               t,
                               e.byteOffset,
@@ -28754,7 +28754,7 @@
                         case ue:
                         case ae:
                         case se:
-                          return Pr(e, t);
+                          return Yr(e, t);
                         case z:
                           return new i();
                         case U:
@@ -28959,8 +28959,8 @@
                   }
                   return t.set(e, n), (this.size = t.size), this;
                 });
-              var Ll = Wr(Yl),
-                Sl = Wr(Pl, !0);
+              var Ll = Wr(Pl),
+                Sl = Wr(Yl, !0);
               function Tl(e, n) {
                 var t = !0;
                 return (
@@ -29004,10 +29004,10 @@
               }
               var Rl = Br(),
                 Al = Br(!0);
-              function Yl(e, n) {
+              function Pl(e, n) {
                 return e && Rl(e, n, zu);
               }
-              function Pl(e, n) {
+              function Yl(e, n) {
                 return e && Al(e, n, zu);
               }
               function jl(e, n) {
@@ -29067,7 +29067,7 @@
                 ) {
                   var p = e[a];
                   a && n && (p = zn(p, it(n))),
-                    (d = Pt(p.length, d)),
+                    (d = Yt(p.length, d)),
                     (s[a] =
                       !t && (n || (o >= 120 && p.length >= 120))
                         ? new cl(a && p)
@@ -29093,7 +29093,7 @@
               }
               function Bl(e, n, t) {
                 var l = null == (e = Ni(e, (n = Er(n, e)))) ? e : e[$i(oo(n))];
-                return null == l ? r : Yn(l, e, t);
+                return null == l ? r : Pn(l, e, t);
               }
               function Gl(e) {
                 return pu(e) && Vl(e) == R;
@@ -29134,7 +29134,7 @@
                                         e.byteLength != n.byteLength ||
                                         !i(new wn(e), new wn(n))
                                       );
-                                    case P:
+                                    case Y:
                                     case j:
                                     case U:
                                       return Qo(+e, +n);
@@ -29289,14 +29289,14 @@
               function er(e) {
                 var n = wi(e);
                 return 1 == n.length && n[0][2]
-                  ? Pi(n[0][0], n[0][1])
+                  ? Yi(n[0][0], n[0][1])
                   : function(t) {
                       return t === e || ql(t, e, n);
                     };
               }
               function nr(e, n) {
-                return Ii(e) && Yi(n)
-                  ? Pi($i(e), n)
+                return Ii(e) && Pi(n)
+                  ? Yi($i(e), n)
                   : function(t) {
                       var l = ju(t, e);
                       return l === r && l === n ? Nu(t, e) : $l(n, l, c | p);
@@ -29330,7 +29330,7 @@
                                       : f
                                       ? ((p = !1), (c = Ar(s, !0)))
                                       : m
-                                      ? ((p = !1), (c = Pr(s, !0)))
+                                      ? ((p = !1), (c = Yr(s, !0)))
                                       : (c = [])
                                     : mu(s) || eu(s)
                                     ? ((c = a),
@@ -29540,7 +29540,7 @@
                       : !f && !g && (l ? p <= n : p < n);
                   v ? (i = c + 1) : (o = c);
                 }
-                return Pt(o, E);
+                return Yt(o, E);
               }
               function _r(e, n) {
                 for (var t = -1, l = e.length, r = 0, i = []; ++t < l; ) {
@@ -29655,12 +29655,12 @@
                   l = Mn ? Mn(t) : new e.constructor(t);
                 return e.copy(l), l;
               }
-              function Yr(e) {
+              function Pr(e) {
                 var n = new e.constructor(e.byteLength);
                 return new wn(n).set(new wn(e)), n;
               }
-              function Pr(e, n) {
-                var t = n ? Yr(e.buffer) : e.buffer;
+              function Yr(e, n) {
+                var t = n ? Pr(e.buffer) : e.buffer;
                 return new e.constructor(t, e.byteOffset, e.length);
               }
               function jr(e, n) {
@@ -29699,7 +29699,7 @@
                     u = t.length,
                     a = -1,
                     s = n.length,
-                    d = Yt(o - u, 0),
+                    d = Pt(o - u, 0),
                     c = l(s + d),
                     p = !r;
                   ++a < s;
@@ -29718,7 +29718,7 @@
                     a = t.length,
                     s = -1,
                     d = n.length,
-                    c = Yt(o - a, 0),
+                    c = Pt(o - a, 0),
                     p = l(c + d),
                     h = !r;
                   ++i < c;
@@ -29747,7 +29747,7 @@
               }
               function zr(e, n) {
                 return function(t, l) {
-                  var r = nu(t) ? Pn : _l,
+                  var r = nu(t) ? Yn : _l,
                     i = n ? n() : {};
                   return r(t, e, yi(l, 2), i);
                 };
@@ -29911,7 +29911,7 @@
                     s
                       ? (g = (function(e, n) {
                           for (
-                            var t = e.length, l = Pt(n.length, t), i = Vr(e);
+                            var t = e.length, l = Yt(n.length, t), i = Vr(e);
                             l--;
 
                           ) {
@@ -29934,7 +29934,7 @@
                 return function(t, l) {
                   return (function(e, n, t, l) {
                     return (
-                      Yl(e, function(e, r, i) {
+                      Pl(e, function(e, r, i) {
                         n(l, t(e), r, i);
                       }),
                       l
@@ -29963,7 +29963,7 @@
                     dr(function(t) {
                       var l = this;
                       return e(n, function(e) {
-                        return Yn(e, l, t);
+                        return Pn(e, l, t);
                       });
                     })
                   );
@@ -29983,7 +29983,7 @@
                     t === r ? ((t = n), (n = 0)) : (t = Cu(t)),
                     (function(e, n, t, r) {
                       for (
-                        var i = -1, o = Yt(St((n - e) / (t || 1)), 0), u = l(o);
+                        var i = -1, o = Pt(St((n - e) / (t || 1)), 0), u = l(o);
                         o--;
 
                       )
@@ -30023,7 +30023,7 @@
               function ii(e) {
                 var n = Ge[e];
                 return function(e, t) {
-                  if (((e = Lu(e)), (t = null == t ? 0 : Pt(Du(t), 292)))) {
+                  if (((e = Lu(e)), (t = null == t ? 0 : Yt(Du(t), 292)))) {
                     var l = (Tu(e) + "e").split("e");
                     return +(
                       (l = (Tu(n(l[0] + "e" + (+l[1] + t))) + "e").split(
@@ -30062,7 +30062,7 @@
                 var M = i ? i.length : 0;
                 if (
                   (M || ((n &= ~(_ | y)), (i = a = r)),
-                  (d = d === r ? d : Yt(Du(d), 0)),
+                  (d = d === r ? d : Pt(Du(d), 0)),
                   (c = c === r ? c : Du(c)),
                   (M -= a ? a.length : 0),
                   n & y)
@@ -30099,7 +30099,7 @@
                         ((e[5] = (o = e[5]) ? Fr(o, i, n[6]) : i),
                         (e[6] = o ? gt(e[5], u) : n[6])),
                         (i = n[7]) && (e[7] = i),
-                        l & b && (e[8] = null == e[8] ? n[8] : Pt(e[8], n[8])),
+                        l & b && (e[8] = null == e[8] ? n[8] : Yt(e[8], n[8])),
                         null == e[9] && (e[9] = n[9]),
                         (e[0] = n[0]),
                         (e[1] = r);
@@ -30110,7 +30110,7 @@
                   (i = x[3]),
                   (a = x[4]),
                   !(c = x[9] =
-                    x[9] === r ? (p ? 0 : e.length) : Yt(x[9] - M, 0)) &&
+                    x[9] === r ? (p ? 0 : e.length) : Pt(x[9] - M, 0)) &&
                     n & (g | v) &&
                     (n &= ~(g | v)),
                   n && n != h)
@@ -30146,7 +30146,7 @@
                                   r,
                                   t - u
                                 )
-                              : Yn(
+                              : Pn(
                                   this && this !== kn && this instanceof o
                                     ? i
                                     : e,
@@ -30176,7 +30176,7 @@
                             )
                               c[s] = r[s];
                             for (; a--; ) c[s++] = arguments[++u];
-                            return Yn(p, i ? t : this, c);
+                            return Pn(p, i ? t : this, c);
                           };
                         })(e, n, t, i);
                 else
@@ -30297,7 +30297,7 @@
                 for (var n = zu(e), t = n.length; t--; ) {
                   var l = n[t],
                     r = e[l];
-                  n[t] = [l, r, Yi(r)];
+                  n[t] = [l, r, Pi(r)];
                 }
                 return n;
               }
@@ -30417,22 +30417,22 @@
                 var n = e && e.constructor;
                 return e === (("function" == typeof n && n.prototype) || Ze);
               }
-              function Yi(e) {
+              function Pi(e) {
                 return e == e && !cu(e);
               }
-              function Pi(e, n) {
+              function Yi(e, n) {
                 return function(t) {
                   return null != t && t[e] === n && (n !== r || e in $e(t));
                 };
               }
               function ji(e, n, t) {
                 return (
-                  (n = Yt(n === r ? e.length - 1 : n, 0)),
+                  (n = Pt(n === r ? e.length - 1 : n, 0)),
                   function() {
                     for (
                       var r = arguments,
                         i = -1,
-                        o = Yt(r.length - n, 0),
+                        o = Pt(r.length - n, 0),
                         u = l(o);
                       ++i < o;
 
@@ -30440,7 +30440,7 @@
                       u[i] = r[n + i];
                     i = -1;
                     for (var a = l(n + 1); ++i < n; ) a[i] = r[i];
-                    return (a[n] = t(u)), Yn(e, this, a);
+                    return (a[n] = t(u)), Pn(e, this, a);
                   }
                 );
               }
@@ -30578,7 +30578,7 @@
                 var l = null == e ? 0 : e.length;
                 if (!l) return -1;
                 var r = null == t ? 0 : Du(t);
-                return r < 0 && (r = Yt(l + r, 0)), Kn(e, yi(n, 3), r);
+                return r < 0 && (r = Pt(l + r, 0)), Kn(e, yi(n, 3), r);
               }
               function eo(e, n, t) {
                 var l = null == e ? 0 : e.length;
@@ -30586,7 +30586,7 @@
                 var i = l - 1;
                 return (
                   t !== r &&
-                    ((i = Du(t)), (i = t < 0 ? Yt(l + i, 0) : Pt(i, l - 1))),
+                    ((i = Du(t)), (i = t < 0 ? Pt(l + i, 0) : Yt(i, l - 1))),
                   Kn(e, yi(n, 3), i, !0)
                 );
               }
@@ -30659,7 +30659,7 @@
                 var n = 0;
                 return (
                   (e = Fn(e, function(e) {
-                    if (ru(e)) return (n = Yt(e.length, n)), !0;
+                    if (ru(e)) return (n = Pt(e.length, n)), !0;
                   })),
                   rt(n, function(n) {
                     return zn(e, et(n));
@@ -30672,7 +30672,7 @@
                 return null == n
                   ? t
                   : zn(t, function(e) {
-                      return Yn(n, r, e);
+                      return Pn(n, r, e);
                     });
               }
               var vo = dr(function(e, n) {
@@ -30755,7 +30755,7 @@
                     o = lu(e) ? l(e.length) : [];
                   return (
                     Ll(e, function(e) {
-                      o[++r] = i ? Yn(n, e, t) : Bl(e, n, t);
+                      o[++r] = i ? Pn(n, e, t) : Bl(e, n, t);
                     }),
                     o
                   );
@@ -30766,7 +30766,7 @@
               function Ao(e, n) {
                 return (nu(e) ? zn : Xl)(e, yi(n, 3));
               }
-              var Yo = zr(
+              var Po = zr(
                   function(e, n, t) {
                     e[t ? 0 : 1].push(n);
                   },
@@ -30774,7 +30774,7 @@
                     return [[], []];
                   }
                 ),
-                Po = dr(function(e, n) {
+                Yo = dr(function(e, n) {
                   if (null == e) return [];
                   var t = n.length;
                   return (
@@ -30853,7 +30853,7 @@
                     v,
                     (function(e) {
                       var t = n - (e - d);
-                      return h ? Pt(t, u - (e - c)) : t;
+                      return h ? Yt(t, u - (e - c)) : t;
                     })(e)
                   );
                 }
@@ -30876,7 +30876,7 @@
                   (n = Lu(n) || 0),
                   cu(t) &&
                     ((p = !!t.leading),
-                    (u = (h = "maxWait" in t) ? Yt(Lu(t.maxWait) || 0, n) : u),
+                    (u = (h = "maxWait" in t) ? Pt(Lu(t.maxWait) || 0, n) : u),
                     (f = "trailing" in t ? !!t.trailing : f)),
                   (y.cancel = function() {
                     s !== r && Rr(s), (c = 0), (l = d = i = s = r);
@@ -30933,9 +30933,9 @@
                       ? zn(n[0], it(yi()))
                       : zn(Ol(n, 1), it(yi()))).length;
                   return dr(function(l) {
-                    for (var r = -1, i = Pt(l.length, t); ++r < i; )
+                    for (var r = -1, i = Yt(l.length, t); ++r < i; )
                       l[r] = n[r].call(this, l[r]);
-                    return Yn(e, this, l);
+                    return Pn(e, this, l);
                   });
                 }),
                 qo = dr(function(e, n) {
@@ -30999,7 +30999,7 @@
               function au(e) {
                 if (!cu(e)) return !1;
                 var n = Vl(e);
-                return n == V || n == H || n == Y || n == G;
+                return n == V || n == H || n == P || n == G;
               }
               function su(e) {
                 return "number" == typeof e && e == Du(e);
@@ -31095,10 +31095,10 @@
                 }
                 if ("string" != typeof e) return 0 === e ? e : +e;
                 e = e.replace(De, "");
-                var t = Pe.test(e);
+                var t = Ye.test(e);
                 return t || Ne.test(e)
                   ? bn(e.slice(2), t ? 2 : 8)
-                  : Ye.test(e)
+                  : Pe.test(e)
                   ? S
                   : +e;
               }
@@ -31122,7 +31122,7 @@
                   Hr(n, zu(n), e, l);
                 }),
                 Au = hi(wl),
-                Yu = dr(function(e, n) {
+                Pu = dr(function(e, n) {
                   e = $e(e);
                   var t = -1,
                     l = n.length,
@@ -31140,8 +31140,8 @@
                     }
                   return e;
                 }),
-                Pu = dr(function(e) {
-                  return e.push(r, di), Yn(Bu, r, e);
+                Yu = dr(function(e) {
+                  return e.push(r, di), Pn(Bu, r, e);
                 });
               function ju(e, n, t) {
                 var l = null == e ? r : Nl(e, n);
@@ -31272,7 +31272,7 @@
               }
               var sa = dr(function(e, n) {
                   try {
-                    return Yn(e, r, n);
+                    return Pn(e, r, n);
                   } catch (t) {
                     return uu(t) ? t : new We(t);
                   }
@@ -31375,7 +31375,7 @@
                   return e * n;
                 }, 1),
                 Aa = ii("round"),
-                Ya = Xr(function(e, n) {
+                Pa = Xr(function(e, n) {
                   return e - n;
                 }, 0);
               return (
@@ -31405,7 +31405,7 @@
                 }),
                 (ll.chain = ko),
                 (ll.chunk = function(e, n, t) {
-                  n = (t ? Ei(e, n, t) : n === r) ? 1 : Yt(Du(n), 0);
+                  n = (t ? Ei(e, n, t) : n === r) ? 1 : Pt(Du(n), 0);
                   var i = null == e ? 0 : e.length;
                   if (!i || n < 1) return [];
                   for (var o = 0, u = 0, a = l(St(i / n)); o < i; )
@@ -31443,7 +31443,7 @@
                     dr(function(t) {
                       for (var l = -1; ++l < n; ) {
                         var r = e[l];
-                        if (Yn(r[0], this, t)) return Yn(r[1], this, t);
+                        if (Pn(r[0], this, t)) return Pn(r[1], this, t);
                       }
                     })
                   );
@@ -31471,8 +31471,8 @@
                   return (i.placeholder = e.placeholder), i;
                 }),
                 (ll.debounce = zo),
-                (ll.defaults = Yu),
-                (ll.defaultsDeep = Pu),
+                (ll.defaults = Pu),
+                (ll.defaultsDeep = Yu),
                 (ll.defer = Uo),
                 (ll.delay = Wo),
                 (ll.difference = Ji),
@@ -31583,7 +31583,7 @@
                   var t = {};
                   return (
                     (n = yi(n, 3)),
-                    Yl(e, function(e, l, r) {
+                    Pl(e, function(e, l, r) {
                       bl(t, n(e, l, r), e);
                     }),
                     t
@@ -31593,7 +31593,7 @@
                   var t = {};
                   return (
                     (n = yi(n, 3)),
-                    Yl(e, function(e, l, r) {
+                    Pl(e, function(e, l, r) {
                       bl(t, l, n(e, l, r));
                     }),
                     t
@@ -31640,7 +31640,7 @@
                 (ll.overSome = Ma),
                 (ll.partial = qo),
                 (ll.partialRight = Ko),
-                (ll.partition = Yo),
+                (ll.partition = Po),
                 (ll.pick = $u),
                 (ll.pickBy = qu),
                 (ll.property = ka),
@@ -31724,7 +31724,7 @@
                       fr(e, n, t))
                     : [];
                 }),
-                (ll.sortBy = Po),
+                (ll.sortBy = Yo),
                 (ll.sortedUniq = function(e) {
                   return e && e.length ? _r(e) : [];
                 }),
@@ -31747,11 +31747,11 @@
                 (ll.spread = function(e, n) {
                   if ("function" != typeof e) throw new Je(o);
                   return (
-                    (n = null == n ? 0 : Yt(Du(n), 0)),
+                    (n = null == n ? 0 : Pt(Du(n), 0)),
                     dr(function(t) {
                       var l = t[n],
                         r = Or(t, 0, n);
-                      return l && Un(r, l), Yn(e, this, r);
+                      return l && Un(r, l), Pn(e, this, r);
                     })
                   );
                 }),
@@ -31816,7 +31816,7 @@
                       : {};
                   }
                   return (
-                    (r ? jn : Yl)(e, function(e, l, r) {
+                    (r ? jn : Pl)(e, function(e, l, r) {
                       return n(t, e, l, r);
                     }),
                     t
@@ -31932,12 +31932,12 @@
                 (ll.find = Lo),
                 (ll.findIndex = Xi),
                 (ll.findKey = function(e, n) {
-                  return qn(e, yi(n, 3), Yl);
+                  return qn(e, yi(n, 3), Pl);
                 }),
                 (ll.findLast = So),
                 (ll.findLastIndex = eo),
                 (ll.findLastKey = function(e, n) {
-                  return qn(e, yi(n, 3), Pl);
+                  return qn(e, yi(n, 3), Yl);
                 }),
                 (ll.floor = Oa),
                 (ll.forEach = To),
@@ -31949,10 +31949,10 @@
                   return null == e ? e : Al(e, yi(n, 3), Uu);
                 }),
                 (ll.forOwn = function(e, n) {
-                  return e && Yl(e, yi(n, 3));
+                  return e && Pl(e, yi(n, 3));
                 }),
                 (ll.forOwnRight = function(e, n) {
-                  return e && Pl(e, yi(n, 3));
+                  return e && Yl(e, yi(n, 3));
                 }),
                 (ll.get = ju),
                 (ll.gt = Zo),
@@ -31967,7 +31967,7 @@
                   (e = lu(e) ? e : Qu(e)), (t = t && !l ? Du(t) : 0);
                   var r = e.length;
                   return (
-                    t < 0 && (t = Yt(r + t, 0)),
+                    t < 0 && (t = Pt(r + t, 0)),
                     _u(e)
                       ? t <= r && e.indexOf(n, t) > -1
                       : !!r && Jn(e, n, t) > -1
@@ -31977,14 +31977,14 @@
                   var l = null == e ? 0 : e.length;
                   if (!l) return -1;
                   var r = null == t ? 0 : Du(t);
-                  return r < 0 && (r = Yt(l + r, 0)), Jn(e, n, r);
+                  return r < 0 && (r = Pt(l + r, 0)), Jn(e, n, r);
                 }),
                 (ll.inRange = function(e, n, t) {
                   return (
                     (n = Cu(n)),
                     t === r ? ((t = n), (n = 0)) : (t = Cu(t)),
                     (function(e, n, t) {
-                      return e >= Pt(n, t) && e < Yt(n, t);
+                      return e >= Yt(n, t) && e < Pt(n, t);
                     })((e = Lu(e)), n, t)
                   );
                 }),
@@ -31995,7 +31995,7 @@
                 (ll.isArrayLike = lu),
                 (ll.isArrayLikeObject = ru),
                 (ll.isBoolean = function(e) {
-                  return !0 === e || !1 === e || (pu(e) && Vl(e) == P);
+                  return !0 === e || !1 === e || (pu(e) && Vl(e) == Y);
                 }),
                 (ll.isBuffer = iu),
                 (ll.isDate = ou),
@@ -32091,7 +32091,7 @@
                   var i = l;
                   return (
                     t !== r &&
-                      (i = (i = Du(t)) < 0 ? Yt(l + i, 0) : Pt(i, l - 1)),
+                      (i = (i = Du(t)) < 0 ? Pt(l + i, 0) : Yt(i, l - 1)),
                     n == n
                       ? (function(e, n, t) {
                           for (var l = t + 1; l--; ) if (e[l] === n) return l;
@@ -32183,7 +32183,7 @@
                   }
                   if (t || e % 1 || n % 1) {
                     var i = Ft();
-                    return Pt(
+                    return Yt(
                       e + i * (n - e + yn("1e-" + ((i + "").length - 1))),
                       n
                     );
@@ -32275,7 +32275,7 @@
                     e.slice(t, t + n.length) == n
                   );
                 }),
-                (ll.subtract = Ya),
+                (ll.subtract = Pa),
                 (ll.sum = function(e) {
                   return e && e.length ? lt(e, fa) : 0;
                 }),
@@ -32352,7 +32352,7 @@
                 (ll.times = function(e, n) {
                   if ((e = Du(e)) < 1 || e > x) return [];
                   var t = T,
-                    l = Pt(e, T);
+                    l = Yt(e, T);
                   (n = yi(n)), (e -= T);
                   for (var r = rt(l, n); ++t < e; ) n(t);
                   return r;
@@ -32442,7 +32442,7 @@
                 _a(
                   ll,
                   ((Sa = {}),
-                  Yl(ll, function(e, n) {
+                  Pl(ll, function(e, n) {
                     nn.call(ll.prototype, n) || (Sa[n] = e);
                   }),
                   Sa),
@@ -32464,14 +32464,14 @@
                 ),
                 jn(["drop", "take"], function(e, n) {
                   (ul.prototype[e] = function(t) {
-                    t = t === r ? 1 : Yt(Du(t), 0);
+                    t = t === r ? 1 : Pt(Du(t), 0);
                     var l =
                       this.__filtered__ && !n ? new ul(this) : this.clone();
                     return (
                       l.__filtered__
-                        ? (l.__takeCount__ = Pt(t, l.__takeCount__))
+                        ? (l.__takeCount__ = Yt(t, l.__takeCount__))
                         : l.__views__.push({
-                            size: Pt(t, T),
+                            size: Yt(t, T),
                             type: e + (l.__dir__ < 0 ? "Right" : "")
                           }),
                       l
@@ -32544,7 +32544,7 @@
                 (ul.prototype.toArray = function() {
                   return this.take(T);
                 }),
-                Yl(ul.prototype, function(e, n) {
+                Pl(ul.prototype, function(e, n) {
                   var t = /^(?:filter|find|map|reject)|While$/.test(n),
                     l = /^(?:head|last)$/.test(n),
                     i = ll[l ? "take" + ("last" == n ? "Right" : "") : n],
@@ -32604,7 +32604,7 @@
                     };
                   }
                 ),
-                Yl(ul.prototype, function(e, n) {
+                Pl(ul.prototype, function(e, n) {
                   var t = ll[n];
                   if (t) {
                     var l = t.name + "";
@@ -32649,10 +32649,10 @@
                             n -= o;
                             break;
                           case "take":
-                            n = Pt(n, e + o);
+                            n = Yt(n, e + o);
                             break;
                           case "takeRight":
-                            e = Yt(e, n - o);
+                            e = Pt(e, n - o);
                         }
                       }
                       return { start: e, end: n };
@@ -32664,7 +32664,7 @@
                     d = this.__iteratees__,
                     c = d.length,
                     p = 0,
-                    h = Pt(a, this.__takeCount__);
+                    h = Yt(a, this.__takeCount__);
                   if (!t || (!l && r == a && h == a))
                     return Dr(e, this.__actions__);
                   var f = [];
@@ -33572,20 +33572,20 @@
             yellowgreen: [154, 205, 50]
           },
           A = {
-            getRgba: Y,
-            getHsla: P,
+            getRgba: P,
+            getHsla: Y,
             getRgb: function(e) {
-              var n = Y(e);
+              var n = P(e);
               return n && n.slice(0, 3);
             },
             getHsl: function(e) {
-              var n = P(e);
+              var n = Y(e);
               return n && n.slice(0, 3);
             },
             getHwb: j,
             getAlpha: function(e) {
-              var n = Y(e);
-              return n ? n[3] : (n = P(e)) ? n[3] : (n = j(e)) ? n[3] : void 0;
+              var n = P(e);
+              return n ? n[3] : (n = Y(e)) ? n[3] : (n = j(e)) ? n[3] : void 0;
             },
             hexString: function(e, n) {
               return (
@@ -33639,7 +33639,7 @@
               return U[e.slice(0, 3)];
             }
           };
-        function Y(e) {
+        function P(e) {
           if (e) {
             var n = [0, 0, 0],
               t = 1,
@@ -33677,7 +33677,7 @@
             return (t = t || 0 == t ? H(t, 0, 1) : 1), (n[3] = t), n;
           }
         }
-        function P(e) {
+        function Y(e) {
           if (e) {
             var n = e.match(
               /^hsla?\(\s*([+-]?\d+)(?:deg)?\s*,\s*([+-]?[\d\.]+)%\s*,\s*([+-]?[\d\.]+)%\s*(?:,\s*([+-]?[\d\.]+)\s*)?\)/
@@ -35277,7 +35277,7 @@
         function Ae(e, n, t) {
           return e === n ? t : e === t ? n : e;
         }
-        function Ye(e, n, t) {
+        function Pe(e, n, t) {
           var l = null === n,
             r = null === t,
             i = !(!e || (l && r)) && Re(e);
@@ -35297,7 +35297,7 @@
             }
           }
         });
-        var Pe = fe.extend({
+        var Ye = fe.extend({
             draw: function() {
               var e = this._chart.ctx,
                 n = this._view,
@@ -35366,17 +35366,17 @@
               return e.base - e.y;
             },
             inRange: function(e, n) {
-              return Ye(this._view, e, n);
+              return Pe(this._view, e, n);
             },
             inLabelRange: function(e, n) {
               var t = this._view;
-              return Oe(t) ? Ye(t, e, null) : Ye(t, null, n);
+              return Oe(t) ? Pe(t, e, null) : Pe(t, null, n);
             },
             inXRange: function(e) {
-              return Ye(this._view, e, null);
+              return Pe(this._view, e, null);
             },
             inYRange: function(e) {
-              return Ye(this._view, null, e);
+              return Pe(this._view, null, e);
             },
             getCenterPoint: function() {
               var e,
@@ -35403,7 +35403,7 @@
           je = {},
           Ne = xe,
           Fe = Ee,
-          Ve = Pe;
+          Ve = Ye;
         (je.Arc = ke), (je.Line = Ne), (je.Point = Fe), (je.Rectangle = Ve);
         var He = de.options.resolve;
         ue._set("bar", {
@@ -37616,7 +37616,7 @@
             }
           }
         });
-        var Yn = {
+        var Pn = {
           average: function(e) {
             if (!e.length) return !1;
             var n,
@@ -37655,7 +37655,7 @@
             return { x: i, y: o };
           }
         };
-        function Pn(e, n) {
+        function Yn(e, n) {
           return (
             n && (de.isArray(n) ? Array.prototype.push.apply(e, n) : e.push(n)),
             e
@@ -37712,7 +37712,7 @@
             : e.x + e.xPadding;
         }
         function Vn(e) {
-          return Pn([], jn(e));
+          return Yn([], jn(e));
         }
         var Hn = fe.extend({
           initialize: function() {
@@ -37724,7 +37724,7 @@
               t = e.title.apply(this, arguments),
               l = e.afterTitle.apply(this, arguments),
               r = [];
-            return (r = Pn(r, jn(n))), (r = Pn(r, jn(t))), Pn(r, jn(l));
+            return (r = Yn(r, jn(n))), (r = Yn(r, jn(t))), Yn(r, jn(l));
           },
           getBeforeBody: function() {
             return Vn(
@@ -37738,9 +37738,9 @@
             return (
               de.each(e, function(e) {
                 var i = { before: [], lines: [], after: [] };
-                Pn(i.before, jn(l.beforeLabel.call(t, e, n))),
-                  Pn(i.lines, l.label.call(t, e, n)),
-                  Pn(i.after, jn(l.afterLabel.call(t, e, n))),
+                Yn(i.before, jn(l.beforeLabel.call(t, e, n))),
+                  Yn(i.lines, l.label.call(t, e, n)),
+                  Yn(i.after, jn(l.afterLabel.call(t, e, n))),
                   r.push(i);
               }),
               r
@@ -37755,7 +37755,7 @@
               t = e.footer.apply(this, arguments),
               l = e.afterFooter.apply(this, arguments),
               r = [];
-            return (r = Pn(r, jn(n))), (r = Pn(r, jn(t))), Pn(r, jn(l));
+            return (r = Yn(r, jn(n))), (r = Yn(r, jn(t))), Yn(r, jn(l));
           },
           update: function(e) {
             var n,
@@ -37782,7 +37782,7 @@
               f.opacity = 1;
               var w = [],
                 M = [];
-              b = Yn[p.position].call(c, m, c._eventPosition);
+              b = Pn[p.position].call(c, m, c._eventPosition);
               var k = [];
               for (n = 0, t = m.length; n < t; ++n)
                 k.push(
@@ -38192,7 +38192,7 @@
             );
           }
         });
-        Hn.positioners = Yn;
+        Hn.positioners = Pn;
         var zn = de.valueOrDefault;
         function Un() {
           return de.merge({}, [].slice.call(arguments), {
@@ -39319,8 +39319,8 @@
                         S,
                         T,
                         A,
-                        Y,
                         P,
+                        Y,
                         j = l.label;
                       u === n.zeroLineIndex && t.offset === c.offsetGridLines
                         ? ((a = c.zeroLineWidth),
@@ -39357,13 +39357,13 @@
                           "top" === h
                             ? ((k = R(o, e.top, O) + O / 2),
                               (S = e.bottom),
-                              (Y = ((f ? 1 : 0.5) - N) * w),
-                              (P = f ? "left" : "center"),
+                              (P = ((f ? 1 : 0.5) - N) * w),
+                              (Y = f ? "left" : "center"),
                               (A = n.bottom - V))
                             : ((k = e.top),
                               (S = R(o, e.bottom, O) - O / 2),
-                              (Y = (f ? 0 : 0.5) * w),
-                              (P = f ? "right" : "center"),
+                              (P = (f ? 0 : 0.5) * w),
+                              (Y = f ? "right" : "center"),
                               (A = n.top + V));
                       } else {
                         var H = (m ? 0 : x) + C;
@@ -39372,15 +39372,15 @@
                           (y = i),
                           (_ = b = k = S = R(o, F, a)),
                           (A = n.getPixelForTick(u) + D),
-                          (Y = ((1 - N) * w) / 2),
+                          (P = ((1 - N) * w) / 2),
                           "left" === h
                             ? ((M = R(o, e.left, O) + O / 2),
                               (L = e.right),
-                              (P = m ? "left" : "right"),
+                              (Y = m ? "left" : "right"),
                               (T = n.right - H))
                             : ((M = e.left),
                               (L = R(o, e.right, O) - O / 2),
-                              (P = m ? "right" : "left"),
+                              (Y = m ? "right" : "left"),
                               (T = n.left + H));
                       }
                       I.push({
@@ -39401,8 +39401,8 @@
                         rotation: -1 * E,
                         label: j,
                         major: l.major,
-                        textOffset: Y,
-                        textAlign: P
+                        textOffset: P,
+                        textAlign: Y
                       });
                     }
                   }),
@@ -39447,24 +39447,24 @@
                   p.display)
                 ) {
                   var A,
-                    Y,
-                    P = 0,
+                    P,
+                    Y = 0,
                     j = S.lineHeight / 2;
                   if (g)
                     (A = n.left + (n.right - n.left) / 2),
-                      (Y =
+                      (P =
                         "bottom" === h
                           ? n.bottom - j - T.bottom
                           : n.top + j + T.top);
                   else {
                     var N = "left" === h;
                     (A = N ? n.left + j + T.top : n.right - j - T.top),
-                      (Y = n.top + (n.bottom - n.top) / 2),
-                      (P = N ? -0.5 * Math.PI : 0.5 * Math.PI);
+                      (P = n.top + (n.bottom - n.top) / 2),
+                      (Y = N ? -0.5 * Math.PI : 0.5 * Math.PI);
                   }
                   u.save(),
-                    u.translate(A, Y),
-                    u.rotate(P),
+                    u.translate(A, P),
+                    u.rotate(Y),
                     (u.textAlign = "center"),
                     (u.textBaseline = "middle"),
                     (u.fillStyle = L),
@@ -40443,7 +40443,7 @@
           for (var n = St.indexOf(e) + 1, t = St.length; n < t; ++n)
             if (Lt[St[n]].common) return St[n];
         }
-        var Yt = tt.extend({
+        var Pt = tt.extend({
           initialize: function() {
             this.mergeTicksOptions(), tt.prototype.initialize.call(this);
           },
@@ -40790,7 +40790,7 @@
             return i > 0 ? i : 1;
           }
         });
-        Yt._defaults = {
+        Pt._defaults = {
           position: "bottom",
           distribution: "linear",
           bounds: "data",
@@ -40807,12 +40807,12 @@
           },
           ticks: { autoSkip: !1, source: "auto", major: { enabled: !1 } }
         };
-        var Pt = {
+        var Yt = {
             category: lt,
             linear: ut,
             logarithmic: ct,
             radialLinear: kt,
-            time: Yt
+            time: Pt
           },
           jt = {
             datetime: "MMM D, YYYY, h:mm:ss a",
@@ -41965,7 +41965,7 @@
         ($n.scaleService = Rn),
         ($n.Ticks = Qn),
         ($n.Tooltip = Hn),
-        $n.helpers.each(Pt, function(e, n) {
+        $n.helpers.each(Yt, function(e, n) {
           $n.scaleService.registerScaleType(n, e, e._defaults);
         }),
         nl))
@@ -45623,7 +45623,7 @@
           n,
           "\u0275angular_packages_platform_browser_platform_browser_g",
           function() {
-            return Y;
+            return P;
           }
         ),
         t.d(n, "BrowserModule", function() {
@@ -45744,7 +45744,7 @@
           return j;
         }),
         t.d(n, "\u0275SharedStylesHost", function() {
-          return P;
+          return Y;
         }),
         t.d(n, "\u0275DomSanitizerImpl", function() {
           return ge;
@@ -46561,7 +46561,7 @@
             e
           );
         })(),
-        Y = (function() {
+        P = (function() {
           function e(e) {
             this._doc = e;
           }
@@ -46577,7 +46577,7 @@
             e
           );
         })(),
-        P = (function() {
+        Y = (function() {
           function e() {
             this._stylesSet = new Set();
           }
@@ -46636,7 +46636,7 @@
             }),
             n
           );
-        })(P),
+        })(Y),
         N = {
           svg: "http://www.w3.org/2000/svg",
           xhtml: "http://www.w3.org/1999/xhtml",
@@ -47014,7 +47014,7 @@
             }),
             n
           );
-        })(Y),
+        })(P),
         ue = {
           pan: !0,
           panstart: !0,
@@ -47138,7 +47138,7 @@
             }),
             n
           );
-        })(Y),
+        })(P),
         pe = ["alt", "control", "meta", "shift"],
         he = {
           alt: function(e) {
@@ -47222,7 +47222,7 @@
             }),
             n
           );
-        })(Y),
+        })(P),
         me = (function() {
           return function() {};
         })(),
@@ -47416,7 +47416,7 @@
           { provide: ae, useClass: de, deps: [] },
           { provide: G, useClass: G, deps: [A, j, i.APP_ID] },
           { provide: i.RendererFactory2, useExisting: G },
-          { provide: P, useExisting: j },
+          { provide: Y, useExisting: j },
           { provide: j, useClass: j, deps: [r.DOCUMENT] },
           { provide: i.Testability, useClass: i.Testability, deps: [i.NgZone] },
           { provide: A, useClass: A, deps: [R, i.NgZone] },
@@ -47555,8 +47555,8 @@
             e
           );
         })(),
-        Ye = ("undefined" != typeof window && window) || {},
-        Pe = (function() {
+        Pe = ("undefined" != typeof window && window) || {},
+        Ye = (function() {
           return function(e, n) {
             (this.msPerTick = e), (this.numTicks = n);
           };
@@ -47568,8 +47568,8 @@
           return (
             (e.prototype.timeChangeDetection = function(e) {
               var n = e && e.record,
-                t = null != Ye.console.profile;
-              n && t && Ye.console.profile("Change Detection");
+                t = null != Pe.console.profile;
+              n && t && Pe.console.profile("Change Detection");
               for (
                 var l = u().performanceNow(), r = 0;
                 r < 5 || u().performanceNow() - l < 500;
@@ -47577,12 +47577,12 @@
               )
                 this.appRef.tick(), r++;
               var i = u().performanceNow();
-              n && t && Ye.console.profileEnd("Change Detection");
+              n && t && Pe.console.profileEnd("Change Detection");
               var o = (i - l) / r;
               return (
-                Ye.console.log("ran " + r + " change detection cycles"),
-                Ye.console.log(o.toFixed(2) + " ms per check"),
-                new Pe(o, r)
+                Pe.console.log("ran " + r + " change detection cycles"),
+                Pe.console.log(o.toFixed(2) + " ms per check"),
+                new Ye(o, r)
               );
             }),
             e
@@ -54413,14 +54413,14 @@
             var t = e.toLowerCase();
             R[t] = R[t + "s"] = R[n] = e;
           }
-          function Y(e) {
+          function P(e) {
             return "string" == typeof e ? R[e] || R[e.toLowerCase()] : void 0;
           }
-          function P(e) {
+          function Y(e) {
             var n,
               t,
               l = {};
-            for (t in e) c(e, t) && (n = Y(t)) && (l[n] = e[t]);
+            for (t in e) c(e, t) && (n = P(t)) && (l[n] = e[t]);
             return l;
           }
           var j = {};
@@ -54678,10 +54678,10 @@
               null != r ? (n[_e] = r) : (f(t).invalidMonth = e);
             });
           var Ae = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/,
-            Ye = "January_February_March_April_May_June_July_August_September_October_November_December".split(
+            Pe = "January_February_March_April_May_June_July_August_September_October_November_December".split(
               "_"
             ),
-            Pe = "Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_");
+            Ye = "Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec".split("_");
           function je(e, n) {
             var t;
             if (!e.isValid()) return e;
@@ -55008,8 +55008,8 @@
                 y: "a year",
                 yy: "%d years"
               },
-              months: Ye,
-              monthsShort: Pe,
+              months: Pe,
+              monthsShort: Ye,
               week: { dow: 0, doy: 6 },
               weekdays: qe,
               weekdaysMin: Je,
@@ -55323,7 +55323,7 @@
                 (i = u[7]),
                 (o = [
                   xn(u[4]),
-                  Pe.indexOf(n),
+                  Ye.indexOf(n),
                   parseInt(t, 10),
                   parseInt(l, 10),
                   parseInt(r, 10)
@@ -55467,7 +55467,7 @@
                               : o(n)
                               ? (function(e) {
                                   if (!e._d) {
-                                    var n = P(e._i);
+                                    var n = Y(e._i);
                                     (e._a = d(
                                       [
                                         n.year,
@@ -55552,7 +55552,7 @@
                   : g();
               }
             );
-          function Yn(e, n) {
+          function Pn(e, n) {
             var t, l;
             if ((1 === n.length && i(n[0]) && (n = n[0]), !n.length))
               return On();
@@ -55560,7 +55560,7 @@
               (n[l].isValid() && !n[l][e](t)) || (t = n[l]);
             return t;
           }
-          var Pn = [
+          var Yn = [
             "year",
             "quarter",
             "month",
@@ -55572,7 +55572,7 @@
             "millisecond"
           ];
           function jn(e) {
-            var n = P(e),
+            var n = Y(e),
               t = n.year || 0,
               l = n.quarter || 0,
               r = n.month || 0,
@@ -55584,12 +55584,12 @@
               d = n.millisecond || 0;
             (this._isValid = (function(e) {
               for (var n in e)
-                if (-1 === Se.call(Pn, n) || (null != e[n] && isNaN(e[n])))
+                if (-1 === Se.call(Yn, n) || (null != e[n] && isNaN(e[n])))
                   return !1;
-              for (var t = !1, l = 0; l < Pn.length; ++l)
-                if (e[Pn[l]]) {
+              for (var t = !1, l = 0; l < Yn.length; ++l)
+                if (e[Yn[l]]) {
                   if (t) return !1;
-                  parseFloat(e[Pn[l]]) !== k(e[Pn[l]]) && (t = !0);
+                  parseFloat(e[Yn[l]]) !== k(e[Yn[l]]) && (t = !0);
                 }
               return !0;
             })(n)),
@@ -55961,7 +55961,7 @@
               if (!this.isValid()) return NaN;
               if (!(l = Un(e, this)).isValid()) return NaN;
               switch (
-                ((r = 6e4 * (l.utcOffset() - this.utcOffset())), (n = Y(n)))
+                ((r = 6e4 * (l.utcOffset() - this.utcOffset())), (n = P(n)))
               ) {
                 case "year":
                   i = nt(this, l) / 12;
@@ -55995,7 +55995,7 @@
             (vt.endOf = function(e) {
               var n;
               if (
-                void 0 === (e = Y(e)) ||
+                void 0 === (e = P(e)) ||
                 "millisecond" === e ||
                 !this.isValid()
               )
@@ -56076,7 +56076,7 @@
               return this.to(On(), e);
             }),
             (vt.get = function(e) {
-              return E(this[(e = Y(e))]) ? this[e]() : this;
+              return E(this[(e = P(e))]) ? this[e]() : this;
             }),
             (vt.invalidAt = function() {
               return f(this).overflow;
@@ -56085,7 +56085,7 @@
               var t = w(e) ? e : On(e);
               return (
                 !(!this.isValid() || !t.isValid()) &&
-                ("millisecond" === (n = Y(n) || "millisecond")
+                ("millisecond" === (n = P(n) || "millisecond")
                   ? this.valueOf() > t.valueOf()
                   : t.valueOf() <
                     this.clone()
@@ -56097,7 +56097,7 @@
               var t = w(e) ? e : On(e);
               return (
                 !(!this.isValid() || !t.isValid()) &&
-                ("millisecond" === (n = Y(n) || "millisecond")
+                ("millisecond" === (n = P(n) || "millisecond")
                   ? this.valueOf() < t.valueOf()
                   : this.clone()
                       .endOf(n)
@@ -56120,7 +56120,7 @@
                 l = w(e) ? e : On(e);
               return (
                 !(!this.isValid() || !l.isValid()) &&
-                ("millisecond" === (n = Y(n) || "millisecond")
+                ("millisecond" === (n = P(n) || "millisecond")
                   ? this.valueOf() === l.valueOf()
                   : ((t = l.valueOf()),
                     this.clone()
@@ -56161,19 +56161,19 @@
                         }),
                         n
                       );
-                    })((e = P(e))),
+                    })((e = Y(e))),
                     l = 0;
                   l < t.length;
                   l++
                 )
                   this[t[l].unit](e[t[l].unit]);
-              else if (E(this[(e = Y(e))])) return this[e](n);
+              else if (E(this[(e = P(e))])) return this[e](n);
               return this;
             }),
             (vt.startOf = function(e) {
               var n;
               if (
-                void 0 === (e = Y(e)) ||
+                void 0 === (e = P(e)) ||
                 "millisecond" === e ||
                 !this.isValid()
               )
@@ -56954,8 +56954,8 @@
             Ot = St("h"),
             Rt = St("d"),
             At = St("w"),
-            Yt = St("M"),
-            Pt = St("Q"),
+            Pt = St("M"),
+            Yt = St("Q"),
             jt = St("y");
           function Nt(e) {
             return function() {
@@ -57038,7 +57038,7 @@
               var n,
                 t,
                 l = this._milliseconds;
-              if ("month" === (e = Y(e)) || "quarter" === e || "year" === e)
+              if ("month" === (e = P(e)) || "quarter" === e || "year" === e)
                 switch (
                   ((t = this._months + xt((n = this._days + l / 864e5))), e)
                 ) {
@@ -57073,8 +57073,8 @@
             (Qt.asHours = Ot),
             (Qt.asDays = Rt),
             (Qt.asWeeks = At),
-            (Qt.asMonths = Yt),
-            (Qt.asQuarters = Pt),
+            (Qt.asMonths = Pt),
+            (Qt.asQuarters = Yt),
             (Qt.asYears = jt),
             (Qt.valueOf = function() {
               return this.isValid()
@@ -57120,7 +57120,7 @@
               return qn(this);
             }),
             (Qt.get = function(e) {
-              return (e = Y(e)), this.isValid() ? this[e + "s"]() : NaN;
+              return (e = P(e)), this.isValid() ? this[e + "s"]() : NaN;
             }),
             (Qt.milliseconds = Ft),
             (Qt.seconds = Vt),
@@ -57189,10 +57189,10 @@
             (n = On),
             (r.fn = vt),
             (r.min = function() {
-              return Yn("isBefore", [].slice.call(arguments, 0));
+              return Pn("isBefore", [].slice.call(arguments, 0));
             }),
             (r.max = function() {
-              return Yn("isAfter", [].slice.call(arguments, 0));
+              return Pn("isAfter", [].slice.call(arguments, 0));
             }),
             (r.now = function() {
               return Date.now ? Date.now() : +new Date();
@@ -57246,7 +57246,7 @@
             (r.weekdaysShort = function(e, n, t) {
               return Mt(e, n, t, "weekdaysShort");
             }),
-            (r.normalizeUnits = Y),
+            (r.normalizeUnits = P),
             (r.relativeTimeRounding = function(e) {
               return void 0 === e
                 ? Gt
@@ -58458,7 +58458,7 @@
           : (n && "object" == typeof n && (n = "Object"),
             (e + ": " + n).slice(0, 50));
       }
-      var Y = (function() {
+      var P = (function() {
           function e(e, n) {
             (this._renderer = e),
               (this._elementRef = n),
@@ -58550,7 +58550,7 @@
             e
           );
         })(),
-        P = (function() {
+        Y = (function() {
           function e(e, n, t) {
             (this._element = e),
               (this._renderer = n),
@@ -58825,7 +58825,7 @@
       function B(e) {
         return null != e ? M.composeAsync(e.map(L)) : null;
       }
-      var G = [p, I, S, Y, N, E];
+      var G = [p, I, S, P, N, E];
       function q(e) {
         var n = J(e) ? e.validators : e;
         return Array.isArray(n) ? W(n) : n || null;
@@ -60301,8 +60301,8 @@
       function Ae() {
         return new ge.a();
       }
-      var Ye = t("mChF");
-      function Pe(e, n) {
+      var Pe = t("mChF");
+      function Ye(e, n) {
         var t = arguments.length >= 2;
         return function(l) {
           return l.pipe(
@@ -60310,7 +60310,7 @@
               ? ve(function(n, t) {
                   return e(n, t, l);
                 })
-              : Ye.a,
+              : Pe.a,
             Me(1),
             t
               ? De(n)
@@ -60720,7 +60720,7 @@
               var t = this.injectionService.appendComponent(e, n);
               return (
                 t.instance.modalComponent.close
-                  .pipe(Pe())
+                  .pipe(Ye())
                   .subscribe(function() {
                     t.destroy();
                   }),
@@ -60998,6 +60998,9 @@
             t && (this.isTimeline = "true" === t);
           }
           return (
+            (e.prototype.scrollToTop = function() {
+              this.scrollContainer.scrollTo(0, 0);
+            }),
             (e.prototype.fixImages = function(e) {
               return i.__awaiter(this, void 0, void 0, function() {
                 var n = this;
@@ -61202,12 +61205,12 @@
         On = t("lYZG"),
         Rn = t("K9Ia"),
         An = t("Txjg");
-      function Yn(e) {
+      function Pn(e) {
         return function(n) {
-          return 0 === e ? Object(we.b)() : n.lift(new Pn(e));
+          return 0 === e ? Object(we.b)() : n.lift(new Yn(e));
         };
       }
-      var Pn = (function() {
+      var Yn = (function() {
           function e(e) {
             if (((this.total = e), this.total < 0)) throw new be.a();
           }
@@ -61258,8 +61261,8 @@
               ? ve(function(n, t) {
                   return e(n, t, l);
                 })
-              : Ye.a,
-            Yn(1),
+              : Pe.a,
+            Pn(1),
             t
               ? De(n)
               : Re(function() {
@@ -62024,7 +62027,7 @@
           t
         );
       }
-      function Yt(e, n) {
+      function Pt(e, n) {
         var t,
           l = Object.keys(e),
           r = Object.keys(n);
@@ -62033,7 +62036,7 @@
           if (e[(t = l[i])] !== n[t]) return !1;
         return !0;
       }
-      function Pt(e) {
+      function Yt(e) {
         return Array.prototype.concat.apply([], e);
       }
       function jt(e) {
@@ -62052,7 +62055,7 @@
       function Vt(e, n, t) {
         return t
           ? (function(e, n) {
-              return Yt(e, n);
+              return Pt(e, n);
             })(e.queryParams, n.queryParams) &&
               (function e(n, t) {
                 if (!Wt(n.segments, t.segments)) return !1;
@@ -62810,26 +62813,26 @@
           var n = e.snapshot,
             t = e._futureSnapshot;
           (e.snapshot = t),
-            Yt(n.queryParams, t.queryParams) ||
+            Pt(n.queryParams, t.queryParams) ||
               e.queryParams.next(t.queryParams),
             n.fragment !== t.fragment && e.fragment.next(t.fragment),
-            Yt(n.params, t.params) || e.params.next(t.params),
+            Pt(n.params, t.params) || e.params.next(t.params),
             (function(e, n) {
               if (e.length !== n.length) return !1;
-              for (var t = 0; t < e.length; ++t) if (!Yt(e[t], n[t])) return !1;
+              for (var t = 0; t < e.length; ++t) if (!Pt(e[t], n[t])) return !1;
               return !0;
             })(n.url, t.url) || e.url.next(t.url),
-            Yt(n.data, t.data) || e.data.next(t.data);
+            Pt(n.data, t.data) || e.data.next(t.data);
         } else
           (e.snapshot = e._futureSnapshot), e.data.next(e._futureSnapshot.data);
       }
       function wl(e, n) {
         var t, l;
         return (
-          Yt(e.params, n.params) &&
+          Pt(e.params, n.params) &&
           Wt((t = e.url), (l = n.url)) &&
           t.every(function(e, n) {
-            return Yt(e.parameters, l[n].parameters);
+            return Pt(e.parameters, l[n].parameters);
           }) &&
           !(!e.parent != !n.parent) &&
           (!e.parent || wl(e.parent, n.parent))
@@ -63013,7 +63016,7 @@
         );
       }
       function Ol(e, n, t) {
-        return e == t.path && Yt(n, t.parameters);
+        return e == t.path && Pt(n, t.parameters);
       }
       var Rl = (function() {
         function e(e, n, t, l) {
@@ -63134,10 +63137,10 @@
       function Al(e) {
         bl(e.value), e.children.forEach(Al);
       }
-      function Yl(e) {
+      function Pl(e) {
         return "function" == typeof e;
       }
-      function Pl(e) {
+      function Yl(e) {
         return e instanceof Ht;
       }
       var jl = (function() {
@@ -63289,7 +63292,7 @@
                 );
               }),
               Object(An.a)(),
-              Pe(function(e) {
+              Ye(function(e) {
                 return !!e;
               }),
               zn(function(e, t) {
@@ -63532,12 +63535,12 @@
                                 i = e.get(l);
                               if (
                                 (function(e) {
-                                  return e && Yl(e.canLoad);
+                                  return e && Pl(e.canLoad);
                                 })(i)
                               )
                                 r = i.canLoad(n, t);
                               else {
-                                if (!Yl(i))
+                                if (!Pl(i))
                                   throw new Error("Invalid CanLoad guard");
                                 r = i(n, t);
                               }
@@ -63757,12 +63760,12 @@
                       return !Wt(e.url, n.url);
                     case "pathParamsOrQueryParamsChange":
                       return (
-                        !Wt(e.url, n.url) || !Yt(e.queryParams, n.queryParams)
+                        !Wt(e.url, n.url) || !Pt(e.queryParams, n.queryParams)
                       );
                     case "always":
                       return !0;
                     case "paramsOrQueryParamsChange":
-                      return !wl(e, n) || !Yt(e.queryParams, n.queryParams);
+                      return !wl(e, n) || !Pt(e.queryParams, n.queryParams);
                     case "paramsChange":
                     default:
                       return !wl(e, n);
@@ -63839,7 +63842,7 @@
                   if (e !== Zl) return e;
                   if ((l === Zl && (t = !0), !t)) {
                     if (!1 === l) return l;
-                    if (r === n.length - 1 || Pl(l)) return l;
+                    if (r === n.length - 1 || Yl(l)) return l;
                   }
                   return e;
                 }, e);
@@ -63848,7 +63851,7 @@
                 return e !== Zl;
               }),
               Object(d.a)(function(e) {
-                return Pl(e) ? e : !0 === e;
+                return Yl(e) ? e : !0 === e;
               }),
               Me(1)
             );
@@ -63869,15 +63872,15 @@
               i = Kl(l, n, t);
             if (
               (function(e) {
-                return e && Yl(e.canActivate);
+                return e && Pl(e.canActivate);
               })(i)
             )
               r = Ft(i.canActivate(n, e));
             else {
-              if (!Yl(i)) throw new Error("Invalid CanActivate guard");
+              if (!Pl(i)) throw new Error("Invalid CanActivate guard");
               r = Ft(i(n, e));
             }
-            return r.pipe(Pe());
+            return r.pipe(Ye());
           });
         });
         return Object(Tn.a)(r).pipe(Xl());
@@ -63903,16 +63906,16 @@
                     o = Kl(r, n.node, t);
                   if (
                     (function(e) {
-                      return e && Yl(e.canActivateChild);
+                      return e && Pl(e.canActivateChild);
                     })(o)
                   )
                     i = Ft(o.canActivateChild(l, e));
                   else {
-                    if (!Yl(o))
+                    if (!Pl(o))
                       throw new Error("Invalid CanActivateChild guard");
                     i = Ft(o(l, e));
                   }
-                  return i.pipe(Pe());
+                  return i.pipe(Ye());
                 });
                 return Object(Tn.a)(r).pipe(Xl());
               });
@@ -64342,7 +64345,7 @@
                   Object(d.a)(function(l) {
                     t.onLoadEndListener && t.onLoadEndListener(n);
                     var r = l.create(e);
-                    return new Et(Pt(r.injector.get(vr)).map(At), r);
+                    return new Et(Yt(r.injector.get(vr)).map(At), r);
                   })
                 )
               );
@@ -64705,23 +64708,23 @@
                                             u = Kl(i, n, r);
                                           if (
                                             (function(e) {
-                                              return e && Yl(e.canDeactivate);
+                                              return e && Pl(e.canDeactivate);
                                             })(u)
                                           )
                                             o = Ft(u.canDeactivate(e, n, t, l));
                                           else {
-                                            if (!Yl(u))
+                                            if (!Pl(u))
                                               throw new Error(
                                                 "Invalid CanDeactivate guard"
                                               );
                                             o = Ft(u(e, n, t, l));
                                           }
-                                          return o.pipe(Pe());
+                                          return o.pipe(Ye());
                                         });
                                         return Object(Tn.a)(o).pipe(Xl());
                                       })(e.component, e.route, t, n, l);
                                     }),
-                                    Pe(function(e) {
+                                    Ye(function(e) {
                                       return !0 !== e;
                                     }, !0)
                                   );
@@ -64738,12 +64741,12 @@
                                                 tr(e, n.route, t)
                                               ]).pipe(
                                                 Object(An.a)(),
-                                                Pe(function(e) {
+                                                Ye(function(e) {
                                                   return !0 !== e;
                                                 }, !0)
                                               );
                                             }),
-                                            Pe(function(e) {
+                                            Ye(function(e) {
                                               return !0 !== e;
                                             }, !0)
                                           );
@@ -64763,7 +64766,7 @@
                       return n.triggerEvent(e);
                     }),
                     Ee(function(e) {
-                      if (Pl(e.guardsResult)) {
+                      if (Yl(e.guardsResult)) {
                         var t = St(
                           'Redirecting to "' +
                             n.serializeUrl(e.guardsResult) +
@@ -64867,7 +64870,7 @@
                                           ? function(n) {
                                               return Object(nt.a)(
                                                 Qn(e, void 0),
-                                                Yn(1),
+                                                Pn(1),
                                                 De(void 0)
                                               )(n);
                                             }
@@ -64876,7 +64879,7 @@
                                                 Qn(function(n, t, l) {
                                                   return e(n);
                                                 }),
-                                                Yn(1)
+                                                Pn(1)
                                               )(n);
                                             };
                                       })(function(e, n) {
@@ -65069,7 +65072,7 @@
                     }),
                     zn(function(l) {
                       if (((c = !0), (u = l) && u[Lt])) {
-                        var r = Pl(l.url);
+                        var r = Yl(l.url);
                         r ||
                           ((n.navigated = !0),
                           n.resetStateAndUrl(
@@ -65278,7 +65281,7 @@
                   this.console.warn(
                     "Navigation triggered outside Angular zone, did you forget to call 'ngZone.run()'?"
                   );
-              var t = Pl(e) ? e : this.parseUrl(e),
+              var t = Yl(e) ? e : this.parseUrl(e),
                 r = this.urlHandlingStrategy.merge(t, this.rawUrlTree);
               return this.scheduleNavigation(r, "imperative", null, n);
             }),
@@ -65313,7 +65316,7 @@
               return n;
             }),
             (e.prototype.isActive = function(e, n) {
-              if (Pl(e)) return Vt(this.currentUrlTree, e, n);
+              if (Yl(e)) return Vt(this.currentUrlTree, e, n);
               var t = this.parseUrl(e);
               return Vt(this.currentUrlTree, t, n);
             }),
@@ -65742,7 +65745,7 @@
             e
           );
         })(),
-        Yr = (function() {
+        Pr = (function() {
           function e(e, n, t, l, r) {
             (this.router = e),
               (this.injector = l),
@@ -65827,7 +65830,7 @@
             e
           );
         })(),
-        Pr = (function() {
+        Yr = (function() {
           function e(e, n, t) {
             void 0 === t && (t = {}),
               (this.router = e),
@@ -65930,7 +65933,7 @@
             provide: l.NgModuleFactoryLoader,
             useClass: l.SystemJsNgModuleLoader
           },
-          Yr,
+          Pr,
           Ar,
           Rr,
           { provide: jr, useValue: { enableTracing: !1 } }
@@ -65965,7 +65968,7 @@
                   ]
                 },
                 {
-                  provide: Pr,
+                  provide: Yr,
                   useFactory: zr,
                   deps: [Cr, o.ViewportScroller, jr]
                 },
@@ -66000,7 +66003,7 @@
         );
       })();
       function zr(e, n, t) {
-        return t.scrollOffset && n.setOffset(t.scrollOffset), new Pr(e, n, t);
+        return t.scrollOffset && n.setOffset(t.scrollOffset), new Yr(e, n, t);
       }
       function Ur(e, n, t) {
         return (
@@ -66025,7 +66028,7 @@
       }
       function Gr(e, n, t, l, r, i, o, a, s, d, c) {
         void 0 === s && (s = {});
-        var p = new Cr(null, n, t, l, r, i, o, Pt(a));
+        var p = new Cr(null, n, t, l, r, i, o, Yt(a));
         if (
           (d && (p.urlHandlingStrategy = d),
           c && (p.routeReuseStrategy = c),
@@ -66098,8 +66101,8 @@
           }),
           (e.prototype.bootstrapListener = function(e) {
             var n = this.injector.get(jr),
-              t = this.injector.get(Yr),
-              r = this.injector.get(Pr),
+              t = this.injector.get(Pr),
+              r = this.injector.get(Yr),
               i = this.injector.get(Cr),
               o = this.injector.get(l.ApplicationRef);
             e === o.components[0] &&
@@ -68917,10 +68920,10 @@
         styles: ["[_nghost-%COMP%] {\n\t\t\tdisplay: block;\n\t\t}"],
         data: {}
       });
-      function Yi(e) {
+      function Pi(e) {
         return l["\u0275vid"](0, [l["\u0275ncd"](null, 0)], null, null);
       }
-      var Pi = (function() {
+      var Yi = (function() {
           function e(e) {
             (this.appService = e),
               (this.recent = new l.EventEmitter()),
@@ -69246,7 +69249,6 @@
       }
       var zi = (function() {
           function e(e) {
-            var n = this;
             (this.appService = e),
               (this.news = []),
               (this.isGrid = !0),
@@ -69264,16 +69266,8 @@
                 video: "",
                 created: 0
               });
-            var t = localStorage.getItem("isGrid");
-            t && (this.isGrid = "true" === t),
-              (this.appService.scrollContainer.onscroll = function(e) {
-                var t = n.appService.scrollContainer;
-                t &&
-                  t.scrollTop >= t.scrollHeight - t.offsetHeight &&
-                  !n.isLoading &&
-                  !n.hasNoMore &&
-                  n.getNews();
-              });
+            var n = localStorage.getItem("isGrid");
+            n && (this.isGrid = "true" === n);
           }
           return (
             (e.prototype.ngOnInit = function() {
@@ -70372,7 +70366,7 @@
               null,
               null,
               null,
-              Yi,
+              Pi,
               Ai
             )),
             l["\u0275did"](
@@ -70833,7 +70827,7 @@
               Hi,
               ji
             )),
-            l["\u0275did"](31, 114688, null, 0, Pi, [Sn], null, null),
+            l["\u0275did"](31, 114688, null, 0, Yi, [Sn], null, null),
             (e()(),
             l["\u0275eld"](
               32,
@@ -71101,11 +71095,8 @@
                 .then(function(n) {
                   n.assets.reverse(),
                     (e.assets = n.assets.filter(function(e) {
-                      return (
-                        console.log(e.name.split(".").pop()),
-                        ~["zip", "exe", "xz", "dmg"].indexOf(
-                          e.name.split(".").pop()
-                        )
+                      return ~["zip", "exe", "xz", "dmg"].indexOf(
+                        e.name.split(".").pop()
                       );
                     })),
                     (e.assetsWindows = n.assets.filter(function(e) {
@@ -71730,7 +71721,7 @@
               0,
               null,
               null,
-              44,
+              47,
               "div",
               [["class", "container"]],
               null,
@@ -71928,7 +71919,7 @@
               0,
               null,
               null,
-              29,
+              32,
               "div",
               [["class", "row"]],
               null,
@@ -71974,7 +71965,7 @@
               0,
               null,
               null,
-              25,
+              28,
               "div",
               [["class", "col s12 m6"]],
               null,
@@ -72005,7 +71996,7 @@
               0,
               null,
               null,
-              7,
+              10,
               "p",
               [],
               null,
@@ -72030,10 +72021,10 @@
               null,
               null
             )),
-            (e()(), l["\u0275ted"](-1, null, ["Windows 8+"])),
+            (e()(), l["\u0275ted"](-1, null, ["Windows 8"])),
             (e()(),
             l["\u0275ted"](-1, null, [
-              ", it is recommended to download the Setup "
+              " and above, it is recommended to download the Setup "
             ])),
             (e()(),
             l["\u0275eld"](
@@ -72053,11 +72044,29 @@
             (e()(), l["\u0275ted"](-1, null, ["EXE"])),
             (e()(),
             l["\u0275ted"](-1, null, [
-              " file. Alternately, you may download the ZIP file, which contains the same contents without an installer. Windows 7 is not fully supported."
+              " file. Alternately, you may download the ZIP file, which contains the same contents without an installer. For 32bit there is a zip marked "
             ])),
             (e()(),
             l["\u0275eld"](
               30,
+              0,
+              null,
+              null,
+              1,
+              "span",
+              [["class", "chip"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["IA32-WIN.ZIP"])),
+            (e()(),
+            l["\u0275ted"](-1, null, [". Windows 7 is not fully supported."])),
+            (e()(),
+            l["\u0275eld"](
+              33,
               0,
               null,
               null,
@@ -72073,7 +72082,7 @@
             (e()(), l["\u0275ted"](-1, null, ["For users of "])),
             (e()(),
             l["\u0275eld"](
-              32,
+              35,
               0,
               null,
               null,
@@ -72090,7 +72099,7 @@
             (e()(), l["\u0275ted"](-1, null, [", the "])),
             (e()(),
             l["\u0275eld"](
-              35,
+              38,
               0,
               null,
               null,
@@ -72110,7 +72119,7 @@
             ])),
             (e()(),
             l["\u0275eld"](
-              38,
+              41,
               0,
               null,
               null,
@@ -72125,7 +72134,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              39,
+              42,
               0,
               null,
               null,
@@ -72143,7 +72152,7 @@
             l["\u0275ted"](-1, null, [" users, you can download the "])),
             (e()(),
             l["\u0275eld"](
-              42,
+              45,
               0,
               null,
               null,
@@ -72205,6 +72214,2107 @@
       }
       var fo = l["\u0275ccf"]("app-download-side-quest", so, ho, {}, {}, []),
         mo = (function() {
+          function e() {}
+          return (e.prototype.ngOnInit = function() {}), e;
+        })(),
+        go = l["\u0275crt"]({ encapsulation: 0, styles: [[""]], data: {} });
+      function vo(e) {
+        return l["\u0275vid"](
+          0,
+          [
+            (e()(),
+            l["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              194,
+              "div",
+              [["class", "container"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              1,
+              0,
+              null,
+              null,
+              8,
+              "div",
+              [["class", "right"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              2,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "People have been so kind, we are humbled."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            l["\u0275did"](
+              3,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              4,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Support us on Patreon."],
+                ["src", "assets/images/patreon.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, [" Support us on Patreon "])),
+            (e()(),
+            l["\u0275eld"](
+              6,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=744A6C394Q8JG&source=url'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "Use this option if you prefer a one off donation."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            l["\u0275did"](
+              7,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              8,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Donate on Paypal"],
+                ["src", "assets/images/paypal.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, [" Donate on Paypal "])),
+            (e()(),
+            l["\u0275eld"](
+              10,
+              0,
+              null,
+              null,
+              1,
+              "h4",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Privacy Policy"])),
+            (e()(),
+            l["\u0275eld"](
+              12,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              13,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "right"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, ["Effective date: September 02, 2018"])),
+            (e()(),
+            l["\u0275eld"](
+              15,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              16,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " The Expanse (\u201cus\u201d, \u201cwe\u201d, or \u201cour\u201d) operates the https://theexpanse.app/ and https://sidequestvr.com websites (the \u201cService\u201d). "
+            ])),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. This Privacy Policy for The Expanse is powered by FreePrivacyPolicy.com. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              19,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible from https://theexpanse.app/ and https://sidequestvr.com "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              21,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              22,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, ["Information Collection And Use"])),
+            (e()(),
+            l["\u0275eld"](
+              24,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              25,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " We collect several different types of information for various purposes to provide and improve our Service to you. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              27,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              28,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Types of Data Collected"])),
+            (e()(),
+            l["\u0275eld"](
+              30,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              31,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              32,
+              0,
+              null,
+              null,
+              1,
+              "h6",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Personal Data"])),
+            (e()(),
+            l["\u0275eld"](
+              34,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you (\u201cPersonal Data\u201d). Personally identifiable information may include, but is not limited to: "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              36,
+              0,
+              null,
+              null,
+              8,
+              "ul",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              37,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Email address"])),
+            (e()(),
+            l["\u0275eld"](
+              39,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["First name and last name"])),
+            (e()(),
+            l["\u0275eld"](
+              41,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Date Of Birth"])),
+            (e()(),
+            l["\u0275eld"](
+              43,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Cookies and Usage Data"])),
+            (e()(),
+            l["\u0275eld"](
+              45,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " We may also collect information how the Service is accessed and used (\u201cUsage Data\u201d). This Usage Data may include information such as your computer\u2019s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              47,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              48,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Tracking & Cookies Data"])),
+            (e()(),
+            l["\u0275eld"](
+              50,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              51,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " We use cookies and similar tracking technologies to track the activity on our Service and hold certain information. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              53,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our Service. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              55,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              57,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              58,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Examples of Cookies we use:"])),
+            (e()(),
+            l["\u0275eld"](
+              60,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              61,
+              0,
+              null,
+              null,
+              8,
+              "ul",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              62,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              "Session Cookies. We use Session Cookies to operate our Service."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              64,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              "Preference Cookies. We use Preference Cookies to remember your preferences and various settings."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              66,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              "Security Cookies. We use Security Cookies for security purposes."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              68,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Cookies and Usage Data"])),
+            (e()(),
+            l["\u0275eld"](
+              70,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              71,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Use of Data"])),
+            (e()(),
+            l["\u0275eld"](
+              73,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              74,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " The Expanse uses the collected data for various purposes: "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              76,
+              0,
+              null,
+              null,
+              14,
+              "ul",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              77,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, ["To provide and maintain the Service."])),
+            (e()(),
+            l["\u0275eld"](
+              79,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              "To notify you about changes to our Service."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              81,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              "To allow you to participate in interactive features of our Service when you choose to do so."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              83,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              "To provide customer care and support."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              85,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              "To provide analysis or valuable information so that we can improve the Service."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              87,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, ["To monitor the usage of the Service."])),
+            (e()(),
+            l["\u0275eld"](
+              89,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              "To detect, prevent and address technical issues."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              91,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              92,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Transfer Of Data"])),
+            (e()(),
+            l["\u0275eld"](
+              94,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              95,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " Your information, including Personal Data, may be transferred to \u2014 and maintained on \u2014 computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              97,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " If you are located outside United Kingdom and choose to provide information to us, please note that we transfer the data, including Personal Data, to United Kingdom and process it there. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              99,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              101,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " The Expanse will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              103,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              104,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              105,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Disclosure Of Data"])),
+            (e()(),
+            l["\u0275eld"](
+              107,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              108,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              109,
+              0,
+              null,
+              null,
+              1,
+              "h6",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Legal Requirements"])),
+            (e()(),
+            l["\u0275eld"](
+              111,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " The Expanse may disclose your Personal Data in the good faith belief that such action is necessary to: "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              113,
+              0,
+              null,
+              null,
+              10,
+              "ul",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              114,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, ["To comply with a legal obligation."])),
+            (e()(),
+            l["\u0275eld"](
+              116,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              "To protect and defend the rights or property of The Expanse."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              118,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              "To prevent or investigate possible wrongdoing in connection with the Service."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              120,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              "To protect the personal safety of users of the Service or the public."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              122,
+              0,
+              null,
+              null,
+              1,
+              "li",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, ["To protect against legal liability."])),
+            (e()(),
+            l["\u0275eld"](
+              124,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              125,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Security Of Data"])),
+            (e()(),
+            l["\u0275eld"](
+              127,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              128,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              130,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              131,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Service Providers"])),
+            (e()(),
+            l["\u0275eld"](
+              133,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              134,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " We may employ third party companies and individuals to facilitate our Service (\u201cService Providers\u201d), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              136,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              138,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              139,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Analytics"])),
+            (e()(),
+            l["\u0275eld"](
+              141,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              142,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " We may use third-party Service Providers to monitor and analyze the use of our Service. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              144,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              145,
+              0,
+              null,
+              null,
+              1,
+              "h6",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Google Analytics"])),
+            (e()(),
+            l["\u0275eld"](
+              147,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              149,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " You can opt-out of having made your activity on the Service available to Google Analytics by installing the Google Analytics opt-out browser add-on. The add-on prevents the Google Analytics JavaScript (ga.js, analytics.js, and dc.js) from sharing information with Google Analytics about visits activity. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              151,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " For more information on the privacy practices of Google, please visit the Google Privacy & Terms web page: https://policies.google.com/privacy?hl=en "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              153,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              154,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              155,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Links To Other Sites"])),
+            (e()(),
+            l["\u0275eld"](
+              157,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              158,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party\u2019s site. We strongly advise you to review the Privacy Policy of every site you visit. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              160,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              162,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              163,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Children\u2019s Privacy"])),
+            (e()(),
+            l["\u0275eld"](
+              165,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              166,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " Our Service does not address anyone under the age of 18 (\u201cChildren\u201d). "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              168,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your Children has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our servers. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              170,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              171,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, ["Changes To This Privacy Policy"])),
+            (e()(),
+            l["\u0275eld"](
+              173,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              174,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              176,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the \u201ceffective date\u201d at the top of this Privacy Policy. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              178,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page. "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              180,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              181,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Contact Us"])),
+            (e()(),
+            l["\u0275eld"](
+              183,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              184,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " If you have any questions about this Privacy Policy, please contact us: "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              186,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " By visiting this page on our website: https://theexpanse.app/support/ "
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              188,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              189,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, [" The Expanse Team "])),
+            (e()(),
+            l["\u0275eld"](
+              191,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              192,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              193,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              194,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            ))
+          ],
+          function(e, n) {
+            e(n, 3, 0, "bottom", "People have been so kind, we are humbled."),
+              e(
+                n,
+                7,
+                0,
+                "bottom",
+                "Use this option if you prefer a one off donation."
+              );
+          },
+          null
+        );
+      }
+      function _o(e) {
+        return l["\u0275vid"](
+          0,
+          [
+            (e()(),
+            l["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              1,
+              "app-privacy-policy",
+              [],
+              null,
+              null,
+              null,
+              vo,
+              go
+            )),
+            l["\u0275did"](1, 114688, null, 0, mo, [], null, null)
+          ],
+          function(e, n) {
+            e(n, 1, 0);
+          },
+          null
+        );
+      }
+      var yo = l["\u0275ccf"]("app-privacy-policy", mo, _o, {}, {}, []),
+        bo = (function() {
           function e(e, n) {
             var t = this;
             (this.router = e),
@@ -72272,8 +74382,8 @@
             e
           );
         })(),
-        go = l["\u0275crt"]({ encapsulation: 0, styles: [[""]], data: {} });
-      function vo(e) {
+        wo = l["\u0275crt"]({ encapsulation: 0, styles: [[""]], data: {} });
+      function Mo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -72446,7 +74556,7 @@
           null
         );
       }
-      function _o(e) {
+      function ko(e) {
         return l["\u0275vid"](
           0,
           [
@@ -72462,10 +74572,10 @@
               null,
               null,
               null,
-              vo,
-              go
+              Mo,
+              wo
             )),
-            l["\u0275did"](1, 4440064, null, 0, mo, [Cr, fl], null, null)
+            l["\u0275did"](1, 4440064, null, 0, bo, [Cr, fl], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -72473,17 +74583,17 @@
           null
         );
       }
-      var yo = l["\u0275ccf"]("app-avatar-editor", mo, _o, {}, {}, []),
-        bo = l["\u0275crt"]({
+      var Co = l["\u0275ccf"]("app-avatar-editor", bo, ko, {}, {}, []),
+        Do = l["\u0275crt"]({
           encapsulation: 0,
           styles: ["[_nghost-%COMP%]{display:block}"],
           data: {}
         });
-      function wo(e) {
+      function xo(e) {
         return l["\u0275vid"](0, [], null, null);
       }
-      var Mo = l["\u0275crt"]({ encapsulation: 0, styles: [""], data: {} });
-      function ko(e) {
+      var Lo = l["\u0275crt"]({ encapsulation: 0, styles: [""], data: {} });
+      function So(e) {
         return l["\u0275vid"](
           0,
           [
@@ -72541,14 +74651,14 @@
           }
         );
       }
-      var Co = l["\u0275crt"]({
+      var To = l["\u0275crt"]({
         encapsulation: 0,
         styles: [
           ".collapsible-header{clear:both}  .collapsible-body{clear:both}"
         ],
         data: {}
       });
-      function Do(e) {
+      function Eo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -72577,14 +74687,14 @@
           }
         );
       }
-      var xo = l["\u0275crt"]({
+      var Io = l["\u0275crt"]({
         encapsulation: 0,
         styles: [
           ".modal[_ngcontent-%COMP%]:not(.bottom-sheet).modal-fullscreen{top:12px!important;margin:0 auto;width:calc(100% - 24px);height:calc(100% - 24px);max-height:none}.modal.bottom-sheet.modal-fullscreen[_ngcontent-%COMP%]{height:100%;max-height:none}  mz-modal-header h5,   mz-modal-header h6{margin-top:0}"
         ],
         data: {}
       });
-      function Lo(e) {
+      function Oo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -72664,8 +74774,8 @@
           }
         );
       }
-      var So = l["\u0275crt"]({ encapsulation: 0, styles: [""], data: {} });
-      function To(e) {
+      var Ro = l["\u0275crt"]({ encapsulation: 0, styles: [""], data: {} });
+      function Ao(e) {
         return l["\u0275vid"](
           0,
           [
@@ -72707,8 +74817,8 @@
           null
         );
       }
-      var Eo = l["\u0275crt"]({ encapsulation: 0, styles: [""], data: {} });
-      function Io(e) {
+      var Po = l["\u0275crt"]({ encapsulation: 0, styles: [""], data: {} });
+      function Yo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -72733,8 +74843,8 @@
           null
         );
       }
-      var Oo = l["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
-      function Ro(e) {
+      var jo = l["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
+      function No(e) {
         return l["\u0275vid"](
           0,
           [
@@ -72774,12 +74884,12 @@
           }
         );
       }
-      var Ao = l["\u0275crt"]({
+      var Fo = l["\u0275crt"]({
         encapsulation: 0,
         styles: [".sidenav-header[_ngcontent-%COMP%]{margin-bottom:8px}"],
         data: {}
       });
-      function Yo(e) {
+      function Vo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -72804,14 +74914,14 @@
           null
         );
       }
-      var Po = l["\u0275crt"]({
+      var Ho = l["\u0275crt"]({
         encapsulation: 0,
         styles: [
           "[_nghost-%COMP%]     a[class*=mdi-]::before{color:rgba(0,0,0,.54);margin:-1px 32px 0 0;vertical-align:middle}[_nghost-%COMP%]     a i, [_nghost-%COMP%]     a i.material-icons, [_nghost-%COMP%]     a i[class*=mdi-]{margin-top:-1px}[_nghost-%COMP%]     a i.material-icons::before, [_nghost-%COMP%]     a i::before, [_nghost-%COMP%]     a i[class*=mdi-]::before{vertical-align:middle}"
         ],
         data: {}
       });
-      function jo(e) {
+      function zo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -72838,8 +74948,8 @@
           }
         );
       }
-      var No = l["\u0275crt"]({ encapsulation: 0, styles: [""], data: {} });
-      function Fo(e) {
+      var Uo = l["\u0275crt"]({ encapsulation: 0, styles: [""], data: {} });
+      function Wo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -72940,7 +75050,7 @@
           }
         );
       }
-      var Vo = (function() {
+      var Bo = (function() {
           function e(e, n, t, l) {
             (this.expanseService = e),
               (this.uploadService = n),
@@ -73204,7 +75314,7 @@
             e
           );
         })(),
-        Ho = l["\u0275crt"]({
+        Go = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -73213,7 +75323,7 @@
           ],
           data: {}
         });
-      function zo(e) {
+      function $o(e) {
         return l["\u0275vid"](
           0,
           [
@@ -73319,7 +75429,7 @@
           }
         );
       }
-      function Uo(e) {
+      function qo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -73355,7 +75465,7 @@
           null
         );
       }
-      function Wo(e) {
+      function Ko(e) {
         return l["\u0275vid"](
           0,
           [
@@ -73380,7 +75490,7 @@
           null
         );
       }
-      function Bo(e) {
+      function Jo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -73426,7 +75536,7 @@
           null
         );
       }
-      function Go(e) {
+      function Qo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -73464,7 +75574,7 @@
           null
         );
       }
-      function $o(e) {
+      function Zo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -73561,7 +75671,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["edit"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Uo)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, qo)),
             l["\u0275did"](
               11,
               16384,
@@ -73572,7 +75682,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Wo)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ko)),
             l["\u0275did"](
               13,
               16384,
@@ -73583,7 +75693,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Bo)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Jo)),
             l["\u0275did"](
               15,
               16384,
@@ -73594,7 +75704,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Go)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Qo)),
             l["\u0275did"](
               17,
               16384,
@@ -73628,7 +75738,7 @@
           null
         );
       }
-      function qo(e) {
+      function Xo(e) {
         return l["\u0275vid"](
           0,
           [
@@ -73714,7 +75824,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, zo)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, $o)),
             l["\u0275did"](
               8,
               278528,
@@ -73859,7 +75969,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["Add Custom Avatar"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, $o)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Zo)),
             l["\u0275did"](
               21,
               278528,
@@ -73882,8 +75992,8 @@
               null,
               null,
               null,
-              Lo,
-              xo
+              Oo,
+              Io
             )),
             l["\u0275did"](
               23,
@@ -74050,7 +76160,7 @@
           null
         );
       }
-      function Ko(e) {
+      function eu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -74066,10 +76176,10 @@
               null,
               null,
               null,
-              qo,
-              Ho
+              Xo,
+              Go
             )),
-            l["\u0275did"](1, 114688, null, 0, Vo, [Zr, Xr, Sn, Cr], null, null)
+            l["\u0275did"](1, 114688, null, 0, Bo, [Zr, Xr, Sn, Cr], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -74077,12 +76187,12 @@
           null
         );
       }
-      var Jo = l["\u0275ccf"]("app-avatar-picker", Vo, Ko, {}, {}, []),
-        Qo = (function() {
+      var nu = l["\u0275ccf"]("app-avatar-picker", Bo, eu, {}, {}, []),
+        tu = (function() {
           function e() {}
           return (e.prototype.ngOnInit = function() {}), e;
         })(),
-        Zo = l["\u0275crt"]({
+        lu = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             ".github-corner[_ngcontent-%COMP%]:hover   .octo-arm[_ngcontent-%COMP%]{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner[_ngcontent-%COMP%]:hover   .octo-arm[_ngcontent-%COMP%]{animation:none}.github-corner[_ngcontent-%COMP%]   .octo-arm[_ngcontent-%COMP%]{animation:octocat-wave 560ms ease-in-out}}",
@@ -74090,7 +76200,7 @@
           ],
           data: {}
         });
-      function Xo(e) {
+      function ru(e) {
         return l["\u0275vid"](
           0,
           [
@@ -74826,7 +76936,7 @@
           null
         );
       }
-      function eu(e) {
+      function iu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -74842,10 +76952,10 @@
               null,
               null,
               null,
-              Xo,
-              Zo
+              ru,
+              lu
             )),
-            l["\u0275did"](1, 114688, null, 0, Qo, [], null, null)
+            l["\u0275did"](1, 114688, null, 0, tu, [], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -74853,9 +76963,9 @@
           null
         );
       }
-      var nu = l["\u0275ccf"]("app-what-is-side-quest", Qo, eu, {}, {}, []),
-        tu = t("SZJd"),
-        lu =
+      var ou = l["\u0275ccf"]("app-what-is-side-quest", tu, iu, {}, {}, []),
+        uu = t("SZJd"),
+        au =
           (t("q1Ab"),
           t("DGjd"),
           t("ovst"),
@@ -75223,7 +77333,7 @@
                               src: this.currentApp.image_url,
                               thumb: this.currentApp.image_url
                             }),
-                          (this.videoObject = tu.parse(
+                          (this.videoObject = uu.parse(
                             this.currentApp.video_url
                           )),
                           this.videoObject &&
@@ -75366,17 +77476,17 @@
               e
             );
           })()),
-        ru = t("DoSW"),
-        iu = l["\u0275crt"]({
+        su = t("DoSW"),
+        du = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
-              ".back-icon[_ngcontent-%COMP%]{margin-right:10px;font-size:1.2em;cursor:pointer}.back-icon[_ngcontent-%COMP%]:focus{outline:0}.top-tags-name[_ngcontent-%COMP%]{margin-top:-33px}.top-download[_ngcontent-%COMP%]{margin-top:-45px}@media screen and (max-width:992px){.top-tags-name[_ngcontent-%COMP%]{margin-top:0}}.screen-shot[_ngcontent-%COMP%]{height:100px;margin-right:8px;margin-bottom:8px}.counter[_ngcontent-%COMP%]{font-size:1.7em;display:inline-block;margin-right:1em;vertical-align:middle}.counter-icon[_ngcontent-%COMP%]{font-size:.9em;margin-top:-3px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.social-icon[_ngcontent-%COMP%]{width:36px;height:36px;margin-right:3px;border-radius:100%;cursor:pointer;border:2px solid #fff}.top-image[_ngcontent-%COMP%]:first-of-type{margin-right:.3em}.top-image[_ngcontent-%COMP%]{height:45px;vertical-align:middle}.radio-top[_ngcontent-%COMP%]{margin-bottom:25px}.url-top[_ngcontent-%COMP%]{margin-bottom:32px}.chip.pointer[_ngcontent-%COMP%]{white-space:nowrap}.line-height[_ngcontent-%COMP%]{line-height:2rem}.install-button[_ngcontent-%COMP%]{margin-top:-8px}.app-summary[_ngcontent-%COMP%]{width:calc(80% - 220px);margin-left:20px}.app-package[_ngcontent-%COMP%]{width:200px;margin-right:20px}@media screen and (max-width:992px){.app-summary[_ngcontent-%COMP%]{width:calc(80% - 100px);margin-left:0}.app-package[_ngcontent-%COMP%]{width:100px;margin-right:0}}"
+              ".back-icon[_ngcontent-%COMP%]{margin-right:10px;font-size:1.2em;cursor:pointer}.back-icon[_ngcontent-%COMP%]:focus{outline:0}.top-tags-name[_ngcontent-%COMP%]{margin-top:-33px}.top-download[_ngcontent-%COMP%]{margin-top:-45px}@media screen and (max-width:992px){.top-tags-name[_ngcontent-%COMP%]{margin-top:0}}.screen-shot[_ngcontent-%COMP%]{height:100px;margin-right:8px;margin-bottom:8px}.counter[_ngcontent-%COMP%]{font-size:1.7em;display:inline-block;margin-right:1em;vertical-align:middle}.counter-icon[_ngcontent-%COMP%]{font-size:.9em;margin-top:-3px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.social-icon[_ngcontent-%COMP%]{width:36px;height:36px;margin-right:3px;border-radius:100%;cursor:pointer;border:2px solid #fff}.top-image[_ngcontent-%COMP%]:first-of-type{margin-right:.3em}.top-image[_ngcontent-%COMP%]{height:45px;vertical-align:middle}.radio-top[_ngcontent-%COMP%]{margin-bottom:25px}.url-top[_ngcontent-%COMP%]{margin-bottom:32px}.chip.pointer[_ngcontent-%COMP%]{white-space:nowrap}.line-height[_ngcontent-%COMP%]{line-height:2rem}.install-button[_ngcontent-%COMP%]{margin-top:-8px}.app-summary[_ngcontent-%COMP%]{width:calc(80% - 220px);margin-left:20px}.app-package[_ngcontent-%COMP%]{width:200px;margin-right:20px}@media screen and (max-width:992px){.app-summary[_ngcontent-%COMP%]{width:calc(80% - 100px);margin-left:0}.app-package[_ngcontent-%COMP%]{width:100px;margin-right:0}}.top-back[_ngcontent-%COMP%]{background:-webkit-gradient(linear,left top,left bottom,from(rgba(80,59,115,0)),color-stop(1%,rgba(80,59,115,.02)),color-stop(50%,rgba(80,59,115,.9)),color-stop(54%,rgba(80,59,115,1)),to(rgba(80,59,115,1)));background:linear-gradient(to bottom,rgba(80,59,115,0) 0,rgba(80,59,115,.02) 1%,rgba(80,59,115,.9) 50%,rgba(80,59,115,1) 54%,rgba(80,59,115,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#00503b73', endColorstr='#503b73', GradientType=0 );width:calc(100% + 50px);margin-left:-25px;margin-top:-20px;height:155px;position:absolute;left:0;z-index:-1}.main-container[_ngcontent-%COMP%]{position:relative;z-index:1}"
             ]
           ],
           data: {}
         });
-      function ou(e) {
+      function cu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75416,7 +77526,71 @@
           null
         );
       }
-      function uu(e) {
+      function pu(e) {
+        return l["\u0275vid"](
+          0,
+          [
+            (e()(),
+            l["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              2,
+              "mz-parallax",
+              [],
+              null,
+              null,
+              null,
+              Ao,
+              Ro
+            )),
+            l["\u0275did"](
+              1,
+              4243456,
+              null,
+              0,
+              dn,
+              [l.Renderer],
+              { height: [0, "height"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              2,
+              0,
+              null,
+              0,
+              0,
+              "img",
+              [],
+              [[8, "src", 4]],
+              null,
+              null,
+              null,
+              null
+            ))
+          ],
+          function(e, n) {
+            e(n, 1, 0, 350);
+          },
+          function(e, n) {
+            var t = n.component;
+            e(
+              n,
+              2,
+              0,
+              l["\u0275inlineInterpolate"](
+                1,
+                "",
+                t.screenshots[t.screenshots.length - 1],
+                ""
+              )
+            );
+          }
+        );
+      }
+      function hu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75460,7 +77634,7 @@
           }
         );
       }
-      function au(e) {
+      function fu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75497,7 +77671,7 @@
           }
         );
       }
-      function su(e) {
+      function mu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75522,45 +77696,7 @@
           null
         );
       }
-      function du(e) {
-        return l["\u0275vid"](
-          0,
-          [
-            (e()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
-              1,
-              "div",
-              [
-                [
-                  "class",
-                  "btn waves-effect waves-light white-text pink-button small-button"
-                ]
-              ],
-              null,
-              [[null, "click"]],
-              function(e, n, t) {
-                var l = !0,
-                  r = e.component;
-                return (
-                  "click" === n &&
-                    (l = !1 !== r.openItems(r.apk_download_urls) && l),
-                  l
-                );
-              },
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](-1, null, ["Update Available"]))
-          ],
-          null,
-          null
-        );
-      }
-      function cu(e) {
+      function gu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75593,7 +77729,7 @@
           null
         );
       }
-      function pu(e) {
+      function vu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75652,7 +77788,45 @@
           null
         );
       }
-      function hu(e) {
+      function _u(e) {
+        return l["\u0275vid"](
+          0,
+          [
+            (e()(),
+            l["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [
+                [
+                  "class",
+                  "btn waves-effect waves-light white-text pink-button small-button"
+                ]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var l = !0,
+                  r = e.component;
+                return (
+                  "click" === n &&
+                    (l = !1 !== r.openItems(r.apk_download_urls) && l),
+                  l
+                );
+              },
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Update Available"]))
+          ],
+          null,
+          null
+        );
+      }
+      function yu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75702,7 +77876,7 @@
           }
         );
       }
-      function fu(e) {
+      function bu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75749,7 +77923,7 @@
           }
         );
       }
-      function mu(e) {
+      function wu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75768,7 +77942,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, hu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, yu)),
             l["\u0275did"](
               2,
               16384,
@@ -75779,7 +77953,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, fu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, bu)),
             l["\u0275did"](
               4,
               16384,
@@ -75799,7 +77973,7 @@
           null
         );
       }
-      function gu(e) {
+      function Mu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75835,7 +78009,7 @@
           }
         );
       }
-      function vu(e) {
+      function ku(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75916,7 +78090,7 @@
           null
         );
       }
-      function _u(e) {
+      function Cu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -75954,7 +78128,7 @@
           }
         );
       }
-      function yu(e) {
+      function Du(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76064,7 +78238,7 @@
           }
         );
       }
-      function bu(e) {
+      function xu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76097,7 +78271,7 @@
           null
         );
       }
-      function wu(e) {
+      function Lu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76206,7 +78380,7 @@
           }
         );
       }
-      function Mu(e) {
+      function Su(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76248,7 +78422,7 @@
           }
         );
       }
-      function ku(e) {
+      function Tu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76328,7 +78502,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Mu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Su)),
             l["\u0275did"](
               7,
               16384,
@@ -76348,7 +78522,7 @@
           }
         );
       }
-      function Cu(e) {
+      function Eu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76375,7 +78549,7 @@
           }
         );
       }
-      function Du(e) {
+      function Iu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76455,7 +78629,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Cu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Eu)),
             l["\u0275did"](
               7,
               278528,
@@ -76474,7 +78648,7 @@
           null
         );
       }
-      function xu(e) {
+      function Ou(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76517,7 +78691,7 @@
           null
         );
       }
-      function Lu(e) {
+      function Ru(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76557,7 +78731,7 @@
           null
         );
       }
-      function Su(e) {
+      function Au(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76597,7 +78771,7 @@
           null
         );
       }
-      function Tu(e) {
+      function Pu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76677,7 +78851,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, xu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ou)),
             l["\u0275did"](
               7,
               16384,
@@ -76689,7 +78863,7 @@
               null
             ),
             (e()(), l["\u0275ted"](-1, null, ["\xa0\xa0\xa0 "])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Lu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ru)),
             l["\u0275did"](
               10,
               16384,
@@ -76701,7 +78875,7 @@
               null
             ),
             (e()(), l["\u0275ted"](-1, null, ["\xa0\xa0\xa0 "])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Su)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Au)),
             l["\u0275did"](
               13,
               16384,
@@ -76723,7 +78897,7 @@
           null
         );
       }
-      function Eu(e) {
+      function Yu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76811,7 +78985,7 @@
           }
         );
       }
-      function Iu(e) {
+      function ju(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76900,7 +79074,7 @@
           }
         );
       }
-      function Ou(e) {
+      function Nu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -76989,7 +79163,7 @@
           }
         );
       }
-      function Ru(e) {
+      function Fu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -77077,7 +79251,7 @@
           }
         );
       }
-      function Au(e) {
+      function Vu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -77165,7 +79339,7 @@
           }
         );
       }
-      function Yu(e) {
+      function Hu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -77222,7 +79396,7 @@
           null
         );
       }
-      function Pu(e) {
+      function zu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -77277,7 +79451,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Yu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hu)),
             l["\u0275did"](
               5,
               16384,
@@ -77297,7 +79471,7 @@
           }
         );
       }
-      function ju(e) {
+      function Uu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -77389,8 +79563,8 @@
               null,
               null,
               null,
-              Do,
-              Co
+              Eo,
+              To
             )),
             l["\u0275did"](
               7,
@@ -77420,8 +79594,8 @@
               null,
               null,
               null,
-              ko,
-              Mo
+              So,
+              Lo
             )),
             l["\u0275did"](
               10,
@@ -77510,7 +79684,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Pu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, zu)),
             l["\u0275did"](
               20,
               278528,
@@ -77548,7 +79722,7 @@
           }
         );
       }
-      function Nu(e) {
+      function Wu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -77626,7 +79800,7 @@
           null
         );
       }
-      function Fu(e) {
+      function Bu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -77645,7 +79819,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Nu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Wu)),
             l["\u0275did"](
               2,
               278528,
@@ -77663,7 +79837,7 @@
           null
         );
       }
-      function Vu(e) {
+      function Gu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -77767,7 +79941,7 @@
           }
         );
       }
-      function Hu(e) {
+      function $u(e) {
         return l["\u0275vid"](
           0,
           [
@@ -77832,7 +80006,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Gu)),
             l["\u0275did"](
               6,
               278528,
@@ -77850,7 +80024,7 @@
           null
         );
       }
-      function zu(e) {
+      function qu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -77954,7 +80128,7 @@
           }
         );
       }
-      function Uu(e) {
+      function Ku(e) {
         return l["\u0275vid"](
           0,
           [
@@ -78019,7 +80193,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, zu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, qu)),
             l["\u0275did"](
               6,
               278528,
@@ -78037,7 +80211,7 @@
           null
         );
       }
-      function Wu(e) {
+      function Ju(e) {
         return l["\u0275vid"](
           0,
           [
@@ -78141,7 +80315,7 @@
           }
         );
       }
-      function Bu(e) {
+      function Qu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -78206,7 +80380,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Wu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ju)),
             l["\u0275did"](
               6,
               278528,
@@ -78224,7 +80398,7 @@
           null
         );
       }
-      function Gu(e) {
+      function Zu(e) {
         return l["\u0275vid"](
           0,
           [
@@ -78234,7 +80408,7 @@
               0,
               null,
               null,
-              94,
+              99,
               "div",
               [["class", "main-container"]],
               null,
@@ -78261,13 +80435,46 @@
               null
             ),
             l["\u0275pod"](3, { padding: 0, container: 1 }),
+            l["\u0275prd"](
+              512,
+              null,
+              o["\u0275NgStyleImpl"],
+              o["\u0275NgStyleR2Impl"],
+              [l.ElementRef, l.KeyValueDiffers, l.Renderer2]
+            ),
+            l["\u0275did"](
+              5,
+              278528,
+              null,
+              0,
+              o.NgStyle,
+              [o["\u0275NgStyleImpl"]],
+              { ngStyle: [0, "ngStyle"] },
+              null
+            ),
+            l["\u0275pod"](6, { "margin-top": 0 }),
             (e()(),
             l["\u0275eld"](
-              4,
+              7,
               0,
               null,
               null,
-              11,
+              0,
+              "div",
+              [["class", "top-back"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              8,
+              0,
+              null,
+              null,
+              9,
               "h4",
               [],
               null,
@@ -78278,7 +80485,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              5,
+              9,
               0,
               null,
               null,
@@ -78298,9 +80505,9 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["reply"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, uu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, hu)),
             l["\u0275did"](
-              8,
+              12,
               16384,
               null,
               0,
@@ -78309,9 +80516,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, au)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, fu)),
             l["\u0275did"](
-              10,
+              14,
               16384,
               null,
               0,
@@ -78320,21 +80527,10 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275ted"](11, null, [" ", " "])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, su)),
+            (e()(), l["\u0275ted"](15, null, [" ", " "])),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, mu)),
             l["\u0275did"](
-              13,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, du)),
-            l["\u0275did"](
-              15,
+              17,
               16384,
               null,
               0,
@@ -78345,7 +80541,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              16,
+              18,
               0,
               null,
               null,
@@ -78358,18 +80554,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, cu)),
-            l["\u0275did"](
-              18,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, pu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, gu)),
             l["\u0275did"](
               20,
               16384,
@@ -78380,9 +80565,20 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, vu)),
+            l["\u0275did"](
+              22,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
             (e()(),
             l["\u0275eld"](
-              21,
+              23,
               0,
               null,
               null,
@@ -78397,7 +80593,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              22,
+              24,
               0,
               null,
               null,
@@ -78412,29 +80608,13 @@
             )),
             (e()(),
             l["\u0275eld"](
-              23,
-              0,
-              null,
-              null,
-              1,
-              "div",
-              [["class", "right app-package right-align truncate"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](24, null, ["", ""])),
-            (e()(),
-            l["\u0275eld"](
               25,
               0,
               null,
               null,
               1,
               "div",
-              [["class", "app-summary truncate"]],
+              [["class", "right app-package right-align truncate"]],
               null,
               null,
               null,
@@ -78448,39 +80628,25 @@
               0,
               null,
               null,
-              0,
-              "br",
-              [],
+              1,
+              "div",
+              [["class", "app-summary truncate"]],
               null,
               null,
               null,
               null,
               null
             )),
-            (e()(),
-            l["\u0275eld"](
-              28,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
+            (e()(), l["\u0275ted"](28, null, ["", ""])),
             (e()(),
             l["\u0275eld"](
               29,
               0,
               null,
               null,
-              65,
-              "div",
-              [["class", "row"]],
+              0,
+              "br",
+              [],
               null,
               null,
               null,
@@ -78493,9 +80659,9 @@
               0,
               null,
               null,
-              55,
+              69,
               "div",
-              [["class", "col s12 m10"]],
+              [["class", "row"]],
               null,
               null,
               null,
@@ -78505,6 +80671,62 @@
             (e()(),
             l["\u0275eld"](
               31,
+              0,
+              null,
+              null,
+              59,
+              "div",
+              [["class", "col s12 m10"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, _u)),
+            l["\u0275did"](
+              33,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              34,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              35,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              36,
               0,
               null,
               null,
@@ -78519,7 +80741,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              32,
+              37,
               0,
               null,
               null,
@@ -78532,9 +80754,9 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, mu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, wu)),
             l["\u0275did"](
-              34,
+              39,
               16384,
               null,
               0,
@@ -78543,9 +80765,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, gu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Mu)),
             l["\u0275did"](
-              36,
+              41,
               16384,
               null,
               0,
@@ -78556,7 +80778,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              37,
+              42,
               0,
               null,
               null,
@@ -78569,9 +80791,9 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, vu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ku)),
             l["\u0275did"](
-              39,
+              44,
               16384,
               null,
               0,
@@ -78580,53 +80802,6 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(),
-            l["\u0275eld"](
-              40,
-              0,
-              null,
-              null,
-              4,
-              "span",
-              [["class", "counter"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](41, null, ["", "\xa0\xa0"])),
-            (e()(),
-            l["\u0275eld"](
-              42,
-              0,
-              null,
-              null,
-              2,
-              "i",
-              [
-                ["class", "material-icons vertical-align counter-icon"],
-                ["mz-tooltip", ""],
-                ["position", "bottom"],
-                ["tooltip", "Number of downloads"]
-              ],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            l["\u0275did"](
-              43,
-              4931584,
-              null,
-              0,
-              xn,
-              [l.ElementRef, l.Renderer],
-              { position: [0, "position"], tooltip: [1, "tooltip"] },
-              null
-            ),
-            (e()(), l["\u0275ted"](-1, null, ["cloud_download"])),
             (e()(),
             l["\u0275eld"](
               45,
@@ -78655,7 +80830,7 @@
                 ["class", "material-icons vertical-align counter-icon"],
                 ["mz-tooltip", ""],
                 ["position", "bottom"],
-                ["tooltip", "Number of views"]
+                ["tooltip", "Number of downloads"]
               ],
               null,
               null,
@@ -78673,10 +80848,57 @@
               { position: [0, "position"], tooltip: [1, "tooltip"] },
               null
             ),
-            (e()(), l["\u0275ted"](-1, null, ["visibility"])),
+            (e()(), l["\u0275ted"](-1, null, ["cloud_download"])),
             (e()(),
             l["\u0275eld"](
               50,
+              0,
+              null,
+              null,
+              4,
+              "span",
+              [["class", "counter"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](51, null, ["", "\xa0\xa0"])),
+            (e()(),
+            l["\u0275eld"](
+              52,
+              0,
+              null,
+              null,
+              2,
+              "i",
+              [
+                ["class", "material-icons vertical-align counter-icon"],
+                ["mz-tooltip", ""],
+                ["position", "bottom"],
+                ["tooltip", "Number of views"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            l["\u0275did"](
+              53,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(), l["\u0275ted"](-1, null, ["visibility"])),
+            (e()(),
+            l["\u0275eld"](
+              55,
               0,
               null,
               null,
@@ -78694,10 +80916,10 @@
               null,
               null
             )),
-            (e()(), l["\u0275ted"](51, null, ["", "\xa0\xa0"])),
+            (e()(), l["\u0275ted"](56, null, ["", "\xa0\xa0"])),
             (e()(),
             l["\u0275eld"](
-              52,
+              57,
               0,
               null,
               null,
@@ -78716,7 +80938,7 @@
               null
             )),
             l["\u0275did"](
-              53,
+              58,
               4931584,
               null,
               0,
@@ -78728,7 +80950,7 @@
             (e()(), l["\u0275ted"](-1, null, ["thumb_up"])),
             (e()(),
             l["\u0275eld"](
-              55,
+              60,
               0,
               null,
               null,
@@ -78741,9 +80963,9 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, _u)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Cu)),
             l["\u0275did"](
-              57,
+              62,
               278528,
               null,
               0,
@@ -78754,7 +80976,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              58,
+              63,
               0,
               null,
               null,
@@ -78767,9 +80989,9 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, yu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Du)),
             l["\u0275did"](
-              60,
+              65,
               16384,
               null,
               0,
@@ -78778,9 +81000,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, bu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, xu)),
             l["\u0275did"](
-              62,
+              67,
               16384,
               null,
               0,
@@ -78789,9 +81011,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, wu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Lu)),
             l["\u0275did"](
-              64,
+              69,
               16384,
               null,
               0,
@@ -78802,7 +81024,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              65,
+              70,
               0,
               null,
               null,
@@ -78817,7 +81039,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              66,
+              71,
               0,
               null,
               null,
@@ -78832,7 +81054,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              67,
+              72,
               0,
               null,
               null,
@@ -78845,42 +81067,9 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ku)),
-            l["\u0275did"](
-              69,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Du)),
-            l["\u0275did"](
-              71,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
             (e()(), l["\u0275and"](16777216, null, null, 1, null, Tu)),
             l["\u0275did"](
-              73,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Eu)),
-            l["\u0275did"](
-              75,
+              74,
               16384,
               null,
               0,
@@ -78891,7 +81080,7 @@
             ),
             (e()(), l["\u0275and"](16777216, null, null, 1, null, Iu)),
             l["\u0275did"](
-              77,
+              76,
               16384,
               null,
               0,
@@ -78900,9 +81089,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ou)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Pu)),
             l["\u0275did"](
-              79,
+              78,
               16384,
               null,
               0,
@@ -78911,20 +81100,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ru)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Yu)),
             l["\u0275did"](
-              81,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Au)),
-            l["\u0275did"](
-              83,
+              80,
               16384,
               null,
               0,
@@ -78935,7 +81113,51 @@
             ),
             (e()(), l["\u0275and"](16777216, null, null, 1, null, ju)),
             l["\u0275did"](
-              85,
+              82,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Nu)),
+            l["\u0275did"](
+              84,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fu)),
+            l["\u0275did"](
+              86,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vu)),
+            l["\u0275did"](
+              88,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Uu)),
+            l["\u0275did"](
+              90,
               16384,
               null,
               0,
@@ -78946,7 +81168,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              86,
+              91,
               0,
               null,
               null,
@@ -78959,42 +81181,42 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fu)),
-            l["\u0275did"](
-              88,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hu)),
-            l["\u0275did"](
-              90,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Uu)),
-            l["\u0275did"](
-              92,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
             (e()(), l["\u0275and"](16777216, null, null, 1, null, Bu)),
             l["\u0275did"](
-              94,
+              93,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, $u)),
+            l["\u0275did"](
+              95,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ku)),
+            l["\u0275did"](
+              97,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Qu)),
+            l["\u0275did"](
+              99,
               16384,
               null,
               0,
@@ -79007,45 +81229,52 @@
           function(e, n) {
             var t = n.component,
               l = e(n, 3, 0, t.service.hideLogo, !t.service.hideLogo);
-            e(n, 2, 0, "main-container", l),
-              e(n, 8, 0, t.currentApp.image_url),
-              e(n, 10, 0, t.currentApp.preview_image),
-              e(n, 13, 0, !t.currentApp.active),
+            e(n, 2, 0, "main-container", l);
+            var r = e(
+              n,
+              6,
+              0,
+              t.screenshots && t.screenshots.length ? "-150px" : "0"
+            );
+            e(n, 5, 0, r),
+              e(n, 12, 0, t.currentApp.image_url),
+              e(n, 14, 0, t.currentApp.preview_image),
+              e(n, 17, 0, !t.currentApp.active),
               e(
                 n,
-                15,
-                0,
-                t.isInstalled &&
-                  t.installedVersion < t.currentApp.versioncode &&
-                  !(
-                    "BeatOn" === t.currentApp.website &&
-                    "4" === t.currentApp.app_categories_id
-                  )
-              ),
-              e(
-                n,
-                18,
+                20,
                 0,
                 t.apk_download_urls &&
                   t.apk_download_urls.length &&
                   !t.currentApp.early_access
               ),
-              e(n, 20, 0, t.isMine),
-              e(n, 34, 0, t.videoObject),
+              e(n, 22, 0, t.isMine),
               e(
                 n,
-                36,
+                33,
+                0,
+                t.isInstalled &&
+                  t.installedVersion < t.currentApp.versioncode &&
+                  !(
+                    "BeatOn" === t.currentApp.website &&
+                    "4" === t.currentApp.app_categories_id
+                  )
+              ),
+              e(n, 39, 0, t.videoObject),
+              e(
+                n,
+                41,
                 0,
                 !t.videoObject && t.currentApp.image_url && !t.is_loading_icon
               ),
-              e(n, 39, 0, t.currentApp.early_access),
-              e(n, 43, 0, "bottom", "Number of downloads"),
-              e(n, 48, 0, "bottom", "Number of views"),
-              e(n, 53, 0, "bottom", "Number of likes"),
-              e(n, 57, 0, t.screenshots),
+              e(n, 44, 0, t.currentApp.early_access),
+              e(n, 48, 0, "bottom", "Number of downloads"),
+              e(n, 53, 0, "bottom", "Number of views"),
+              e(n, 58, 0, "bottom", "Number of likes"),
+              e(n, 62, 0, t.screenshots),
               e(
                 n,
-                60,
+                65,
                 0,
                 t.isInstalled &&
                   t.installedVersion < t.currentApp.versioncode &&
@@ -79056,7 +81285,7 @@
               ),
               e(
                 n,
-                62,
+                67,
                 0,
                 t.isInstalled &&
                   !(
@@ -79064,51 +81293,51 @@
                     "4" === t.currentApp.app_categories_id
                   )
               ),
-              e(n, 64, 0, t.currentApp.donate_url),
-              e(n, 69, 0, t.currentApp.description),
-              e(n, 71, 0, t.searchTags && t.searchTags.length),
+              e(n, 69, 0, t.currentApp.donate_url),
+              e(n, 74, 0, t.currentApp.description),
+              e(n, 76, 0, t.searchTags && t.searchTags.length),
               e(
                 n,
-                73,
+                78,
                 0,
                 t.currentApp.supports_quest ||
                   t.currentApp.supports_go ||
                   t.currentApp.supports_other
               ),
-              e(n, 75, 0, t.currentApp.license),
-              e(n, 77, 0, t.currentApp.comfort),
-              e(n, 79, 0, t.currentApp.versionname),
-              e(n, 81, 0, t.currentApp.created),
-              e(n, 83, 0, t.currentApp.updated),
+              e(n, 80, 0, t.currentApp.license),
+              e(n, 82, 0, t.currentApp.comfort),
+              e(n, 84, 0, t.currentApp.versionname),
+              e(n, 86, 0, t.currentApp.created),
+              e(n, 88, 0, t.currentApp.updated),
               e(
                 n,
-                85,
+                90,
                 0,
                 t.apk_download_urls &&
                   t.apk_download_urls.length &&
                   !t.currentApp.early_access
               ),
-              e(n, 88, 0, t.website_url && t.website_url.length),
-              e(n, 90, 0, t.store_urls && t.store_urls.length),
-              e(n, 92, 0, t.social_urls && t.social_urls.length),
-              e(n, 94, 0, t.donate_urls && t.donate_urls.length);
+              e(n, 93, 0, t.website_url && t.website_url.length),
+              e(n, 95, 0, t.store_urls && t.store_urls.length),
+              e(n, 97, 0, t.social_urls && t.social_urls.length),
+              e(n, 99, 0, t.donate_urls && t.donate_urls.length);
           },
           function(e, n) {
             var t = n.component;
-            e(n, 11, 0, t.currentApp.name),
-              e(n, 24, 0, t.currentApp.packagename),
-              e(n, 26, 0, t.currentApp.summary),
-              e(n, 41, 0, t.counters.d),
-              e(n, 46, 0, t.counters.v),
-              e(n, 51, 0, t.counters.l);
+            e(n, 15, 0, t.currentApp.name),
+              e(n, 26, 0, t.currentApp.packagename),
+              e(n, 28, 0, t.currentApp.summary),
+              e(n, 46, 0, t.counters.d),
+              e(n, 51, 0, t.counters.v),
+              e(n, 56, 0, t.counters.l);
           }
         );
       }
-      function $u(e) {
+      function Xu(e) {
         return l["\u0275vid"](
           0,
           [
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ou)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, cu)),
             l["\u0275did"](
               1,
               16384,
@@ -79119,9 +81348,20 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Gu)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, pu)),
             l["\u0275did"](
               3,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Zu)),
+            l["\u0275did"](
+              5,
               16384,
               null,
               0,
@@ -79133,12 +81373,14 @@
           ],
           function(e, n) {
             var t = n.component;
-            e(n, 1, 0, t.is_not_found), e(n, 3, 0, !t.is_not_found);
+            e(n, 1, 0, t.is_not_found),
+              e(n, 3, 0, t.screenshots && t.screenshots.length),
+              e(n, 5, 0, !t.is_not_found);
           },
           null
         );
       }
-      function qu(e) {
+      function ea(e) {
         return l["\u0275vid"](
           0,
           [
@@ -79154,16 +81396,16 @@
               null,
               null,
               null,
-              $u,
-              iu
+              Xu,
+              du
             )),
             l["\u0275did"](
               1,
               245760,
               null,
               0,
-              lu,
-              [Cr, Sn, Zr, fl, u.DomSanitizer, ru.Lightbox],
+              au,
+              [Cr, Sn, Zr, fl, u.DomSanitizer, su.Lightbox],
               null,
               null
             )
@@ -79174,8 +81416,8 @@
           null
         );
       }
-      var Ku = l["\u0275ccf"]("app-app-listing", lu, qu, {}, {}, []),
-        Ju = (function() {
+      var na = l["\u0275ccf"]("app-app-listing", au, ea, {}, {}, []),
+        ta = (function() {
           function e(e, n) {
             (this.expanseService = e),
               (this.appService = n),
@@ -79487,7 +81729,7 @@
             e
           );
         })(),
-        Qu = (function() {
+        la = (function() {
           function e(e, n, t, l, r, o) {
             var u = this;
             (this.router = e),
@@ -79752,21 +81994,21 @@
                 .then(function() {
                   return fetch(
                     "https://xpan.cc/get-link/" +
-                      e.expanseService.currentSession.token +
-                      "/a-" +
-                      e.apps_id +
-                      "/" +
-                      window.encodeURIComponent(
-                        "https://sidequestvr.com/#/app/" + e.apps_id
-                      ) +
-                      "/" +
-                      window.encodeURIComponent(e.currentApp.name) +
-                      " on SideQuest/" +
-                      window.encodeURIComponent(e.currentApp.image_url) +
-                      "/" +
-                      (window.encodeURIComponent(e.currentApp.description) ||
-                        "-"),
-                    { method: "GET", cache: "no-cache" }
+                      e.expanseService.currentSession.token,
+                    {
+                      method: "POST",
+                      headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                      },
+                      body: JSON.stringify({
+                        title: e.currentApp.name,
+                        description: e.currentApp.description,
+                        image: e.currentApp.image_url,
+                        name: "a-" + e.apps_id,
+                        external: "https://sidequestvr.com/#/app/" + e.apps_id
+                      })
+                    }
                   );
                 })
                 .then(function(e) {
@@ -79893,7 +82135,7 @@
               );
             }),
             (e.prototype.onVideoChange = function() {
-              (this.videoObject = tu.parse(this.currentApp.video_url)),
+              (this.videoObject = uu.parse(this.currentApp.video_url)),
                 this.videoObject &&
                   (this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
                     "youtube" === this.videoObject.provider
@@ -80078,7 +82320,7 @@
             e
           );
         })(),
-        Zu = (function() {
+        ra = (function() {
           function e(e, n, t, l, r, o) {
             var u = this;
             (this.router = e),
@@ -80124,12 +82366,13 @@
                                 return n.viewEvent();
                               })
                               .then(function() {
-                                n.isMine =
-                                  n.service.isAuthenticated &&
-                                  Number(n.currentApp.users_id) ===
-                                    Number(
-                                      n.expanseService.currentSession.users_id
-                                    );
+                                console.log("here"),
+                                  (n.isMine =
+                                    n.service.isAuthenticated &&
+                                    Number(n.currentApp.users_id) ===
+                                      Number(
+                                        n.expanseService.currentSession.users_id
+                                      ));
                               }))
                           : (this.events_id = null)),
                       [2]
@@ -80182,6 +82425,24 @@
                   });
               this.service.showMessage({}, "You already liked that!");
             }),
+            (e.prototype.copyShareUrl = function(e) {
+              var n = this;
+              navigator.clipboard &&
+                navigator.clipboard.writeText(this.currentApp.share_url).then(
+                  function() {
+                    n.service.showMessage(
+                      { error: !1 },
+                      "Share URL Copied to clipboard!"
+                    );
+                  },
+                  function(e) {
+                    n.service.showMessage(
+                      { error: !0, data: "Cant copy share url!" },
+                      ""
+                    );
+                  }
+                );
+            }),
             (e.prototype.setupEvent = function() {
               return i.__awaiter(this, void 0, void 0, function() {
                 var e,
@@ -80221,18 +82482,19 @@
                             n.counters.l = e.counter;
                         }
                       }),
-                        (this.videoObject = tu.parse(
-                          this.currentApp.video_url
-                        )),
-                        this.videoObject &&
-                          (this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-                            "youtube" === this.videoObject.provider
-                              ? "https://www.youtube.com/embed/" +
-                                  this.videoObject.id
-                              : "https://player.vimeo.com/video/" +
-                                  this.videoObject.id +
-                                  "?byline=0&portrait=0&transparent=0"
+                        this.currentApp.video_url &&
+                          ((this.videoObject = uu.parse(
+                            this.currentApp.video_url
                           )),
+                          this.videoObject &&
+                            (this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+                              "youtube" === this.videoObject.provider
+                                ? "https://www.youtube.com/embed/" +
+                                    this.videoObject.id
+                                : "https://player.vimeo.com/video/" +
+                                    this.videoObject.id +
+                                    "?byline=0&portrait=0&transparent=0"
+                            ))),
                         (t.label = 4);
                     case 4:
                       return [2];
@@ -80243,16 +82505,16 @@
             e
           );
         })(),
-        Xu = l["\u0275crt"]({
+        ia = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
-              ".back-icon[_ngcontent-%COMP%]{margin-right:10px;font-size:1.2em;cursor:pointer}.back-icon[_ngcontent-%COMP%]:focus{outline:0}.top-download[_ngcontent-%COMP%]{margin-top:-45px}.top-image[_ngcontent-%COMP%]:first-of-type{margin-right:.3em}.top-image[_ngcontent-%COMP%]{height:45px;vertical-align:middle}.app-summary[_ngcontent-%COMP%]{width:calc(80% - 220px);margin-left:20px}.app-package[_ngcontent-%COMP%]{width:200px;margin-right:20px}@media screen and (max-width:992px){.app-summary[_ngcontent-%COMP%]{width:calc(80% - 100px);margin-left:0}.app-package[_ngcontent-%COMP%]{width:100px;margin-right:0}}.counter[_ngcontent-%COMP%]{font-size:1.7em;display:inline-block;margin-right:1em;vertical-align:middle}.counter-icon[_ngcontent-%COMP%]{font-size:.9em;margin-top:-3px}.top-tags-name[_ngcontent-%COMP%]{margin-top:-33px}.main-container[_ngcontent-%COMP%]{position:relative;z-index:1}.top-back[_ngcontent-%COMP%]{background:-webkit-gradient(linear,left top,left bottom,from(rgba(80,59,115,0)),color-stop(1%,rgba(80,59,115,.02)),color-stop(60%,rgba(80,59,115,.9)),color-stop(74%,rgba(80,59,115,1)),to(rgba(80,59,115,1)));background:linear-gradient(to bottom,rgba(80,59,115,0) 0,rgba(80,59,115,.02) 1%,rgba(80,59,115,.9) 60%,rgba(80,59,115,1) 74%,rgba(80,59,115,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#00503b73', endColorstr='#503b73', GradientType=0 );width:calc(100% + 40px);margin-left:-20px;margin-top:-20px;height:155px;position:absolute;z-index:-1}.radio-top[_ngcontent-%COMP%]{margin-bottom:25px}"
+              ".back-icon[_ngcontent-%COMP%]{margin-right:10px;font-size:1.2em;cursor:pointer}.back-icon[_ngcontent-%COMP%]:focus{outline:0}.top-download[_ngcontent-%COMP%]{margin-top:-45px}.top-image[_ngcontent-%COMP%]:first-of-type{margin-right:.3em}.top-image[_ngcontent-%COMP%]{height:45px;vertical-align:middle}.app-summary[_ngcontent-%COMP%]{width:calc(80% - 220px);margin-left:20px}.app-package[_ngcontent-%COMP%]{width:200px;margin-right:20px}@media screen and (max-width:992px){.app-summary[_ngcontent-%COMP%]{width:calc(80% - 100px);margin-left:0}.app-package[_ngcontent-%COMP%]{width:100px;margin-right:0}}.counter[_ngcontent-%COMP%]{font-size:1.7em;display:inline-block;margin-right:1em;vertical-align:middle}.counter-icon[_ngcontent-%COMP%]{font-size:.9em;margin-top:-3px}.top-tags-name[_ngcontent-%COMP%]{margin-top:-33px}.main-container[_ngcontent-%COMP%]{position:relative;z-index:1}.top-back[_ngcontent-%COMP%]{background:-webkit-gradient(linear,left top,left bottom,from(rgba(80,59,115,0)),color-stop(1%,rgba(80,59,115,.02)),color-stop(50%,rgba(80,59,115,.9)),color-stop(54%,rgba(80,59,115,1)),to(rgba(80,59,115,1)));background:linear-gradient(to bottom,rgba(80,59,115,0) 0,rgba(80,59,115,.02) 1%,rgba(80,59,115,.9) 50%,rgba(80,59,115,1) 54%,rgba(80,59,115,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#00503b73', endColorstr='#503b73', GradientType=0 );width:calc(100% + 50px);margin-left:-25px;margin-top:-20px;height:155px;position:absolute;left:0;z-index:-1}.radio-top[_ngcontent-%COMP%]{margin-bottom:25px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.side-border[_ngcontent-%COMP%]{border-left:1px solid #fff}.top-border[_ngcontent-%COMP%]{border-top:1px solid #fff}.bottom-margin[_ngcontent-%COMP%]{margin-bottom:7px}"
             ]
           ],
           data: {}
         });
-      function ea(e) {
+      function oa(e) {
         return l["\u0275vid"](
           0,
           [
@@ -80292,7 +82554,7 @@
           null
         );
       }
-      function na(e) {
+      function ua(e) {
         return l["\u0275vid"](
           0,
           [
@@ -80308,8 +82570,8 @@
               null,
               null,
               null,
-              To,
-              So
+              Ao,
+              Ro
             )),
             l["\u0275did"](
               1,
@@ -80356,7 +82618,7 @@
           }
         );
       }
-      function ta(e) {
+      function aa(e) {
         return l["\u0275vid"](
           0,
           [
@@ -80393,7 +82655,7 @@
           }
         );
       }
-      function la(e) {
+      function sa(e) {
         return l["\u0275vid"](
           0,
           [
@@ -80430,7 +82692,7 @@
           }
         );
       }
-      function ra(e) {
+      function da(e) {
         return l["\u0275vid"](
           0,
           [
@@ -80455,7 +82717,7 @@
           null
         );
       }
-      function ia(e) {
+      function ca(e) {
         return l["\u0275vid"](
           0,
           [
@@ -80492,7 +82754,7 @@
           }
         );
       }
-      function oa(e) {
+      function pa(e) {
         return l["\u0275vid"](
           0,
           [
@@ -80549,395 +82811,6 @@
             );
           },
           null
-        );
-      }
-      function ua(e) {
-        return l["\u0275vid"](
-          0,
-          [
-            (e()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
-              1,
-              "a",
-              [
-                [
-                  "class",
-                  "btn waves-effect waves-light pink-button small-button margin-left"
-                ]
-              ],
-              [[8, "href", 4]],
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](-1, null, ["App Page"]))
-          ],
-          null,
-          function(e, n) {
-            e(
-              n,
-              0,
-              0,
-              l["\u0275inlineInterpolate"](
-                1,
-                "",
-                n.component.currentApp.app_url,
-                ""
-              )
-            );
-          }
-        );
-      }
-      function aa(e) {
-        return l["\u0275vid"](
-          0,
-          [
-            (e()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
-              1,
-              "a",
-              [
-                [
-                  "class",
-                  "btn waves-effect waves-light pink-button small-button margin-left"
-                ]
-              ],
-              null,
-              [[null, "click"]],
-              function(e, n, t) {
-                var l = !0,
-                  r = e.component;
-                return (
-                  "click" === n &&
-                    (l = !1 !== r.copyUrl(r.currentApp.share_url) && l),
-                  l
-                );
-              },
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](-1, null, ["Share"]))
-          ],
-          null,
-          null
-        );
-      }
-      function sa(e) {
-        return l["\u0275vid"](
-          0,
-          [
-            (e()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
-              2,
-              "div",
-              [["class", "truncate"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              1,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](2, null, ["By ", ""]))
-          ],
-          null,
-          function(e, n) {
-            e(n, 2, 0, n.component.currentApp.user_name);
-          }
-        );
-      }
-      function da(e) {
-        return l["\u0275vid"](
-          0,
-          [
-            (e()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
-              6,
-              "div",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              1,
-              0,
-              null,
-              null,
-              2,
-              "div",
-              [["class", "input-field radio-top"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              2,
-              0,
-              null,
-              null,
-              1,
-              "label",
-              [["class", "active"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](-1, null, ["Description"])),
-            (e()(),
-            l["\u0275eld"](
-              4,
-              0,
-              null,
-              null,
-              0,
-              "p",
-              [],
-              [[8, "innerHTML", 1]],
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, sa)),
-            l["\u0275did"](
-              6,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            )
-          ],
-          function(e, n) {
-            e(n, 6, 0, n.component.currentApp.user_name);
-          },
-          function(e, n) {
-            var t = n.component;
-            e(
-              n,
-              4,
-              0,
-              t.currentApp.event_description || t.currentApp.description
-            );
-          }
-        );
-      }
-      function ca(e) {
-        return l["\u0275vid"](
-          0,
-          [
-            (e()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
-              6,
-              "div",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              1,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              2,
-              0,
-              null,
-              null,
-              2,
-              "div",
-              [["class", "input-field radio-top"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              3,
-              0,
-              null,
-              null,
-              1,
-              "label",
-              [["class", "active"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](-1, null, ["Added"])),
-            (e()(),
-            l["\u0275eld"](
-              5,
-              0,
-              null,
-              null,
-              1,
-              "p",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](6, null, ["", ""]))
-          ],
-          null,
-          function(e, n) {
-            e(n, 6, 0, n.component.currentApp.created);
-          }
-        );
-      }
-      function pa(e) {
-        return l["\u0275vid"](
-          0,
-          [
-            (e()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
-              6,
-              "div",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              1,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              2,
-              0,
-              null,
-              null,
-              2,
-              "div",
-              [["class", "input-field radio-top"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              3,
-              0,
-              null,
-              null,
-              1,
-              "label",
-              [["class", "active"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](-1, null, ["Updated"])),
-            (e()(),
-            l["\u0275eld"](
-              5,
-              0,
-              null,
-              null,
-              1,
-              "p",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275ted"](6, null, ["", ""]))
-          ],
-          null,
-          function(e, n) {
-            e(n, 6, 0, n.component.currentApp.updated);
-          }
         );
       }
       function ha(e) {
@@ -81047,9 +82920,9 @@
               0,
               null,
               null,
-              5,
+              7,
               "div",
-              [["class", "col s12 m7"]],
+              [["class", "col s12"]],
               null,
               null,
               null,
@@ -81059,6 +82932,21 @@
             (e()(),
             l["\u0275eld"](
               1,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              2,
               0,
               null,
               null,
@@ -81073,7 +82961,7 @@
             )),
             (e()(), l["\u0275and"](16777216, null, null, 1, null, ha)),
             l["\u0275did"](
-              3,
+              4,
               16384,
               null,
               0,
@@ -81084,7 +82972,7 @@
             ),
             (e()(), l["\u0275and"](16777216, null, null, 1, null, fa)),
             l["\u0275did"](
-              5,
+              6,
               16384,
               null,
               0,
@@ -81092,12 +82980,27 @@
               [l.ViewContainerRef, l.TemplateRef],
               { ngIf: [0, "ngIf"] },
               null
-            )
+            ),
+            (e()(),
+            l["\u0275eld"](
+              7,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            ))
           ],
           function(e, n) {
             var t = n.component;
-            e(n, 3, 0, "youtube" === t.videoObject.provider),
-              e(n, 5, 0, "vimeo" === t.videoObject.provider);
+            e(n, 4, 0, "youtube" === t.videoObject.provider),
+              e(n, 6, 0, "vimeo" === t.videoObject.provider);
           },
           null
         );
@@ -81112,7 +83015,353 @@
               0,
               null,
               null,
-              69,
+              2,
+              "div",
+              [["class", "truncate"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              1,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](2, null, ["By ", ""]))
+          ],
+          null,
+          function(e, n) {
+            e(n, 2, 0, n.component.currentApp.user_name);
+          }
+        );
+      }
+      function va(e) {
+        return l["\u0275vid"](
+          0,
+          [
+            (e()(),
+            l["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              6,
+              "div",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              1,
+              0,
+              null,
+              null,
+              2,
+              "div",
+              [["class", "input-field radio-top"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              2,
+              0,
+              null,
+              null,
+              1,
+              "label",
+              [["class", "active"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Description"])),
+            (e()(),
+            l["\u0275eld"](
+              4,
+              0,
+              null,
+              null,
+              0,
+              "p",
+              [],
+              [[8, "innerHTML", 1]],
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ga)),
+            l["\u0275did"](
+              6,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            )
+          ],
+          function(e, n) {
+            e(n, 6, 0, n.component.currentApp.user_name);
+          },
+          function(e, n) {
+            var t = n.component;
+            e(
+              n,
+              4,
+              0,
+              t.currentApp.event_description || t.currentApp.description
+            );
+          }
+        );
+      }
+      function _a(e) {
+        return l["\u0275vid"](
+          0,
+          [
+            (e()(),
+            l["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              6,
+              "div",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              1,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              2,
+              0,
+              null,
+              null,
+              2,
+              "div",
+              [["class", "input-field radio-top"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              3,
+              0,
+              null,
+              null,
+              1,
+              "label",
+              [["class", "active"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Added"])),
+            (e()(),
+            l["\u0275eld"](
+              5,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](6, null, ["", ""]))
+          ],
+          null,
+          function(e, n) {
+            e(n, 6, 0, n.component.currentApp.created);
+          }
+        );
+      }
+      function ya(e) {
+        return l["\u0275vid"](
+          0,
+          [
+            (e()(),
+            l["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              6,
+              "div",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              1,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              2,
+              0,
+              null,
+              null,
+              2,
+              "div",
+              [["class", "input-field radio-top"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              3,
+              0,
+              null,
+              null,
+              1,
+              "label",
+              [["class", "active"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Updated"])),
+            (e()(),
+            l["\u0275eld"](
+              5,
+              0,
+              null,
+              null,
+              1,
+              "p",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](6, null, ["", ""]))
+          ],
+          null,
+          function(e, n) {
+            e(n, 6, 0, n.component.currentApp.updated);
+          }
+        );
+      }
+      function ba(e) {
+        return l["\u0275vid"](
+          0,
+          [
+            (e()(),
+            l["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              1,
+              "a",
+              [["class", "btn waves-effect waves-light pink-button"]],
+              [[8, "href", 4]],
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["App Page"]))
+          ],
+          null,
+          function(e, n) {
+            e(
+              n,
+              0,
+              0,
+              l["\u0275inlineInterpolate"](
+                1,
+                "",
+                n.component.currentApp.app_url,
+                ""
+              )
+            );
+          }
+        );
+      }
+      function wa(e) {
+        return l["\u0275vid"](
+          0,
+          [
+            (e()(),
+            l["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              100,
               "div",
               [["class", "main-container"]],
               null,
@@ -81209,7 +83458,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["reply"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ta)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, aa)),
             l["\u0275did"](
               12,
               16384,
@@ -81220,7 +83469,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, la)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, sa)),
             l["\u0275did"](
               14,
               16384,
@@ -81232,7 +83481,7 @@
               null
             ),
             (e()(), l["\u0275ted"](15, null, [" ", " "])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ra)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, da)),
             l["\u0275did"](
               17,
               16384,
@@ -81258,7 +83507,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ia)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ca)),
             l["\u0275did"](
               20,
               16384,
@@ -81269,7 +83518,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, oa)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, pa)),
             l["\u0275did"](
               22,
               16384,
@@ -81316,7 +83565,67 @@
               0,
               null,
               null,
-              3,
+              75,
+              "div",
+              [["class", "row"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              26,
+              0,
+              null,
+              null,
+              74,
+              "div",
+              [["class", "col s12"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              27,
+              0,
+              null,
+              null,
+              57,
+              "div",
+              [["class", "row"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              28,
+              0,
+              null,
+              null,
+              21,
+              "div",
+              [["class", "col s12 bottom-margin"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              29,
+              0,
+              null,
+              null,
+              2,
               "div",
               [["class", "right app-package right-align truncate"]],
               null,
@@ -81325,16 +83634,15 @@
               null,
               null
             )),
-            (e()(), l["\u0275ted"](26, null, ["", " ", ""])),
-            l["\u0275ppd"](27, 2),
-            l["\u0275ppd"](28, 2),
+            (e()(), l["\u0275ted"](30, null, ["", ""])),
+            l["\u0275ppd"](31, 2),
             (e()(),
             l["\u0275eld"](
-              29,
+              32,
               0,
               null,
               null,
-              22,
+              17,
               "div",
               [],
               null,
@@ -81345,7 +83653,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              30,
+              33,
               0,
               null,
               null,
@@ -81358,10 +83666,10 @@
               null,
               null
             )),
-            (e()(), l["\u0275ted"](31, null, ["", "\xa0\xa0"])),
+            (e()(), l["\u0275ted"](34, null, ["", "\xa0\xa0"])),
             (e()(),
             l["\u0275eld"](
-              32,
+              35,
               0,
               null,
               null,
@@ -81380,7 +83688,7 @@
               null
             )),
             l["\u0275did"](
-              33,
+              36,
               4931584,
               null,
               0,
@@ -81392,7 +83700,7 @@
             (e()(), l["\u0275ted"](-1, null, ["event"])),
             (e()(),
             l["\u0275eld"](
-              35,
+              38,
               0,
               null,
               null,
@@ -81405,10 +83713,10 @@
               null,
               null
             )),
-            (e()(), l["\u0275ted"](36, null, ["", "\xa0\xa0"])),
+            (e()(), l["\u0275ted"](39, null, ["", "\xa0\xa0"])),
             (e()(),
             l["\u0275eld"](
-              37,
+              40,
               0,
               null,
               null,
@@ -81427,7 +83735,7 @@
               null
             )),
             l["\u0275did"](
-              38,
+              41,
               4931584,
               null,
               0,
@@ -81439,7 +83747,7 @@
             (e()(), l["\u0275ted"](-1, null, ["visibility"])),
             (e()(),
             l["\u0275eld"](
-              40,
+              43,
               0,
               null,
               null,
@@ -81457,10 +83765,10 @@
               null,
               null
             )),
-            (e()(), l["\u0275ted"](41, null, ["", "\xa0\xa0"])),
+            (e()(), l["\u0275ted"](44, null, ["", "\xa0\xa0"])),
             (e()(),
             l["\u0275eld"](
-              42,
+              45,
               0,
               null,
               null,
@@ -81479,7 +83787,7 @@
               null
             )),
             l["\u0275did"](
-              43,
+              46,
               4931584,
               null,
               0,
@@ -81489,32 +83797,9 @@
               null
             ),
             (e()(), l["\u0275ted"](-1, null, ["thumb_up"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ua)),
-            l["\u0275did"](
-              46,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(), l["\u0275ted"](-1, null, ["\xa0 "])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, aa)),
-            l["\u0275did"](
-              49,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
             (e()(),
             l["\u0275eld"](
-              50,
+              48,
               0,
               null,
               null,
@@ -81523,7 +83808,7 @@
               [
                 [
                   "class",
-                  "btn waves-effect waves-light pink-button small-button margin-left"
+                  "btn waves-effect waves-light pink-button margin-left small-button"
                 ]
               ],
               null,
@@ -81542,7 +83827,56 @@
             (e()(), l["\u0275ted"](-1, null, ["Im Going"])),
             (e()(),
             l["\u0275eld"](
-              52,
+              50,
+              0,
+              null,
+              null,
+              7,
+              "div",
+              [["class", "col s12 m6 center-align"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              51,
+              0,
+              null,
+              null,
+              2,
+              "h4",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](52, null, ["", ""])),
+            l["\u0275ppd"](53, 2),
+            (e()(),
+            l["\u0275eld"](
+              54,
+              0,
+              null,
+              null,
+              2,
+              "h6",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](55, null, ["", ""])),
+            l["\u0275ppd"](56, 2),
+            (e()(),
+            l["\u0275eld"](
+              57,
               0,
               null,
               null,
@@ -81557,13 +83891,18 @@
             )),
             (e()(),
             l["\u0275eld"](
-              53,
+              58,
               0,
               null,
               null,
-              16,
+              6,
               "div",
-              [["class", "row"]],
+              [
+                [
+                  "class",
+                  "col s12 m6 center-align side-border hide-on-small-only"
+                ]
+              ],
               null,
               null,
               null,
@@ -81572,11 +83911,148 @@
             )),
             (e()(),
             l["\u0275eld"](
-              54,
+              59,
               0,
               null,
               null,
-              15,
+              2,
+              "h4",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](60, null, ["", ""])),
+            l["\u0275ppd"](61, 2),
+            (e()(),
+            l["\u0275eld"](
+              62,
+              0,
+              null,
+              null,
+              1,
+              "h6",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["mins"])),
+            (e()(),
+            l["\u0275eld"](
+              64,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              65,
+              0,
+              null,
+              null,
+              7,
+              "div",
+              [["class", "col s12 m6 center-align hide-on-med-and-up"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              66,
+              0,
+              null,
+              null,
+              0,
+              "div",
+              [["class", "top-border"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              67,
+              0,
+              null,
+              null,
+              2,
+              "h4",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](68, null, ["", ""])),
+            l["\u0275ppd"](69, 2),
+            (e()(),
+            l["\u0275eld"](
+              70,
+              0,
+              null,
+              null,
+              1,
+              "h6",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["mins"])),
+            (e()(),
+            l["\u0275eld"](
+              72,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ma)),
+            l["\u0275did"](
+              74,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              75,
+              0,
+              null,
+              null,
+              9,
               "div",
               [["class", "col s12"]],
               null,
@@ -81587,13 +84063,13 @@
             )),
             (e()(),
             l["\u0275eld"](
-              55,
+              76,
               0,
               null,
               null,
-              14,
-              "div",
-              [["class", "row"]],
+              0,
+              "br",
+              [],
               null,
               null,
               null,
@@ -81602,40 +84078,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              56,
-              0,
-              null,
-              null,
-              11,
-              "div",
-              [["class", "col s12 m5"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            l["\u0275prd"](
-              512,
-              null,
-              o["\u0275NgClassImpl"],
-              o["\u0275NgClassR2Impl"],
-              [l.IterableDiffers, l.KeyValueDiffers, l.ElementRef, l.Renderer2]
-            ),
-            l["\u0275did"](
-              58,
-              278528,
-              null,
-              0,
-              o.NgClass,
-              [o["\u0275NgClassImpl"]],
-              { klass: [0, "klass"], ngClass: [1, "ngClass"] },
-              null
-            ),
-            l["\u0275pod"](59, { m5: 0 }),
-            (e()(),
-            l["\u0275eld"](
-              60,
+              77,
               0,
               null,
               null,
@@ -81650,7 +84093,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              61,
+              78,
               0,
               null,
               null,
@@ -81663,9 +84106,9 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, da)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, va)),
             l["\u0275did"](
-              63,
+              80,
               16384,
               null,
               0,
@@ -81674,9 +84117,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ca)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, _a)),
             l["\u0275did"](
-              65,
+              82,
               16384,
               null,
               0,
@@ -81685,9 +84128,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, pa)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ya)),
             l["\u0275did"](
-              67,
+              84,
               16384,
               null,
               0,
@@ -81696,9 +84139,84 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ma)),
+            (e()(),
+            l["\u0275eld"](
+              85,
+              0,
+              null,
+              null,
+              15,
+              "div",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              86,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              87,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              88,
+              0,
+              null,
+              null,
+              12,
+              "div",
+              [["class", "row"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              89,
+              0,
+              null,
+              null,
+              5,
+              "div",
+              [["class", "col s6 truncate"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ba)),
             l["\u0275did"](
-              69,
+              91,
               16384,
               null,
               0,
@@ -81706,7 +84224,106 @@
               [l.ViewContainerRef, l.TemplateRef],
               { ngIf: [0, "ngIf"] },
               null
-            )
+            ),
+            (e()(),
+            l["\u0275eld"](
+              92,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              93,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](94, null, ["App Page: ", " "])),
+            (e()(),
+            l["\u0275eld"](
+              95,
+              0,
+              null,
+              null,
+              5,
+              "div",
+              [["class", "col s6 right-align truncate"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              96,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "btn waves-effect waves-light pink-button"]],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var l = !0;
+                return (
+                  "click" === n && (l = !1 !== e.component.copyShareUrl() && l),
+                  l
+                );
+              },
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Copy Share Link"])),
+            (e()(),
+            l["\u0275eld"](
+              98,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              99,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](100, null, ["Share Link: ", " "]))
           ],
           function(e, n) {
             var t = n.component,
@@ -81724,67 +84341,110 @@
               e(n, 17, 0, !t.currentApp.is_approved),
               e(n, 20, 0, t.currentApp.event_url),
               e(n, 22, 0, t.isMine),
-              e(n, 33, 0, "bottom", "Number of downloads"),
-              e(n, 38, 0, "bottom", "Number of views"),
-              e(n, 43, 0, "bottom", "Number of likes"),
-              e(n, 46, 0, t.currentApp.app_url),
-              e(n, 49, 0, t.currentApp.share_url);
-            var i = e(n, 59, 0, !!t.videoObject);
-            e(n, 58, 0, "col s12 m5", i),
+              e(n, 36, 0, "bottom", "Number of downloads"),
+              e(n, 41, 0, "bottom", "Number of views"),
+              e(n, 46, 0, "bottom", "Number of likes"),
+              e(n, 74, 0, t.videoObject),
               e(
                 n,
-                63,
+                80,
                 0,
                 t.currentApp.event_description || t.currentApp.description
               ),
-              e(n, 65, 0, t.currentApp.created),
-              e(n, 67, 0, t.currentApp.updated),
-              e(n, 69, 0, t.videoObject);
+              e(n, 82, 0, t.currentApp.created),
+              e(n, 84, 0, t.currentApp.updated),
+              e(n, 91, 0, t.currentApp.app_url);
           },
           function(e, n) {
             var t = n.component;
             e(n, 15, 0, t.currentApp.event_name || t.currentApp.name);
             var r = l["\u0275unv"](
+              n,
+              30,
+              0,
+              e(
                 n,
-                26,
+                31,
                 0,
-                e(
-                  n,
-                  27,
-                  0,
-                  l["\u0275nov"](n.parent, 0),
-                  1e3 * t.currentApp.start_time,
-                  "mediumDate"
-                )
-              ),
-              i = l["\u0275unv"](
+                l["\u0275nov"](n.parent, 0),
+                1e3 * t.currentApp.start_time,
+                "mediumDate"
+              )
+            );
+            e(n, 30, 0, r),
+              e(n, 34, 0, t.counters.a),
+              e(n, 39, 0, t.counters.v),
+              e(n, 44, 0, t.counters.l);
+            var i = l["\u0275unv"](
+              n,
+              52,
+              0,
+              e(
                 n,
-                26,
-                1,
-                e(
-                  n,
-                  28,
-                  0,
-                  l["\u0275nov"](n.parent, 0),
-                  1e3 * t.currentApp.start_time,
-                  "shortTime"
-                )
-              );
-            e(n, 26, 0, r, i),
-              e(n, 31, 0, t.counters.a),
-              e(n, 36, 0, t.counters.v),
-              e(n, 41, 0, t.counters.l);
+                53,
+                0,
+                l["\u0275nov"](n.parent, 0),
+                1e3 * t.currentApp.start_time,
+                "mediumDate"
+              )
+            );
+            e(n, 52, 0, i);
+            var o = l["\u0275unv"](
+              n,
+              55,
+              0,
+              e(
+                n,
+                56,
+                0,
+                l["\u0275nov"](n.parent, 0),
+                1e3 * t.currentApp.start_time,
+                "shortTime"
+              )
+            );
+            e(n, 55, 0, o);
+            var u = l["\u0275unv"](
+              n,
+              60,
+              0,
+              e(
+                n,
+                61,
+                0,
+                l["\u0275nov"](n.parent, 1),
+                t.currentApp.event_duration / 60,
+                "1.0-0"
+              )
+            );
+            e(n, 60, 0, u);
+            var a = l["\u0275unv"](
+              n,
+              68,
+              0,
+              e(
+                n,
+                69,
+                0,
+                l["\u0275nov"](n.parent, 1),
+                t.currentApp.event_duration / 60,
+                "1.0-0"
+              )
+            );
+            e(n, 68, 0, a),
+              e(n, 94, 0, t.currentApp.app_url),
+              e(n, 100, 0, t.currentApp.share_url);
           }
         );
       }
-      function va(e) {
+      function Ma(e) {
         return l["\u0275vid"](
           0,
           [
             l["\u0275pid"](0, o.DatePipe, [l.LOCALE_ID]),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ea)),
+            l["\u0275pid"](0, o.DecimalPipe, [l.LOCALE_ID]),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, oa)),
             l["\u0275did"](
-              2,
+              3,
               16384,
               null,
               0,
@@ -81793,9 +84453,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, na)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ua)),
             l["\u0275did"](
-              4,
+              5,
               16384,
               null,
               0,
@@ -81804,9 +84464,9 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ga)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, wa)),
             l["\u0275did"](
-              6,
+              7,
               16384,
               null,
               0,
@@ -81818,14 +84478,14 @@
           ],
           function(e, n) {
             var t = n.component;
-            e(n, 2, 0, t.is_not_found),
-              e(n, 4, 0, t.currentApp.event_image || t.currentApp.image),
-              e(n, 6, 0, !t.is_not_found);
+            e(n, 3, 0, t.is_not_found),
+              e(n, 5, 0, t.currentApp.event_image || t.currentApp.image),
+              e(n, 7, 0, !t.is_not_found);
           },
           null
         );
       }
-      function _a(e) {
+      function ka(e) {
         return l["\u0275vid"](
           0,
           [
@@ -81841,16 +84501,16 @@
               null,
               null,
               null,
-              va,
-              Xu
+              Ma,
+              ia
             )),
             l["\u0275did"](
               1,
               245760,
               null,
               0,
-              Zu,
-              [Cr, Sn, Zr, fl, u.DomSanitizer, ru.Lightbox],
+              ra,
+              [Cr, Sn, Zr, fl, u.DomSanitizer, su.Lightbox],
               null,
               null
             )
@@ -81861,11 +84521,11 @@
           null
         );
       }
-      var ya = l["\u0275ccf"]("app-event-listing", Zu, _a, {}, {}, []),
-        ba = t("wd/R"),
-        wa = ba,
-        Ma = new l.InjectionToken("daterangepicker.config"),
-        ka = {
+      var Ca = l["\u0275ccf"]("app-event-listing", ra, ka, {}, {}, []),
+        Da = t("wd/R"),
+        xa = Da,
+        La = new l.InjectionToken("daterangepicker.config"),
+        Sa = {
           direction: "ltr",
           separator: " - ",
           weekLabel: "W",
@@ -81873,11 +84533,11 @@
           cancelLabel: "Cancel",
           clearLabel: "Clear",
           customRangeLabel: "Custom range",
-          daysOfWeek: wa.weekdaysMin(),
-          monthNames: wa.monthsShort(),
-          firstDay: wa.localeData().firstDayOfWeek()
+          daysOfWeek: xa.weekdaysMin(),
+          monthNames: xa.monthsShort(),
+          firstDay: xa.localeData().firstDayOfWeek()
         },
-        Ca = (function() {
+        Ta = (function() {
           function e(e) {
             this._config = e;
           }
@@ -81885,8 +84545,8 @@
             Object.defineProperty(e.prototype, "config", {
               get: function() {
                 return this._config
-                  ? Object(i.__assign)({}, ka, this._config)
-                  : ka;
+                  ? Object(i.__assign)({}, Sa, this._config)
+                  : Sa;
               },
               enumerable: !0,
               configurable: !0
@@ -81894,11 +84554,11 @@
             e
           );
         })(),
-        Da = ba,
-        xa = (function(e) {
+        Ea = Da,
+        Ia = (function(e) {
           return (e.left = "left"), (e.right = "right"), e;
         })({}),
-        La = (function() {
+        Oa = (function() {
           function e(e, n, t) {
             (this.el = e),
               (this._ref = n),
@@ -81908,10 +84568,10 @@
               (this.timepickerVariables = { left: {}, right: {} }),
               (this.daterangepicker = { start: new Z(), end: new Z() }),
               (this.applyBtn = { disabled: !1 }),
-              (this.startDate = Da().startOf("day")),
-              (this.endDate = Da().endOf("day")),
+              (this.startDate = Ea().startOf("day")),
+              (this.endDate = Ea().endOf("day")),
               (this.dateLimit = null),
-              (this.sideEnum = xa),
+              (this.sideEnum = Ia),
               (this.minDate = null),
               (this.maxDate = null),
               (this.autoApply = !1),
@@ -81987,8 +84647,8 @@
                   ((this._old.start = this.startDate.clone()),
                   (this._old.end = this.endDate.clone())),
                 this.updateMonthsInView(),
-                this.renderCalendar(xa.left),
-                this.renderCalendar(xa.right),
+                this.renderCalendar(Ia.left),
+                this.renderCalendar(Ia.right),
                 this.renderRanges();
             }),
             (e.prototype.renderRanges = function() {
@@ -81998,12 +84658,12 @@
                   if (this.ranges[t]) {
                     (e =
                       "string" == typeof this.ranges[t][0]
-                        ? Da(this.ranges[t][0], this.locale.format)
-                        : Da(this.ranges[t][0])),
+                        ? Ea(this.ranges[t][0], this.locale.format)
+                        : Ea(this.ranges[t][0])),
                       (n =
                         "string" == typeof this.ranges[t][1]
-                          ? Da(this.ranges[t][1], this.locale.format)
-                          : Da(this.ranges[t][1])),
+                          ? Ea(this.ranges[t][1], this.locale.format)
+                          : Ea(this.ranges[t][1])),
                       this.minDate &&
                         e.isBefore(this.minDate) &&
                         (e = this.minDate.clone());
@@ -82041,13 +84701,13 @@
               }
             }),
             (e.prototype.renderTimePicker = function(e) {
-              if (e !== xa.right || this.endDate) {
+              if (e !== Ia.right || this.endDate) {
                 var n,
                   t,
                   l = this.maxDate;
-                e === xa.left
+                e === Ia.left
                   ? ((n = this.startDate.clone()), (t = this.minDate))
-                  : e === xa.right &&
+                  : e === Ia.right &&
                     ((n = this.endDate.clone()), (t = this.startDate));
                 var r = this.timePicker24Hour ? 0 : 1,
                   i = this.timePicker24Hour ? 23 : 12;
@@ -82132,22 +84792,22 @@
               }
             }),
             (e.prototype.renderCalendar = function(e) {
-              var n = e === xa.left ? this.leftCalendar : this.rightCalendar,
+              var n = e === Ia.left ? this.leftCalendar : this.rightCalendar,
                 t = n.month.month(),
                 l = n.month.year(),
                 r = n.month.hour(),
                 i = n.month.minute(),
                 o = n.month.second(),
-                u = Da([l, t]).daysInMonth(),
-                a = Da([l, t, 1]),
-                s = Da([l, t, u]),
-                d = Da(a)
+                u = Ea([l, t]).daysInMonth(),
+                a = Ea([l, t, 1]),
+                s = Ea([l, t, u]),
+                d = Ea(a)
                   .subtract(1, "month")
                   .month(),
-                c = Da(a)
+                c = Ea(a)
                   .subtract(1, "month")
                   .year(),
-                p = Da([c, d]).daysInMonth(),
+                p = Ea([c, d]).daysInMonth(),
                 h = a.day(),
                 f = [];
               (f.firstDay = a), (f.lastDay = s);
@@ -82155,9 +84815,9 @@
               var g = p - h + this.locale.firstDay + 1;
               g > p && (g -= 7), h === this.locale.firstDay && (g = p - 6);
               for (
-                var v = Da([c, d, g, 12, i, o]), _ = ((m = 0), 0), y = 0;
+                var v = Ea([c, d, g, 12, i, o]), _ = ((m = 0), 0), y = 0;
                 m < 42;
-                m++, _++, v = Da(v).add(24, "hour")
+                m++, _++, v = Ea(v).add(24, "hour")
               )
                 m > 0 && _ % 7 == 0 && ((_ = 0), y++),
                   (f[y][_] = v
@@ -82178,7 +84838,7 @@
                     f[y][_].isAfter(this.maxDate) &&
                     "right" === e &&
                     (f[y][_] = this.maxDate.clone());
-              e === xa.left
+              e === Ia.left
                 ? (this.leftCalendar.calendar = f)
                 : (this.rightCalendar.calendar = f);
               var b = "left" === e ? this.minDate : this.startDate,
@@ -82241,8 +84901,8 @@
             }),
             (e.prototype.setStartDate = function(e) {
               "string" == typeof e &&
-                (this.startDate = Da(e, this.locale.format)),
-                "object" == typeof e && (this.startDate = Da(e)),
+                (this.startDate = Ea(e, this.locale.format)),
+                "object" == typeof e && (this.startDate = Ea(e)),
                 this.timePicker ||
                   (this.startDate = this.startDate.startOf("day")),
                 this.timePicker &&
@@ -82277,8 +84937,8 @@
             }),
             (e.prototype.setEndDate = function(e) {
               "string" == typeof e &&
-                (this.endDate = Da(e, this.locale.format)),
-                "object" == typeof e && (this.endDate = Da(e)),
+                (this.endDate = Ea(e, this.locale.format)),
+                "object" == typeof e && (this.endDate = Ea(e)),
                 this.timePicker ||
                   (this.endDate = this.endDate
                     .add(1, "d")
@@ -82314,8 +84974,8 @@
             }),
             (e.prototype.updateView = function() {
               this.timePicker &&
-                (this.renderTimePicker(xa.left),
-                this.renderTimePicker(xa.right)),
+                (this.renderTimePicker(Ia.left),
+                this.renderTimePicker(Ia.right)),
                 this.updateMonthsInView(),
                 this.updateCalendars();
             }),
@@ -82371,8 +85031,8 @@
                   .subtract(1, "month")));
             }),
             (e.prototype.updateCalendars = function() {
-              this.renderCalendar(xa.left),
-                this.renderCalendar(xa.right),
+              this.renderCalendar(Ia.left),
+                this.renderCalendar(Ia.right),
                 null !== this.endDate && this.calculateChosenLabel();
             }),
             (e.prototype.updateElement = function() {
@@ -82494,7 +85154,7 @@
                 "PM" === i && t < 12 && (t += 12),
                   "AM" === i && 12 === t && (t = 0);
               }
-              if (n === xa.left) {
+              if (n === Ia.left) {
                 var o = this.startDate.clone();
                 o.hour(t),
                   o.minute(l),
@@ -82512,11 +85172,11 @@
                 u.hour(t), u.minute(l), u.second(r), this.setEndDate(u);
               }
               this.updateCalendars(),
-                this.renderTimePicker(xa.left),
-                this.renderTimePicker(xa.right);
+                this.renderTimePicker(Ia.left),
+                this.renderTimePicker(Ia.right);
             }),
             (e.prototype.monthOrYearChanged = function(e, n, t) {
-              var l = t === xa.left;
+              var l = t === Ia.left;
               l ||
                 ((n < this.startDate.year() ||
                   (n === this.startDate.year() &&
@@ -82546,7 +85206,7 @@
                 this.updateCalendars();
             }),
             (e.prototype.clickPrev = function(e) {
-              e === xa.left
+              e === Ia.left
                 ? (this.leftCalendar.month.subtract(1, "month"),
                   this.linkedCalendars &&
                     this.rightCalendar.month.subtract(1, "month"))
@@ -82554,7 +85214,7 @@
                 this.updateCalendars();
             }),
             (e.prototype.clickNext = function(e) {
-              e === xa.left
+              e === Ia.left
                 ? this.leftCalendar.month.add(1, "month")
                 : (this.rightCalendar.month.add(1, "month"),
                   this.linkedCalendars &&
@@ -82572,21 +85232,21 @@
               this.rangesArray.length &&
                 (this.chosenRange = this.locale.customRangeLabel);
               var r =
-                n === xa.left
+                n === Ia.left
                   ? this.leftCalendar.calendar[t][l]
                   : this.rightCalendar.calendar[t][l];
               (this.endDate ||
                 (r.isBefore(this.startDate, "day") &&
                   !1 === this.customRangeDirection)) &&
               !1 === this.lockStartDate
-                ? (this.timePicker && (r = this._getDateWithTime(r, xa.left)),
+                ? (this.timePicker && (r = this._getDateWithTime(r, Ia.left)),
                   (this.endDate = null),
                   this.setStartDate(r.clone()))
                 : !this.endDate &&
                   r.isBefore(this.startDate) &&
                   !1 === this.customRangeDirection
                 ? this.setEndDate(this.startDate.clone())
-                : (this.timePicker && (r = this._getDateWithTime(r, xa.right)),
+                : (this.timePicker && (r = this._getDateWithTime(r, Ia.right)),
                   !0 === r.isBefore(this.startDate, "day") &&
                   !0 === this.customRangeDirection
                     ? (this.setEndDate(this.startDate),
@@ -82628,8 +85288,8 @@
                     this.rightCalendar.month.year(t[1].year()),
                     this.updateCalendars(),
                     this.timePicker &&
-                      (this.renderTimePicker(xa.left),
-                      this.renderTimePicker(xa.right));
+                      (this.renderTimePicker(Ia.left),
+                      this.renderTimePicker(Ia.right));
                 } else this.clickApply();
               }
             }),
@@ -82659,8 +85319,8 @@
               for (var n in e) e.hasOwnProperty(n) && (this.locale[n] = e[n]);
             }),
             (e.prototype.clear = function() {
-              (this.startDate = Da().startOf("day")),
-                (this.endDate = Da().endOf("day")),
+              (this.startDate = Ea().startOf("day")),
+                (this.endDate = Ea().endOf("day")),
                 this.choosedDate.emit({
                   chosenLabel: "",
                   startDate: null,
@@ -82706,8 +85366,8 @@
               )),
                 this.locale.format ||
                   (this.locale.format = this.timePicker
-                    ? Da.localeData().longDateFormat("lll")
-                    : Da.localeData().longDateFormat("L"));
+                    ? Ea.localeData().longDateFormat("lll")
+                    : Ea.localeData().longDateFormat("L"));
             }),
             (e.prototype._buildCells = function(e, n) {
               for (var t = 0; t < 6; t++) {
@@ -82789,8 +85449,8 @@
             e
           );
         })(),
-        Sa = ba,
-        Ta = (function() {
+        Ra = Da,
+        Aa = (function() {
           function e(e, n, t, r, i, o, u, a) {
             (this.viewContainerRef = e),
               (this._changeDetectorRef = n),
@@ -82819,7 +85479,7 @@
               (this.datesUpdated = new l.EventEmitter()),
               (this.drops = "down"),
               (this.opens = "right");
-            var s = this._componentFactoryResolver.resolveComponentFactory(La);
+            var s = this._componentFactoryResolver.resolveComponentFactory(Oa);
             e.clear();
             var d = e.createComponent(s);
             (this.picker = d.instance), (this.picker.inline = !1);
@@ -82986,10 +85646,10 @@
                 var t = null,
                   l = null;
                 2 === n.length &&
-                  ((t = Sa(n[0], this.picker.locale.format)),
-                  (l = Sa(n[1], this.picker.locale.format))),
+                  ((t = Ra(n[0], this.picker.locale.format)),
+                  (l = Ra(n[1], this.picker.locale.format))),
                   (this.singleDatePicker || null === t || null === l) &&
-                    (l = t = Sa(e.target.value, this.picker.locale.format)),
+                    (l = t = Ra(e.target.value, this.picker.locale.format)),
                   t.isValid() &&
                     l.isValid() &&
                     (this.picker.setStartDate(t),
@@ -83006,7 +85666,7 @@
             e
           );
         })(),
-        Ea = (function() {
+        Pa = (function() {
           function e() {}
           var n;
           return (
@@ -83017,8 +85677,8 @@
                 {
                   ngModule: n,
                   providers: [
-                    { provide: Ma, useValue: e },
-                    { provide: Ca, useClass: Ca, deps: [Ma] }
+                    { provide: La, useValue: e },
+                    { provide: Ta, useClass: Ta, deps: [La] }
                   ]
                 }
               );
@@ -83026,9 +85686,9 @@
             e
           );
         })(),
-        Ia = t("MO+k"),
-        Oa = t("LvDl"),
-        Ra = [
+        Ya = t("MO+k"),
+        ja = t("LvDl"),
+        Na = [
           [255, 99, 132],
           [54, 162, 235],
           [255, 206, 86],
@@ -83042,45 +85702,45 @@
           [148, 159, 177],
           [77, 83, 96]
         ];
-      function Aa(e, n) {
+      function Fa(e, n) {
         return "rgba(" + e.concat(n).join(",") + ")";
       }
-      function Ya(e, n) {
+      function Va(e, n) {
         return Math.floor(Math.random() * (n - e + 1)) + e;
       }
-      function Pa(e) {
+      function Ha(e) {
         return {
           backgroundColor: e.map(function(e) {
-            return Aa(e, 0.6);
+            return Fa(e, 0.6);
           }),
           borderColor: e.map(function() {
             return "#fff";
           }),
           pointBackgroundColor: e.map(function(e) {
-            return Aa(e, 1);
+            return Fa(e, 1);
           }),
           pointBorderColor: e.map(function() {
             return "#fff";
           }),
           pointHoverBackgroundColor: e.map(function(e) {
-            return Aa(e, 1);
+            return Fa(e, 1);
           }),
           pointHoverBorderColor: e.map(function(e) {
-            return Aa(e, 1);
+            return Fa(e, 1);
           })
         };
       }
-      function ja() {
-        return [Ya(0, 255), Ya(0, 255), Ya(0, 255)];
+      function za() {
+        return [Va(0, 255), Va(0, 255), Va(0, 255)];
       }
-      function Na(e) {
-        return Ra[e] || ja();
+      function Ua(e) {
+        return Na[e] || za();
       }
-      function Fa(e) {
-        for (var n = new Array(e), t = 0; t < e; t++) n[t] = Ra[t] || ja();
+      function Wa(e) {
+        for (var n = new Array(e), t = 0; t < e; t++) n[t] = Na[t] || za();
         return n;
       }
-      var Va = (function() {
+      var Ba = (function() {
           function e() {
             (this.pColorschemesOptions = {}),
               (this.colorschemesOptions = new En.a({}));
@@ -83102,7 +85762,7 @@
             e
           );
         })(),
-        Ha = (function() {
+        Ga = (function() {
           var e = { Default: 0, Update: 1, Refresh: 2 };
           return (
             (e[e.Default] = "Default"),
@@ -83111,7 +85771,7 @@
             e
           );
         })(),
-        za = (function() {
+        $a = (function() {
           function e(e, n) {
             (this.element = e),
               (this.themeService = n),
@@ -83136,10 +85796,10 @@
           }
           return (
             (e.registerPlugin = function(e) {
-              Ia.Chart.plugins.register(e);
+              Ya.Chart.plugins.register(e);
             }),
             (e.unregisterPlugin = function(e) {
-              Ia.Chart.plugins.unregister(e);
+              Ya.Chart.plugins.unregister(e);
             }),
             (e.prototype.ngOnInit = function() {
               var e = this;
@@ -83157,7 +85817,7 @@
             (e.prototype.ngDoCheck = function() {
               var e = this;
               if (this.chart) {
-                var n = Ha.Default,
+                var n = Ga.Default,
                   t = function(e) {
                     n = e > n ? e : n;
                   };
@@ -83165,19 +85825,19 @@
                   (!!this.data !== this.old.dataExists &&
                     (this.propagateDataToDatasets(this.data),
                     (this.old.dataExists = !!this.data),
-                    t(Ha.Update)),
+                    t(Ga.Update)),
                   this.data &&
                     this.data.length !== this.old.dataLength &&
                     ((this.old.dataLength =
                       (this.data && this.data.length) || 0),
-                    t(Ha.Update)),
+                    t(Ga.Update)),
                   !!this.datasets !== this.old.datasetsExists &&
-                    ((this.old.datasetsExists = !!this.datasets), t(Ha.Update)),
+                    ((this.old.datasetsExists = !!this.datasets), t(Ga.Update)),
                   this.datasets &&
                     this.datasets.length !== this.old.datasetsLength &&
                     ((this.old.datasetsLength =
                       (this.datasets && this.datasets.length) || 0),
-                    t(Ha.Update)),
+                    t(Ga.Update)),
                   this.datasets &&
                     this.datasets.filter(function(n, t) {
                       return n.data !== e.old.datasetsDataObjects[t];
@@ -83187,7 +85847,7 @@
                     ) {
                       return e.data;
                     })),
-                    t(Ha.Update)),
+                    t(Ga.Update)),
                   this.datasets &&
                     this.datasets.filter(function(n, t) {
                       return n.data.length !== e.old.datasetsDataLengths[t];
@@ -83197,11 +85857,11 @@
                     ) {
                       return e.data.length;
                     })),
-                    t(Ha.Update)),
+                    t(Ga.Update)),
                   !!this.colors !== this.old.colorsExists &&
                     ((this.old.colorsExists = !!this.colors),
                     this.updateColors(),
-                    t(Ha.Update)),
+                    t(Ga.Update)),
                   this.colors &&
                     this.colors.filter(function(n, t) {
                       return !e.colorsEqual(n, e.old.colors[t]);
@@ -83210,9 +85870,9 @@
                       return e.copyColor(n);
                     })),
                     this.updateColors(),
-                    t(Ha.Update)),
+                    t(Ga.Update)),
                   !!this.labels !== this.old.labelsExist &&
-                    ((this.old.labelsExist = !!this.labels), t(Ha.Update)),
+                    ((this.old.labelsExist = !!this.labels), t(Ga.Update)),
                   this.labels &&
                     this.labels.filter(function(n, t) {
                       return !e.labelsEqual(n, e.old.labels[t]);
@@ -83220,22 +85880,22 @@
                     ((this.old.labels = this.labels.map(function(n) {
                       return e.copyLabel(n);
                     })),
-                    t(Ha.Update)),
+                    t(Ga.Update)),
                   !!this.options.legend !== this.old.legendExists &&
                     ((this.old.legendExists = !!this.options.legend),
-                    t(Ha.Refresh)),
+                    t(Ga.Refresh)),
                   this.options.legend &&
                     this.options.legend.position !== this.old.legend.position &&
                     ((this.old.legend.position = this.options.legend.position),
-                    t(Ha.Refresh)),
+                    t(Ga.Refresh)),
                   n)
                 ) {
-                  case Ha.Default:
+                  case Ga.Default:
                     break;
-                  case Ha.Update:
+                  case Ga.Update:
                     this.update();
                     break;
-                  case Ha.Refresh:
+                  case Ga.Refresh:
                     this.refresh();
                 }
               }
@@ -83314,45 +85974,45 @@
                   : Object.assign(
                       n,
                       (function(e, n, t) {
-                        if ("pie" === e || "doughnut" === e) return Pa(Fa(t));
+                        if ("pie" === e || "doughnut" === e) return Ha(Wa(t));
                         if ("polarArea" === e)
                           return {
-                            backgroundColor: (l = Fa(t)).map(function(e) {
-                              return Aa(e, 0.6);
+                            backgroundColor: (l = Wa(t)).map(function(e) {
+                              return Fa(e, 0.6);
                             }),
                             borderColor: l.map(function(e) {
-                              return Aa(e, 1);
+                              return Fa(e, 1);
                             }),
                             hoverBackgroundColor: l.map(function(e) {
-                              return Aa(e, 0.8);
+                              return Fa(e, 0.8);
                             }),
                             hoverBorderColor: l.map(function(e) {
-                              return Aa(e, 1);
+                              return Fa(e, 1);
                             })
                           };
                         var l;
                         if ("line" === e || "radar" === e)
                           return (function(e) {
                             return {
-                              backgroundColor: Aa(e, 0.4),
-                              borderColor: Aa(e, 1),
-                              pointBackgroundColor: Aa(e, 1),
+                              backgroundColor: Fa(e, 0.4),
+                              borderColor: Fa(e, 1),
+                              pointBackgroundColor: Fa(e, 1),
                               pointBorderColor: "#fff",
                               pointHoverBackgroundColor: "#fff",
-                              pointHoverBorderColor: Aa(e, 0.8)
+                              pointHoverBorderColor: Fa(e, 0.8)
                             };
-                          })(Na(n));
+                          })(Ua(n));
                         if ("bar" === e || "horizontalBar" === e)
                           return (function(e) {
                             return {
-                              backgroundColor: Aa(e, 0.6),
-                              borderColor: Aa(e, 1),
-                              hoverBackgroundColor: Aa(e, 0.8),
-                              hoverBorderColor: Aa(e, 1)
+                              backgroundColor: Fa(e, 0.6),
+                              borderColor: Fa(e, 1),
+                              hoverBackgroundColor: Fa(e, 0.8),
+                              hoverBorderColor: Fa(e, 1)
                             };
-                          })(Na(n));
-                        if ("bubble" === e) return Pa(Fa(t));
-                        if ("scatter" === e) return Pa(Fa(t));
+                          })(Ua(n));
+                        if ("bubble" === e) return Ha(Wa(t));
+                        if ("scatter" === e) return Ha(Wa(t));
                         throw new Error(
                           "getColors - Unsupported chart type " + e
                         );
@@ -83362,7 +86022,7 @@
               });
             }),
             (e.prototype.ngOnChanges = function(e) {
-              var n = Ha.Default,
+              var n = Ga.Default,
                 t = function(e) {
                   n = e > n ? e : n;
                 };
@@ -83370,29 +86030,29 @@
                 (e.hasOwnProperty("data") &&
                   e.data.currentValue &&
                   (this.propagateDataToDatasets(e.data.currentValue),
-                  t(Ha.Update)),
+                  t(Ga.Update)),
                 e.hasOwnProperty("datasets") &&
                   e.datasets.currentValue &&
                   (this.propagateDatasetsToData(e.datasets.currentValue),
-                  t(Ha.Update)),
+                  t(Ga.Update)),
                 e.hasOwnProperty("labels") &&
                   (this.chart &&
                     (this.chart.data.labels = e.labels.currentValue),
-                  t(Ha.Update)),
+                  t(Ga.Update)),
                 e.hasOwnProperty("legend") &&
                   (this.chart &&
                     ((this.chart.config.options.legend.display =
                       e.legend.currentValue),
                     this.chart.generateLegend()),
-                  t(Ha.Update)),
-                e.hasOwnProperty("options") && t(Ha.Refresh),
+                  t(Ga.Update)),
+                e.hasOwnProperty("options") && t(Ga.Refresh),
                 n)
               ) {
-                case Ha.Update:
+                case Ga.Update:
                   this.update();
                   break;
-                case Ha.Refresh:
-                case Ha.Default:
+                case Ga.Refresh:
+                case Ga.Default:
                   this.refresh();
               }
             }),
@@ -83442,13 +86102,13 @@
             }),
             (e.prototype.getChartBuilder = function(e) {
               var n = this.getChartConfiguration();
-              return new Ia.Chart(e, n);
+              return new Ya.Chart(e, n);
             }),
             (e.prototype.smartMerge = function(e, n, t) {
               var l = this;
               if (
                 (void 0 === t && (t = 0),
-                0 === t && (e = Object(Oa.cloneDeep)(e)),
+                0 === t && (e = Object(ja.cloneDeep)(e)),
                 Object.keys(n).forEach(function(r) {
                   if (Array.isArray(n[r])) {
                     var i = e[r];
@@ -83520,10 +86180,10 @@
             e
           );
         })(),
-        Ua = (function() {
+        qa = (function() {
           return function() {};
         })(),
-        Wa = (function() {
+        Ka = (function() {
           function e(e) {
             (this.expanseService = e),
               (this.lineChartData = [
@@ -83583,8 +86243,8 @@
               (this.lineChartPlugins = []),
               (this.selectedFilter = "All"),
               (this.selectedDate = {
-                start: ba().subtract(6, "days"),
-                end: ba()
+                start: Da().subtract(6, "days"),
+                end: Da()
               });
           }
           return (
@@ -83762,7 +86422,7 @@
             e
           );
         })(),
-        Ba = l["\u0275crt"]({
+        Ja = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -83771,7 +86431,7 @@
           ],
           data: {}
         });
-      function Ga(e) {
+      function Qa(e) {
         return l["\u0275vid"](
           0,
           [
@@ -83796,7 +86456,7 @@
           null
         );
       }
-      function $a(e) {
+      function Za(e) {
         return l["\u0275vid"](
           0,
           [
@@ -83820,8 +86480,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               null,
               null
             ),
@@ -83843,7 +86503,7 @@
           }
         );
       }
-      function qa(e) {
+      function Xa(e) {
         return l["\u0275vid"](
           0,
           [
@@ -83936,7 +86596,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -83948,7 +86608,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               7,
@@ -83962,7 +86622,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](9, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, $a)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Za)),
             l["\u0275did"](
               11,
               278528,
@@ -83994,7 +86654,7 @@
           }
         );
       }
-      function Ka(e) {
+      function es(e) {
         return l["\u0275vid"](
           0,
           [
@@ -84015,7 +86675,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ga)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Qa)),
             l["\u0275did"](
               4,
               16384,
@@ -84161,7 +86821,7 @@
               868352,
               null,
               0,
-              Ta,
+              Aa,
               [
                 l.ViewContainerRef,
                 l.ChangeDetectorRef,
@@ -84169,7 +86829,7 @@
                 l.ElementRef,
                 l.Renderer2,
                 l.KeyValueDiffers,
-                Ca,
+                Ta,
                 l.ElementRef
               ],
               {
@@ -84187,7 +86847,7 @@
               function(e, n) {
                 return [e, n];
               },
-              [f, Ta]
+              [f, Aa]
             ),
             l["\u0275did"](
               13,
@@ -84201,7 +86861,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](15, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, qa)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Xa)),
             l["\u0275did"](
               17,
               16384,
@@ -84356,8 +87016,8 @@
               999424,
               [[1, 4]],
               0,
-              za,
-              [l.ElementRef, Va],
+              $a,
+              [l.ElementRef, Ba],
               {
                 datasets: [0, "datasets"],
                 options: [1, "options"],
@@ -84426,7 +87086,7 @@
           }
         );
       }
-      var Ja = (function() {
+      var ns = (function() {
           function e() {}
           return (
             (e.prototype.transform = function(e) {
@@ -84443,7 +87103,7 @@
             e
           );
         })(),
-        Qa = (function() {
+        ts = (function() {
           function e(e, n, t, l, r, o) {
             var u = this;
             (this.router = e),
@@ -84467,7 +87127,7 @@
                 app_url: "",
                 is_approved: !1
               }),
-              (this.selectedDate = { start: ba(), end: null }),
+              (this.selectedDate = { start: Da(), end: null }),
               (this.selectedTime = 1080),
               (this.sub = this.router.events.subscribe(function(e) {
                 return i.__awaiter(u, void 0, void 0, function() {
@@ -84503,7 +87163,7 @@
                           (this.selectedTime =
                             (+n.start_time - Math.floor(t.getTime() / 1e3)) /
                             60),
-                          (this.selectedDate = { start: ba(t), end: null }),
+                          (this.selectedDate = { start: Da(t), end: null }),
                           (this.currentApp.name = n.name),
                           (this.currentApp.description = n.description),
                           (this.currentApp.event_name = n.event_name),
@@ -84545,7 +87205,7 @@
               });
             }),
             (e.prototype.onVideoChange = function() {
-              (this.videoObject = tu.parse(this.currentApp.video_url || "")),
+              (this.videoObject = uu.parse(this.currentApp.video_url || "")),
                 this.videoObject &&
                   (this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
                     "youtube" === this.videoObject.provider
@@ -84567,25 +87227,24 @@
                 .then(function() {
                   return fetch(
                     "https://xpan.cc/get-link/" +
-                      e.expanseService.currentSession.token +
-                      "/e-" +
-                      e.events_id +
-                      "/" +
-                      window.encodeURIComponent(
-                        "https://sidequestvr.com/#/event/" + e.events_id
-                      ) +
-                      "/" +
-                      window.encodeURIComponent(
-                        e.currentApp.event_name || e.currentApp.name
-                      ) +
-                      " on SideQuest/" +
-                      window.encodeURIComponent(e.currentApp.event_image) +
-                      "/" +
-                      (window.encodeURIComponent(
-                        e.currentApp.event_description ||
-                          e.currentApp.description
-                      ) || "-"),
-                    { method: "GET", cache: "no-cache" }
+                      e.expanseService.currentSession.token,
+                    {
+                      method: "POST",
+                      headers: {
+                        Accept: "application/json",
+                        "Content-Type": "application/json"
+                      },
+                      body: JSON.stringify({
+                        title: e.currentApp.event_name || e.currentApp.name,
+                        description:
+                          e.currentApp.event_description ||
+                          e.currentApp.description,
+                        image: e.currentApp.event_image || e.currentApp.image,
+                        name: "e-" + e.events_id,
+                        external:
+                          "https://sidequestvr.com/#/event/" + e.events_id
+                      })
+                    }
                   );
                 })
                 .then(function(e) {
@@ -84686,7 +87345,7 @@
             e
           );
         })(),
-        Za = l["\u0275crt"]({
+        ls = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -84695,7 +87354,7 @@
           ],
           data: {}
         });
-      function Xa(e) {
+      function rs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -84735,7 +87394,7 @@
           null
         );
       }
-      function es(e) {
+      function is(e) {
         return l["\u0275vid"](
           0,
           [
@@ -84794,7 +87453,7 @@
           null
         );
       }
-      function ns(e) {
+      function os(e) {
         return l["\u0275vid"](
           0,
           [
@@ -84854,7 +87513,7 @@
           }
         );
       }
-      function ts(e) {
+      function us(e) {
         return l["\u0275vid"](
           0,
           [
@@ -84885,15 +87544,15 @@
               null,
               null,
               null,
-              Ka,
-              Ba
+              es,
+              Ja
             )),
             l["\u0275did"](
               2,
               4308992,
               [["chart", 4]],
               0,
-              Wa,
+              Ka,
               [Zr],
               { events_id: [0, "events_id"] },
               null
@@ -85064,7 +87723,7 @@
           null
         );
       }
-      function ls(e) {
+      function as(e) {
         return l["\u0275vid"](
           0,
           [
@@ -85110,7 +87769,7 @@
           null
         );
       }
-      function rs(e) {
+      function ss(e) {
         return l["\u0275vid"](
           0,
           [
@@ -85149,7 +87808,7 @@
           null
         );
       }
-      function is(e) {
+      function ds(e) {
         return l["\u0275vid"](
           0,
           [
@@ -85190,7 +87849,7 @@
           }
         );
       }
-      function os(e) {
+      function cs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -85240,7 +87899,7 @@
           }
         );
       }
-      function us(e) {
+      function ps(e) {
         return l["\u0275vid"](
           0,
           [
@@ -85287,7 +87946,7 @@
           }
         );
       }
-      function as(e) {
+      function hs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -85306,7 +87965,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, os)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, cs)),
             l["\u0275did"](
               2,
               16384,
@@ -85317,7 +87976,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, us)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ps)),
             l["\u0275did"](
               4,
               16384,
@@ -85337,7 +87996,7 @@
           null
         );
       }
-      function ss(e) {
+      function fs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -85362,7 +88021,7 @@
           null
         );
       }
-      function ds(e) {
+      function ms(e) {
         return l["\u0275vid"](
           0,
           [
@@ -85390,7 +88049,7 @@
           }
         );
       }
-      function cs(e) {
+      function gs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -85591,7 +88250,7 @@
           }
         );
       }
-      function ps(e) {
+      function vs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -85618,7 +88277,7 @@
           }
         );
       }
-      function hs(e) {
+      function _s(e) {
         return l["\u0275vid"](
           0,
           [
@@ -85821,7 +88480,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ps)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, vs)),
             l["\u0275did"](
               16,
               16384,
@@ -85854,7 +88513,7 @@
           null
         );
       }
-      function fs(e) {
+      function ys(e) {
         return l["\u0275vid"](
           0,
           [
@@ -86073,7 +88732,7 @@
           null
         );
       }
-      function ms(e) {
+      function bs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -86110,7 +88769,7 @@
               null
             ),
             l["\u0275pod"](3, { padding: 0, container: 1 }),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, es)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, is)),
             l["\u0275did"](
               5,
               16384,
@@ -86199,7 +88858,7 @@
             ),
             (e()(), l["\u0275ted"](-1, null, ["reply"])),
             (e()(), l["\u0275ted"](12, null, ["", " "])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ns)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, os)),
             l["\u0275did"](
               14,
               16384,
@@ -86210,7 +88869,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ts)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, us)),
             l["\u0275did"](
               16,
               16384,
@@ -86301,7 +88960,7 @@
             l["\u0275ted"](-1, null, [
               "Add an image - 2048px X 1024px is a good size."
             ])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ls)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, as)),
             l["\u0275did"](
               25,
               16384,
@@ -86312,7 +88971,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, rs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ss)),
             l["\u0275did"](
               27,
               16384,
@@ -86323,7 +88982,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, is)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ds)),
             l["\u0275did"](
               29,
               16384,
@@ -86561,7 +89220,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["Youtube/Vimeo Url"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, as)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, hs)),
             l["\u0275did"](
               50,
               16384,
@@ -86587,7 +89246,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ss)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, fs)),
             l["\u0275did"](
               53,
               16384,
@@ -86598,7 +89257,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ds)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ms)),
             l["\u0275did"](
               55,
               16384,
@@ -87328,7 +89987,7 @@
               868352,
               null,
               0,
-              Ta,
+              Aa,
               [
                 l.ViewContainerRef,
                 l.ChangeDetectorRef,
@@ -87336,7 +89995,7 @@
                 l.ElementRef,
                 l.Renderer2,
                 l.KeyValueDiffers,
-                Ca,
+                Ta,
                 l.ElementRef
               ],
               {
@@ -87354,7 +90013,7 @@
               function(e, n) {
                 return [e, n];
               },
-              [f, Ta]
+              [f, Aa]
             ),
             l["\u0275did"](
               113,
@@ -87790,8 +90449,8 @@
               null,
               null,
               null,
-              Io,
-              Eo
+              Yo,
+              Po
             )),
             l["\u0275did"](151, 49152, null, 0, pn, [], null, null),
             (e()(),
@@ -88261,7 +90920,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](186, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, cs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, gs)),
             l["\u0275did"](
               188,
               16384,
@@ -88272,7 +90931,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, hs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, _s)),
             l["\u0275did"](
               190,
               16384,
@@ -88283,7 +90942,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, fs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ys)),
             l["\u0275did"](
               192,
               16384,
@@ -88518,12 +91177,12 @@
           }
         );
       }
-      function gs(e) {
+      function ws(e) {
         return l["\u0275vid"](
           0,
           [
-            l["\u0275pid"](0, Ja, []),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Xa)),
+            l["\u0275pid"](0, ns, []),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, rs)),
             l["\u0275did"](
               2,
               16384,
@@ -88534,7 +91193,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ms)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, bs)),
             l["\u0275did"](
               4,
               16384,
@@ -88557,8 +91216,8 @@
               null,
               null,
               null,
-              Lo,
-              xo
+              Oo,
+              Io
             )),
             l["\u0275did"](
               6,
@@ -88724,7 +91383,7 @@
           null
         );
       }
-      function vs(e) {
+      function Ms(e) {
         return l["\u0275vid"](
           0,
           [
@@ -88740,15 +91399,15 @@
               null,
               null,
               null,
-              gs,
-              Za
+              ws,
+              ls
             )),
             l["\u0275did"](
               1,
               245760,
               null,
               0,
-              Qa,
+              ts,
               [Cr, Sn, Zr, u.DomSanitizer, fl, Xr],
               null,
               null
@@ -88760,8 +91419,8 @@
           null
         );
       }
-      var _s = l["\u0275ccf"]("app-event-manager", Qa, vs, {}, {}, []),
-        ys = l["\u0275crt"]({
+      var ks = l["\u0275ccf"]("app-event-manager", ts, Ms, {}, {}, []),
+        Cs = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -88770,7 +91429,7 @@
           ],
           data: {}
         });
-      function bs(e) {
+      function Ds(e) {
         return l["\u0275vid"](
           0,
           [
@@ -88810,7 +91469,7 @@
           null
         );
       }
-      function ws(e) {
+      function xs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -88864,7 +91523,7 @@
           null
         );
       }
-      function Ms(e) {
+      function Ls(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89052,7 +91711,7 @@
           }
         );
       }
-      function ks(e) {
+      function Ss(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89101,7 +91760,7 @@
           }
         );
       }
-      function Cs(e) {
+      function Ts(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89132,15 +91791,15 @@
               null,
               null,
               null,
-              Ka,
-              Ba
+              es,
+              Ja
             )),
             l["\u0275did"](
               2,
               4308992,
               [[3, 4], ["chart", 4]],
               0,
-              Wa,
+              Ka,
               [Zr],
               { apps_id: [0, "apps_id"] },
               null
@@ -89311,7 +91970,7 @@
           null
         );
       }
-      function Ds(e) {
+      function Es(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89357,7 +92016,7 @@
           null
         );
       }
-      function xs(e) {
+      function Is(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89396,7 +92055,7 @@
           null
         );
       }
-      function Ls(e) {
+      function Os(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89437,7 +92096,7 @@
           }
         );
       }
-      function Ss(e) {
+      function Rs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89487,7 +92146,7 @@
           }
         );
       }
-      function Ts(e) {
+      function As(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89534,7 +92193,7 @@
           }
         );
       }
-      function Es(e) {
+      function Ps(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89553,7 +92212,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ss)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Rs)),
             l["\u0275did"](
               2,
               16384,
@@ -89564,7 +92223,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ts)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, As)),
             l["\u0275did"](
               4,
               16384,
@@ -89584,7 +92243,7 @@
           null
         );
       }
-      function Is(e) {
+      function Ys(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89623,7 +92282,7 @@
           null
         );
       }
-      function Os(e) {
+      function js(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89671,7 +92330,7 @@
           null
         );
       }
-      function Rs(e) {
+      function Ns(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89712,7 +92371,7 @@
           }
         );
       }
-      function As(e) {
+      function Fs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89739,7 +92398,7 @@
           }
         );
       }
-      function Ys(e) {
+      function Vs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89764,7 +92423,7 @@
           null
         );
       }
-      function Ps(e) {
+      function Hs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89792,7 +92451,7 @@
           }
         );
       }
-      function js(e) {
+      function zs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -89970,7 +92629,7 @@
           }
         );
       }
-      function Ns(e) {
+      function Us(e) {
         return l["\u0275vid"](
           0,
           [
@@ -90029,7 +92688,7 @@
           null
         );
       }
-      function Fs(e) {
+      function Ws(e) {
         return l["\u0275vid"](
           0,
           [
@@ -90137,7 +92796,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -90149,7 +92808,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               9,
@@ -90183,8 +92842,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               null,
               null
             ),
@@ -90219,8 +92878,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               null,
               null
             ),
@@ -90255,7 +92914,7 @@
           }
         );
       }
-      function Vs(e) {
+      function Bs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -90279,8 +92938,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               null,
               null
             ),
@@ -90302,7 +92961,7 @@
           }
         );
       }
-      function Hs(e) {
+      function Gs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -90348,7 +93007,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -90360,7 +93019,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               3,
@@ -90374,7 +93033,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](5, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Bs)),
             l["\u0275did"](
               7,
               278528,
@@ -90406,7 +93065,7 @@
           }
         );
       }
-      function zs(e) {
+      function $s(e) {
         return l["\u0275vid"](
           0,
           [
@@ -90508,7 +93167,7 @@
           }
         );
       }
-      function Us(e) {
+      function qs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -90570,7 +93229,7 @@
           null
         );
       }
-      function Ws(e) {
+      function Ks(e) {
         return l["\u0275vid"](
           0,
           [
@@ -90594,8 +93253,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               null,
               null
             ),
@@ -90617,7 +93276,7 @@
           }
         );
       }
-      function Bs(e) {
+      function Js(e) {
         return l["\u0275vid"](
           0,
           [
@@ -90727,7 +93386,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -90739,7 +93398,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               9,
@@ -90753,7 +93412,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](11, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ws)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ks)),
             l["\u0275did"](
               13,
               278528,
@@ -90785,7 +93444,7 @@
           }
         );
       }
-      function Gs(e) {
+      function Qs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -90809,8 +93468,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               null,
               null
             ),
@@ -90832,7 +93491,7 @@
           }
         );
       }
-      function $s(e) {
+      function Zs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -90940,7 +93599,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -90952,7 +93611,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               9,
@@ -90966,7 +93625,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](11, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Gs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Qs)),
             l["\u0275did"](
               13,
               278528,
@@ -90998,7 +93657,7 @@
           }
         );
       }
-      function qs(e) {
+      function Xs(e) {
         return l["\u0275vid"](
           0,
           [
@@ -91022,7 +93681,7 @@
           null
         );
       }
-      function Ks(e) {
+      function ed(e) {
         return l["\u0275vid"](
           0,
           [
@@ -91175,7 +93834,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["Github User/Org name"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Bs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Js)),
             l["\u0275did"](
               13,
               16384,
@@ -91186,7 +93845,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, $s)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Zs)),
             l["\u0275did"](
               15,
               16384,
@@ -91212,7 +93871,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, qs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Xs)),
             l["\u0275did"](
               18,
               16384,
@@ -91247,7 +93906,7 @@
           }
         );
       }
-      function Js(e) {
+      function nd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -91290,7 +93949,7 @@
           null
         );
       }
-      function Qs(e) {
+      function td(e) {
         return l["\u0275vid"](
           0,
           [
@@ -91317,7 +93976,7 @@
           }
         );
       }
-      function Zs(e) {
+      function ld(e) {
         return l["\u0275vid"](
           0,
           [
@@ -91518,7 +94177,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Qs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, td)),
             l["\u0275did"](
               16,
               16384,
@@ -91551,7 +94210,7 @@
           null
         );
       }
-      function Xs(e) {
+      function rd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -91770,7 +94429,7 @@
           null
         );
       }
-      function ed(e) {
+      function id(e) {
         return l["\u0275vid"](
           0,
           [
@@ -91807,7 +94466,7 @@
               null
             ),
             l["\u0275pod"](3, { padding: 0, container: 1 }),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ws)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, xs)),
             l["\u0275did"](
               5,
               16384,
@@ -91844,7 +94503,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["Save App"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ms)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ls)),
             l["\u0275did"](
               9,
               16384,
@@ -91907,7 +94566,7 @@
             ),
             (e()(), l["\u0275ted"](-1, null, ["reply"])),
             (e()(), l["\u0275ted"](14, null, ["", " "])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ks)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ss)),
             l["\u0275did"](
               16,
               16384,
@@ -91918,7 +94577,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Cs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ts)),
             l["\u0275did"](
               18,
               16384,
@@ -92009,7 +94668,7 @@
             l["\u0275ted"](-1, null, [
               "Add an icon - 512px X 512px is a good size."
             ])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ds)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Es)),
             l["\u0275did"](
               27,
               16384,
@@ -92020,7 +94679,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, xs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Is)),
             l["\u0275did"](
               29,
               16384,
@@ -92031,7 +94690,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ls)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Os)),
             l["\u0275did"](
               31,
               16384,
@@ -92270,7 +94929,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["Youtube/Vimeo Url"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Es)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ps)),
             l["\u0275did"](
               52,
               16384,
@@ -92343,7 +95002,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["Add an app screenshot."])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Is)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ys)),
             l["\u0275did"](
               60,
               16384,
@@ -92354,7 +95013,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Os)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, js)),
             l["\u0275did"](
               62,
               16384,
@@ -92365,7 +95024,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Rs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ns)),
             l["\u0275did"](
               64,
               278528,
@@ -92421,7 +95080,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, As)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fs)),
             l["\u0275did"](
               69,
               16384,
@@ -92432,7 +95091,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ys)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vs)),
             l["\u0275did"](
               71,
               16384,
@@ -92443,7 +95102,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ps)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hs)),
             l["\u0275did"](
               73,
               16384,
@@ -92637,7 +95296,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["App Name"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, js)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, zs)),
             l["\u0275did"](
               90,
               16384,
@@ -92648,7 +95307,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ns)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Us)),
             l["\u0275did"](
               92,
               16384,
@@ -93006,8 +95665,8 @@
                   l
                 );
               },
-              wo,
-              bo
+              xo,
+              Do
             )),
             l["\u0275did"](
               121,
@@ -93398,8 +96057,8 @@
               null,
               null,
               null,
-              Io,
-              Eo
+              Yo,
+              Po
             )),
             l["\u0275did"](154, 49152, null, 0, pn, [], null, null),
             (e()(),
@@ -93911,7 +96570,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](189, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ws)),
             l["\u0275did"](
               191,
               16384,
@@ -93980,8 +96639,8 @@
               null,
               null,
               null,
-              Fo,
-              No
+              Wo,
+              Uo
             )),
             l["\u0275did"](197, 49152, null, 1, wn, [], null, null),
             l["\u0275qud"](335544320, 7, { mzSwitchDirective: 0 }),
@@ -94090,8 +96749,8 @@
               null,
               null,
               null,
-              Fo,
-              No
+              Wo,
+              Uo
             )),
             l["\u0275did"](208, 49152, null, 1, wn, [], null, null),
             l["\u0275qud"](335544320, 8, { mzSwitchDirective: 0 }),
@@ -94200,8 +96859,8 @@
               null,
               null,
               null,
-              Fo,
-              No
+              Wo,
+              Uo
             )),
             l["\u0275did"](219, 49152, null, 1, wn, [], null, null),
             l["\u0275qud"](335544320, 9, { mzSwitchDirective: 0 }),
@@ -94341,8 +97000,8 @@
               null,
               null,
               null,
-              Io,
-              Eo
+              Yo,
+              Po
             )),
             l["\u0275did"](233, 49152, null, 0, pn, [], null, null),
             (e()(),
@@ -95038,8 +97697,8 @@
               null,
               null,
               null,
-              Io,
-              Eo
+              Yo,
+              Po
             )),
             l["\u0275did"](283, 49152, null, 0, pn, [], null, null),
             (e()(),
@@ -95975,7 +98634,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["Link Type"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Gs)),
             l["\u0275did"](
               354,
               16384,
@@ -96082,7 +98741,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, zs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, $s)),
             l["\u0275did"](
               363,
               278528,
@@ -96123,7 +98782,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Us)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, qs)),
             l["\u0275did"](
               367,
               16384,
@@ -96134,7 +98793,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ks)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ed)),
             l["\u0275did"](
               369,
               16384,
@@ -96386,7 +99045,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Js)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, nd)),
             l["\u0275did"](
               393,
               16384,
@@ -96489,7 +99148,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["Github How To"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Zs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ld)),
             l["\u0275did"](
               402,
               16384,
@@ -96500,7 +99159,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Xs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, rd)),
             l["\u0275did"](
               404,
               16384,
@@ -96931,7 +99590,7 @@
           }
         );
       }
-      function nd(e) {
+      function od(e) {
         return l["\u0275vid"](
           0,
           [
@@ -97031,7 +99690,7 @@
           }
         );
       }
-      function td(e) {
+      function ud(e) {
         return l["\u0275vid"](
           0,
           [
@@ -97041,7 +99700,7 @@
             l["\u0275qud"](671088640, 4, { dropJson: 0 }),
             l["\u0275qud"](671088640, 5, { addImage: 0 }),
             l["\u0275qud"](671088640, 6, { addScreenshot: 0 }),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, bs)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ds)),
             l["\u0275did"](
               7,
               16384,
@@ -97052,7 +99711,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ed)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, id)),
             l["\u0275did"](
               9,
               16384,
@@ -97075,8 +99734,8 @@
               null,
               null,
               null,
-              Lo,
-              xo
+              Oo,
+              Io
             )),
             l["\u0275did"](
               11,
@@ -97242,8 +99901,8 @@
               null,
               null,
               null,
-              Lo,
-              xo
+              Oo,
+              Io
             )),
             l["\u0275did"](
               30,
@@ -97303,7 +99962,7 @@
               null
             )),
             l["\u0275did"](36, 16384, null, 0, rn, [], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, nd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, od)),
             l["\u0275did"](
               38,
               16384,
@@ -97416,8 +100075,8 @@
               null,
               null,
               null,
-              Lo,
-              xo
+              Oo,
+              Io
             )),
             l["\u0275did"](
               50,
@@ -98194,7 +100853,7 @@
           null
         );
       }
-      function ld(e) {
+      function ad(e) {
         return l["\u0275vid"](
           0,
           [
@@ -98210,15 +100869,15 @@
               null,
               null,
               null,
-              td,
-              ys
+              ud,
+              Cs
             )),
             l["\u0275did"](
               1,
               4440064,
               null,
               0,
-              Qu,
+              la,
               [Cr, Sn, Zr, u.DomSanitizer, fl, Xr],
               null,
               null
@@ -98230,8 +100889,8 @@
           null
         );
       }
-      var rd = l["\u0275ccf"]("app-app-manager", Qu, ld, {}, {}, []),
-        id = (function() {
+      var sd = l["\u0275ccf"]("app-app-manager", la, ad, {}, {}, []),
+        dd = (function() {
           function e(e, n, t) {
             var l = this;
             (this.appService = n),
@@ -98296,7 +100955,7 @@
           }
           return (e.prototype.ngOnInit = function() {}), e;
         })(),
-        od = l["\u0275crt"]({
+        cd = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -98305,7 +100964,7 @@
           ],
           data: {}
         });
-      function ud(e) {
+      function pd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -98372,7 +101031,7 @@
           null
         );
       }
-      function ad(e) {
+      function hd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -98391,7 +101050,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ud)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, pd)),
             l["\u0275did"](
               2,
               278528,
@@ -98409,7 +101068,7 @@
           null
         );
       }
-      function sd(e) {
+      function fd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -98476,7 +101135,7 @@
           null
         );
       }
-      function dd(e) {
+      function md(e) {
         return l["\u0275vid"](
           0,
           [
@@ -98495,7 +101154,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, sd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, fd)),
             l["\u0275did"](
               2,
               278528,
@@ -98513,7 +101172,7 @@
           null
         );
       }
-      function cd(e) {
+      function gd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -98605,7 +101264,7 @@
           null
         );
       }
-      function pd(e) {
+      function vd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -98621,7 +101280,7 @@
               null,
               null,
               null,
-              Yi,
+              Pi,
               Ai
             )),
             l["\u0275did"](
@@ -98639,7 +101298,7 @@
               gutter: 1,
               isAnimated: 2
             }),
-            (e()(), l["\u0275and"](16777216, null, 0, 1, null, cd)),
+            (e()(), l["\u0275and"](16777216, null, 0, 1, null, gd)),
             l["\u0275did"](
               4,
               278528,
@@ -98659,7 +101318,7 @@
           null
         );
       }
-      function hd(e) {
+      function _d(e) {
         return l["\u0275vid"](
           0,
           [
@@ -98671,7 +101330,7 @@
               null,
               14,
               "div",
-              [["class", "padding"]],
+              [],
               null,
               null,
               null,
@@ -98692,7 +101351,7 @@
               0,
               o.NgClass,
               [o["\u0275NgClassImpl"]],
-              { klass: [0, "klass"], ngClass: [1, "ngClass"] },
+              { ngClass: [0, "ngClass"] },
               null
             ),
             l["\u0275pod"](3, { padding: 0, container: 1 }),
@@ -98711,7 +101370,7 @@
               Hi,
               ji
             )),
-            l["\u0275did"](5, 114688, null, 0, Pi, [Sn], null, null),
+            l["\u0275did"](5, 114688, null, 0, Yi, [Sn], null, null),
             (e()(),
             l["\u0275eld"](
               6,
@@ -98743,7 +101402,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ad)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, hd)),
             l["\u0275did"](
               10,
               16384,
@@ -98754,7 +101413,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, dd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, md)),
             l["\u0275did"](
               12,
               16384,
@@ -98765,7 +101424,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, pd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, vd)),
             l["\u0275did"](
               14,
               16384,
@@ -98780,7 +101439,7 @@
           function(e, n) {
             var t = n.component,
               l = e(n, 3, 0, t.appService.hideLogo, !t.appService.hideLogo);
-            e(n, 2, 0, "padding", l),
+            e(n, 2, 0, l),
               e(n, 5, 0),
               e(n, 10, 0, !t.appService.isGrid && t.appService.isTimeline),
               e(n, 12, 0, !t.appService.isGrid && !t.appService.isTimeline),
@@ -98789,7 +101448,7 @@
           null
         );
       }
-      function fd(e) {
+      function yd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -98805,10 +101464,10 @@
               null,
               null,
               null,
-              hd,
-              od
+              _d,
+              cd
             )),
-            l["\u0275did"](1, 114688, null, 0, id, [Zr, Sn, Cr], null, null)
+            l["\u0275did"](1, 114688, null, 0, dd, [Zr, Sn, Cr], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -98816,8 +101475,8 @@
           null
         );
       }
-      var md = l["\u0275ccf"]("app-events", id, fd, {}, {}, []),
-        gd = (function() {
+      var bd = l["\u0275ccf"]("app-events", dd, yd, {}, {}, []),
+        wd = (function() {
           function e(e, n, t, l) {
             var r = this;
             (this.expanseService = e),
@@ -98938,7 +101597,7 @@
             e
           );
         })(),
-        vd = l["\u0275crt"]({
+        Md = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -98947,7 +101606,7 @@
           ],
           data: {}
         });
-      function _d(e) {
+      function kd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99028,7 +101687,7 @@
           null
         );
       }
-      function yd(e) {
+      function Cd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99109,7 +101768,7 @@
           null
         );
       }
-      function bd(e) {
+      function Dd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99190,7 +101849,7 @@
           null
         );
       }
-      function wd(e) {
+      function xd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99266,7 +101925,7 @@
           null
         );
       }
-      function Md(e) {
+      function Ld(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99332,7 +101991,7 @@
           null
         );
       }
-      function kd(e) {
+      function Sd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99351,7 +102010,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Md)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ld)),
             l["\u0275did"](
               2,
               278528,
@@ -99369,7 +102028,7 @@
           null
         );
       }
-      function Cd(e) {
+      function Td(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99427,7 +102086,7 @@
           null
         );
       }
-      function Dd(e) {
+      function Ed(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99446,7 +102105,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Cd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Td)),
             l["\u0275did"](
               2,
               278528,
@@ -99464,7 +102123,7 @@
           null
         );
       }
-      function xd(e) {
+      function Id(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99547,7 +102206,7 @@
           null
         );
       }
-      function Ld(e) {
+      function Od(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99563,7 +102222,7 @@
               null,
               null,
               null,
-              Yi,
+              Pi,
               Ai
             )),
             l["\u0275did"](
@@ -99581,7 +102240,7 @@
               gutter: 1,
               isAnimated: 2
             }),
-            (e()(), l["\u0275and"](16777216, null, 0, 1, null, xd)),
+            (e()(), l["\u0275and"](16777216, null, 0, 1, null, Id)),
             l["\u0275did"](
               4,
               278528,
@@ -99601,7 +102260,7 @@
           null
         );
       }
-      function Sd(e) {
+      function Rd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99631,7 +102290,7 @@
           null
         );
       }
-      function Td(e) {
+      function Ad(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99656,7 +102315,7 @@
           null
         );
       }
-      function Ed(e) {
+      function Pd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -99727,7 +102386,7 @@
               114688,
               null,
               0,
-              Pi,
+              Yi,
               [Sn],
               { show_sort: [0, "show_sort"] },
               { recent: "recent", name: "name" }
@@ -99893,7 +102552,7 @@
               null
             )),
             (e()(), l["\u0275ted"](-1, null, ["Search"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, _d)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, kd)),
             l["\u0275did"](
               21,
               16384,
@@ -99904,7 +102563,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, yd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Cd)),
             l["\u0275did"](
               23,
               16384,
@@ -99915,7 +102574,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, bd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Dd)),
             l["\u0275did"](
               25,
               16384,
@@ -99926,7 +102585,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, wd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, xd)),
             l["\u0275did"](
               27,
               16384,
@@ -99952,7 +102611,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, kd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Sd)),
             l["\u0275did"](
               30,
               16384,
@@ -99963,7 +102622,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Dd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ed)),
             l["\u0275did"](
               32,
               16384,
@@ -99974,7 +102633,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ld)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Od)),
             l["\u0275did"](
               34,
               16384,
@@ -100045,7 +102704,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Sd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Rd)),
             l["\u0275did"](
               40,
               16384,
@@ -100056,7 +102715,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Td)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ad)),
             l["\u0275did"](
               42,
               16384,
@@ -100158,7 +102817,7 @@
           }
         );
       }
-      function Id(e) {
+      function Yd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -100174,10 +102833,10 @@
               null,
               null,
               null,
-              Ed,
-              vd
+              Pd,
+              Md
             )),
-            l["\u0275did"](1, 245760, null, 0, gd, [Zr, Sn, Cr, fl], null, null)
+            l["\u0275did"](1, 245760, null, 0, wd, [Zr, Sn, Cr, fl], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -100185,8 +102844,8 @@
           null
         );
       }
-      var Od = l["\u0275ccf"]("app-apps", gd, Id, {}, {}, []),
-        Rd = l["\u0275crt"]({
+      var jd = l["\u0275ccf"]("app-apps", wd, Yd, {}, {}, []),
+        Nd = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -100195,7 +102854,7 @@
           ],
           data: {}
         });
-      function Ad(e) {
+      function Fd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -100250,7 +102909,7 @@
           null
         );
       }
-      function Yd(e) {
+      function Vd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -100284,7 +102943,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ad)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fd)),
             l["\u0275did"](
               3,
               16384,
@@ -100580,7 +103239,7 @@
           }
         );
       }
-      function Pd(e) {
+      function Hd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -100709,7 +103368,7 @@
             )),
             (e()(), l["\u0275ted"](-1, null, ["add"])),
             (e()(), l["\u0275ted"](-1, null, [" Add App "])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Yd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vd)),
             l["\u0275did"](
               12,
               278528,
@@ -100758,7 +103417,7 @@
           null
         );
       }
-      function jd(e) {
+      function zd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -100817,7 +103476,7 @@
           null
         );
       }
-      function Nd(e) {
+      function Ud(e) {
         return l["\u0275vid"](
           0,
           [
@@ -100872,7 +103531,7 @@
           null
         );
       }
-      function Fd(e) {
+      function Wd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -100931,7 +103590,7 @@
           null
         );
       }
-      function Vd(e) {
+      function Bd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -100973,7 +103632,7 @@
               null
             ),
             l["\u0275pod"](3, { "background-image": 0 }),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Wd)),
             l["\u0275did"](
               5,
               16384,
@@ -101004,7 +103663,7 @@
           null
         );
       }
-      function Hd(e) {
+      function Gd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -101038,7 +103697,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Bd)),
             l["\u0275did"](
               3,
               16384,
@@ -101291,7 +103950,7 @@
           }
         );
       }
-      function zd(e) {
+      function $d(e) {
         return l["\u0275vid"](
           0,
           [
@@ -101349,7 +104008,7 @@
           null
         );
       }
-      function Ud(e) {
+      function qd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -101383,7 +104042,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, zd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, $d)),
             l["\u0275did"](
               3,
               16384,
@@ -101787,7 +104446,7 @@
           }
         );
       }
-      function Wd(e) {
+      function Kd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -102928,7 +105587,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Pd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hd)),
             l["\u0275did"](
               99,
               16384,
@@ -102954,7 +105613,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, jd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, zd)),
             l["\u0275did"](
               102,
               16384,
@@ -103155,7 +105814,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Nd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ud)),
             l["\u0275did"](
               117,
               16384,
@@ -103166,7 +105825,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hd)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Gd)),
             l["\u0275did"](
               119,
               278528,
@@ -103473,7 +106132,7 @@
             )),
             (e()(), l["\u0275ted"](-1, null, ["add"])),
             (e()(), l["\u0275ted"](-1, null, [" Add Event "])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ud)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, qd)),
             l["\u0275did"](
               143,
               278528,
@@ -103496,8 +106155,8 @@
               null,
               null,
               null,
-              Lo,
-              xo
+              Oo,
+              Io
             )),
             l["\u0275did"](
               145,
@@ -104124,7 +106783,7 @@
           }
         );
       }
-      function Bd(e) {
+      function Jd(e) {
         return l["\u0275vid"](
           0,
           [
@@ -104140,10 +106799,10 @@
               null,
               null,
               null,
-              Wd,
-              Rd
+              Kd,
+              Nd
             )),
-            l["\u0275did"](1, 114688, null, 0, Ju, [Zr, Sn], null, null)
+            l["\u0275did"](1, 114688, null, 0, ta, [Zr, Sn], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -104151,8 +106810,8 @@
           null
         );
       }
-      var Gd = l["\u0275ccf"]("app-account", Ju, Bd, {}, {}, []),
-        $d = (function() {
+      var Qd = l["\u0275ccf"]("app-account", ta, Jd, {}, {}, []),
+        Zd = (function() {
           function e(e, n) {
             (this.lightbox = e), (this.appService = n), (this.album = []);
           }
@@ -104178,7 +106837,7 @@
             e
           );
         })(),
-        qd = l["\u0275crt"]({
+        Xd = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -104187,7 +106846,7 @@
           ],
           data: {}
         });
-      function Kd(e) {
+      function ec(e) {
         return l["\u0275vid"](
           0,
           [
@@ -106294,7 +108953,7 @@
               147456,
               null,
               0,
-              P,
+              Y,
               [l.ElementRef, l.Renderer2, [8, null]],
               null,
               null
@@ -106330,7 +108989,7 @@
               147456,
               null,
               0,
-              P,
+              Y,
               [l.ElementRef, l.Renderer2, [8, null]],
               null,
               null
@@ -106366,7 +109025,7 @@
               147456,
               null,
               0,
-              P,
+              Y,
               [l.ElementRef, l.Renderer2, [8, null]],
               null,
               null
@@ -106451,7 +109110,7 @@
           null
         );
       }
-      function Jd(e) {
+      function nc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -106467,16 +109126,16 @@
               null,
               null,
               null,
-              Kd,
-              qd
+              ec,
+              Xd
             )),
             l["\u0275did"](
               1,
               114688,
               null,
               0,
-              $d,
-              [ru.Lightbox, Sn],
+              Zd,
+              [su.Lightbox, Sn],
               null,
               null
             )
@@ -106487,8 +109146,8 @@
           null
         );
       }
-      var Qd = l["\u0275ccf"]("app-setup-howto", $d, Jd, {}, {}, []),
-        Zd = (function() {
+      var tc = l["\u0275ccf"]("app-setup-howto", Zd, nc, {}, {}, []),
+        lc = (function() {
           function e(e, n, t) {
             (this.service = e), (this.expanseService = n), (this.router = t);
           }
@@ -106515,7 +109174,7 @@
             e
           );
         })(),
-        Xd = l["\u0275crt"]({
+        rc = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -106524,7 +109183,7 @@
           ],
           data: {}
         });
-      function ec(e) {
+      function ic(e) {
         return l["\u0275vid"](
           0,
           [
@@ -107149,7 +109808,7 @@
           }
         );
       }
-      function nc(e) {
+      function oc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -107165,10 +109824,10 @@
               null,
               null,
               null,
-              ec,
-              Xd
+              ic,
+              rc
             )),
-            l["\u0275did"](1, 114688, null, 0, Zd, [Sn, Zr, Cr], null, null)
+            l["\u0275did"](1, 114688, null, 0, lc, [Sn, Zr, Cr], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -107176,8 +109835,8 @@
           null
         );
       }
-      var tc = l["\u0275ccf"]("app-login", Zd, nc, {}, {}, []),
-        lc = (function() {
+      var uc = l["\u0275ccf"]("app-login", lc, oc, {}, {}, []),
+        ac = (function() {
           function e(e, n) {
             (this.expanseService = e), (this.appService = n);
           }
@@ -107199,7 +109858,7 @@
             e
           );
         })(),
-        rc = l["\u0275crt"]({
+        sc = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -107208,7 +109867,7 @@
           ],
           data: {}
         });
-      function ic(e) {
+      function dc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -107690,7 +110349,7 @@
           }
         );
       }
-      function oc(e) {
+      function cc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -107706,10 +110365,10 @@
               null,
               null,
               null,
-              ic,
-              rc
+              dc,
+              sc
             )),
-            l["\u0275did"](1, 114688, null, 0, lc, [Zr, Sn], null, null)
+            l["\u0275did"](1, 114688, null, 0, ac, [Zr, Sn], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -107717,8 +110376,8 @@
           null
         );
       }
-      var uc = l["\u0275ccf"]("app-forgot-password", lc, oc, {}, {}, []),
-        ac = (function() {
+      var pc = l["\u0275ccf"]("app-forgot-password", ac, cc, {}, {}, []),
+        hc = (function() {
           function e(e, n, t, l) {
             var r = this;
             (this.router = e),
@@ -107755,7 +110414,7 @@
             e
           );
         })(),
-        sc = l["\u0275crt"]({
+        fc = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -107764,7 +110423,7 @@
           ],
           data: {}
         });
-      function dc(e) {
+      function mc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -108395,7 +111054,7 @@
           }
         );
       }
-      function cc(e) {
+      function gc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -108411,10 +111070,10 @@
               null,
               null,
               null,
-              dc,
-              sc
+              mc,
+              fc
             )),
-            l["\u0275did"](1, 114688, null, 0, ac, [Cr, fl, Zr, Sn], null, null)
+            l["\u0275did"](1, 114688, null, 0, hc, [Cr, fl, Zr, Sn], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -108422,8 +111081,8 @@
           null
         );
       }
-      var pc = l["\u0275ccf"]("app-reset-password", ac, cc, {}, {}, []),
-        hc = (function() {
+      var vc = l["\u0275ccf"]("app-reset-password", hc, gc, {}, {}, []),
+        _c = (function() {
           function e(e, n, t) {
             (this.expanseService = e), (this.service = n), (this.router = t);
           }
@@ -108489,7 +111148,7 @@
             e
           );
         })(),
-        fc = l["\u0275crt"]({
+        yc = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
@@ -108498,7 +111157,7 @@
           ],
           data: {}
         });
-      function mc(e) {
+      function bc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -109558,7 +112217,7 @@
           }
         );
       }
-      function gc(e) {
+      function wc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -109574,10 +112233,10 @@
               null,
               null,
               null,
-              mc,
-              fc
+              bc,
+              yc
             )),
-            l["\u0275did"](1, 114688, null, 0, hc, [Zr, Sn, Cr], null, null)
+            l["\u0275did"](1, 114688, null, 0, _c, [Zr, Sn, Cr], null, null)
           ],
           function(e, n) {
             e(n, 1, 0);
@@ -109585,15 +112244,15 @@
           null
         );
       }
-      var vc = l["\u0275ccf"]("app-sign-up", hc, gc, {}, {}, []),
-        _c = l["\u0275crt"]({
+      var Mc = l["\u0275ccf"]("app-sign-up", _c, wc, {}, {}, []),
+        kc = l["\u0275crt"]({
           encapsulation: 2,
           styles: [
             '.md-drppicker{position:absolute;font-family:Roboto,sans-serif;color:inherit;border-radius:4px;width:278px;padding:4px;margin-top:-10px;overflow:hidden;z-index:1000;font-size:14px;background-color:#fff;box-shadow:0 2px 4px 0 rgba(0,0,0,.16),0 2px 8px 0 rgba(0,0,0,.12)}.md-drppicker.double{width:auto}.md-drppicker.inline{position:relative;display:inline-block}.md-drppicker:after,.md-drppicker:before{position:absolute;display:inline-block;border-bottom-color:rgba(0,0,0,.2);content:""}.md-drppicker.openscenter:after,.md-drppicker.openscenter:before{left:0;right:0;width:0;margin-left:auto;margin-right:auto}.md-drppicker.single .calendar,.md-drppicker.single .ranges{float:none}.md-drppicker.shown{-webkit-transform:scale(1);transform:scale(1);-webkit-transition:.1s ease-in-out;transition:.1s ease-in-out;-webkit-transform-origin:0 0;transform-origin:0 0;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.md-drppicker.shown.drops-up-left{-webkit-transform-origin:100% 100%;transform-origin:100% 100%}.md-drppicker.shown.drops-up-right{-webkit-transform-origin:0 100%;transform-origin:0 100%}.md-drppicker.shown.drops-down-left{-webkit-transform-origin:100% 0;transform-origin:100% 0}.md-drppicker.shown.drops-down-right{-webkit-transform-origin:0 0;transform-origin:0 0}.md-drppicker.shown.drops-down-center{-webkit-transform-origin:NaN%;transform-origin:NaN%}.md-drppicker.shown.drops-up-center{-webkit-transform-origin:50%;transform-origin:50%}.md-drppicker.shown .calendar{display:block}.md-drppicker.hidden{-webkit-transition:.1s;transition:.1s;-webkit-transform:scale(0);transform:scale(0);-webkit-transform-origin:0 0;transform-origin:0 0;cursor:default;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.md-drppicker.hidden.drops-up-left{-webkit-transform-origin:100% 100%;transform-origin:100% 100%}.md-drppicker.hidden.drops-up-right{-webkit-transform-origin:0 100%;transform-origin:0 100%}.md-drppicker.hidden.drops-down-left{-webkit-transform-origin:100% 0;transform-origin:100% 0}.md-drppicker.hidden.drops-down-right{-webkit-transform-origin:0 0;transform-origin:0 0}.md-drppicker.hidden.drops-down-center{-webkit-transform-origin:NaN%;transform-origin:NaN%}.md-drppicker.hidden.drops-up-center{-webkit-transform-origin:50%;transform-origin:50%}.md-drppicker.hidden .calendar{display:none}.md-drppicker .calendar{max-width:270px;margin:4px}.md-drppicker .calendar.single .calendar-table{border:none}.md-drppicker .calendar td,.md-drppicker .calendar th{padding:0;white-space:nowrap;text-align:center;min-width:32px}.md-drppicker .calendar td span,.md-drppicker .calendar th span{pointer-events:none}.md-drppicker .calendar-table{border:1px solid #fff;padding:4px;border-radius:4px;background-color:#fff}.md-drppicker table{width:100%;margin:0}.md-drppicker th{color:#988c8c}.md-drppicker td,.md-drppicker th{text-align:center;border-radius:4px;border:1px solid transparent;white-space:nowrap;cursor:pointer;height:2em;width:2em}.md-drppicker td.available.prev,.md-drppicker th.available.prev{display:block;background-image:url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMy43IDYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMuNyA2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGQ9Ik0zLjcsMC43TDEuNCwzbDIuMywyLjNMMyw2TDAsM2wzLTNMMy43LDAuN3oiLz4NCjwvZz4NCjwvc3ZnPg0K);background-repeat:no-repeat;background-size:.5em;background-position:center;opacity:.8;-webkit-transition:background-color .2s;transition:background-color .2s;border-radius:2em}.md-drppicker td.available.prev:hover,.md-drppicker th.available.prev:hover{margin:0}.md-drppicker td.available.next,.md-drppicker th.available.next{-webkit-transform:rotate(180deg);transform:rotate(180deg);display:block;background-image:url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMy43IDYiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMuNyA2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxwYXRoIGQ9Ik0zLjcsMC43TDEuNCwzbDIuMywyLjNMMyw2TDAsM2wzLTNMMy43LDAuN3oiLz4NCjwvZz4NCjwvc3ZnPg0K);background-repeat:no-repeat;background-size:.5em;background-position:center;opacity:.8;-webkit-transition:background-color .2s;transition:background-color .2s;border-radius:2em}.md-drppicker td.available.next:hover,.md-drppicker th.available.next:hover{margin:0;-webkit-transform:rotate(180deg);transform:rotate(180deg)}.md-drppicker td.available:hover,.md-drppicker th.available:hover{background-color:#eee;border-color:transparent;color:inherit;background-repeat:no-repeat;background-size:.5em;background-position:center;margin:.25em 0;opacity:.8;border-radius:2em;-webkit-transform:scale(1);transform:scale(1);-webkit-transition:450ms cubic-bezier(.23,1,.32,1);transition:450ms cubic-bezier(.23,1,.32,1)}.md-drppicker td.week,.md-drppicker th.week{font-size:80%;color:#ccc}.md-drppicker td{margin:.25em 0;opacity:.8;-webkit-transition:450ms cubic-bezier(.23,1,.32,1);transition:450ms cubic-bezier(.23,1,.32,1);border-radius:2em;-webkit-transform:scale(1);transform:scale(1)}.md-drppicker td.off,.md-drppicker td.off.end-date,.md-drppicker td.off.in-range,.md-drppicker td.off.start-date{background-color:#fff;border-color:transparent;color:#999}.md-drppicker td.in-range{background-color:#dde2e4;border-color:transparent;color:#000;border-radius:0}.md-drppicker td.start-date{border-radius:2em 0 0 2em}.md-drppicker td.end-date{border-radius:0 2em 2em 0}.md-drppicker td.start-date.end-date{border-radius:4px}.md-drppicker td.active{-webkit-transition:background .3s ease-out;transition:background .3s ease-out;background:rgba(0,0,0,.1)}.md-drppicker td.active,.md-drppicker td.active:hover{background-color:#3f51b5;border-color:transparent;color:#fff}.md-drppicker th.month{width:auto}.md-drppicker option.disabled,.md-drppicker td.disabled{color:#999;cursor:not-allowed;text-decoration:line-through}.md-drppicker .dropdowns{background-repeat:no-repeat;background-size:10px;background-position-y:center;background-position-x:right;width:50px;background-image:url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDI1NSAyNTUiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI1NSAyNTU7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0iYXJyb3ctZHJvcC1kb3duIj4KCQk8cG9seWdvbiBwb2ludHM9IjAsNjMuNzUgMTI3LjUsMTkxLjI1IDI1NSw2My43NSAgICIgZmlsbD0iIzk4OGM4YyIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=)}.md-drppicker .dropdowns select{display:inline-block;background-color:rgba(255,255,255,.9);width:100%;padding:5px;border:1px solid #f2f2f2;border-radius:2px;height:3rem}.md-drppicker .dropdowns select.ampmselect,.md-drppicker .dropdowns select.hourselect,.md-drppicker .dropdowns select.minuteselect,.md-drppicker .dropdowns select.secondselect{width:50px;margin:0 auto;background:#eee;border:1px solid #eee;padding:2px;outline:0;font-size:12px}.md-drppicker .dropdowns select.monthselect,.md-drppicker .dropdowns select.yearselect{font-size:12px;height:auto;cursor:pointer;opacity:0;position:absolute;top:0;left:0;margin:0;padding:0}.md-drppicker th.month>div{position:relative;display:inline-block}.md-drppicker .calendar-time{text-align:center;margin:4px auto 0;line-height:30px;position:relative}.md-drppicker .calendar-time .select{display:inline}.md-drppicker .calendar-time .select .select-item{display:inline-block;width:auto;position:relative;font-family:inherit;background-color:transparent;padding:10px 10px 10px 0;font-size:18px;border-radius:0;border:none;border-bottom:1px solid rgba(0,0,0,.12)}.md-drppicker .calendar-time .select .select-item:after{position:absolute;top:18px;right:10px;width:0;height:0;padding:0;content:"";border-left:6px solid transparent;border-right:6px solid transparent;border-top:6px solid rgba(0,0,0,.12);pointer-events:none}.md-drppicker .calendar-time .select .select-item:focus{outline:0}.md-drppicker .calendar-time .select .select-item .select-label{color:rgba(0,0,0,.26);font-size:16px;font-weight:400;position:absolute;pointer-events:none;left:0;top:10px;-webkit-transition:.2s;transition:.2s}.md-drppicker .calendar-time select.disabled{color:#ccc;cursor:not-allowed}.md-drppicker .label-input{border:1px solid #ccc;border-radius:4px;color:#555;height:30px;line-height:30px;display:block;vertical-align:middle;margin:0 auto 5px;padding:0 0 0 28px;width:100%}.md-drppicker .label-input.active{border:1px solid #08c;border-radius:4px}.md-drppicker .md-drppicker_input{position:relative;padding:0 30px 0 0}.md-drppicker .md-drppicker_input i,.md-drppicker .md-drppicker_input svg{position:absolute;left:8px;top:8px}.md-drppicker.rtl .label-input{padding-right:28px;padding-left:6px}.md-drppicker.rtl .md-drppicker_input i,.md-drppicker.rtl .md-drppicker_input svg{left:auto;right:8px}.md-drppicker .show-ranges .drp-calendar.left{border-left:1px solid #ddd}.md-drppicker .ranges{float:none;text-align:left;margin:0}.md-drppicker .ranges ul{list-style:none;margin:0 auto;padding:0;width:100%}.md-drppicker .ranges ul li{font-size:12px}.md-drppicker .ranges ul li button{padding:8px 12px;width:100%;background:0 0;border:none;text-align:left;cursor:pointer}.md-drppicker .ranges ul li button.active{background-color:#3f51b5;color:#fff}.md-drppicker .ranges ul li button[disabled]{opacity:.3}.md-drppicker .ranges ul li button:active{background:0 0}.md-drppicker .ranges ul li:hover{background-color:#eee}.md-drppicker .show-calendar .ranges{margin-top:8px}.md-drppicker [hidden]{display:none}.md-drppicker .buttons{text-align:right;margin:0 5px 5px 0}.md-drppicker .btn{position:relative;overflow:hidden;border-width:0;outline:0;padding:0 6px;cursor:pointer;border-radius:2px;box-shadow:0 1px 4px rgba(0,0,0,.6);background-color:#3f51b5;color:#ecf0f1;-webkit-transition:background-color .4s;transition:background-color .4s;height:auto;text-transform:uppercase;line-height:36px;border:none}.md-drppicker .btn:focus,.md-drppicker .btn:hover{background-color:#3f51b5}.md-drppicker .btn>*{position:relative}.md-drppicker .btn span{display:block;padding:12px 24px}.md-drppicker .btn:before{content:"";position:absolute;top:50%;left:50%;display:block;width:0;padding-top:0;border-radius:100%;background-color:rgba(236,240,241,.3);-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.md-drppicker .btn:active:before{width:120%;padding-top:120%;-webkit-transition:width .2s ease-out,padding-top .2s ease-out;transition:width .2s ease-out,padding-top .2s ease-out}.md-drppicker .btn:disabled{opacity:.5}.md-drppicker .btn.btn-default{color:#000;background-color:#dcdcdc}.md-drppicker .clear{box-shadow:none;background-color:#fff!important}.md-drppicker .clear svg{color:#eb3232;fill:currentColor}@media (min-width:564px){.md-drppicker{width:auto}.md-drppicker.single .calendar.left{clear:none}.md-drppicker.ltr{direction:ltr;text-align:left}.md-drppicker.ltr .calendar.left{clear:left}.md-drppicker.ltr .calendar.left .calendar-table{border-right:none;border-top-right-radius:0;border-bottom-right-radius:0;padding-right:12px}.md-drppicker.ltr .calendar.right{margin-left:0}.md-drppicker.ltr .calendar.right .calendar-table{border-left:none;border-top-left-radius:0;border-bottom-left-radius:0}.md-drppicker.ltr .left .md-drppicker_input,.md-drppicker.ltr .right .md-drppicker_input{padding-right:35px}.md-drppicker.ltr .calendar,.md-drppicker.ltr .ranges{float:left}.md-drppicker.rtl{direction:rtl;text-align:right}.md-drppicker.rtl .calendar.left{clear:right;margin-left:0}.md-drppicker.rtl .calendar.left .calendar-table{border-left:none;border-top-left-radius:0;border-bottom-left-radius:0}.md-drppicker.rtl .calendar.right{margin-right:0}.md-drppicker.rtl .calendar.right .calendar-table{border-right:none;border-top-right-radius:0;border-bottom-right-radius:0}.md-drppicker.rtl .calendar.left .calendar-table,.md-drppicker.rtl .left .md-drppicker_input{padding-left:12px}.md-drppicker.rtl .calendar,.md-drppicker.rtl .ranges{text-align:right;float:right}.drp-animate{-webkit-transform:translate(0);transform:translate(0);-webkit-transition:opacity .2s,-webkit-transform .2s;transition:transform .2s,opacity .2s,-webkit-transform .2s}.drp-animate.drp-picker-site-this{-webkit-transition-timing-function:linear;transition-timing-function:linear}.drp-animate.drp-animate-right{-webkit-transform:translateX(10%);transform:translateX(10%);opacity:0}.drp-animate.drp-animate-left{-webkit-transform:translateX(-10%);transform:translateX(-10%);opacity:0}}@media (min-width:730px){.md-drppicker .ranges{width:auto}.md-drppicker.ltr .ranges{float:left}.md-drppicker.rtl .ranges{float:right}.md-drppicker .calendar.left{clear:none!important}}'
           ],
           data: {}
         });
-      function yc(e) {
+      function Cc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -109666,7 +112325,7 @@
           }
         );
       }
-      function bc(e) {
+      function Dc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -109690,7 +112349,7 @@
           null
         );
       }
-      function wc(e) {
+      function xc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -109737,7 +112396,7 @@
           null
         );
       }
-      function Mc(e) {
+      function Lc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -109776,7 +112435,7 @@
           null
         );
       }
-      function kc(e) {
+      function Sc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -109800,7 +112459,7 @@
               147456,
               null,
               0,
-              P,
+              Y,
               [l.ElementRef, l.Renderer2, [8, null]],
               { value: [0, "value"] },
               null
@@ -109839,7 +112498,7 @@
           }
         );
       }
-      function Cc(e) {
+      function Tc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -109863,7 +112522,7 @@
               147456,
               null,
               0,
-              P,
+              Y,
               [l.ElementRef, l.Renderer2, [8, null]],
               null,
               null
@@ -109893,7 +112552,7 @@
           }
         );
       }
-      function Dc(e) {
+      function Ec(e) {
         return l["\u0275vid"](
           0,
           [
@@ -109951,7 +112610,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, kc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Sc)),
             l["\u0275did"](
               5,
               278528,
@@ -110001,7 +112660,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Cc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Tc)),
             l["\u0275did"](
               10,
               278528,
@@ -110045,7 +112704,7 @@
           }
         );
       }
-      function xc(e) {
+      function Ic(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110089,7 +112748,7 @@
           }
         );
       }
-      function Lc(e) {
+      function Oc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110136,7 +112795,7 @@
           null
         );
       }
-      function Sc(e) {
+      function Rc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110175,7 +112834,7 @@
           null
         );
       }
-      function Tc(e) {
+      function Ac(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110217,7 +112876,7 @@
           }
         );
       }
-      function Ec(e) {
+      function Pc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110259,7 +112918,7 @@
           }
         );
       }
-      function Ic(e) {
+      function Yc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110308,7 +112967,7 @@
           }
         );
       }
-      function Oc(e) {
+      function jc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110357,7 +113016,7 @@
           }
         );
       }
-      function Rc(e) {
+      function Nc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110430,7 +113089,7 @@
           }
         );
       }
-      function Ac(e) {
+      function Fc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110449,7 +113108,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ic)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Yc)),
             l["\u0275did"](
               2,
               16384,
@@ -110460,7 +113119,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Oc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, jc)),
             l["\u0275did"](
               4,
               16384,
@@ -110471,7 +113130,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Rc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Nc)),
             l["\u0275did"](
               6,
               278528,
@@ -110500,7 +113159,7 @@
           }
         );
       }
-      function Yc(e) {
+      function Vc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110549,7 +113208,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, bc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Dc)),
             l["\u0275did"](
               4,
               16384,
@@ -110560,7 +113219,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, wc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, xc)),
             l["\u0275did"](
               6,
               16384,
@@ -110571,7 +113230,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Mc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Lc)),
             l["\u0275did"](
               8,
               16384,
@@ -110597,7 +113256,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Dc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ec)),
             l["\u0275did"](
               11,
               16384,
@@ -110608,7 +113267,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, xc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ic)),
             l["\u0275did"](
               13,
               16384,
@@ -110619,7 +113278,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Lc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Oc)),
             l["\u0275did"](
               15,
               16384,
@@ -110630,7 +113289,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Sc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Rc)),
             l["\u0275did"](
               17,
               16384,
@@ -110656,7 +113315,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Tc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ac)),
             l["\u0275did"](
               20,
               16384,
@@ -110667,7 +113326,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ec)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Pc)),
             l["\u0275did"](
               22,
               278528,
@@ -110693,7 +113352,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ac)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fc)),
             l["\u0275did"](
               25,
               278528,
@@ -110770,7 +113429,7 @@
           null
         );
       }
-      function Pc(e) {
+      function Hc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110794,8 +113453,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               { value: [0, "value"] },
               null
             ),
@@ -110827,7 +113486,7 @@
           }
         );
       }
-      function jc(e) {
+      function zc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110851,8 +113510,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               { value: [0, "value"] },
               null
             ),
@@ -110890,7 +113549,7 @@
           }
         );
       }
-      function Nc(e) {
+      function Uc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -110914,8 +113573,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               { value: [0, "value"] },
               null
             ),
@@ -110953,7 +113612,7 @@
           }
         );
       }
-      function Fc(e) {
+      function Wc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111003,7 +113662,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -111015,7 +113674,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               3,
@@ -111029,7 +113688,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](5, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Nc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Uc)),
             l["\u0275did"](
               7,
               278528,
@@ -111062,7 +113721,7 @@
           }
         );
       }
-      function Vc(e) {
+      function Bc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111111,7 +113770,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -111123,7 +113782,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               3,
@@ -111157,8 +113816,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               { value: [0, "value"] },
               null
             ),
@@ -111193,8 +113852,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               { value: [0, "value"] },
               null
             ),
@@ -111236,7 +113895,7 @@
           }
         );
       }
-      function Hc(e) {
+      function Gc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111316,7 +113975,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -111328,7 +113987,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               5,
@@ -111342,7 +114001,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](7, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Pc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hc)),
             l["\u0275did"](
               9,
               278528,
@@ -111414,7 +114073,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -111426,7 +114085,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               14,
@@ -111440,7 +114099,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](16, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, jc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, zc)),
             l["\u0275did"](
               18,
               278528,
@@ -111496,7 +114155,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Wc)),
             l["\u0275did"](
               23,
               16384,
@@ -111552,7 +114211,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Bc)),
             l["\u0275did"](
               28,
               16384,
@@ -111637,7 +114296,7 @@
           }
         );
       }
-      function zc(e) {
+      function $c(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111689,7 +114348,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Yc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vc)),
             l["\u0275did"](
               6,
               16384,
@@ -111700,7 +114359,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Gc)),
             l["\u0275did"](
               8,
               16384,
@@ -111722,7 +114381,7 @@
           null
         );
       }
-      function Uc(e) {
+      function qc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111746,7 +114405,7 @@
           null
         );
       }
-      function Wc(e) {
+      function Kc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111793,7 +114452,7 @@
           null
         );
       }
-      function Bc(e) {
+      function Jc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111832,7 +114491,7 @@
           null
         );
       }
-      function Gc(e) {
+      function Qc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111856,7 +114515,7 @@
               147456,
               null,
               0,
-              P,
+              Y,
               [l.ElementRef, l.Renderer2, [8, null]],
               { value: [0, "value"] },
               null
@@ -111895,7 +114554,7 @@
           }
         );
       }
-      function $c(e) {
+      function Zc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -111919,7 +114578,7 @@
               147456,
               null,
               0,
-              P,
+              Y,
               [l.ElementRef, l.Renderer2, [8, null]],
               null,
               null
@@ -111949,7 +114608,7 @@
           }
         );
       }
-      function qc(e) {
+      function Xc(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112007,7 +114666,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Gc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Qc)),
             l["\u0275did"](
               5,
               278528,
@@ -112057,7 +114716,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, $c)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Zc)),
             l["\u0275did"](
               10,
               278528,
@@ -112101,7 +114760,7 @@
           }
         );
       }
-      function Kc(e) {
+      function ep(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112145,7 +114804,7 @@
           }
         );
       }
-      function Jc(e) {
+      function np(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112192,7 +114851,7 @@
           null
         );
       }
-      function Qc(e) {
+      function tp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112231,7 +114890,7 @@
           null
         );
       }
-      function Zc(e) {
+      function lp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112273,7 +114932,7 @@
           }
         );
       }
-      function Xc(e) {
+      function rp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112315,7 +114974,7 @@
           }
         );
       }
-      function ep(e) {
+      function ip(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112364,7 +115023,7 @@
           }
         );
       }
-      function np(e) {
+      function op(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112413,7 +115072,7 @@
           }
         );
       }
-      function tp(e) {
+      function up(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112486,7 +115145,7 @@
           }
         );
       }
-      function lp(e) {
+      function ap(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112505,7 +115164,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ep)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ip)),
             l["\u0275did"](
               2,
               16384,
@@ -112516,7 +115175,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, np)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, op)),
             l["\u0275did"](
               4,
               16384,
@@ -112527,7 +115186,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, tp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, up)),
             l["\u0275did"](
               6,
               278528,
@@ -112556,7 +115215,7 @@
           }
         );
       }
-      function rp(e) {
+      function sp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112605,7 +115264,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Uc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, qc)),
             l["\u0275did"](
               4,
               16384,
@@ -112616,7 +115275,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Wc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Kc)),
             l["\u0275did"](
               6,
               16384,
@@ -112627,7 +115286,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Bc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Jc)),
             l["\u0275did"](
               8,
               16384,
@@ -112653,7 +115312,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, qc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Xc)),
             l["\u0275did"](
               11,
               16384,
@@ -112664,7 +115323,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Kc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ep)),
             l["\u0275did"](
               13,
               16384,
@@ -112675,7 +115334,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Jc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, np)),
             l["\u0275did"](
               15,
               16384,
@@ -112686,7 +115345,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Qc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, tp)),
             l["\u0275did"](
               17,
               16384,
@@ -112712,7 +115371,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Zc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, lp)),
             l["\u0275did"](
               20,
               16384,
@@ -112723,7 +115382,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Xc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, rp)),
             l["\u0275did"](
               22,
               278528,
@@ -112749,7 +115408,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, lp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, ap)),
             l["\u0275did"](
               25,
               278528,
@@ -112826,7 +115485,7 @@
           null
         );
       }
-      function ip(e) {
+      function dp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112850,8 +115509,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               { value: [0, "value"] },
               null
             ),
@@ -112883,7 +115542,7 @@
           }
         );
       }
-      function op(e) {
+      function cp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112907,8 +115566,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               { value: [0, "value"] },
               null
             ),
@@ -112946,7 +115605,7 @@
           }
         );
       }
-      function up(e) {
+      function pp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -112970,8 +115629,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               { value: [0, "value"] },
               null
             ),
@@ -113009,7 +115668,7 @@
           }
         );
       }
-      function ap(e) {
+      function hp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113059,7 +115718,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -113071,7 +115730,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               3,
@@ -113085,7 +115744,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](5, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, up)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, pp)),
             l["\u0275did"](
               7,
               278528,
@@ -113118,7 +115777,7 @@
           }
         );
       }
-      function sp(e) {
+      function fp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113167,7 +115826,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -113179,7 +115838,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               3,
@@ -113213,8 +115872,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               { value: [0, "value"] },
               null
             ),
@@ -113249,8 +115908,8 @@
               147456,
               null,
               0,
-              P,
-              [l.ElementRef, l.Renderer2, [2, Y]],
+              Y,
+              [l.ElementRef, l.Renderer2, [2, P]],
               { value: [0, "value"] },
               null
             ),
@@ -113292,7 +115951,7 @@
           }
         );
       }
-      function dp(e) {
+      function mp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113372,7 +116031,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -113384,7 +116043,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               5,
@@ -113398,7 +116057,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](7, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ip)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, dp)),
             l["\u0275did"](
               9,
               278528,
@@ -113500,7 +116159,7 @@
               16384,
               null,
               0,
-              Y,
+              P,
               [l.Renderer2, l.ElementRef],
               null,
               null
@@ -113512,7 +116171,7 @@
               function(e) {
                 return [e];
               },
-              [Y]
+              [P]
             ),
             l["\u0275did"](
               16,
@@ -113526,7 +116185,7 @@
             ),
             l["\u0275prd"](2048, null, _, null, [ae]),
             l["\u0275did"](18, 16384, null, 0, y, [[4, _]], null, null),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, op)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, cp)),
             l["\u0275did"](
               20,
               278528,
@@ -113582,7 +116241,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, ap)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, hp)),
             l["\u0275did"](
               25,
               16384,
@@ -113638,7 +116297,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, sp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, fp)),
             l["\u0275did"](
               30,
               16384,
@@ -113723,7 +116382,7 @@
           }
         );
       }
-      function cp(e) {
+      function gp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113757,7 +116416,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, rp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, sp)),
             l["\u0275did"](
               3,
               16384,
@@ -113768,7 +116427,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, dp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, mp)),
             l["\u0275did"](
               5,
               16384,
@@ -113787,7 +116446,7 @@
           null
         );
       }
-      function pp(e) {
+      function vp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113860,7 +116519,7 @@
           }
         );
       }
-      function hp(e) {
+      function _p(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113893,7 +116552,7 @@
           }
         );
       }
-      function fp(e) {
+      function yp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -113927,7 +116586,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, pp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, vp)),
             l["\u0275did"](
               3,
               16384,
@@ -113938,7 +116597,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, hp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, _p)),
             l["\u0275did"](
               5,
               16384,
@@ -113982,7 +116641,7 @@
           }
         );
       }
-      function mp(e) {
+      function bp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114058,7 +116717,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, yc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Cc)),
             l["\u0275did"](
               8,
               278528,
@@ -114069,7 +116728,7 @@
               { ngForOf: [0, "ngForOf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, zc)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, $c)),
             l["\u0275did"](
               10,
               16384,
@@ -114080,7 +116739,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, cp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, gp)),
             l["\u0275did"](
               12,
               16384,
@@ -114091,7 +116750,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, fp)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, yp)),
             l["\u0275did"](
               14,
               16384,
@@ -114134,7 +116793,7 @@
           null
         );
       }
-      function gp(e) {
+      function wp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114158,8 +116817,8 @@
                   r
                 );
               },
-              mp,
-              _c
+              bp,
+              kc
             )),
             l["\u0275prd"](
               5120,
@@ -114168,15 +116827,15 @@
               function(e) {
                 return [e];
               },
-              [La]
+              [Oa]
             ),
             l["\u0275did"](
               2,
               114688,
               null,
               0,
-              La,
-              [l.ElementRef, l.ChangeDetectorRef, Ca],
+              Oa,
+              [l.ElementRef, l.ChangeDetectorRef, Ta],
               null,
               null
             )
@@ -114187,10 +116846,10 @@
           null
         );
       }
-      var vp = l["\u0275ccf"](
+      var Mp = l["\u0275ccf"](
           "ngx-daterangepicker-material",
-          La,
-          gp,
+          Oa,
+          wp,
           {
             dateLimit: "dateLimit",
             minDate: "minDate",
@@ -114234,13 +116893,13 @@
           },
           []
         ),
-        _p = t("E1+c"),
-        yp = t("0NUV"),
-        bp = l["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
-      function wp(e) {
+        kp = t("E1+c"),
+        Cp = t("0NUV"),
+        Dp = l["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
+      function xp(e) {
         return l["\u0275vid"](0, [], null, null);
       }
-      function Mp(e) {
+      function Lp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114265,16 +116924,16 @@
                   r
                 );
               },
-              wp,
-              bp
+              xp,
+              Dp
             )),
             l["\u0275did"](
               1,
               4374528,
               null,
               0,
-              _p.LightboxOverlayComponent,
-              [l.ElementRef, l.Renderer, yp.LightboxEvent, o.DOCUMENT],
+              kp.LightboxOverlayComponent,
+              [l.ElementRef, l.Renderer, Cp.LightboxEvent, o.DOCUMENT],
               null,
               null
             )
@@ -114285,17 +116944,17 @@
           }
         );
       }
-      var kp = l["\u0275ccf"](
+      var Sp = l["\u0275ccf"](
           "[lb-overlay]",
-          _p.LightboxOverlayComponent,
-          Mp,
+          kp.LightboxOverlayComponent,
+          Lp,
           { options: "options", cmpRef: "cmpRef" },
           {},
           []
         ),
-        Cp = t("kmun"),
-        Dp = l["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
-      function xp(e) {
+        Tp = t("kmun"),
+        Ep = l["\u0275crt"]({ encapsulation: 2, styles: [], data: {} });
+      function Ip(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114576,7 +117235,7 @@
           }
         );
       }
-      function Lp(e) {
+      function Op(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114599,21 +117258,21 @@
                   r
                 );
               },
-              xp,
-              Dp
+              Ip,
+              Ep
             )),
             l["\u0275did"](
               1,
               4440064,
               null,
               0,
-              Cp.LightboxComponent,
+              Tp.LightboxComponent,
               [
                 l.ElementRef,
                 l.Renderer,
-                yp.LightboxEvent,
+                Cp.LightboxEvent,
                 l.ElementRef,
-                yp.LightboxWindowRef,
+                Cp.LightboxWindowRef,
                 u.DomSanitizer,
                 o.DOCUMENT
               ],
@@ -114629,10 +117288,10 @@
           }
         );
       }
-      var Sp = l["\u0275ccf"](
+      var Rp = l["\u0275ccf"](
           "[lb-content]",
-          Cp.LightboxComponent,
-          Lp,
+          Tp.LightboxComponent,
+          Op,
           {
             album: "album",
             currentImageIndex: "currentImageIndex",
@@ -114642,16 +117301,1650 @@
           {},
           []
         ),
-        Tp = l["\u0275crt"]({
+        Ap = (function() {
+          function e(e) {
+            this.appService = e;
+          }
+          return (
+            (e.prototype.ngOnInit = function() {}),
+            (e.prototype.openLink = function(e) {
+              window.location.href = e;
+            }),
+            e
+          );
+        })(),
+        Pp = l["\u0275crt"]({
           encapsulation: 0,
           styles: [
             [
-              ".logo[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{width:90px;position:absolute;top:0;left:50px}#nav-mobile[_ngcontent-%COMP%]{margin-left:60px}.top-banner[_ngcontent-%COMP%]{background:url(topbannerback.8f7cb3fbc4f518015013.png) top right no-repeat #312249;height:90px;width:100%}.over-menu[_ngcontent-%COMP%]{position:absolute;top:20px;left:5px}.smaller[_ngcontent-%COMP%]{height:43px}.top-buttons[_ngcontent-%COMP%]{margin-top:30px}.smaller-buttons[_ngcontent-%COMP%]{margin-top:5px}.header-title[_ngcontent-%COMP%]{position:absolute;top:-10px;left:105px;font-size:2.5rem;margin-top:.4em;margin-left:1em;color:#fff;font-family:'PT Sans',sans-serif}.apk-install[_ngcontent-%COMP%]{font-size:.9rem;position:absolute;top:55px;left:145px;color:#fff;font-family:'PT Sans',sans-serif;-webkit-app-region:no-drag}.scroll-container-small[_ngcontent-%COMP%]{position:relative;height:calc(100% - 43px);overflow-x:hidden;overflow-y:auto}.scroll-container[_ngcontent-%COMP%]{position:relative;height:calc(100% - 90px);overflow-x:hidden;overflow-y:auto}.main-container[_ngcontent-%COMP%]{position:relative}.move-down[_ngcontent-%COMP%]{-webkit-transform:translate(0,80px);transform:translate(0,80px)}.top-button[_ngcontent-%COMP%]{padding-left:1em;padding-right:1em}"
+              ".footer-container[_ngcontent-%COMP%]{background:#1c132b;padding-top:2em;padding-bottom:6em}.nectar-shape-divider-wrap[_ngcontent-%COMP%]{position:relative;top:auto;bottom:0;left:0;right:0;width:100%;height:150px;z-index:2;-webkit-transform:translateZ(0);transform:translateZ(0)}.nectar-shape-divider[_ngcontent-%COMP%]{width:100%;left:0;bottom:-1px;height:100%;position:absolute}.nectar-shape-divider-wrap[data-style=curve][_ngcontent-%COMP%]   .nectar-shape-divider[_ngcontent-%COMP%]{-webkit-filter:blur(.5px);filter:blur(.5px);-webkit-transform:scale(1.03);transform:scale(1.03)}.logo[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{width:160px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.header-title[_ngcontent-%COMP%]{font-size:3rem;margin-top:.4em;color:#fff;font-family:'PT Sans',sans-serif}.apk-install[_ngcontent-%COMP%]{font-size:1.2rem;color:#fff;font-family:'PT Sans',sans-serif}"
             ]
           ],
           data: {}
         });
-      function Ep(e) {
+      function Yp(e) {
+        return l["\u0275vid"](
+          0,
+          [
+            (e()(),
+            l["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              2,
+              "div",
+              [
+                ["class", "nectar-shape-divider-wrap "],
+                ["data-front", ""],
+                ["data-position", "bottom"],
+                ["data-style", "curve"],
+                ["style", " height:50px;"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              1,
+              0,
+              null,
+              null,
+              1,
+              ":svg:svg",
+              [
+                ["class", "nectar-shape-divider"],
+                ["fill", "#1c132b"],
+                ["preserveAspectRatio", "none"],
+                ["viewBox", "0 0 1000 100"],
+                ["xmlns", "http://www.w3.org/2000/svg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              2,
+              0,
+              null,
+              null,
+              0,
+              ":svg:path",
+              [
+                [
+                  "d",
+                  "M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"
+                ]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              3,
+              0,
+              null,
+              null,
+              119,
+              "div",
+              [["class", "footer-container"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              4,
+              0,
+              null,
+              null,
+              118,
+              "div",
+              [["class", "padding"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            l["\u0275prd"](
+              512,
+              null,
+              o["\u0275NgClassImpl"],
+              o["\u0275NgClassR2Impl"],
+              [l.IterableDiffers, l.KeyValueDiffers, l.ElementRef, l.Renderer2]
+            ),
+            l["\u0275did"](
+              6,
+              278528,
+              null,
+              0,
+              o.NgClass,
+              [o["\u0275NgClassImpl"]],
+              { klass: [0, "klass"], ngClass: [1, "ngClass"] },
+              null
+            ),
+            l["\u0275pod"](7, { padding: 0, container: 1 }),
+            (e()(),
+            l["\u0275eld"](
+              8,
+              0,
+              null,
+              null,
+              114,
+              "div",
+              [["class", "row"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              9,
+              0,
+              null,
+              null,
+              6,
+              "div",
+              [["class", "col s12 center-align hide-on-med-and-up"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              10,
+              0,
+              null,
+              null,
+              1,
+              "a",
+              [["class", "logo"], ["href", "#/"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              11,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [["src", "assets/images/logo-large icony.png"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              12,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "header-title"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["The Expanse VR"])),
+            (e()(),
+            l["\u0275eld"](
+              14,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "apk-install"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Powering SideQuest"])),
+            (e()(),
+            l["\u0275eld"](
+              16,
+              0,
+              null,
+              null,
+              51,
+              "div",
+              [["class", "col s6 m4"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              17,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Quick Links"])),
+            (e()(),
+            l["\u0275eld"](
+              19,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              20,
+              0,
+              null,
+              null,
+              5,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                ["position", "bottom"],
+                ["routerLink", "news"],
+                [
+                  "tooltip",
+                  "New apps, events and news aggregated from reddit, twitter and discord."
+                ]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0,
+                  i = e.component;
+                return (
+                  "click" === n &&
+                    (r = !1 !== l["\u0275nov"](e, 21).onClick() && r),
+                  "click" === n && (r = !1 !== i.appService.scrollToTop() && r),
+                  r
+                );
+              },
+              null,
+              null
+            )),
+            l["\u0275did"](
+              21,
+              16384,
+              null,
+              0,
+              Dr,
+              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
+              { routerLink: [0, "routerLink"] },
+              null
+            ),
+            l["\u0275did"](
+              22,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              23,
+              0,
+              null,
+              null,
+              1,
+              "i",
+              [["class", "material-icons prefix teal-text"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["home"])),
+            (e()(), l["\u0275ted"](-1, null, [" Home "])),
+            (e()(),
+            l["\u0275eld"](
+              26,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              27,
+              0,
+              null,
+              null,
+              5,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                ["position", "bottom"],
+                ["routerLink", "apps/1"],
+                ["tooltip", "Games you can get on SideQuest"]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0,
+                  i = e.component;
+                return (
+                  "click" === n &&
+                    (r = !1 !== l["\u0275nov"](e, 28).onClick() && r),
+                  "click" === n && (r = !1 !== i.appService.scrollToTop() && r),
+                  r
+                );
+              },
+              null,
+              null
+            )),
+            l["\u0275did"](
+              28,
+              16384,
+              null,
+              0,
+              Dr,
+              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
+              { routerLink: [0, "routerLink"] },
+              null
+            ),
+            l["\u0275did"](
+              29,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              30,
+              0,
+              null,
+              null,
+              1,
+              "i",
+              [["class", "material-icons prefix green-text"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["games"])),
+            (e()(), l["\u0275ted"](-1, null, [" Games "])),
+            (e()(),
+            l["\u0275eld"](
+              33,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              34,
+              0,
+              null,
+              null,
+              5,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                ["position", "bottom"],
+                ["routerLink", "events"],
+                ["tooltip", "New VR multi user events."]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0,
+                  i = e.component;
+                return (
+                  "click" === n &&
+                    (r = !1 !== l["\u0275nov"](e, 35).onClick() && r),
+                  "click" === n && (r = !1 !== i.appService.scrollToTop() && r),
+                  r
+                );
+              },
+              null,
+              null
+            )),
+            l["\u0275did"](
+              35,
+              16384,
+              null,
+              0,
+              Dr,
+              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
+              { routerLink: [0, "routerLink"] },
+              null
+            ),
+            l["\u0275did"](
+              36,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              37,
+              0,
+              null,
+              null,
+              1,
+              "i",
+              [["class", "material-icons prefix blue-text"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["event"])),
+            (e()(), l["\u0275ted"](-1, null, [" Events "])),
+            (e()(),
+            l["\u0275eld"](
+              40,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              41,
+              0,
+              null,
+              null,
+              5,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                ["position", "bottom"],
+                ["routerLink", "download"],
+                ["tooltip", "Get the latest version of SideQuest"]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0,
+                  i = e.component;
+                return (
+                  "click" === n &&
+                    (r = !1 !== l["\u0275nov"](e, 42).onClick() && r),
+                  "click" === n && (r = !1 !== i.appService.scrollToTop() && r),
+                  r
+                );
+              },
+              null,
+              null
+            )),
+            l["\u0275did"](
+              42,
+              16384,
+              null,
+              0,
+              Dr,
+              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
+              { routerLink: [0, "routerLink"] },
+              null
+            ),
+            l["\u0275did"](
+              43,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              44,
+              0,
+              null,
+              null,
+              1,
+              "i",
+              [["class", "material-icons prefix orange-text"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["cloud_download"])),
+            (e()(), l["\u0275ted"](-1, null, [" Download "])),
+            (e()(),
+            l["\u0275eld"](
+              47,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              48,
+              0,
+              null,
+              null,
+              5,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                ["position", "bottom"],
+                ["tooltip", "Get the latest version of SideQuest"]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0,
+                  i = e.component;
+                return (
+                  "click" === n &&
+                    (r = !1 !== l["\u0275nov"](e, 49).onClick() && r),
+                  "click" === n && (r = !1 !== i.appService.scrollToTop() && r),
+                  r
+                );
+              },
+              null,
+              null
+            )),
+            l["\u0275did"](
+              49,
+              16384,
+              null,
+              0,
+              Dr,
+              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
+              { routerLink: [0, "routerLink"] },
+              null
+            ),
+            l["\u0275did"](
+              50,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              51,
+              0,
+              null,
+              null,
+              1,
+              "i",
+              [["class", "material-icons prefix purple-text"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["dashboard"])),
+            (e()(), l["\u0275ted"](53, null, [" ", " "])),
+            (e()(),
+            l["\u0275eld"](
+              54,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              55,
+              0,
+              null,
+              null,
+              5,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                ["position", "bottom"],
+                ["routerLink", "setup-howto"],
+                [
+                  "tooltip",
+                  "Get your sidequest setup the first time you install, and watch some how to videos."
+                ]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0,
+                  i = e.component;
+                return (
+                  "click" === n &&
+                    (r = !1 !== l["\u0275nov"](e, 56).onClick() && r),
+                  "click" === n && (r = !1 !== i.appService.scrollToTop() && r),
+                  r
+                );
+              },
+              null,
+              null
+            )),
+            l["\u0275did"](
+              56,
+              16384,
+              null,
+              0,
+              Dr,
+              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
+              { routerLink: [0, "routerLink"] },
+              null
+            ),
+            l["\u0275did"](
+              57,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              58,
+              0,
+              null,
+              null,
+              1,
+              "i",
+              [["class", "material-icons prefix lime-text"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["help_outline"])),
+            (e()(), l["\u0275ted"](-1, null, [" Setup & How To "])),
+            (e()(),
+            l["\u0275eld"](
+              61,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              62,
+              0,
+              null,
+              null,
+              5,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                ["position", "bottom"],
+                ["routerLink", "what-is-sidequest"],
+                ["tooltip", "Find out about SideQuest."]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0,
+                  i = e.component;
+                return (
+                  "click" === n &&
+                    (r = !1 !== l["\u0275nov"](e, 63).onClick() && r),
+                  "click" === n && (r = !1 !== i.appService.scrollToTop() && r),
+                  r
+                );
+              },
+              null,
+              null
+            )),
+            l["\u0275did"](
+              63,
+              16384,
+              null,
+              0,
+              Dr,
+              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
+              { routerLink: [0, "routerLink"] },
+              null
+            ),
+            l["\u0275did"](
+              64,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              65,
+              0,
+              null,
+              null,
+              1,
+              "i",
+              [["class", "material-icons prefix yellow-text"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["help_outline"])),
+            (e()(), l["\u0275ted"](-1, null, [" What Is SideQuest? "])),
+            (e()(),
+            l["\u0275eld"](
+              68,
+              0,
+              null,
+              null,
+              6,
+              "div",
+              [["class", "col s4 center-align hide-on-small-only"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              69,
+              0,
+              null,
+              null,
+              1,
+              "a",
+              [["class", "logo"], ["href", "#/"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              70,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [["src", "assets/images/logo-large icony.png"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              71,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "header-title"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["The Expanse VR"])),
+            (e()(),
+            l["\u0275eld"](
+              73,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "apk-install"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Powering SideQuest"])),
+            (e()(),
+            l["\u0275eld"](
+              75,
+              0,
+              null,
+              null,
+              37,
+              "div",
+              [["class", "col s6 m4 right-align"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              76,
+              0,
+              null,
+              null,
+              1,
+              "h5",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, ["Follow Us"])),
+            (e()(),
+            l["\u0275eld"](
+              78,
+              0,
+              null,
+              null,
+              0,
+              "hr",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              79,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "People have been so kind, we are humbled."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            l["\u0275did"](
+              80,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              81,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Support us on Patreon."],
+                ["src", "assets/images/patreon.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, [" Support us on Patreon "])),
+            (e()(),
+            l["\u0275eld"](
+              83,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              84,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=744A6C394Q8JG&source=url'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "Use this option if you prefer a one off donation."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            l["\u0275did"](
+              85,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              86,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Donate on Paypal"],
+                ["src", "assets/images/paypal.jpg"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, [" Donate on Paypal "])),
+            (e()(),
+            l["\u0275eld"](
+              88,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              89,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://discord.me/sidequestvr'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "Come and join in the chat with the community."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            l["\u0275did"](
+              90,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              91,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Chat on Discord"],
+                ["src", "assets/images/social/Discord.png"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, [" Chat on Discord "])),
+            (e()(),
+            l["\u0275eld"](
+              93,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              94,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.reddit.com/user/shakamone/posts/'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "Get all the latest news and updates."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            l["\u0275did"](
+              95,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              96,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Chat on Discord"],
+                ["src", "assets/images/social/Reddit.png"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, [" Sub on Reddit "])),
+            (e()(),
+            l["\u0275eld"](
+              98,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              99,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.youtube.com/c/TheExpanseVR'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "Binge watch our progress."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            l["\u0275did"](
+              100,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              101,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Chat on Discord"],
+                ["src", "assets/images/social/Youtube.png"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, [" Sub on Youtube "])),
+            (e()(),
+            l["\u0275eld"](
+              103,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              104,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.twitter.com/TheExpanseVR'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "Follow all the latest feeds."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            l["\u0275did"](
+              105,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              106,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Chat on Discord"],
+                ["src", "assets/images/social/Twitter.png"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, [" Follow on Twitter "])),
+            (e()(),
+            l["\u0275eld"](
+              108,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              109,
+              0,
+              null,
+              null,
+              3,
+              "span",
+              [
+                ["class", "chip pointer top-chip"],
+                ["mz-tooltip", ""],
+                [
+                  "onclick",
+                  "window.location.href = 'https://www.instagram.com/TheExpanseVR'"
+                ],
+                ["position", "bottom"],
+                ["tooltip", "Come and join in the chat with the community."]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            l["\u0275did"](
+              110,
+              4931584,
+              null,
+              0,
+              xn,
+              [l.ElementRef, l.Renderer],
+              { position: [0, "position"], tooltip: [1, "tooltip"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              111,
+              0,
+              null,
+              null,
+              0,
+              "img",
+              [
+                ["alt", "Chat on Discord"],
+                ["src", "assets/images/social/Instagram.png"]
+              ],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275ted"](-1, null, [" Follow on Instagram "])),
+            (e()(),
+            l["\u0275eld"](
+              113,
+              0,
+              null,
+              null,
+              9,
+              "div",
+              [["class", "col s12 center-align"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              114,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              115,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              116,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              117,
+              0,
+              null,
+              null,
+              2,
+              "a",
+              [["class", "white-text"], ["routerLink", "/privacy"]],
+              [[1, "target", 0], [8, "href", 4]],
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0;
+                return (
+                  "click" === n &&
+                    (r =
+                      !1 !==
+                        l["\u0275nov"](e, 118).onClick(
+                          t.button,
+                          t.ctrlKey,
+                          t.metaKey,
+                          t.shiftKey
+                        ) && r),
+                  r
+                );
+              },
+              null,
+              null
+            )),
+            l["\u0275did"](
+              118,
+              671744,
+              null,
+              0,
+              xr,
+              [Cr, fl, o.LocationStrategy],
+              { routerLink: [0, "routerLink"] },
+              null
+            ),
+            (e()(), l["\u0275ted"](-1, null, ["Privacy Policy"])),
+            (e()(),
+            l["\u0275eld"](
+              120,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              121,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [" \xa9 The Expanse VR Ltd 2019 - 2020 "]))
+          ],
+          function(e, n) {
+            var t = n.component,
+              l = e(n, 7, 0, t.appService.hideLogo, !t.appService.hideLogo);
+            e(n, 6, 0, "padding", l),
+              e(n, 21, 0, "news"),
+              e(
+                n,
+                22,
+                0,
+                "bottom",
+                "New apps, events and news aggregated from reddit, twitter and discord."
+              ),
+              e(n, 28, 0, "apps/1"),
+              e(n, 29, 0, "bottom", "Games you can get on SideQuest"),
+              e(n, 35, 0, "events"),
+              e(n, 36, 0, "bottom", "New VR multi user events."),
+              e(n, 42, 0, "download"),
+              e(n, 43, 0, "bottom", "Get the latest version of SideQuest"),
+              e(n, 49, 0, t.appService.isAuthenticated ? "account" : "login"),
+              e(n, 50, 0, "bottom", "Get the latest version of SideQuest"),
+              e(n, 56, 0, "setup-howto"),
+              e(
+                n,
+                57,
+                0,
+                "bottom",
+                "Get your sidequest setup the first time you install, and watch some how to videos."
+              ),
+              e(n, 63, 0, "what-is-sidequest"),
+              e(n, 64, 0, "bottom", "Find out about SideQuest."),
+              e(
+                n,
+                80,
+                0,
+                "bottom",
+                "People have been so kind, we are humbled."
+              ),
+              e(
+                n,
+                85,
+                0,
+                "bottom",
+                "Use this option if you prefer a one off donation."
+              ),
+              e(
+                n,
+                90,
+                0,
+                "bottom",
+                "Come and join in the chat with the community."
+              ),
+              e(n, 95, 0, "bottom", "Get all the latest news and updates."),
+              e(n, 100, 0, "bottom", "Binge watch our progress."),
+              e(n, 105, 0, "bottom", "Follow all the latest feeds."),
+              e(
+                n,
+                110,
+                0,
+                "bottom",
+                "Come and join in the chat with the community."
+              ),
+              e(n, 118, 0, "/privacy");
+          },
+          function(e, n) {
+            e(
+              n,
+              53,
+              0,
+              n.component.appService.isAuthenticated ? "Dashboard" : "Sign In"
+            ),
+              e(
+                n,
+                117,
+                0,
+                l["\u0275nov"](n, 118).target,
+                l["\u0275nov"](n, 118).href
+              );
+          }
+        );
+      }
+      var jp = l["\u0275crt"]({
+        encapsulation: 0,
+        styles: [
+          [
+            ".logo[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{width:90px;position:absolute;top:0;left:50px}#nav-mobile[_ngcontent-%COMP%]{margin-left:60px}.top-banner[_ngcontent-%COMP%]{background:url(topbannerback.8f7cb3fbc4f518015013.png) top right no-repeat #312249;height:90px;width:100%}.over-menu[_ngcontent-%COMP%]{position:absolute;top:20px;left:5px}.smaller[_ngcontent-%COMP%]{height:43px}.top-buttons[_ngcontent-%COMP%]{margin-top:30px}.smaller-buttons[_ngcontent-%COMP%]{margin-top:5px}.header-title[_ngcontent-%COMP%]{position:absolute;top:-10px;left:105px;font-size:2.5rem;margin-top:.4em;margin-left:1em;color:#fff;font-family:'PT Sans',sans-serif}.apk-install[_ngcontent-%COMP%]{font-size:.9rem;position:absolute;top:55px;left:145px;color:#fff;font-family:'PT Sans',sans-serif;-webkit-app-region:no-drag}.scroll-container-small[_ngcontent-%COMP%]{position:relative;height:calc(100% - 43px);overflow-x:hidden;overflow-y:auto;scroll-behavior:smooth}.scroll-container[_ngcontent-%COMP%]{position:relative;height:calc(100% - 90px);overflow-x:hidden;overflow-y:auto;scroll-behavior:smooth}.main-container[_ngcontent-%COMP%]{position:relative}.move-down[_ngcontent-%COMP%]{-webkit-transform:translate(0,80px);transform:translate(0,80px)}.top-button[_ngcontent-%COMP%]{padding-left:1em;padding-right:1em}"
+          ]
+        ],
+        data: {}
+      });
+      function Np(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114715,7 +119008,7 @@
           null
         );
       }
-      function Ip(e) {
+      function Fp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114765,7 +119058,7 @@
           null
         );
       }
-      function Op(e) {
+      function Vp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114793,7 +119086,7 @@
           null
         );
       }
-      function Rp(e) {
+      function Hp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114820,7 +119113,7 @@
           }
         );
       }
-      function Ap(e) {
+      function zp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -114867,7 +119160,7 @@
           null
         );
       }
-      function Yp(e) {
+      function Up(e) {
         return l["\u0275vid"](
           0,
           [
@@ -115140,7 +119433,7 @@
                 ["mz-tooltip", ""],
                 ["position", "bottom"],
                 ["routerLink", "apps/1"],
-                ["tooltip", "Games you can get on SIdeQuest"]
+                ["tooltip", "Games you can get on SideQuest"]
               ],
               null,
               [[null, "click"]],
@@ -115176,7 +119469,7 @@
               null
             ),
             (e()(), l["\u0275ted"](-1, null, ["Games"])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ep)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Np)),
             l["\u0275did"](
               33,
               16384,
@@ -115237,7 +119530,7 @@
               null
             ),
             (e()(), l["\u0275ted"](37, null, ["", ""])),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ip)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Fp)),
             l["\u0275did"](
               39,
               16384,
@@ -115360,14 +119653,14 @@
               0,
               null,
               null,
-              38,
+              43,
               "mz-sidenav",
               [],
               null,
               null,
               null,
-              Ro,
-              Oo
+              No,
+              jo
             )),
             l["\u0275did"](
               50,
@@ -115391,8 +119684,8 @@
               null,
               null,
               null,
-              Yo,
-              Ao
+              Vo,
+              Fo
             )),
             l["\u0275did"](52, 49152, null, 0, gn, [], null, null),
             (e()(), l["\u0275ted"](-1, 0, [" Main Menu "])),
@@ -115408,8 +119701,8 @@
               null,
               null,
               null,
-              jo,
-              Po
+              zo,
+              Ho
             )),
             l["\u0275did"](55, 49152, null, 0, vn, [], null, null),
             (e()(),
@@ -115456,7 +119749,7 @@
               { routerLink: [0, "routerLink"] },
               null
             ),
-            (e()(), l["\u0275ted"](-1, null, ["News & Events"])),
+            (e()(), l["\u0275ted"](-1, null, ["News"])),
             (e()(),
             l["\u0275eld"](
               59,
@@ -115469,8 +119762,8 @@
               null,
               null,
               null,
-              jo,
-              Po
+              zo,
+              Ho
             )),
             l["\u0275did"](60, 49152, null, 0, vn, [], null, null),
             (e()(),
@@ -115481,7 +119774,7 @@
               0,
               2,
               "a",
-              [["routerLink", "what-is-sidequest"]],
+              [["routerLink", "events"]],
               [[1, "target", 0], [8, "href", 4]],
               [[null, "click"]],
               function(e, n, t) {
@@ -115517,7 +119810,7 @@
               { routerLink: [0, "routerLink"] },
               null
             ),
-            (e()(), l["\u0275ted"](-1, null, ["What is SideQuest?"])),
+            (e()(), l["\u0275ted"](-1, null, ["Events"])),
             (e()(),
             l["\u0275eld"](
               64,
@@ -115530,8 +119823,8 @@
               null,
               null,
               null,
-              jo,
-              Po
+              zo,
+              Ho
             )),
             l["\u0275did"](65, 49152, null, 0, vn, [], null, null),
             (e()(),
@@ -115578,7 +119871,7 @@
               { routerLink: [0, "routerLink"] },
               null
             ),
-            (e()(), l["\u0275ted"](-1, null, ["Apps"])),
+            (e()(), l["\u0275ted"](-1, null, ["Games"])),
             (e()(),
             l["\u0275eld"](
               69,
@@ -115591,8 +119884,8 @@
               null,
               null,
               null,
-              jo,
-              Po
+              zo,
+              Ho
             )),
             l["\u0275did"](70, 49152, null, 0, vn, [], null, null),
             (e()(),
@@ -115603,7 +119896,7 @@
               0,
               2,
               "a",
-              [["routerLink", "download"]],
+              [["routerLink", "what-is-sidequest"]],
               [[1, "target", 0], [8, "href", 4]],
               [[null, "click"]],
               function(e, n, t) {
@@ -115639,7 +119932,7 @@
               { routerLink: [0, "routerLink"] },
               null
             ),
-            (e()(), l["\u0275ted"](-1, null, ["Download"])),
+            (e()(), l["\u0275ted"](-1, null, ["What is SideQuest?"])),
             (e()(),
             l["\u0275eld"](
               74,
@@ -115652,8 +119945,8 @@
               null,
               null,
               null,
-              jo,
-              Po
+              zo,
+              Ho
             )),
             l["\u0275did"](75, 49152, null, 0, vn, [], null, null),
             (e()(),
@@ -115664,7 +119957,7 @@
               0,
               2,
               "a",
-              [],
+              [["routerLink", "download"]],
               [[1, "target", 0], [8, "href", 4]],
               [[null, "click"]],
               function(e, n, t) {
@@ -115700,7 +119993,7 @@
               { routerLink: [0, "routerLink"] },
               null
             ),
-            (e()(), l["\u0275ted"](78, null, ["", ""])),
+            (e()(), l["\u0275ted"](-1, null, ["Download"])),
             (e()(),
             l["\u0275eld"](
               79,
@@ -115713,8 +120006,8 @@
               null,
               null,
               null,
-              jo,
-              Po
+              zo,
+              Ho
             )),
             l["\u0275did"](80, 49152, null, 0, vn, [], null, null),
             (e()(),
@@ -115725,7 +120018,7 @@
               0,
               2,
               "a",
-              [["routerLink", "setup-howto"]],
+              [],
               [[1, "target", 0], [8, "href", 4]],
               [[null, "click"]],
               function(e, n, t) {
@@ -115761,10 +120054,71 @@
               { routerLink: [0, "routerLink"] },
               null
             ),
-            (e()(), l["\u0275ted"](-1, null, ["Setup & How To"])),
+            (e()(), l["\u0275ted"](83, null, ["", ""])),
             (e()(),
             l["\u0275eld"](
               84,
+              0,
+              null,
+              0,
+              4,
+              "mz-sidenav-link",
+              [],
+              null,
+              null,
+              null,
+              zo,
+              Ho
+            )),
+            l["\u0275did"](85, 49152, null, 0, vn, [], null, null),
+            (e()(),
+            l["\u0275eld"](
+              86,
+              0,
+              null,
+              0,
+              2,
+              "a",
+              [["routerLink", "setup-howto"]],
+              [[1, "target", 0], [8, "href", 4]],
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0;
+                return (
+                  "click" === n &&
+                    (r =
+                      !1 !==
+                        l["\u0275nov"](e, 87).onClick(
+                          t.button,
+                          t.ctrlKey,
+                          t.metaKey,
+                          t.shiftKey
+                        ) && r),
+                  "click" === n &&
+                    (r =
+                      0 !=
+                        (l["\u0275nov"](e, 50).opened = !l["\u0275nov"](e, 50)
+                          .opened) && r),
+                  r
+                );
+              },
+              null,
+              null
+            )),
+            l["\u0275did"](
+              87,
+              671744,
+              null,
+              0,
+              xr,
+              [Cr, fl, o.LocationStrategy],
+              { routerLink: [0, "routerLink"] },
+              null
+            ),
+            (e()(), l["\u0275ted"](-1, null, ["Setup & How To"])),
+            (e()(),
+            l["\u0275eld"](
+              89,
               0,
               null,
               0,
@@ -115774,13 +120128,13 @@
               null,
               null,
               null,
-              jo,
-              Po
+              zo,
+              Ho
             )),
-            l["\u0275did"](85, 49152, null, 0, vn, [], null, null),
+            l["\u0275did"](90, 49152, null, 0, vn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              86,
+              91,
               0,
               null,
               0,
@@ -115807,11 +120161,11 @@
             (e()(), l["\u0275ted"](-1, null, ["Discord"])),
             (e()(),
             l["\u0275eld"](
-              88,
+              93,
               0,
               [[1, 0], ["scrollContainer", 1]],
               null,
-              5,
+              7,
               "div",
               [],
               null,
@@ -115828,7 +120182,7 @@
               [l.IterableDiffers, l.KeyValueDiffers, l.ElementRef, l.Renderer2]
             ),
             l["\u0275did"](
-              90,
+              95,
               278528,
               null,
               0,
@@ -115837,13 +120191,13 @@
               { ngClass: [0, "ngClass"] },
               null
             ),
-            l["\u0275pod"](91, {
+            l["\u0275pod"](96, {
               "scroll-container-small": 0,
               "scroll-container": 1
             }),
             (e()(),
             l["\u0275eld"](
-              92,
+              97,
               16777216,
               null,
               null,
@@ -115857,7 +120211,7 @@
               null
             )),
             l["\u0275did"](
-              93,
+              98,
               212992,
               null,
               0,
@@ -115874,7 +120228,23 @@
             ),
             (e()(),
             l["\u0275eld"](
-              94,
+              99,
+              0,
+              null,
+              null,
+              1,
+              "app-footer",
+              [],
+              null,
+              null,
+              null,
+              Yp,
+              Pp
+            )),
+            l["\u0275did"](100, 114688, null, 0, Ap, [Sn], null, null),
+            (e()(),
+            l["\u0275eld"](
+              101,
               0,
               null,
               null,
@@ -115884,11 +120254,11 @@
               null,
               null,
               null,
-              Lo,
-              xo
+              Oo,
+              Io
             )),
             l["\u0275did"](
-              95,
+              102,
               4833280,
               [[2, 4], ["confirmOpen", 4]],
               0,
@@ -115897,10 +120267,10 @@
               { fixedFooter: [0, "fixedFooter"], options: [1, "options"] },
               null
             ),
-            l["\u0275pod"](96, { dismissible: 0 }),
+            l["\u0275pod"](103, { dismissible: 0 }),
             (e()(),
             l["\u0275eld"](
-              97,
+              104,
               0,
               null,
               0,
@@ -115913,10 +120283,10 @@
               null,
               null
             )),
-            l["\u0275did"](98, 16384, null, 0, ln, [], null, null),
+            l["\u0275did"](105, 16384, null, 0, ln, [], null, null),
             (e()(),
             l["\u0275eld"](
-              99,
+              106,
               0,
               null,
               null,
@@ -115932,7 +120302,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Opening With SideQuest"])),
             (e()(),
             l["\u0275eld"](
-              101,
+              108,
               0,
               null,
               1,
@@ -115945,10 +120315,10 @@
               null,
               null
             )),
-            l["\u0275did"](102, 16384, null, 0, rn, [], null, null),
+            l["\u0275did"](109, 16384, null, 0, rn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              103,
+              110,
               0,
               null,
               null,
@@ -115967,7 +120337,7 @@
             ])),
             (e()(),
             l["\u0275eld"](
-              105,
+              112,
               0,
               null,
               null,
@@ -115982,7 +120352,7 @@
             )),
             (e()(),
             l["\u0275eld"](
-              106,
+              113,
               0,
               null,
               null,
@@ -115999,90 +120369,6 @@
             l["\u0275ted"](-1, null, [
               " Please check the SideQuest app for progress and click confirm when your done for us to update things on this end. If you need to install SideQuest please click download below and come back here to try this again."
             ])),
-            (e()(),
-            l["\u0275eld"](
-              108,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              109,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              110,
-              0,
-              null,
-              null,
-              4,
-              "button",
-              [
-                ["class", "white-text pink-button"],
-                ["mz-button", ""],
-                ["mz-modal-close", ""],
-                ["routerLink", "/download"]
-              ],
-              null,
-              [[null, "click"]],
-              function(e, n, t) {
-                var r = !0,
-                  i = e.component;
-                return (
-                  "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 111).onClick() && r),
-                  "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 113).onclick() && r),
-                  "click" === n &&
-                    (r = !1 !== i.appService.cancelSidequestUrl() && r),
-                  r
-                );
-              },
-              null,
-              null
-            )),
-            l["\u0275did"](
-              111,
-              16384,
-              null,
-              0,
-              Dr,
-              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
-              { routerLink: [0, "routerLink"] },
-              null
-            ),
-            l["\u0275did"](
-              112,
-              606208,
-              null,
-              0,
-              Be,
-              [l.ElementRef, l.Renderer],
-              null,
-              null
-            ),
-            l["\u0275did"](113, 16384, null, 0, un, [tn], null, null),
-            (e()(), l["\u0275ted"](-1, null, ["Download"])),
             (e()(),
             l["\u0275eld"](
               115,
@@ -116113,58 +120399,75 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Op)),
+            (e()(),
+            l["\u0275eld"](
+              117,
+              0,
+              null,
+              null,
+              4,
+              "button",
+              [
+                ["class", "white-text pink-button"],
+                ["mz-button", ""],
+                ["mz-modal-close", ""],
+                ["routerLink", "/download"]
+              ],
+              null,
+              [[null, "click"]],
+              function(e, n, t) {
+                var r = !0,
+                  i = e.component;
+                return (
+                  "click" === n &&
+                    (r = !1 !== l["\u0275nov"](e, 118).onClick() && r),
+                  "click" === n &&
+                    (r = !1 !== l["\u0275nov"](e, 120).onclick() && r),
+                  "click" === n &&
+                    (r = !1 !== i.appService.cancelSidequestUrl() && r),
+                  r
+                );
+              },
+              null,
+              null
+            )),
             l["\u0275did"](
               118,
               16384,
               null,
               0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
+              Dr,
+              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
+              { routerLink: [0, "routerLink"] },
               null
             ),
-            (e()(),
-            l["\u0275eld"](
-              119,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              120,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Rp)),
             l["\u0275did"](
-              122,
-              16384,
+              119,
+              606208,
               null,
               0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
+              Be,
+              [l.ElementRef, l.Renderer],
+              null,
               null
             ),
+            l["\u0275did"](120, 16384, null, 0, un, [tn], null, null),
+            (e()(), l["\u0275ted"](-1, null, ["Download"])),
+            (e()(),
+            l["\u0275eld"](
+              122,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
             (e()(),
             l["\u0275eld"](
               123,
@@ -116180,9 +120483,20 @@
               null,
               null
             )),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Vp)),
+            l["\u0275did"](
+              125,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
             (e()(),
             l["\u0275eld"](
-              124,
+              126,
               0,
               null,
               null,
@@ -116195,9 +120509,24 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, Ap)),
+            (e()(),
+            l["\u0275eld"](
+              127,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, Hp)),
             l["\u0275did"](
-              126,
+              129,
               16384,
               null,
               0,
@@ -116208,7 +120537,48 @@
             ),
             (e()(),
             l["\u0275eld"](
-              127,
+              130,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              131,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, zp)),
+            l["\u0275did"](
+              133,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
+            (e()(),
+            l["\u0275eld"](
+              134,
               0,
               null,
               2,
@@ -116221,10 +120591,10 @@
               null,
               null
             )),
-            l["\u0275did"](128, 16384, null, 0, on, [], null, null),
+            l["\u0275did"](135, 16384, null, 0, on, [], null, null),
             (e()(),
             l["\u0275eld"](
-              129,
+              136,
               0,
               null,
               null,
@@ -116242,7 +120612,7 @@
                   i = e.component;
                 return (
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 131).onclick() && r),
+                    (r = !1 !== l["\u0275nov"](e, 138).onclick() && r),
                   "click" === n &&
                     (r = !1 !== i.appService.cancelSidequestUrl() && r),
                   r
@@ -116252,7 +120622,7 @@
               null
             )),
             l["\u0275did"](
-              130,
+              137,
               606208,
               null,
               0,
@@ -116261,11 +120631,11 @@
               { flat: [0, "flat"] },
               null
             ),
-            l["\u0275did"](131, 16384, null, 0, un, [tn], null, null),
+            l["\u0275did"](138, 16384, null, 0, un, [tn], null, null),
             (e()(), l["\u0275ted"](-1, null, ["Cancel"])),
             (e()(),
             l["\u0275eld"](
-              133,
+              140,
               0,
               null,
               null,
@@ -116287,7 +120657,7 @@
               null
             )),
             l["\u0275did"](
-              134,
+              141,
               606208,
               null,
               0,
@@ -116299,7 +120669,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Retry"])),
             (e()(),
             l["\u0275eld"](
-              136,
+              143,
               0,
               null,
               null,
@@ -116317,7 +120687,7 @@
                   i = e.component;
                 return (
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 138).onclick() && r),
+                    (r = !1 !== l["\u0275nov"](e, 145).onclick() && r),
                   "click" === n &&
                     (r = !1 !== i.appService.confirmSidequestUrl() && r),
                   r
@@ -116327,7 +120697,7 @@
               null
             )),
             l["\u0275did"](
-              137,
+              144,
               606208,
               null,
               0,
@@ -116336,7 +120706,7 @@
               null,
               null
             ),
-            l["\u0275did"](138, 16384, null, 0, un, [tn], null, null),
+            l["\u0275did"](145, 16384, null, 0, un, [tn], null, null),
             (e()(), l["\u0275ted"](-1, null, ["Confirm"]))
           ],
           function(e, n) {
@@ -116356,7 +120726,7 @@
                 "New apps, events and news aggregated from reddit, twitter and discord."
               ),
               e(n, 29, 0, "apps/1"),
-              e(n, 30, 0, "bottom", "Games you can get on SIdeQuest"),
+              e(n, 30, 0, "bottom", "Games you can get on SideQuest"),
               e(n, 33, 0, !t.appService.hideLogo),
               e(n, 35, 0, t.appService.isAuthenticated ? "account" : "login"),
               e(
@@ -116385,23 +120755,24 @@
               ),
               e(n, 50, 0, "btn-sidenav-demo", "sidenav-demo"),
               e(n, 57, 0, "news"),
-              e(n, 62, 0, "what-is-sidequest"),
+              e(n, 62, 0, "events"),
               e(n, 67, 0, "apps/1"),
-              e(n, 72, 0, "download"),
-              e(n, 77, 0, t.appService.isAuthenticated ? "account" : "login"),
-              e(n, 82, 0, "setup-howto");
-            var u = e(n, 91, 0, t.appService.hideLogo, !t.appService.hideLogo);
-            e(n, 90, 0, u), e(n, 93, 0);
-            var a = e(n, 96, 0, !1);
-            e(n, 95, 0, !0, a),
-              e(n, 111, 0, "/download"),
-              e(n, 112, 0),
-              e(n, 118, 0, t.appService.urlTimeoutValue),
-              e(n, 122, 0, t.appService.urlTimeoutValue),
-              e(n, 126, 0, t.appService.urlTimeoutValue),
-              e(n, 130, 0, !0),
-              e(n, 134, 0, !0),
-              e(n, 137, 0);
+              e(n, 72, 0, "what-is-sidequest"),
+              e(n, 77, 0, "download"),
+              e(n, 82, 0, t.appService.isAuthenticated ? "account" : "login"),
+              e(n, 87, 0, "setup-howto");
+            var u = e(n, 96, 0, t.appService.hideLogo, !t.appService.hideLogo);
+            e(n, 95, 0, u), e(n, 98, 0), e(n, 100, 0);
+            var a = e(n, 103, 0, !1);
+            e(n, 102, 0, !0, a),
+              e(n, 118, 0, "/download"),
+              e(n, 119, 0),
+              e(n, 125, 0, t.appService.urlTimeoutValue),
+              e(n, 129, 0, t.appService.urlTimeoutValue),
+              e(n, 133, 0, t.appService.urlTimeoutValue),
+              e(n, 137, 0, !0),
+              e(n, 141, 0, !0),
+              e(n, 144, 0);
           },
           function(e, n) {
             var t = n.component;
@@ -116443,21 +120814,28 @@
               ),
               e(
                 n,
-                78,
+                81,
+                0,
+                l["\u0275nov"](n, 82).target,
+                l["\u0275nov"](n, 82).href
+              ),
+              e(
+                n,
+                83,
                 0,
                 t.appService.isAuthenticated ? "Dashboard" : "Sign In"
               ),
               e(
                 n,
-                81,
+                86,
                 0,
-                l["\u0275nov"](n, 82).target,
-                l["\u0275nov"](n, 82).href
+                l["\u0275nov"](n, 87).target,
+                l["\u0275nov"](n, 87).href
               );
           }
         );
       }
-      function Pp(e) {
+      function Wp(e) {
         return l["\u0275vid"](
           0,
           [
@@ -116473,8 +120851,8 @@
               null,
               null,
               null,
-              Yp,
-              Tp
+              Up,
+              jp
             )),
             l["\u0275did"](
               1,
@@ -116491,9 +120869,9 @@
           null
         );
       }
-      var jp = l["\u0275ccf"]("app-root", ei, Pp, {}, {}, []),
-        Np = t("luWi"),
-        Fp = (function() {
+      var Bp = l["\u0275ccf"]("app-root", ei, Wp, {}, {}, []),
+        Gp = t("luWi"),
+        $p = (function() {
           function e(e, n) {
             var t = this;
             (this.router = e),
@@ -116513,7 +120891,7 @@
             e
           );
         })(),
-        Vp = (function() {
+        qp = (function() {
           function e(e, n, t) {
             var l = this;
             (this.router = e),
@@ -116538,11 +120916,11 @@
             e
           );
         })(),
-        Hp = (function() {
+        Kp = (function() {
           return function() {};
         })(),
-        zp = t("iAM3"),
-        Up = l["\u0275cmf"](r, [ei], function(e) {
+        Jp = t("iAM3"),
+        Qp = l["\u0275cmf"](r, [ei], function(e) {
           return l["\u0275mod"]([
             l["\u0275mpd"](
               512,
@@ -116556,24 +120934,25 @@
                     to,
                     fo,
                     yo,
-                    Jo,
+                    Co,
                     nu,
-                    Ku,
-                    ya,
-                    _s,
-                    rd,
-                    md,
-                    Od,
-                    Gd,
+                    ou,
+                    na,
+                    Ca,
+                    ks,
+                    sd,
+                    bd,
+                    jd,
                     Qd,
                     tc,
                     uc,
                     pc,
                     vc,
-                    vp,
-                    kp,
+                    Mc,
+                    Mp,
                     Sp,
-                    jp
+                    Rp,
+                    Bp
                   ]
                 ],
                 [3, l.ComponentFactoryResolver],
@@ -116671,7 +121050,7 @@
             l["\u0275mpd"](5120, fl, $r, [Cr]),
             l["\u0275mpd"](4608, Ar, Ar, []),
             l["\u0275mpd"](6144, Or, null, [Ar]),
-            l["\u0275mpd"](135680, Yr, Yr, [
+            l["\u0275mpd"](135680, Pr, Pr, [
               Cr,
               l.NgModuleFactoryLoader,
               l.Compiler,
@@ -116679,7 +121058,7 @@
               Or
             ]),
             l["\u0275mpd"](4608, Rr, Rr, []),
-            l["\u0275mpd"](5120, Pr, zr, [Cr, o.ViewportScroller, jr]),
+            l["\u0275mpd"](5120, Yr, zr, [Cr, o.ViewportScroller, jr]),
             l["\u0275mpd"](5120, Qr, Jr, [qr]),
             l["\u0275mpd"](
               5120,
@@ -116698,25 +121077,25 @@
             l["\u0275mpd"](4608, an, an, [ze]),
             l["\u0275mpd"](4608, T, T, []),
             l["\u0275mpd"](4608, ce, ce, []),
-            l["\u0275mpd"](4608, Np.LightboxConfig, Np.LightboxConfig, []),
-            l["\u0275mpd"](4608, yp.LightboxEvent, yp.LightboxEvent, []),
-            l["\u0275mpd"](4608, ru.Lightbox, ru.Lightbox, [
+            l["\u0275mpd"](4608, Gp.LightboxConfig, Gp.LightboxConfig, []),
+            l["\u0275mpd"](4608, Cp.LightboxEvent, Cp.LightboxEvent, []),
+            l["\u0275mpd"](4608, su.Lightbox, su.Lightbox, [
               l.ComponentFactoryResolver,
               l.Injector,
               l.ApplicationRef,
-              Np.LightboxConfig,
-              yp.LightboxEvent,
+              Gp.LightboxConfig,
+              Cp.LightboxEvent,
               o.DOCUMENT
             ]),
             l["\u0275mpd"](
               4608,
-              yp.LightboxWindowRef,
-              yp.LightboxWindowRef,
+              Cp.LightboxWindowRef,
+              Cp.LightboxWindowRef,
               []
             ),
-            l["\u0275mpd"](4608, Ca, Ca, [Ma]),
-            l["\u0275mpd"](4608, Fp, Fp, [Cr, Sn]),
-            l["\u0275mpd"](4608, Vp, Vp, [Cr, Sn, Zr]),
+            l["\u0275mpd"](4608, Ta, Ta, [La]),
+            l["\u0275mpd"](4608, $p, $p, [Cr, Sn]),
+            l["\u0275mpd"](4608, qp, qp, [Cr, Sn, Zr]),
             l["\u0275mpd"](1073742336, o.CommonModule, o.CommonModule, []),
             l["\u0275mpd"](
               1024,
@@ -116797,46 +121176,47 @@
                   [
                     { path: "news", component: zi },
                     { path: "download", component: so },
-                    { path: "avatar-editor", component: mo, canActivate: [Vp] },
+                    { path: "privacy", component: mo },
+                    { path: "avatar-editor", component: bo, canActivate: [qp] },
                     {
                       path: "avatar-editor/:url",
-                      component: mo,
-                      canActivate: [Vp]
+                      component: bo,
+                      canActivate: [qp]
                     },
-                    { path: "avatar-picker", component: Vo, canActivate: [Vp] },
-                    { path: "what-is-sidequest", component: Qo },
-                    { path: "app/:apps_id", component: lu },
-                    { path: "event/:events_id", component: Zu },
-                    { path: "my-event", component: Qa, canActivate: [Vp] },
+                    { path: "avatar-picker", component: Bo, canActivate: [qp] },
+                    { path: "what-is-sidequest", component: tu },
+                    { path: "app/:apps_id", component: au },
+                    { path: "event/:events_id", component: ra },
+                    { path: "my-event", component: ts, canActivate: [qp] },
                     {
                       path: "my-event/:events_id",
-                      component: Qa,
-                      canActivate: [Vp]
+                      component: ts,
+                      canActivate: [qp]
                     },
-                    { path: "my-app", component: Qu, canActivate: [Vp] },
+                    { path: "my-app", component: la, canActivate: [qp] },
                     {
                       path: "my-app/:apps_id",
-                      component: Qu,
-                      canActivate: [Vp]
+                      component: la,
+                      canActivate: [qp]
                     },
-                    { path: "events", component: id },
-                    { path: "apps", component: gd },
-                    { path: "apps/:category", component: gd },
-                    { path: "account", component: Ju, canActivate: [Vp] },
+                    { path: "events", component: dd },
+                    { path: "apps", component: wd },
+                    { path: "apps/:category", component: wd },
+                    { path: "account", component: ta, canActivate: [qp] },
                     { path: "the-expanse", component: zi },
-                    { path: "setup-howto", component: $d },
-                    { path: "login", component: Zd, canActivate: [Fp] },
+                    { path: "setup-howto", component: Zd },
+                    { path: "login", component: lc, canActivate: [$p] },
                     {
                       path: "forgot-password",
-                      component: lc,
-                      canActivate: [Fp]
+                      component: ac,
+                      canActivate: [$p]
                     },
                     {
                       path: "reset-password/:token",
-                      component: ac,
-                      canActivate: [Fp]
+                      component: hc,
+                      canActivate: [$p]
                     },
-                    { path: "sign-up", component: hc, canActivate: [Fp] },
+                    { path: "sign-up", component: _c, canActivate: [$p] },
                     { path: "**", component: zi }
                   ]
                 ];
@@ -116857,7 +121237,7 @@
               [2, mr]
             ]),
             l["\u0275mpd"](1073742336, Hr, Hr, [[2, Nr], [2, Cr]]),
-            l["\u0275mpd"](1073742336, Hp, Hp, []),
+            l["\u0275mpd"](1073742336, Kp, Kp, []),
             l["\u0275mpd"](1073742336, Si, Si, []),
             l["\u0275mpd"](1073742336, Xe, Xe, []),
             l["\u0275mpd"](1073742336, Dn, Dn, []),
@@ -116875,25 +121255,25 @@
             l["\u0275mpd"](1073742336, sn, sn, []),
             l["\u0275mpd"](1073742336, de, de, []),
             l["\u0275mpd"](1073742336, pe, pe, []),
-            l["\u0275mpd"](1073742336, Ua, Ua, []),
+            l["\u0275mpd"](1073742336, qa, qa, []),
             l["\u0275mpd"](1073742336, cn, cn, []),
             l["\u0275mpd"](1073742336, he, he, []),
-            l["\u0275mpd"](1073742336, Ea, Ea, []),
+            l["\u0275mpd"](1073742336, Pa, Pa, []),
             l["\u0275mpd"](
               1073742336,
-              zp.LightboxModule,
-              zp.LightboxModule,
+              Jp.LightboxModule,
+              Jp.LightboxModule,
               []
             ),
             l["\u0275mpd"](1073742336, r, r, []),
             l["\u0275mpd"](256, l["\u0275APP_ROOT"], !0, []),
-            l["\u0275mpd"](256, Ma, {}, [])
+            l["\u0275mpd"](256, La, {}, [])
           ]);
         });
       Object(l.enableProdMode)(),
         u
           .platformBrowser()
-          .bootstrapModuleFactory(Up)
+          .bootstrapModuleFactory(Qp)
           .catch(function(e) {
             return console.error(e);
           });

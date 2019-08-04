@@ -128,27 +128,22 @@ export class EventManagerComponent implements OnInit, OnDestroy {
       .then(() =>
         fetch(
           "https://xpan.cc/get-link/" +
-            this.expanseService.currentSession.token +
-            "/e-" +
-            this.events_id +
-            "/" +
-            (window as any).encodeURIComponent(
-              "https://sidequestvr.com/#/event/" + this.events_id
-            ) +
-            "/" +
-            (window as any).encodeURIComponent(
-              this.currentApp.event_name || this.currentApp.name
-            ) +
-            " on SideQuest" +
-            "/" +
-            (window as any).encodeURIComponent(this.currentApp.event_image) +
-            "/" +
-            ((window as any).encodeURIComponent(
-              this.currentApp.event_description || this.currentApp.description
-            ) || "-"),
+            this.expanseService.currentSession.token,
           {
-            method: "GET",
-            cache: "no-cache"
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              title: this.currentApp.event_name || this.currentApp.name,
+              description:
+                this.currentApp.event_description ||
+                this.currentApp.description,
+              image: this.currentApp.event_image || this.currentApp.image,
+              name: "e-" + this.events_id,
+              external: "https://sidequestvr.com/#/event/" + this.events_id
+            })
           }
         )
       )

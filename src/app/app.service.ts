@@ -39,6 +39,10 @@ export class AppService {
     }
   }
 
+  scrollToTop() {
+    this.scrollContainer.scrollTo(0, 0);
+  }
+
   async fixImages(result) {
     const items = result && result.length ? result : [];
     await Promise.all(

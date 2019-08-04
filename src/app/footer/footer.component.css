@@ -1,0 +1,46 @@
+.footer-container{
+  background: #1c132b;
+  padding-top: 2em;
+  padding-bottom: 6em;
+}
+.nectar-shape-divider-wrap {
+  position: relative;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 150px;
+  z-index: 2;
+  transform: translateZ(0);
+}
+.nectar-shape-divider {
+  width: 100%;
+  left: 0;
+  bottom: -1px;
+  height: 100%;
+  position: absolute;
+}
+.nectar-shape-divider-wrap[data-style="curve"] .nectar-shape-divider {
+  filter: blur(0.5px);
+  transform: scale(1.03);
+}
+.logo img{
+  width: 160px;
+}
+
+.padding{
+  padding-left: 3em;
+  padding-right: 3em;
+}
+.header-title{
+  font-size: 3rem;
+  margin-top: 0.4em;
+  color: #ffffff;
+  font-family: 'PT Sans', sans-serif;
+}
+.apk-install {
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-family: 'PT Sans', sans-serif;
+}

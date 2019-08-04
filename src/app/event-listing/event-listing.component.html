@@ -27,31 +27,62 @@
   </div>
   <div class="clearfix"></div>
   <hr>
-  <div class="right app-package right-align truncate">{{currentApp.start_time*1000|date:'mediumDate'}} {{currentApp.start_time*1000|date:'shortTime'}}</div>
 
-  <div>
-    <span class="counter">{{counters.a}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-     mz-tooltip tooltip="Number of downloads"
-     position="bottom"
-    >event</i></span>
-    <span class="counter">{{counters.v}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-     mz-tooltip tooltip="Number of views"
-     position="bottom"
-    >visibility</i></span>
-    <span class="counter pointer" (click)="likeEvent()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-     mz-tooltip tooltip="Number of likes"
-     position="bottom"
-    >thumb_up</i></span>
-
-    <a class="btn waves-effect waves-light pink-button small-button margin-left" *ngIf="currentApp.app_url" href="{{currentApp.app_url}}">App Page</a>&nbsp;
-    <a class="btn waves-effect waves-light pink-button small-button margin-left" *ngIf="currentApp.share_url" (click)="copyUrl(currentApp.share_url)">Share</a>
-    <div class="btn waves-effect waves-light pink-button small-button margin-left" (click)="attendingCount()">Im Going</div>
-  </div>
-  <br>
   <div class="row">
     <div class="col s12">
       <div class="row">
-        <div class="col s12 m5" [ngClass]="{'m5' : !!videoObject}">
+        <div class="col s12 bottom-margin">
+          <div class="right app-package right-align truncate">{{currentApp.start_time*1000|date:'mediumDate'}}</div>
+          <div>
+            <span class="counter">{{counters.a}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+             mz-tooltip tooltip="Number of downloads"
+             position="bottom"
+            >event</i></span>
+            <span class="counter">{{counters.v}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+             mz-tooltip tooltip="Number of views"
+             position="bottom"
+            >visibility</i></span>
+            <span class="counter pointer" (click)="likeEvent()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+             mz-tooltip tooltip="Number of likes"
+             position="bottom"
+            >thumb_up</i></span>
+
+            <div class="btn waves-effect waves-light pink-button margin-left small-button" (click)="attendingCount()">Im Going</div>
+          </div>
+        </div>
+        <div class="col s12 m6 center-align">
+          <h4>{{currentApp.start_time*1000|date:'mediumDate'}}</h4>
+          <h6>{{currentApp.start_time*1000|date:'shortTime'}}</h6>
+          <br>
+        </div>
+        <div class="col s12 m6 center-align side-border hide-on-small-only">
+          <h4>{{currentApp.event_duration/60|number:'1.0-0'}}</h4>
+          <h6>mins</h6>
+          <br>
+        </div>
+        <div class="col s12 m6 center-align hide-on-med-and-up">
+          <div class="top-border"></div>
+          <h4>{{currentApp.event_duration/60|number:'1.0-0'}}</h4>
+          <h6>mins</h6>
+          <br>
+        </div>
+        <div class="col s12" *ngIf="videoObject">
+          <br>
+          <div>
+            <div *ngIf="videoObject.provider === 'youtube'">
+              <iframe width="100%" height="360" [src]="videoUrl" frameborder="0"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen></iframe>
+            </div>
+            <div *ngIf="videoObject.provider === 'vimeo'">
+              <iframe [src]="videoUrl" width="100%" height="360"
+                      frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+          </div>
+          <br>
+        </div>
+        <div class="col s12">
+          <br>
           <div class="row">
             <div class="col s12">
               <div *ngIf="currentApp.event_description||currentApp.description">
@@ -80,17 +111,18 @@
             </div>
           </div>
         </div>
-        <div class="col s12 m7" *ngIf="videoObject">
-          <div>
-            <div *ngIf="videoObject.provider === 'youtube'">
-              <iframe width="100%" height="360" [src]="videoUrl" frameborder="0"
-                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen></iframe>
-            </div>
-            <div *ngIf="videoObject.provider === 'vimeo'">
-              <iframe [src]="videoUrl" width="100%" height="360"
-                      frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
+      </div>
+      <div>
+        <br><br>
+        <div class="row">
+          <div class="col s6 truncate">
+            <a class="btn waves-effect waves-light pink-button" *ngIf="currentApp.app_url" href="{{currentApp.app_url}}">App Page</a>
+            <br><br>App Page: {{currentApp.app_url}}
+          </div>
+          <div class="col s6 right-align truncate">
+            <div class="btn waves-effect waves-light pink-button"
+                 (click)="copyShareUrl()">Copy Share Link</div>
+            <br><br>Share Link: {{currentApp.share_url}}
           </div>
         </div>
       </div>

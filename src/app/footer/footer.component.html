@@ -1,0 +1,143 @@
+<div class="nectar-shape-divider-wrap " style=" height:50px;" data-front="" data-style="curve" data-position="bottom"><svg class="nectar-shape-divider" fill="#1c132b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"> <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path> </svg></div>
+<div class="footer-container">
+  <div class="padding" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
+
+    <div class="row">
+      <div class="col s12 center-align hide-on-med-and-up">
+        <a href="#/" class="logo">
+          <img src="assets/images/logo-large icony.png"/>
+        </a>
+        <div class="header-title">The Expanse VR</div>
+        <div class="apk-install">Powering SideQuest</div>
+      </div>
+      <div class="col s6 m4">
+
+        <h5>Quick Links</h5>
+        <hr>
+        <span class="chip pointer top-chip"
+              routerLink="news"
+              (click)="appService.scrollToTop()"
+              mz-tooltip tooltip="New apps, events and news aggregated from reddit, twitter and discord."
+              position="bottom">
+          <i class="material-icons prefix teal-text">home</i>
+          Home
+        </span><br>
+        <span class="chip pointer top-chip"
+              routerLink="apps/1"
+              (click)="appService.scrollToTop()"
+              mz-tooltip tooltip="Games you can get on SideQuest"
+              position="bottom">
+          <i class="material-icons prefix green-text">games</i>
+          Games
+        </span><br>
+        <span class="chip pointer top-chip"
+              routerLink="events"
+              (click)="appService.scrollToTop()"
+              mz-tooltip tooltip="New VR multi user events."
+              position="bottom">
+          <i class="material-icons prefix blue-text">event</i>
+          Events
+        </span><br>
+        <span class="chip pointer top-chip"
+              routerLink="download"
+              (click)="appService.scrollToTop()"
+              mz-tooltip tooltip="Get the latest version of SideQuest"
+              position="bottom">
+          <i class="material-icons prefix orange-text">cloud_download</i>
+          Download
+        </span><br>
+        <span class="chip pointer top-chip"
+              [routerLink]="appService.isAuthenticated ? 'account' : 'login'"
+              (click)="appService.scrollToTop()"
+              mz-tooltip tooltip="Get the latest version of SideQuest"
+              position="bottom">
+          <i class="material-icons prefix purple-text">dashboard</i>
+          {{appService.isAuthenticated? 'Dashboard' : 'Sign In'}}
+        </span><br>
+        <span class="chip pointer top-chip"
+              routerLink="setup-howto"
+              (click)="appService.scrollToTop()"
+              mz-tooltip tooltip="Get your sidequest setup the first time you install, and watch some how to videos."
+              position="bottom">
+          <i class="material-icons prefix lime-text">help_outline</i>
+          Setup & How To
+        </span><br>
+        <span class="chip pointer top-chip"
+              routerLink="what-is-sidequest"
+              (click)="appService.scrollToTop()"
+              mz-tooltip tooltip="Find out about SideQuest."
+              position="bottom">
+          <i class="material-icons prefix yellow-text">help_outline</i>
+          What Is SideQuest?
+        </span>
+      </div>
+      <div class="col s4 center-align hide-on-small-only">
+        <a href="#/" class="logo">
+          <img src="assets/images/logo-large icony.png"/>
+        </a>
+        <div class="header-title">The Expanse VR</div>
+        <div class="apk-install">Powering SideQuest</div>
+      </div>
+      <div class="col s6 m4 right-align">
+        <h5>Follow Us</h5>
+        <hr>
+        <span class="chip pointer top-chip"
+              onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+              mz-tooltip tooltip="People have been so kind, we are humbled."
+              position="bottom">
+          <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+          Support us on Patreon
+        </span><br>
+        <span class="chip pointer top-chip"
+              onclick="window.location.href = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=744A6C394Q8JG&source=url'"
+              mz-tooltip tooltip="Use this option if you prefer a one off donation."
+              position="bottom">
+          <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+          Donate on Paypal
+        </span><br>
+        <span class="chip pointer top-chip"
+              onclick="window.location.href = 'https://discord.me/sidequestvr'"
+              mz-tooltip tooltip="Come and join in the chat with the community."
+              position="bottom">
+          <img src="assets/images/social/Discord.png" alt="Chat on Discord"/>
+          Chat on Discord
+        </span><br>
+        <span class="chip pointer top-chip"
+              onclick="window.location.href = 'https://www.reddit.com/user/shakamone/posts/'"
+              mz-tooltip tooltip="Get all the latest news and updates."
+              position="bottom">
+          <img src="assets/images/social/Reddit.png" alt="Chat on Discord"/>
+          Sub on Reddit
+        </span><br>
+        <span class="chip pointer top-chip"
+              onclick="window.location.href = 'https://www.youtube.com/c/TheExpanseVR'"
+              mz-tooltip tooltip="Binge watch our progress."
+              position="bottom">
+          <img src="assets/images/social/Youtube.png" alt="Chat on Discord"/>
+          Sub on Youtube
+        </span><br>
+        <span class="chip pointer top-chip"
+              onclick="window.location.href = 'https://www.twitter.com/TheExpanseVR'"
+              mz-tooltip tooltip="Follow all the latest feeds."
+              position="bottom">
+          <img src="assets/images/social/Twitter.png" alt="Chat on Discord"/>
+          Follow on Twitter
+        </span><br>
+        <span class="chip pointer top-chip"
+              onclick="window.location.href = 'https://www.instagram.com/TheExpanseVR'"
+              mz-tooltip tooltip="Come and join in the chat with the community."
+              position="bottom">
+          <img src="assets/images/social/Instagram.png" alt="Chat on Discord"/>
+          Follow on Instagram
+        </span>
+      </div>
+      <div class="col s12 center-align">
+        <br><br><br>
+        <a routerLink="/privacy" class="white-text">Privacy Policy</a>
+        <!--| <a href="#" class="white-text">Terms of Use</a>-->
+        <br><br>
+        © The Expanse VR Ltd 2019 - 2020
+      </div>
+    </div>
+  </div>
+</div>

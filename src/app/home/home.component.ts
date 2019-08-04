@@ -49,17 +49,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
     if (isGrid) {
       this.isGrid = isGrid === "true";
     }
-    this.appService.scrollContainer.onscroll = ev => {
-      const scroller = this.appService.scrollContainer;
-      if (
-        scroller &&
-        scroller.scrollTop >= scroller.scrollHeight - scroller.offsetHeight &&
-        !this.isLoading &&
-        !this.hasNoMore
-      ) {
-        this.getNews();
-      }
-    };
+    // this.appService.scrollContainer.onscroll = ev => {
+    //   const scroller = this.appService.scrollContainer;
+    //   if (
+    //     scroller &&
+    //     scroller.scrollTop >= scroller.scrollHeight - scroller.offsetHeight &&
+    //     !this.isLoading &&
+    //     !this.hasNoMore
+    //   ) {
+    //     this.getNews();
+    //   }
+    // };
   }
 
   ngOnInit() {

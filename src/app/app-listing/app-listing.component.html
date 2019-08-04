@@ -1,7 +1,14 @@
 <div class="container" *ngIf="is_not_found">
   <h4>Not found...</h4>
 </div>
-<div *ngIf="!is_not_found" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
+<mz-parallax *ngIf="screenshots && screenshots.length" [height]="350">
+  <img src="{{screenshots[screenshots.length-1]}}">
+</mz-parallax>
+<div *ngIf="!is_not_found" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}"
+     [ngStyle]="{'margin-top': screenshots && screenshots.length ? '-150px' : '0'}">
+  <div class="top-back">
+
+  </div>
   <h4>
     <i class="material-icons back-icon" (click)="backClicked()">reply</i>
     <img class="responsive-img top-image pointer"
@@ -12,10 +19,6 @@
          src="{{expanseService.cdnUrl+currentApp.preview_image}}"/>
     {{currentApp.name}}
     <span *ngIf="!currentApp.active" class="chip white-text orange">Pending</span>
-    <div class="btn waves-effect waves-light white-text pink-button small-button"
-         *ngIf="isInstalled && installedVersion < currentApp.versioncode && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')"
-         (click)="openItems(apk_download_urls)">Update Available</div>
-
   </h4>
   <div class="right top-tags-name">
     <div class="btn waves-effect waves-light pink-button"
@@ -27,9 +30,12 @@
   <hr>
   <div class="right app-package right-align truncate">{{currentApp.packagename}}</div>
   <div class="app-summary truncate">{{currentApp.summary}}</div>
-  <br><br>
+  <br>
   <div class="row">
     <div class="col s12 m10">
+      <div class="btn waves-effect waves-light white-text pink-button small-button"
+           *ngIf="isInstalled && installedVersion < currentApp.versioncode && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')"
+           (click)="openItems(apk_download_urls)">Update Available</div><br><br>
       <div class="row">
         <div class="col s12 m7">
           <div *ngIf="videoObject">
