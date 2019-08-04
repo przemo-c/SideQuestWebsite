@@ -82415,7 +82415,7 @@
               var e = this;
               if (!this.event_meta.l)
                 return this.expanseService
-                  .appCount("like", this.events_id)
+                  .eventCount("like", this.events_id)
                   .then(function(n) {
                     e.service.showMessage(n, "Event Liked!"),
                       n.error ||
@@ -87285,7 +87285,9 @@
                       });
                     })
                     .then(function(n) {
-                      e.service.showMessage(n, "Event Saved!");
+                      e.service.showMessage(n, "Event Saved!"),
+                        e.currentApp.is_approved ||
+                          e.sendForApproval(e.events_id);
                     })
                 : this.expanseService
                     .start()
@@ -87310,13 +87312,15 @@
                         !n.error &&
                           n.length &&
                           (e.refreshShareLink(),
-                          e.router.navigateByUrl(
-                            "/my-event/" + n[0].events_id
-                          ));
+                          e.sendForApproval(n[0].events_id).then(function() {
+                            return e.router.navigateByUrl(
+                              "/my-event/" + n[0].events_id
+                            );
+                          }));
                     });
             }),
             (e.prototype.sendForApproval = function(e) {
-              return fetch("https://shanesedit.org:5678/new_app/" + e);
+              return fetch("https://shanesedit.org:5678/new_event/" + e);
             }),
             (e.prototype.deleteEvent = function() {
               var e = this;

@@ -123,7 +123,7 @@ export class EventListingComponent implements OnInit, OnDestroy {
   likeEvent() {
     if (!this.event_meta.l) {
       return this.expanseService
-        .appCount("like", this.events_id)
+        .eventCount("like", this.events_id)
         .then((res: any) => {
           this.service.showMessage(res, "Event Liked!");
           if (!res.error) {

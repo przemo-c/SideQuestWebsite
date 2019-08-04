@@ -180,7 +180,7 @@ export class EventManagerComponent implements OnInit, OnDestroy {
         .then(res => {
           this.service.showMessage(res, "Event Saved!");
           if (!this.currentApp.is_approved) {
-            // this.sendForApproval(this.apps_id);
+            this.sendForApproval(this.events_id);
           }
         });
     } else {
@@ -206,16 +206,16 @@ export class EventManagerComponent implements OnInit, OnDestroy {
           this.service.showMessage(res, "Event Saved!");
           if (!res.error && res.length) {
             this.refreshShareLink();
-            // this.sendForApproval(res[0].apps_id).then(() =>
-            this.router.navigateByUrl("/my-event/" + res[0].events_id);
-            // );
+            this.sendForApproval(res[0].events_id).then(() =>
+              this.router.navigateByUrl("/my-event/" + res[0].events_id)
+            );
           }
         });
     }
   }
 
-  sendForApproval(apps_id) {
-    return fetch("https://shanesedit.org:5678/new_app/" + apps_id);
+  sendForApproval(events_id) {
+    return fetch("https://shanesedit.org:5678/new_event/" + events_id);
   }
 
   deleteEvent() {
