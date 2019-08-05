@@ -44,3 +44,7 @@
   color: #ffffff;
   font-family: 'PT Sans', sans-serif;
 }
+
+.chip.pointer{
+  white-space: nowrap;
+}

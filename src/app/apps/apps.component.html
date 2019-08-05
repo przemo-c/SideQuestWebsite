@@ -1,4 +1,4 @@
-<div class="padding" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
+<div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
   <app-listing-modes [show_sort]="!appService.isTimeline"
                      (recent)="isRecent = true; page = 0; getApps()"
                      (name)="isRecent = false; page = 0; getApps()"></app-listing-modes>
@@ -61,7 +61,7 @@
                    [show_date]="app.show_date"
                    [show_date_first]="app.show_date"
                    [hide_time]="true"
-                   (open)="router.navigateByUrl('/app/'+app.apps_id)"
+                   (open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"
     ></app-timeline-item>
   </div>
   <div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">
@@ -69,7 +69,7 @@
        [name]="app.name"
        [description]="app.summary"
        [image]="app.image_url"
-       (open)="router.navigateByUrl('/app/'+app.apps_id)"
+       (open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"
     ></app-list-item>
   </div>
 
@@ -81,7 +81,7 @@
       <app-grid-item [name]="app.name"
                      [description]="app.summary"
                      [image]="app.image_url"
-                     (open)="router.navigateByUrl('/app/'+app.apps_id)"
+                     (open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"
       ></app-grid-item>
     </ngxMasonryItem>
   </ngx-masonry>

@@ -70471,7 +70471,7 @@
               null,
               40,
               "div",
-              [["class", "padding"]],
+              [["class", "main-container"]],
               null,
               null,
               null,
@@ -71023,7 +71023,7 @@
           function(e, n) {
             var t = n.component,
               l = e(n, 3, 0, t.appService.hideLogo, !t.appService.hideLogo);
-            e(n, 2, 0, "padding", l),
+            e(n, 2, 0, "main-container", l),
               e(n, 6, 0, "/what-is-sidequest"),
               e(n, 7, 0, "bottom", "Find out about SideQuest."),
               e(n, 10, 0, "bottom", "Come and chat with us on Discord."),
@@ -71723,7 +71723,7 @@
               null,
               47,
               "div",
-              [["class", "container"]],
+              [["class", "container main-container"]],
               null,
               null,
               null,
@@ -88748,7 +88748,7 @@
               null,
               192,
               "div",
-              [],
+              [["class", "main-container"]],
               null,
               null,
               null,
@@ -88769,7 +88769,7 @@
               0,
               o.NgClass,
               [o["\u0275NgClassImpl"]],
-              { ngClass: [0, "ngClass"] },
+              { klass: [0, "klass"], ngClass: [1, "ngClass"] },
               null
             ),
             l["\u0275pod"](3, { padding: 0, container: 1 }),
@@ -90961,7 +90961,7 @@
           function(e, n) {
             var t = n.component,
               l = e(n, 3, 0, t.service.hideLogo, !t.service.hideLogo);
-            e(n, 2, 0, l),
+            e(n, 2, 0, "main-container", l),
               e(n, 5, 0, t.events_id),
               e(n, 10, 0, "/account"),
               e(n, 14, 0, t.events_id),
@@ -94445,7 +94445,7 @@
               null,
               404,
               "div",
-              [],
+              [["class", "main-container"]],
               null,
               null,
               null,
@@ -94466,7 +94466,7 @@
               0,
               o.NgClass,
               [o["\u0275NgClassImpl"]],
-              { ngClass: [0, "ngClass"] },
+              { klass: [0, "klass"], ngClass: [1, "ngClass"] },
               null
             ),
             l["\u0275pod"](3, { padding: 0, container: 1 }),
@@ -99178,7 +99178,7 @@
           function(e, n) {
             var t = n.component,
               l = e(n, 3, 0, t.service.hideLogo, !t.service.hideLogo);
-            e(n, 2, 0, l),
+            e(n, 2, 0, "main-container", l),
               e(n, 5, 0, t.apps_id),
               e(n, 9, 0, t.apps_id),
               e(n, 12, 0, "/account"),
@@ -100984,14 +100984,14 @@
               null,
               [[null, "open"]],
               function(e, n, t) {
-                var l = !0;
+                var l = !0,
+                  r = e.component;
                 return (
                   "open" === n &&
-                    (l =
-                      !1 !==
-                        e.component.router.navigateByUrl(
-                          "/event/" + e.context.$implicit.events_id
-                        ) && l),
+                    (r.router.navigateByUrl(
+                      "/event/" + e.context.$implicit.events_id
+                    ),
+                    (l = !1 !== r.appService.scrollToTop() && l)),
                   l
                 );
               },
@@ -101088,14 +101088,14 @@
               null,
               [[null, "open"]],
               function(e, n, t) {
-                var l = !0;
+                var l = !0,
+                  r = e.component;
                 return (
                   "open" === n &&
-                    (l =
-                      !1 !==
-                        e.component.router.navigateByUrl(
-                          "/event/" + e.context.$implicit.events_id
-                        ) && l),
+                    (r.router.navigateByUrl(
+                      "/event/" + e.context.$implicit.events_id
+                    ),
+                    (l = !1 !== r.appService.scrollToTop() && l)),
                   l
                 );
               },
@@ -101217,14 +101217,14 @@
               null,
               [[null, "open"]],
               function(e, n, t) {
-                var l = !0;
+                var l = !0,
+                  r = e.component;
                 return (
                   "open" === n &&
-                    (l =
-                      !1 !==
-                        e.component.router.navigateByUrl(
-                          "/event/" + e.context.$implicit.events_id
-                        ) && l),
+                    (r.router.navigateByUrl(
+                      "/event/" + e.context.$implicit.events_id
+                    ),
+                    (l = !1 !== r.appService.scrollToTop() && l)),
                   l
                 );
               },
@@ -101334,7 +101334,7 @@
               null,
               14,
               "div",
-              [],
+              [["class", "main-container"]],
               null,
               null,
               null,
@@ -101355,7 +101355,7 @@
               0,
               o.NgClass,
               [o["\u0275NgClassImpl"]],
-              { ngClass: [0, "ngClass"] },
+              { klass: [0, "klass"], ngClass: [1, "ngClass"] },
               null
             ),
             l["\u0275pod"](3, { padding: 0, container: 1 }),
@@ -101443,7 +101443,7 @@
           function(e, n) {
             var t = n.component,
               l = e(n, 3, 0, t.appService.hideLogo, !t.appService.hideLogo);
-            e(n, 2, 0, l),
+            e(n, 2, 0, "main-container", l),
               e(n, 5, 0),
               e(n, 10, 0, !t.appService.isGrid && t.appService.isTimeline),
               e(n, 12, 0, !t.appService.isGrid && !t.appService.isTimeline),
@@ -101945,14 +101945,14 @@
               null,
               [[null, "open"]],
               function(e, n, t) {
-                var l = !0;
+                var l = !0,
+                  r = e.component;
                 return (
                   "open" === n &&
-                    (l =
-                      !1 !==
-                        e.component.router.navigateByUrl(
-                          "/app/" + e.context.$implicit.apps_id
-                        ) && l),
+                    (r.router.navigateByUrl(
+                      "/app/" + e.context.$implicit.apps_id
+                    ),
+                    (l = !1 !== r.appService.scrollToTop() && l)),
                   l
                 );
               },
@@ -102048,14 +102048,14 @@
               null,
               [[null, "open"]],
               function(e, n, t) {
-                var l = !0;
+                var l = !0,
+                  r = e.component;
                 return (
                   "open" === n &&
-                    (l =
-                      !1 !==
-                        e.component.router.navigateByUrl(
-                          "/app/" + e.context.$implicit.apps_id
-                        ) && l),
+                    (r.router.navigateByUrl(
+                      "/app/" + e.context.$implicit.apps_id
+                    ),
+                    (l = !1 !== r.appService.scrollToTop() && l)),
                   l
                 );
               },
@@ -102168,14 +102168,14 @@
               null,
               [[null, "open"]],
               function(e, n, t) {
-                var l = !0;
+                var l = !0,
+                  r = e.component;
                 return (
                   "open" === n &&
-                    (l =
-                      !1 !==
-                        e.component.router.navigateByUrl(
-                          "/app/" + e.context.$implicit.apps_id
-                        ) && l),
+                    (r.router.navigateByUrl(
+                      "/app/" + e.context.$implicit.apps_id
+                    ),
+                    (l = !1 !== r.appService.scrollToTop() && l)),
                   l
                 );
               },
@@ -102331,7 +102331,7 @@
               null,
               34,
               "div",
-              [["class", "padding"]],
+              [["class", "main-container"]],
               null,
               null,
               null,
@@ -102779,7 +102779,7 @@
           function(e, n) {
             var t = n.component,
               l = e(n, 3, 0, t.appService.hideLogo, !t.appService.hideLogo);
-            e(n, 2, 0, "padding", l),
+            e(n, 2, 0, "main-container", l),
               e(n, 5, 0, !t.appService.isTimeline),
               e(n, 15, 0, t.searchString),
               e(n, 21, 0, !t.appService.hideLogo),
@@ -109197,9 +109197,9 @@
               0,
               null,
               null,
-              46,
+              45,
               "div",
-              [["class", "row full-size no-margin"]],
+              [["class", "row full-size no-margin main-container"]],
               null,
               null,
               null,
@@ -109214,7 +109214,7 @@
               null,
               44,
               "div",
-              [["class", "col s9 m6 valign-wrapper login-container"]],
+              [["class", "col s12 valign-wrapper login-container"]],
               null,
               null,
               null,
@@ -109744,22 +109744,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275ted"](-1, null, ["Login"])),
-            (e()(),
-            l["\u0275eld"](
-              46,
-              0,
-              null,
-              null,
-              0,
-              "div",
-              [["class", "col s3 m6 background-image"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            ))
+            (e()(), l["\u0275ted"](-1, null, ["Login"]))
           ],
           function(e, n) {
             var t = n.component;
@@ -109881,9 +109866,9 @@
               0,
               null,
               null,
-              35,
+              34,
               "div",
-              [["class", "row full-size no-margin"]],
+              [["class", "row full-size no-margin main-container"]],
               null,
               null,
               null,
@@ -109898,7 +109883,7 @@
               null,
               33,
               "div",
-              [["class", "col s9 m6 valign-wrapper login-container"]],
+              [["class", "col s12 valign-wrapper login-container"]],
               null,
               null,
               null,
@@ -110298,22 +110283,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275ted"](-1, null, ["Reset Password"])),
-            (e()(),
-            l["\u0275eld"](
-              35,
-              0,
-              null,
-              null,
-              0,
-              "div",
-              [["class", "col s3 m6 background-image"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            ))
+            (e()(), l["\u0275ted"](-1, null, ["Reset Password"]))
           ],
           function(e, n) {
             var t = n.component;
@@ -110437,9 +110407,9 @@
               0,
               null,
               null,
-              46,
+              45,
               "div",
-              [["class", "row full-size no-margin"]],
+              [["class", "row full-size no-margin main-container"]],
               null,
               null,
               null,
@@ -110454,7 +110424,7 @@
               null,
               44,
               "div",
-              [["class", "col s9 m6 valign-wrapper login-container"]],
+              [["class", "col s12 valign-wrapper login-container"]],
               null,
               null,
               null,
@@ -110990,22 +110960,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275ted"](-1, null, ["Reset Password"])),
-            (e()(),
-            l["\u0275eld"](
-              46,
-              0,
-              null,
-              null,
-              0,
-              "div",
-              [["class", "col s3 m6 background-image"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            ))
+            (e()(), l["\u0275ted"](-1, null, ["Reset Password"]))
           ],
           function(e, n) {
             var t = n.component;
@@ -111171,9 +111126,9 @@
               0,
               null,
               null,
-              79,
+              78,
               "div",
-              [["class", "row full-size no-margin"]],
+              [["class", "row full-size no-margin main-container"]],
               null,
               null,
               null,
@@ -111188,7 +111143,7 @@
               null,
               77,
               "div",
-              [["class", "col s9 m6 valign-wrapper login-container"]],
+              [["class", "col s12 valign-wrapper login-container"]],
               null,
               null,
               null,
@@ -112114,22 +112069,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275ted"](-1, null, ["Sign Up"])),
-            (e()(),
-            l["\u0275eld"](
-              79,
-              0,
-              null,
-              null,
-              0,
-              "div",
-              [["class", "col s3 m6 background-image"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            ))
+            (e()(), l["\u0275ted"](-1, null, ["Sign Up"]))
           ],
           function(e, n) {
             var t = n.component;
@@ -117321,7 +117261,7 @@
           encapsulation: 0,
           styles: [
             [
-              ".footer-container[_ngcontent-%COMP%]{background:#1c132b;padding-top:2em;padding-bottom:6em}.nectar-shape-divider-wrap[_ngcontent-%COMP%]{position:relative;top:auto;bottom:0;left:0;right:0;width:100%;height:150px;z-index:2;-webkit-transform:translateZ(0);transform:translateZ(0)}.nectar-shape-divider[_ngcontent-%COMP%]{width:100%;left:0;bottom:-1px;height:100%;position:absolute}.nectar-shape-divider-wrap[data-style=curve][_ngcontent-%COMP%]   .nectar-shape-divider[_ngcontent-%COMP%]{-webkit-filter:blur(.5px);filter:blur(.5px);-webkit-transform:scale(1.03);transform:scale(1.03)}.logo[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{width:160px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.header-title[_ngcontent-%COMP%]{font-size:3rem;margin-top:.4em;color:#fff;font-family:'PT Sans',sans-serif}.apk-install[_ngcontent-%COMP%]{font-size:1.2rem;color:#fff;font-family:'PT Sans',sans-serif}"
+              ".footer-container[_ngcontent-%COMP%]{background:#1c132b;padding-top:2em;padding-bottom:6em}.nectar-shape-divider-wrap[_ngcontent-%COMP%]{position:relative;top:auto;bottom:0;left:0;right:0;width:100%;height:150px;z-index:2;-webkit-transform:translateZ(0);transform:translateZ(0)}.nectar-shape-divider[_ngcontent-%COMP%]{width:100%;left:0;bottom:-1px;height:100%;position:absolute}.nectar-shape-divider-wrap[data-style=curve][_ngcontent-%COMP%]   .nectar-shape-divider[_ngcontent-%COMP%]{-webkit-filter:blur(.5px);filter:blur(.5px);-webkit-transform:scale(1.03);transform:scale(1.03)}.logo[_ngcontent-%COMP%]   img[_ngcontent-%COMP%]{width:160px}.padding[_ngcontent-%COMP%]{padding-left:3em;padding-right:3em}.header-title[_ngcontent-%COMP%]{font-size:3rem;margin-top:.4em;color:#fff;font-family:'PT Sans',sans-serif}.apk-install[_ngcontent-%COMP%]{font-size:1.2rem;color:#fff;font-family:'PT Sans',sans-serif}.chip.pointer[_ngcontent-%COMP%]{white-space:nowrap}"
             ]
           ],
           data: {}

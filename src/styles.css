@@ -200,3 +200,9 @@ input[type=range] {
 *:focus{
   outline: none;
 }
+.main-container{
+  min-height: 750px;
+}
+.card-action.right-align{
+  background-color: #4e555b!important;
+}

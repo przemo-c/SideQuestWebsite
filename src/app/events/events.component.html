@@ -1,4 +1,4 @@
-<div [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
+<div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
   <app-listing-modes></app-listing-modes>
   <h4 class="inline-block">Events</h4>
   <hr class="grey">
@@ -11,7 +11,7 @@
                        [show_date]="event.show_date"
                        [show_date_first]="event.show_date && i > 0"
                        [duration]="event.event_duration"
-                       (open)="router.navigateByUrl('/event/'+event.events_id)"
+                       (open)="router.navigateByUrl('/event/'+event.events_id);appService.scrollToTop()"
     ></app-timeline-item>
   </div>
   <div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">
@@ -23,7 +23,7 @@
                    [show_date]="event.show_date"
                    [show_date_first]="event.show_date && i > 0"
                    [duration]="event.event_duration"
-                   (open)="router.navigateByUrl('/event/'+event.events_id)"
+                   (open)="router.navigateByUrl('/event/'+event.events_id);appService.scrollToTop()"
     ></app-list-item>
   </div>
 
@@ -40,7 +40,7 @@
         [show_date]="event.show_date"
         [show_date_first]="event.show_date && i > 0"
         [duration]="event.event_duration"
-        (open)="router.navigateByUrl('/event/'+event.events_id)"
+        (open)="router.navigateByUrl('/event/'+event.events_id);appService.scrollToTop()"
       ></app-grid-item>
     </ngxMasonryItem>
   </ngx-masonry>

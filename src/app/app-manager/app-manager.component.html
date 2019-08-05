@@ -1,7 +1,7 @@
 <div class="container" *ngIf="is_not_found">
   <h4>Not found...</h4>
 </div>
-<div *ngIf="!is_not_found" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
+<div *ngIf="!is_not_found" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
 
   <div class="btn waves-effect waves-light pink-button right margin-left" routerLink="/app/{{apps_id}}" *ngIf="apps_id">View Listing</div>
   <div class="btn waves-effect waves-light right pink-button margin-left" (click)="saveApp()">Save App</div>
