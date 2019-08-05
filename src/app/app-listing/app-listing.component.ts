@@ -240,27 +240,38 @@ export class AppListingComponent implements OnInit, OnDestroy {
 
   openItems(apps: any) {
     this.downloadCount();
-    this.service
-      .openSidequestUrl(
-        (this.currentApp.app_categories_id === "4" &&
-        this.currentApp.website === "BeatOn"
-          ? "sidequest://bsaber-multi/#"
-          : "sidequest://sideload-multi/#") +
-          JSON.stringify(
-            apps.map(app =>
-              app.browser_download_url
-                ? app.browser_download_url.trim()
-                : app.link_url.trim()
-            )
-          )
+    let customUrl;
+    let _apps = JSON.stringify(
+      apps.map(app =>
+        app.browser_download_url
+          ? app.browser_download_url.trim()
+          : app.link_url.trim()
       )
-      .then(() => {
-        return this.expanseService.addInstalledApp(
-          this.apps_id,
-          this.currentApp.versioncode
-        );
-      })
-      .then(r => console.log(r));
+    );
+    if (
+      this.currentApp.app_categories_id === "4" &&
+      this.currentApp.website === "FirefoxSkybox"
+    ) {
+      customUrl = "sidequest://firefox-skybox/#" + _apps;
+    } else if (
+      this.currentApp.app_categories_id === "4" &&
+      this.currentApp.website === "BeatOn"
+    ) {
+      customUrl = "sidequest://bsaber-multi/#" + _apps;
+    } else {
+      customUrl = "sidequest://sideload-multi/#" + _apps;
+    }
+    if (customUrl) {
+      this.service
+        .openSidequestUrl(customUrl)
+        .then(() => {
+          return this.expanseService.addInstalledApp(
+            this.apps_id,
+            this.currentApp.versioncode
+          );
+        })
+        .then(r => console.log(r));
+    }
   }
 
   uninstallApp(packageName) {
@@ -349,9 +360,13 @@ export class AppListingComponent implements OnInit, OnDestroy {
         );
         this.apk_download_urls = this.app_urls.filter(
           (url: AppUrl) =>
-            ["OBB", "APK", "BeatOn Mod", "Github Release"].indexOf(
-              url.provider
-            ) > -1
+            [
+              "OBB",
+              "APK",
+              "BeatOn Mod",
+              "Github Release",
+              "Firefox Skybox"
+            ].indexOf(url.provider) > -1
         );
         this.screenshots = (screenshots || []).map(s => s.image_url);
         this.album = this.screenshots.map(s => ({ src: s, thumb: s }));

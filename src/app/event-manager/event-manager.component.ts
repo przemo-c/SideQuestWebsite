@@ -23,7 +23,7 @@ export class EventManagerComponent implements OnInit, OnDestroy {
     event_description: "",
     image: "",
     event_image: "",
-    event_repeat_type: "oneoff",
+    event_repeat_type: "daily",
     event_repeat_amount: 4,
     event_duration: 60 * 60,
     event_url: "",
@@ -65,6 +65,7 @@ export class EventManagerComponent implements OnInit, OnDestroy {
             start: moment(date),
             end: null
           };
+          console.log(event);
           this.currentApp.name = event.name;
           this.currentApp.description = event.description;
           this.currentApp.event_name = event.event_name;
@@ -89,6 +90,14 @@ export class EventManagerComponent implements OnInit, OnDestroy {
 
   customCss() {
     return "black-text";
+  }
+
+  resetRepeat() {
+    if (this.currentApp.event_repeat_type === "oneoff") {
+      this.currentApp.event_repeat_amount = 0;
+    } else {
+      this.currentApp.event_repeat_amount = 1;
+    }
   }
 
   ngOnDestroy() {

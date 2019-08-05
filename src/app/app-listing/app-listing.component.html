@@ -71,10 +71,10 @@
                                                                mz-tooltip tooltip="Number of views"
                                                                position="bottom"
             >visibility</i></span>
-            <span class="counter pointer" (click)="likeApp()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-                                                                                           mz-tooltip tooltip="Number of likes"
-                                                                                           position="bottom"
-            >thumb_up</i></span>
+            <!--<span class="counter pointer" (click)="likeApp()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"-->
+                                                                                           <!--mz-tooltip tooltip="Number of likes"-->
+                                                                                           <!--position="bottom"-->
+            <!--&gt;thumb_up</i></span>-->
           </div>
           <br>
 
@@ -202,7 +202,7 @@
                     {{url.link_url}}
                   </div>
                   <div class="col s1 right-align vertical-align">
-                    <a *ngIf="apk_download_urls.length > 1" class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"
+                    <a class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"
                        (click)="openItem('sidequest://sideload/#'+url.link_url)"
                     ><i class="material-icons">cloud_download</i></a>
                   </div>

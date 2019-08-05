@@ -13,27 +13,33 @@
     <div class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="New apps, events and news aggregated from reddit, twitter and discord."
          position="bottom"
-         routerLink="news">Home</div>
+         routerLink="news"
+    (click)="appService.scrollToTop()">Home</div>
     <div class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="Games you can get on SideQuest"
          position="bottom"
-         routerLink="apps/1">Games</div>
+         routerLink="apps/1"
+         (click)="appService.scrollToTop()">Games</div>
     <!--<div class="waves-effect waves-light btn-flat white-text top-button"-->
          <!--mz-tooltip tooltip="New VR multi user events."-->
          <!--position="bottom"-->
-         <!--routerLink="events">Events</div>-->
+         <!--routerLink="events"-->
+    <!--(click)="appService.scrollToTop()">Events</div>-->
     <div class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="Get the latest SideQuest download."
          position="bottom"
-         routerLink="download" *ngIf="!appService.hideLogo">Download</div>
+         routerLink="download" *ngIf="!appService.hideLogo"
+         (click)="appService.scrollToTop()"
+          >Download</div>
     <div class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="{{appService.isAuthenticated? 'Manage your apps, repos, events and your account information.' : 'Sign in and manage apps and events'}}"
          position="bottom"
-         [routerLink]="appService.isAuthenticated ? 'account' : 'login'">{{appService.isAuthenticated? 'Dashboard' : 'Sign In'}}</div>
+         [routerLink]="appService.isAuthenticated ? 'account' : 'login'"
+         (click)="appService.scrollToTop()">{{appService.isAuthenticated? 'Dashboard' : 'Sign In'}}</div>
     <div class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="Sign out of your account"
          position="bottom"
-         (click)="signOut()"
+         (click)="signOut();appService.scrollToTop()"
          *ngIf="appService.isAuthenticated">Sign Out</div>
     <a class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="Get help with common problems."
@@ -42,7 +48,8 @@
     <div class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="Get your sidequest setup the first time you install, and watch some how to videos."
          position="bottom"
-         routerLink="setup-howto"><span class="badge orange white-text">new users</span>Setup & How To</div>
+         routerLink="setup-howto"
+         (click)="appService.scrollToTop()"><span class="badge orange white-text">new users</span>Setup & How To</div>
   </div>
 </div>
 <mz-sidenav

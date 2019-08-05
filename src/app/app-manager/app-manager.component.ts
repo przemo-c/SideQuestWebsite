@@ -383,6 +383,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       "APK",
       "OBB",
       "BeatOn Mod",
+      "Firefox Skybox",
       "Oculus Quest",
       "Oculus Go",
       "Oculus Rift",

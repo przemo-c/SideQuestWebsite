@@ -206,15 +206,15 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           })),
           pointRadius: []
         };
-        const likes = (res || []).filter(count => count.type === "like");
-        const likesObject = {
-          label: "Likes",
-          data: likes.map(count => ({
-            x: (count.hour_time || count.day_time) * 3600 * 1000,
-            y: count.counter
-          })),
-          pointRadius: []
-        };
+        // const likes = (res || []).filter(count => count.type === "like");
+        // const likesObject = {
+        //   label: "Likes",
+        //   data: likes.map(count => ({
+        //     x: (count.hour_time || count.day_time) * 3600 * 1000,
+        //     y: count.counter
+        //   })),
+        //   pointRadius: []
+        // };
         const lineChartData = [];
         if (views.length > 0) {
           viewsObject.data.unshift({
@@ -258,20 +258,20 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           ) as any;
           lineChartData.push(downloadsObject);
         }
-        if (likes.length > 0) {
-          likesObject.data.unshift({
-            y: likesObject.data[0].y,
-            x: this.selectedDate.start.toDate()
-          });
-          likesObject.data.push({
-            y: likesObject.data[likesObject.data.length - 1].y,
-            x: this.selectedDate.end.toDate()
-          });
-          likesObject.pointRadius = likesObject.data.map((d, i) =>
-            i === 0 ? 0 : i === likesObject.data.length - 1 ? 0 : 5
-          ) as any;
-          lineChartData.push(likesObject);
-        }
+        // if (likes.length > 0) {
+        //   likesObject.data.unshift({
+        //     y: likesObject.data[0].y,
+        //     x: this.selectedDate.start.toDate()
+        //   });
+        //   likesObject.data.push({
+        //     y: likesObject.data[likesObject.data.length - 1].y,
+        //     x: this.selectedDate.end.toDate()
+        //   });
+        //   likesObject.pointRadius = likesObject.data.map((d, i) =>
+        //     i === 0 ? 0 : i === likesObject.data.length - 1 ? 0 : 5
+        //   ) as any;
+        //   lineChartData.push(likesObject);
+        // }
         this.lineChartData = lineChartData;
         this.notEnough = !lineChartData.length;
         this.chart.chart.config.options.scales.xAxes[0].time.min = this.selectedDate.start.toDate() as any;

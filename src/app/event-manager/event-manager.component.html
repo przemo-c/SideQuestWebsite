@@ -132,23 +132,23 @@
         <div class="col s12">
           <i class="material-icons select-icon">done_all</i>
           <div class="select-drop-down">
-            <label class="active">Repeats</label>
+            <label class="active">Number of Events</label>
             <mz-radio-button-container>
-              <input mz-radio-button
-                     [label]="'One Off'"
-                     [withGap]="true"
-                     id="repeat-Type-OneOff"
-                     name="type-group"
-                     value="oneoff"
-                     type="radio" [(ngModel)]="currentApp.event_repeat_type">
-              &nbsp;&nbsp;
+              <!--<input mz-radio-button-->
+                     <!--[label]="'One Off'"-->
+                     <!--[withGap]="true"-->
+                     <!--id="repeat-Type-OneOff"-->
+                     <!--name="type-group"-->
+                     <!--value="oneoff"-->
+                     <!--type="radio" [(ngModel)]="currentApp.event_repeat_type" (change)="resetRepeat()">-->
+              <!--&nbsp;&nbsp;-->
               <input mz-radio-button
                      [label]="'Daily'"
                      [withGap]="true"
                      id="repeat-Type-Daily"
                      name="type-group"
                      value="daily"
-                     type="radio" [(ngModel)]="currentApp.event_repeat_type">
+                     type="radio" [(ngModel)]="currentApp.event_repeat_type" (change)="resetRepeat()">
               &nbsp;&nbsp;
               <input mz-radio-button
                      [label]="'Weekly'"
@@ -156,7 +156,7 @@
                      id="repeat-Type-Weekly"
                      name="type-group"
                      value="weekly"
-                     type="radio" [(ngModel)]="currentApp.event_repeat_type">
+                     type="radio" [(ngModel)]="currentApp.event_repeat_type" (change)="resetRepeat()">
               &nbsp;&nbsp;
               <input mz-radio-button
                      [label]="'Fortnightly'"
@@ -164,14 +164,14 @@
                      id="repeat-Type-Fortnightly"
                      name="type-group"
                      value="fortnightly"
-                     type="radio" [(ngModel)]="currentApp.event_repeat_type">
+                     type="radio" [(ngModel)]="currentApp.event_repeat_type" (change)="resetRepeat()">
             </mz-radio-button-container>
           </div>
         </div>
         <div class="col s12 l6" *ngIf="currentApp.event_repeat_type !== 'oneoff'">
           <i class="material-icons select-icon">date_range</i>
           <p class="range-field select-drop-down">
-            <label class="active">{{currentApp.event_repeat_amount+1}} {{currentApp.event_repeat_type}} events</label>
+            <label class="active">{{currentApp.event_repeat_amount}} {{currentApp.event_repeat_type}} events</label>
             <input type="range" [(ngModel)]="currentApp.event_repeat_amount" id="repeat_amount" min="1" max="100" />
           </p>
         </div>
