@@ -21,10 +21,8 @@
   <div class="clearfix"></div>
   <div class="row">
     <div class="col s12 m3 center-align">
-      <img class="responsive-img pointer" routerLink="/avatar-picker" src="{{expanseService.cdnUrl+expanseService.currentSession.preview_image}}"/><br><br>
-      <div class="btn waves-effect waves-light pink-button small-button" routerLink="/avatar-picker">Change Avatar</div>
-      <br><br>
-      <div class="btn waves-effect waves-light pink-button small-button" (click)="passwordModal.openModal()">Change Password</div>
+      <img class="responsive-img pointer" routerLink="/avatar-picker" src="{{expanseService.cdnUrl+expanseService.currentSession.preview_image}}"/><br>
+      <div class="btn waves-effect waves-light pink-button small-button change-avatar" routerLink="/avatar-picker">Change Avatar</div>
     </div>
     <div class="input-field col s12 m4">
       <div class="input-field">
@@ -37,10 +35,11 @@
         <input id="user_email" type="text" placeholder="Your name..." [(ngModel)]="expanseService.currentSession.email">
         <label for="user_email" class="active">Email</label>
       </div>
-      <div class="btn right waves-effect waves-light pink-button" (click)="saveNameAndEmail()">Save</div>
+      <div class="btn waves-effect waves-light pink-button small-button" (click)="passwordModal.openModal()">Change Password</div>
+      <div class="btn right waves-effect waves-light pink-button small-button" (click)="saveNameAndEmail()">Save Settings</div>
     </div>
     <div class="col s12 m5 center-align">
-      <br>
+      <br><br><br>
       <h5>Enable<br>Developer Mode</h5>
       <div class="switch">
         <label>
@@ -52,54 +51,40 @@
       </div>
       <br>
       Enable to create SideQuest listings for your apps/games/mods.
-      <br><br><br>
-      <!--<h5>Enable<br>Creator Mode</h5>-->
-      <!--<div class="switch">-->
-        <!--<label>-->
-          <!--Off-->
-          <!--<input type="checkbox" [(ngModel)]="isDev"  (change)="setDev()">-->
-          <!--<span class="lever"></span>-->
-          <!--On-->
-        <!--</label>-->
-      <!--</div>-->
-      <!--<br>-->
-      <!--Enable to create content and events for SideQuest & The Expanse.-->
+      <br><br>
     </div>
   </div>
-
-  <br><br>
-
-  <!--<div class="">-->
-    <!--<div class="chip pointer margin-right menu-chip" *ngIf="!appService.hideLogo"-->
-         <!--mz-tooltip tooltip="Official VR Apps for Go and Quest."-->
-         <!--position="bottom"-->
-         <!--routerLink="/apps/2">-->
-      <!--<i class="material-icons prefix">apps</i>-->
-      <!--Installed Apps-->
-    <!--</div>-->
-    <!--<div class="chip pointer margin-right menu-chip" *ngIf="!appService.hideLogo"-->
-         <!--mz-tooltip tooltip="VR Mods for Go and Quest."-->
-         <!--position="bottom"-->
-         <!--routerLink="/apps/4">-->
-      <!--<i class="material-icons prefix">list</i>-->
-      <!--App Listings-->
-    <!--</div>-->
-    <!--<div class="chip pointer margin-right menu-chip" *ngIf="!appService.hideLogo"-->
-         <!--mz-tooltip tooltip="Official VR Games for Go and Quest."-->
-         <!--position="bottom"-->
-         <!--routerLink="/apps">-->
-      <!--<i class="material-icons prefix">event</i>-->
-      <!--Events-->
-    <!--</div>-->
-    <!--<div class="chip pointer margin-right menu-chip" *ngIf="!appService.hideLogo"-->
-         <!--mz-tooltip tooltip="Official VR Games for Go and Quest."-->
-         <!--position="bottom"-->
-         <!--routerLink="/apps">-->
-      <!--<i class="material-icons prefix">location_on</i>-->
-      <!--Spaces-->
-    <!--</div>-->
-  <!--</div>-->
-  <div *ngIf="isDev">
+  <div class="">
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="App that you have installed and an easy update system."
+         position="bottom"
+         (click)="currentView = 'subscribed-apps';page=0;getInstalledApps()">
+      <i class="material-icons prefix">apps</i>
+      App Subscriptions
+    </div>
+    <div *ngIf="isDev" class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="App listings on Sidequest for games, apps and mods for Standalone VR headsets."
+         position="bottom"
+         (click)="currentView = 'apps-listings';page=0;getAppListings()">
+      <i class="material-icons prefix">list</i>
+      App Listings
+    </div>
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Events you have subscribed to."
+         position="bottom"
+         (click)="currentView = 'subscribed-events';page=0;getSubscribedEvents()">
+      <i class="material-icons prefix">event</i>
+      Event Subscriptions
+    </div>
+    <div *ngIf="isDev" class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Events that you are running."
+         position="bottom"
+         (click)="currentView = 'events-listings';page=0;getEvents()">
+      <i class="material-icons prefix">event_note</i>
+      Event Listings
+    </div>
+  </div>
+  <div *ngIf="currentView === 'apps-listings'">
     <h4>My App Listings</h4>
     <hr>
     <div class="row">
@@ -134,7 +119,7 @@
     </div>
     <br><br>
   </div>
-  <div>
+  <div *ngIf="currentView === 'subscribed-apps'">
     <div *ngIf="appsNeedingUpdated && appsNeedingUpdated.length"
          class="right btn waves-effect waves-light pink-button small-button margin-left"
          mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
@@ -146,23 +131,23 @@
       class="right btn waves-effect waves-light pink-button small-button margin-left"
       mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
       position="bottom"
-      (click)="isUpdated = false;isUninstalled = true; saveMyAppsView(); getInstalledApps()"
-    >Uninstalled</div>
-
-    <div
-      class="right btn waves-effect waves-light pink-button small-button margin-left"
-      mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
-      position="bottom"
-      (click)="isUpdated = false;isUninstalled = false; saveMyAppsView(); getInstalledApps()"
-    >Installed</div>
-
-    <div
-      class="right btn waves-effect waves-light pink-button small-button margin-left"
-      mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
-      position="bottom"
-      (click)="isUpdated = true;isUninstalled = false; saveMyAppsView(); getInstalledApps()"
+      (click)="isUpdated = true;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"
     >Updates</div>
-    <h4>My {{isUpdated? 'App Updates' : isUninstalled? 'Uninstalled Apps' : 'Installed Apps' }}</h4>
+
+    <div
+      class="right btn waves-effect waves-light pink-button small-button margin-left"
+      mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
+      position="bottom"
+      (click)="isUpdated = false;isUninstalled = true; page=0;saveMyAppsView(); getInstalledApps()"
+    >Unsubscribed</div>
+
+    <div
+      class="right btn waves-effect waves-light pink-button small-button margin-left"
+      mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
+      position="bottom"
+      (click)="isUpdated = false;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"
+    >Subscribed</div>
+    <h4>My {{isUpdated? 'App Updates' : isUninstalled? 'Unsubscribed Apps' : 'Subscribed Apps' }}</h4>
     <hr>
     <div class="row">
       <h5 *ngIf="!myInstalledApps.length">
@@ -193,24 +178,24 @@
     <br><br>
   </div>
 
-  <div>
+  <div *ngIf="currentView === 'events-listings'">
     <div
       class="right btn waves-effect waves-light pink-button small-button margin-left"
       mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
       position="bottom"
-      (click)="eventsType = 'all'; eventPage = 0; getEvents()"
+      (click)="eventsType = 'all'; page = 0; getEvents()"
     >All</div>
     <div
       class="right btn waves-effect waves-light pink-button small-button margin-left"
       mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
       position="bottom"
-      (click)="eventsType = 'past'; eventPage = 0; getEvents()"
+      (click)="eventsType = 'past'; page = 0; getEvents()"
     >Past</div>
     <div
       class="right btn waves-effect waves-light pink-button small-button margin-left"
       mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
       position="bottom"
-      (click)="eventsType = 'upcoming'; eventPage = 0; getEvents()"
+      (click)="eventsType = 'upcoming'; page = 0; getEvents()"
     >Upcoming</div>
     <h4>My Events</h4>
     <hr>
@@ -246,7 +231,51 @@
         </div>
       </div>
     </div>
+    <br><br>
   </div>
+
+
+
+
+  <div *ngIf="currentView === 'subscribed-events'">
+    <h4>My Subscribed Events</h4>
+    <hr>
+    <div class="row">
+      <h5 *ngIf="!mySubscribedEvents.length">
+        <br><br>
+        Nothing here yet.
+      </h5>
+      <div class="col s12 m6 l4" *ngFor="let event of mySubscribedEvents">
+        <div class="card card-height">
+          <div class="card-image card-image-left waves-effect waves-block waves-light activator"
+               *ngIf="event.event_image||event.image" [ngStyle]="{'background-image':'url(\''+(event.event_image||event.image)+'\')'}">
+            <!--<div class="btn waves-effect waves-light white-text pink-button small-button" *ngIf="app.needsUpdate && !isUninstalled" routerLink="/app/{{app.apps_id}}">Update</div>-->
+          </div>
+          <div class="card-content card-height">
+            <i class="material-icons activator pointer right">more_vert</i>
+            <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.event_name||event.name||'No Name...'}}</span>
+            <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.description}}</p>
+            <div class="right-align">
+              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button" routerLink="/event/{{event.events_id}}">Open</div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{event.event_name||event.name||'No Name...'}}</span>
+            <p class="grey-text">{{event.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
+
+  <br><br><br>
+  <div class="center-align">
+    <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="getCurrent()">Load More</div>
+    <div *ngIf="hasNoMore" class="chip">No more items...</div>
+  </div>
+  <br><br><br>
+
 </div>
 
 

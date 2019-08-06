@@ -145,7 +145,9 @@ export class EventManagerComponent implements OnInit, OnDestroy {
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              title: this.currentApp.event_name || this.currentApp.name,
+              title:
+                (this.currentApp.event_name || this.currentApp.name) +
+                "on Sidequest",
               description:
                 this.currentApp.event_description ||
                 this.currentApp.description,

@@ -93,3 +93,13 @@
 .bottom-margin{
   margin-bottom: 7px;
 }
+.future-date{
+  border: 2px solid white;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-align: center;
+  white-space: nowrap;
+  margin: 3px;
+  font-size: 2em;
+  cursor: pointer;
+}

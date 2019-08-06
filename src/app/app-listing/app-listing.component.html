@@ -18,7 +18,7 @@
          *ngIf="currentApp.preview_image"
          src="{{expanseService.cdnUrl+currentApp.preview_image}}"/>
     {{currentApp.name}}
-    <span *ngIf="!currentApp.active" class="chip white-text orange">Pending</span>
+    <span *ngIf="!currentApp.active" class="chip white-text orange">Unlisted</span>
   </h4>
   <div class="right top-tags-name">
     <div class="btn waves-effect waves-light pink-button"
@@ -41,7 +41,7 @@
           <div *ngIf="videoObject">
             <div *ngIf="videoObject.provider === 'youtube'">
               <iframe width="100%" height="360" [src]="videoUrl" frameborder="0"
-                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture fullscreen"
+                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                       allowfullscreen></iframe>
             </div>
             <div *ngIf="videoObject.provider === 'vimeo'">
@@ -86,15 +86,18 @@
           <br>
           <div *ngIf="isInstalled && installedVersion < currentApp.versioncode && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')">
             <br>
-            <div class="btn waves-effect waves-light pink-button"
+            <div class="btn waves-effect waves-light pink-button small-button"
                  (click)="openItems(apk_download_urls)">Update To {{currentApp.versionname}}</div><br><br><br>
 
           </div>
-          <div class="btn waves-effect waves-light pink-button"
-               *ngIf="isInstalled && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')" (click)="uninstallApp(currentApp.packagename)">Uninstall</div>
+          <div *ngIf="isInstalled && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')">
+            <div class="btn waves-effect waves-light pink-button small-button"
+                 (click)="uninstallApp(currentApp.packagename)">Unsubscribe & Uninstall</div>
+            <br><br>Click to unsubscribe from this app to not receive update notifications and also uninstall if SideQuest is open. You may need to uninstall separately if you're not connected.
+          </div>
           <div *ngIf="currentApp.donate_url">
             <br><br>
-            <div class="btn waves-effect waves-light pink-button"
+            <div class="btn waves-effect waves-light pink-button small-button"
                  (click)="copyShareUrl()">Copy Share Link</div>
             <br><br>Share Link: {{currentApp.donate_url}}
           </div>

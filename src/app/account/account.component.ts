@@ -48,6 +48,7 @@ export interface EventListing {
   event_repeat_amount: number;
   event_duration: number;
   start_time?: number;
+  _start_time?: number;
   share_url: string;
   app_url: string;
   video_url: string;
@@ -80,12 +81,17 @@ export class AccountComponent implements OnInit {
   newPassword1: string;
   isDev: boolean;
   showAll: boolean;
-  isUpdated = true;
-  isUninstalled: boolean;
+  isUpdated: boolean = false;
+  isUninstalled: boolean = false;
   githubReleases: GithubRelease[];
+  currentView = "subscribed-apps";
   eventsType = "upcoming";
-  eventPage = 0;
-  myEvents: any[];
+  isLoading: boolean = false;
+  hasNoMore: boolean = false;
+  page: number = 0;
+  isLoaded: boolean;
+  myEvents: any[] = [];
+  mySubscribedEvents: any[] = [];
   constructor(
     public expanseService: ExpanseClientService,
     public appService: AppService
@@ -119,29 +125,97 @@ export class AccountComponent implements OnInit {
   ngOnInit() {
     this.expanseService
       .start()
-      .then(() => this.expanseService.searchMyApps("", 0))
+      // .then(() => this.getAppListings())
+      // .then(() => this.setAppsToImport())
+      .then(() => this.getInstalledApps());
+    // .then(() => this.getEvents())
+    // .then(() => this.getSubscribedEvents());
+  }
+
+  getCurrent() {
+    switch (this.currentView) {
+      case "subscribed-apps":
+        this.getInstalledApps();
+        break;
+      case "apps-listings":
+        this.getAppListings();
+        break;
+      case "subscribed-events":
+        this.getSubscribedEvents();
+        break;
+      case "events-listings":
+        this.getEvents();
+        break;
+    }
+  }
+
+  getSubscribedEvents() {
+    this.isLoading = true;
+    this.hasNoMore = false;
+    return this.expanseService
+      .start()
+      .then(() => this.expanseService.searchSubscribedEvents("", this.page))
+      .then((res: any) => {
+        this.hasNoMore = !res.length;
+        this.isLoading = false;
+        this.mySubscribedEvents =
+          this.page === 0 ? res : this.mySubscribedEvents.concat(res);
+        this.isLoaded = true;
+        this.page++;
+      });
+  }
+
+  getAppListings() {
+    this.isLoading = true;
+    this.hasNoMore = false;
+    return this.expanseService
+      .start()
+      .then(() => this.expanseService.searchMyApps("", this.page))
       .then((resp: AppListing[]) => {
-        this.myApps = resp;
-      })
-      .then(() => this.setAppsToImport())
-      .then(() => this.getInstalledApps())
-      .then(() => this.getEvents());
+        this.hasNoMore = !resp.length;
+        this.isLoading = false;
+        this.myApps = this.page === 0 ? resp : this.myApps.concat(resp);
+        this.isLoaded = true;
+        this.page++;
+      });
   }
 
   getEvents() {
-    this.expanseService.getMyEvents(0, "", this.eventsType).then((res: any) => {
-      console.log(res);
-      this.myEvents = res;
-    });
+    this.isLoading = true;
+    this.hasNoMore = false;
+    return this.expanseService
+      .getMyEvents(this.page, "", this.eventsType)
+      .then((res: any) => {
+        this.hasNoMore = !res.length;
+        this.isLoading = false;
+        this.myEvents = this.page === 0 ? res : this.myEvents.concat(res);
+        this.isLoaded = true;
+        this.page++;
+      });
   }
 
   getInstalledApps() {
+    this.isLoading = true;
+    this.hasNoMore = false;
+    console.log("", this.page, this.isUpdated, this.isUninstalled);
     return this.expanseService
-      .searchInstalledApps("", 0, this.isUpdated, this.isUninstalled)
+      .start()
+      .then(() =>
+        this.expanseService.searchInstalledApps(
+          "",
+          this.page,
+          this.isUpdated,
+          this.isUninstalled
+        )
+      )
       .then((resp: AppListing[]) => {
-        this.myInstalledApps = resp;
+        this.hasNoMore = !resp.length;
+        this.isLoading = false;
+        this.myInstalledApps =
+          this.page === 0 ? resp : this.myInstalledApps.concat(resp);
         this.checkForUpdates();
-        console.log(this.myInstalledApps);
+        this.isLoaded = true;
+        this.page++;
       });
   }
   async setAppsToImport() {

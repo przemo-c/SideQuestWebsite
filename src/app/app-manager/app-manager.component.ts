@@ -348,7 +348,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              title: this.currentApp.name,
+              title: this.currentApp.name + " on SideQuest",
               description: this.currentApp.description,
               image: this.currentApp.image_url,
               name: "a-" + this.apps_id,

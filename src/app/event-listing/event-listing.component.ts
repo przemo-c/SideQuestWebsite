@@ -54,6 +54,8 @@ export class EventListingComponent implements OnInit, OnDestroy {
   videoObject: VideObject;
   sub: Subscription;
   event_meta: any;
+  mySubscription: any;
+  futureEvents: any[];
   constructor(
     private router: Router,
     public service: AppService,
@@ -65,6 +67,7 @@ export class EventListingComponent implements OnInit, OnDestroy {
     this.sub = this.router.events.subscribe(async val => {
       if (val instanceof NavigationEnd) {
         this.events_id = Number(route.snapshot.paramMap.get("events_id"));
+        const start_time = Number(route.snapshot.paramMap.get("start_time"));
         if (!Number.isInteger(this.events_id)) {
           this.events_id = null;
         } else {
@@ -73,12 +76,17 @@ export class EventListingComponent implements OnInit, OnDestroy {
           this.setupEvent()
             .then(() => this.viewEvent())
             .then(() => {
-              console.log("here");
+              this.currentApp._start_time = this.currentApp.start_time;
+              if (start_time && Number.isInteger(start_time)) {
+                this.currentApp.start_time = start_time;
+              }
               this.isMine =
                 this.service.isAuthenticated &&
                 Number(this.currentApp.users_id) ===
                   Number(this.expanseService.currentSession.users_id);
-            });
+            })
+            .then(() => this.getMySubscription())
+            .then(() => this.getFutureEvents());
         }
       }
     });
@@ -88,6 +96,49 @@ export class EventListingComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  getFutureEvents() {
+    this.futureEvents = [];
+    if (this.currentApp.event_repeat_type !== "oneoff") {
+      let amounts = {
+        daily: 60 * 60 * 24,
+        weekly: 60 * 60 * 24 * 7,
+        fortnightly: 60 * 60 * 24 * 14
+      };
+      let amount = amounts[this.currentApp.event_repeat_type];
+      for (let i = 0; i < this.currentApp.event_repeat_amount; i++) {
+        let time = Number(this.currentApp._start_time) + amount * i;
+        if (time > this.currentApp.start_time) {
+          this.futureEvents.push(time);
+        }
+      }
+    }
+  }
+
+  getMySubscription() {
+    if (this.currentApp && this.events_id) {
+      return this.expanseService
+        .searchSubscribedEvents("", 0, this.events_id)
+        .then((res: any) => {
+          if (res.length) {
+            this.mySubscription = res[0];
+          } else {
+            this.mySubscription = null;
+          }
+        });
+    }
+  }
+
+  unsubscribe() {
+    if (this.mySubscription) {
+      this.expanseService
+        .unsubscribeEvent(this.events_id)
+        .then(() =>
+          this.service.showMessage({}, "Unsubscribed from this event!!")
+        )
+        .then(() => this.getMySubscription());
+    }
   }
 
   attendingCount() {
@@ -101,8 +152,12 @@ export class EventListingComponent implements OnInit, OnDestroy {
             this.service.saveAppMeta();
           }
         });
-    } else {
-      this.service.showMessage({}, "You're already attending that!");
+    }
+    this.service.showMessage({}, "Subscribed!");
+    if (!this.mySubscription) {
+      this.expanseService
+        .subscribeEvent(this.events_id)
+        .then(() => this.getMySubscription());
     }
   }
 

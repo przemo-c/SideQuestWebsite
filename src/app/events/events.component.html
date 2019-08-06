@@ -11,7 +11,7 @@
                        [show_date]="event.show_date"
                        [show_date_first]="event.show_date && i > 0"
                        [duration]="event.event_duration"
-                       (open)="router.navigateByUrl('/event/'+event.events_id);appService.scrollToTop()"
+                       (open)="router.navigateByUrl('/event/'+event.events_id+'/'+event.start_time);appService.scrollToTop()"
     ></app-timeline-item>
   </div>
   <div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">
@@ -23,7 +23,7 @@
                    [show_date]="event.show_date"
                    [show_date_first]="event.show_date && i > 0"
                    [duration]="event.event_duration"
-                   (open)="router.navigateByUrl('/event/'+event.events_id);appService.scrollToTop()"
+                   (open)="router.navigateByUrl('/event/'+event.events_id+'/'+event.start_time);appService.scrollToTop()"
     ></app-list-item>
   </div>
 
@@ -40,8 +40,14 @@
         [show_date]="event.show_date"
         [show_date_first]="event.show_date && i > 0"
         [duration]="event.event_duration"
-        (open)="router.navigateByUrl('/event/'+event.events_id);appService.scrollToTop()"
+        (open)="router.navigateByUrl('/event/'+event.events_id+'/'+event.start_time);appService.scrollToTop()"
       ></app-grid-item>
     </ngxMasonryItem>
   </ngx-masonry>
 </div>
+<br><br><br>
+<div class="center-align">
+  <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="getEvents()">Load More</div>
+  <div *ngIf="hasNoMore" class="chip">No more items...</div>
+</div>
+<br><br><br>

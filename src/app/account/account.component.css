@@ -9,6 +9,9 @@
 }
 .open-app-button{
 }
+.change-avatar{
+  margin-top: -80px;
+}
 .card-title-small{
   width: calc(100% - 300px)!important;
 }

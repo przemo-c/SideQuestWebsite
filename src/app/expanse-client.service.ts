@@ -388,6 +388,15 @@ export class ExpanseClientService {
   getData(socketId) {
     return this.emit("get-data", { socketId });
   }
+  searchSubscribedEvents(search, page, events_id?) {
+    return this.emit("search-subscribed-event", { search, page, events_id });
+  }
+  subscribeEvent(events_id) {
+    return this.emit("subscribe-event", { events_id });
+  }
+  unsubscribeEvent(events_id) {
+    return this.emit("unsubscribe-event", { events_id });
+  }
   getEvent(events_id) {
     return this.emit("event", { events_id });
   }

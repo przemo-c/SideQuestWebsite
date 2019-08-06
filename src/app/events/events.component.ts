@@ -18,13 +18,19 @@ export class EventsComponent implements OnInit {
   page: number = 0;
   isLoaded: boolean;
   constructor(
-    expanseService: ExpanseClientService,
+    private expanseService: ExpanseClientService,
     public appService: AppService,
     public router: Router
   ) {
-    expanseService
+    this.getEvents();
+  }
+
+  ngOnInit() {}
+
+  getEvents() {
+    this.expanseService
       .start()
-      .then(() => expanseService.getEvents(this.page, "", "upcoming"))
+      .then(() => this.expanseService.getEvents(this.page, "", "upcoming"))
       .then(async (events: EventListing[]) => {
         events.forEach((event: EventListing, i) => {
           const date = new Date(event.start_time * 1000);
@@ -51,6 +57,4 @@ export class EventsComponent implements OnInit {
       })
       .then(() => console.log(this.events));
   }
-
-  ngOnInit() {}
 }
