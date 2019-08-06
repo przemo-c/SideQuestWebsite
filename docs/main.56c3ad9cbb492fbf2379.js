@@ -120461,7 +120461,7 @@
               0,
               null,
               null,
-              49,
+              45,
               "div",
               [["class", "top-banner"]],
               null,
@@ -120623,7 +120623,7 @@
               0,
               null,
               null,
-              32,
+              28,
               "div",
               [["class", "right top-buttons hide-on-med-and-down"]],
               null,
@@ -120761,63 +120761,9 @@
               null
             ),
             (e()(), l["\u0275ted"](-1, null, ["Games"])),
-            (e()(),
-            l["\u0275eld"](
-              32,
-              0,
-              null,
-              null,
-              3,
-              "div",
-              [
-                [
-                  "class",
-                  "waves-effect waves-light btn-flat white-text top-button"
-                ],
-                ["mz-tooltip", ""],
-                ["position", "bottom"],
-                ["routerLink", "events"],
-                ["tooltip", "New VR multi user events."]
-              ],
-              null,
-              [[null, "click"]],
-              function(e, n, t) {
-                var r = !0,
-                  i = e.component;
-                return (
-                  "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 33).onClick() && r),
-                  "click" === n && (r = !1 !== i.appService.scrollToTop() && r),
-                  r
-                );
-              },
-              null,
-              null
-            )),
-            l["\u0275did"](
-              33,
-              16384,
-              null,
-              0,
-              xr,
-              [Cr, fl, [8, null], l.Renderer2, l.ElementRef],
-              { routerLink: [0, "routerLink"] },
-              null
-            ),
-            l["\u0275did"](
-              34,
-              4931584,
-              null,
-              0,
-              Dn,
-              [l.ElementRef, l.Renderer],
-              { position: [0, "position"], tooltip: [1, "tooltip"] },
-              null
-            ),
-            (e()(), l["\u0275ted"](-1, null, ["Events"])),
             (e()(), l["\u0275and"](16777216, null, null, 1, null, Zp)),
             l["\u0275did"](
-              37,
+              33,
               16384,
               null,
               0,
@@ -120828,7 +120774,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              38,
+              34,
               0,
               null,
               null,
@@ -120849,7 +120795,7 @@
                   i = e.component;
                 return (
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 39).onClick() && r),
+                    (r = !1 !== l["\u0275nov"](e, 35).onClick() && r),
                   "click" === n && (r = !1 !== i.appService.scrollToTop() && r),
                   r
                 );
@@ -120858,7 +120804,7 @@
               null
             )),
             l["\u0275did"](
-              39,
+              35,
               16384,
               null,
               0,
@@ -120868,7 +120814,7 @@
               null
             ),
             l["\u0275did"](
-              40,
+              36,
               4931584,
               null,
               0,
@@ -120877,10 +120823,10 @@
               { position: [0, "position"], tooltip: [1, "tooltip"] },
               null
             ),
-            (e()(), l["\u0275ted"](41, null, ["", ""])),
+            (e()(), l["\u0275ted"](37, null, ["", ""])),
             (e()(), l["\u0275and"](16777216, null, null, 1, null, Xp)),
             l["\u0275did"](
-              43,
+              39,
               16384,
               null,
               0,
@@ -120891,7 +120837,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              44,
+              40,
               0,
               null,
               null,
@@ -120914,7 +120860,7 @@
               null
             )),
             l["\u0275did"](
-              45,
+              41,
               4931584,
               null,
               0,
@@ -120926,7 +120872,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Wiki/FAQ"])),
             (e()(),
             l["\u0275eld"](
-              47,
+              43,
               0,
               null,
               null,
@@ -120952,7 +120898,7 @@
                   i = e.component;
                 return (
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 48).onClick() && r),
+                    (r = !1 !== l["\u0275nov"](e, 44).onClick() && r),
                   "click" === n && (r = !1 !== i.appService.scrollToTop() && r),
                   r
                 );
@@ -120961,7 +120907,7 @@
               null
             )),
             l["\u0275did"](
-              48,
+              44,
               16384,
               null,
               0,
@@ -120971,7 +120917,7 @@
               null
             ),
             l["\u0275did"](
-              49,
+              45,
               4931584,
               null,
               0,
@@ -120982,7 +120928,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              50,
+              46,
               0,
               null,
               null,
@@ -120999,7 +120945,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Setup & How To"])),
             (e()(),
             l["\u0275eld"](
-              53,
+              49,
               0,
               null,
               null,
@@ -121013,7 +120959,7 @@
               jo
             )),
             l["\u0275did"](
-              54,
+              50,
               4374528,
               [["sidenav", 4]],
               0,
@@ -121024,7 +120970,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              55,
+              51,
               0,
               null,
               0,
@@ -121037,11 +120983,11 @@
               Vo,
               Fo
             )),
-            l["\u0275did"](56, 49152, null, 0, gn, [], null, null),
+            l["\u0275did"](52, 49152, null, 0, gn, [], null, null),
             (e()(), l["\u0275ted"](-1, 0, [" Main Menu "])),
             (e()(),
             l["\u0275eld"](
-              58,
+              54,
               0,
               null,
               0,
@@ -121054,10 +121000,10 @@
               zo,
               Ho
             )),
-            l["\u0275did"](59, 49152, null, 0, vn, [], null, null),
+            l["\u0275did"](55, 49152, null, 0, vn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              60,
+              56,
               0,
               null,
               0,
@@ -121072,7 +121018,7 @@
                   "click" === n &&
                     (r =
                       !1 !==
-                        l["\u0275nov"](e, 61).onClick(
+                        l["\u0275nov"](e, 57).onClick(
                           t.button,
                           t.ctrlKey,
                           t.metaKey,
@@ -121081,7 +121027,7 @@
                   "click" === n &&
                     (r =
                       0 !=
-                        (l["\u0275nov"](e, 54).opened = !l["\u0275nov"](e, 54)
+                        (l["\u0275nov"](e, 50).opened = !l["\u0275nov"](e, 50)
                           .opened) && r),
                   r
                 );
@@ -121090,7 +121036,7 @@
               null
             )),
             l["\u0275did"](
-              61,
+              57,
               671744,
               null,
               0,
@@ -121102,7 +121048,7 @@
             (e()(), l["\u0275ted"](-1, null, ["News"])),
             (e()(),
             l["\u0275eld"](
-              63,
+              59,
               0,
               null,
               0,
@@ -121115,10 +121061,10 @@
               zo,
               Ho
             )),
-            l["\u0275did"](64, 49152, null, 0, vn, [], null, null),
+            l["\u0275did"](60, 49152, null, 0, vn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              65,
+              61,
               0,
               null,
               0,
@@ -121133,7 +121079,7 @@
                   "click" === n &&
                     (r =
                       !1 !==
-                        l["\u0275nov"](e, 66).onClick(
+                        l["\u0275nov"](e, 62).onClick(
                           t.button,
                           t.ctrlKey,
                           t.metaKey,
@@ -121142,7 +121088,7 @@
                   "click" === n &&
                     (r =
                       0 !=
-                        (l["\u0275nov"](e, 54).opened = !l["\u0275nov"](e, 54)
+                        (l["\u0275nov"](e, 50).opened = !l["\u0275nov"](e, 50)
                           .opened) && r),
                   r
                 );
@@ -121151,7 +121097,7 @@
               null
             )),
             l["\u0275did"](
-              66,
+              62,
               671744,
               null,
               0,
@@ -121163,7 +121109,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Events"])),
             (e()(),
             l["\u0275eld"](
-              68,
+              64,
               0,
               null,
               0,
@@ -121176,10 +121122,10 @@
               zo,
               Ho
             )),
-            l["\u0275did"](69, 49152, null, 0, vn, [], null, null),
+            l["\u0275did"](65, 49152, null, 0, vn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              70,
+              66,
               0,
               null,
               0,
@@ -121194,7 +121140,7 @@
                   "click" === n &&
                     (r =
                       !1 !==
-                        l["\u0275nov"](e, 71).onClick(
+                        l["\u0275nov"](e, 67).onClick(
                           t.button,
                           t.ctrlKey,
                           t.metaKey,
@@ -121203,7 +121149,7 @@
                   "click" === n &&
                     (r =
                       0 !=
-                        (l["\u0275nov"](e, 54).opened = !l["\u0275nov"](e, 54)
+                        (l["\u0275nov"](e, 50).opened = !l["\u0275nov"](e, 50)
                           .opened) && r),
                   r
                 );
@@ -121212,7 +121158,7 @@
               null
             )),
             l["\u0275did"](
-              71,
+              67,
               671744,
               null,
               0,
@@ -121224,7 +121170,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Games"])),
             (e()(),
             l["\u0275eld"](
-              73,
+              69,
               0,
               null,
               0,
@@ -121237,10 +121183,10 @@
               zo,
               Ho
             )),
-            l["\u0275did"](74, 49152, null, 0, vn, [], null, null),
+            l["\u0275did"](70, 49152, null, 0, vn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              75,
+              71,
               0,
               null,
               0,
@@ -121255,7 +121201,7 @@
                   "click" === n &&
                     (r =
                       !1 !==
-                        l["\u0275nov"](e, 76).onClick(
+                        l["\u0275nov"](e, 72).onClick(
                           t.button,
                           t.ctrlKey,
                           t.metaKey,
@@ -121264,7 +121210,7 @@
                   "click" === n &&
                     (r =
                       0 !=
-                        (l["\u0275nov"](e, 54).opened = !l["\u0275nov"](e, 54)
+                        (l["\u0275nov"](e, 50).opened = !l["\u0275nov"](e, 50)
                           .opened) && r),
                   r
                 );
@@ -121273,7 +121219,7 @@
               null
             )),
             l["\u0275did"](
-              76,
+              72,
               671744,
               null,
               0,
@@ -121285,7 +121231,7 @@
             (e()(), l["\u0275ted"](-1, null, ["What is SideQuest?"])),
             (e()(),
             l["\u0275eld"](
-              78,
+              74,
               0,
               null,
               0,
@@ -121298,10 +121244,10 @@
               zo,
               Ho
             )),
-            l["\u0275did"](79, 49152, null, 0, vn, [], null, null),
+            l["\u0275did"](75, 49152, null, 0, vn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              80,
+              76,
               0,
               null,
               0,
@@ -121316,7 +121262,7 @@
                   "click" === n &&
                     (r =
                       !1 !==
-                        l["\u0275nov"](e, 81).onClick(
+                        l["\u0275nov"](e, 77).onClick(
                           t.button,
                           t.ctrlKey,
                           t.metaKey,
@@ -121325,7 +121271,7 @@
                   "click" === n &&
                     (r =
                       0 !=
-                        (l["\u0275nov"](e, 54).opened = !l["\u0275nov"](e, 54)
+                        (l["\u0275nov"](e, 50).opened = !l["\u0275nov"](e, 50)
                           .opened) && r),
                   r
                 );
@@ -121334,7 +121280,7 @@
               null
             )),
             l["\u0275did"](
-              81,
+              77,
               671744,
               null,
               0,
@@ -121346,7 +121292,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Download"])),
             (e()(),
             l["\u0275eld"](
-              83,
+              79,
               0,
               null,
               0,
@@ -121359,10 +121305,10 @@
               zo,
               Ho
             )),
-            l["\u0275did"](84, 49152, null, 0, vn, [], null, null),
+            l["\u0275did"](80, 49152, null, 0, vn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              85,
+              81,
               0,
               null,
               0,
@@ -121377,7 +121323,7 @@
                   "click" === n &&
                     (r =
                       !1 !==
-                        l["\u0275nov"](e, 86).onClick(
+                        l["\u0275nov"](e, 82).onClick(
                           t.button,
                           t.ctrlKey,
                           t.metaKey,
@@ -121386,7 +121332,7 @@
                   "click" === n &&
                     (r =
                       0 !=
-                        (l["\u0275nov"](e, 54).opened = !l["\u0275nov"](e, 54)
+                        (l["\u0275nov"](e, 50).opened = !l["\u0275nov"](e, 50)
                           .opened) && r),
                   r
                 );
@@ -121395,7 +121341,7 @@
               null
             )),
             l["\u0275did"](
-              86,
+              82,
               671744,
               null,
               0,
@@ -121404,10 +121350,10 @@
               { routerLink: [0, "routerLink"] },
               null
             ),
-            (e()(), l["\u0275ted"](87, null, ["", ""])),
+            (e()(), l["\u0275ted"](83, null, ["", ""])),
             (e()(),
             l["\u0275eld"](
-              88,
+              84,
               0,
               null,
               0,
@@ -121420,10 +121366,10 @@
               zo,
               Ho
             )),
-            l["\u0275did"](89, 49152, null, 0, vn, [], null, null),
+            l["\u0275did"](85, 49152, null, 0, vn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              90,
+              86,
               0,
               null,
               0,
@@ -121438,7 +121384,7 @@
                   "click" === n &&
                     (r =
                       !1 !==
-                        l["\u0275nov"](e, 91).onClick(
+                        l["\u0275nov"](e, 87).onClick(
                           t.button,
                           t.ctrlKey,
                           t.metaKey,
@@ -121447,7 +121393,7 @@
                   "click" === n &&
                     (r =
                       0 !=
-                        (l["\u0275nov"](e, 54).opened = !l["\u0275nov"](e, 54)
+                        (l["\u0275nov"](e, 50).opened = !l["\u0275nov"](e, 50)
                           .opened) && r),
                   r
                 );
@@ -121456,7 +121402,7 @@
               null
             )),
             l["\u0275did"](
-              91,
+              87,
               671744,
               null,
               0,
@@ -121468,7 +121414,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Setup & How To"])),
             (e()(),
             l["\u0275eld"](
-              93,
+              89,
               0,
               null,
               0,
@@ -121481,10 +121427,10 @@
               zo,
               Ho
             )),
-            l["\u0275did"](94, 49152, null, 0, vn, [], null, null),
+            l["\u0275did"](90, 49152, null, 0, vn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              95,
+              91,
               0,
               null,
               0,
@@ -121500,7 +121446,7 @@
                     (e.component.openLink("https://discord.me/sidequestvr"),
                     (r =
                       0 !=
-                        (l["\u0275nov"](e, 54).opened = !l["\u0275nov"](e, 54)
+                        (l["\u0275nov"](e, 50).opened = !l["\u0275nov"](e, 50)
                           .opened) && r)),
                   r
                 );
@@ -121511,7 +121457,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Discord"])),
             (e()(),
             l["\u0275eld"](
-              97,
+              93,
               0,
               [[1, 0], ["scrollContainer", 1]],
               null,
@@ -121532,7 +121478,7 @@
               [l.IterableDiffers, l.KeyValueDiffers, l.ElementRef, l.Renderer2]
             ),
             l["\u0275did"](
-              99,
+              95,
               278528,
               null,
               0,
@@ -121541,13 +121487,13 @@
               { ngClass: [0, "ngClass"] },
               null
             ),
-            l["\u0275pod"](100, {
+            l["\u0275pod"](96, {
               "scroll-container-small": 0,
               "scroll-container": 1
             }),
             (e()(),
             l["\u0275eld"](
-              101,
+              97,
               16777216,
               null,
               null,
@@ -121561,7 +121507,7 @@
               null
             )),
             l["\u0275did"](
-              102,
+              98,
               212992,
               null,
               0,
@@ -121578,7 +121524,7 @@
             ),
             (e()(),
             l["\u0275eld"](
-              103,
+              99,
               0,
               null,
               null,
@@ -121591,10 +121537,10 @@
               Jp,
               Kp
             )),
-            l["\u0275did"](104, 114688, null, 0, qp, [Sn], null, null),
+            l["\u0275did"](100, 114688, null, 0, qp, [Sn], null, null),
             (e()(),
             l["\u0275eld"](
-              105,
+              101,
               0,
               null,
               null,
@@ -121608,7 +121554,7 @@
               Io
             )),
             l["\u0275did"](
-              106,
+              102,
               4833280,
               [[2, 4], ["confirmOpen", 4]],
               0,
@@ -121617,10 +121563,10 @@
               { fixedFooter: [0, "fixedFooter"], options: [1, "options"] },
               null
             ),
-            l["\u0275pod"](107, { dismissible: 0 }),
+            l["\u0275pod"](103, { dismissible: 0 }),
             (e()(),
             l["\u0275eld"](
-              108,
+              104,
               0,
               null,
               0,
@@ -121633,10 +121579,10 @@
               null,
               null
             )),
-            l["\u0275did"](109, 16384, null, 0, ln, [], null, null),
+            l["\u0275did"](105, 16384, null, 0, ln, [], null, null),
             (e()(),
             l["\u0275eld"](
-              110,
+              106,
               0,
               null,
               null,
@@ -121652,7 +121598,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Opening With SideQuest"])),
             (e()(),
             l["\u0275eld"](
-              112,
+              108,
               0,
               null,
               1,
@@ -121665,10 +121611,10 @@
               null,
               null
             )),
-            l["\u0275did"](113, 16384, null, 0, rn, [], null, null),
+            l["\u0275did"](109, 16384, null, 0, rn, [], null, null),
             (e()(),
             l["\u0275eld"](
-              114,
+              110,
               0,
               null,
               null,
@@ -121685,6 +121631,55 @@
             l["\u0275ted"](-1, null, [
               " We have sent a message to SideQuest. "
             ])),
+            (e()(),
+            l["\u0275eld"](
+              112,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              113,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275ted"](-1, null, [
+              " Please check the SideQuest app for progress and click confirm when your done for us to update things on this end. If you need to install SideQuest please click download below and come back here to try this again."
+            ])),
+            (e()(),
+            l["\u0275eld"](
+              115,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
             (e()(),
             l["\u0275eld"](
               116,
@@ -121706,55 +121701,6 @@
               0,
               null,
               null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275ted"](-1, null, [
-              " Please check the SideQuest app for progress and click confirm when your done for us to update things on this end. If you need to install SideQuest please click download below and come back here to try this again."
-            ])),
-            (e()(),
-            l["\u0275eld"](
-              119,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              120,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              121,
-              0,
-              null,
-              null,
               4,
               "button",
               [
@@ -121770,9 +121716,9 @@
                   i = e.component;
                 return (
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 122).onClick() && r),
+                    (r = !1 !== l["\u0275nov"](e, 118).onClick() && r),
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 124).onclick() && r),
+                    (r = !1 !== l["\u0275nov"](e, 120).onclick() && r),
                   "click" === n &&
                     (r = !1 !== i.appService.cancelSidequestUrl() && r),
                   r
@@ -121782,7 +121728,7 @@
               null
             )),
             l["\u0275did"](
-              122,
+              118,
               16384,
               null,
               0,
@@ -121792,7 +121738,7 @@
               null
             ),
             l["\u0275did"](
-              123,
+              119,
               606208,
               null,
               0,
@@ -121801,8 +121747,49 @@
               null,
               null
             ),
-            l["\u0275did"](124, 16384, null, 0, un, [tn], null, null),
+            l["\u0275did"](120, 16384, null, 0, un, [tn], null, null),
             (e()(), l["\u0275ted"](-1, null, ["Download"])),
+            (e()(),
+            l["\u0275eld"](
+              122,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(),
+            l["\u0275eld"](
+              123,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, eh)),
+            l["\u0275did"](
+              125,
+              16384,
+              null,
+              0,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
+              null
+            ),
             (e()(),
             l["\u0275eld"](
               126,
@@ -121833,7 +121820,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, eh)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, nh)),
             l["\u0275did"](
               129,
               16384,
@@ -121874,7 +121861,7 @@
               null,
               null
             )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, nh)),
+            (e()(), l["\u0275and"](16777216, null, null, 1, null, th)),
             l["\u0275did"](
               133,
               16384,
@@ -121890,47 +121877,6 @@
               134,
               0,
               null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(),
-            l["\u0275eld"](
-              135,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (e()(), l["\u0275and"](16777216, null, null, 1, null, th)),
-            l["\u0275did"](
-              137,
-              16384,
-              null,
-              0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
-              null
-            ),
-            (e()(),
-            l["\u0275eld"](
-              138,
-              0,
-              null,
               2,
               12,
               "mz-modal-footer",
@@ -121941,10 +121887,10 @@
               null,
               null
             )),
-            l["\u0275did"](139, 16384, null, 0, on, [], null, null),
+            l["\u0275did"](135, 16384, null, 0, on, [], null, null),
             (e()(),
             l["\u0275eld"](
-              140,
+              136,
               0,
               null,
               null,
@@ -121962,7 +121908,7 @@
                   i = e.component;
                 return (
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 142).onclick() && r),
+                    (r = !1 !== l["\u0275nov"](e, 138).onclick() && r),
                   "click" === n &&
                     (r = !1 !== i.appService.cancelSidequestUrl() && r),
                   r
@@ -121972,7 +121918,7 @@
               null
             )),
             l["\u0275did"](
-              141,
+              137,
               606208,
               null,
               0,
@@ -121981,11 +121927,11 @@
               { flat: [0, "flat"] },
               null
             ),
-            l["\u0275did"](142, 16384, null, 0, un, [tn], null, null),
+            l["\u0275did"](138, 16384, null, 0, un, [tn], null, null),
             (e()(), l["\u0275ted"](-1, null, ["Cancel"])),
             (e()(),
             l["\u0275eld"](
-              144,
+              140,
               0,
               null,
               null,
@@ -122007,7 +121953,7 @@
               null
             )),
             l["\u0275did"](
-              145,
+              141,
               606208,
               null,
               0,
@@ -122019,7 +121965,7 @@
             (e()(), l["\u0275ted"](-1, null, ["Retry"])),
             (e()(),
             l["\u0275eld"](
-              147,
+              143,
               0,
               null,
               null,
@@ -122037,7 +121983,7 @@
                   i = e.component;
                 return (
                   "click" === n &&
-                    (r = !1 !== l["\u0275nov"](e, 149).onclick() && r),
+                    (r = !1 !== l["\u0275nov"](e, 145).onclick() && r),
                   "click" === n &&
                     (r = !1 !== i.appService.confirmSidequestUrl() && r),
                   r
@@ -122047,7 +121993,7 @@
               null
             )),
             l["\u0275did"](
-              148,
+              144,
               606208,
               null,
               0,
@@ -122056,7 +122002,7 @@
               null,
               null
             ),
-            l["\u0275did"](149, 16384, null, 0, un, [tn], null, null),
+            l["\u0275did"](145, 16384, null, 0, un, [tn], null, null),
             (e()(), l["\u0275ted"](-1, null, ["Confirm"]))
           ],
           function(e, n) {
@@ -122077,13 +122023,11 @@
               ),
               e(n, 29, 0, "apps/1"),
               e(n, 30, 0, "bottom", "Games you can get on SideQuest"),
-              e(n, 33, 0, "events"),
-              e(n, 34, 0, "bottom", "New VR multi user events."),
-              e(n, 37, 0, !t.appService.hideLogo),
-              e(n, 39, 0, t.appService.isAuthenticated ? "account" : "login"),
+              e(n, 33, 0, !t.appService.hideLogo),
+              e(n, 35, 0, t.appService.isAuthenticated ? "account" : "login"),
               e(
                 n,
-                40,
+                36,
                 0,
                 "bottom",
                 l["\u0275inlineInterpolate"](
@@ -122095,94 +122039,94 @@
                   ""
                 )
               ),
-              e(n, 43, 0, t.appService.isAuthenticated),
-              e(n, 45, 0, "bottom", "Get help with common problems."),
-              e(n, 48, 0, "setup-howto"),
+              e(n, 39, 0, t.appService.isAuthenticated),
+              e(n, 41, 0, "bottom", "Get help with common problems."),
+              e(n, 44, 0, "setup-howto"),
               e(
                 n,
-                49,
+                45,
                 0,
                 "bottom",
                 "Get your sidequest setup the first time you install, and watch some how to videos."
               ),
-              e(n, 54, 0, "btn-sidenav-demo", "sidenav-demo"),
-              e(n, 61, 0, "news"),
-              e(n, 66, 0, "events"),
-              e(n, 71, 0, "apps/1"),
-              e(n, 76, 0, "what-is-sidequest"),
-              e(n, 81, 0, "download"),
-              e(n, 86, 0, t.appService.isAuthenticated ? "account" : "login"),
-              e(n, 91, 0, "setup-howto");
-            var u = e(n, 100, 0, t.appService.hideLogo, !t.appService.hideLogo);
-            e(n, 99, 0, u), e(n, 102, 0), e(n, 104, 0);
-            var a = e(n, 107, 0, !1);
-            e(n, 106, 0, !0, a),
-              e(n, 122, 0, "/download"),
-              e(n, 123, 0),
+              e(n, 50, 0, "btn-sidenav-demo", "sidenav-demo"),
+              e(n, 57, 0, "news"),
+              e(n, 62, 0, "events"),
+              e(n, 67, 0, "apps/1"),
+              e(n, 72, 0, "what-is-sidequest"),
+              e(n, 77, 0, "download"),
+              e(n, 82, 0, t.appService.isAuthenticated ? "account" : "login"),
+              e(n, 87, 0, "setup-howto");
+            var u = e(n, 96, 0, t.appService.hideLogo, !t.appService.hideLogo);
+            e(n, 95, 0, u), e(n, 98, 0), e(n, 100, 0);
+            var a = e(n, 103, 0, !1);
+            e(n, 102, 0, !0, a),
+              e(n, 118, 0, "/download"),
+              e(n, 119, 0),
+              e(n, 125, 0, t.appService.urlTimeoutValue),
               e(n, 129, 0, t.appService.urlTimeoutValue),
               e(n, 133, 0, t.appService.urlTimeoutValue),
-              e(n, 137, 0, t.appService.urlTimeoutValue),
+              e(n, 137, 0, !0),
               e(n, 141, 0, !0),
-              e(n, 145, 0, !0),
-              e(n, 148, 0);
+              e(n, 144, 0);
           },
           function(e, n) {
             var t = n.component;
-            e(n, 41, 0, t.appService.isAuthenticated ? "Dashboard" : "Sign In"),
+            e(n, 37, 0, t.appService.isAuthenticated ? "Dashboard" : "Sign In"),
               e(
                 n,
-                60,
+                56,
                 0,
-                l["\u0275nov"](n, 61).target,
-                l["\u0275nov"](n, 61).href
+                l["\u0275nov"](n, 57).target,
+                l["\u0275nov"](n, 57).href
               ),
               e(
                 n,
-                65,
+                61,
                 0,
-                l["\u0275nov"](n, 66).target,
-                l["\u0275nov"](n, 66).href
+                l["\u0275nov"](n, 62).target,
+                l["\u0275nov"](n, 62).href
               ),
               e(
                 n,
-                70,
+                66,
                 0,
-                l["\u0275nov"](n, 71).target,
-                l["\u0275nov"](n, 71).href
+                l["\u0275nov"](n, 67).target,
+                l["\u0275nov"](n, 67).href
               ),
               e(
                 n,
-                75,
+                71,
                 0,
-                l["\u0275nov"](n, 76).target,
-                l["\u0275nov"](n, 76).href
+                l["\u0275nov"](n, 72).target,
+                l["\u0275nov"](n, 72).href
               ),
               e(
                 n,
-                80,
+                76,
                 0,
-                l["\u0275nov"](n, 81).target,
-                l["\u0275nov"](n, 81).href
+                l["\u0275nov"](n, 77).target,
+                l["\u0275nov"](n, 77).href
               ),
               e(
                 n,
-                85,
+                81,
                 0,
-                l["\u0275nov"](n, 86).target,
-                l["\u0275nov"](n, 86).href
+                l["\u0275nov"](n, 82).target,
+                l["\u0275nov"](n, 82).href
               ),
               e(
                 n,
-                87,
+                83,
                 0,
                 t.appService.isAuthenticated ? "Dashboard" : "Sign In"
               ),
               e(
                 n,
-                90,
+                86,
                 0,
-                l["\u0275nov"](n, 91).target,
-                l["\u0275nov"](n, 91).href
+                l["\u0275nov"](n, 87).target,
+                l["\u0275nov"](n, 87).href
               );
           }
         );
