@@ -67233,6 +67233,7 @@
               (this.uploadService = i),
               (this.title = "SideQuestWebsite"),
               (this.sub = t.events.subscribe(function(n) {})),
+              this.expanseService.getInstalledApps("", 0),
               this.setupAppUninstall();
           }
           return (
