@@ -182,6 +182,9 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
             this.onVideoChange();
           }
           this.loading = false;
+          this.app_urls = this.app_urls.concat(
+            this.expanseService.default_app_ulrs
+          );
         } else {
           await this.expanseService.getUserSettings();
           this.loading = false;

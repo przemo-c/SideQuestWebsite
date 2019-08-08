@@ -57,11 +57,11 @@
   <div class="right search-box input-field">
     <i class="material-icons prefix">search</i>
 
-    <input id="searchBox" type="text" class="validate"
+    <input id="searchBox3" type="text"
            [(ngModel)]="searchString"
            (input)="debounceSearch()"
     >
-    <label for="searchBox">Search</label>
+    <label for="searchBox3">Search</label>
   </div>
   <div class="">
     <div class="chip pointer margin-right menu-chip"
@@ -94,15 +94,7 @@
     </div>
   </div>
   <div class="clearfix"></div>
-
-  <ng-container *ngIf="isLoading">
-    <div class="center-align">
-      <div class="tall-placeholder relative">
-        <div class="loader-initial"></div>
-      </div>
-    </div>
-  </ng-container>
-  <div *ngIf="currentView === 'apps-listings' && !isLoading">
+  <div *ngIf="currentView === 'apps-listings'">
     <i class="material-icons right pink-text pointer" (click)="settingsModal.openModal()">settings</i>
     <h4>My App Listings</h4>
     <div class="clearfix"></div>
@@ -139,7 +131,7 @@
     </div>
     <br><br>
   </div>
-  <div *ngIf="currentView === 'subscribed-apps'  && !isLoading">
+  <div *ngIf="currentView === 'subscribed-apps'">
     <div *ngIf="appsNeedingUpdated && appsNeedingUpdated.length"
          class="right btn waves-effect waves-light pink-button small-button margin-left"
          mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
@@ -198,7 +190,7 @@
     <br><br>
   </div>
 
-  <div *ngIf="currentView === 'events-listings' && !isLoading">
+  <div *ngIf="currentView === 'events-listings'">
     <div
       class="right btn waves-effect waves-light pink-button small-button margin-left"
       mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
@@ -257,7 +249,7 @@
 
 
 
-  <div *ngIf="currentView === 'subscribed-events' && !isLoading">
+  <div *ngIf="currentView === 'subscribed-events'">
     <h4>My Subscribed Events</h4>
     <hr>
     <div class="row">
@@ -290,6 +282,15 @@
   </div>
 
   <br><br><br>
+
+
+  <ng-container *ngIf="isLoading">
+    <div class="center-align">
+      <div class="relative">
+        <div class="loader-initial"></div>
+      </div>
+    </div>
+  </ng-container>
   <div class="center-align">
     <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="getCurrent()">Load More</div>
     <div *ngIf="hasNoMore" class="chip">No more items...</div>

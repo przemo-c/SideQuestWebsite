@@ -82455,7 +82455,13 @@
                           this.onVideoChange(),
                           (i.label = 11);
                       case 11:
-                        return (this.loading = !1), [3, 14];
+                        return (
+                          (this.loading = !1),
+                          (this.app_urls = this.app_urls.concat(
+                            this.expanseService.default_app_ulrs
+                          )),
+                          [3, 14]
+                        );
                       case 12:
                         return [4, this.expanseService.getUserSettings()];
                       case 13:
@@ -104440,75 +104446,6 @@
               null,
               null,
               3,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (n()(),
-            l["\u0275eld"](
-              1,
-              0,
-              null,
-              null,
-              2,
-              "div",
-              [["class", "center-align"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (n()(),
-            l["\u0275eld"](
-              2,
-              0,
-              null,
-              null,
-              1,
-              "div",
-              [["class", "tall-placeholder relative"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (n()(),
-            l["\u0275eld"](
-              3,
-              0,
-              null,
-              null,
-              0,
-              "div",
-              [["class", "loader-initial"]],
-              null,
-              null,
-              null,
-              null,
-              null
-            ))
-          ],
-          null,
-          null
-        );
-      }
-      function oc(n) {
-        return l["\u0275vid"](
-          0,
-          [
-            (n()(),
-            l["\u0275eld"](
-              0,
-              0,
-              null,
-              null,
-              3,
               "div",
               [
                 [
@@ -104553,7 +104490,7 @@
           null
         );
       }
-      function uc(n) {
+      function oc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -104587,7 +104524,7 @@
               null,
               null
             )),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, oc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, ic)),
             l["\u0275did"](
               3,
               16384,
@@ -104885,7 +104822,7 @@
           }
         );
       }
-      function ac(n) {
+      function uc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -105052,7 +104989,7 @@
             )),
             (n()(), l["\u0275ted"](-1, null, ["add"])),
             (n()(), l["\u0275ted"](-1, null, [" Add App "])),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, uc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, oc)),
             l["\u0275did"](
               15,
               278528,
@@ -105101,7 +105038,7 @@
           null
         );
       }
-      function sc(n) {
+      function ac(n) {
         return l["\u0275vid"](
           0,
           [
@@ -105160,7 +105097,7 @@
           null
         );
       }
-      function dc(n) {
+      function sc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -105215,7 +105152,7 @@
           null
         );
       }
-      function cc(n) {
+      function dc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -105274,7 +105211,7 @@
           null
         );
       }
-      function pc(n) {
+      function cc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -105316,7 +105253,7 @@
               null
             ),
             l["\u0275pod"](3, { "background-image": 0 }),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, cc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, dc)),
             l["\u0275did"](
               5,
               16384,
@@ -105347,7 +105284,7 @@
           null
         );
       }
-      function hc(n) {
+      function pc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -105381,7 +105318,7 @@
               null,
               null
             )),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, pc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, cc)),
             l["\u0275did"](
               3,
               16384,
@@ -105636,7 +105573,7 @@
           }
         );
       }
-      function fc(n) {
+      function hc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -105655,7 +105592,7 @@
               null,
               null
             )),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, sc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, ac)),
             l["\u0275did"](
               2,
               16384,
@@ -105859,7 +105796,7 @@
               null,
               null
             )),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, dc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, sc)),
             l["\u0275did"](
               17,
               16384,
@@ -105870,7 +105807,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, hc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, pc)),
             l["\u0275did"](
               19,
               278528,
@@ -105954,7 +105891,7 @@
           }
         );
       }
-      function mc(n) {
+      function fc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -106012,7 +105949,7 @@
           null
         );
       }
-      function gc(n) {
+      function mc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -106046,7 +105983,7 @@
               null,
               null
             )),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, mc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, fc)),
             l["\u0275did"](
               3,
               16384,
@@ -106452,7 +106389,7 @@
           }
         );
       }
-      function vc(n) {
+      function gc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -106722,7 +106659,7 @@
             )),
             (n()(), l["\u0275ted"](-1, null, ["add"])),
             (n()(), l["\u0275ted"](-1, null, [" Add Event "])),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, gc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, mc)),
             l["\u0275did"](
               21,
               278528,
@@ -106793,7 +106730,7 @@
           null
         );
       }
-      function _c(n) {
+      function vc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -106848,7 +106785,7 @@
           null
         );
       }
-      function yc(n) {
+      function _c(n) {
         return l["\u0275vid"](
           0,
           [
@@ -106906,7 +106843,7 @@
           null
         );
       }
-      function bc(n) {
+      function yc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -106940,7 +106877,7 @@
               null,
               null
             )),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, yc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, _c)),
             l["\u0275did"](
               3,
               16384,
@@ -107224,7 +107161,7 @@
           }
         );
       }
-      function wc(n) {
+      function bc(n) {
         return l["\u0275vid"](
           0,
           [
@@ -107289,7 +107226,7 @@
               null,
               null
             )),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, _c)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, vc)),
             l["\u0275did"](
               6,
               16384,
@@ -107300,7 +107237,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, bc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, yc)),
             l["\u0275did"](
               8,
               278528,
@@ -107347,6 +107284,75 @@
             n(e, 6, 0, !t.mySubscribedEvents.length),
               n(e, 8, 0, t.mySubscribedEvents);
           },
+          null
+        );
+      }
+      function wc(n) {
+        return l["\u0275vid"](
+          0,
+          [
+            (n()(),
+            l["\u0275eld"](
+              0,
+              0,
+              null,
+              null,
+              3,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (n()(),
+            l["\u0275eld"](
+              1,
+              0,
+              null,
+              null,
+              2,
+              "div",
+              [["class", "center-align"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (n()(),
+            l["\u0275eld"](
+              2,
+              0,
+              null,
+              null,
+              1,
+              "div",
+              [["class", "relative"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
+            (n()(),
+            l["\u0275eld"](
+              3,
+              0,
+              null,
+              null,
+              0,
+              "div",
+              [["class", "loader-initial"]],
+              null,
+              null,
+              null,
+              null,
+              null
+            ))
+          ],
+          null,
           null
         );
       }
@@ -108620,7 +108626,7 @@
               null,
               5,
               "input",
-              [["class", "validate"], ["id", "searchBox"], ["type", "text"]],
+              [["id", "searchBox3"], ["type", "text"]],
               [
                 [2, "ng-untouched", null],
                 [2, "ng-touched", null],
@@ -108703,7 +108709,7 @@
               null,
               1,
               "label",
-              [["for", "searchBox"]],
+              [["for", "searchBox3"]],
               null,
               null,
               null,
@@ -108880,7 +108886,7 @@
               null,
               null
             )),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, ic)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, uc)),
             l["\u0275did"](
               105,
               16384,
@@ -108891,7 +108897,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, ac)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, hc)),
             l["\u0275did"](
               107,
               16384,
@@ -108902,7 +108908,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, fc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, gc)),
             l["\u0275did"](
               109,
               16384,
@@ -108913,7 +108919,7 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, vc)),
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, bc)),
             l["\u0275did"](
               111,
               16384,
@@ -108924,17 +108930,36 @@
               { ngIf: [0, "ngIf"] },
               null
             ),
-            (n()(), l["\u0275and"](16777216, null, null, 1, null, wc)),
-            l["\u0275did"](
-              113,
-              16384,
+            (n()(),
+            l["\u0275eld"](
+              112,
+              0,
+              null,
               null,
               0,
-              o.NgIf,
-              [l.ViewContainerRef, l.TemplateRef],
-              { ngIf: [0, "ngIf"] },
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
               null
-            ),
+            )),
+            (n()(),
+            l["\u0275eld"](
+              113,
+              0,
+              null,
+              null,
+              0,
+              "br",
+              [],
+              null,
+              null,
+              null,
+              null,
+              null
+            )),
             (n()(),
             l["\u0275eld"](
               114,
@@ -108950,36 +108975,17 @@
               null,
               null
             )),
-            (n()(),
-            l["\u0275eld"](
-              115,
-              0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
-              null
-            )),
-            (n()(),
-            l["\u0275eld"](
+            (n()(), l["\u0275and"](16777216, null, null, 1, null, wc)),
+            l["\u0275did"](
               116,
+              16384,
+              null,
               0,
-              null,
-              null,
-              0,
-              "br",
-              [],
-              null,
-              null,
-              null,
-              null,
+              o.NgIf,
+              [l.ViewContainerRef, l.TemplateRef],
+              { ngIf: [0, "ngIf"] },
               null
-            )),
+            ),
             (n()(),
             l["\u0275eld"](
               117,
@@ -110046,16 +110052,11 @@
               n(e, 95, 0, t.isDev),
               n(e, 97, 0, "bottom", "Events you have subscribed to."),
               n(e, 102, 0, t.isDev),
-              n(e, 105, 0, t.isLoading),
-              n(e, 107, 0, "apps-listings" === t.currentView && !t.isLoading),
-              n(e, 109, 0, "subscribed-apps" === t.currentView && !t.isLoading),
-              n(e, 111, 0, "events-listings" === t.currentView && !t.isLoading),
-              n(
-                e,
-                113,
-                0,
-                "subscribed-events" === t.currentView && !t.isLoading
-              ),
+              n(e, 105, 0, "apps-listings" === t.currentView),
+              n(e, 107, 0, "subscribed-apps" === t.currentView),
+              n(e, 109, 0, "events-listings" === t.currentView),
+              n(e, 111, 0, "subscribed-events" === t.currentView),
+              n(e, 116, 0, t.isLoading),
               n(e, 119, 0, !t.isLoading && !t.hasNoMore),
               n(e, 121, 0, t.hasNoMore),
               n(e, 126, 0, !0),
