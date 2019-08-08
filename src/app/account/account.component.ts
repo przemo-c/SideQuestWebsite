@@ -79,6 +79,7 @@ export class AccountComponent implements OnInit {
   appsToImport: any[];
   newPassword: string;
   newPassword1: string;
+  searchString: string = "";
   isDev: boolean;
   showAll: boolean;
   isUpdated: boolean = false;
@@ -88,10 +89,41 @@ export class AccountComponent implements OnInit {
   eventsType = "upcoming";
   isLoading: boolean = false;
   hasNoMore: boolean = false;
-  page: number = 0;
+  page = 0;
   isLoaded: boolean;
   myEvents: any[] = [];
+  searchTimeout: any;
   mySubscribedEvents: any[] = [];
+  default_app_urls: any[] = [];
+  addNewUrlType = "APK";
+  addNewUrlLink: string;
+  urlTypes = [
+    // "APK",
+    // "OBB",
+    // "BeatOn Mod",
+    // "Firefox Skybox",
+    "Oculus Quest",
+    "Oculus Go",
+    "Oculus Rift",
+    "Oculus GearVR",
+    "Steam Page",
+    "Viveport",
+    "Epic Store",
+    "Patreon",
+    "Paypal",
+    "Itch",
+    "Kofi",
+    "Website",
+    "Github",
+    "Reddit",
+    "Twitch",
+    "Discord",
+    "Twitter",
+    "Youtube",
+    "Facebook",
+    "Instagram",
+    "Vimeo"
+  ];
   constructor(
     public expanseService: ExpanseClientService,
     public appService: AppService
@@ -99,6 +131,40 @@ export class AccountComponent implements OnInit {
     this.isDev = !!localStorage.getItem("isDeveloper");
     this.isUpdated = !!localStorage.getItem("viewIsUpdated");
     this.isUninstalled = !!localStorage.getItem("viewIsUninstalled");
+    this.expanseService.getUserSettings();
+  }
+
+  addAppUrl() {
+    this.expanseService
+      .setUserValues([
+        {
+          key: "appUrl_" + this.addNewUrlType,
+          value: this.addNewUrlLink
+        }
+      ])
+      .then((res: any) => {
+        this.appService.showMessage(res, "Url Added!");
+        if (!res.error && res.length) {
+          this.expanseService.default_app_ulrs = this.expanseService.default_app_ulrs.filter(
+            url => url.provider !== this.addNewUrlType
+          );
+          this.expanseService.default_app_ulrs.push({
+            provider: this.addNewUrlType,
+            link_url: this.addNewUrlLink
+          });
+        }
+      });
+  }
+
+  removeUrl(key) {
+    this.expanseService.removeUserValue("appUrl_" + key).then((res: any) => {
+      this.appService.showMessage(res, "Url Removed!");
+      if (!res.error && res.length) {
+        this.expanseService.default_app_ulrs = this.expanseService.default_app_ulrs.filter(
+          url => url.provider !== key
+        );
+      }
+    });
   }
 
   setDev() {
@@ -132,6 +198,14 @@ export class AccountComponent implements OnInit {
     // .then(() => this.getSubscribedEvents());
   }
 
+  debounceSearch() {
+    clearTimeout(this.searchTimeout);
+    this.searchTimeout = setTimeout(() => {
+      this.page = 0;
+      this.getCurrent();
+    }, 750);
+  }
+
   getCurrent() {
     switch (this.currentView) {
       case "subscribed-apps":
@@ -154,7 +228,9 @@ export class AccountComponent implements OnInit {
     this.hasNoMore = false;
     return this.expanseService
       .start()
-      .then(() => this.expanseService.searchSubscribedEvents("", this.page))
+      .then(() =>
+        this.expanseService.searchSubscribedEvents(this.searchString, this.page)
+      )
       .then((res: any) => {
         this.hasNoMore = !res.length;
         this.isLoading = false;
@@ -170,7 +246,9 @@ export class AccountComponent implements OnInit {
     this.hasNoMore = false;
     return this.expanseService
       .start()
-      .then(() => this.expanseService.searchMyApps("", this.page))
+      .then(() =>
+        this.expanseService.searchMyApps(this.searchString, this.page)
+      )
       .then((resp: AppListing[]) => {
         this.hasNoMore = !resp.length;
         this.isLoading = false;
@@ -184,7 +262,7 @@ export class AccountComponent implements OnInit {
     this.isLoading = true;
     this.hasNoMore = false;
     return this.expanseService
-      .getMyEvents(this.page, "", this.eventsType)
+      .getMyEvents(this.page, this.searchString, this.eventsType)
       .then((res: any) => {
         this.hasNoMore = !res.length;
         this.isLoading = false;
@@ -197,12 +275,11 @@ export class AccountComponent implements OnInit {
   getInstalledApps() {
     this.isLoading = true;
     this.hasNoMore = false;
-    console.log("", this.page, this.isUpdated, this.isUninstalled);
     return this.expanseService
       .start()
       .then(() =>
         this.expanseService.searchInstalledApps(
-          "",
+          this.searchString,
           this.page,
           this.isUpdated,
           this.isUninstalled

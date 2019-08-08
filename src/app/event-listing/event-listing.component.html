@@ -1,10 +1,17 @@
-<div class="container" *ngIf="is_not_found">
+<div class="container" *ngIf="is_not_found && !loading">
   <h4>Not found...</h4>
 </div>
-<mz-parallax *ngIf="currentApp.event_image || currentApp.image" [height]="350">
+<ng-container *ngIf="loading">
+  <div class="center-align">
+    <div class="tall-placeholder relative">
+      <div class="loader-initial"></div>
+    </div>
+  </div>
+</ng-container>
+<mz-parallax *ngIf="(currentApp.event_image || currentApp.image) && !loading" [height]="350">
   <img src="{{currentApp.event_image || currentApp.image}}">
 </mz-parallax>
-<div *ngIf="!is_not_found" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}"
+<div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}"
      [ngStyle]="{'margin-top': currentApp.event_image || currentApp.image ? '-150px' : '0'}">
   <div class="top-back">
 
@@ -133,8 +140,8 @@
         <br><br>
         <h4>Future Events</h4>
         <hr>
-        <div class="row" >
-          <div class="col s4 m3" *ngFor="let time of futureEvents" routerLink="/event/{{events_id}}/{{time}}">
+        <div class="row">
+          <div class="col s6 m4 l3" *ngFor="let time of futureEvents" routerLink="/event/{{events_id}}/{{time}}">
             <div class="future-date">
               {{time*1000|date:'mediumDate'}}
             </div>

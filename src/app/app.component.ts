@@ -30,7 +30,6 @@ export class AppComponent implements AfterViewInit {
       if (val instanceof NavigationEnd) {
       }
     });
-    this.expanseService.getInstalledApps("", 0);
     this.setupAppUninstall();
   }
 

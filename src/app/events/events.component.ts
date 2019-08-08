@@ -28,6 +28,7 @@ export class EventsComponent implements OnInit {
   ngOnInit() {}
 
   getEvents() {
+    this.isLoaded = false;
     this.expanseService
       .start()
       .then(() => this.expanseService.getEvents(this.page, "", "upcoming"))

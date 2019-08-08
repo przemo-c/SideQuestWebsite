@@ -7,6 +7,7 @@ import {
 } from "@angular/core";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { Subscription } from "rxjs";
+import { UploadService } from "../upload.service";
 
 @Component({
   selector: "app-avatar-editor",
@@ -19,7 +20,11 @@ export class AvatarEditorComponent implements OnInit, AfterViewInit, OnDestroy {
   loadUrl: string;
   sub: Subscription;
   isLoaded: boolean;
-  constructor(private router: Router, route: ActivatedRoute) {
+  constructor(
+    private router: Router,
+    route: ActivatedRoute,
+    public uploadService: UploadService
+  ) {
     this.origin = location.origin;
     this.sub = this.router.events.subscribe(async val => {
       if (val instanceof NavigationEnd) {

@@ -128,6 +128,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   };
   latest_tag: string;
   latest_id: number;
+  loading = true;
   constructor(
     private router: Router,
     public service: AppService,
@@ -148,6 +149,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.setupApp()
           .then(() => this.viewApp())
           .then(() => {
+            this.loading = false;
             this.isMine =
               this.service.isAuthenticated &&
               Number(this.currentApp.users_id) ===

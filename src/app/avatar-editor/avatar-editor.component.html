@@ -1,4 +1,11 @@
-<div class="container">
+<ng-container *ngIf="uploadService.loading">
+  <div class="center-align">
+    <div class="tall-placeholder relative">
+      <div class="loader-initial"></div>
+    </div>
+  </div>
+</ng-container>
+<div class="container" [ngStyle]="{'display' : uploadService.loading ? 'none' : 'block'}">
   <div class="waves-effect waves-light btn right pink-button" (click)="saveAvatar()">Save Custom Avatar</div>
   <h4>Custom Avatar Painter</h4>
   <hr>

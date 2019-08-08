@@ -99,51 +99,17 @@
       ></app-grid-item>
     </ngxMasonryItem>
   </ngx-masonry>
-
-  <!--<div *ngIf="!appService.isGrid">-->
-    <!--<div class="card" *ngFor="let newsItem of news">-->
-      <!--<div class="card-image card-image-left waves-effect waves-block waves-light activator"-->
-           <!--*ngIf="newsItem.image" [ngStyle]="{'background-image':'url('+newsItem.image+')'}">-->
-      <!--</div>-->
-      <!--<div class="card-content">-->
-        <!--<i class="material-icons activator pointer right">more_vert</i>-->
-        <!--<span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':newsItem.image}">{{newsItem.title}}</span>-->
-        <!--<p class="grey-text description truncate" [ngClass]="{'card-title-small':newsItem.image}">{{newsItem.description}}</p>-->
-        <!--<div class="right-align">-->
-          <!--<div class="btn-flat waves-effect waves-light white-text" (click)="openItem(newsItem.url)">link</div>-->
-        <!--</div>-->
-      <!--</div>-->
-      <!--<div class="card-reveal">-->
-        <!--<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{newsItem.title}}</span>-->
-        <!--<p class="grey-text">{{newsItem.description}}</p>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-
-  <!--<ngx-masonry class="masonry-layout"-->
-               <!--*ngIf="appService.isGrid"-->
-               <!--[updateLayout]="updateMasonryLayout"-->
-               <!--[options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">-->
-    <!--<ngxMasonryItem class="masonry-item" *ngFor="let newsItem of news">-->
-      <!--<div class="card">-->
-        <!--<div class="card-image waves-effect waves-block waves-light">-->
-          <!--<img class="activator" *ngIf="newsItem.image" onerror="this.style.display='none'" src="{{newsItem.image}}">-->
-        <!--</div>-->
-        <!--<div class="card-content">-->
-          <!--<span class="card-title activator white-text">{{newsItem.title}}<i class="material-icons right">more_vert</i></span>-->
-          <!--<div class="right-align">-->
-            <!--<div class="btn-flat waves-effect waves-light white-text" (click)="openItem(newsItem.url)">link</div>-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class="card-reveal">-->
-          <!--<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{newsItem.title}}</span>-->
-          <!--<p class="grey-text">{{newsItem.description}}</p>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</ngxMasonryItem>-->
-  <!--</ngx-masonry>-->
 </div>
 <br><br><br>
+
+
+<ng-container *ngIf="isLoading">
+  <div class="col s12">
+    <div class="relative">
+      <div class="loader-initial"></div>
+    </div>
+  </div>
+</ng-container>
 <div class="center-align">
   <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="getNews()">Load More</div>
   <div *ngIf="hasNoMore" class="chip">No more items...</div>

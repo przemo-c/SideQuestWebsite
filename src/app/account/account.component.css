@@ -55,3 +55,16 @@
   margin-left: 1em;
   margin-right: 1em;
 }
+.url-row-padding{
+  padding-left:4em;
+  padding-right: 4em;
+}
+.extra-padding-left-small{
+  padding-left: 2em;
+}
+.extra-padding-left{
+  padding-left: 3.8em;
+}
+.url-col{
+  padding-top: 0.7em;
+}

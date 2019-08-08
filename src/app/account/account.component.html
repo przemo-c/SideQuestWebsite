@@ -1,4 +1,4 @@
-<div [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
+<div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
 
   <div class="right">
   <span class="chip pointer top-chip"
@@ -54,6 +54,15 @@
       <br><br>
     </div>
   </div>
+  <div class="right search-box input-field">
+    <i class="material-icons prefix">search</i>
+
+    <input id="searchBox" type="text" class="validate"
+           [(ngModel)]="searchString"
+           (input)="debounceSearch()"
+    >
+    <label for="searchBox">Search</label>
+  </div>
   <div class="">
     <div class="chip pointer margin-right menu-chip"
          mz-tooltip tooltip="App that you have installed and an easy update system."
@@ -84,8 +93,19 @@
       Event Listings
     </div>
   </div>
-  <div *ngIf="currentView === 'apps-listings'">
+  <div class="clearfix"></div>
+
+  <ng-container *ngIf="isLoading">
+    <div class="center-align">
+      <div class="tall-placeholder relative">
+        <div class="loader-initial"></div>
+      </div>
+    </div>
+  </ng-container>
+  <div *ngIf="currentView === 'apps-listings' && !isLoading">
+    <i class="material-icons right pink-text pointer" (click)="settingsModal.openModal()">settings</i>
     <h4>My App Listings</h4>
+    <div class="clearfix"></div>
     <hr>
     <div class="row">
       <div class="col s12 m6">
@@ -107,7 +127,7 @@
                   [ngClass]="{'pink-button': app.active, 'orange': !app.active}">
             {{app.active ? 'Published' : 'Pending'}}
           </span>
-              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/my-app/{{app.apps_id}}">Open</div>
+              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/my-app/{{app.apps_id}}" (click)="appService.scrollToTop()">Open</div>
             </div>
           </div>
           <div class="card-reveal">
@@ -119,7 +139,7 @@
     </div>
     <br><br>
   </div>
-  <div *ngIf="currentView === 'subscribed-apps'">
+  <div *ngIf="currentView === 'subscribed-apps'  && !isLoading">
     <div *ngIf="appsNeedingUpdated && appsNeedingUpdated.length"
          class="right btn waves-effect waves-light pink-button small-button margin-left"
          mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
@@ -165,7 +185,7 @@
             <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
             <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
             <div class="right-align">
-              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button" routerLink="/app/{{app.apps_id}}">Open</div>
+              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button" routerLink="/app/{{app.apps_id}}" (click)="appService.scrollToTop()">Open</div>
             </div>
           </div>
           <div class="card-reveal">
@@ -178,7 +198,7 @@
     <br><br>
   </div>
 
-  <div *ngIf="currentView === 'events-listings'">
+  <div *ngIf="currentView === 'events-listings' && !isLoading">
     <div
       class="right btn waves-effect waves-light pink-button small-button margin-left"
       mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
@@ -221,7 +241,7 @@
           </span>
               <span class="left chip">{{(event.start_time)*1000|date:'mediumDate'}}</span>
               <span class="left chip">{{(event.event_duration)/60| number:'1.0-0'}}mins</span>
-              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/my-event/{{event.events_id}}">Open</div>
+              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/my-event/{{event.events_id}}" (click)="appService.scrollToTop()">Open</div>
             </div>
           </div>
           <div class="card-reveal">
@@ -237,7 +257,7 @@
 
 
 
-  <div *ngIf="currentView === 'subscribed-events'">
+  <div *ngIf="currentView === 'subscribed-events' && !isLoading">
     <h4>My Subscribed Events</h4>
     <hr>
     <div class="row">
@@ -256,7 +276,7 @@
             <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.event_name||event.name||'No Name...'}}</span>
             <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.description}}</p>
             <div class="right-align">
-              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button" routerLink="/event/{{event.events_id}}">Open</div>
+              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button" routerLink="/event/{{event.events_id}}" (click)="appService.scrollToTop()">Open</div>
             </div>
           </div>
           <div class="card-reveal">
@@ -303,5 +323,55 @@
   <mz-modal-footer>
     <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
     <button mz-button class="pink-button" mz-modal-close (click)="changePassword()">Change Password</button>
+  </mz-modal-footer>
+</mz-modal>
+
+
+<mz-modal #settingsModal [fixedFooter]="true">
+  <mz-modal-header>
+    <h4>App Listing Settings</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    <h5>Default App Urls</h5>
+    <hr>
+    <div class="row">
+      <div class="col s6">
+        <div class="input-field">
+          <i class="material-icons prefix">public</i>
+          <input id="website" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="addNewUrlLink">
+          <label for="website" class="active">Link Url</label>
+        </div>
+      </div>
+      <div class="col s3">
+        <div class="select-drop-down">
+          <label class="active">Link Type</label>
+          <select class="browser-default black-text "
+                  [(ngModel)]="addNewUrlType" *ngIf="urlTypes">
+            <option *ngFor="let url of urlTypes">{{url}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col s3 margin-top">
+        <div class="right btn waves-effect waves-light pink-button" (click)="addAppUrl()">Add</div>
+      </div>
+      <div class="col s12"><br><br></div>
+
+      <div class="col s12 url-row-padding">
+        <div class="row bottom-border" *ngFor="let app_url of expanseService.default_app_ulrs; let i = index">
+          <div class="col s6 extra-padding-left url-col truncate">
+            {{app_url.link_url}}
+          </div>
+          <div class="col s4 extra-padding-left url-col truncate">
+            {{app_url.provider}}
+          </div>
+          <div class="col s2 ">
+            <div class="right btn waves-effect waves-light pink-button margin-bottom small-button" (click)="removeUrl(app_url.provider)">Remove</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
   </mz-modal-footer>
 </mz-modal>

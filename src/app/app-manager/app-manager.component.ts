@@ -132,6 +132,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   searchTags: Materialize.ChipDataObject[] = [];
   githubRepos: GithubRepo[];
   githubReleases: GithubRelease[];
+  loading = true;
   constructor(
     private router: Router,
     private service: AppService,
@@ -180,6 +181,11 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
             this.screenshots = (screenshots || []).map(s => s.image_url);
             this.onVideoChange();
           }
+          this.loading = false;
+        } else {
+          await this.expanseService.getUserSettings();
+          this.loading = false;
+          this.app_urls = [].slice.call(this.expanseService.default_app_ulrs);
         }
       }
     });

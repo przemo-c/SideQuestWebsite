@@ -1,4 +1,13 @@
-<div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
+
+<ng-container *ngIf="isLoading">
+  <div class="center-align">
+    <div class="tall-placeholder relative">
+      <div class="loader-initial"></div>
+    </div>
+  </div>
+</ng-container>
+
+<div class="main-container" *ngIf="!isLoading" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
   <app-listing-modes [show_sort]="!appService.isTimeline"
                      (recent)="isRecent = true; page = 0; getApps()"
                      (name)="isRecent = false; page = 0; getApps()"></app-listing-modes>

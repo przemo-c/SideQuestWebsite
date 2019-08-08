@@ -206,3 +206,7 @@ input[type=range] {
 .card-action.right-align{
   background-color: #4e555b!important;
 }
+
+.tall-placeholder{
+  height: 525px;
+}

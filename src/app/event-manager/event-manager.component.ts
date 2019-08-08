@@ -42,6 +42,7 @@ export class EventManagerComponent implements OnInit, OnDestroy {
   videoObject: VideObject;
   videoUrl: SafeUrl;
   is_not_found: boolean;
+  loading = true;
   constructor(
     private router: Router,
     private service: AppService,
@@ -81,6 +82,7 @@ export class EventManagerComponent implements OnInit, OnDestroy {
           this.currentApp.share_url = event.share_url;
           this.currentApp.is_approved = event.is_approved;
           this.onVideoChange();
+          this.loading = false;
         }
       }
     });

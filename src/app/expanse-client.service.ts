@@ -24,6 +24,7 @@ export class ExpanseClientService {
   socketId: any;
   currentSession: any;
   installedApps: AppListing[];
+  default_app_ulrs: any[] = [];
   constructor(private appService: AppService) {
     this.messageResolves = {}; // localStorage.setItem('isDev','true');
     // localStorage.removeItem("isDev");
@@ -77,6 +78,25 @@ export class ExpanseClientService {
   async refreshSession() {
     this.currentSession = await this.getCurrentSession();
     this.appService.isAuthenticated = !!this.currentSession;
+  }
+  getUserSettings() {
+    if (!this.default_app_ulrs || !this.default_app_ulrs.length) {
+      return this.start()
+        .then(() => this.getUserValues())
+        .then((res: any) => {
+          (res || []).forEach(
+            (setting: { name: string; setting_value: string }) => {
+              const parts = setting.name.split("_");
+              if (parts[0] === "appUrl") {
+                this.default_app_ulrs.push({
+                  provider: parts[1],
+                  link_url: setting.setting_value
+                });
+              }
+            }
+          );
+        });
+    }
   }
   getInstalledApps(search, page) {
     return this.start()
@@ -666,6 +686,9 @@ export class ExpanseClientService {
   }
   syncObject(data) {
     return this.emit("sync-object", data);
+  }
+  removeUserValue(key) {
+    return this.emit("remove-user-value", { key });
   }
   getUserValues() {
     return this.emit("get-user-values", {});

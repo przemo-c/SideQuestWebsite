@@ -1,4 +1,11 @@
-<div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
+<ng-container *ngIf="!isLoaded">
+  <div class="center-align">
+    <div class="tall-placeholder relative">
+      <div class="loader-initial"></div>
+    </div>
+  </div>
+</ng-container>
+<div class="main-container" *ngIf="isLoaded" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
   <app-listing-modes></app-listing-modes>
   <h4 class="inline-block">Events</h4>
   <hr class="grey">

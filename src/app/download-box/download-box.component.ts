@@ -14,6 +14,7 @@ export class DownloadBoxComponent implements OnInit {
   assetsWindows: ReleaseAsset[];
   assetsMac: ReleaseAsset[];
   assetsLinux: ReleaseAsset[];
+  loading = true;
   constructor() {}
 
   ngOnInit() {
@@ -43,6 +44,7 @@ export class DownloadBoxComponent implements OnInit {
             return a;
           }
         });
+        this.loading = false;
       });
   }
 

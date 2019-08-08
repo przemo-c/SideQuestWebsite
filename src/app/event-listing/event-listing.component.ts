@@ -56,6 +56,7 @@ export class EventListingComponent implements OnInit, OnDestroy {
   event_meta: any;
   mySubscription: any;
   futureEvents: any[];
+  loading = true;
   constructor(
     private router: Router,
     public service: AppService,
@@ -84,6 +85,7 @@ export class EventListingComponent implements OnInit, OnDestroy {
                 this.service.isAuthenticated &&
                 Number(this.currentApp.users_id) ===
                   Number(this.expanseService.currentSession.users_id);
+              this.loading = false;
             })
             .then(() => this.getMySubscription())
             .then(() => this.getFutureEvents());

@@ -11,6 +11,7 @@ export class UploadService {
   editorComponent: AvatarPickerComponent;
   is_loading_icon: boolean;
   is_loading_screenshot: boolean;
+  loading: boolean;
   constructor(
     private expanseService: ExpanseClientService,
     private router: Router,
@@ -22,6 +23,7 @@ export class UploadService {
   setupWindowEvents() {
     window.addEventListener("message", e => {
       if (e.data.type && e.data.type === "avatarImage") {
+        this.loading = true;
         let avatarPreview, avatarImage;
         this.uploadFile(
           e.data.preview,
@@ -50,9 +52,10 @@ export class UploadService {
                   );
                 }
               })
-              .then(() => this.appService.showMessage({}, "Avatar saved!!"))
-              .then(() => this.router.navigateByUrl("/avatar-picker"))
-          );
+          )
+          .then(() => this.appService.showMessage({}, "Avatar saved!!"))
+          .then(() => this.router.navigateByUrl("/avatar-picker"))
+          .then(() => (this.loading = false));
       }
     });
   }
