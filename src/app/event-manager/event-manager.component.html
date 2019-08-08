@@ -21,7 +21,7 @@
   </h4>
 
   <div *ngIf="events_id && currentApp.is_approved">
-    <app-stats-chart #chart [events_id]="events_id" ></app-stats-chart>
+    <app-stats-chart #chart [events_id]="events_id" name="[{{events_id}}] {{currentApp.event_name}}"></app-stats-chart>
 
     <br>
 

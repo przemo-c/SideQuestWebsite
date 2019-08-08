@@ -142,6 +142,7 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
   public lineChartPlugins = [];
   @Input() events_id;
   @Input() apps_id;
+  @Input() name;
   notEnough: boolean;
   selectedFilter = "All";
   versionFilter: string[];

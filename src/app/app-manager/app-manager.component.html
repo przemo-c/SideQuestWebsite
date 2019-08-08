@@ -32,7 +32,7 @@
   </h4>
 
   <div *ngIf="apps_id && currentApp.active">
-    <app-stats-chart #chart [apps_id]="apps_id" ></app-stats-chart>
+    <app-stats-chart #chart [apps_id]="apps_id" name="[{{apps_id}}] {{currentApp.name}}"></app-stats-chart>
 
     <br>
 

@@ -82456,13 +82456,7 @@
                           this.onVideoChange(),
                           (i.label = 11);
                       case 11:
-                        return (
-                          (this.loading = !1),
-                          (this.app_urls = this.app_urls.concat(
-                            this.expanseService.default_app_ulrs
-                          )),
-                          [3, 14]
-                        );
+                        return (this.loading = !1), [3, 14];
                       case 12:
                         return [4, this.expanseService.getUserSettings()];
                       case 13:
@@ -87834,7 +87828,7 @@
               null,
               null
             )),
-            (n()(), l["\u0275ted"](19, null, ["", " Metrics"])),
+            (n()(), l["\u0275ted"](19, null, ["", " ", " Metrics"])),
             (n()(),
             l["\u0275eld"](
               20,
@@ -88008,7 +88002,7 @@
               l["\u0275nov"](e, 15).ngClassInvalid,
               l["\u0275nov"](e, 15).ngClassPending
             ),
-              n(e, 19, 0, t.events_id ? "Event" : "App"),
+              n(e, 19, 0, t.name, t.events_id ? "Event" : "App"),
               n(
                 e,
                 23,
@@ -88583,7 +88577,7 @@
               0,
               is,
               [Zr],
-              { events_id: [0, "events_id"] },
+              { events_id: [0, "events_id"], name: [1, "name"] },
               null
             ),
             (n()(),
@@ -88739,7 +88733,21 @@
             ))
           ],
           function(n, e) {
-            n(e, 2, 0, e.component.events_id),
+            var t = e.component;
+            n(
+              e,
+              2,
+              0,
+              t.events_id,
+              l["\u0275inlineInterpolate"](
+                2,
+                "[",
+                t.events_id,
+                "] ",
+                t.currentApp.event_name,
+                ""
+              )
+            ),
               n(e, 6, 0, "bottom", "People have been so kind, we are humbled."),
               n(
                 e,
@@ -92781,7 +92789,7 @@
               0,
               is,
               [Zr],
-              { apps_id: [0, "apps_id"] },
+              { apps_id: [0, "apps_id"], name: [1, "name"] },
               null
             ),
             (n()(),
@@ -92937,7 +92945,21 @@
             ))
           ],
           function(n, e) {
-            n(e, 2, 0, e.component.apps_id),
+            var t = e.component;
+            n(
+              e,
+              2,
+              0,
+              t.apps_id,
+              l["\u0275inlineInterpolate"](
+                2,
+                "[",
+                t.apps_id,
+                "] ",
+                t.currentApp.name,
+                ""
+              )
+            ),
               n(e, 6, 0, "bottom", "People have been so kind, we are humbled."),
               n(
                 e,
