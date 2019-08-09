@@ -83,6 +83,8 @@ export class EventManagerComponent implements OnInit, OnDestroy {
           this.currentApp.is_approved = event.is_approved;
           this.onVideoChange();
           this.loading = false;
+        } else {
+          this.loading = false;
         }
       }
     });

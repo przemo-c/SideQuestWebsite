@@ -88093,9 +88093,10 @@
                                   })
                                 ]
                               : [3, 2])
-                          : [3, 2];
+                          : [3, 3];
                       case 1:
-                        (e = i.sent()),
+                        return (
+                          (e = i.sent()),
                           (t = new Date(1e3 * +e.start_time)).setHours(
                             0,
                             0,
@@ -88126,8 +88127,11 @@
                           (this.currentApp.is_approved = e.is_approved),
                           this.onVideoChange(),
                           (this.loading = !1),
-                          (i.label = 2);
+                          [3, 3]
+                        );
                       case 2:
+                        (this.loading = !1), (i.label = 3);
+                      case 3:
                         return [2];
                     }
                   });
