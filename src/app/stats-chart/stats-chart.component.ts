@@ -142,6 +142,7 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
   public lineChartPlugins = [];
   @Input() events_id;
   @Input() apps_id;
+  @Input() spaces_id;
   @Input() name;
   notEnough: boolean;
   selectedFilter = "All";
@@ -164,22 +165,35 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
       .start()
       .then(() =>
         this.expanseService[
-          this.events_id ? "getEventCounters" : "getAppCounters"
+          this.events_id
+            ? "getEventCounters"
+            : this.spaces_id
+            ? "getSpaceCounters"
+            : "getAppCounters"
         ](
-          this.events_id || this.apps_id,
+          this.events_id || this.spaces_id || this.apps_id,
           Math.floor(this.selectedDate.start.toDate().getTime() / 1000 / 3600),
           Math.floor(this.selectedDate.end.toDate().getTime() / 1000 / 3600),
           this.selectedFilter
         )
       )
       .then((res: any) => {
-        if (!this.events_id) {
+        if (!this.events_id && !this.spaces_id) {
           res = this.groupRes(res);
         }
         const views = (res || []).filter(count => count.type === "view");
         const viewsObject = {
           label: "Views",
           data: views.map(count => ({
+            x: (count.hour_time || count.day_time) * 3600 * 1000,
+            y: count.counter
+          })),
+          pointRadius: []
+        };
+        const visitors = (res || []).filter(count => count.type === "visitors");
+        const visitorsObject = {
+          label: "Visitors",
+          data: visitors.map(count => ({
             x: (count.hour_time || count.day_time) * 3600 * 1000,
             y: count.counter
           })),
@@ -207,15 +221,6 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           })),
           pointRadius: []
         };
-        // const likes = (res || []).filter(count => count.type === "like");
-        // const likesObject = {
-        //   label: "Likes",
-        //   data: likes.map(count => ({
-        //     x: (count.hour_time || count.day_time) * 3600 * 1000,
-        //     y: count.counter
-        //   })),
-        //   pointRadius: []
-        // };
         const lineChartData = [];
         if (views.length > 0) {
           viewsObject.data.unshift({
@@ -231,6 +236,20 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           ) as any;
           lineChartData.push(viewsObject);
         }
+        if (visitors.length > 0 && this.spaces_id) {
+          visitorsObject.data.unshift({
+            y: visitorsObject.data[0].y,
+            x: this.selectedDate.start.toDate()
+          });
+          visitorsObject.data.push({
+            y: visitorsObject.data[visitorsObject.data.length - 1].y,
+            x: this.selectedDate.end.toDate()
+          });
+          visitorsObject.pointRadius = visitorsObject.data.map((d, i) =>
+            i === 0 ? 0 : i === visitorsObject.data.length - 1 ? 0 : 5
+          ) as any;
+          lineChartData.push(visitorsObject);
+        }
         if (attending.length > 0 && this.events_id) {
           attendingObject.data.unshift({
             y: attendingObject.data[0].y,
@@ -245,7 +264,7 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           ) as any;
           lineChartData.push(attendingObject);
         }
-        if (downloads.length > 0 && !this.events_id) {
+        if (downloads.length > 0 && this.apps_id) {
           downloadsObject.data.unshift({
             y: downloadsObject.data[0].y,
             x: this.selectedDate.start.toDate()
@@ -259,20 +278,6 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           ) as any;
           lineChartData.push(downloadsObject);
         }
-        // if (likes.length > 0) {
-        //   likesObject.data.unshift({
-        //     y: likesObject.data[0].y,
-        //     x: this.selectedDate.start.toDate()
-        //   });
-        //   likesObject.data.push({
-        //     y: likesObject.data[likesObject.data.length - 1].y,
-        //     x: this.selectedDate.end.toDate()
-        //   });
-        //   likesObject.pointRadius = likesObject.data.map((d, i) =>
-        //     i === 0 ? 0 : i === likesObject.data.length - 1 ? 0 : 5
-        //   ) as any;
-        //   lineChartData.push(likesObject);
-        // }
         this.lineChartData = lineChartData;
         this.notEnough = !lineChartData.length;
         this.chart.chart.config.options.scales.xAxes[0].time.min = this.selectedDate.start.toDate() as any;

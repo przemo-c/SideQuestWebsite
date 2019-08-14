@@ -59,6 +59,22 @@ export interface EventListing {
   date_string?: string;
   show_date?: boolean;
 }
+export interface SpaceListing {
+  current_users: string;
+  date_string?: string;
+  description: string;
+  image: string;
+  name: string;
+  show_date?: boolean;
+  spaces_id?: number;
+  updated: number;
+  video_url: string;
+  space_url: string;
+  app_url: string;
+  share_url: string;
+  is_approved: boolean;
+  users_id?: number;
+}
 @Component({
   selector: "app-account",
   templateUrl: "./account.component.html",
@@ -76,6 +92,8 @@ export class AccountComponent implements OnInit {
     current_version?: number;
     urls?: any[];
   })[] = [];
+  mySpaces: SpaceListing[] = [];
+  mySubscribedSpaces: SpaceListing[] = [];
   appsToImport: any[];
   newPassword: string;
   newPassword1: string;
@@ -220,7 +238,31 @@ export class AccountComponent implements OnInit {
       case "events-listings":
         this.getEvents();
         break;
+      case "spaces-listings":
+        this.getSpaces();
+        break;
+      case "subscribed-spaces":
+        this.getSubscribedSpaces();
+        break;
     }
+  }
+
+  getSubscribedSpaces() {
+    this.isLoading = true;
+    this.hasNoMore = false;
+    return this.expanseService
+      .start()
+      .then(() =>
+        this.expanseService.searchSubscribedSpaces(this.searchString, this.page)
+      )
+      .then((res: any) => {
+        this.hasNoMore = !res.length;
+        this.isLoading = false;
+        this.mySubscribedSpaces =
+          this.page === 0 ? res : this.mySubscribedSpaces.concat(res);
+        this.isLoaded = true;
+        this.page++;
+      });
   }
 
   getSubscribedEvents() {
@@ -253,6 +295,20 @@ export class AccountComponent implements OnInit {
         this.hasNoMore = !resp.length;
         this.isLoading = false;
         this.myApps = this.page === 0 ? resp : this.myApps.concat(resp);
+        this.isLoaded = true;
+        this.page++;
+      });
+  }
+
+  getSpaces() {
+    this.isLoading = true;
+    this.hasNoMore = false;
+    return this.expanseService
+      .getMySpaces(this.page, this.searchString)
+      .then((res: any) => {
+        this.hasNoMore = !res.length;
+        this.isLoading = false;
+        this.mySpaces = this.page === 0 ? res : this.mySpaces.concat(res);
         this.isLoaded = true;
         this.page++;
       });

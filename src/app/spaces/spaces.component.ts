@@ -1,17 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 import { ExpanseClientService } from "../expanse-client.service";
 import { AppService } from "../app.service";
-import { AppListing, EventListing } from "../account/account.component";
+import { SpaceListing } from "../account/account.component";
 import { Subscription } from "rxjs";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: "app-events",
-  templateUrl: "./events.component.html",
-  styleUrls: ["./events.component.css"]
+  selector: "app-spaces",
+  templateUrl: "./spaces.component.html",
+  styleUrls: ["./spaces.component.css"]
 })
-export class EventsComponent implements OnInit {
-  events: EventListing[] = [];
+export class SpacesComponent implements OnInit {
+  spaces: SpaceListing[] = [];
   updateMasonryLayout: boolean = false;
   isLoading: boolean = false;
   hasNoMore: boolean = false;
@@ -24,7 +24,7 @@ export class EventsComponent implements OnInit {
     public appService: AppService,
     public router: Router
   ) {
-    this.getEvents();
+    this.getSpaces();
   }
 
   ngOnInit() {}
@@ -33,41 +33,37 @@ export class EventsComponent implements OnInit {
     clearTimeout(this.searchTimeout);
     this.searchTimeout = setTimeout(() => {
       this.page = 0;
-      this.getEvents();
+      this.getSpaces();
     }, 750);
   }
 
-  getEvents() {
+  getSpaces() {
     this.isLoaded = false;
     this.expanseService
       .start()
-      .then(() =>
-        this.expanseService.getEvents(this.page, this.searchString, "upcoming")
-      )
-      .then(async (events: EventListing[]) => {
-        events.forEach((event: EventListing, i) => {
-          const date = new Date(event.start_time * 1000);
-          event.date_string =
+      .then(() => this.expanseService.getSpaces(this.page, this.searchString))
+      .then(async (spaces: SpaceListing[]) => {
+        spaces.forEach((space: SpaceListing, i) => {
+          const date = new Date(space.updated * 1000);
+          space.date_string =
             date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
-          event.show_date =
-            i === 0 || events[i - 1].date_string !== event.date_string;
+          space.show_date =
+            i === 0 || spaces[i - 1].date_string !== space.date_string;
         });
-        await this.appService.fixImages(events);
-        this.hasNoMore = !events.length;
+        this.appService.fixImages(spaces);
+        this.hasNoMore = !spaces.length;
         let isGrid = this.appService.isGrid;
         if (this.page === 0) {
           this.appService.isGrid = false;
-          this.events.length = 0;
+          this.spaces.length = 0;
         }
         this.isLoading = false;
-        this.events = this.events.concat(events);
-        // this.updateMasonryLayout = true;
+        this.spaces = this.spaces.concat(spaces);
         this.isLoaded = true;
         if (this.page === 0) {
           setTimeout(() => (this.appService.isGrid = isGrid));
         }
         this.page++;
-      })
-      .then(() => console.log(this.events));
+      });
   }
 }

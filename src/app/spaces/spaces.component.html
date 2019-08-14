@@ -1,0 +1,66 @@
+<div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
+  <app-listing-modes></app-listing-modes>
+  <h4 class="inline-block">Spaces</h4>
+  <hr class="grey">
+  <div class="right search-box input-field">
+    <i class="material-icons prefix">search</i>
+
+    <input id="searchBox" type="text" class="validate"
+           [(ngModel)]="searchString"
+           (input)="debounceSearch()"
+    >
+    <label for="searchBox" class="active">Search</label>
+  </div>
+  <ng-container *ngIf="!isLoaded">
+    <div class="center-align">
+      <div class="tall-placeholder relative">
+        <div class="loader-initial"></div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="clearfix"></div>
+  <div *ngIf="isLoaded">
+    <div *ngIf="!appService.isGrid&&appService.isTimeline" class="row">
+      <app-timeline-item *ngFor="let space of spaces; let i = index"
+                         [name]="space.name"
+                         [description]="space.description"
+                         [image]="space.image"
+                         [start_time]="space.updated"
+                         [show_date]="space.show_date"
+                         [show_date_first]="space.show_date && i > 0"
+                         (open)="router.navigateByUrl('/space/'+space.spaces_id);appService.scrollToTop()"
+      ></app-timeline-item>
+
+      <!--[duration]="event.event_duration"-->
+    </div>
+    <div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">
+      <app-list-item *ngFor="let space of spaces; let i = index"
+                     [name]="space.name"
+                     [description]="space.description"
+                     [image]="space.image"
+                     [hide_time]="true"
+                     (open)="router.navigateByUrl('/space/'+space.spaces_id);appService.scrollToTop()"
+      ></app-list-item>
+    </div>
+
+    <ngx-masonry class="masonry-layout"
+                 *ngIf="appService.isGrid&&!appService.isTimeline"
+                 [updateLayout]="updateMasonryLayout"
+                 [options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">
+      <ngxMasonryItem class="masonry-item" *ngFor="let space of spaces; let i = index">
+        <app-grid-item
+          [name]="space.name"
+          [description]="space.description"
+          [image]="space.image"
+          (open)="router.navigateByUrl('/space/'+space.spaces_id);appService.scrollToTop()"
+        ></app-grid-item>
+      </ngxMasonryItem>
+    </ngx-masonry>
+  </div>
+</div>
+<br><br><br>
+<div class="center-align">
+  <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="getEvents()">Load More</div>
+  <div *ngIf="hasNoMore" class="chip">No more items...</div>
+</div>
+<br><br><br>

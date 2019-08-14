@@ -9,13 +9,14 @@ export class AppService {
   scrollContainer: HTMLElement;
   isAuthenticated: boolean;
   currentUrl: string;
+  space_meta: any;
   event_meta: any;
   app_meta: any;
   app_index: any;
   sidequestResolve: any;
   sidequestReject: any;
   sidequestUrl: string;
-  urlTimeout: number;
+  urlTimeout: any;
   urlTimeoutValue: number;
   confirmOpen: MzModalComponent;
   isGrid: boolean = true;
@@ -105,6 +106,17 @@ export class AppService {
     }
   }
 
+  getSpaceMeta(spaces_id) {
+    if (!this.space_meta[spaces_id]) {
+      this.space_meta[spaces_id] = {
+        v: 0,
+        a: 0,
+        l: 0
+      };
+    }
+    return this.space_meta[spaces_id];
+  }
+
   getEventMeta(events_id) {
     if (!this.event_meta[events_id]) {
       this.event_meta[events_id] = {
@@ -166,6 +178,16 @@ export class AppService {
         this.defaultEventMeta();
       }
     }
+    let space_meta = localStorage.getItem("space_meta");
+    if (!space_meta) {
+      this.defaultSpaceMeta();
+    } else {
+      try {
+        this.space_meta = JSON.parse(space_meta);
+      } catch (e) {
+        this.defaultSpaceMeta();
+      }
+    }
   }
 
   defaultAppMeta() {
@@ -176,7 +198,12 @@ export class AppService {
     this.event_meta = {};
   }
 
+  defaultSpaceMeta() {
+    this.space_meta = {};
+  }
+
   saveAppMeta() {
+    localStorage.setItem("space_meta", JSON.stringify(this.space_meta));
     localStorage.setItem("event_meta", JSON.stringify(this.event_meta));
     localStorage.setItem("app_meta", JSON.stringify(this.app_meta));
     localStorage.setItem("app_index", JSON.stringify(this.app_index));

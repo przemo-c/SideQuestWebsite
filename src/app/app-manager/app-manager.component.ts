@@ -119,7 +119,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   sub: Subscription;
   videoObject: VideObject;
   videoUrl: SafeUrl;
-  debounceTimeout: number;
+  debounceTimeout: any;
   hasGithubName: boolean;
   hasGithubRepo: boolean;
   isGettingGithub: boolean;

@@ -303,7 +303,7 @@ export class ExpanseClientService {
       .then(res => res.json())
       .then(res => fetch(res.url).then(() => res));
   }
-  saveScene(scene, name, scenes_id) {
+  saveScene(scene, name, scenes_id?) {
     let formData = new FormData();
     formData.append("scene", JSON.stringify(scene));
     let cdnToken, files_id;
@@ -448,6 +448,29 @@ export class ExpanseClientService {
   }
   getMySpaces(page, search) {
     return this.emit("my-spaces", { page, search });
+  }
+  searchSubscribedSpaces(search, page, spaces_id?) {
+    return this.emit("search-subscribed-space", { search, page, spaces_id });
+  }
+  subscribeSpace(spaces_id) {
+    return this.emit("subscribe-space", { spaces_id });
+  }
+  unsubscribeSpace(spaces_id) {
+    return this.emit("unsubscribe-space", { spaces_id });
+  }
+  getSpaceTotals(spaces_id) {
+    return this.emit("get-space-totals", { spaces_id });
+  }
+  getSpaceCounters(spaces_id, start_time, end_time, filter) {
+    return this.emit("get-space-counters", {
+      spaces_id,
+      start_time,
+      end_time,
+      filter
+    });
+  }
+  spaceCount(type, spaces_id) {
+    return this.emit("update-count-space", { type, spaces_id });
   }
   createSpace(space) {
     return this.emit("create-space", space);

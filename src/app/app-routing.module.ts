@@ -20,6 +20,9 @@ import { EventListingComponent } from "./event-listing/event-listing.component";
 import { EventManagerComponent } from "./event-manager/event-manager.component";
 import { EventsComponent } from "./events/events.component";
 import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.component";
+import { SpacesComponent } from "./spaces/spaces.component";
+import { SpaceManagerComponent } from "./space-manager/space-manager.component";
+import { SpaceListingComponent } from "./space-listing/space-listing.component";
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
@@ -61,8 +64,21 @@ const routes: Routes = [
     canActivate: [LoginGuard]
   },
   { path: "events", component: EventsComponent },
+  { path: "spaces", component: SpacesComponent },
+  { path: "space/:spaces_id", component: SpaceListingComponent },
+  {
+    path: "my-space",
+    component: SpaceManagerComponent,
+    canActivate: [LoginGuard]
+  },
+  {
+    path: "my-space/:spaces_id",
+    component: SpaceManagerComponent,
+    canActivate: [LoginGuard]
+  },
   { path: "apps", component: AppsComponent },
   { path: "apps/:category", component: AppsComponent },
+  { path: "apps/:category/:page", component: AppsComponent },
   { path: "account", component: AccountComponent, canActivate: [LoginGuard] },
   { path: "the-expanse", component: HomeComponent },
   { path: "setup-howto", component: SetupHowtoComponent },

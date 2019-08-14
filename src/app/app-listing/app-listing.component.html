@@ -31,7 +31,7 @@
     <div class="btn waves-effect waves-light pink-button"
          *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access"
          (click)="openItems(apk_download_urls)">Install Latest</div>
-    <div class="btn waves-effect waves-light pink-button margin-left" routerLink="/my-app/{{apps_id}}" *ngIf="isMine">Edit App</div>
+    <div class="btn waves-effect waves-light pink-button margin-left" routerLink="/my-app/{{apps_id}}" (click)="service.scrollToTop()" *ngIf="isMine">Edit App</div>
   </div>
   <div class="clearfix"></div>
   <hr>
@@ -177,14 +177,14 @@
                 <div class="input-field radio-top">
                   <label class="active">Added</label>
                 </div>
-                <p>{{currentApp.created}}</p>
+                <p>{{currentApp.created*1000|date:'mediumDate'}}</p>
               </div>
               <div *ngIf="currentApp.updated">
                 <br>
                 <div class="input-field radio-top">
                   <label class="active">Updated</label>
                 </div>
-                <p>{{currentApp.updated}}</p>
+                <p>{{currentApp.updated*1000|date:'mediumDate'}}</p>
               </div>
             </div>
           </div>

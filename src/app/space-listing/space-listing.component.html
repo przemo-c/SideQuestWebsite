@@ -8,29 +8,29 @@
     </div>
   </div>
 </ng-container>
-<mz-parallax *ngIf="(currentApp.event_image || currentApp.image) && !loading" [height]="350">
-  <img src="{{currentApp.event_image || currentApp.image}}">
+<mz-parallax *ngIf="(currentApp.image) && !loading" [height]="350">
+  <img src="{{currentApp.image}}">
 </mz-parallax>
 <div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}"
-     [ngStyle]="{'margin-top': currentApp.event_image || currentApp.image ? '-150px' : '0'}">
+     [ngStyle]="{'margin-top': currentApp.image ? '-150px' : '0'}">
   <div class="top-back">
 
   </div>
   <h4>
     <i class="material-icons back-icon" (click)="backClicked()">reply</i>
     <img class="responsive-img top-image"
-         *ngIf="currentApp.event_image || currentApp.image"
-         src="{{currentApp.event_image || currentApp.image}}"/>
+         *ngIf="currentApp.image"
+         src="{{currentApp.image}}"/>
     <img class="responsive-img top-image circle"
          *ngIf="currentApp.preview_image"
          src="{{expanseService.cdnUrl+currentApp.preview_image}}"/>
-    {{currentApp.event_name||currentApp.name}}
+    {{currentApp.name}}
     <span *ngIf="!currentApp.is_approved" class="chip white-text orange">Private</span>
 
   </h4>
   <div class="right top-tags-name">
-    <a class="btn waves-effect waves-light pink-button" *ngIf="currentApp.event_url" href="{{currentApp.event_url}}">More Info</a>
-    <div class="btn waves-effect waves-light pink-button margin-left" routerLink="/my-event/{{events_id}}" (click)="service.scrollToTop()" *ngIf="isMine">Edit Event</div>
+    <a class="btn waves-effect waves-light pink-button" *ngIf="currentApp.space_url" href="{{currentApp.space_url}}">More Info</a>
+    <div class="btn waves-effect waves-light pink-button margin-left" routerLink="/my-space/{{spaces_id}}" (click)="service.scrollToTop()" *ngIf="isMine">Edit Space</div>
   </div>
   <div class="clearfix"></div>
   <hr>
@@ -39,41 +39,25 @@
     <div class="col s12">
       <div class="row">
         <div class="col s12 bottom-margin">
-          <div class="right app-package right-align truncate">{{currentApp.start_time*1000|date:'mediumDate'}}</div>
+          <div class="right app-package right-align truncate">{{currentApp.updated*1000|date:'mediumDate'}}</div>
           <div>
             <span class="counter">{{counters.a}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-             mz-tooltip tooltip="Number of downloads"
-             position="bottom"
+                                                               mz-tooltip tooltip="Number of downloads"
+                                                               position="bottom"
             >event</i></span>
             <span class="counter">{{counters.v}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-             mz-tooltip tooltip="Number of views"
-             position="bottom"
+                                                               mz-tooltip tooltip="Number of views"
+                                                               position="bottom"
             >visibility</i></span>
             <!--<span class="counter pointer" (click)="likeEvent()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"-->
-             <!--mz-tooltip tooltip="Number of likes"-->
-             <!--position="bottom"-->
+            <!--mz-tooltip tooltip="Number of likes"-->
+            <!--position="bottom"-->
             <!--&gt;thumb_up</i></span>-->
 
-            <div class="btn waves-effect waves-light pink-button margin-left small-button" (click)="attendingCount()">Im Going</div>
+            <div class="btn waves-effect waves-light pink-button margin-left small-button" (click)="attendingCount()">Subscribe</div>
             <div *ngIf="mySubscription" class="btn waves-effect waves-light pink-button margin-left small-button" (click)="unsubscribe()">Unsubscribe</div>
 
           </div>
-        </div>
-        <div class="col s12 m6 center-align">
-          <h4>{{currentApp.start_time*1000|date:'mediumDate'}}</h4>
-          <h6>{{currentApp.start_time*1000|date:'shortTime'}}</h6>
-          <br>
-        </div>
-        <div class="col s12 m6 center-align side-border hide-on-small-only">
-          <h4>{{currentApp.event_duration/60|number:'1.0-0'}}</h4>
-          <h6>mins</h6>
-          <br>
-        </div>
-        <div class="col s12 m6 center-align hide-on-med-and-up">
-          <div class="top-border"></div>
-          <h4>{{currentApp.event_duration/60|number:'1.0-0'}}</h4>
-          <h6>mins</h6>
-          <br>
         </div>
         <div class="col s12" *ngIf="videoObject">
           <br>
@@ -94,11 +78,11 @@
           <br>
           <div class="row">
             <div class="col s12">
-              <div *ngIf="currentApp.event_description||currentApp.description">
+              <div *ngIf="currentApp.description">
                 <div class="input-field radio-top">
                   <label class="active">Description</label>
                 </div>
-                <p [innerHTML]="currentApp.event_description||currentApp.description"></p>
+                <p [innerHTML]="currentApp.description"></p>
                 <div *ngIf="currentApp.user_name" class="truncate"><br>By {{currentApp.user_name}}</div>
               </div>
 
@@ -107,7 +91,7 @@
                 <div class="input-field radio-top">
                   <label class="active">Added</label>
                 </div>
-                <p>{{currentApp.created}}</p>
+                <p>{{currentApp.created*1000|date:'mediumDate'}}</p>
               </div>
 
               <div *ngIf="currentApp.updated">
@@ -115,7 +99,7 @@
                 <div class="input-field radio-top">
                   <label class="active">Updated</label>
                 </div>
-                <p>{{currentApp.updated}}</p>
+                <p>{{currentApp.updated*1000|date:'mediumDate'}}</p>
               </div>
             </div>
           </div>
@@ -132,19 +116,6 @@
             <div class="btn waves-effect waves-light pink-button"
                  (click)="copyShareUrl()">Copy Share Link</div>
             <br><br>Share Link: {{currentApp.share_url}}
-          </div>
-        </div>
-      </div>
-
-      <div *ngIf="futureEvents && futureEvents.length">
-        <br><br>
-        <h4>Future Events</h4>
-        <hr>
-        <div class="row">
-          <div class="col s6 m4 l3" *ngFor="let time of futureEvents" routerLink="/event/{{events_id}}/{{time}}">
-            <div class="future-date">
-              {{time*1000|date:'mediumDate'}}
-            </div>
           </div>
         </div>
       </div>

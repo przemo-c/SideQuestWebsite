@@ -57,6 +57,9 @@ import { TimelineItemComponent } from "./timeline-item/timeline-item.component";
 import { ListingModesComponent } from "./listing-modes/listing-modes.component";
 import { FooterComponent } from "./footer/footer.component";
 import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.component";
+import { SpacesComponent } from "./spaces/spaces.component";
+import { SpaceManagerComponent } from "./space-manager/space-manager.component";
+import { SpaceListingComponent } from "./space-listing/space-listing.component";
 
 @NgModule({
   declarations: [
@@ -90,7 +93,10 @@ import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.componen
     TimelineItemComponent,
     ListingModesComponent,
     FooterComponent,
-    PrivacyPolicyComponent
+    PrivacyPolicyComponent,
+    SpacesComponent,
+    SpaceManagerComponent,
+    SpaceListingComponent
   ],
   imports: [
     BrowserModule,

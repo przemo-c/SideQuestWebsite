@@ -85,13 +85,27 @@
       <i class="material-icons prefix">event</i>
       Event Subscriptions
     </div>
-    <div *ngIf="isDev" class="chip pointer margin-right menu-chip"
+    <div class="chip pointer margin-right menu-chip"
          mz-tooltip tooltip="Events that you are running."
          position="bottom"
          (click)="currentView = 'events-listings';page=0;getEvents()">
       <i class="material-icons prefix">event_note</i>
       Event Listings
     </div>
+    <!--<div class="chip pointer margin-right menu-chip"-->
+         <!--mz-tooltip tooltip="Spaces that you have created."-->
+         <!--position="bottom"-->
+         <!--(click)="currentView = 'spaces-listings';page=0;getSpaces()">-->
+      <!--<i class="material-icons prefix">location_on</i>-->
+      <!--Space Listings-->
+    <!--</div>-->
+    <!--<div class="chip pointer margin-right menu-chip"-->
+         <!--mz-tooltip tooltip="Spaces that you have subscribed to."-->
+         <!--position="bottom"-->
+         <!--(click)="currentView = 'subscribed-spaces';page=0;getSubscribedSpaces()">-->
+      <!--<i class="material-icons prefix">location_on</i>-->
+      <!--Space Subscriptions-->
+    <!--</div>-->
   </div>
   <div class="clearfix"></div>
   <div *ngIf="currentView === 'apps-listings'">
@@ -246,8 +260,75 @@
     <br><br>
   </div>
 
+  <div *ngIf="currentView === 'spaces-listings'">
+    <h4>My Spaces</h4>
+    <hr>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="add-app" routerLink="/my-space">
+          <i class="material-icons">add</i> Add Space
+        </div>
+      </div>
+      <div class="col s12 m6" *ngFor="let space of mySpaces">
+        <div class="card card-height">
+          <div class="card-image card-image-left waves-effect waves-block waves-light activator"
+               *ngIf="space.image" [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
+          </div>
+          <div class="card-content card-height">
+            <i class="material-icons activator pointer right">more_vert</i>
+            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
+            <p class="grey-text description truncate" [ngClass]="{'card-title-small':space.image}">{{space.description}}</p>
+            <div class="right-align">
+            <span class="chip left white-text"
+                  [ngClass]="{'pink-button': space.is_approved, 'orange': !space.is_approved}">
+            {{space.is_approved ? 'Published' : 'Pending'}}
+          </span>
+              <span class="left chip">{{(space.updated)*1000|date:'mediumDate'}}</span>
+              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/my-space/{{space.spaces_id}}" (click)="appService.scrollToTop()">Open</div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
+            <p class="grey-text">{{space.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
 
 
+  <div *ngIf="currentView === 'subscribed-spaces'">
+    <h4>My Subscribed Spaces</h4>
+    <hr>
+    <div class="row">
+      <h5 *ngIf="!mySubscribedSpaces.length">
+        <br><br>
+        Nothing here yet.
+      </h5>
+      <div class="col s12 m6 l4" *ngFor="let space of mySubscribedSpaces">
+        <div class="card card-height">
+          <div class="card-image card-image-left waves-effect waves-block waves-light activator"
+               *ngIf="space.image" [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
+            <!--<div class="btn waves-effect waves-light white-text pink-button small-button" *ngIf="app.needsUpdate && !isUninstalled" routerLink="/app/{{app.apps_id}}">Update</div>-->
+          </div>
+          <div class="card-content card-height">
+            <i class="material-icons activator pointer right">more_vert</i>
+            <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
+            <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':space.image}">{{space.description}}</p>
+            <div class="right-align">
+              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button" routerLink="/space/{{space.spaces_id}}" (click)="appService.scrollToTop()">Open</div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
+            <p class="grey-text">{{space.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
 
   <div *ngIf="currentView === 'subscribed-events'">
     <h4>My Subscribed Events</h4>

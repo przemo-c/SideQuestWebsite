@@ -21,7 +21,7 @@ export class AppsComponent implements OnInit, OnDestroy {
   sub: Subscription;
   category: number;
   isLoaded: boolean;
-  searchTimeout: number;
+  searchTimeout: any;
   isRecent: boolean = true;
   searchTags: Materialize.AutoCompleteOptions;
   autocompleteOptions: Materialize.AutoCompleteOptions = {

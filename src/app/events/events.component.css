@@ -37,3 +37,7 @@
 .bottom-border{
   border-bottom: 1px solid #cfcfcf;
 }
+
+.search-box{
+  width: 410px;
+}
