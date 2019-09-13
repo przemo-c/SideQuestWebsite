@@ -4,7 +4,11 @@ import { ExpanseClientService } from "../expanse-client.service";
 import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
 import { UploadService } from "../upload.service";
 import { AppService } from "../app.service";
-import { EventListing } from "../account/account.component";
+import {
+  AppListing,
+  EventListing,
+  SpaceListing
+} from "../account/account.component";
 import * as moment from "moment";
 import { Subscription } from "rxjs";
 import { VideObject } from "../app-manager/app-manager.component";
@@ -43,6 +47,13 @@ export class EventManagerComponent implements OnInit, OnDestroy {
   videoUrl: SafeUrl;
   is_not_found: boolean;
   loading = true;
+  linkType = "app";
+  searchString: string;
+  searchTimeout: any;
+  linkApps: AppListing[];
+  linkSpaces: SpaceListing[];
+  selectedSpace: SpaceListing;
+  selectedApp: AppListing;
   constructor(
     private router: Router,
     private service: AppService,
@@ -66,7 +77,6 @@ export class EventManagerComponent implements OnInit, OnDestroy {
             start: moment(date),
             end: null
           };
-          console.log(event);
           this.currentApp.name = event.name;
           this.currentApp.description = event.description;
           this.currentApp.event_name = event.event_name;
@@ -81,7 +91,19 @@ export class EventManagerComponent implements OnInit, OnDestroy {
           this.currentApp.app_url = event.app_url;
           this.currentApp.share_url = event.share_url;
           this.currentApp.is_approved = event.is_approved;
+          this.currentApp.apps_id = event.apps_id;
+          this.currentApp.spaces_id = event.spaces_id;
           this.onVideoChange();
+          if (this.currentApp.apps_id) {
+            await this.expanseService
+              .getApp(this.currentApp.apps_id)
+              .then(app => (this.selectedApp = app[0]));
+          }
+          if (this.currentApp.spaces_id) {
+            await this.expanseService
+              .getSpace(this.currentApp.spaces_id)
+              .then((space: SpaceListing) => (this.selectedSpace = space));
+          }
           this.loading = false;
         } else {
           this.loading = false;
@@ -91,6 +113,43 @@ export class EventManagerComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {}
+
+  debounceSearch() {
+    clearTimeout(this.searchTimeout);
+    this.searchTimeout = setTimeout(() => {
+      this.getItems();
+    }, 750);
+  }
+
+  getItems() {
+    if (this.linkType === "app") {
+      this.getApps();
+    } else {
+      this.getSpaces();
+    }
+  }
+
+  getApps() {
+    this.expanseService.start().then(() =>
+      this.expanseService
+        .searchMyApps(this.searchString, 0)
+        .then(async (resp: AppListing[]) => {
+          await this.service.fixImages(resp);
+          this.linkApps = resp;
+        })
+    );
+  }
+
+  getSpaces() {
+    this.expanseService.start().then(() =>
+      this.expanseService
+        .getMySpaces(0, this.searchString)
+        .then(async (resp: SpaceListing[]) => {
+          await this.service.fixImages(resp);
+          this.linkSpaces = resp;
+        })
+    );
+  }
 
   customCss() {
     return "black-text";
@@ -177,7 +236,8 @@ export class EventManagerComponent implements OnInit, OnDestroy {
         .then(() => console.log(this.currentApp.share_url))
         .then(() =>
           this.expanseService.updateEvent({
-            spaces_id: null,
+            spaces_id: this.currentApp.spaces_id,
+            apps_id: this.currentApp.apps_id,
             start_time: start_time,
             event_duration: this.currentApp.event_duration,
             events_id: this.events_id,
@@ -203,7 +263,8 @@ export class EventManagerComponent implements OnInit, OnDestroy {
         .start()
         .then(() =>
           this.expanseService.createEvent({
-            spaces_id: null,
+            spaces_id: this.currentApp.spaces_id,
+            apps_id: this.currentApp.apps_id,
             start_time: start_time,
             event_duration: this.currentApp.event_duration,
             event_name: this.currentApp.event_name,

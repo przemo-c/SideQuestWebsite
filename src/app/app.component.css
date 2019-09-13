@@ -1,16 +1,17 @@
 .logo img{
-  width: 90px;
+  height: 70px;
   position:absolute;
-  top: 0;
-  left: 50px;
+  top: 10px;
+  left: 70px;
 }
 #nav-mobile{
   margin-left: 60px;
 }
 .top-banner{
-  background: #312249 url(../assets/images/topbannerback.png) top right no-repeat;
+  background: #312249 url(../assets/images/bg-header.jpg) top right no-repeat;
   height: 90px;
   width: 100%;
+  border-bottom: 1px solid #8f8f8f;
 }
 .over-menu{
   position:absolute;
@@ -18,13 +19,41 @@
   left: 5px;
 }
 .smaller{
-  height: 43px;
+  height: 44px;
 }
 .top-buttons{
-  margin-top: 30px;
+  margin-top: 25px;
+}
+.top-buttons-avatar{
+  margin-top: 20px;
 }
 .smaller-buttons{
   margin-top: 5px;
+}
+.smaller-buttons-avatar{
+  margin-top: 2px;
+}
+.click-grabber{
+  width: 70px;
+  height: 48px;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+.avatar-menu{
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  border-radius: 20px;
+  vertical-align: middle;
+  border: 3px solid #312249;
+}
+.smaller-buttons-avatar .avatar-menu{
+  width: 40px;
+  height: 40px;
+}
+.avatar-menu-margin{
+  margin-right: 16px;
 }
 .header-title{
   position:absolute;
@@ -45,13 +74,13 @@
   font-family: 'PT Sans', sans-serif;
   -webkit-app-region: no-drag;
 }
-
 .scroll-container-small{
   position:relative;
   height: calc(100% - 43px);
   overflow-x:hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
+  width: 100%;
 }
 .scroll-container{
   position:relative;
@@ -59,6 +88,7 @@
   overflow-x:hidden;
   overflow-y: auto;
   scroll-behavior: smooth;
+  width: 100%;
 }
 
 .main-container{
@@ -70,4 +100,36 @@
 .top-button{
   padding-left: 1em;
   padding-right: 1em;
+}
+.user-menu-back{
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 3;
+  display:none;
+}
+.user-menu{
+  position: absolute;
+  top: 90px;
+  right: 25px;
+  width: 200px;
+  z-index: 4;
+  height: 0;
+  overflow: hidden;
+  transition: height 250ms;
+  background: #4e555b;
+}
+.smaller-menu{
+  top: 44px;
+}
+.top-badge{
+  position: absolute;
+  top: 48px;
+  right: 42px;
+}
+.smaller-badge{
+  top: 20px;
+  right: 38px;
 }

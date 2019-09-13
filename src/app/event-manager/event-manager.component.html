@@ -183,6 +183,84 @@
           </p>
         </div>
       </div>
+      <div class="col s12">
+        <br>
+        <h5>Linked App</h5>
+        <hr>
+        <div class="right-align grey-text">Select an app from your listings to link to this event.</div>
+        <div class="row" *ngIf="selectedApp">
+          <div class="col s12 m6">
+            <div class="card card-height">
+              <div class="card-image card-image-left waves-effect waves-block waves-light activator"
+                   *ngIf="selectedApp.image_url" [ngStyle]="{'background-image':'url(\''+selectedApp.image_url+'\')'}">
+              </div>
+              <div class="card-content card-height">
+                <i class="material-icons activator pointer right">more_vert</i>
+                <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':selectedApp.image_url}">{{selectedApp.name||'No Name...'}}</span>
+                <p class="grey-text description truncate" [ngClass]="{'card-title-small':selectedApp.image_url}">{{selectedApp.summary}}</p>
+                <div class="right-align">
+                <span class="chip left white-text"
+                      [ngClass]="{'pink-button': selectedApp.active, 'orange': !selectedApp.active}">
+                {{selectedApp.active ? 'Published' : 'Pending'}}
+                </span>
+                </div>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedApp.name||'No Name...'}}</span>
+                <p class="grey-text">{{selectedApp.summary}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 center-align">
+            <br><br>
+            <div class="btn waves-effect waves-light pink-button small-button" (click)="searchString = '';linkType = 'app';getApps();linkItem.openModal()">Change App</div>
+          </div>
+        </div>
+        <div class="center-align" *ngIf="!selectedApp">
+          <br><br><br>
+          <div class="btn waves-effect waves-light pink-button small-button" (click)="searchString = '';linkType = 'app';getApps();linkItem.openModal()">Select App</div>
+          <br>
+        </div>
+      </div>
+      <div class="col s12">
+        <br>
+        <h5>Linked Space</h5>
+        <hr>
+        <div class="right-align grey-text">Select a space from your listings to link to this event.</div>
+        <div class="row" *ngIf="selectedSpace">
+          <div class="col s12 m6">
+            <div class="card card-height">
+              <div class="card-image card-image-left waves-effect waves-block waves-light activator"
+                   *ngIf="selectedSpace.image" [ngStyle]="{'background-image':'url(\''+(selectedSpace.image)+'\')'}">
+              </div>
+              <div class="card-content card-height">
+                <i class="material-icons activator pointer right">more_vert</i>
+                <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.name||'No Name...'}}</span>
+                <p class="grey-text description truncate" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.description}}</p>
+                <div class="right-align">
+                <span class="chip left white-text"
+                    [ngClass]="{'pink-button': selectedSpace.is_approved, 'orange': !selectedSpace.is_approved}">
+                {{selectedSpace.is_approved ? 'Published' : 'Pending'}}
+                </span>
+                </div>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedSpace.name||'No Name...'}}</span>
+                <p class="grey-text">{{selectedSpace.description}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6 center-align">
+            <br><br>
+            <div class="btn waves-effect waves-light pink-button small-button" (click)="searchString = '';linkType = 'space';getSpaces();linkItem.openModal()">Change Space</div>
+          </div>
+        </div>
+        <div class="center-align" *ngIf="!selectedSpace">
+          <br><br><br>
+          <div class="btn waves-effect waves-light pink-button small-button" (click)="searchString = '';linkType = 'space';getSpaces();linkItem.openModal()">Select Space</div>
+          <br>
+        </div>
+      </div>
       <div *ngIf="events_id" class="col s12">
         <br>
         <h5>Share URL</h5>
@@ -211,6 +289,79 @@
     </div>
   </div>
 </div>
+
+
+<mz-modal #linkItem [fixedFooter]="true">
+  <mz-modal-header>
+    <h4>Search for {{linkType === 'app' ? 'an App' : 'a Space'}}</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    <div class="right search-box input-field">
+      <i class="material-icons prefix">search</i>
+
+      <input id="searchBox" type="text" class="validate"
+             [(ngModel)]="searchString"
+             (input)="debounceSearch()"
+      >
+      <label for="searchBox" class="active">Search</label>
+    </div>
+    <div class="clearfix"></div>
+    <div class="row" *ngIf="linkType === 'app'">
+      <div class="col s12 m6" *ngFor="let app of linkApps">
+        <div class="card card-height">
+          <div class="card-image card-image-left waves-effect waves-block waves-light activator"
+               *ngIf="app.image_url" [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
+          </div>
+          <div class="card-content card-height">
+            <i class="material-icons activator pointer right">more_vert</i>
+            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
+            <p class="grey-text description truncate" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
+            <div class="right-align">
+            <span class="chip left white-text"
+                  [ngClass]="{'pink-button': app.active, 'orange': !app.active}">
+            {{app.active ? 'Published' : 'Pending'}}
+          </span>
+              <div class="btn-flat waves-effect waves-light white-text small-button" (click)="linkItem.closeModal();currentApp.apps_id = app.apps_id; selectedApp = app">Select</div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{app.name||'No Name...'}}</span>
+            <p class="grey-text">{{app.summary}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="linkType !== 'app'">
+      <div class="col s12 m6" *ngFor="let space of linkSpaces">
+        <div class="card card-height">
+          <div class="card-image card-image-left waves-effect waves-block waves-light activator"
+               *ngIf="space.image" [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
+          </div>
+          <div class="card-content card-height">
+            <i class="material-icons activator pointer right">more_vert</i>
+            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
+            <p class="grey-text description truncate" [ngClass]="{'card-title-small':space.image}">{{space.description}}</p>
+            <div class="right-align">
+              <span class="chip left white-text"
+                    [ngClass]="{'pink-button': space.is_approved, 'orange': !space.is_approved}">
+              {{space.is_approved ? 'Published' : 'Pending'}}
+            </span>
+              <!--<span class="left chip">{{(space.updated)*1000|date:'mediumDate'}}</span>-->
+              <div  class="btn-flat waves-effect waves-light white-text small-button" (click)="linkItem.closeModal();currentApp.spaces_id = space.spaces_id; selectedSpace = space">Select</div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
+            <p class="grey-text">{{space.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
+  </mz-modal-footer>
+</mz-modal>
 
 
 <mz-modal #confirmDelete [fixedFooter]="true">

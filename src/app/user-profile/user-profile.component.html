@@ -1,0 +1,426 @@
+<div class="bottom-border">
+  <mz-parallax *ngIf="currentUser.banner_image && !isLoading" [height]="350" >
+    <img src="{{currentUser.banner_image}}">
+  </mz-parallax>
+</div>
+<ng-container *ngIf="isLoading">
+  <div class="center-align">
+    <div class="tall-placeholder relative">
+      <div class="loader-initial"></div>
+    </div>
+  </div>
+</ng-container>
+<div *ngIf="!users_id && !isLoading">
+  <br><br><br><br>
+  <h4 class="grey-text center-align">Not found...</h4>
+  <br><br><br><br>
+</div>
+<div class="main-container relative" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}"
+     *ngIf="users_id&&!isLoading"
+     [ngStyle]="{'margin-top': currentUser.banner_image ? '-150px' : '0'}">
+  <div class="top-back" *ngIf="currentUser.banner_image">
+
+  </div>
+  <div *ngIf="expanseService.currentSession && expanseService.currentSession.users_id == users_id" class="btn right waves-effect waves-light pink-button small-button" routerLink="/account" (click)="appService.scrollToTop()">Edit Profile</div>
+  <h4>
+    <i class="material-icons back-icon" (click)="backClicked()">reply</i>
+    {{currentUser.name}}</h4>
+  <div class="sub-banner">
+    <div class="waves-effect waves-light btn-flat white-text top-button"
+         mz-tooltip tooltip="App that you have installed and an easy update system."
+         position="bottom"
+         (click)="mainPage='basic';page=0;">
+      <i class="material-icons left">face</i> Info
+    </div>
+    <div class="waves-effect waves-light btn-flat white-text top-button"
+         mz-tooltip tooltip="App that you have installed and an easy update system."
+         position="bottom"
+         (click)="mainPage='apps';page=0;getApps()">
+      <i class="material-icons left">apps</i> Apps ({{app_totals.app_total}})
+    </div>
+    <div class="waves-effect waves-light btn-flat white-text top-button"
+         mz-tooltip tooltip="Events you have subscribed to."
+         position="bottom"
+         (click)="mainPage='events';page=0;getEvents()">
+      <i class="material-icons left">event</i> Events ({{app_totals.event_total}})
+    </div>
+    <div class="waves-effect waves-light btn-flat white-text top-button"
+         mz-tooltip tooltip="Spaces that you have created."
+         position="bottom"
+         (click)="mainPage='spaces';page=0;getSpaces()">
+      <i class="material-icons left">location_on</i> Spaces ({{app_totals.space_total}})
+    </div>
+    <!--<div class="waves-effect waves-light btn-flat white-text top-button"-->
+         <!--mz-tooltip tooltip="Spaces that you have created."-->
+         <!--position="bottom"-->
+         <!--(click)="mainPage='spaces';page=0;getSpaces()">-->
+      <!--<i class="material-icons left">people</i> Sidekicks ({{app_totals.friend_total}})-->
+    <!--</div>-->
+  </div>
+  <div *ngIf="mainPage === 'basic'">
+    <div class="row">
+      <div class="col s12 m4"><br>
+        <div class="center-align move-up">
+          <img class="responsive-img" src="{{expanseService.cdnUrl+currentUser.preview_image}}"/><br>
+        </div>
+        <div *ngIf="currentUser" >
+          <br>
+          <h5>Share URL</h5>
+          <hr>
+          <div class="right-align grey-text">Click to copy a sharable url for {{currentUser.name}}'s profile.</div>
+          <div class="center-align">
+            <br>
+            <div class="btn waves-effect waves-light pink-button small-button" (click)="appService.copyUrl(currentUser.donate_url)">Copy To Clipboard</div>
+            <br><br>
+            <div class="truncate">Share URL: {{currentUser.donate_url}}</div>
+            <br>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div *ngIf="appService.isAuthenticated && related">
+          <br>
+          <h5>Get Connected</h5>
+          <hr>
+          <div class="right-align grey-text">Connect with this sidekick.</div>
+          <div class="user-buttons">
+            <div *ngIf="!related.is_blocked" routerLink="/account/message-thread/{{users_id}}" class="chip blue white-text pointer">
+              <i class="material-icons">mail</i>
+              Send Message
+            </div>
+            <div *ngIf="!related.is_related && !related.is_blocked"
+                 (click)="actionString = 'add this sidekick';confirmAction.openModal()"
+                 class="chip green white-text pointer">
+              <i class="material-icons">add</i>
+              Add Friend
+            </div>
+            <div *ngIf="related.is_related && !related.is_accepted && !related.initiated"
+                 (click)="actionString = 'accept this sidekick request';confirmAction.openModal()"
+                 class="chip green white-text pointer">
+              <i class="material-icons">add</i>
+              Accept Request
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div *ngIf="appService.isAuthenticated && related">
+          <br>
+          <h5>Something wrong?</h5>
+          <hr>
+          <div class="right-align grey-text">Problem with this sidekick?</div>
+          <div class="user-buttons">
+            <div *ngIf="related.is_related && related.is_accepted && !related.is_blocked"
+                 (click)="actionString = 'remove this sidekick';confirmAction.openModal()"
+                 class="chip deep-orange white-text pointer">
+              <i class="material-icons">close</i>
+              Remove Friend
+            </div>
+            <div *ngIf="related.is_related && !related.is_accepted && related.initiated"
+                 (click)="actionString = 'cancel this sidekick request';confirmAction.openModal()"
+                 class="chip deep-orange white-text pointer">
+              <i class="material-icons">remove</i>
+              Cancel Request
+            </div>
+            <div *ngIf="related.is_related && !related.is_accepted && !related.initiated"
+                 (click)="actionString = 'reject this sidekick request';confirmAction.openModal()"
+                 class="chip deep-orange white-text pointer">
+              <i class="material-icons">remove</i>
+              Reject Request
+            </div>
+            <div class="chip deep-orange white-text pointer" (click)="reportUser.openModal()">
+              <i class="material-icons">report</i>
+              Report User
+            </div>
+            <div *ngIf="related.is_blocked && related.initiated"
+                 (click)="actionString = 'unblock this sidekick';confirmAction.openModal()"
+                 class="chip deep-orange white-text pointer">
+              <i class="material-icons">remove_circle_outline</i>
+              Unblock User
+            </div>
+            <div *ngIf="!related.is_blocked"
+                 (click)="actionString = 'block this sidekick';confirmAction.openModal()"
+                 class="chip deep-orange white-text pointer">
+              <i class="material-icons">remove_circle</i>
+              Block User
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m8">
+        <div class="right side-score" mzTooltip tooltip="{{currentUser.name}}'s SideScore!" position="bottom"><img src="../../assets/images/score-logo.png"/> <span class="score">{{currentUser.score_points}}</span></div>
+        <h5>Basic Info</h5>
+        <hr>
+        <div class="right">
+          <div *ngIf="social_urls && social_urls.length">
+            <div class="input-field radio-top">
+              <label class="active">Social</label>
+            </div><br>
+            <div *ngFor="let url of social_urls">
+              <div class="chip pointer"
+                   mz-tooltip tooltip="{{url.provider}}"
+                   position="bottom"
+                   (click)="openUrl(url.link_url)">
+                <img src="{{urlIcons[url.provider].icon}}">
+                {{url.provider}}
+              </div>
+            </div>
+          </div>
+          <div *ngIf="donate_urls && donate_urls.length">
+            <div class="input-field radio-top" >
+              <label class="active">Support & Donate</label>
+            </div><br>
+            <div *ngFor="let url of donate_urls">
+              <div class="chip pointer"
+                   mz-tooltip tooltip="{{url.provider}}"
+                   position="bottom"
+                   (click)="openUrl(url.link_url)">
+                <img src="{{urlIcons[url.provider].icon}}">
+                {{url.provider}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div >
+            <div>
+              <i class="material-icons block-icon">double_arrow</i><label>Tag Line</label>
+            </div>
+            <p *ngIf="currentUser.tag_line" [innerHTML]="currentUser.tag_line"></p>
+            <div *ngIf="!currentUser.tag_line">
+              <br><br>
+              <h5 class="grey-text">Nothing here yet...</h5>
+            </div>
+            <br><br>
+          </div>
+          <div >
+            <div>
+              <i class="material-icons block-icon">portrait</i><label>Bio</label>
+            </div>
+            <p *ngIf="currentUser.bio" [innerHTML]="currentUser.bio"></p>
+            <div *ngIf="!currentUser.bio">
+              <br><br>
+              <h5 class="grey-text">Nothing here yet...</h5>
+            </div>
+            <br><br>
+          </div>
+          <div *ngIf="currentUser.created">
+            <div>
+              <i class="material-icons block-icon">event</i><label>Joined</label>
+            </div>
+            <p>{{currentUser.created|date}}</p>
+          </div>
+          <br><br>
+          <h5>Home Space</h5>
+          <hr>
+          <div class="right-align grey-text">{{currentUser.name}}'s default home space in SideQuestVR.</div>
+          <div *ngIf="selectedSpace">
+            <div class="card card-height">
+              <div class="card-image card-image-left waves-effect waves-block waves-light"
+                   *ngIf="selectedSpace.image" [ngStyle]="{'background-image':'url(\''+(selectedSpace.image)+'\')'}">
+              </div>
+              <div class="card-content card-height">
+                <i class="material-icons activator pointer right">more_vert</i>
+                <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.name||'No Name...'}}</span>
+                <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.description}}</p>
+                <div class="right-align">
+                <span class="chip left white-text"
+                      [ngClass]="{'pink-button': selectedSpace.is_approved, 'orange': !selectedSpace.is_approved}">
+                {{selectedSpace.is_approved ? 'Published' : 'Pending'}}
+                </span>
+                </div>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedSpace.name||'No Name...'}}</span>
+                <p class="grey-text">{{selectedSpace.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="mainPage!=='basic'">
+    <form autocomplete="off" class="right search-box input-field">
+      <i class="material-icons prefix">search</i>
+      <input id="searchBox3" name="searchBox3" type="text"
+             [(ngModel)]="searchString"
+             (input)="debounceSearch()"
+      >
+      <label for="searchBox3">Search</label>
+    </form>
+    <div class="clearfix"></div>
+  </div>
+  <div *ngIf="mainPage === 'apps'">
+    <div class="row">
+      <div class="col s12 m6" *ngFor="let app of userApps">
+        <div class="card card-height">
+          <div class="card-image card-image-left waves-effect waves-block waves-light" routerLink="/app/{{app.apps_id}}"
+               *ngIf="app.image_url" [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
+          </div>
+          <div class="card-content card-height">
+            <i class="material-icons activator pointer right">more_vert</i>
+            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
+            <p class="grey-text description truncate" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
+            <div class="right-align">
+              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/app/{{app.apps_id}}" (click)="appService.scrollToTop()">Open</div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{app.name||'No Name...'}}</span>
+            <p class="grey-text">{{app.summary}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
+  <div *ngIf="mainPage === 'events'">
+    <div class="row">
+      <div class="col s12 m6" *ngFor="let event of userEvents">
+        <div class="card card-height">
+          <div class="card-image card-image-left waves-effect waves-block waves-light" routerLink="/event/{{event.events_id}}"
+               *ngIf="event.event_image||event.image" [ngStyle]="{'background-image':'url(\''+(event.event_image||event.image)+'\')'}">
+          </div>
+          <div class="card-content card-height">
+            <i class="material-icons activator pointer right">more_vert</i>
+            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.event_name||event.name||'No Name...'}}</span>
+            <p class="grey-text description truncate" [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.event_description||event.description}}</p>
+            <div class="right-align">
+              <span class="left chip">{{(event.start_time)*1000|date:'mediumDate'}}</span>
+              <span class="left chip">{{(event.event_duration)/60| number:'1.0-0'}}mins</span>
+              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/event/{{event.events_id}}" (click)="appService.scrollToTop()">Open</div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{event.event_name||event.name||'No Name...'}}</span>
+            <p class="grey-text">{{event.event_description||event.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
+  <div *ngIf="mainPage === 'spaces'">
+    <div class="row">
+      <div class="col s12 m6" *ngFor="let space of userSpaces">
+        <div class="card card-height">
+          <div class="card-image card-image-left waves-effect waves-block waves-light" routerLink="/space/{{space.spaces_id}}"
+               *ngIf="space.image" [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
+          </div>
+          <div class="card-content card-height">
+            <i class="material-icons activator pointer right">more_vert</i>
+            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
+            <p class="grey-text description truncate" [ngClass]="{'card-title-small':space.image}">{{space.description}}</p>
+            <div class="right-align">
+              <span class="left chip">{{(space.updated)*1000|date:'mediumDate'}}</span>
+              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/space/{{space.spaces_id}}" (click)="appService.scrollToTop()">Open</div>
+            </div>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
+            <p class="grey-text">{{space.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br>
+  </div>
+
+  <br><br><br>
+
+
+  <ng-container *ngIf="isLoading">
+    <div class="center-align">
+      <div class="relative">
+        <div class="loader-initial"></div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="center-align">
+    <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore&&mainPage!=='basic'" (click)="getCurrent()">Load More</div>
+    <div *ngIf="hasNoMore" class="chip">No more items...</div>
+  </div>
+  <br><br><br>
+</div>
+
+
+
+
+<mz-modal #confirmAction [fixedFooter]="true">
+  <mz-modal-header>
+    <h4>Are you sure?</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    Are you sure you want to {{actionString}}?
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
+    <button mz-button class="pink-button" mz-modal-close (click)="confirmActionGo()">Confirm</button>
+  </mz-modal-footer>
+</mz-modal>
+
+
+
+
+<mz-modal #reportUser [fixedFooter]="true">
+  <mz-modal-header>
+    <h4>Report this user</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    <br><br>
+    <div class="padding">
+      <div class="row">
+        <div class="col s6">
+          <div class="input-field radio-top">
+            <label class="active">Report Type</label>
+          </div>
+          <mz-radio-button-container>
+            <input mz-radio-button
+                   [label]="'Offensive Language'"
+                   [withGap]="true"
+                   id="report-offensive"
+                   name="report-group"
+                   value="1"
+                   type="radio" [(ngModel)]="reportType">
+            <br>
+            <input mz-radio-button
+                   [label]="'Innopropriate Behaviour'"
+                   [withGap]="true"
+                   id="report-innapropriate"
+                   name="report-group"
+                   value="2"
+                   type="radio" [(ngModel)]="reportType">
+            <br>
+            <input mz-radio-button
+                   [label]="'Loud Noises'"
+                   [withGap]="true"
+                   id="report-loud"
+                   name="report-group"
+                   value="3"
+                   type="radio" [(ngModel)]="reportType">
+            <br>
+            <input mz-radio-button
+                   [label]="'Too Young'"
+                   [withGap]="true"
+                   id="report-young"
+                   name="report-group"
+                   value="4"
+                   type="radio" [(ngModel)]="reportType">
+          </mz-radio-button-container>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">playlist_add</i>
+          <textarea id="description" class="materialize-textarea"  placeholder="Please include any and all information related to this report."
+                    [(ngModel)]="reportDetails"
+          ></textarea>
+          <label for="description" class="active">Report Details</label>
+        </div>
+      </div>
+    </div>
+
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
+    <button mz-button class="pink-button" mz-modal-close (click)="actionString = 'report this sidekick';confirmActionGo()">Send Report</button>
+  </mz-modal-footer>
+</mz-modal>

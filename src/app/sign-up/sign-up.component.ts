@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ExpanseClientService } from "../expanse-client.service";
 import { AppService } from "../app.service";
 import { Router } from "@angular/router";
+import * as moment from "moment";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-sign-up",
@@ -9,16 +11,66 @@ import { Router } from "@angular/router";
   styleUrls: ["./sign-up.component.css"]
 })
 export class SignUpComponent implements OnInit {
+  sub: Subscription;
+  return_url: string;
+  recaptcha: any;
+  captchaSuccess: boolean;
   name: string;
   email: string;
   email2: string;
   password: string;
   password2: string;
+
+  selectedDate = {
+    start: moment(), // new Date(new Date().getTime() - (1000 * 3600 * 24 * 7)),
+    end: null
+  };
+  days = [];
+  years = [];
+  months = [];
+  monthLengths = {
+    January: 31,
+    February: 28,
+    March: 31,
+    April: 30,
+    May: 31,
+    June: 30,
+    July: 31,
+    August: 31,
+    September: 30,
+    October: 31,
+    November: 30,
+    December: 31
+  };
+  selectedDays = 1;
+  selectedYears;
+  selectedMonth = "January";
   constructor(
     private expanseService: ExpanseClientService,
-    private service: AppService,
+    public service: AppService,
     private router: Router
-  ) {}
+  ) {
+    let date = new Date();
+    let currentYear = date.getFullYear();
+    date.setFullYear(date.getFullYear() - 13);
+    this.selectedYears = date.getFullYear();
+    for (let i = 0; i < 110; i++) {
+      this.years.push(currentYear - i);
+    }
+    this.months = Object.keys(this.monthLengths);
+    this.fillDays();
+  }
+
+  done(e) {
+    this.captchaSuccess = true;
+  }
+
+  fillDays() {
+    this.days.length = 0;
+    for (let i = 0; i < this.monthLengths[this.selectedMonth]; i++) {
+      this.days.push(i + 1);
+    }
+  }
 
   ngOnInit() {}
 
@@ -27,7 +79,18 @@ export class SignUpComponent implements OnInit {
     return re.test(String(email).toLowerCase());
   }
 
+  customCss() {
+    return "black-text";
+  }
+
   signUp() {
+    if (!this.captchaSuccess) {
+      this.service.showMessage(
+        { error: true, data: "Please complete the anti-robot check." },
+        ""
+      );
+      return;
+    }
     if (this.password !== this.password2 || this.password.length < 7) {
       return this.service.showMessage(
         {
@@ -53,7 +116,13 @@ export class SignUpComponent implements OnInit {
           this.name,
           this.email,
           this.password,
-          "01-01-1970"
+          moment(
+            new Date(
+              this.selectedYears,
+              this.months.indexOf(this.selectedMonth),
+              this.selectedDays
+            ).getTime()
+          ).format()
         )
       )
       .then((resp: any) => {

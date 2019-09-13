@@ -8,12 +8,14 @@
     </div>
   </div>
 </ng-container>
-<mz-parallax *ngIf="(currentApp.event_image || currentApp.image) && !loading" [height]="350">
-  <img src="{{currentApp.event_image || currentApp.image}}">
-</mz-parallax>
+<div class="bottom-border">
+  <mz-parallax *ngIf="(currentApp.event_image || currentApp.image) && !loading" [height]="350">
+    <img src="{{currentApp.event_image || currentApp.image}}">
+  </mz-parallax>
+</div>
 <div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}"
      [ngStyle]="{'margin-top': currentApp.event_image || currentApp.image ? '-150px' : '0'}">
-  <div class="top-back">
+  <div class="top-back" *ngIf="currentApp.event_image || currentApp.image">
 
   </div>
   <h4>
@@ -21,9 +23,9 @@
     <img class="responsive-img top-image"
          *ngIf="currentApp.event_image || currentApp.image"
          src="{{currentApp.event_image || currentApp.image}}"/>
-    <img class="responsive-img top-image circle"
+    <img class="responsive-img top-image circle pointer"
          *ngIf="currentApp.preview_image"
-         src="{{expanseService.cdnUrl+currentApp.preview_image}}"/>
+         src="{{expanseService.cdnUrl+currentApp.preview_image}}" routerLink="/user/{{currentApp.users_id}}"/>
     {{currentApp.event_name||currentApp.name}}
     <span *ngIf="!currentApp.is_approved" class="chip white-text orange">Private</span>
 
@@ -122,11 +124,70 @@
         </div>
       </div>
       <div>
+        <div class="row" >
+          <div class="col s12 m6" *ngIf="selectedApp">
+
+            <br>
+            <h5>SideQuest App</h5>
+            <hr>
+            <div class="right-align grey-text">Click open to get this app now.</div>
+            <div class="card card-height">
+              <div class="card-image card-image-left waves-effect waves-block waves-light activator"
+                   *ngIf="selectedApp.image_url" [ngStyle]="{'background-image':'url(\''+selectedApp.image_url+'\')'}">
+              </div>
+              <div class="card-content card-height">
+                <i class="material-icons activator pointer right">more_vert</i>
+                <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':selectedApp.image_url}">{{selectedApp.name||'No Name...'}}</span>
+                <p class="grey-text description truncate" [ngClass]="{'card-title-small':selectedApp.image_url}">{{selectedApp.summary}}</p>
+                <div class="right-align">
+                <span class="chip left white-text"
+                      [ngClass]="{'pink-button': selectedApp.active, 'orange': !selectedApp.active}">
+                {{selectedApp.active ? 'Published' : 'Pending'}}
+                </span>
+                  <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/app/{{currentApp.apps_id}}" (click)="service.scrollToTop()">Open</div>
+                </div>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedApp.name||'No Name...'}}</span>
+                <p class="grey-text">{{selectedApp.summary}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6" *ngIf="selectedSpace">
+            <br>
+            <h5>SideQuest Space</h5>
+            <hr>
+            <div class="right-align grey-text">See the space this event is hosted in.</div>
+            <div class="card card-height">
+              <div class="card-image card-image-left waves-effect waves-block waves-light activator"
+                   *ngIf="selectedSpace.image" [ngStyle]="{'background-image':'url(\''+(selectedSpace.image)+'\')'}">
+              </div>
+              <div class="card-content card-height">
+                <i class="material-icons activator pointer right">more_vert</i>
+                <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.name||'No Name...'}}</span>
+                <p class="grey-text description truncate" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.description}}</p>
+                <div class="right-align">
+                <span class="chip left white-text"
+                      [ngClass]="{'pink-button': selectedSpace.is_approved, 'orange': !selectedSpace.is_approved}">
+                {{selectedSpace.is_approved ? 'Published' : 'Pending'}}
+                </span>
+                  <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/space/{{selectedSpace.spaces_id}}" (click)="service.scrollToTop()">Open</div>
+                </div>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedSpace.name||'No Name...'}}</span>
+                <p class="grey-text">{{selectedSpace.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <br><br>
         <div class="row">
           <div class="col s6 truncate">
-            <a class="btn waves-effect waves-light pink-button" *ngIf="currentApp.app_url" href="{{currentApp.app_url}}">App Page</a>
-            <br><br>App Page: {{currentApp.app_url}}
+            <div *ngIf="currentApp.app_url">
+              <a class="btn waves-effect waves-light pink-button" *ngIf="currentApp.app_url" href="{{currentApp.app_url}}">App Page</a>
+              <br><br>App Page: {{currentApp.app_url}}
+            </div>
           </div>
           <div class="col s6 right-align truncate">
             <div class="btn waves-effect waves-light pink-button"

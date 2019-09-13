@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { AppListing } from "../account/account.component";
+import { AppListing, Review } from "../account/account.component";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { AppService } from "../app.service";
 import { ExpanseClientService } from "../expanse-client.service";
@@ -22,12 +22,41 @@ interface SocialIcon {
   provider: string;
   icon: string;
 }
+export class UrlIcons {
+  Facebook = { icon: "assets/images/social/Facebook.png" };
+  Twitter = { icon: "assets/images/social/Twitter.png" };
+  Discord = { icon: "assets/images/social/Discord.png" };
+  Reddit = { icon: "assets/images/social/Reddit.png" };
+  Youtube = { icon: "assets/images/social/Youtube.png" };
+  Instagram = { icon: "assets/images/social/Instagram.png" };
+  Github = { icon: "assets/images/social/Github.png" };
+  Twitch = { icon: "assets/images/social/Twitch.png" };
+  Vimeo = { icon: "assets/images/social/Vimeo.png" };
+  Patreon = { icon: "assets/images/social/Patreon.png" };
+  Itch = { icon: "assets/images/social/Itch.png" };
+  Paypal = { icon: "assets/images/social/Paypal.png" };
+  Kofi = { icon: "assets/images/social/Kofi.png" };
+  "Oculus Quest" = {
+    icon: "assets/images/social/Oculus Quest Listing.png"
+  };
+  "Oculus Go" = { icon: "assets/images/social/Oculus Go Listing.png" };
+  "Oculus Rift" = {
+    icon: "assets/images/social/Oculus Rift Listing.png"
+  };
+  "Oculus GearVR" = {
+    icon: "assets/images/social/Oculus GearVR Listing.png"
+  };
+  "Steam Page" = { icon: "assets/images/social/Steam Page.png" };
+  "Epic Store" = { icon: "assets/images/social/EpicStore.png" };
+  Viveport = { icon: "assets/images/social/Viveport.png" };
+}
 @Component({
   selector: "app-app-listing",
   templateUrl: "./app-listing.component.html",
   styleUrls: ["./app-listing.component.css"]
 })
 export class AppListingComponent implements OnInit, OnDestroy {
+  urlIcons: UrlIcons = new UrlIcons();
   sub: Subscription;
   apps_id: number;
   is_not_found: boolean;
@@ -84,6 +113,8 @@ export class AppListingComponent implements OnInit, OnDestroy {
   videoObject: VideObject;
   videoUrl: SafeUrl;
   githubReleases: GithubRelease[];
+  currentReview: string;
+  currentRating = 3;
   comforts: string[] = [
     "Comfortable",
     "Moderate",
@@ -91,34 +122,6 @@ export class AppListingComponent implements OnInit, OnDestroy {
     "Exciting",
     "Intense"
   ];
-  urlIcons: { [key: string]: { [key: string]: string } } = {
-    Facebook: { icon: "assets/images/social/Facebook.png" },
-    Twitter: { icon: "assets/images/social/Twitter.png" },
-    Discord: { icon: "assets/images/social/Discord.png" },
-    Reddit: { icon: "assets/images/social/Reddit.png" },
-    Youtube: { icon: "assets/images/social/Youtube.png" },
-    Instagram: { icon: "assets/images/social/Instagram.png" },
-    Github: { icon: "assets/images/social/Github.png" },
-    Twitch: { icon: "assets/images/social/Twitch.png" },
-    Vimeo: { icon: "assets/images/social/Vimeo.png" },
-    Patreon: { icon: "assets/images/social/Patreon.png" },
-    Itch: { icon: "assets/images/social/Itch.png" },
-    Paypal: { icon: "assets/images/social/Paypal.png" },
-    Kofi: { icon: "assets/images/social/Kofi.png" },
-    "Oculus Quest": {
-      icon: "assets/images/social/Oculus Quest Listing.png"
-    },
-    "Oculus Go": { icon: "assets/images/social/Oculus Go Listing.png" },
-    "Oculus Rift": {
-      icon: "assets/images/social/Oculus Rift Listing.png"
-    },
-    "Oculus GearVR": {
-      icon: "assets/images/social/Oculus GearVR Listing.png"
-    },
-    "Steam Page": { icon: "assets/images/social/Steam Page.png" },
-    "Epic Store": { icon: "assets/images/social/EpicStore.png" },
-    Viveport: { icon: "assets/images/social/Viveport.png" }
-  };
   album: IAlbum[] = [];
   app_meta: any;
   stats = {
@@ -126,13 +129,23 @@ export class AppListingComponent implements OnInit, OnDestroy {
     like: 0,
     download: 0
   };
+  appRating: number;
+  appRatingTotal: number;
   latest_tag: string;
   latest_id: number;
   loading = true;
+  reviews: Review[] = [];
+  recaptcha: any;
+  captchaSuccess: boolean;
+  hasNoMoreReviews: boolean;
+  isLoading: boolean;
+  page = 0;
+  searchTimeout: any;
+  searchString: string;
   constructor(
     private router: Router,
     public service: AppService,
-    private expanseService: ExpanseClientService,
+    public expanseService: ExpanseClientService,
     route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     public lightbox: Lightbox
@@ -146,6 +159,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
           this.service.getAppMeta(this.apps_id);
           this.app_meta = this.service.app_meta[this.apps_id];
         }
+        this.page = 0;
         this.setupApp()
           .then(() => this.viewApp())
           .then(() => {
@@ -154,9 +168,79 @@ export class AppListingComponent implements OnInit, OnDestroy {
               this.service.isAuthenticated &&
               Number(this.currentApp.users_id) ===
                 Number(this.expanseService.currentSession.users_id);
-          });
+          })
+          .then(() => this.getReviews());
       }
     });
+  }
+
+  done(e) {
+    this.captchaSuccess = true;
+  }
+
+  debounceSearch() {
+    clearTimeout(this.searchTimeout);
+    this.searchTimeout = setTimeout(() => {
+      this.page = 0;
+      this.getReviews();
+    }, 750);
+  }
+
+  getReviews() {
+    return this.expanseService
+      .getReviews(this.apps_id, "apps", this.page, this.searchString)
+      .then((r: Review[]) => {
+        this.hasNoMoreReviews = r.length < 20;
+        if (this.page === 0) {
+          this.reviews.length = 0;
+        }
+        this.isLoading = false;
+        this.reviews = this.reviews.concat(r);
+        this.page++;
+      })
+      .then(() => this.expanseService.getRating(this.apps_id, "apps"))
+      .then((r: any) => {
+        if (r.length) {
+          this.appRating = r[0].rating;
+          this.appRatingTotal = r[0].total;
+        }
+      });
+  }
+
+  deleteReviewConfirm() {
+    this.expanseService
+      .deleteReview(this.apps_id, "apps")
+      .then(r => this.service.showMessage(r, "Review Deleted!"))
+      .then(() => {
+        this.page = 0;
+        this.getReviews();
+      });
+  }
+
+  addReview() {
+    if (!this.captchaSuccess) {
+      this.service.showMessage(
+        { error: true, data: "Please complete the anti-robot check." },
+        ""
+      );
+      return;
+    }
+    this.expanseService
+      .addReview(this.currentReview, this.currentRating, this.apps_id)
+      .then((r: any) => {
+        this.service.showMessage(r, "Review Added!");
+        if (!r.error) {
+          return fetch(
+            "https://shanesedit.org:5678/new_review/" + r.reviews_id
+          );
+        }
+      })
+      .then(() => {
+        this.page = 0;
+        this.currentReview = "";
+        this.currentRating = 3;
+        return this.getReviews();
+      });
   }
 
   backClicked() {

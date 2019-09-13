@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ViewChild } from "@angular/core";
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild
+} from "@angular/core";
 import { AppService } from "./app.service";
 import { Subscription } from "rxjs";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
@@ -12,14 +18,16 @@ declare const M;
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
   @ViewChild("scrollContainer", { static: false }) scrollContainer;
   @ViewChild("confirmOpen", { static: false }) confirmOpen;
   title = "SideQuestWebsite";
   sub: Subscription;
+  message_sound: any;
+  friend_sound: any;
   @ViewChild("sideNav", { static: false }) sideNav;
   constructor(
-    private expanseService: ExpanseClientService,
+    public expanseService: ExpanseClientService,
     public appService: AppService,
     private router: Router,
     route: ActivatedRoute,
@@ -32,6 +40,28 @@ export class AppComponent implements AfterViewInit {
     });
     this.expanseService.getInstalledApps("", 0);
     this.setupAppUninstall();
+    this.expanseService.onusermessage = this.userMessage.bind(this);
+
+    this.message_sound = new Audio();
+    this.message_sound.src = "../../assets/sounds/message.mp3";
+    this.friend_sound = new Audio();
+    this.friend_sound.src = "../../assets/sounds/message.mp3";
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
+  userMessage(data) {
+    if (data.message.is_blocked) {
+    } else if (data.message.is_friend_request) {
+      this.appService.getNotifications(this.expanseService);
+      this.friend_sound.play();
+    } else if (data.message.spaces_id) {
+    } else {
+      this.appService.getNotifications(this.expanseService);
+      this.message_sound.play();
+    }
   }
 
   setupAppUninstall() {
@@ -53,6 +83,10 @@ export class AppComponent implements AfterViewInit {
   signOut() {
     this.appService.logout(this.expanseService);
     this.router.navigateByUrl("/login");
+  }
+
+  ngOnInit() {
+    this.appService.getNotifications(this.expanseService);
   }
 
   ngAfterViewInit() {

@@ -11,13 +11,13 @@
 <div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
 
   <div class="btn waves-effect waves-light pink-button right margin-left" routerLink="/app/{{apps_id}}" *ngIf="apps_id">View Listing</div>
-  <div class="btn waves-effect waves-light right pink-button margin-left" (click)="saveApp()">Save App</div>
-  <div *ngIf="apps_id" class="right center-align" mz-tooltip tooltip="This will disable downloads of your app and you can provide keys to users to be able to install ( this is only partially implemented so i have disabled it for now )" position="bottom">
-    Early Access
+  <div *ngIf="(apps_id && expanseService.currentSession.users_id === currentApp.users_id) || !apps_id" class="btn waves-effect waves-light right pink-button margin-left" (click)="saveApp()">Save App</div>
+  <div *ngIf="(apps_id && expanseService.currentSession.users_id === currentApp.users_id)" class="right center-align" mz-tooltip tooltip="This will disable downloads of your app and you can provide keys to users to be able to install ( this is only partially implemented so i have disabled it for now )" position="bottom">
+    Coming Soon
     <div class="switch">
       <label>
         Off
-        <input type="checkbox" [(ngModel)]="currentApp.early_access" (click)="currentApp.early_access = false">
+        <input type="checkbox" [(ngModel)]="currentApp.early_access">
         <span class="lever"></span>
         On
       </label>
@@ -59,7 +59,7 @@
       <h5>App Icon</h5>
       <hr>
       <div class="right-align grey-text">Add an icon - 512px X 512px is a good size.</div>
-      <div #addImage class="add-image" *ngIf="!currentApp.image_url && !is_loading_icon" (click)="uploadIcon()">
+      <div #addImage class="add-image" *ngIf="!currentApp.image_url && !is_loading_icon && ((apps_id && expanseService.currentSession.users_id === currentApp.users_id) || !apps_id)" (click)="uploadIcon()">
         <i class="material-icons">add</i> Add Image
       </div>
       <div class="loader-cont" *ngIf="uploadService.is_loading_icon">
@@ -95,7 +95,7 @@
       <div class="loader-cont add-screenshot" *ngIf="uploadService.is_loading_screenshot">
         <div class="loader-initial"></div>
       </div>
-      <div #addScreenshot class="add-screenshot" *ngIf="!uploadService.is_loading_screenshot" (click)="uploadScreenshot()">
+      <div #addScreenshot class="add-screenshot" *ngIf="!uploadService.is_loading_screenshot  && ((apps_id && expanseService.currentSession.users_id === currentApp.users_id) || !apps_id)" (click)="uploadScreenshot()">
         <i class="material-icons">add</i> Add Screenshot
       </div>
       <img class="responsive-img pointer" *ngFor="let screenshot of screenshots; let i = index" (click)="currentScreenshot = i; manageScreenshot.openModal()" src="{{screenshot}}"/>
@@ -343,112 +343,114 @@
         <!--</div>-->
       </div>
       <br>
-      <h5>App Urls</h5>
-      <hr>
-      <div class="right-align grey-text">Input an APK url or select github releases to get the latest releases from github.</div>
-      <div class="row">
-        <div class="col s6">
-          <div class="input-field">
-            <i class="material-icons prefix">public</i>
-            <input id="website" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="addNewUrlLink">
-            <label for="website" class="active">Link Url</label>
-          </div>
-        </div>
-        <div class="col s3">
-          <i class="material-icons select-icon">public</i>
-          <div class="select-drop-down">
-            <label class="active">Link Type</label>
-            <select class="browser-default black-text "
-                    [(ngModel)]="addNewUrlType" *ngIf="urlTypes">
-              <option *ngFor="let url of urlTypes">{{url}}</option>
-            </select>
-          </div>
-        </div>
-        <div class="col s3 margin-top">
-          <div class="right btn waves-effect waves-light pink-button" (click)="addAppUrl()">Add</div>
-        </div>
-        <div class="col s12"><br><br></div>
-
-        <div class="col s12 url-row-padding">
-          <div class="row bottom-border" *ngFor="let app_url of app_urls; let i = index">
-            <div class="col s6 extra-padding-left url-col truncate">
-              {{app_url.link_url}}
-            </div>
-            <div class="col s4 extra-padding-left url-col truncate">
-              {{app_url.provider}}
-            </div>
-            <div class="col s2 ">
-              <div class="right btn waves-effect waves-light pink-button margin-bottom small-button" (click)="removeUrl(i)">Remove</div>
+      <div *ngIf="((apps_id && expanseService.currentSession.users_id === currentApp.users_id) || !apps_id)">
+        <h5>App Urls</h5>
+        <hr>
+        <div class="right-align grey-text">Input an APK url or select github releases to get the latest releases from github.</div>
+        <div class="row">
+          <div class="col s6">
+            <div class="input-field">
+              <i class="material-icons prefix">public</i>
+              <input id="website" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="addNewUrlLink">
+              <label for="website" class="active">Link Url</label>
             </div>
           </div>
-        </div>
-
-        <div class="col s12">
-          <br>
-        </div>
-
-        <div class="col s6 extra-padding-left" *ngIf="!currentApp.github_enabled">
-          When enabled, the latest release on your listing page will be the latest/selected release on github.
-          Any APK or OBB file links added will also appear in the listing under Latest Release.
-          <br><br>
-          When Github Releases are enabled, the listing will
-          instead use the release tag_name instead of versionName and release ID instead of version code. This is then
-          used to coordinate automatic updates for your app.
-          <!--<div class="input-field">-->
-          <!--<i class="material-icons prefix">public</i>-->
-          <!--<input id="apk_url" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="currentApp.apk_url">-->
-          <!--<label for="apk_url" class="active">APK Url</label>-->
-          <!--</div>-->
-        </div>
-        <div class="col s6" *ngIf="currentApp.github_enabled">
-          <div class="input-field">
-            <i class="material-icons prefix">insert_emoticon</i>
-            <input id="github_name" type="text" class="validate" placeholder="the-expanse"
-                   (input)="debounce(findGitRepos)"
-                   [(ngModel)]="currentApp.github_name">
-            <label for="github_name" class="active">Github User/Org name</label>
-          </div>
-          <div *ngIf="hasGithubName">
+          <div class="col s3">
             <i class="material-icons select-icon">public</i>
             <div class="select-drop-down">
-              <label class="active">Repos</label>
+              <label class="active">Link Type</label>
               <select class="browser-default black-text "
-                      [(ngModel)]="currentApp.github_repo"
-                      (change)="debounce(findGitReleases)">
-                <option *ngFor="let repo of githubRepos">{{repo.name}}</option>
+                      [(ngModel)]="addNewUrlType" *ngIf="urlTypes">
+                <option *ngFor="let url of urlTypes">{{url}}</option>
               </select>
             </div>
           </div>
-          <div *ngIf="hasGithubName && hasGithubRepo">
+          <div class="col s3 margin-top">
+            <div class="right btn waves-effect waves-light pink-button" (click)="addAppUrl()">Add</div>
+          </div>
+          <div class="col s12"><br><br></div>
 
-            <i class="material-icons select-icon">public</i>
-            <div class="select-drop-down">
-              <label class="active">Release</label>
-              <select class="browser-default black-text "
-                      [(ngModel)]="currentApp.github_tag">
-                <option *ngFor="let release of githubReleases">{{release.tag_name}}</option>
-              </select>
+          <div class="col s12 url-row-padding">
+            <div class="row bottom-border" *ngFor="let app_url of app_urls; let i = index">
+              <div class="col s6 extra-padding-left url-col truncate">
+                {{app_url.link_url}}
+              </div>
+              <div class="col s4 extra-padding-left url-col truncate">
+                {{app_url.provider}}
+              </div>
+              <div class="col s2 ">
+                <div class="right btn waves-effect waves-light pink-button margin-bottom small-button" (click)="removeUrl(i)">Remove</div>
+              </div>
             </div>
           </div>
-          <div class="center-align"><div *ngIf="isGettingGithub" class="loader-small"></div></div>
 
-        </div>
-        <div class="col s6 center-align">
-          <br><br>
-          <h5>Enable<br>Github Releases</h5>
-          <div class="switch">
-            <label>
-              Off
-              <input type="checkbox" [(ngModel)]="currentApp.github_enabled">
-              <span class="lever"></span>
-              On
-            </label>
+          <div class="col s12">
+            <br>
           </div>
-          <br>
-          Enable github release support to allow for automated deployments to suit you. <br><br>
-          <div *ngIf="currentApp.apk_url" class="btn waves-light waves-effect pink-button small-button" (click)="copyUrl('https://xpan.cc/release-webhook/'+currentApp.apk_url)">Copy Webhook URL</div><br><br>
-          Setup a webhook to enable automatic updates for users.<br><br>
-          <div class="btn waves-light waves-effect pink-button small-button" (click)="githubHowTo.openModal()">Github How To</div>
+
+          <div class="col s6 extra-padding-left" *ngIf="!currentApp.github_enabled">
+            When enabled, the latest release on your listing page will be the latest/selected release on github.
+            Any APK or OBB file links added will also appear in the listing under Latest Release.
+            <br><br>
+            When Github Releases are enabled, the listing will
+            instead use the release tag_name instead of versionName and release ID instead of version code. This is then
+            used to coordinate automatic updates for your app.
+            <!--<div class="input-field">-->
+            <!--<i class="material-icons prefix">public</i>-->
+            <!--<input id="apk_url" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="currentApp.apk_url">-->
+            <!--<label for="apk_url" class="active">APK Url</label>-->
+            <!--</div>-->
+          </div>
+          <div class="col s6" *ngIf="currentApp.github_enabled">
+            <div class="input-field">
+              <i class="material-icons prefix">insert_emoticon</i>
+              <input id="github_name" type="text" class="validate" placeholder="the-expanse"
+                     (input)="debounce(findGitRepos)"
+                     [(ngModel)]="currentApp.github_name">
+              <label for="github_name" class="active">Github User/Org name</label>
+            </div>
+            <div *ngIf="hasGithubName">
+              <i class="material-icons select-icon">public</i>
+              <div class="select-drop-down">
+                <label class="active">Repos</label>
+                <select class="browser-default black-text "
+                        [(ngModel)]="currentApp.github_repo"
+                        (change)="debounce(findGitReleases)">
+                  <option *ngFor="let repo of githubRepos">{{repo.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div *ngIf="hasGithubName && hasGithubRepo">
+
+              <i class="material-icons select-icon">public</i>
+              <div class="select-drop-down">
+                <label class="active">Release</label>
+                <select class="browser-default black-text "
+                        [(ngModel)]="currentApp.github_tag">
+                  <option *ngFor="let release of githubReleases">{{release.tag_name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="center-align"><div *ngIf="isGettingGithub" class="loader-small"></div></div>
+
+          </div>
+          <div class="col s6 center-align">
+            <br><br>
+            <h5>Enable<br>Github Releases</h5>
+            <div class="switch">
+              <label>
+                Off
+                <input type="checkbox" [(ngModel)]="currentApp.github_enabled">
+                <span class="lever"></span>
+                On
+              </label>
+            </div>
+            <br>
+            Enable github release support to allow for automated deployments to suit you. <br><br>
+            <div *ngIf="currentApp.apk_url" class="btn waves-light waves-effect pink-button small-button" (click)="copyUrl('https://xpan.cc/release-webhook/'+currentApp.apk_url)">Copy Webhook URL</div><br><br>
+            Setup a webhook to enable automatic updates for users.<br><br>
+            <div class="btn waves-light waves-effect pink-button small-button" (click)="githubHowTo.openModal()">Github How To</div>
+          </div>
         </div>
       </div>
       <div *ngIf="apps_id" class="col s12">
@@ -465,7 +467,7 @@
           <br>
         </div>
       </div>
-      <div *ngIf="apps_id" class="col s12">
+      <div *ngIf="apps_id && expanseService.currentSession.users_id == currentApp.users_id" class="col s12">
         <br>
         <h5>Delete App</h5>
         <hr>

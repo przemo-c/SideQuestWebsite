@@ -14,15 +14,17 @@ import { Subscription } from "rxjs";
 export class AppsComponent implements OnInit, OnDestroy {
   apps: AppListing[] = [];
   searchString: string;
-  updateMasonryLayout: boolean = false;
-  isLoading: boolean = false;
-  hasNoMore: boolean = false;
-  page: number = 0;
+  updateMasonryLayout = false;
+  isLoading = false;
+  hasNoMore = false;
+  page = 0;
   sub: Subscription;
   category: number;
   isLoaded: boolean;
   searchTimeout: any;
-  isRecent: boolean = true;
+  isRecent = true;
+  isRating = false;
+  tag: string;
   searchTags: Materialize.AutoCompleteOptions;
   autocompleteOptions: Materialize.AutoCompleteOptions = {
     data: {
@@ -43,8 +45,15 @@ export class AppsComponent implements OnInit, OnDestroy {
         if (!Number.isInteger(this.category)) {
           this.category = null;
         }
-        if (this.isLoaded) {
+        this.tag = route.snapshot.paramMap.get("tag");
+        if (this.tag === "none") {
+          this.tag = null;
+        }
+        this.page = Number(route.snapshot.paramMap.get("page"));
+        if (!Number.isInteger(this.page)) {
           this.page = 0;
+        }
+        if (this.isLoaded) {
           this.getApps();
         }
       }
@@ -74,6 +83,9 @@ export class AppsComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  backClicked() {
+    (window as any).history.back();
+  }
   getApps() {
     this.isLoading = true;
     this.expanseService.start().then(() =>
@@ -81,20 +93,21 @@ export class AppsComponent implements OnInit, OnDestroy {
         .searchApps(
           this.searchString,
           this.page,
-          this.isRecent ? "created" : "name",
-          this.isRecent ? "desc" : "asc",
-          this.category
+          this.isRecent ? "created" : this.isRating ? "rating" : "name",
+          this.isRecent || this.isRating ? "desc" : "asc",
+          this.category,
+          this.tag
         )
         .then(async (resp: AppListing[]) => {
           await this.appService.fixImages(resp);
-          this.hasNoMore = !resp.length;
+          this.hasNoMore = resp.length < 20;
           let isGrid = this.appService.isGrid;
           if (this.page === 0) {
             this.appService.isGrid = false;
             this.apps.length = 0;
           }
           this.isLoading = false;
-          this.apps = this.apps.concat(resp);
+          this.apps = resp; // this.apps.concat(resp);
           this.apps.forEach((d: AppListing, i) => {
             const date = new Date(+d.created);
             d.date_string =
@@ -105,7 +118,12 @@ export class AppsComponent implements OnInit, OnDestroy {
           // this.updateMasonryLayout = true;
           this.isLoaded = true;
           if (this.page === 0) {
-            setTimeout(() => (this.appService.isGrid = isGrid));
+            setTimeout(() => {
+              this.appService.isGrid = isGrid;
+              setTimeout(() => {
+                this.updateMasonryLayout = true;
+              }, 250);
+            });
           }
           this.page++;
 

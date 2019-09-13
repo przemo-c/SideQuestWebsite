@@ -5,10 +5,8 @@
     <div class="row">
       <div class="col s12 center-align hide-on-med-and-up">
         <a href="#/" class="logo">
-          <img src="assets/images/logo-large icony.png"/>
+          <img src="../../assets/images/score-logo.png"/>
         </a>
-        <div class="header-title">The Expanse VR</div>
-        <div class="apk-install">Powering SideQuest</div>
       </div>
       <div class="col s6 m4">
 
@@ -39,6 +37,14 @@
           Events
         </span><br>
         <span class="chip pointer top-chip"
+              routerLink="events"
+              (click)="appService.scrollToTop()"
+              mz-tooltip tooltip="Check out your favorite SideQuest spaces."
+              position="bottom">
+          <i class="material-icons prefix pink-text">location_on</i>
+          Spaces
+        </span><br>
+        <span class="chip pointer top-chip"
               routerLink="download"
               (click)="appService.scrollToTop()"
               mz-tooltip tooltip="Get the latest version of SideQuest"
@@ -49,7 +55,7 @@
         <span class="chip pointer top-chip"
               [routerLink]="appService.isAuthenticated ? 'account' : 'login'"
               (click)="appService.scrollToTop()"
-              mz-tooltip tooltip="Get the latest version of SideQuest"
+              mz-tooltip tooltip="Access your dashboard."
               position="bottom">
           <i class="material-icons prefix purple-text">dashboard</i>
           {{appService.isAuthenticated? 'Dashboard' : 'Sign In'}}
@@ -61,22 +67,13 @@
               position="bottom">
           <i class="material-icons prefix lime-text">help_outline</i>
           Setup & How To
-        </span><br>
-        <span class="chip pointer top-chip"
-              routerLink="what-is-sidequest"
-              (click)="appService.scrollToTop()"
-              mz-tooltip tooltip="Find out about SideQuest."
-              position="bottom">
-          <i class="material-icons prefix yellow-text">help_outline</i>
-          What Is SideQuest?
         </span>
       </div>
       <div class="col s4 center-align hide-on-small-only">
+        <br><br><br>
         <a href="#/" class="logo">
-          <img src="assets/images/logo-large icony.png"/>
+          <img src="../../assets/images/score-logo.png"/>
         </a>
-        <div class="header-title">The Expanse VR</div>
-        <div class="apk-install">Powering SideQuest</div>
       </div>
       <div class="col s6 m4 right-align">
         <h5>Follow Us</h5>
@@ -103,28 +100,28 @@
           Chat on Discord
         </span><br>
         <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://www.reddit.com/user/shakamone/posts/'"
+              onclick="window.location.href = 'https://www.reddit.com/r/sidequest'"
               mz-tooltip tooltip="Get all the latest news and updates."
               position="bottom">
           <img src="assets/images/social/Reddit.png" alt="Chat on Discord"/>
           Sub on Reddit
         </span><br>
         <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://www.youtube.com/c/TheExpanseVR'"
+              onclick="window.location.href = 'https://www.youtube.com/c/SideQuestVR'"
               mz-tooltip tooltip="Binge watch our progress."
               position="bottom">
           <img src="assets/images/social/Youtube.png" alt="Chat on Discord"/>
           Sub on Youtube
         </span><br>
         <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://www.twitter.com/TheExpanseVR'"
+              onclick="window.location.href = 'https://www.twitter.com/SideQuestVR'"
               mz-tooltip tooltip="Follow all the latest feeds."
               position="bottom">
           <img src="assets/images/social/Twitter.png" alt="Chat on Discord"/>
           Follow on Twitter
         </span><br>
         <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://www.instagram.com/TheExpanseVR'"
+              onclick="window.location.href = 'https://www.instagram.com/SideQuestVR'"
               mz-tooltip tooltip="Come and join in the chat with the community."
               position="bottom">
           <img src="assets/images/social/Instagram.png" alt="Chat on Discord"/>
@@ -132,6 +129,8 @@
         </span>
       </div>
       <div class="col s12 center-align">
+        <br>
+        <img src="../../assets/images/logo-textual.png" class="logo-textual"/>
         <br><br><br>
         <a routerLink="/privacy" class="white-text">Privacy Policy</a>
         <!--| <a href="#" class="white-text">Terms of Use</a>-->

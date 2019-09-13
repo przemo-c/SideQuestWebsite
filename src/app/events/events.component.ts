@@ -1,16 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ExpanseClientService } from "../expanse-client.service";
 import { AppService } from "../app.service";
 import { AppListing, EventListing } from "../account/account.component";
 import { Subscription } from "rxjs";
-import { Router } from "@angular/router";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 
 @Component({
   selector: "app-events",
   templateUrl: "./events.component.html",
   styleUrls: ["./events.component.css"]
 })
-export class EventsComponent implements OnInit {
+export class EventsComponent implements OnInit, OnDestroy {
   events: EventListing[] = [];
   updateMasonryLayout: boolean = false;
   isLoading: boolean = false;
@@ -19,12 +19,26 @@ export class EventsComponent implements OnInit {
   isLoaded: boolean;
   searchTimeout: any;
   searchString: string;
+  sub: Subscription;
   constructor(
     private expanseService: ExpanseClientService,
     public appService: AppService,
-    public router: Router
+    public router: Router,
+    route: ActivatedRoute
   ) {
+    this.sub = this.router.events.subscribe(async val => {
+      if (val instanceof NavigationEnd) {
+        this.page = Number(route.snapshot.paramMap.get("page"));
+        if (!Number.isInteger(this.page)) {
+          this.page = 0;
+        }
+      }
+    });
     this.getEvents();
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   ngOnInit() {}
@@ -60,14 +74,18 @@ export class EventsComponent implements OnInit {
           this.events.length = 0;
         }
         this.isLoading = false;
-        this.events = this.events.concat(events);
+        this.events = events; // this.events.concat(events);
         // this.updateMasonryLayout = true;
         this.isLoaded = true;
         if (this.page === 0) {
-          setTimeout(() => (this.appService.isGrid = isGrid));
+          setTimeout(() => {
+            this.appService.isGrid = isGrid;
+            setTimeout(() => {
+              this.updateMasonryLayout = true;
+            }, 250);
+          });
         }
         this.page++;
-      })
-      .then(() => console.log(this.events));
+      });
   }
 }

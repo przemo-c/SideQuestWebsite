@@ -9,3 +9,6 @@
 .search-box{
   width: 410px;
 }
+.hide-masonry{
+  display: none;
+}

@@ -136,7 +136,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private router: Router,
     private service: AppService,
-    private expanseService: ExpanseClientService,
+    public expanseService: ExpanseClientService,
     private sanitizer: DomSanitizer,
     route: ActivatedRoute,
     public uploadService: UploadService
@@ -198,34 +198,38 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
 
   setupDatePicker() {}
   ngAfterViewInit() {
-    const eleImage = this.addImage.nativeElement;
-    eleImage.ondrop = e => {
-      e.preventDefault();
-      e.stopPropagation();
-      if (e.dataTransfer.files.length) {
-        this.is_loading_icon = true;
-        this.uploadService
-          .uploadFile(e.dataTransfer.files[0], e.dataTransfer.files[0].name)
-          .then((res: any) => {
-            this.currentApp.image_url = this.expanseService.cdnUrl + res.path;
-            this.is_loading_icon = false;
-          });
-      }
-    };
-    const eleScreenshot = this.addScreenshot.nativeElement;
-    eleScreenshot.ondrop = e => {
-      e.preventDefault();
-      e.stopPropagation();
-      this.is_loading_screenshot = true;
-      if (e.dataTransfer.files.length) {
-        this.uploadService
-          .uploadFile(e.dataTransfer.files[0], e.dataTransfer.files[0].name)
-          .then((res: any) => {
-            this.screenshots.push(this.expanseService.cdnUrl + res.path);
-            this.is_loading_screenshot = false;
-          });
-      }
-    };
+    if (this.addImage) {
+      const eleImage = this.addImage.nativeElement;
+      eleImage.ondrop = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.dataTransfer.files.length) {
+          this.is_loading_icon = true;
+          this.uploadService
+            .uploadFile(e.dataTransfer.files[0], e.dataTransfer.files[0].name)
+            .then((res: any) => {
+              this.currentApp.image_url = this.expanseService.cdnUrl + res.path;
+              this.is_loading_icon = false;
+            });
+        }
+      };
+    }
+    if (this.addScreenshot) {
+      const eleScreenshot = this.addScreenshot.nativeElement;
+      eleScreenshot.ondrop = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        this.is_loading_screenshot = true;
+        if (e.dataTransfer.files.length) {
+          this.uploadService
+            .uploadFile(e.dataTransfer.files[0], e.dataTransfer.files[0].name)
+            .then((res: any) => {
+              this.screenshots.push(this.expanseService.cdnUrl + res.path);
+              this.is_loading_screenshot = false;
+            });
+        }
+      };
+    }
 
     if (this.dropJson) {
       const ele = this.dropJson.nativeElement;
@@ -333,38 +337,49 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   refreshShareLink() {
-    return fetch(
-      "https://xpan.cc/delete-link/" +
-        this.expanseService.currentSession.token +
-        "/a-" +
+    return this.service
+      .refreshShareLink(
+        this.expanseService,
+        "a",
         this.apps_id,
-      {
-        method: "GET",
-        cache: "no-cache"
-      }
-    )
-      .then(() =>
-        fetch(
-          "https://xpan.cc/get-link/" +
-            this.expanseService.currentSession.token,
-          {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              title: this.currentApp.name + " on SideQuest",
-              description: this.currentApp.description,
-              image: this.currentApp.image_url,
-              name: "a-" + this.apps_id,
-              external: "https://sidequestvr.com/#/app/" + this.apps_id
-            })
-          }
-        )
+        this.currentApp.name + " on SideQuest",
+        this.currentApp.description,
+        this.currentApp.image_url,
+        "https://sidequestvr.com/#/app/" + this.apps_id
       )
-      .then(r => r.json())
       .then(r => (this.currentApp.donate_url = r.url));
+    // return fetch(
+    //   "https://xpan.cc/delete-link/" +
+    //     this.expanseService.currentSession.token +
+    //     "/a-" +
+    //     this.apps_id,
+    //   {
+    //     method: "GET",
+    //     cache: "no-cache"
+    //   }
+    // )
+    //   .then(() =>
+    //     fetch(
+    //       "https://xpan.cc/get-link/" +
+    //         this.expanseService.currentSession.token,
+    //       {
+    //         method: "POST",
+    //         headers: {
+    //           Accept: "application/json",
+    //           "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //           title: this.currentApp.name + " on SideQuest",
+    //           description: this.currentApp.description,
+    //           image: this.currentApp.image_url,
+    //           name: "a-" + this.apps_id,
+    //           external: "https://sidequestvr.com/#/app/" + this.apps_id
+    //         })
+    //       }
+    //     )
+    //   )
+    //   .then(r => r.json())
+    //   .then(r => (this.currentApp.donate_url = r.url));
   }
 
   onAddTag(e) {

@@ -1,7 +1,53 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { ExpanseClientService } from "../expanse-client.service";
 import { AppService } from "../app.service";
 import { GithubRelease } from "../app-manager/app-manager.component";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
+import { UploadService } from "../upload.service";
+import { Subscription } from "rxjs";
+export interface Review {
+  details: string;
+  preview_image: string;
+  name: string;
+  users_id: number;
+  apps_id?: number;
+  events_id?: number;
+  spaces_id?: number;
+  parent_id?: number;
+}
+export interface MessageThreadListing {
+  message: string;
+  message_date: string;
+  messages_id: number;
+  name: string;
+  preview_image: string;
+  users_id: number;
+  is_mine?: boolean;
+}
+export interface MessagePeopleListing {
+  is_accepted: boolean;
+  is_blocked: boolean;
+  is_read: string;
+  is_related: boolean;
+  last_message: string;
+  last_messages_id: number;
+  message_date: string;
+  name: string;
+  preview_image: string;
+  received_id: string;
+  requested_id: string;
+  sent_id: string;
+  users_id: number;
+}
+export interface FriendListing {
+  name: string;
+  image: string;
+  initiated: boolean;
+  preview_image: string;
+  since: string;
+  users_id: number;
+  users_to_users_id: number;
+}
 export interface AppListing {
   name: string;
   apps_id?: number;
@@ -36,11 +82,17 @@ export interface AppListing {
   user_name?: string;
   date_string?: string;
   show_date?: boolean;
+  downloads?: number;
+  views?: number;
+  counters?: any;
+  rating?: number;
 }
 export interface EventListing {
   name: string;
   description: string;
   events_id?: number;
+  spaces_id?: number;
+  apps_id?: number;
   users_id?: number;
   event_name: string;
   event_description: string;
@@ -58,10 +110,12 @@ export interface EventListing {
   is_approved: boolean;
   date_string?: string;
   show_date?: boolean;
+  rating?: number;
 }
 export interface SpaceListing {
   current_users: string;
   date_string?: string;
+  apps_id?: number;
   description: string;
   image: string;
   name: string;
@@ -74,13 +128,15 @@ export interface SpaceListing {
   share_url: string;
   is_approved: boolean;
   users_id?: number;
+  rating?: number;
 }
 @Component({
   selector: "app-account",
   templateUrl: "./account.component.html",
   styleUrls: ["./account.component.css"]
 })
-export class AccountComponent implements OnInit {
+export class AccountComponent implements OnInit, OnDestroy {
+  @ViewChild("scrollTo", { static: false }) scrollTo;
   myApps: AppListing[] = [];
   appsNeedingUpdated: (AppListing & {
     needsUpdate?: boolean;
@@ -103,7 +159,9 @@ export class AccountComponent implements OnInit {
   isUpdated: boolean = false;
   isUninstalled: boolean = false;
   githubReleases: GithubRelease[];
-  currentView = "subscribed-apps";
+  currentView = "basic-settings";
+  linkSpaces: SpaceListing[];
+  selectedSpace: SpaceListing;
   eventsType = "upcoming";
   isLoading: boolean = false;
   hasNoMore: boolean = false;
@@ -114,7 +172,25 @@ export class AccountComponent implements OnInit {
   mySubscribedEvents: any[] = [];
   default_app_urls: any[] = [];
   addNewUrlType = "APK";
+  mainPage = "basic";
   addNewUrlLink: string;
+  myFriends: FriendListing[];
+  myRequests: FriendListing[];
+  myBlocked: FriendListing[];
+  myMessages: MessagePeopleListing[];
+  myThreads: MessageThreadListing[];
+  threadUsersId = 0;
+  messageToSend = "";
+  app_totals: any = {
+    app_total: 0,
+    app_sub_total: 0,
+    event_total: 0,
+    event_sub_total: 0,
+    space_total: 0,
+    space_sub_total: 0,
+    friend_total: 0,
+    block_total: 0
+  };
   urlTypes = [
     // "APK",
     // "OBB",
@@ -142,14 +218,71 @@ export class AccountComponent implements OnInit {
     "Instagram",
     "Vimeo"
   ];
+  sub: Subscription;
   constructor(
     public expanseService: ExpanseClientService,
-    public appService: AppService
+    public appService: AppService,
+    public router: Router,
+    public uploadService: UploadService,
+    private route: ActivatedRoute
   ) {
     this.isDev = !!localStorage.getItem("isDeveloper");
     this.isUpdated = !!localStorage.getItem("viewIsUpdated");
     this.isUninstalled = !!localStorage.getItem("viewIsUninstalled");
     this.expanseService.getUserSettings();
+    this.sub = this.router.events.subscribe(async val => {
+      if (val instanceof NavigationEnd) {
+        let users_id = Number(route.snapshot.paramMap.get("users_id"));
+        console.log(users_id);
+        if (Number.isInteger(users_id)) {
+          this.threadUsersId = users_id;
+        }
+        let type = route.snapshot.paramMap.get("type");
+        type = type || "basic-settings";
+        if (type) {
+          this.currentView = type;
+          switch (type) {
+            case "requests":
+            case "blocked":
+            case "friends":
+              this.mainPage = "friends";
+              break;
+            case "messages":
+              this.mainPage = "messages";
+              break;
+            case "message-thread":
+              this.mainPage = "message-thread";
+              break;
+            case "subscribed-apps":
+            case "apps-listings":
+              this.mainPage = "apps";
+              break;
+            case "subscribed-events":
+            case "events-listings":
+              this.mainPage = "events";
+              break;
+            case "spaces-listings":
+            case "subscribed-spaces":
+              this.mainPage = "spaces";
+              break;
+          }
+          this.page = 0;
+          this.expanseService.refreshSession().then(() => this.getCurrent());
+        }
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
+  uploadIcon() {
+    this.uploadService.uploadImage(true).then((res: any) => {
+      this.expanseService.currentSession.banner_image =
+        this.expanseService.cdnUrl + res.path;
+      this.setBanner();
+    });
   }
 
   addAppUrl() {
@@ -174,6 +307,22 @@ export class AccountComponent implements OnInit {
       });
   }
 
+  refreshShareLink() {
+    return this.appService
+      .refreshShareLink(
+        this.expanseService,
+        "u",
+        this.expanseService.currentSession.users_id,
+        this.expanseService.currentSession.name + " on SideQuest",
+        this.expanseService.currentSession.tag_line,
+        this.expanseService.cdnUrl +
+          this.expanseService.currentSession.preview_image,
+        "https://sidequestvr.com/#/user/" +
+          this.expanseService.currentSession.users_id
+      )
+      .then(r => (this.expanseService.currentSession.donate_url = r.url));
+  }
+
   removeUrl(key) {
     this.expanseService.removeUserValue("appUrl_" + key).then((res: any) => {
       this.appService.showMessage(res, "Url Removed!");
@@ -183,6 +332,17 @@ export class AccountComponent implements OnInit {
         );
       }
     });
+  }
+
+  getDefaultSpaces() {
+    this.expanseService.start().then(() =>
+      this.expanseService
+        .getMySpaces(0, this.searchString)
+        .then(async (resp: SpaceListing[]) => {
+          await this.appService.fixImages(resp);
+          this.linkSpaces = resp;
+        })
+    );
   }
 
   setDev() {
@@ -209,11 +369,50 @@ export class AccountComponent implements OnInit {
   ngOnInit() {
     this.expanseService
       .start()
-      // .then(() => this.getAppListings())
-      // .then(() => this.setAppsToImport())
-      .then(() => this.getInstalledApps());
-    // .then(() => this.getEvents())
-    // .then(() => this.getSubscribedEvents());
+      .then(() => {
+        return this.expanseService.getSpace(
+          this.expanseService.currentSession.default_space
+        );
+      })
+      .then((space: SpaceListing) => (this.selectedSpace = space))
+      .then(() => this.expanseService.getUserAppTotals())
+      .then(t => {
+        this.app_totals = t[0];
+        Object.keys(this.app_totals).forEach(
+          t => (this.app_totals[t] = Number(this.app_totals[t]))
+        );
+      })
+      .then(() => this.appService.getNotifications(this.expanseService));
+  }
+
+  setBanner() {
+    this.expanseService.saveUserBannerImage(
+      this.expanseService.currentSession.banner_image
+    );
+  }
+
+  setPublic() {
+    this.expanseService.saveUserPublicProfile(
+      this.expanseService.currentSession.public_profile
+    );
+  }
+
+  debounceDefaultSearch() {
+    clearTimeout(this.searchTimeout);
+    this.searchTimeout = setTimeout(() => {
+      this.getDefaultSpaces();
+    }, 750);
+  }
+
+  sendMessage() {
+    this.expanseService
+      .sendMessage(this.threadUsersId, this.messageToSend)
+      .then(resp => {
+        this.page = 0;
+        this.messageToSend = "";
+        this.appService.getNotifications(this.expanseService);
+        this.openMessageThread(this.threadUsersId);
+      });
   }
 
   debounceSearch() {
@@ -244,74 +443,148 @@ export class AccountComponent implements OnInit {
       case "subscribed-spaces":
         this.getSubscribedSpaces();
         break;
+      case "message-thread":
+        this.openMessageThread(this.threadUsersId);
+        break;
+      case "messages":
+        this.getMessages();
+        break;
+      case "friends":
+        this.getFriends();
+        break;
+      case "blocked":
+        this.getBlocked();
+        break;
+      case "requests":
+        this.getRequests();
+        break;
     }
   }
 
-  getSubscribedSpaces() {
+  getStuff(method) {
     this.isLoading = true;
     this.hasNoMore = false;
     return this.expanseService
       .start()
-      .then(() =>
-        this.expanseService.searchSubscribedSpaces(this.searchString, this.page)
-      )
+      .then(() => this.expanseService[method](this.page, this.searchString))
       .then((res: any) => {
         this.hasNoMore = !res.length;
         this.isLoading = false;
-        this.mySubscribedSpaces =
-          this.page === 0 ? res : this.mySubscribedSpaces.concat(res);
         this.isLoaded = true;
         this.page++;
+        return res;
       });
+  }
+
+  getRequests() {
+    return this.getStuff("getFriendRequests").then(
+      (friends: FriendListing[]) =>
+        (this.myRequests =
+          this.page === 1 ? friends : this.myRequests.concat(friends))
+    );
+  }
+
+  getBlocked() {
+    return this.getStuff("getBlocked").then(
+      (friends: FriendListing[]) =>
+        (this.myBlocked =
+          this.page === 1 ? friends : this.myBlocked.concat(friends))
+    );
+  }
+
+  getFriends() {
+    return this.getStuff("getFriends").then(
+      (friends: FriendListing[]) =>
+        (this.myFriends =
+          this.page === 1 ? friends : this.myFriends.concat(friends))
+    );
+  }
+
+  getMessages() {
+    return this.getStuff("getMessagesPeople").then(
+      (messages: MessagePeopleListing[]) => {
+        this.myMessages =
+          this.page === 1 ? messages : this.myMessages.concat(messages);
+      }
+    );
+  }
+
+  openMessageThread(users_id) {
+    this.threadUsersId = users_id;
+    this.isLoading = true;
+    this.hasNoMore = false;
+    return this.expanseService
+      .getMessagesThread(users_id, this.page, this.searchString)
+      .then((res: any) => {
+        this.hasNoMore = !res.length;
+        this.isLoading = false;
+        if (res.length) {
+          res.forEach(r => {
+            r.is_mine =
+              Number(r.users_id) ===
+              this.expanseService.currentSession.users_id;
+          });
+          res.reverse();
+        }
+        if (this.page === 0) {
+          setTimeout(() =>
+            this.appService.scrollTo(this.scrollTo.nativeElement.offsetTop)
+          );
+        }
+        this.myThreads = this.page === 0 ? res : res.concat(this.myThreads);
+        this.isLoaded = true;
+        this.page++;
+        this.appService.getNotifications(this.expanseService);
+      });
+  }
+
+  getSubscribedSpaces() {
+    return this.getStuff("searchSubscribedSpaces").then(
+      (spaces: SpaceListing[]) =>
+        (this.mySubscribedSpaces =
+          this.page === 1 ? spaces : this.mySubscribedSpaces.concat(spaces))
+    );
   }
 
   getSubscribedEvents() {
-    this.isLoading = true;
-    this.hasNoMore = false;
-    return this.expanseService
-      .start()
-      .then(() =>
-        this.expanseService.searchSubscribedEvents(this.searchString, this.page)
-      )
-      .then((res: any) => {
-        this.hasNoMore = !res.length;
-        this.isLoading = false;
-        this.mySubscribedEvents =
-          this.page === 0 ? res : this.mySubscribedEvents.concat(res);
-        this.isLoaded = true;
-        this.page++;
-      });
+    return this.getStuff("searchSubscribedEvents").then(
+      (events: EventListing[]) =>
+        (this.mySubscribedEvents =
+          this.page === 1 ? events : this.mySubscribedEvents.concat(events))
+    );
+  }
+
+  setDefaultSpace() {
+    this.expanseService.saveUserDefaultSpace(
+      this.expanseService.currentSession.default_space
+    );
   }
 
   getAppListings() {
-    this.isLoading = true;
-    this.hasNoMore = false;
-    return this.expanseService
-      .start()
-      .then(() =>
-        this.expanseService.searchMyApps(this.searchString, this.page)
-      )
-      .then((resp: AppListing[]) => {
-        this.hasNoMore = !resp.length;
-        this.isLoading = false;
-        this.myApps = this.page === 0 ? resp : this.myApps.concat(resp);
-        this.isLoaded = true;
-        this.page++;
-      });
+    return this.getStuff("searchMyApps").then((resp: AppListing[]) => {
+      if (resp.length) {
+        resp.forEach(app => {
+          const downlaodI = app.counters.map(c => c.type).indexOf("download");
+          const viewI = app.counters.map(c => c.type).indexOf("view");
+          app.downloads = app.views = 0;
+          if (downlaodI > -1) {
+            app.downloads = app.counters[downlaodI].counter;
+          }
+          if (viewI > -1) {
+            app.views = app.counters[viewI].counter;
+          }
+        });
+      }
+      this.myApps = this.page === 1 ? resp : this.myApps.concat(resp);
+    });
   }
 
   getSpaces() {
-    this.isLoading = true;
-    this.hasNoMore = false;
-    return this.expanseService
-      .getMySpaces(this.page, this.searchString)
-      .then((res: any) => {
-        this.hasNoMore = !res.length;
-        this.isLoading = false;
-        this.mySpaces = this.page === 0 ? res : this.mySpaces.concat(res);
-        this.isLoaded = true;
-        this.page++;
-      });
+    return this.getStuff("getMySpaces").then(
+      (spaces: SpaceListing[]) =>
+        (this.mySpaces =
+          this.page === 1 ? spaces : this.mySpaces.concat(spaces))
+    );
   }
 
   getEvents() {
@@ -377,10 +650,15 @@ export class AccountComponent implements OnInit {
     }
   }
   saveNameAndEmail() {
-    this.expanseService
-      .saveUserDetails(
-        this.expanseService.currentSession.name,
-        this.expanseService.currentSession.email
+    this.refreshShareLink()
+      .then(() =>
+        this.expanseService.saveUserDetails(
+          this.expanseService.currentSession.name,
+          this.expanseService.currentSession.email,
+          this.expanseService.currentSession.tag_line,
+          this.expanseService.currentSession.bio,
+          this.expanseService.currentSession.donate_url
+        )
       )
       .then(res => this.appService.showMessage(res, "Details Saved!"));
   }

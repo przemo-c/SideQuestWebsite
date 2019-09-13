@@ -40,9 +40,52 @@
             <label for="icon_prefix_password2">Password Again</label>
           </div>
         </div>
+        <div class="row">
+          <div class="col s1 input-field">
+              <i class="material-icons prefix">event</i>
+              <label for="icon_prefix_email">DOB</label>
+          </div>
+          <div class="col s2 input-field">
+            <div class="select-drop-down">
+              <label class="active">Day</label>
+              <select class="browser-default black-text "
+                      [(ngModel)]="selectedDays">
+                <option *ngFor="let day of days">{{day}}</option>
+              </select>
+            </div>
+            <!--<i class="material-icons prefix">event</i>-->
+            <!--<label for="dateRangePicker" class="active">Date Of Birth</label>-->
+            <!--<input type="text" ngxDaterangepickerMd-->
+            <!--startKey="start" [singleDatePicker]="true"-->
+            <!--[(ngModel)]="selectedDate" [opens]="'left'" [isCustomDate]="customCss"-->
+            <!--id="dateRangePicker" class="form-control"/>-->
+          </div>
+          <div class="col s2 input-field">
+            <div class="select-drop-down">
+              <label class="active">Month</label>
+              <select class="browser-default black-text "
+                      [(ngModel)]="selectedMonth" (change)="fillDays()">
+                <option *ngFor="let month of months">{{month}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col s2 input-field">
+            <div class="select-drop-down">
+              <label class="active">Year</label>
+              <select class="browser-default black-text "
+                      [(ngModel)]="selectedYears">
+                <option *ngFor="let year of years">{{year}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="center-align">
+          <re-captcha (resolved)="done($event)" [siteKey]="service.siteKey"></re-captcha>
+        </div>
       </div>
       <div class="card-action right-align">
-        <a class="pink-button btn waves-effect waves-light" (click)="signUp()">Sign Up</a>
+        <a class="pink-button btn waves-effect waves-light" *ngIf="captchaSuccess" (click)="signUp()">Sign Up</a>
       </div>
     </div>
   </div>

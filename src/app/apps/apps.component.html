@@ -1,9 +1,107 @@
 <div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
   <app-listing-modes [show_sort]="!appService.isTimeline"
-                     (recent)="isRecent = true; page = 0; getApps()"
-                     (name)="isRecent = false; page = 0; getApps()"></app-listing-modes>
+                     (recent)="isRecent = true; isRating = false; page = 0; getApps()"
+                     (name)="isRecent = false; isRating = false; page = 0; getApps()"
+                     (rating)="isRecent = false; isRating = true; page = 0; getApps()"></app-listing-modes>
   <h4 class="inline-block">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 3 ? 'NSFW' : 'Apps'}}</h4>
   <hr class="grey">
+  <div class="right search-box input-field">
+    <i class="material-icons prefix">search</i>
+
+    <input id="searchBox" type="text" class="validate"
+           [(ngModel)]="searchString"
+           (input)="debounceSearch()"
+    >
+    <label for="searchBox" class="active">Search</label>
+  </div>
+  <div *ngIf="category !== 4">
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         position="bottom"
+         routerLink="/apps/1">
+      <img src="https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png"/>
+      Games
+    </div>
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Official VR Apps for Go and Quest."
+         position="bottom"
+         routerLink="/apps/2">
+      <img src="https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png"/>
+      Apps
+    </div>
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="VR Mods for Go and Quest."
+         position="bottom"
+         routerLink="/apps/4">
+      <img src="https://the-expanse.github.io/SideQuestRepos/android-games/icons/games.png"/>
+      Mods
+    </div>
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="NSFW Content for Go and Quest."
+         position="bottom"
+         routerLink="/apps/3">
+      <img src="https://the-expanse.github.io/SideQuestRepos/nsfw/icons/nsfw.png"/>
+      NSFW
+    </div>
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         position="bottom"
+         routerLink="/apps">
+      <img src="assets/images/score-logo.png"/>
+      All
+    </div>
+  </div>
+  <div *ngIf="category == 4">
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Back to top."
+         position="bottom"
+         routerLink="/apps/1">
+      <i class="material-icons prefix">arrow_back</i>
+      Back To Games
+    </div>
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         position="bottom"
+         routerLink="/apps/4/beaton">
+      <img src="https://cdn.theexpanse.app/file/1124/BeatOnIcon.png"/>
+      BeatOn
+    </div>
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         position="bottom"
+         routerLink="/apps/4/firefox">
+      <img src="https://i.imgur.com/ccwZwxX.jpg"/>
+      Firefox Reality
+    </div><br>
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         position="bottom"
+         routerLink="/apps/4/saber">
+      <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
+      BS Sabers
+    </div>
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         position="bottom"
+         routerLink="/apps/4/sabertrail">
+      <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
+      BS Saber Trails
+    </div>
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         position="bottom"
+         routerLink="/apps/4/platform">
+      <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
+      BS Platforms
+    </div>
+    <div class="chip pointer margin-right menu-chip"
+         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         position="bottom"
+         routerLink="/apps/4/menutitle">
+      <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
+      BS Menu Titles
+    </div>
+  </div>
   <ng-container *ngIf="isLoading">
     <div class="center-align">
       <div class="tall-placeholder relative">
@@ -12,51 +110,12 @@
     </div>
   </ng-container>
   <div class="clearfix"></div>
+  <div *ngIf="!apps.length && !isLoading">
+    <i class="material-icons back-icon" (click)="backClicked()">reply</i>
+    <div class="chip">No more items...</div>
+  </div>
   <div *ngIf="!isLoading">
-    <div class="right search-box input-field">
-      <i class="material-icons prefix">search</i>
 
-      <input id="searchBox" type="text" class="validate"
-             [(ngModel)]="searchString"
-             (input)="debounceSearch()"
-      >
-      <label for="searchBox" class="active">Search</label>
-    </div>
-    <div class="chip pointer margin-right menu-chip" *ngIf="!appService.hideLogo"
-         mz-tooltip tooltip="Official VR Games for Go and Quest."
-         position="bottom"
-         routerLink="/apps/1">
-      <img src="https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png"/>
-      Games
-    </div>
-    <div class="chip pointer margin-right menu-chip" *ngIf="!appService.hideLogo"
-         mz-tooltip tooltip="Official VR Apps for Go and Quest."
-         position="bottom"
-         routerLink="/apps/2">
-      <img src="https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png"/>
-      Apps
-    </div>
-    <div class="chip pointer margin-right menu-chip" *ngIf="!appService.hideLogo"
-         mz-tooltip tooltip="VR Mods for Go and Quest."
-         position="bottom"
-         routerLink="/apps/4">
-      <img src="https://the-expanse.github.io/SideQuestRepos/android-games/icons/games.png"/>
-      Mods
-    </div>
-    <div class="chip pointer margin-right menu-chip" *ngIf="!appService.hideLogo"
-         mz-tooltip tooltip="NSFW Content for Go and Quest."
-         position="bottom"
-         routerLink="/apps/3">
-      <img src="https://the-expanse.github.io/SideQuestRepos/nsfw/icons/nsfw.png"/>
-      NSFW
-    </div>
-    <div class="chip pointer margin-right menu-chip" *ngIf="!appService.hideLogo"
-         mz-tooltip tooltip="Official VR Games for Go and Quest."
-         position="bottom"
-         routerLink="/apps">
-      <img src="assets/images/logo-large icony.png"/>
-      All
-    </div>
     <div class="clearfix"></div>
     <div *ngIf="!appService.isGrid&&appService.isTimeline" class="row">
       <app-timeline-item *ngFor="let app of apps;let i = index;"
@@ -64,6 +123,7 @@
                          [description]="app.summary"
                          [image]="app.image_url"
                          [start_time]="app.created/1000"
+                         [rating]="app.rating"
                          [show_date]="app.show_date"
                          [show_date_first]="app.show_date"
                          [hide_time]="true"
@@ -73,6 +133,7 @@
     <div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">
       <app-list-item *ngFor="let app of apps;"
                      [name]="app.name"
+                     [rating]="app.rating"
                      [description]="app.summary"
                      [image]="app.image_url"
                      (open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"
@@ -85,6 +146,7 @@
                  [options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">
       <ngxMasonryItem class="masonry-item" *ngFor="let app of apps">
         <app-grid-item [name]="app.name"
+                       [rating]="app.rating"
                        [description]="app.summary"
                        [image]="app.image_url"
                        (open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"
@@ -95,7 +157,7 @@
 </div>
 <br><br><br>
 <div class="center-align">
-  <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="getApps()">Load More</div>
+  <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="appService.scrollToTop()" routerLink="/apps/{{category}}/{{tag||'none'}}/{{page}}">Load More</div>
   <div *ngIf="hasNoMore" class="chip">No more items...</div>
 </div>
 <br><br><br>

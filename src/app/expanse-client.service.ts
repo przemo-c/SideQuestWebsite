@@ -29,8 +29,8 @@ export class ExpanseClientService {
     this.messageResolves = {}; // localStorage.setItem('isDev','true');
     // localStorage.removeItem("isDev");
     this.isDev = localStorage.getItem("isDev");
-    this.url = this.isDev
-      ? "ws://192.168.0.4:3000"
+    this.url = !!this.isDev
+      ? "ws://192.168.0.13:3000"
       : "wss://api.theexpanse.app";
     this.cdnUrl = this.isDev
       ? "http://192.168.0.4:47000/"
@@ -79,22 +79,33 @@ export class ExpanseClientService {
     this.currentSession = await this.getCurrentSession();
     this.appService.isAuthenticated = !!this.currentSession;
   }
-  getUserSettings() {
-    if (!this.default_app_ulrs || !this.default_app_ulrs.length) {
+  getUserAppTotals(users_id?) {
+    return this.emit("get-user-app-totals", { users_id });
+  }
+  getUserSettings(users_id?) {
+    if (!this.default_app_ulrs || !this.default_app_ulrs.length || users_id) {
       return this.start()
-        .then(() => this.getUserValues())
+        .then(() =>
+          users_id ? this.getUserAppUrls(users_id) : this.getUserValues()
+        )
         .then((res: any) => {
+          let urls = [];
           (res || []).forEach(
             (setting: { name: string; setting_value: string }) => {
               const parts = setting.name.split("_");
               if (parts[0] === "appUrl") {
-                this.default_app_ulrs.push({
+                urls.push({
                   provider: parts[1],
                   link_url: setting.setting_value
                 });
               }
             }
           );
+          if (users_id) {
+            return urls;
+          } else {
+            this.default_app_ulrs = urls;
+          }
         });
     }
   }
@@ -405,10 +416,13 @@ export class ExpanseClientService {
   refresh(token) {
     return this.emit("refresh", { token });
   }
+  getUserAppUrls(users_id) {
+    return this.emit("get-user-app-urls", { users_id });
+  }
   getData(socketId) {
     return this.emit("get-data", { socketId });
   }
-  searchSubscribedEvents(search, page, events_id?) {
+  searchSubscribedEvents(page, search, events_id?) {
     return this.emit("search-subscribed-event", { search, page, events_id });
   }
   subscribeEvent(events_id) {
@@ -420,8 +434,8 @@ export class ExpanseClientService {
   getEvent(events_id) {
     return this.emit("event", { events_id });
   }
-  getEvents(page, search, filter) {
-    return this.emit("events-list", { page, search, filter });
+  getEvents(page, search, filter, users_id?) {
+    return this.emit("events-list", { page, search, filter, users_id });
   }
   getMyEvents(page, search, filter) {
     return this.emit("my-events", { page, search, filter });
@@ -443,13 +457,13 @@ export class ExpanseClientService {
   getSpace(spaces_id) {
     return this.emit("space", { spaces_id });
   }
-  getSpaces(page, search) {
-    return this.emit("spaces-list", { page, search });
+  getSpaces(page, search, users_id?) {
+    return this.emit("spaces-list", { page, search, users_id });
   }
   getMySpaces(page, search) {
     return this.emit("my-spaces", { page, search });
   }
-  searchSubscribedSpaces(search, page, spaces_id?) {
+  searchSubscribedSpaces(page, search, spaces_id?) {
     return this.emit("search-subscribed-space", { search, page, spaces_id });
   }
   subscribeSpace(spaces_id) {
@@ -511,6 +525,15 @@ export class ExpanseClientService {
       is_public,
       obfuscate
     });
+  }
+  saveUserPublicProfile(public_profile) {
+    return this.emit("save-user-public-profile", { public_profile });
+  }
+  saveUserBannerImage(banner_image) {
+    return this.emit("save-user-banner-image", { banner_image });
+  }
+  viewUser(users_id) {
+    return this.emit("view-user", { users_id });
   }
   updatePrefab(prefabs_id, name, description, image, is_public, obfuscate) {
     return this.emit("update-prefab", {
@@ -652,6 +675,29 @@ export class ExpanseClientService {
       }
     });
   }
+  addReview(details, rating, apps_id?, events_id?, spaces_id?, parent_id?) {
+    parent_id = parent_id || null;
+    apps_id = apps_id || null;
+    events_id = events_id || null;
+    spaces_id = spaces_id || null;
+    return this.emit("add-review", {
+      details,
+      rating,
+      apps_id,
+      events_id,
+      spaces_id,
+      parent_id
+    });
+  }
+  deleteReview(item_id, type) {
+    return this.emit("delete-review", { item_id, type });
+  }
+  getRating(item_id, type) {
+    return this.emit("get-rating", { item_id, type });
+  }
+  getReviews(item_id, type, page, search?, parent_id?) {
+    return this.emit("get-reviews", { item_id, type, page, search, parent_id });
+  }
   sendMessage(userId, message) {
     this.emit("user-message", { users_id: userId, message: { text: message } });
     return this.emit("send-message", { userId, message });
@@ -668,8 +714,14 @@ export class ExpanseClientService {
   getUserCurrentSpace(users_id) {
     return this.emit("get-user-current-space", { users_id });
   }
-  saveUserDetails(name, email) {
-    return this.emit("save-user-details", { name, email });
+  saveUserDetails(name, email, tag_line, bio, donate_url) {
+    return this.emit("save-user-details", {
+      name,
+      email,
+      tag_line,
+      bio,
+      donate_url
+    });
   }
   saveUserDefaultSpace(spaceId) {
     return this.emit("save-user-default-space", { spaceId });
@@ -751,16 +803,26 @@ export class ExpanseClientService {
   getAppScreenshots(apps_id) {
     return this.emit("get-app-screenshots", { apps_id });
   }
-  searchApps(search, page, order, direction, app_categories_id?) {
+  searchApps(
+    search,
+    page,
+    order,
+    direction,
+    app_categories_id?,
+    tag?,
+    users_id?
+  ) {
     return this.emit("search-apps", {
       search,
       page,
       order,
       direction,
-      app_categories_id
+      app_categories_id,
+      tag,
+      users_id
     });
   }
-  searchMyApps(search, page) {
+  searchMyApps(page, search) {
     return this.emit("search-my-apps", { search, page });
   }
   searchInstalledApps(search, page, is_updated?, is_uninstalled?, apps_id?) {

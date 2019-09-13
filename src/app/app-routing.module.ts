@@ -23,6 +23,7 @@ import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.componen
 import { SpacesComponent } from "./spaces/spaces.component";
 import { SpaceManagerComponent } from "./space-manager/space-manager.component";
 import { SpaceListingComponent } from "./space-listing/space-listing.component";
+import { UserProfileComponent } from "./user-profile/user-profile.component";
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
@@ -64,7 +65,9 @@ const routes: Routes = [
     canActivate: [LoginGuard]
   },
   { path: "events", component: EventsComponent },
+  { path: "events/:page", component: EventsComponent },
   { path: "spaces", component: SpacesComponent },
+  { path: "spaces/:page", component: SpacesComponent },
   { path: "space/:spaces_id", component: SpaceListingComponent },
   {
     path: "my-space",
@@ -77,12 +80,29 @@ const routes: Routes = [
     canActivate: [LoginGuard]
   },
   { path: "apps", component: AppsComponent },
+  { path: "user/:users_id", component: UserProfileComponent },
   { path: "apps/:category", component: AppsComponent },
-  { path: "apps/:category/:page", component: AppsComponent },
+  { path: "apps/:category/:tag", component: AppsComponent },
+  { path: "apps/:category/:tag/:page", component: AppsComponent },
   { path: "account", component: AccountComponent, canActivate: [LoginGuard] },
+  {
+    path: "account/:type",
+    component: AccountComponent,
+    canActivate: [LoginGuard]
+  },
+  {
+    path: "account/:type/:users_id",
+    component: AccountComponent,
+    canActivate: [LoginGuard]
+  },
   { path: "the-expanse", component: HomeComponent },
   { path: "setup-howto", component: SetupHowtoComponent },
   { path: "login", component: LoginComponent, canActivate: [NotLoginGuard] },
+  {
+    path: "login/:return",
+    component: LoginComponent,
+    canActivate: [NotLoginGuard]
+  },
   {
     path: "forgot-password",
     component: ForgotPasswordComponent,

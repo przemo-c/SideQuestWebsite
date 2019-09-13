@@ -1,9 +1,11 @@
 <div class="container" *ngIf="is_not_found && !loading">
   <h4>Not found...</h4>
 </div>
-<mz-parallax *ngIf="screenshots && screenshots.length" [height]="350">
-  <img src="{{screenshots[screenshots.length-1]}}">
-</mz-parallax>
+<div class="bottom-border">
+  <mz-parallax *ngIf="screenshots && screenshots.length" [height]="350">
+    <img src="{{screenshots[screenshots.length-1]}}">
+  </mz-parallax>
+</div>
 <ng-container *ngIf="loading">
   <div class="center-align">
     <div class="tall-placeholder relative">
@@ -13,7 +15,7 @@
 </ng-container>
 <div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}"
      [ngStyle]="{'margin-top': screenshots && screenshots.length ? '-150px' : '0'}">
-  <div class="top-back">
+  <div class="top-back" *ngIf="screenshots && screenshots.length">
 
   </div>
   <h4>
@@ -21,9 +23,9 @@
     <img class="responsive-img top-image pointer"
          *ngIf="currentApp.image_url"
          src="{{currentApp.image_url}}" (click)="openImage(screenshots.length)"/>
-    <img class="responsive-img top-image circle"
+    <img class="responsive-img top-image circle pointer"
          *ngIf="currentApp.preview_image"
-         src="{{expanseService.cdnUrl+currentApp.preview_image}}"/>
+         src="{{expanseService.cdnUrl+currentApp.preview_image}}" routerLink="/user/{{currentApp.users_id}}"/>
     {{currentApp.name}}
     <span *ngIf="!currentApp.active" class="chip white-text orange">Unlisted</span>
   </h4>
@@ -40,9 +42,10 @@
   <br>
   <div class="row">
     <div class="col s12 m10">
-      <div class="btn waves-effect waves-light white-text pink-button small-button"
-           *ngIf="isInstalled && installedVersion < currentApp.versioncode && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')"
-           (click)="openItems(apk_download_urls)">Update Available</div><br><br>
+      <ng-container *ngIf="isInstalled && installedVersion < currentApp.versioncode && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')">
+        <div class="btn waves-effect waves-light white-text pink-button small-button"
+             (click)="openItems(apk_download_urls)">Update Available</div><br><br>
+      </ng-container>
       <div class="row">
         <div class="col s12 m7">
           <div *ngIf="videoObject">
@@ -67,10 +70,10 @@
                    mz-tooltip tooltip="This is is still in early access and has limited availability."
                    position="bottom">
                 <img src="assets/images/social/EarlyAccess.png"/>
-                Early Access
+                Comming Soon
               </div>
             </div>
-        <span class="counter">{{counters.d}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
+        <span class="counter" *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access">{{counters.d}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
                                                            mz-tooltip tooltip="Number of downloads"
                                                            position="bottom"
         >cloud_download</i></span>
@@ -98,6 +101,7 @@
 
           </div>
           <div *ngIf="isInstalled && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')">
+            <br>
             <div class="btn waves-effect waves-light pink-button small-button"
                  (click)="uninstallApp(currentApp.packagename)">Unsubscribe & Uninstall</div>
             <br><br>Click to unsubscribe from this app to not receive update notifications and also uninstall if SideQuest is open. You may need to uninstall separately if you're not connected.
@@ -108,34 +112,57 @@
                  (click)="copyShareUrl()">Copy Share Link</div>
             <br><br>Share Link: {{currentApp.donate_url}}
           </div>
-
+          <div *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access">
+            <br><br>
+            <h5>Download Links</h5>
+            <hr>
+            <div class="row" *ngFor="let url of apk_download_urls">
+              <div class="col s11 vertical-align line-height truncate full-width">
+                {{url.link_url}}
+              </div>
+              <div class="col s1 right-align vertical-align">
+                <div mzTooltip tooltip="Copy this link" position="bottom"
+                     class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"
+                   (click)="service.copyUrl(url.link_url)"
+                ><i class="material-icons">file_copy</i></div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="col s12 m5">
           <div class="row">
             <div class="col s12">
               <div *ngIf="currentApp.description">
-                <br>
-                <div class="input-field radio-top">
-                  <label class="active">Description</label>
+                <div>
+                  <i class="material-icons block-icon">playlist_add</i><label>Description</label>
                 </div>
                 <p [innerHTML]="currentApp.description"></p>
                 <div *ngIf="currentApp.user_name" class="truncate"><br>By {{currentApp.user_name}}</div>
               </div>
-              <div *ngIf="searchTags && searchTags.length">
-                <br>
-                <div class="input-field radio-top">
-                  <label class="active">Tags</label>
+              <div *ngIf="appRating">
+                <br><br>
+                <div>
+                  <i class="material-icons block-icon">star_half</i><label>Rating</label>
                 </div>
+                <br>
+                <span class="review-name">{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i> ( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )
+              </div>
+              <div *ngIf="searchTags && searchTags.length">
+                <br><br>
+                <div>
+                  <i class="material-icons block-icon">search</i><label>Search Tags</label>
+                </div>
+                <br>
                 <ng-container>
                   <span *ngFor="let tag of searchTags" class="chip">{{tag}}</span>&nbsp;&nbsp;&nbsp;
                 </ng-container>
               </div>
               <div *ngIf="currentApp.supports_quest || currentApp.supports_go || currentApp.supports_other">
-
-                <br>
-                <div class="input-field radio-top">
-                  <label class="active">Device Support</label>
+                <br><br>
+                <div>
+                  <i class="material-icons block-icon">gamepad</i><label>Device Support</label>
                 </div>
+                <br>
                 <ng-container >
                   <span *ngIf="currentApp.supports_quest" class="chip">
                     <img src="assets/images/oculusquest.jpg" alt="Oculus Quest">
@@ -151,99 +178,87 @@
 
               <div *ngIf="currentApp.license">
                 <br>
-                <div class="input-field radio-top">
-                  <label class="active">Licence</label>
+                <div>
+                  <i class="material-icons block-icon">toc</i><label>Licence</label>
                 </div>
                 <p>{{currentApp.license}}</p>
               </div>
 
               <div *ngIf="currentApp.comfort">
                 <br>
-                <div class="input-field radio-top">
-                  <label class="active">Comfort</label>
+                <div>
+                  <i class="material-icons block-icon">accessibility_new</i><label>Comfort</label>
                 </div>
                 <p>{{comforts[currentApp.comfort]}}</p>
               </div>
 
               <div *ngIf="currentApp.versionname">
                 <br>
-                <div class="input-field radio-top">
-                  <label class="active">Latest Version</label>
+                <div>
+                  <i class="material-icons block-icon">done</i><label>Latest Version</label>
                 </div>
                 <p>[{{currentApp.versioncode}}] {{currentApp.versionname}}</p>
               </div>
               <div *ngIf="currentApp.created">
                 <br>
-                <div class="input-field radio-top">
-                  <label class="active">Added</label>
+                <div>
+                  <i class="material-icons block-icon">event</i><label>Added</label>
                 </div>
-                <p>{{currentApp.created*1000|date:'mediumDate'}}</p>
+                <p>{{currentApp.created|date:'mediumDate'}}</p>
               </div>
               <div *ngIf="currentApp.updated">
                 <br>
-                <div class="input-field radio-top">
-                  <label class="active">Updated</label>
+                <div>
+                  <i class="material-icons block-icon">event</i><label>Updated</label>
                 </div>
-                <p>{{currentApp.updated*1000|date:'mediumDate'}}</p>
+                <p>{{currentApp.updated|date:'mediumDate'}}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access">
-        <br><br>
-        <h5>Downloads</h5>
+      <div *ngIf="!currentApp.early_access">
+        <br>
+        <h5>Reviews</h5>
         <hr>
-        <mz-collapsible
-          [mode]="'expandable'"
-          [onClose]="closeFunctionCallback"
-          [onOpen]="openFunctionCallback"
-          [popout]="true">
-          <mz-collapsible-item [active]="true">
-            <mz-collapsible-item-header>
-              <div class="btn right waves-effect waves-light pink-button install-button"
-                   (click)="openItems(apk_download_urls);">{{apk_download_urls.length > 1 ? 'Install All' : 'Install Now'}}</div>
-              Latest Download - {{latest_tag || currentApp.versionname}}
-            </mz-collapsible-item-header>
-            <mz-collapsible-item-body>
-              <ng-container >
-                <div class="row" *ngFor="let url of apk_download_urls">
-                  <div class="col s11 vertical-align line-height truncate full-width">
-                    {{url.link_url}}
-                  </div>
-                  <div class="col s1 right-align vertical-align">
-                    <a class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"
-                       (click)="openItem('sidequest://sideload/#'+url.link_url)"
-                    ><i class="material-icons">cloud_download</i></a>
-                  </div>
-                </div>
-              </ng-container>
-            </mz-collapsible-item-body>
-          </mz-collapsible-item>
-          <!--<ng-container *ngIf="hasGithubRepo && currentApp.github_enabled && currentApp.github_tag === '[ all ]'">-->
-            <!--<mz-collapsible-item *ngFor="let release of githubReleases">-->
-              <!--<mz-collapsible-item-header>-->
-                <!--<div class="btn right waves-effect waves-light pink-button install-button"-->
-                     <!--(click)="openItems(release.assets);">{{release.assets.length > 1 ? 'Install All' : 'Install Now'}}</div>-->
-                <!--[{{release.tag_name}}] {{release.name}}-->
-              <!--</mz-collapsible-item-header>-->
-              <!--<mz-collapsible-item-body>-->
-                <!--<ng-container >-->
-                  <!--<div *ngFor="let asset of release.assets">-->
-                    <!--<div class="row">-->
-                      <!--<div class="col s11 vertical-align line-height truncate full-width">-->
-                        <!--{{asset.browser_download_url}}-->
-                      <!--</div>-->
-                      <!--<div class="col s1 right-align vertical-align">-->
-                        <!--<a *ngIf="release.assets.length > 1" class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"><i class="material-icons">cloud_download</i></a>-->
-                      <!--</div>-->
-                    <!--</div>-->
-                  <!--</div>-->
-                <!--</ng-container>-->
-              <!--</mz-collapsible-item-body>-->
-            <!--</mz-collapsible-item>-->
-          <!--</ng-container>-->
-        </mz-collapsible>
+        <div class="right search-box input-field">
+          <i class="material-icons prefix">search</i>
+
+          <input id="searchBox" type="text" class="validate"
+                 [(ngModel)]="searchString"
+                 (input)="debounceSearch()"
+          >
+          <label for="searchBox" class="active">Search</label>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <div *ngIf="service.isAuthenticated" class="add-review" (click)="leaveReview.openModal()">
+              <i class="material-icons">add</i> Add a Review
+            </div>
+            <div *ngIf="!service.isAuthenticated" class="add-review" routerLink="/login/{{'/app/'+apps_id|encodeUri}}">
+              <i class="material-icons">add</i> Sign In to Add a Review
+            </div>
+          </div>
+          <div class="col s12" *ngFor="let message of reviews">
+            <div class="user-chip chip message-chip">
+              <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && message.users_id == expanseService.currentSession.users_id" (click)="deleteReview.openModal()">close</i>
+              <img routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}"/>
+              <div class="margin-right"><span class="review-name">{{message.name}}</span> - {{message.created|fromNow}}</div>
+              <div class="">
+                <span class="review-name pink-text">{{message.rating}}/5</span> <i class="material-icons pink-text rating-star">star</i>
+              </div>
+              <div [innerHTML]="message.details"></div>
+            </div>
+          </div>
+        </div>
+
+        <br><br><br>
+        <div class="center-align">
+          <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMoreReviews" (click)="getReviews()" >Load More</div>
+          <div *ngIf="hasNoMoreReviews" class="chip">No more items...</div>
+        </div>
+        <br><br><br>
+
       </div>
     </div>
     <div class="col s12 m2">
@@ -303,3 +318,58 @@
     </div>
   </div>
 </div>
+
+<mz-modal #leaveReview [fixedFooter]="true">
+  <mz-modal-header>
+    <h4>Add Review</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    <br>
+    <div class="col fixed-height extra-padding-left">
+      <div class="input-field radio-top">
+        <i class="material-icons prefix">star_half</i>
+        <div class="rating-margin-left">
+          <i class="material-icons medium pointer white-text" (click)="currentRating = 1">{{currentRating > 0 ? 'star' : 'star_border'}}</i>
+          <i class="material-icons medium pointer white-text" (click)="currentRating = 2">{{currentRating > 1 ? 'star' : 'star_border'}}</i>
+          <i class="material-icons medium pointer white-text" (click)="currentRating = 3">{{currentRating > 2 ? 'star' : 'star_border'}}</i>
+          <i class="material-icons medium pointer white-text" (click)="currentRating = 4">{{currentRating > 3 ? 'star' : 'star_border'}}</i>
+          <i class="material-icons medium pointer white-text" (click)="currentRating = 5">{{currentRating > 4 ? 'star' : 'star_border'}}</i>
+        </div>
+        <label class="active">Rating</label>
+      </div>
+    </div>
+    <div class="input-field">
+      <i class="material-icons prefix">playlist_add</i>
+      <textarea id="description" class="materialize-textarea"  placeholder="Review details..."
+                [(ngModel)]="currentReview"
+      ></textarea>
+      <label for="description" class="active">Review Comment</label>
+      <br><br>
+      <div class="center-align">
+        <re-captcha (resolved)="done($event)" [siteKey]="service.siteKey"></re-captcha>
+      </div>
+    </div>
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
+    <button mz-button class="pink-button" mz-modal-close *ngIf="captchaSuccess" (click)="addReview()">Add Review</button>
+    <button mz-button [flat]="true" mz-modal-close *ngIf="!captchaSuccess"  (click)="addReview()">Add Review</button>
+  </mz-modal-footer>
+</mz-modal>
+
+
+
+
+<mz-modal #deleteReview [fixedFooter]="true">
+  <mz-modal-header>
+    <h4>Delete Review</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    <br>
+    Are you sure you want to delete this review?
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
+    <button mz-button class="red" mz-modal-close (click)="deleteReviewConfirm()">Delete Review</button>
+  </mz-modal-footer>
+</mz-modal>

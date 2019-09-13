@@ -9,6 +9,7 @@ import { AppService } from "../app.service";
 })
 export class SetupHowtoComponent implements OnInit {
   album: IAlbum[] = [];
+  launcherDownloadUrl: string;
   constructor(public lightbox: Lightbox, private appService: AppService) {}
 
   ngOnInit() {
@@ -21,6 +22,7 @@ export class SetupHowtoComponent implements OnInit {
       "assets/images/allow-auth.png"
     ];
     this.album = images.map(s => ({ src: s, thumb: s }));
+    this.getLauncherUrl();
   }
 
   openItem(url: string) {
@@ -28,5 +30,17 @@ export class SetupHowtoComponent implements OnInit {
   }
   openImage(i: number) {
     this.lightbox.open(this.album, i);
+  }
+  getLauncherUrl() {
+    fetch(
+      "https://xpan.cc/download-by-package/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2Vyc19pZCI6MSwiYXBwc19pZCI6IjkwIiwiaWF0IjoxNTY1MTAzNjQ2fQ.CFnKmOXO5zWxH1WvRyideQHLvlkZLC2v8SQZOiENANE/aaa.QuestAppLauncher.App"
+    )
+      .then(r => r.json())
+      .then((urls: any) => {
+        if (!urls.error && urls.urls && urls.urls.length) {
+          this.launcherDownloadUrl = urls.urls[0].link_url;
+          console.log(this.launcherDownloadUrl);
+        }
+      });
   }
 }

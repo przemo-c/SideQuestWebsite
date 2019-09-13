@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { MzModalComponent, MzToastService } from "ngx-materialize";
+import { ExpanseClientService } from "./expanse-client.service";
 
 @Injectable({
   providedIn: "root"
@@ -21,6 +22,12 @@ export class AppService {
   confirmOpen: MzModalComponent;
   isGrid: boolean = true;
   isTimeline: boolean = false;
+  notifications: any = { friend_requests: [], unread_messages: [] };
+
+  public readonly siteKey = "6LfrRrcUAAAAAE00oWA60iMK5AeM7luMlKWevTlY";
+  public badge: "bottomright" | "bottomleft" | "inline" = "inline";
+  public type: "image" | "audio" = "image";
+  public theme: "light" | "dark" = "dark";
   constructor(private toastService: MzToastService) {
     const userAgent = (navigator as any).userAgent.toLowerCase();
     if (userAgent.indexOf(" electron/") > -1) {
@@ -40,8 +47,19 @@ export class AppService {
     }
   }
 
+  getNotifications(expanseService: ExpanseClientService) {
+    expanseService
+      .start()
+      .then(() => expanseService.getNotifications())
+      .then(notifications => (this.notifications = notifications));
+  }
+
   scrollToTop() {
-    this.scrollContainer.scrollTo(0, 0);
+    this.scrollTo(0);
+  }
+
+  scrollTo(pos) {
+    this.scrollContainer.scrollTo(0, pos);
   }
 
   async fixImages(result) {
@@ -259,5 +277,61 @@ export class AppService {
       this.sidequestResolve = resolve;
       this.sidequestReject = reject;
     });
+  }
+
+  copyUrl(url) {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(
+        () => {
+          this.showMessage({ error: false }, "URL Copied to clipboard!");
+        },
+        err => {
+          this.showMessage({ error: true, data: "Cant copy share url!" }, "");
+        }
+      );
+    }
+  }
+
+  refreshShareLink(
+    expanseService,
+    type,
+    id,
+    name,
+    description,
+    image,
+    external
+  ) {
+    return fetch(
+      "https://xpan.cc/delete-link/" +
+        expanseService.currentSession.token +
+        "/" +
+        type +
+        "-" +
+        id,
+      {
+        method: "GET",
+        cache: "no-cache"
+      }
+    )
+      .then(() =>
+        fetch(
+          "https://xpan.cc/get-link/" + expanseService.currentSession.token,
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              title: name,
+              description: description,
+              image: image,
+              name: type + "-" + id,
+              external: external
+            })
+          }
+        )
+      )
+      .then(r => r.json());
   }
 }

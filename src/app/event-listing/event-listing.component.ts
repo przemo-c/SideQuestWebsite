@@ -1,5 +1,9 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { AppListing, EventListing } from "../account/account.component";
+import {
+  AppListing,
+  EventListing,
+  SpaceListing
+} from "../account/account.component";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { ExpanseClientService } from "../expanse-client.service";
 import * as urlParser from "../../../node_modules/js-video-url-parser/lib/base";
@@ -13,6 +17,7 @@ import {
   VideObject
 } from "../app-manager/app-manager.component";
 import { Subscription } from "rxjs";
+import { SpaceTemplates } from "../space-manager/space-templates";
 
 @Component({
   selector: "app-event-listing",
@@ -57,6 +62,8 @@ export class EventListingComponent implements OnInit, OnDestroy {
   mySubscription: any;
   futureEvents: any[];
   loading = true;
+  selectedApp: AppListing;
+  selectedSpace: SpaceListing;
   constructor(
     private router: Router,
     public service: AppService,
@@ -98,6 +105,10 @@ export class EventListingComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  backClicked() {
+    (window as any).history.back();
   }
 
   getFutureEvents() {
@@ -226,6 +237,17 @@ export class EventListingComponent implements OnInit, OnDestroy {
         const counters = (await this.expanseService.getEventTotals(
           this.events_id
         )) as AppCounter[];
+
+        if (this.currentApp.apps_id) {
+          await this.expanseService
+            .getApp(this.currentApp.apps_id)
+            .then(app => (this.selectedApp = app[0]));
+        }
+        if (this.currentApp.spaces_id) {
+          await this.expanseService
+            .getSpace(this.currentApp.spaces_id)
+            .then((space: SpaceListing) => (this.selectedSpace = space));
+        }
         counters.forEach(counter => {
           switch (counter.type) {
             case "view":

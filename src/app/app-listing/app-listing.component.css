@@ -1,12 +1,20 @@
 
-.back-icon{
-  margin-right: 10px;
-  font-size: 1.2em;
-  cursor: pointer;
 
+.message-chip{
+  height: auto!important;
+  border-radius: 32px;
+  width: 100%;
 }
-.back-icon:focus {outline:0;}
-
+.user-chip{
+  height: 64px;
+  border-radius: 32px;
+  width: 100%;
+  line-height: initial;
+}
+.user-chip img{
+  width: 64px;
+  height: 64px;
+}
 .top-tags-name{
   margin-top: -33px;
 }
@@ -90,22 +98,32 @@
   }
 }
 
-.top-back{
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#503b73+1,503b73+100&0+0,0.9+60,1+74,1+100 */
-  background: -moz-linear-gradient(top,  rgba(80,59,115,0) 0%, rgba(80,59,115,0.02) 1%, rgba(80,59,115,0.9) 50%, rgba(80,59,115,1) 54%, rgba(80,59,115,1) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  rgba(80,59,115,0) 0%,rgba(80,59,115,0.02) 1%,rgba(80,59,115,0.9) 50%,rgba(80,59,115,1) 54%,rgba(80,59,115,1) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  rgba(80,59,115,0) 0%,rgba(80,59,115,0.02) 1%,rgba(80,59,115,0.9) 50%,rgba(80,59,115,1) 54%,rgba(80,59,115,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00503b73', endColorstr='#503b73',GradientType=0 ); /* IE6-9 */
-  width: calc(100% + 50px);
-  margin-left: -25px;
-  margin-top: -20px;
-  height: 155px;
-  position: absolute;
-  left: 0;
-  z-index: -1;
-}
-
 .main-container{
   position: relative;
   z-index: 1;
+}
+.rating-margin-left{
+  margin-left: 3em;
+  margin-top: 0.5em;
+}
+.review-name{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.rating-star{
+  vertical-align: bottom;
+}
+.rating-delete{
+  margin-top: 16px;
+}
+.add-review{
+  width: 100%;
+  line-height: 80px;
+  font-size: 1.5rem;
+  height: 80px;
+  border: 3px dashed #cfcfcf;
+  margin: .5rem 0 1rem 0;
+  color: white;
+  text-align: center;
+  cursor: pointer;
 }

@@ -46,6 +46,58 @@
   padding: 5px;
 }
 
+.search-box{
+  width: 410px;
+}
+.message-chip{
+  height: auto!important;
+  border-radius: 32px;
+  width: 100%;
+}
+.message-send-top{
+  margin-top: 15px;
+  margin-right: 10px;
+  position: absolute;
+  right: 20px;
+  bottom: 36px;
+}
+#message_to_send{
+  width: calc(100% - 200px);
+}
+.right-margin{
+  margin-left: 0;
+}
+.search-width{
+  width: 350px;
+}
+.pull-up{
+  margin-top: -35px;
+}
+.user-chip{
+  height: 64px;
+  border-radius: 32px;
+  width: 100%;
+  line-height: initial;
+}
+.user-chip img{
+  width: 64px;
+  height: 64px;
+}
+.other-user-message{
+  width: calc(100% - 20px);
+  margin-left: 20px;
+  background-color: #d8eceb;
+}
+.send-chip{
+  width: calc(100% + 40px);
+  margin-left: -20px;
+}
+.chip-title{
+  font-size: 1.5rem;
+}
+.new-badge{
+  margin-top: 0.6em;
+}
 .padding{
   padding-left: 3em;
   padding-right: 3em;
@@ -67,4 +119,52 @@
 }
 .url-col{
   padding-top: 0.7em;
+}
+
+.dash-total{
+  font-size: 3em;
+  display: inline-block;
+  padding: 0.3em;
+  border-left: 5px solid #0094ca;
+  position:relative;
+  width: 100%;
+}
+.dash-total-small{
+  font-size: 0.3em;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  width: 100%;
+  white-space: nowrap;
+}
+.totals-container{
+  padding-bottom: 3em;
+}
+.add-image, .loader-cont{
+  width: 100%;
+  line-height: 128px;
+  font-size: 1.5rem;
+  height: 128px;
+  border: 3px dashed #cfcfcf;
+  margin: .5rem 0 1rem 0;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.sub-banner{
+  width: calc(100% + 48px);
+  margin-left: -24px;
+  border-top: 1px solid #8f8f8f;
+  margin-top: 0px;
+}
+.settings-button{
+  margin-top: 2px;
+  margin-right: -8px;
+}
+.message-badge{
+  position: absolute;
+  transform: translate(-6px, 30px);
+  background-color: transparent!important;
+}
+.side-score{
+  margin-top: -10px;
 }

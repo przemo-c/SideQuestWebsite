@@ -22,7 +22,8 @@ import {
   MzTabModule,
   MzToastModule,
   MzTooltipModule,
-  MzParallaxModule
+  MzParallaxModule,
+  MzTextareaModule
 } from "ngx-materialize";
 import { WhatIsSideQuestComponent } from "./what-is-side-quest/what-is-side-quest.component";
 import { DownloadSideQuestComponent } from "./download-side-quest/download-side-quest.component";
@@ -60,6 +61,12 @@ import { PrivacyPolicyComponent } from "./privacy-policy/privacy-policy.componen
 import { SpacesComponent } from "./spaces/spaces.component";
 import { SpaceManagerComponent } from "./space-manager/space-manager.component";
 import { SpaceListingComponent } from "./space-listing/space-listing.component";
+import { SpaceTemplateItemComponent } from "./space-template-item/space-template-item.component";
+import { UserProfileComponent } from "./user-profile/user-profile.component";
+import { FromNowPipe } from "./from-now.pipe";
+import { NotOverNinePipe } from "./not-over-nine.pipe";
+import { EncodeUriPipe } from "./encode-uri.pipe";
+import { RecaptchaModule } from "ng-recaptcha";
 
 @NgModule({
   declarations: [
@@ -96,7 +103,12 @@ import { SpaceListingComponent } from "./space-listing/space-listing.component";
     PrivacyPolicyComponent,
     SpacesComponent,
     SpaceManagerComponent,
-    SpaceListingComponent
+    SpaceListingComponent,
+    SpaceTemplateItemComponent,
+    UserProfileComponent,
+    FromNowPipe,
+    NotOverNinePipe,
+    EncodeUriPipe
   ],
   imports: [
     BrowserModule,
@@ -118,8 +130,10 @@ import { SpaceListingComponent } from "./space-listing/space-listing.component";
     FormsModule,
     ChartsModule,
     MzParallaxModule,
+    MzTextareaModule,
     NgxDaterangepickerMd.forRoot(),
-    LightboxModule
+    LightboxModule,
+    RecaptchaModule
   ],
   providers: [NotLoginGuard, LoginGuard],
   bootstrap: [AppComponent]

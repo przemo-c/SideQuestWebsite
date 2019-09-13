@@ -1,0 +1,17 @@
+<div class="card card-height">
+  <div class="card-image card-image-left waves-effect waves-block waves-light activator"
+       *ngIf="template.image" [ngStyle]="{'background-image':'url(\''+template.image+'\')'}">
+  </div>
+  <div class="card-content" [ngClass]="{'selected-template':template.selected}">
+    <i class="material-icons activator pointer right">more_vert</i>
+    <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':template.image}">{{template.name}}</span>
+    <p class="grey-text description truncate" [ngClass]="{'card-title-small':template.image}">{{template.description}}</p>
+    <div class="right-align">
+      <div class="btn-flat waves-effect waves-light white-text" (click)="open.emit()">select</div>
+    </div>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{template.name}}</span>
+    <p class="grey-text">{{template.description}}</p>
+  </div>
+</div>

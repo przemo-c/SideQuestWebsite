@@ -1,6 +1,10 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit, ViewChild } from "@angular/core";
 import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
-import { EventListing, SpaceListing } from "../account/account.component";
+import {
+  AppListing,
+  EventListing,
+  SpaceListing
+} from "../account/account.component";
 import { Subscription } from "rxjs";
 import { VideObject } from "../app-manager/app-manager.component";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
@@ -17,6 +21,7 @@ import * as uuidv4 from "uuid/v4";
   styleUrls: ["./space-manager.component.css"]
 })
 export class SpaceManagerComponent implements OnInit, OnDestroy {
+  @ViewChild("customTemplate", { static: true }) customTemplate;
   currentApp: SpaceListing & { scenes?: any } = {
     name: "",
     description: "",
@@ -29,79 +34,158 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     share_url: "",
     is_approved: false
   };
+  searchTimeout: any;
+  linkApps: AppListing[];
+  searchString: string;
   sub: Subscription;
   spaces_id: string;
   videoObject: VideObject;
   videoUrl: SafeUrl;
   is_not_found: boolean;
   loading = true;
+  selectedTemplate: any = {};
+  selectedApp: AppListing;
   spaceTemplates = [
     {
       name: "Blank Space",
-      image: "https://cdn.theexpanse.app/file/1301/thisone.png",
+      image: "https://i.imgur.com/TVzpG2B.jpg",
       description: "A blank template to paint your dreams on",
       url: "",
+      skybox: "https://cdn.theexpanse.app/file/2524/6%20copy.jpg",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
       selected: false
     },
     {
-      name: "Aurora",
-      image: "https://cdn.theexpanse.app/file/1119/Untitled-1%20(2).jpg",
-      description:
-        "A beautiful space to enjoy the northern lights with your friends by the campfire!",
-      url:
-        "https://github.com/the-expanse/StaticScenes/releases/download/7.0/tuscany",
+      name: "Custom Space",
+      description: "Create a custom space with your own SideQuest Bundle.",
+      image: "https://i.imgur.com/wIwjdfR.jpg",
+      url: "",
+      skybox: "",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
       selected: false
     },
+    // {
+    //   name: "Aurora",
+    //   image: "https://cdn.theexpanse.app/file/1119/Untitled-1%20(2).jpg",
+    //   description:
+    //     "A beautiful space to enjoy the northern lights with your friends by the campfire!",
+    //   url:
+    //     "https://github.com/the-expanse/StaticScenes/releases/download/7.0/tuscany",
+    //   skybox: 'https://cdn.theexpanse.app/file/2525/2%20copy.jpg',
+    //   spawn: { x: 0, y: 0, z: 0 },
+    //   offset: { x: 0, y: 0, z: 0 },
+    //   attribution: "",
+    //   selected: false
+    // },
     {
       name: "Tuscany",
       image: "https://cdn.theexpanse.app/file/1914/ezgif-5-9db8e0b6238a.jpg",
       description: "A fresh cup of nostalgia!",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/7.0/tuscany",
+      skybox: "https://cdn.theexpanse.app/file/2523/1%20copy.jpg",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
+      attribution: "",
       selected: false
     },
     {
-      name: "Mortuary",
+      name: "Mars One",
       image:
-        "https://cdn.theexpanse.app/file/1944/selfie_2019-08-14_16_44_44.jpg",
-      description: "Come explore what secrets this space holds. ",
+        "https://cdn.theexpanse.app/file/2115/selfie_2019-08-16_20_52_38.jpg",
+      description: "Explore the desolation of lost dreams.",
       url:
-        "https://github.com/the-expanse/StaticScenes/releases/download/5.1/world",
+        "https://github.com/the-expanse/StaticScenes/releases/download/15.0/mars_one",
+      skybox: "",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
+      attribution:
+        "https://sketchfab.com/3d-models/mars-one-mission-base-83ced347037f47aba8473147d65df074",
       selected: false
     },
     {
-      name: "Basement",
+      name: "Tatiana Joo",
       image:
-        "https://cdn.theexpanse.app/file/1948/selfie_2019-08-14_16_57_10.jpg",
+        "https://cdn.theexpanse.app/file/2119/selfie_2019-08-16_20_56_20.jpg",
+      description: "A private interior space to hang out in!",
+      url:
+        "https://github.com/the-expanse/StaticScenes/releases/download/17.0/interior",
+      skybox: "https://cdn.theexpanse.app/file/2524/6%20copy.jpg",
+      spawn: { x: 0, y: 0, z: 0 },
+      offset: { x: 0, y: 0, z: 0 },
+      attribution:
+        "https://sketchfab.com/3d-models/interior-taty-joo-c2f172f4401246d18fa666484939bd67",
+      selected: false
+    },
+    {
+      name: "Khayiminga temple",
+      image:
+        "https://cdn.theexpanse.app/file/2124/selfie_2019-08-16_21_00_49.jpg",
       description:
-        "Batten down the hatches in the doomsday safe underground fortified bunker. " +
-        "Find your way out of the bunker to see daylight again. ",
+        "Bagan - Khayiminga temple interior, an amazing historic space.",
       url:
-        "https://github.com/the-expanse/StaticScenes/releases/download/4.1/world",
+        "https://github.com/the-expanse/StaticScenes/releases/download/16.0/temple",
+      skybox: "https://cdn.theexpanse.app/file/2525/2%20copy.jpg",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
+      attribution:
+        "https://sketchfab.com/3d-models/bagan-khayiminga-temple-interior-4c02614c50c14b00a04367ae6b6e55ad",
       selected: false
     },
     {
-      name: "Low Poly Western",
+      name: "The Isle of Mull",
       image:
-        "https://cdn.theexpanse.app/file/1952/selfie_2019-08-14_17_03_46.jpg",
+        "https://cdn.theexpanse.app/file/2531/selfie_2019-08-16_22_16_12.jpg",
       description:
-        "Come hang out in this awesome western themed space, call someone out of the saloon for a draw! ",
+        "The Isle of Mull or just Mull is the second-largest island of the Inner Hebrides off the west coast of Scotland.",
       url:
-        "https://github.com/the-expanse/StaticScenes/releases/download/3.1/world",
+        "https://github.com/the-expanse/StaticScenes/releases/download/18.0/isle_of_mull",
+      skybox: "https://cdn.theexpanse.app/file/2526/3%20copy.jpg",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
+      attribution:
+        "https://sketchfab.com/3d-models/isle-of-mull-beach-f9d329310f684e2685e3eba703efde93",
       selected: false
     },
+    //
+    // {
+    //   name: "Mortuary",
+    //   image:
+    //     "https://cdn.theexpanse.app/file/1944/selfie_2019-08-14_16_44_44.jpg",
+    //   description: "Come explore what secrets this space holds. ",
+    //   url:
+    //     "https://github.com/the-expanse/StaticScenes/releases/download/5.1/world",
+    //   spawn: { x: 0, y: 0, z: 0 },
+    //   offset: { x: 0, y: 0, z: 0 },
+    //   selected: false
+    // },
+    // {
+    //   name: "Basement",
+    //   image:
+    //     "https://cdn.theexpanse.app/file/1948/selfie_2019-08-14_16_57_10.jpg",
+    //   description:
+    //     "Batten down the hatches in the doomsday safe underground fortified bunker. " +
+    //     "Find your way out of the bunker to see daylight again. ",
+    //   url:
+    //     "https://github.com/the-expanse/StaticScenes/releases/download/4.1/world",
+    //   spawn: { x: 0, y: 0, z: 0 },
+    //   offset: { x: 0, y: 0, z: 0 },
+    //   selected: false
+    // },
+    // {
+    //   name: "Low Poly Western",
+    //   image:
+    //     "https://cdn.theexpanse.app/file/1952/selfie_2019-08-14_17_03_46.jpg",
+    //   description:
+    //     "Come hang out in this awesome western themed space, call someone out of the saloon for a draw! ",
+    //   url:
+    //     "https://github.com/the-expanse/StaticScenes/releases/download/3.1/world",
+    //   spawn: { x: 0, y: 0, z: 0 },
+    //   offset: { x: 0, y: 0, z: 0 },
+    //   selected: false
+    // },
     // {
     //   name: "Abandoned Colony",
     //   image: "https://cdn.theexpanse.app/file/1956/Abandoned%20Colony.jpg",
@@ -117,8 +201,11 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
       description: "Collect all the coins!",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/8.0/peach",
+      skybox: "",
       spawn: { x: 3, y: 11, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
+      attribution:
+        "https://sketchfab.com/3d-models/peach-castle-a21cffbe8b8c4ae9b1614f26f2da8fed",
       selected: false
     },
     {
@@ -127,52 +214,83 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
       description: "A new planet with new possibilities.",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/9.0/wanderers",
+      skybox: "https://cdn.theexpanse.app/file/2527/7-s.jpg",
       spawn: { x: 6, y: 3, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
+      attribution:
+        "https://sketchfab.com/3d-models/wanderers-f9464c725e1d47e482d988d355da4a7a",
+      selected: false
+    },
+    {
+      name: "Giant's Bedroom",
+      image:
+        "https://cdn.theexpanse.app/file/2058/selfie_2019-08-14_23_40_28.jpg",
+      description: "Fe Fi Fo Fum, I smell the blood of an english man.",
+      url:
+        "https://github.com/the-expanse/StaticScenes/releases/download/12.0/giants_bedroom",
+      skybox: "https://cdn.theexpanse.app/file/2529/5%20copy.jpg",
+      spawn: { x: 0, y: 11, z: 0 },
+      offset: { x: 0, y: 0, z: 0 },
+      attribution:
+        "https://sketchfab.com/3d-models/bedroom-869e6ec859a84240b9a099ae829f47fa",
       selected: false
     },
     // {
-    //   name: "Air Ship",
-    //   image: "https://cdn.theexpanse.app/file/1960/selfie_2019-08-14_17_12_31.jpg",
-    //   description: "Float high above with this Airship.",
-    //   url: "https://github.com/the-expanse/StaticScenes/releases/download/10.0/ship_in_clouds",
-    //   spawn: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0},
+    //   name: "Tiny Town",
+    //   image: "https://cdn.theexpanse.app/file/2063/selfie_2019-08-15_00_38_02.jpg",
+    //   description: "Destroy this tiny detailed town.",
+    //   url: "https://github.com/the-expanse/StaticScenes/releases/download/13.0/tiny_town",
+    //   spawn: { x: 0, y: 11, z: 0}, offset: { x: 0, y: 0, z: 0},
     //   selected: false
     // },
     {
-      name: "Abandoned Colony",
+      name: "Air Ship",
       image:
-        "https://cdn.theexpanse.app/file/1960/selfie_2019-08-14_17_12_31.jpg",
-      description:
-        "Explore this abandoned colony, try to find out what happened.",
+        "https://cdn.theexpanse.app/file/2067/selfie_2019-08-15_00_41_14.jpg",
+      description: "Float high above with this Airship.",
       url:
-        "https://github.com/the-expanse/StaticScenes/releases/download/1.1/world",
+        "https://github.com/the-expanse/StaticScenes/releases/download/10.0/ship_in_clouds",
+      skybox: "https://cdn.theexpanse.app/file/2525/2%20copy.jpg",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
-      selected: false
-    },
-    {
-      name: "Unity Junkyard",
-      image:
-        "https://cdn.theexpanse.app/file/1964/selfie_2019-08-14_17_17_47.jpg",
-      description: "See what hidden treasures this junk yard contains!",
-      url:
-        "https://github.com/the-expanse/StaticScenes/releases/download/0.1/mecanimexamplescene",
-      spawn: { x: 0, y: 0, z: 0 },
-      offset: { x: 0, y: 0, z: 0 },
-      selected: false
-    },
-    {
-      name: "J5",
-      image:
-        "https://cdn.theexpanse.app/file/1968/selfie_2019-08-14_17_21_28.jpg",
-      description: "Jonny five is alive and he needs input!",
-      url:
-        "https://github.com/the-expanse/StaticScenes/releases/download/0.0.5/jj5",
-      spawn: { x: 0, y: 0, z: 0 },
-      offset: { x: 0, y: 0, z: 0 },
+      attribution:
+        "https://sketchfab.com/3d-models/ship-in-clouds-c475323dc7f24e26ba2009c08c8e1941",
       selected: false
     }
+    // {
+    //   name: "Abandoned Colony",
+    //   image:
+    //     "https://cdn.theexpanse.app/file/1960/selfie_2019-08-14_17_12_31.jpg",
+    //   description:
+    //     "Explore this abandoned colony, try to find out what happened.",
+    //   url:
+    //     "https://github.com/the-expanse/StaticScenes/releases/download/1.1/world",
+    //   spawn: { x: 0, y: 0, z: 0 },
+    //   offset: { x: 0, y: 0, z: 0 },
+    //   selected: false
+    // },
+    // {
+    //   name: "Unity Junkyard",
+    //   image:
+    //     "https://cdn.theexpanse.app/file/1964/selfie_2019-08-14_17_17_47.jpg",
+    //   description: "See what hidden treasures this junk yard contains!",
+    //   url:
+    //     "https://github.com/the-expanse/StaticScenes/releases/download/0.1/mecanimexamplescene",
+    //   spawn: { x: 0, y: 0, z: 0 },
+    //   offset: { x: 0, y: 0, z: 0 },
+    //   selected: false
+    // },
+    // {
+    //   name: "J5",
+    //   image:
+    //     "https://cdn.theexpanse.app/file/1968/selfie_2019-08-14_17_21_28.jpg",
+    //   description: "Jonny five is alive and he needs input!",
+    //   url:
+    //     "https://github.com/the-expanse/StaticScenes/releases/download/0.0.5/jj5",
+    //   spawn: { x: 0, y: 0, z: 0 },
+    //   offset: { x: 0, y: 0, z: 0 },
+    //   selected: false
+    // }
   ];
   constructor(
     private router: Router,
@@ -198,8 +316,13 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
           this.currentApp.share_url = space.share_url;
           this.currentApp.is_approved = space.is_approved;
           this.currentApp.scenes = space.scenes;
-          console.log(space);
+          this.currentApp.apps_id = space.apps_id;
           this.onVideoChange();
+          if (this.currentApp.apps_id) {
+            this.expanseService
+              .getApp(this.currentApp.apps_id)
+              .then(app => (this.selectedApp = app[0]));
+          }
           this.loading = false;
         } else {
           this.loading = false;
@@ -269,7 +392,12 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
   }
 
   selectTemplate(template) {
+    if (template.name === "Custom Space") {
+      this.customTemplate.openModal();
+    }
+    this.currentApp.image = template.image;
     this.spaceTemplates.forEach(t => (t.selected = false));
+    this.selectedTemplate = template;
     template.selected = true;
   }
 
@@ -281,6 +409,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
         .then(() =>
           this.expanseService.updateSpace({
             spaces_id: this.spaces_id,
+            apps_id: this.currentApp.apps_id,
             name: this.currentApp.name,
             description: this.currentApp.description,
             space_url: this.currentApp.space_url,
@@ -328,24 +457,39 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
         selectedTemplate[0].url;
       scene.settings.space_settings.spawn_point.transform.position =
         selectedTemplate[0].spawn;
+      scene.settings.space_settings.skybox = selectedTemplate[0].skybox;
       scene.children[0].settings.transform.position =
         selectedTemplate[0].offset;
       scene.settings.uuid = uuidv4();
       scene.children[0].settings.uuid = uuidv4();
       scene.settings.name = this.currentApp.name;
+      if (selectedTemplate[0].name === "Blank Space") {
+        scene.children.length = 0;
+      }
       this.expanseService
         .start()
         .then(() => this.expanseService.saveScene(scene, this.currentApp.name))
         .then((r: any) =>
           this.expanseService.createSpace({
             name: this.currentApp.name,
-            description: this.currentApp.description,
+            description:
+              this.currentApp.description +
+              (selectedTemplate[0].attribution
+                ? `
+
+<!-- Please don't delete below this line -->
+<!-- It's important to attribute the artists that were kind enough to allow us to use this content. -->
+<div class="clearfix"></div>
+<a href="${selectedTemplate[0].attribution}"
+  class="btn margin-top waves-effect waves-light pink-button small-button">Author On Sketchfab</a>`
+                : ""),
             space_url: this.currentApp.space_url,
             video_url: this.currentApp.video_url,
             image: this.currentApp.image,
             app_url: this.currentApp.app_url,
             share_url: this.currentApp.share_url,
             scenes: this.currentApp.scenes,
+            apps_id: this.currentApp.apps_id,
             default_scenes_id: r.scenes_id
           })
         )
@@ -367,7 +511,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
 
   deleteSpace() {
     this.expanseService.deleteSpace(this.spaces_id).then(() => {
-      return this.router.navigateByUrl("/account");
+      return this.router.navigateByUrl("/account/spaces-listings");
     });
   }
 
@@ -388,5 +532,23 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
         }
       );
     }
+  }
+
+  debounceSearch() {
+    clearTimeout(this.searchTimeout);
+    this.searchTimeout = setTimeout(() => {
+      this.getApps();
+    }, 750);
+  }
+
+  getApps() {
+    this.expanseService.start().then(() =>
+      this.expanseService
+        .searchMyApps(this.searchString, 0)
+        .then(async (resp: AppListing[]) => {
+          await this.service.fixImages(resp);
+          this.linkApps = resp;
+        })
+    );
   }
 }

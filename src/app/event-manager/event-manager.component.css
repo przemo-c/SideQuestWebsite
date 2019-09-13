@@ -40,3 +40,36 @@
   border: 0 dashed #cfcfcf;
   position:relative;
 }
+
+.card-image-left{
+  height: 100px;
+  float: left;
+  width: 106.236559139px;
+  background-size: cover;
+  background-position: center center;
+  margin-right: 1em;
+}
+
+.card-title-small{
+  width: calc(100% - 200px)!important;
+}
+.card-title.truncate, .description.truncate{
+  width: calc(100% - 50px);
+}
+
+.card-title-small.installed{
+  width: calc(100% - 80px)!important;
+}
+.card-title.truncate, .description.truncate.installed{
+  width: calc(100% - 5px);
+}
+.card-content{
+  background-color: #312249;
+}
+
+.card-height{
+  height: 100px;
+}
+.card-content{
+  padding: 5px;
+}

@@ -80,7 +80,8 @@ export class SpaceTemplates {
             scale: { x: 1 }
           }
         },
-        glow: { enabled: false, scatter: 1, intensity: 1 }
+        glow: { enabled: false, scatter: 1, intensity: 1 },
+        skybox: "https://i.imgur.com/spNutD3.jpg"
       }
     },
     children: [

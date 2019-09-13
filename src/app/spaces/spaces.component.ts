@@ -1,30 +1,45 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ExpanseClientService } from "../expanse-client.service";
 import { AppService } from "../app.service";
 import { SpaceListing } from "../account/account.component";
 import { Subscription } from "rxjs";
-import { Router } from "@angular/router";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 
 @Component({
   selector: "app-spaces",
   templateUrl: "./spaces.component.html",
   styleUrls: ["./spaces.component.css"]
 })
-export class SpacesComponent implements OnInit {
+export class SpacesComponent implements OnInit, OnDestroy {
   spaces: SpaceListing[] = [];
   updateMasonryLayout: boolean = false;
-  isLoading: boolean = false;
+  isLoading: boolean = true;
   hasNoMore: boolean = false;
   page: number = 0;
   isLoaded: boolean;
+  isGridLoaded: boolean = true;
   searchTimeout: any;
   searchString: string;
+  sub: Subscription;
   constructor(
     private expanseService: ExpanseClientService,
     public appService: AppService,
-    public router: Router
+    public router: Router,
+    route: ActivatedRoute
   ) {
+    this.sub = this.router.events.subscribe(async val => {
+      if (val instanceof NavigationEnd) {
+        this.page = Number(route.snapshot.paramMap.get("page"));
+        if (!Number.isInteger(this.page)) {
+          this.page = 0;
+        }
+      }
+    });
     this.getSpaces();
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
   ngOnInit() {}
@@ -50,18 +65,20 @@ export class SpacesComponent implements OnInit {
           space.show_date =
             i === 0 || spaces[i - 1].date_string !== space.date_string;
         });
-        this.appService.fixImages(spaces);
-        this.hasNoMore = !spaces.length;
+        await this.appService.fixImages(spaces);
+        this.hasNoMore = spaces.length < 20;
         let isGrid = this.appService.isGrid;
         if (this.page === 0) {
           this.appService.isGrid = false;
           this.spaces.length = 0;
         }
-        this.isLoading = false;
-        this.spaces = this.spaces.concat(spaces);
         this.isLoaded = true;
+        this.isLoading = false;
+        this.spaces = spaces; // this.spaces.concat(spaces);
         if (this.page === 0) {
-          setTimeout(() => (this.appService.isGrid = isGrid));
+          setTimeout(() => {
+            this.appService.isGrid = isGrid;
+          });
         }
         this.page++;
       });

@@ -120,23 +120,13 @@
           the library under 'Unknown Sources' on the menu on the left. Open it to find all the apps that
           have been installed on your device.
         </div><br>
-        <div class="waves-effect waves-light btn pink-button" (click)="openItem('sidequest://launcher/#')">
-          Install SideQuest Launcher
+        <div class="waves-effect waves-light btn pink-button" *ngIf="launcherDownloadUrl" (click)="openItem('sidequest://sideload/#'+launcherDownloadUrl)">
+          Install QuestAppLauncher
         </div>
         <br><br>
         <div>
-          You will then be able to install apps to your headset and open them from the launcher. You can
-          find it in the side menu of the library under the Unknown Sources section called
-          <span class="chip">SideQuest - TV</span> and <span class="chip">SideQuest - Home</span>.  This will show you all the apps on the device even hidden
-          ones you would otherwise not see.
-        </div><br>
-        <div class="waves-effect waves-light btn pink-button" (click)="openItem('sidequest://sideload/#https://cdn.theexpanse.app/TheExpanse.apk')">
-          Install Your First App - The Expanse
-        </div><br><br>
-        <div>
-          If you want to install your own APK files just drag and drop them over this window.
-        </div>
-        <div>
+          WARNING: Most Apps you install via SideQuest will appear in the Unknown Sources list in your headset ( except for apps also on the store like Virtual Desktop - these appear in the library like normal ). If in doubt use the above launcher, it has all your apps in one place.
+          <br><br>
           Check your antivirus hasn't blocked some parts of the ADB download - this has happened for some
           with Avast antivirus in particular. <br />If you have any problems or want to say hi drop us a
           line on discord - <a href="https://discord.gg/HNnDPSu" class="link">discord</a>.

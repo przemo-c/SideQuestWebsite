@@ -67,7 +67,7 @@
 </div>
 <br><br><br>
 <div class="center-align">
-  <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="getEvents()">Load More</div>
+  <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="appService.scrollToTop()" routerLink="/events/{{page}}">Load More</div>
   <div *ngIf="hasNoMore" class="chip">No more items...</div>
 </div>
 <br><br><br>

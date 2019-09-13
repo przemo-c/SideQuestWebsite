@@ -6,7 +6,7 @@ import { AppService } from "../app.service";
 import { Lightbox } from "ngx-lightbox";
 import { AppCounter, VideObject } from "../app-manager/app-manager.component";
 import { Subscription } from "rxjs";
-import { SpaceListing } from "../account/account.component";
+import { AppListing, SpaceListing } from "../account/account.component";
 import * as urlParser from "../../../node_modules/js-video-url-parser/lib/base";
 
 @Component({
@@ -47,6 +47,7 @@ export class SpaceListingComponent implements OnInit, OnDestroy {
   mySubscription: any;
   futureEvents: any[];
   loading = true;
+  selectedApp: AppListing;
   constructor(
     private router: Router,
     public service: AppService,
@@ -83,6 +84,10 @@ export class SpaceListingComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {}
+
+  backClicked() {
+    (window as any).history.back();
+  }
 
   ngOnDestroy() {
     this.sub.unsubscribe();
@@ -196,6 +201,12 @@ export class SpaceListingComponent implements OnInit, OnDestroy {
         const counters = (await this.expanseService.getSpaceTotals(
           this.spaces_id
         )) as AppCounter[];
+
+        if (this.currentApp.apps_id) {
+          this.expanseService
+            .getApp(this.currentApp.apps_id)
+            .then(app => (this.selectedApp = app[0]));
+        }
         counters.forEach(counter => {
           switch (counter.type) {
             case "view":

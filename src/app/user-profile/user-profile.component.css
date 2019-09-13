@@ -1,0 +1,80 @@
+.move-up{
+  margin-top: -7px;
+}
+.sub-banner{
+  width: calc(100% + 48px);
+  margin-left: -24px;
+  border-top: 1px solid #8f8f8f;
+  margin-top: 0;
+}
+.user-button{
+  width: 80px;
+  text-align: center;
+}
+.user-button img{
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(100% - 20px)
+}
+.user-buttons{
+  float: right;
+  text-align: right;
+  margin-top: 16px;
+  width: 200px;
+}
+.radio-top{
+  white-space: nowrap;
+}
+
+.card-image-left{
+  height: 100px;
+  float: left;
+  width: 106.236559139px;
+  background-size: cover;
+  background-position: center center;
+  margin-right: 1em;
+}
+.open-app-button{
+}
+.change-avatar{
+  margin-top: -80px;
+}
+.card-title-small{
+  width: calc(100% - 300px)!important;
+}
+.card-title.truncate, .description.truncate{
+  width: calc(100% - 50px);
+}
+
+.card-title-small.installed{
+  width: calc(100% - 170px)!important;
+}
+.card-title.truncate, .description.truncate.installed{
+  width: calc(100% - 5px);
+}
+.card-content{
+  background-color: #312249;
+}
+
+.card-height{
+  height: 100px;
+}
+.card-content{
+  padding: 5px;
+}
+
+.search-box{
+  width: 410px;
+}
+
+.back-icon{
+  margin-right: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+
+}
+
+.padding{
+  padding-left: 3em;
+  padding-right: 3em;
+}

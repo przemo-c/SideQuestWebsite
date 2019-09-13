@@ -25,6 +25,12 @@ html,body{
 ::-webkit-scrollbar-thumb {
   background: #ed4e7a;
 }
+.no-padding-left{
+  padding-left:0!important;
+}
+.no-padding-right{
+  padding-right:0!important;
+}
 .no-padding{
   padding:0!important;
 }
@@ -86,6 +92,9 @@ html,body{
   display:inline-block;
 }
 .pink-button{
+  background-color: #ed4e7a!important;
+}
+.new-badge{
   background-color: #ed4e7a!important;
 }
 .circle{
@@ -209,4 +218,118 @@ input[type=range] {
 
 .tall-placeholder{
   height: 525px;
+}
+.default-list{
+  list-style-type: initial!important;
+}
+.top-back{
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#503b73+1,503b73+100&0+0,0.9+60,1+74,1+100 */
+  background: -moz-linear-gradient(top,  rgba(80,59,115,0) 0%, rgba(80,59,115,0.02) 1%, rgba(80,59,115,0.9) 50%, rgba(80,59,115,1) 54%, rgba(80,59,115,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(80,59,115,0) 0%,rgba(80,59,115,0.02) 1%,rgba(80,59,115,0.9) 50%,rgba(80,59,115,1) 54%,rgba(80,59,115,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(80,59,115,0) 0%,rgba(80,59,115,0.02) 1%,rgba(80,59,115,0.9) 50%,rgba(80,59,115,1) 54%,rgba(80,59,115,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00503b73', endColorstr='#503b73',GradientType=0 ); /* IE6-9 */
+  width: calc(100% + 50px);
+  margin-left: -25px;
+  margin-top: -20px;
+  height: 153px;
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  border-left: 1px solid #8f8f8f;
+  border-right: 1px solid #8f8f8f;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.sub-banner .top-button{
+  padding-left: 0.8em;
+  padding-right: 0.8em;
+  font-size: 14px;
+}
+.sub-banner .top-button i{
+  margin-right: 5px;
+}
+.sub-banner::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+.character-counter{
+  color: white;
+}
+
+.back-icon{
+  margin-right: 10px;
+  font-size: 1.2em;
+  cursor: pointer;
+
+}
+.back-icon:focus {outline:0;}
+.block-icon{
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.recapche{
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+@media screen and (max-width: 992px) {
+  .top-back {
+    height: 154px;
+  }
+  .sub-banner .top-button{
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+  }
+  .sub-banner .top-button i{
+    margin-right: 4px;
+  }
+}
+.main-container{
+  position: relative;
+  z-index: 1;
+}
+.bottom-border{
+  border-bottom: 1px solid #8f8f8f;
+}
+
+.sub-banner{
+  background-color: #312249;
+  background-position: top left;
+  background-repeat: no-repeat;
+  height: 38px;
+  width: 100%;
+  margin-top: -7px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #8f8f8f;
+  white-space: nowrap;
+  overflow: auto;
+}
+
+.side-score{
+  font-size: 30px;
+  line-height: 50px;
+  margin-left: 16px;
+}
+.side-score .score{
+  vertical-align: middle;
+  display: inline-block;
+  height: 50px;
+  margin-left: 10px;
+}
+.side-score img{
+  vertical-align: middle;
+  height: 50px;
+}
+.listing-rating{
+  color: white;
+  background-color: #ed4e7a!important;
+  padding: 3px;
+  border-radius: 3px;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}
+.listing-rating i{
+  font-size: 1em;
 }

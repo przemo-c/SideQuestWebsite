@@ -12,6 +12,7 @@ export class TimelineItemComponent implements OnInit {
   @Input() name: string;
   @Input() description: string;
   @Input() image: string;
+  @Input() rating: number;
   @Input() start_time: number;
   @Input() duration: number;
   @Output() open = new EventEmitter();
