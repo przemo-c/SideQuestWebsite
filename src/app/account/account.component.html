@@ -59,7 +59,7 @@
       <label for="searchBox3">Search</label>
     </form>
   </div>
-  <div *ngIf="mainPage === 'apps'&&isDev" class="margin-left">
+  <div *ngIf="mainPage === 'apps'" class="margin-left">
     <div class="chip pointer margin-right menu-chip"
          mz-tooltip tooltip="App that you have installed and an easy update system."
          position="bottom"
@@ -67,7 +67,7 @@
       <i class="material-icons prefix">apps</i>
       App Subscriptions ({{app_totals.app_sub_total}})
     </div>
-    <div class="chip pointer margin-right menu-chip"
+    <div *ngIf="isDev" class="chip pointer margin-right menu-chip"
          mz-tooltip tooltip="App listings on Sidequest for games, apps and mods for Standalone VR headsets."
          position="bottom"
          routerLink="/account/apps-listings">
@@ -98,7 +98,7 @@
       Blocked ({{app_totals.block_total}})
     </div>
   </div>
-  <div *ngIf="mainPage === 'events'&&isDev" class="margin-left">
+  <div *ngIf="mainPage === 'events'" class="margin-left">
     <div class="chip pointer margin-right menu-chip"
          mz-tooltip tooltip="Events you have subscribed to."
          position="bottom"
@@ -106,7 +106,7 @@
       <i class="material-icons prefix">event</i>
       Event Subscriptions ({{app_totals.event_sub_total}})
     </div>
-    <div class="chip pointer margin-right menu-chip"
+    <div *ngIf="isDev" class="chip pointer margin-right menu-chip"
          mz-tooltip tooltip="Events that you are running."
          position="bottom"
          routerLink="/account/events-listings">
@@ -114,7 +114,7 @@
       Event Listings ({{app_totals.event_total}})
     </div>
   </div>
-  <div *ngIf="mainPage === 'spaces'&&isDev" class="margin-left">
+  <div *ngIf="mainPage === 'spaces'" class="margin-left">
     <div class="chip pointer margin-right menu-chip"
          mz-tooltip tooltip="Spaces that you have subscribed to."
          position="bottom"
@@ -122,7 +122,7 @@
       <i class="material-icons prefix">location_on</i>
       Space Subscriptions ({{app_totals.space_sub_total}})
     </div>
-    <div class="chip pointer margin-right menu-chip"
+    <div *ngIf="isDev" class="chip pointer margin-right menu-chip"
          mz-tooltip tooltip="Spaces that you have created."
          position="bottom"
          routerLink="/account/spaces-listings">
