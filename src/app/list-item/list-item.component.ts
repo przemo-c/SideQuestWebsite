@@ -15,6 +15,7 @@ export class ListItemComponent implements OnInit {
   @Input() rating: number;
   @Input() start_time: number;
   @Input() duration: number;
+  @Input() license: string;
   @Output() open = new EventEmitter();
   constructor() {}
 

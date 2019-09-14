@@ -330,6 +330,17 @@ input[type=range] {
   bottom: 8px;
   right: 8px;
 }
+.app-list-license{
+  color: white;
+  background-color: #4f4f4f!important;
+  padding: 3px;
+  padding-bottom: 0;
+  padding-top: 0px;
+  border-radius: 0px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
 .listing-rating i{
   font-size: 1em;
 }

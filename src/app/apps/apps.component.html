@@ -124,6 +124,7 @@
                          [image]="app.image_url"
                          [start_time]="app.created/1000"
                          [rating]="app.rating"
+                         [license]="app.license"
                          [show_date]="app.show_date"
                          [show_date_first]="app.show_date"
                          [hide_time]="true"
@@ -134,6 +135,7 @@
       <app-list-item *ngFor="let app of apps;"
                      [name]="app.name"
                      [rating]="app.rating"
+                     [license]="app.license"
                      [description]="app.summary"
                      [image]="app.image_url"
                      (open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"
@@ -147,6 +149,7 @@
       <ngxMasonryItem class="masonry-item" *ngFor="let app of apps">
         <app-grid-item [name]="app.name"
                        [rating]="app.rating"
+                       [license]="app.license"
                        [description]="app.summary"
                        [image]="app.image_url"
                        (open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"
