@@ -59,7 +59,7 @@
       <h5>App Icon</h5>
       <hr>
       <div class="right-align grey-text">Add an icon - 512px X 512px is a good size.</div>
-      <div #addImage class="add-image" *ngIf="!currentApp.image_url && !is_loading_icon && ((apps_id && expanseService.currentSession.users_id === currentApp.users_id) || !apps_id)" (click)="uploadIcon()">
+      <div #addImage class="add-image" *ngIf="!currentApp.image_url && !is_loading_icon && ((apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id)" (click)="uploadIcon()">
         <i class="material-icons">add</i> Add Image
       </div>
       <div class="loader-cont" *ngIf="uploadService.is_loading_icon">
@@ -95,7 +95,7 @@
       <div class="loader-cont add-screenshot" *ngIf="uploadService.is_loading_screenshot">
         <div class="loader-initial"></div>
       </div>
-      <div #addScreenshot class="add-screenshot" *ngIf="!uploadService.is_loading_screenshot  && ((apps_id && expanseService.currentSession.users_id === currentApp.users_id) || !apps_id)" (click)="uploadScreenshot()">
+      <div #addScreenshot class="add-screenshot" *ngIf="!uploadService.is_loading_screenshot  && ((apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id)" (click)="uploadScreenshot()">
         <i class="material-icons">add</i> Add Screenshot
       </div>
       <img class="responsive-img pointer" *ngFor="let screenshot of screenshots; let i = index" (click)="currentScreenshot = i; manageScreenshot.openModal()" src="{{screenshot}}"/>
@@ -343,7 +343,7 @@
         <!--</div>-->
       </div>
       <br>
-      <div *ngIf="((apps_id && expanseService.currentSession.users_id === currentApp.users_id) || !apps_id)">
+      <div *ngIf="((apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id)">
         <h5>App Urls</h5>
         <hr>
         <div class="right-align grey-text">Input an APK url or select github releases to get the latest releases from github.</div>
