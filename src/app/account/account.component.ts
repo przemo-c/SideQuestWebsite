@@ -313,10 +313,11 @@ export class AccountComponent implements OnInit, OnDestroy {
         this.expanseService,
         "u",
         this.expanseService.currentSession.users_id,
-        this.expanseService.currentSession.name + " on SideQuest",
+        this.expanseService.currentSession.name + " Legend on SideQuest",
         this.expanseService.currentSession.tag_line,
-        this.expanseService.cdnUrl +
-          this.expanseService.currentSession.preview_image,
+        this.expanseService.currentSession.banner_image ||
+          this.expanseService.cdnUrl +
+            this.expanseService.currentSession.preview_image,
         "https://sidequestvr.com/#/user/" +
           this.expanseService.currentSession.users_id
       )
