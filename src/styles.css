@@ -275,7 +275,7 @@ input[type=range] {
 }
 @media screen and (max-width: 992px) {
   .top-back {
-    height: 154px;
+    height: 155px;
   }
   .sub-banner .top-button{
     padding-left: 0.3em;

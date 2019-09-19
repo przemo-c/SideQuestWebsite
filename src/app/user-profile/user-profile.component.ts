@@ -130,6 +130,10 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     });
   }
 
+  openUrl(link: string) {
+    window.location.href = link;
+  }
+
   confirmActionGo() {
     let promise = Promise.resolve({});
     switch (this.actionString) {
