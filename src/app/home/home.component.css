@@ -12,6 +12,9 @@
   margin: 0.5em;
   cursor: pointer;
 }
+.top-margin{
+  margin-top: 18px;
+}
 .tall-image,.small-image,.tall-placeholder{
   height: 350px;
   width: 100%;
