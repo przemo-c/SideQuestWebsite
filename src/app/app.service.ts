@@ -128,6 +128,7 @@ export class AppService {
     if (!this.space_meta[spaces_id]) {
       this.space_meta[spaces_id] = {
         v: 0,
+        ct: 0,
         a: 0,
         l: 0
       };
@@ -139,6 +140,7 @@ export class AppService {
     if (!this.event_meta[events_id]) {
       this.event_meta[events_id] = {
         v: 0,
+        ct: 0,
         a: 0,
         l: 0
       };
@@ -150,6 +152,7 @@ export class AppService {
     if (!this.app_meta[apps_id]) {
       this.app_meta[apps_id] = {
         v: 0,
+        ct: 0,
         d: 0,
         l: 0,
         vc: null

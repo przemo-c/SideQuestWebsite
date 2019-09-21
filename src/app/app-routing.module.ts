@@ -46,6 +46,7 @@ const routes: Routes = [
   },
   { path: "what-is-sidequest", component: WhatIsSideQuestComponent },
   { path: "app/:apps_id", component: AppListingComponent },
+  { path: "app/:apps_id/:clickthrough", component: AppListingComponent },
   { path: "event/:events_id", component: EventListingComponent },
   { path: "event/:events_id/:start_time", component: EventListingComponent },
   {

@@ -135,6 +135,15 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
       pointBorderColor: "#ed4e7a",
       pointHoverBackgroundColor: "#fff",
       pointHoverBorderColor: "#ed4e7a"
+    },
+    {
+      // dark grey
+      backgroundColor: "rgba(205,220,57,0.3)",
+      borderColor: "#cddc39",
+      pointBackgroundColor: "#ed4e7a",
+      pointBorderColor: "#ed4e7a",
+      pointHoverBackgroundColor: "#fff",
+      pointHoverBorderColor: "#ed4e7a"
     }
   ];
   public lineChartLegend = true;
@@ -210,6 +219,17 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           })),
           pointRadius: []
         };
+        const clickthrough = (res || []).filter(
+          count => count.type === "click"
+        );
+        const clickthroughObject = {
+          label: "Click Throughs",
+          data: clickthrough.map(count => ({
+            x: (count.hour_time || count.day_time) * 3600 * 1000,
+            y: count.counter
+          })),
+          pointRadius: []
+        };
         const downloads = (res || []).filter(
           count => count.type === "download"
         );
@@ -277,6 +297,20 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
             i === 0 ? 0 : i === downloadsObject.data.length - 1 ? 0 : 5
           ) as any;
           lineChartData.push(downloadsObject);
+        }
+        if (clickthrough.length > 0 && this.apps_id) {
+          clickthroughObject.data.unshift({
+            y: clickthroughObject.data[0].y,
+            x: this.selectedDate.start.toDate()
+          });
+          clickthroughObject.data.push({
+            y: clickthroughObject.data[clickthroughObject.data.length - 1].y,
+            x: this.selectedDate.end.toDate()
+          });
+          clickthroughObject.pointRadius = clickthroughObject.data.map((d, i) =>
+            i === 0 ? 0 : i === clickthroughObject.data.length - 1 ? 0 : 5
+          ) as any;
+          lineChartData.push(clickthroughObject);
         }
         this.lineChartData = lineChartData;
         this.notEnough = !lineChartData.length;

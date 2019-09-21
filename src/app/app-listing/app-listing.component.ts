@@ -100,6 +100,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   screenshots: string[];
   counters = {
     l: 0,
+    ct: 0,
     v: 0,
     d: 0
   };
@@ -125,6 +126,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   album: IAlbum[] = [];
   app_meta: any;
   stats = {
+    clickthrough: 0,
     view: 0,
     like: 0,
     download: 0
@@ -153,6 +155,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
     this.sub = this.router.events.subscribe(async val => {
       if (val instanceof NavigationEnd) {
         this.apps_id = Number(route.snapshot.paramMap.get("apps_id"));
+        let clickthrough = Number(route.snapshot.paramMap.get("clickthrough"));
         if (!Number.isInteger(this.apps_id)) {
           this.apps_id = null;
         } else {
@@ -162,6 +165,11 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.page = 0;
         this.setupApp()
           .then(() => this.viewApp())
+          .then(() => {
+            if (clickthrough) {
+              return this.clickThroughApp();
+            }
+          })
           .then(() => {
             this.loading = false;
             this.isMine =
@@ -283,6 +291,20 @@ export class AppListingComponent implements OnInit, OnDestroy {
     }
   }
 
+  clickThroughApp() {
+    if (!this.app_meta.ct) {
+      return this.expanseService
+        .appCount("click", this.apps_id)
+        .then((res: any) => {
+          if (!res.error) {
+            this.service.app_meta[this.apps_id].ct = 1;
+            this.counters.ct++;
+            this.service.saveAppMeta();
+          }
+        });
+    }
+  }
+
   viewApp() {
     if (!this.app_meta.v) {
       return this.expanseService
@@ -390,6 +412,9 @@ export class AppListingComponent implements OnInit, OnDestroy {
         )) as AppCounter[];
         counters.forEach(counter => {
           switch (counter.type) {
+            case "click":
+              this.counters.ct = counter.counter;
+              break;
             case "view":
               this.counters.v = counter.counter;
               break;

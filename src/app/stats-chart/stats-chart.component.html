@@ -22,7 +22,7 @@
 <h5 class="left metrics-title">{{name}} {{events_id?'Event':spaces_id?'Space':'App'}} Metrics</h5>
 <div class="clearfix"></div>
 <hr>
-<div class="right-align grey-text">View the historical unique views and {{events_id?'attending':spaces_id?'visitors':'downloads'}} for your {{events_id?'event':spaces_id?'space':'app or specific app versions'}}.</div>
+<div class="right-align grey-text">View the historical unique views{{events_id?' and attending':spaces_id?' and visitors':', downloads and feature click throughs'}} for your {{events_id?'event':spaces_id?'space':'app or specific app versions'}}.</div>
 {{getTopDate(false)|date:'mediumDate'}}
 <div class="right">
   {{getTopDate(true)|date:'mediumDate'}}

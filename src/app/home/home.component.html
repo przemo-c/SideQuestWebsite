@@ -35,31 +35,28 @@
     </ng-container>
     <ng-container *ngIf="firstNews">
 
-      <!--<div class="col s12">-->
-        <!--<div class="tall-image" [ngStyle]="{'background-image':'url(https://yur.fit/assets/images/bg.jpg)'}">-->
-          <!--<app-over-image [firstNews]="{}" (output)="openItem(firstNews[0].url)"></app-over-image>-->
-        <!--</div>-->
-      <!--</div>-->
-      <div class="col s12 m6">
+      <div class="col s12">
         <div class="tall-image" [ngStyle]="{'background-image':'url(\''+firstNews[0].image+'\')'}">
           <app-over-image [firstNews]="firstNews[0]" (output)="openItem(firstNews[0].url)"></app-over-image>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="tall-image" [ngStyle]="{'background-image':'url(\''+firstNews[1].image+'\')'}">
+          <app-over-image [firstNews]="firstNews[1]" (output)="openItem(firstNews[1].url)"></app-over-image>
         </div>
       </div>
       <div class="col s12 m6">
         <!--<div class="small-image" [ngStyle]="{'background-image':'url(\''+expanseNews.image+'\')'}">-->
           <!--<app-over-image [firstNews]="expanseNews" (output)="openItem(expanseNews.url)"></app-over-image>-->
         <!--</div>-->
-        <div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[1].image+'\')'}">
-          <app-over-image [firstNews]="firstNews[1]" (output)="openItem(firstNews[1].url)"></app-over-image>
-        </div>
         <div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[2].image+'\')'}">
           <app-over-image [firstNews]="firstNews[2]" (output)="openItem(firstNews[2].url)"></app-over-image>
         </div>
+        <div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[3].image+'\')'}">
+          <app-over-image [firstNews]="firstNews[3]" (output)="openItem(firstNews[3].url)"></app-over-image>
+        </div>
 
       </div>
-      <div class="col s6 m3"><div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[3].image+'\')'}">
-        <app-over-image [firstNews]="firstNews[3]" (output)="openItem(firstNews[3].url)"></app-over-image>
-      </div></div>
       <div class="col s6 m3"><div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[4].image+'\')'}">
         <app-over-image [firstNews]="firstNews[4]" (output)="openItem(firstNews[4].url)"></app-over-image>
       </div></div>
@@ -68,6 +65,9 @@
       </div></div>
       <div class="col s6 m3"><div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[6].image+'\')'}">
         <app-over-image [firstNews]="firstNews[6]" (output)="openItem(firstNews[6].url)"></app-over-image>
+      </div></div>
+      <div class="col s6 m3"><div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[7].image+'\')'}">
+        <app-over-image [firstNews]="firstNews[7]" (output)="openItem(firstNews[7].url)"></app-over-image>
       </div></div>
     </ng-container>
   </div>
