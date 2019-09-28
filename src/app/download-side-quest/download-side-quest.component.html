@@ -15,20 +15,64 @@
       Donate on Paypal
     </span>
   </div>
-  <h4>Download the latest SideQuest!</h4>
+
+  <h4>Download SideQuest</h4>
   <hr>
-  <br><br>
+
   <div class="row">
     <div class="col s12 m6">
-      <app-download-box></app-download-box>
-      <br><br><br>
-      <h5>Total Downloads ( All Releases ): {{total_downloads | number:'1.0-0'}}</h5>
+      <br>
+      <div class="top-image z-depth-3" [ngStyle]="{'background-image':'url(/assets/images/sidequest.png)'}"></div>
+      <br>
+      <h4>SideQuest Store</h4>
+      <hr>
+      <div class="right-align grey-text" *ngIf="last_updated_at">Latest Release {{last_updated_at|fromNow}}. Total Downloads ( All Releases ): {{total_downloads_sidequest | number:'1.0-0'}}<br><br></div>
+      Grab this to get games on your headset like Crisis VRigade, Deisim, Tea for God and tonnes more! If its streaming your after then there is no other place to get all the best streaming apps on Oculus Quest, Virtual Desktop, ALVR and RiftCat all on SideQuest.
     </div>
     <div class="col s12 m6">
-      <h5>Guide to Downloads</h5>
-      <p>For <span class="chip">Windows 8</span> and above, it is recommended to download the Setup <span class="chip">EXE</span> file. Alternately, you may download the ZIP file, which contains the same contents without an installer. For 32bit there is a zip marked <span class="chip">IA32-WIN.ZIP</span>. Windows 7 is not fully supported.</p>
-      <p>For users of <span class="chip">OS X / macOS 10.12+</span>, the <span class="chip">DMG</span> file is the recommended option. Alternately, you may download the ZIP file. For both files, once downloaded, double-click and move the SideQuest application to your Applications folder.</p>
-      <p><span class="chip">Linux</span> users, you can download the <span class="chip">TAR.XZ</span> file. You may need to install additional packages from your OS. The names of these packages will vary depending on the distribution you are using.</p>
+      <br>
+      <div class="top-image z-depth-3" [ngStyle]="{'background-image':'url(https://cdn.theexpanse.app/file/2876/Logo-Mockup.jpg)'}"></div>
+      <br>
+      <h4>SideQuest Legends</h4>
+      <hr>
+      <div class="right-align grey-text" *ngIf="sideQuestApps.length">Latest Release {{sideQuestApps[0].updated_at|fromNow}}. Total Downloads ( All Releases ): {{total_downloads | number:'1.0-0'}}<br><br></div>
+      Download the SideQuest Legends Gaming Platform available for most major VR headsets.
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col s12 m6">
+      <app-download-box (last_update)="last_updated_at=$event"></app-download-box>
+      <br><br>
+
+      <h5>Legacy SideQuest Downloads</h5>
+      <hr>
+      <div class="right-align grey-text">Legacy Downloads on github.com<br><br></div>
+
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Legacy Downloads</span>
+          <div class="download-buttons">
+            <div class="btn pink-button waves-effect waves-light" (click)="openUrl('https://github.com/the-expanse/SideQuest/releases/latest')">Legacy Downloads on Github</div> <br>
+            <i>Legacy Release Download Page</i><br><br>
+          </div>
+          <p>For <span class="chip">32 bit Windows</span> and <span class="chip">Portable ZIP</span> users, you can find the install packages on our github page.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m6">
+      <div class="card" *ngFor="let asset of sideQuestApps">
+        <div class="card-content">
+          <div *ngIf="asset.name.indexOf('.exe')===-1" routerLink="/app/12/1" (click)="appService.scrollToTop()" class="right waves-effect waves-light btn pink-button small-button">SideQuest Store Page</div>
+          <span class="card-title">{{asset.name.indexOf('.exe')>-1?'Steam / Rift / Windows 2D':'Quest & Go on Android'}}</span>
+          <div class="download-buttons">
+            <div (click)="openUrl(asset.browser_download_url)" class="waves-effect waves-light btn pink-button">{{asset.name}}</div> <br>
+            <i>{{asset.size / 1024 / 1024 | number:'1.1-2'}}MB / {{(+asset.download_count) | number}} downloads</i><br><br>
+          </div>
+          <p *ngIf="asset.name.indexOf('.exe')>-1">For <span class="chip"><img src="/assets/images/social/Steam Page.png"/>Steam</span>, <span class="chip"><img src="/assets/images/social/Oculus Rift Listing.png"/>Rift</span> and 2D mode on <span class="chip">Windows</span>, it is necessary to download the Setup <span class="chip">SIDEQUESTLEGENDS.EXE</span> file. Windows Mixed Reality is not fully supported. Windows 7 is not fully supported.</p>
+          <p *ngIf="asset.name.indexOf('.exe')===-1">For users of <span class="chip"><img src="/assets/images/social/Oculus Go Listing.png"/>Oculus Go</span> or <span class="chip"><img src="/assets/images/social/Oculus Quest Listing.png"/>Oculus Quest</span>, it is necessary to download the Setup <span class="chip">SIDEQUESTLEGENDS.APK</span> file.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

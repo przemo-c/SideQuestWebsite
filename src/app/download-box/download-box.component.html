@@ -12,8 +12,9 @@
     <span class="card-title">Windows</span>
     <div class="download-buttons" *ngFor="let asset of assetsWindows">
       <div (click)="openUrl(asset.browser_download_url)" class="waves-effect waves-light btn pink-button">{{asset.name}}</div> <br>
-      <i>{{asset.size / 1024 / 1024 | number:'1.1-2'}}MB / {{asset.download_count}} downloads</i><br><br>
+      <i>{{asset.size / 1024 / 1024 | number:'1.1-2'}}MB / {{asset.download_count | number}} downloads</i><br><br>
     </div>
+    <p>For <span class="chip">Windows 8</span> and above, it is recommended to download the Setup <span class="chip">EXE</span> file. Windows 7 is not fully supported.</p>
   </div>
 </div>
 
@@ -24,6 +25,7 @@
       <div (click)="openUrl(asset.browser_download_url)" class="waves-effect waves-light btn pink-button">{{asset.name}}</div> <br>
       <i>{{asset.size / 1024 / 1024 | number:'1.1-2'}}MB / {{asset.download_count}} downloads</i><br><br>
     </div>
+    <p>For users of <span class="chip">OS X / macOS 10.12+</span>, the <span class="chip">DMG</span> file is the recommended option.</p>
   </div>
 </div>
 
@@ -34,5 +36,8 @@
         <div (click)="openUrl(asset.browser_download_url)" class="waves-effect waves-light btn pink-button">{{asset.name}}</div> <br>
         <i>{{asset.size / 1024 / 1024 | number:'1.1-2'}}MB / {{asset.download_count}} downloads</i><br><br>
       </div>
+    <p>For <span class="chip">Linux</span> users, you can download the <span class="chip">TAR.XZ</span> file. <br>You may need to install additional packages from your OS. The names of these packages will vary depending on the distribution you are using.</p>
   </div>
 </div>
+
+
