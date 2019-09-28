@@ -28,20 +28,7 @@
       <hr>
       <div class="right-align grey-text" *ngIf="last_updated_at">Latest Release {{last_updated_at|fromNow}}. Total Downloads ( All Releases ): {{total_downloads_sidequest | number:'1.0-0'}}<br><br></div>
       Grab this to get games on your headset like Crisis VRigade, Deisim, Tea for God and tonnes more! If its streaming your after then there is no other place to get all the best streaming apps on Oculus Quest, Virtual Desktop, ALVR and RiftCat all on SideQuest.
-    </div>
-    <div class="col s12 m6">
-      <br>
-      <div class="top-image z-depth-3" [ngStyle]="{'background-image':'url(https://cdn.theexpanse.app/file/2876/Logo-Mockup.jpg)'}"></div>
-      <br>
-      <h4>SideQuest Legends</h4>
-      <hr>
-      <div class="right-align grey-text" *ngIf="sideQuestApps.length">Latest Release {{sideQuestApps[0].updated_at|fromNow}}. Total Downloads ( All Releases ): {{total_downloads | number:'1.0-0'}}<br><br></div>
-      Download the SideQuest Legends Gaming Platform available for most major VR headsets.
-    </div>
-  </div>
-  <div class="clearfix"></div>
-  <div class="row">
-    <div class="col s12 m6">
+
       <app-download-box (last_update)="last_updated_at=$event"></app-download-box>
       <br><br>
 
@@ -61,6 +48,13 @@
       </div>
     </div>
     <div class="col s12 m6">
+      <br>
+      <div class="top-image z-depth-3" [ngStyle]="{'background-image':'url(https://cdn.theexpanse.app/file/2876/Logo-Mockup.jpg)'}"></div>
+      <br>
+      <h4>SideQuest Legends</h4>
+      <hr>
+      <div class="right-align grey-text" *ngIf="sideQuestApps.length">Latest Release {{sideQuestApps[0].updated_at|fromNow}}. Total Downloads ( All Releases ): {{total_downloads | number:'1.0-0'}}<br><br></div>
+      Download the SideQuest Legends Gaming Platform available for most major VR headsets.
       <div class="card" *ngFor="let asset of sideQuestApps">
         <div class="card-content">
           <div *ngIf="asset.name.indexOf('.exe')===-1" routerLink="/app/12/1" (click)="appService.scrollToTop()" class="right waves-effect waves-light btn pink-button small-button">SideQuest Store Page</div>
