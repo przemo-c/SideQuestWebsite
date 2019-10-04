@@ -129,6 +129,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   openItem(url: string) {
+    this.appService.scrollToTop();
     window.location.href = url;
   }
 

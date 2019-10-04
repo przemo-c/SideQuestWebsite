@@ -51,6 +51,7 @@
       All
     </div>
   </div>
+
   <div *ngIf="category == 4">
     <div class="chip pointer margin-right menu-chip"
          mz-tooltip tooltip="Back to top."
@@ -101,6 +102,13 @@
       <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
       BS Menu Titles
     </div>
+
+  </div>
+  <div *ngIf="category == 4">
+    <br>
+    <div class="chip orange white-text full-width">WARNING: BeatOn is no longer officially supported. See <a href="https://www.reddit.com/r/OculusQuest/comments/dddjb9/beaton_support_ending_illicit_mods_are_now/" target="_blank">here</a> for more information.</div>
+    <br>
+    <div class="clearfix"></div>
   </div>
   <ng-container *ngIf="isLoading">
     <div class="center-align">
