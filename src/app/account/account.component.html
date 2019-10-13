@@ -201,6 +201,11 @@
               </textarea>
               <label for="description" class="active">Bio</label>
             </div>
+            <div class="input-field" style="display: none">
+              <i class="material-icons prefix">palette</i>
+              <input id="profile_color" name="tag_line" type="text" placeholder="Profile Color Hex..." [(ngModel)]="expanseService.currentSession.profile_color">
+              <label for="profile_color" class="active">Profile Color</label>
+            </div>
           </form>
           <div class="col s12 m5">
             <div *ngIf="expanseService.currentSession.public_profile" class="btn right waves-effect waves-light pink-button small-button" routerLink="/user/{{expanseService.currentSession.users_id}}" (click)="appService.scrollToTop()">View Profile</div>

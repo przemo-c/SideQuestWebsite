@@ -86,6 +86,7 @@ export interface AppListing {
   views?: number;
   counters?: any;
   rating?: number;
+  num_of_reviews?: number;
 }
 export interface EventListing {
   name: string;
@@ -657,6 +658,7 @@ export class AccountComponent implements OnInit, OnDestroy {
           this.expanseService.currentSession.name,
           this.expanseService.currentSession.email,
           this.expanseService.currentSession.tag_line,
+          this.expanseService.currentSession.profile_color,
           this.expanseService.currentSession.bio,
           this.expanseService.currentSession.donate_url
         )

@@ -633,6 +633,9 @@ export class ExpanseClientService {
   getFriends(page, search) {
     return this.emit("friends", { page, search });
   }
+  getLegends() {
+    return this.emit("list-legends", {});
+  }
   addFriend(userId) {
     return this.emit("add-friend", { userId });
   }
@@ -714,11 +717,12 @@ export class ExpanseClientService {
   getUserCurrentSpace(users_id) {
     return this.emit("get-user-current-space", { users_id });
   }
-  saveUserDetails(name, email, tag_line, bio, donate_url) {
+  saveUserDetails(name, email, tag_line, profile_color, bio, donate_url) {
     return this.emit("save-user-details", {
       name,
       email,
       tag_line,
+      profile_color,
       bio,
       donate_url
     });

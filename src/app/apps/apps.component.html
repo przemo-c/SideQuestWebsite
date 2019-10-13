@@ -1,8 +1,9 @@
 <div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
   <app-listing-modes [show_sort]="!appService.isTimeline"
-                     (recent)="isRecent = true; isRating = false; page = 0; getApps()"
-                     (name)="isRecent = false; isRating = false; page = 0; getApps()"
-                     (rating)="isRecent = false; isRating = true; page = 0; getApps()"></app-listing-modes>
+                     (recent)="isRecent = true; isRating = false; isDownloads = false; page = 0; getApps()"
+                     (name)="isRecent = false; isRating = false; isDownloads = false; page = 0; getApps()"
+                     (rating)="isRecent = false; isRating = true; isDownloads = false; page = 0; getApps()"
+                     (download)="isRecent = false; isRating = false; isDownloads = true; page = 0; getApps()"></app-listing-modes>
   <h4 class="inline-block">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 3 ? 'NSFW' : 'Apps'}}</h4>
   <hr class="grey">
   <div class="right search-box input-field">
@@ -61,42 +62,42 @@
       Back To Games
     </div>
     <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         mz-tooltip tooltip="BMBF Mods for quest."
          position="bottom"
          routerLink="/apps/4/beaton">
-      <img src="https://cdn.theexpanse.app/file/1124/BeatOnIcon.png"/>
-      BeatOn
+      <img src="assets/images/BMBF.png"/>
+      BMBF
     </div>
     <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         mz-tooltip tooltip="Firefox Reality mods for quest."
          position="bottom"
          routerLink="/apps/4/firefox">
       <img src="https://i.imgur.com/ccwZwxX.jpg"/>
       Firefox Reality
     </div><br>
     <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         mz-tooltip tooltip="Sabers."
          position="bottom"
          routerLink="/apps/4/saber">
       <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
       BS Sabers
     </div>
     <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         mz-tooltip tooltip="Saber Trails."
          position="bottom"
          routerLink="/apps/4/sabertrail">
       <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
       BS Saber Trails
     </div>
     <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         mz-tooltip tooltip="Platforms."
          position="bottom"
          routerLink="/apps/4/platform">
       <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
       BS Platforms
     </div>
     <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Official VR Games for Go and Quest."
+         mz-tooltip tooltip="Menu Titles."
          position="bottom"
          routerLink="/apps/4/menutitle">
       <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
@@ -104,12 +105,12 @@
     </div>
 
   </div>
-  <div *ngIf="category == 4">
-    <br>
-    <div class="chip orange white-text full-width">WARNING: BeatOn is no longer officially supported. See <a href="https://www.reddit.com/r/OculusQuest/comments/dddjb9/beaton_support_ending_illicit_mods_are_now/" target="_blank">here</a> for more information.</div>
-    <br>
-    <div class="clearfix"></div>
-  </div>
+  <!--<div *ngIf="category == 4">-->
+    <!--<br>-->
+    <!--<div class="chip orange white-text full-width">WARNING: BeatOn is no longer officially supported. See <a href="https://www.reddit.com/r/OculusQuest/comments/dddjb9/beaton_support_ending_illicit_mods_are_now/" target="_blank">here</a> for more information.</div>-->
+    <!--<br>-->
+    <!--<div class="clearfix"></div>-->
+  <!--</div>-->
   <ng-container *ngIf="isLoading">
     <div class="center-align">
       <div class="tall-placeholder relative">
@@ -132,6 +133,8 @@
                          [image]="app.image_url"
                          [start_time]="app.created/1000"
                          [rating]="app.rating"
+                         [number_of_rating]="app.number_of_rating"
+                         [downloads]="app.downloads"
                          [license]="app.license"
                          [show_date]="app.show_date"
                          [show_date_first]="app.show_date"
@@ -143,6 +146,8 @@
       <app-list-item *ngFor="let app of apps;"
                      [name]="app.name"
                      [rating]="app.rating"
+                     [number_of_rating]="app.number_of_rating"
+                     [downloads]="app.downloads"
                      [license]="app.license"
                      [description]="app.summary"
                      [image]="app.image_url"
@@ -150,20 +155,20 @@
       ></app-list-item>
     </div>
 
-    <ngx-masonry class="masonry-layout"
-                 *ngIf="appService.isGrid&&!appService.isTimeline"
-                 [updateLayout]="updateMasonryLayout"
-                 [options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">
-      <ngxMasonryItem class="masonry-item" *ngFor="let app of apps">
+    <div class="row"
+                 *ngIf="appService.isGrid&&!appService.isTimeline">
+      <div class="col s6 l3" *ngFor="let app of apps">
         <app-grid-item [name]="app.name"
                        [rating]="app.rating"
+                       [number_of_rating]="app.number_of_rating"
+                       [downloads]="app.downloads"
                        [license]="app.license"
                        [description]="app.summary"
                        [image]="app.image_url"
                        (open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"
         ></app-grid-item>
-      </ngxMasonryItem>
-    </ngx-masonry>
+      </div>
+    </div>
   </div>
 </div>
 <br><br><br>

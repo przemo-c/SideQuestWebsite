@@ -24,6 +24,7 @@ export class AppsComponent implements OnInit, OnDestroy {
   searchTimeout: any;
   isRecent = true;
   isRating = false;
+  isDownloads = false;
   tag: string;
   searchTags: Materialize.AutoCompleteOptions;
   autocompleteOptions: Materialize.AutoCompleteOptions = {
@@ -93,17 +94,23 @@ export class AppsComponent implements OnInit, OnDestroy {
         .searchApps(
           this.searchString,
           this.page,
-          this.isRecent ? "created" : this.isRating ? "rating" : "name",
-          this.isRecent || this.isRating ? "desc" : "asc",
+          this.isDownloads
+            ? "downloads"
+            : this.isRecent
+            ? "created"
+            : this.isRating
+            ? "rating"
+            : "name",
+          this.isRecent || this.isRating || this.isDownloads ? "desc" : "asc",
           this.category,
           this.tag
         )
         .then(async (resp: AppListing[]) => {
-          await this.appService.fixImages(resp);
+          this.appService.fixImages(resp);
           this.hasNoMore = resp.length < 20;
-          let isGrid = this.appService.isGrid;
+          // let isGrid = this.appService.isGrid;
           if (this.page === 0) {
-            this.appService.isGrid = false;
+            // this.appService.isGrid = false;
             this.apps.length = 0;
           }
           this.isLoading = false;
@@ -117,14 +124,14 @@ export class AppsComponent implements OnInit, OnDestroy {
           });
           // this.updateMasonryLayout = true;
           this.isLoaded = true;
-          if (this.page === 0) {
-            setTimeout(() => {
-              this.appService.isGrid = isGrid;
-              setTimeout(() => {
-                this.updateMasonryLayout = true;
-              }, 250);
-            });
-          }
+          // if (this.page === 0) {
+          //   setTimeout(() => {
+          //     this.appService.isGrid = isGrid;
+          //     setTimeout(() => {
+          //       this.updateMasonryLayout = true;
+          //     }, 250);
+          //   });
+          // }
           this.page++;
 
           resp.forEach(app => {

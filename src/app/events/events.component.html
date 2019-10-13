@@ -46,11 +46,9 @@
       ></app-list-item>
     </div>
 
-    <ngx-masonry class="masonry-layout"
-                 *ngIf="appService.isGrid&&!appService.isTimeline"
-                 [updateLayout]="updateMasonryLayout"
-                 [options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">
-      <ngxMasonryItem class="masonry-item" *ngFor="let event of events; let i = index">
+    <div class="row"
+                 *ngIf="appService.isGrid&&!appService.isTimeline">
+      <div class="col s6 l3" *ngFor="let event of events; let i = index">
         <app-grid-item
           [name]="event.event_name||event.name"
           [description]="event.event_description||event.description"
@@ -61,8 +59,8 @@
           [duration]="event.event_duration"
           (open)="router.navigateByUrl('/event/'+event.events_id+'/'+event.start_time);appService.scrollToTop()"
         ></app-grid-item>
-      </ngxMasonryItem>
-    </ngx-masonry>
+      </div>
+    </div>
   </div>
 </div>
 <br><br><br>

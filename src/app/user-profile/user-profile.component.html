@@ -210,31 +210,31 @@
             <p>{{currentUser.created|date}}</p>
           </div>
           <br><br>
-          <h5>Home Space</h5>
-          <hr>
-          <div class="right-align grey-text">{{currentUser.name}}'s default home space in SideQuestVR.</div>
-          <div *ngIf="selectedSpace">
-            <div class="card card-height">
-              <div class="card-image card-image-left waves-effect waves-block waves-light"
-                   *ngIf="selectedSpace.image" [ngStyle]="{'background-image':'url(\''+(selectedSpace.image)+'\')'}">
-              </div>
-              <div class="card-content card-height">
-                <i class="material-icons activator pointer right">more_vert</i>
-                <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.name||'No Name...'}}</span>
-                <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.description}}</p>
-                <div class="right-align">
-                <span class="chip left white-text"
-                      [ngClass]="{'pink-button': selectedSpace.is_approved, 'orange': !selectedSpace.is_approved}">
-                {{selectedSpace.is_approved ? 'Published' : 'Pending'}}
-                </span>
-                </div>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedSpace.name||'No Name...'}}</span>
-                <p class="grey-text">{{selectedSpace.description}}</p>
-              </div>
-            </div>
-          </div>
+          <!--<h5>Home Space</h5>-->
+          <!--<hr>-->
+          <!--<div class="right-align grey-text">{{currentUser.name}}'s default home space in SideQuestVR.</div>-->
+          <!--<div *ngIf="selectedSpace">-->
+            <!--<div class="card card-height">-->
+              <!--<div class="card-image card-image-left waves-effect waves-block waves-light"-->
+                   <!--*ngIf="selectedSpace.image" [ngStyle]="{'background-image':'url(\''+(selectedSpace.image)+'\')'}">-->
+              <!--</div>-->
+              <!--<div class="card-content card-height">-->
+                <!--<i class="material-icons activator pointer right">more_vert</i>-->
+                <!--<span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.name||'No Name...'}}</span>-->
+                <!--<p class="grey-text description truncate installed" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.description}}</p>-->
+                <!--<div class="right-align">-->
+                <!--<span class="chip left white-text"-->
+                      <!--[ngClass]="{'pink-button': selectedSpace.is_approved, 'orange': !selectedSpace.is_approved}">-->
+                <!--{{selectedSpace.is_approved ? 'Published' : 'Pending'}}-->
+                <!--</span>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="card-reveal">-->
+                <!--<span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedSpace.name||'No Name...'}}</span>-->
+                <!--<p class="grey-text">{{selectedSpace.description}}</p>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
         </div>
       </div>
     </div>

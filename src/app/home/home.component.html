@@ -101,11 +101,11 @@
                [updateLayout]="updateMasonryLayout"
                [options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">
     <ngxMasonryItem class="masonry-item" *ngFor="let newsItem of news">
-      <app-grid-item [name]="newsItem.title"
+      <app-mason-item [name]="newsItem.title"
                      [description]="newsItem.description"
                      [image]="newsItem.image"
                      (open)="openItem(newsItem.url)"
-      ></app-grid-item>
+      ></app-mason-item>
     </ngxMasonryItem>
   </ngx-masonry>
 </div>

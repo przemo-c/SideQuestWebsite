@@ -24,9 +24,11 @@ import { SpacesComponent } from "./spaces/spaces.component";
 import { SpaceManagerComponent } from "./space-manager/space-manager.component";
 import { SpaceListingComponent } from "./space-listing/space-listing.component";
 import { UserProfileComponent } from "./user-profile/user-profile.component";
+import { LegendsListComponent } from "./legends-list/legends-list.component";
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
+  { path: "legends", component: LegendsListComponent },
   { path: "download", component: DownloadSideQuestComponent },
   { path: "privacy", component: PrivacyPolicyComponent },
   {

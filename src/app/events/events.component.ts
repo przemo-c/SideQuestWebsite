@@ -66,25 +66,25 @@ export class EventsComponent implements OnInit, OnDestroy {
           event.show_date =
             i === 0 || events[i - 1].date_string !== event.date_string;
         });
-        await this.appService.fixImages(events);
+        this.appService.fixImages(events);
         this.hasNoMore = !events.length;
-        let isGrid = this.appService.isGrid;
+        // let isGrid = this.appService.isGrid;
         if (this.page === 0) {
-          this.appService.isGrid = false;
+          // this.appService.isGrid = false;
           this.events.length = 0;
         }
         this.isLoading = false;
         this.events = events; // this.events.concat(events);
         // this.updateMasonryLayout = true;
         this.isLoaded = true;
-        if (this.page === 0) {
-          setTimeout(() => {
-            this.appService.isGrid = isGrid;
-            setTimeout(() => {
-              this.updateMasonryLayout = true;
-            }, 250);
-          });
-        }
+        // if (this.page === 0) {
+        //   setTimeout(() => {
+        //     this.appService.isGrid = isGrid;
+        //     setTimeout(() => {
+        //       this.updateMasonryLayout = true;
+        //     }, 250);
+        //   });
+        // }
         this.page++;
       });
   }

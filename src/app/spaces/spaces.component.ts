@@ -65,21 +65,21 @@ export class SpacesComponent implements OnInit, OnDestroy {
           space.show_date =
             i === 0 || spaces[i - 1].date_string !== space.date_string;
         });
-        await this.appService.fixImages(spaces);
+        this.appService.fixImages(spaces);
         this.hasNoMore = spaces.length < 20;
-        let isGrid = this.appService.isGrid;
+        // let isGrid = this.appService.isGrid;
         if (this.page === 0) {
-          this.appService.isGrid = false;
+          // this.appService.isGrid = false;
           this.spaces.length = 0;
         }
         this.isLoaded = true;
         this.isLoading = false;
         this.spaces = spaces; // this.spaces.concat(spaces);
-        if (this.page === 0) {
-          setTimeout(() => {
-            this.appService.isGrid = isGrid;
-          });
-        }
+        // if (this.page === 0) {
+        //   setTimeout(() => {
+        //     this.appService.isGrid = isGrid;
+        //   });
+        // }
         this.page++;
       });
   }

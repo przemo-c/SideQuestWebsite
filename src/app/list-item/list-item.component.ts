@@ -11,6 +11,8 @@ export class ListItemComponent implements OnInit {
   @Input() hide_time: boolean;
   @Input() name: string;
   @Input() description: string;
+  @Input() number_of_rating: number;
+  @Input() downloads: number;
   @Input() image: string;
   @Input() rating: number;
   @Input() start_time: number;

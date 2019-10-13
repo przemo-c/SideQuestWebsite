@@ -43,20 +43,18 @@
       ></app-list-item>
     </div>
 
-    <ngx-masonry class="masonry-layout"
+    <div class="row"
                  [ngClass]="{'hide-masonry' : !isGridLoaded}"
-                 *ngIf="appService.isGrid&&!appService.isTimeline"
-                 [updateLayout]="updateMasonryLayout"
-                 [options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">
-      <ngxMasonryItem class="masonry-item" *ngFor="let space of spaces; let i = index">
+                 *ngIf="appService.isGrid&&!appService.isTimeline">
+      <div class="col s6 l3" *ngFor="let space of spaces; let i = index">
         <app-grid-item
           [name]="space.name"
           [description]="space.description"
           [image]="space.image"
           (open)="router.navigateByUrl('/space/'+space.spaces_id);appService.scrollToTop()"
         ></app-grid-item>
-      </ngxMasonryItem>
-    </ngx-masonry>
+      </div>
+    </div>
   </div>
 </div>
 <br><br><br>

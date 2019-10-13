@@ -1,11 +1,14 @@
 <div class="card card-height">
   <div class="card-image card-image-left waves-effect waves-block waves-light relative" (click)="open.emit()"
-       *ngIf="image" [ngStyle]="{'background-image':'url(\''+image+'\')'}"><div *ngIf="rating && rating != 0" class="listing-rating">
-    <i class="material-icons">star_half</i>{{rating|number:'1.2-2'}}</div>
+       *ngIf="image" [ngStyle]="{'background-image':'url(\''+image+'\')'}">
+    <div *ngIf="rating && rating != 0" class="listing-rating">
+    <i class="material-icons">star_half</i>{{rating|number:'1.2-2'}}
+      <span class="rating-number"> ({{number_of_rating}})</span>
+    </div>
     <div *ngIf="license" class="app-list-license">{{license}}</div>
   </div>
   <div class="card-content">
-    <i class="material-icons activator pointer right">more_vert</i>
+    <i class="material-icons activator pointer list-more">more_vert</i>
     <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':image}">{{name}}</span>
     <p class="grey-text description truncate" [ngClass]="{'card-title-small':image}">{{description}}</p>
     <div class="right-align">

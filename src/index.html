@@ -46,6 +46,41 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body>
-  <app-root class="full-size"></app-root>
+  <app-root class="full-size">
+    <div class="initial-loader">
+      <img style="width: 300px;" src="assets/images/new-logo.png"/>
+      <div class="spinner"></div>
+    </div>
+    <style>
+      html,body{
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background: #503b73;
+        color:white;
+        overflow:hidden;
+        position:relative;
+        top: 0;
+      }
+      .initial-loader {
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        text-align: center;
+      }
+      .spinner{
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #ed4e7a; /* Pink */
+        border-radius: 50%;
+        position: relative;
+        margin: auto;
+      }
+    </style>
+  </app-root>
 </body>
 </html>

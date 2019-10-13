@@ -30,6 +30,11 @@
          routerLink="news"
     (click)="appService.scrollToTop()">Home</div>
     <div class="waves-effect waves-light btn-flat white-text top-button"
+         mz-tooltip tooltip="Users with the most legendary content on SIdeQuest."
+         position="bottom"
+         routerLink="legends"
+         (click)="appService.scrollToTop()">Legends</div>
+    <div class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="Games you can get on SideQuest"
          position="bottom"
          routerLink="apps/1"
@@ -60,7 +65,7 @@
          mz-tooltip tooltip="Get help with common problems."
          position="bottom"
          href="https://github.com/the-expanse/SideQuest/wiki">Wiki/FAQ</a>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
+    <div *ngIf="!appService.isAuthenticated" class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="Get your sidequest setup the first time you install, and watch some how to videos."
          position="bottom"
          routerLink="setup-howto"

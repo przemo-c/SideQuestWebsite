@@ -1,0 +1,12 @@
+
+.small-image,.tall-placeholder{
+  height: 165px;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  margin-bottom: 20px;
+}
+.tall-placeholder{
+  height: 330px;
+}

@@ -1,0 +1,24 @@
+
+.card-content{
+  background-color: #312249;
+}
+.card-height{
+  height: 100px;
+}
+.card-content{
+  padding: 5px;
+}
+
+.card-image-left{
+  height: 100px;
+  float: left;
+  width: 106.236559139px;
+  background-size: cover;
+  background-position: center center;
+  margin-right: 1em;
+}
+.show-grid-date{
+  position:absolute;
+  bottom:5px;
+  left: 5px;
+}

@@ -1,0 +1,11 @@
+.list-more{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.card-content{
+  white-space: nowrap;
+}
+.rating-number{
+  font-size: 0.75em;
+}

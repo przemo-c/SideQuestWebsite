@@ -3,7 +3,7 @@
        *ngIf="template.image" [ngStyle]="{'background-image':'url(\''+template.image+'\')'}">
   </div>
   <div class="card-content" [ngClass]="{'selected-template':template.selected}">
-    <i class="material-icons activator pointer right">more_vert</i>
+    <i class="material-icons activator pointer list-more">more_vert</i>
     <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':template.image}">{{template.name}}</span>
     <p class="grey-text description truncate" [ngClass]="{'card-title-small':template.image}">{{template.description}}</p>
     <div class="right-align">

@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-image waves-effect waves-block waves-light relative">
+    <img (click)="open.emit()" *ngIf="image" onerror="this.style.display='none'" src="{{image}}">
+    <div *ngIf="rating && rating != 0" class="listing-rating"><i class="material-icons">star_half</i>{{rating|number:'1.2-2'}}</div>
+    <div *ngIf="license" class="app-list-license">{{license}}</div>
+  </div>
+  <div class="card-content">
+    <span class="card-title activator white-text"><i class="material-icons right">more_vert</i>{{name}}</span>
+    <div class="clearfix"></div>
+    <div class="">
+      <div class="btn-flat waves-effect waves-light white-text" (click)="open.emit()">open</div>
+    </div>
+    <div class="grey-text" *ngIf="start_time">
+      {{(start_time)*1000|date:'mediumDate'}} at {{(start_time)*1000|date:'shortTime'}} for {{(duration)/60| number:'1.0-0'}} mins
+    </div>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{name}}</span>
+    <p class="grey-text">{{description}}</p>
+  </div>
+</div>

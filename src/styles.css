@@ -177,7 +177,7 @@ input[type=range] {
   margin-right: 2em;
 }
 .card-title-small{
-  width: calc(100% - 300px)!important;
+  width: calc(100% - 210px)!important;
 }
 .card-title.truncate, .description.truncate{
   width: calc(100% - 50px);
@@ -321,14 +321,18 @@ input[type=range] {
   vertical-align: middle;
   height: 50px;
 }
-.listing-rating{
+.listing-rating,.listing-downloads{
   color: white;
   background-color: #ed4e7a!important;
   padding: 3px;
   border-radius: 3px;
   position: absolute;
-  bottom: 8px;
+  bottom: 40px;
   right: 8px;
+}
+.listing-downloads{
+  background-color: #4f4f4f!important;
+  bottom: 8px;
 }
 .app-list-license{
   color: white;
@@ -341,6 +345,9 @@ input[type=range] {
   top: 0px;
   right: 0px;
 }
-.listing-rating i{
+.listing-rating i,.listing-downloads i{
   font-size: 1em;
+}
+.listing-downloads i{
+  margin-left: 0.2em;
 }

@@ -13,6 +13,8 @@ export class GridItemComponent implements OnInit {
   @Input() description: string;
   @Input() image: string;
   @Input() rating: number;
+  @Input() number_of_rating: number;
+  @Input() downloads: number;
   @Input() start_time: number;
   @Input() duration: number;
   @Input() license: string;

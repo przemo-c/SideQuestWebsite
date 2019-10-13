@@ -67,6 +67,8 @@ import { FromNowPipe } from "./from-now.pipe";
 import { NotOverNinePipe } from "./not-over-nine.pipe";
 import { EncodeUriPipe } from "./encode-uri.pipe";
 import { RecaptchaModule } from "ng-recaptcha";
+import { MasonItemComponent } from "./mason-item/mason-item.component";
+import { LegendsListComponent } from "./legends-list/legends-list.component";
 
 @NgModule({
   declarations: [
@@ -108,7 +110,9 @@ import { RecaptchaModule } from "ng-recaptcha";
     UserProfileComponent,
     FromNowPipe,
     NotOverNinePipe,
-    EncodeUriPipe
+    EncodeUriPipe,
+    MasonItemComponent,
+    LegendsListComponent
   ],
   imports: [
     BrowserModule,

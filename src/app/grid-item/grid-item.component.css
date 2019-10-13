@@ -1,24 +1,39 @@
 
 .card-content{
   background-color: #312249;
+  height: 335px;
+}
+.big-card-content{
+  height: 370px;
 }
 .card-height{
   height: 100px;
 }
-.card-content{
-  padding: 5px;
+.rating-number{
+  font-size: 0.75em;
 }
-
-.card-image-left{
-  height: 100px;
+.card-image{
+  height: 200px;
   float: left;
-  width: 106.236559139px;
+  width: 100%;
   background-size: cover;
   background-position: center center;
   margin-right: 1em;
+  margin-bottom: 1em;
+}
+.card-image:hover .card-open{
+  display: block;
 }
 .show-grid-date{
   position:absolute;
   bottom:5px;
   left: 5px;
+}
+.card-open{
+  position: absolute;
+  display: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+
 }

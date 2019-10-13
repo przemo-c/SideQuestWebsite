@@ -11,6 +11,7 @@ export class ListingModesComponent implements OnInit {
   @Output() recent = new EventEmitter();
   @Output() rating = new EventEmitter();
   @Output() name = new EventEmitter();
+  @Output() download = new EventEmitter();
   constructor(public appService: AppService) {}
 
   ngOnInit() {}

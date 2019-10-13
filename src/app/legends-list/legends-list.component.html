@@ -1,0 +1,18 @@
+<div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
+  <h4 class="inline-block">Legends</h4>
+  <hr class="grey">
+  <ng-container *ngIf="isLoading">
+    <div class="center-align">
+      <div class="tall-placeholder relative">
+        <div class="loader-initial"></div>
+      </div>
+    </div>
+  </ng-container>
+  <div class="row">
+    <div *ngFor="let legend of legends" class="col s12 l6">
+      <div class="small-image" [ngStyle]="{'background-image':'url(\''+legend.banner_image+'\')'}">
+        <app-over-image [firstNews]="{title: legend.name, description: legend.score_points}" (output)="appService.scrollToTop();router.navigateByUrl('/user/'+legend.users_id)"></app-over-image>
+      </div>
+    </div>
+  </div>
+</div>
