@@ -405,7 +405,6 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     if (this.spaces_id) {
       this.refreshShareLink()
         .then(() => this.expanseService.start())
-        .then(() => console.log(this.currentApp.share_url))
         .then(() =>
           this.expanseService.updateSpace({
             spaces_id: this.spaces_id,

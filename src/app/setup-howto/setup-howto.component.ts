@@ -39,7 +39,6 @@ export class SetupHowtoComponent implements OnInit {
       .then((urls: any) => {
         if (!urls.error && urls.urls && urls.urls.length) {
           this.launcherDownloadUrl = urls.urls[0].link_url;
-          console.log(this.launcherDownloadUrl);
         }
       });
   }

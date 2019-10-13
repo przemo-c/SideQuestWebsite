@@ -233,7 +233,6 @@ export class EventManagerComponent implements OnInit, OnDestroy {
     if (this.events_id) {
       this.refreshShareLink()
         .then(() => this.expanseService.start())
-        .then(() => console.log(this.currentApp.share_url))
         .then(() =>
           this.expanseService.updateEvent({
             spaces_id: this.currentApp.spaces_id,

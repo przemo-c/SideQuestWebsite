@@ -327,7 +327,6 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
           .filter((item, i, ar) => ar.indexOf(item) === i)
       );
       let array = res || [];
-      console.log(res);
       let flags = {},
         output = [],
         l = array.length,
@@ -358,9 +357,7 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
   }: {
     event: MouseEvent;
     active: {}[];
-  }): void {
-    // console.log(event, active);
-  }
+  }): void {}
 
   public chartHovered({
     event,
@@ -368,9 +365,7 @@ export class StatsChartComponent implements OnInit, AfterViewInit {
   }: {
     event: MouseEvent;
     active: {}[];
-  }): void {
-    // console.log(event, active);
-  }
+  }): void {}
   getTopDate(isMax) {
     return (this.chart.chart as any).scales["x-axis-0"][isMax ? "max" : "min"];
   }

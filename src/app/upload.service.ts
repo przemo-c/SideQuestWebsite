@@ -125,7 +125,6 @@ export class UploadService {
         document.body.removeChild(upload);
       });
       document.onfocus = function() {
-        console.log("on focus");
         document.onfocus = null;
         setTimeout(function() {
           if (!has_files) {

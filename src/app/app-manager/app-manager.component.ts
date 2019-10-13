@@ -383,7 +383,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onAddTag(e) {
-    console.log(this.searchTags);
+    // console.log(this.searchTags);
   }
 
   addAppUrl() {
@@ -556,7 +556,6 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       .join(",");
     if (this.apps_id) {
       this.refreshShareLink()
-        .then(() => console.log("here1"))
         .then(() =>
           this.expanseService.editApp(
             this.apps_id,

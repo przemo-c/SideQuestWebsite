@@ -47,7 +47,6 @@ export class DownloadSideQuestComponent implements OnInit {
         });
       })
       .then(r => (this.sideQuestApps = r))
-      .then(() => console.log(this.sideQuestApps))
       .then(() =>
         fetch(
           "https://api.github.com/repos/the-expanse/ExpanseReleases/releases"

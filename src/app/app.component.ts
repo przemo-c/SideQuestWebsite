@@ -70,7 +70,6 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
       Object.keys(this.appService.app_index).forEach(apps_id => {
         if (this.appService.app_index[apps_id] === pkg) {
           this.expanseService.uninstallApp(apps_id);
-          console.log("Removing App Meta: ", pkg, apps_id);
           isChanged = true;
         }
       });

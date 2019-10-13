@@ -234,7 +234,6 @@ export class AccountComponent implements OnInit, OnDestroy {
     this.sub = this.router.events.subscribe(async val => {
       if (val instanceof NavigationEnd) {
         let users_id = Number(route.snapshot.paramMap.get("users_id"));
-        console.log(users_id);
         if (Number.isInteger(users_id)) {
           this.threadUsersId = users_id;
         }
@@ -268,7 +267,10 @@ export class AccountComponent implements OnInit, OnDestroy {
               break;
           }
           this.page = 0;
-          this.expanseService.refreshSession().then(() => this.getCurrent());
+          this.expanseService
+            .refreshSession()
+            .then(() => this.getCurrent())
+            .then(() => console.log(this.expanseService.currentSession));
         }
       }
     });

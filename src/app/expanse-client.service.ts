@@ -69,11 +69,7 @@ export class ExpanseClientService {
         setInterval(() => this.keepAlive(), 10000);
       }
       this.openResolves.push(resolve);
-    })
-      .then(() => this.refreshSession())
-      .catch(e => {
-        console.log(e);
-      });
+    }).then(() => this.refreshSession());
   }
   async refreshSession() {
     this.currentSession = await this.getCurrentSession();
@@ -160,7 +156,6 @@ export class ExpanseClientService {
         try {
           session = JSON.parse(session);
           setTimeout(() => {
-            // console.log('is-websocket-open',this.ws.readyState===this.ws.OPEN)
             this.refresh(session.token).then((msg: any) => {
               if (!msg.error) {
                 localStorage.setItem(

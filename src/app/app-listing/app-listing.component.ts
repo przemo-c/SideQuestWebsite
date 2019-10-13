@@ -370,15 +370,12 @@ export class AppListingComponent implements OnInit, OnDestroy {
       customUrl = "sidequest://sideload-multi/#" + _apps;
     }
     if (customUrl) {
-      this.service
-        .openSidequestUrl(customUrl)
-        .then(() => {
-          return this.expanseService.addInstalledApp(
-            this.apps_id,
-            this.currentApp.versioncode
-          );
-        })
-        .then(r => console.log(r));
+      this.service.openSidequestUrl(customUrl).then(() => {
+        return this.expanseService.addInstalledApp(
+          this.apps_id,
+          this.currentApp.versioncode
+        );
+      });
     }
   }
 
