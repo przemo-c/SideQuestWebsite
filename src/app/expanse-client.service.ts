@@ -16,7 +16,7 @@ export class ExpanseClientService {
   isStarted: boolean;
   isOpen: boolean;
   stateChanged: boolean;
-  preventGuest: boolean = true;
+  preventGuest = true;
   state: any;
   stateWrap: any;
   updateLoopCount: number;
@@ -72,7 +72,7 @@ export class ExpanseClientService {
     }).then(() => this.refreshSession());
   }
   async refreshSession() {
-    this.currentSession = await this.getCurrentSession();
+    this.currentSession = await this.getCurrentSession().catch(() => {});
     this.appService.isAuthenticated = !!this.currentSession;
   }
   getUserAppTotals(users_id?) {
