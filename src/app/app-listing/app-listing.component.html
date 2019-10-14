@@ -241,7 +241,7 @@
           </div>
           <div class="col s12" *ngFor="let message of reviews">
             <div class="user-chip chip message-chip">
-              <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && message.users_id == expanseService.currentSession.users_id" (click)="deleteReview.openModal()">close</i>
+              <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.users_id == expanseService.currentSession.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reviews_id;deleteReview.openModal()">close</i>
               <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}"/>
               <div class="margin-right"><span class="review-name">{{message.name}}</span> - {{message.created|fromNow}}</div>
               <div class="">

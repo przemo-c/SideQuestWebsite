@@ -65,6 +65,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   isAllReleases: boolean;
   isInstalled: boolean;
   installedVersion: number;
+  currentReviewId: number;
   currentApp: AppListing = {
     name: "",
     users_id: 0,
@@ -217,7 +218,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
 
   deleteReviewConfirm() {
     this.expanseService
-      .deleteReview(this.apps_id, "apps")
+      .deleteReview(this.apps_id, "apps", this.currentReviewId)
       .then(r => this.service.showMessage(r, "Review Deleted!"))
       .then(() => {
         this.page = 0;

@@ -29,7 +29,7 @@ export class ExpanseClientService {
     this.messageResolves = {}; // localStorage.setItem('isDev','true');
     // localStorage.removeItem("isDev");
     this.isDev = localStorage.getItem("isDev");
-    this.url = !!this.isDev
+    this.url = !this.isDev
       ? "ws://192.168.0.13:3000"
       : "wss://api.theexpanse.app";
     this.cdnUrl = this.isDev
@@ -687,8 +687,8 @@ export class ExpanseClientService {
       parent_id
     });
   }
-  deleteReview(item_id, type) {
-    return this.emit("delete-review", { item_id, type });
+  deleteReview(item_id, type, reviews_id) {
+    return this.emit("delete-review", { item_id, type, reviews_id });
   }
   getRating(item_id, type) {
     return this.emit("get-rating", { item_id, type });
