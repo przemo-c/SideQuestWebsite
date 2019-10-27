@@ -44,8 +44,86 @@
   <!--<link rel="icon" type="image/x-icon" href="favicon.ico">-->
   <link href="https://fonts.googleapis.com/css?family=PT+Sans|Roboto" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-<link rel="stylesheet" href="styles.7410cc14979ad58dc14f.css"></head>
+<link rel="stylesheet" href="styles.09a38f0f47f5f153bea6.css"></head>
 <body>
+<div id="canvas-back"></div>
+<style type="text/css">
+  #canvas-back{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #503b73;
+
+  }
+  canvas {
+    display: block;
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.8/p5.min.js"></script>
+<script type="text/javascript">
+  /*
+  Johan Karlsson (DonKarlssonSan)
+*/
+    console.log("here")
+  let points;
+  let stepsPerFrame;
+
+  function setup() {
+    stepsPerFrame = 1;
+    createCanvas(windowWidth, windowHeight);
+    noFill();
+    strokeWeight(1);
+    reset();
+  }
+
+  function draw() {
+    for (let i = 0; i < stepsPerFrame; i++) {
+      stroke(62, 6, 0);
+      //fill(106, 10, 0);
+      //stroke(0, 255 - i * 255 / stepsPerFrame);
+      drawLine();
+    }
+  }
+
+  function reset() {
+    background("#503b73");
+    resetPoints();
+  }
+
+  function resetPoints() {
+    points = [];
+    for (let i = 0; i < windowWidth; i++) {
+      points.push([i, 0]);
+    }
+  }
+
+  function drawLine() {
+    beginShape();
+    let atLeastOneOnScreen = false;
+    points.forEach(p => {
+      vertex(p[0], p[1]);
+      p[1] += noise(0.5 + p[0] / 100);
+      if (p[1] < windowHeight * 1.1) {
+        atLeastOneOnScreen = true;
+      }
+    });
+    endShape();
+
+    if (!atLeastOneOnScreen) {
+      reset();
+    }
+  }
+
+  function windowResized() {
+    // reset();
+    // resizeCanvas(windowWidth, windowHeight);
+  }
+</script>
   <app-root class="full-size">
     <div class="initial-loader">
       <img style="width: 300px;" src="assets/images/new-logo.png"/>
@@ -82,5 +160,6 @@
       }
     </style>
   </app-root>
-<script src="runtime.741402d1d47331ce975c.js"></script><script src="polyfills-es5.613d1909ec381c0aefb7.js" nomodule></script><script src="polyfills.06bf732b24a7cdfc0f11.js"></script><script src="scripts.70a6412b0712df4356f7.js"></script><script src="main.0582207eb06ccd1726ec.js"></script></body>
+
+<script src="runtime.741402d1d47331ce975c.js"></script><script src="polyfills-es5.613d1909ec381c0aefb7.js" nomodule></script><script src="polyfills.06bf732b24a7cdfc0f11.js"></script><script src="scripts.70a6412b0712df4356f7.js"></script><script src="main.0b03462697c7b8976b10.js"></script></body>
 </html>

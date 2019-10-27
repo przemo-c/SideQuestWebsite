@@ -13,6 +13,10 @@
   width: 100%;
   border-bottom: 1px solid #8f8f8f;
 }
+.spider-image{
+  margin-top: 50px;
+  margin-left: -16px;
+}
 .over-menu{
   position:absolute;
   top: 20px;
