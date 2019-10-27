@@ -46,84 +46,170 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 <body>
-<div id="canvas-back"></div>
-<style type="text/css">
-  #canvas-back{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: #503b73;
-
-  }
-  canvas {
-    display: block;
-    position:absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.8/p5.min.js"></script>
+<canvas class="blooddrip"></canvas>
 <script type="text/javascript">
-  /*
-  Johan Karlsson (DonKarlssonSan)
-*/
-    console.log("here")
-  let points;
-  let stepsPerFrame;
 
-  function setup() {
-    stepsPerFrame = 1;
-    createCanvas(windowWidth, windowHeight);
-    noFill();
-    strokeWeight(1);
-    reset();
+  function Body_On_Load()
+  {
+    var anim, canvas;
+
+    canvas = document.querySelector(".blooddrip");
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight;
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.zIndex = "0";
+    anim = new Object();
+    anim.width = canvas.width;
+    anim.height = canvas.height;
+    anim.ctx = canvas.getContext("2d");
+    // anim.ctx.shadowColor = "black";
+    // anim.ctx.shadowBlur = 5;
+    // anim.ctx.shadowOffsetX = 2;
+    // anim.ctx.shadowOffsetY = 2;
+    anim.curr_img = 0;
+
+    Goo_Init_Image(anim);
+    Goo_Draw_Frame(anim);
   }
 
-  function draw() {
-    for (let i = 0; i < stepsPerFrame; i++) {
-      stroke(62, 6, 0);
-      //fill(106, 10, 0);
-      //stroke(0, 255 - i * 255 / stepsPerFrame);
-      drawLine();
+  function Goo_Init_Image(anim)
+  {
+    // set goo image
+    //pat = anim.ctx.createPattern(document.getElementById(anim.imgs[anim.curr_img]), "repeat");
+    anim.ctx.fillStyle = "#4f0101";
+
+    // init goo control points
+    anim.pts = new Array();
+    for (i = 0; i < 20; i++) {
+      if (i == 0)
+        pt = { x: 0, y: 0, c: 20, dy: Math.random() * .8 + .2 };
+      else
+        pt = { x: anim.width * (i + 1) / 20, y: 0, c: 20, dy: Math.random() * .8 + .2 };
+      anim.pts.push(pt);
     }
   }
 
-  function reset() {
-    background("#503b73");
-    resetPoints();
-  }
-
-  function resetPoints() {
-    points = [];
-    for (let i = 0; i < windowWidth; i++) {
-      points.push([i, 0]);
+  function Goo_Draw_Frame(anim)
+  {
+    // draw current frame
+    anim.ctx.beginPath();
+    anim.ctx.moveTo(anim.width, 0); // start at top right corner
+    anim.ctx.lineTo(0, 0); // draw to top left corner
+    for (i = 0; i < anim.pts.length; i++)
+    {
+      if (i == 0)
+        anim.ctx.lineTo(anim.pts[i].x, anim.pts[i].y); // draw from top left corner down to start point
+      else
+        anim.ctx.bezierCurveTo(anim.pts[i - 1].x + anim.pts[i - 1].c, anim.pts[i - 1].y, anim.pts[i].x - anim.pts[i].c, anim.pts[i].y, anim.pts[i].x, anim.pts[i].y);  // draw from last paint drip to next
     }
-  }
+    anim.ctx.closePath(); // draw from last point to top right corner to complete shape
+    anim.ctx.fill();
 
-  function drawLine() {
-    beginShape();
-    let atLeastOneOnScreen = false;
-    points.forEach(p => {
-      vertex(p[0], p[1]);
-      p[1] += noise(0.5 + p[0] / 100);
-      if (p[1] < windowHeight * 1.1) {
-        atLeastOneOnScreen = true;
-      }
-    });
-    endShape();
-
-    if (!atLeastOneOnScreen) {
-      reset();
+    // move drips down
+    for (i = 0; i < anim.pts.length; i++)
+    {
+      anim.pts[i].y += anim.pts[i].dy;
+      if (anim.pts[i].y > anim.height)
+        anim.pts[i].y = anim.height;
     }
-  }
 
-  function windowResized() {
-    // reset();
-    // resizeCanvas(windowWidth, windowHeight);
+    // determine if all drips have reached the bottom of the canvas
+    all_finished = true;
+    for (i = 0; i < anim.pts.length; i++)
+      all_finished = all_finished && anim.pts[i].y == anim.height;
+
+    // if animation complete, pause and move to next image else draw next frame
+    if (all_finished)
+    {
+      //anim.curr_img = (anim.curr_img + 1) % anim.imgs.length;
+      Goo_Init_Image(anim);
+      setTimeout(Goo_Draw_Frame, 100, anim);
+    }
+    else
+      setTimeout(Goo_Draw_Frame, 20, anim);
   }
+  Body_On_Load();
 </script>
+<!--<div id="canvas-back"></div>-->
+<!--<style type="text/css">-->
+  <!--#canvas-back{-->
+    <!--position: fixed;-->
+    <!--width: 100%;-->
+    <!--height: 100%;-->
+    <!--z-index: -1;-->
+    <!--background: #503b73;-->
+
+  <!--}-->
+  <!--canvas {-->
+    <!--display: block;-->
+    <!--position:absolute;-->
+    <!--top: 0;-->
+    <!--left: 0;-->
+    <!--z-index: -1;-->
+  <!--}-->
+<!--</style>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.8/p5.min.js"></script>-->
+<!--<script type="text/javascript">-->
+  <!--/*-->
+  <!--Johan Karlsson (DonKarlssonSan)-->
+<!--*/-->
+    <!--console.log("here")-->
+  <!--let points;-->
+  <!--let stepsPerFrame;-->
+
+  <!--function setup() {-->
+    <!--stepsPerFrame = 1;-->
+    <!--createCanvas(windowWidth, windowHeight);-->
+    <!--noFill();-->
+    <!--strokeWeight(1);-->
+    <!--reset();-->
+  <!--}-->
+
+  <!--function draw() {-->
+    <!--for (let i = 0; i < stepsPerFrame; i++) {-->
+      <!--stroke(62, 6, 0);-->
+      <!--//fill(106, 10, 0);-->
+      <!--//stroke(0, 255 - i * 255 / stepsPerFrame);-->
+      <!--drawLine();-->
+    <!--}-->
+  <!--}-->
+
+  <!--function reset() {-->
+    <!--background("#503b73");-->
+    <!--resetPoints();-->
+  <!--}-->
+
+  <!--function resetPoints() {-->
+    <!--points = [];-->
+    <!--for (let i = 0; i < windowWidth; i++) {-->
+      <!--points.push([i, 0]);-->
+    <!--}-->
+  <!--}-->
+
+  <!--function drawLine() {-->
+    <!--beginShape();-->
+    <!--let atLeastOneOnScreen = false;-->
+    <!--points.forEach(p => {-->
+      <!--vertex(p[0], p[1]);-->
+      <!--p[1] += noise(0.5 + p[0] / 100);-->
+      <!--if (p[1] < windowHeight * 1.1) {-->
+        <!--atLeastOneOnScreen = true;-->
+      <!--}-->
+    <!--});-->
+    <!--endShape();-->
+
+    <!--if (!atLeastOneOnScreen) {-->
+      <!--reset();-->
+    <!--}-->
+  <!--}-->
+
+  <!--function windowResized() {-->
+    <!--// reset();-->
+    <!--// resizeCanvas(windowWidth, windowHeight);-->
+  <!--}-->
+<!--</script>-->
   <app-root class="full-size">
     <div class="initial-loader">
       <img style="width: 300px;" src="assets/images/new-logo.png"/>
