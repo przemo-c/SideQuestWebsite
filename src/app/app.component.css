@@ -32,6 +32,8 @@
 }
 .top-buttons-avatar{
   margin-top: 20px;
+  position: relative;
+  z-index: 20;
 }
 .smaller-buttons{
   margin-top: 5px;
