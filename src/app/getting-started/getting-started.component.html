@@ -1,0 +1,106 @@
+<div class="bottom-border">
+  <mz-parallax [height]="350" >
+    <img src="https://cdn.theexpanse.app/file/2755/Untitled-2.jpg">
+  </mz-parallax>
+</div>
+<div class="main-container relative" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}"
+     [ngStyle]="{'margin-top': '-150px'}">
+  <div class="top-back">
+
+  </div>
+  <div class="right">
+  <span class="chip pointer top-chip"
+        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+        mz-tooltip tooltip="People have been so kind, we are humbled."
+        position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+      Support us on Patreon
+    </span>
+    <span class="chip pointer top-chip"
+          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
+          mz-tooltip tooltip="Use this option if you prefer a one off donation."
+          position="bottom">
+      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+      Donate on Paypal
+    </span>
+  </div>
+
+  <h4>Getting Started - Build an App</h4>
+  <hr>
+  <div class="btn pink-button small-button waves-effect waves-light" (click)="appService.scrollToTop()" routerLink="/developers">Back To Developers</div>
+  <div class="right grey-text">Get Unity3D Setup to use the SideQuest Legends SDK<br><br></div>
+  <div class="center-align">
+    <img src="assets/images/tutorial.gif" class="top-image responsive-img"/>
+  </div>
+  <!--<h5>Step 1 - Download </h5>-->
+  <!--<hr>-->
+  <!--Download the SDK today from the Unity Asset store - search for SideQuest. You can also find the latest SDK available on our github page here.-->
+  <!--<br><br>-->
+
+  <h5>Step 1 - Open</h5>
+  <hr>
+  <div class="padding">
+  Open the <span class="chip">SideQuest</span> option in the <span class="chip">Tools</span> menu of Unity3D as seen in the image above.
+  </div><br><br>
+
+
+  <h5>Step 2 - Select a GameObject</h5>
+  <hr>
+  <div class="padding">
+  Select a GameObject in your hierarchy panel. If you see any errors or warnings at this point see here.
+  </div><br><br>
+
+
+  <h5>Step 3 - Script Scan</h5>
+  <hr>
+  <div class="padding">
+  Click <span class="chip">Next</span> to scan the selected game object for AppBehaviours or custom scripts.
+  </div><br><br>
+
+
+  <h5>Step 4 - Select Scripts & Extra Assets</h5>
+  <hr>
+  <div class="padding">
+  Note: The defaults here are fine in most cases. If you are unsure just click <span class="chip">Next</span>.<br><br>
+
+  <b>Scripts</b><br>
+  This will scan the selected GameObject for an AppBehaviour script and attempt to find any dependencies for it automatically.
+  The pre-selected items here have been detected as dependencies, but you may also need to select more scripts if their types are not defined in the AppBehaviour anywhere.
+  <br><br>
+
+  <b>Assets</b><br>
+  Assets that are referenced inside the selected GameObject or any of its children are automatically added to the output App - selecting them again here will have no effect.
+  This screen is intended for adding any extra assets that you wish to access from a script but are also not referenced in the selected GameObject anywhere.<br><br>
+  Click <span class="chip">Next</span> move to the Build Screen
+  </div><br><br>
+
+
+  <h5>Step 5 - Quick Build Option</h5>
+  <hr>
+  <div class="padding">
+  Select <span class="chip">Quick Build</span> to skip the mobile build variant - this greatly reduces build times during testing and allows you to
+  test the app on desktop ( or mobile with Oculus Link ). You only need to do a complete build when you are ready to publish your app.
+  </div><br><br>
+
+  <h5>Step 6 - Run Build</h5>
+  <hr>
+  <div class="padding">
+    Select <span class="chip">Build SideQuest App</span> to start the build process. Keep an eye on the console tab for any issues. See here for an FAQ of common errors.
+      </div><br><br>
+
+  <h5>Grab your squanch files!</h5>
+  <hr>
+  <div class="padding">
+    Your app will be compiled into the output folder. If you selected quick build there will be one file otherwise there will be two, <span class="chip">gameobject.squanch</span> and <span class="chip">gameobject.squanch_android</span>. These files can be loaded directly into SideQuest Legends by creating a space here or you can run them in the SideQuest Inspector to test.
+  </div><br><br>
+
+  <h5>More Useful Information</h5>
+  <hr>
+  <div class="padding right-align">
+    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/getting-started-test-app" (click)="appService.scrollToTop()" >Play test with the SideQuest Inspector</div><br><br>
+    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/scripting-introduction" (click)="appService.scrollToTop()" >Scripting - Introduction</div><br><br>
+  </div><br><br>
+  <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developers" (click)="appService.scrollToTop()" >Back To Developers</div> <br>
+
+  <br><br><br><br>
+</div>

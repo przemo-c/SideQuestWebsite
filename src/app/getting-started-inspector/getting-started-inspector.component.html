@@ -1,0 +1,66 @@
+<div class="bottom-border">
+  <mz-parallax [height]="350" >
+    <img src="https://cdn.theexpanse.app/file/2755/Untitled-2.jpg">
+  </mz-parallax>
+</div>
+<div class="main-container relative" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}"
+     [ngStyle]="{'margin-top': '-150px'}">
+  <div class="top-back">
+
+  </div>
+  <div class="right">
+  <span class="chip pointer top-chip"
+        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+        mz-tooltip tooltip="People have been so kind, we are humbled."
+        position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+      Support us on Patreon
+    </span>
+    <span class="chip pointer top-chip"
+          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
+          mz-tooltip tooltip="Use this option if you prefer a one off donation."
+          position="bottom">
+      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+      Donate on Paypal
+    </span>
+  </div>
+
+  <h4>Getting Started - Play test with the SideQuest Inspector</h4>
+  <hr>
+  <div class="right grey-text">Run your SideQuest Legends App inside Unity3D.<br><br></div>
+  <div class="btn pink-button small-button waves-effect waves-light" (click)="appService.scrollToTop()" routerLink="/developers">Back To Developers</div><br><br>
+  <div class="center-align">
+    <img src="assets/images/run-tutorial.gif" class="top-image responsive-img"/>
+  </div>
+  <br><br>
+  <h5>Step 1 - Open</h5>
+  <hr>
+  <div class="padding">
+    Open the <span class="chip">SideQuest</span> option in the <span class="chip">Tools</span> menu of Unity3D as seen in the image above.
+  </div><br><br>
+
+
+  <h5>Step 2 - Enter a Space ID</h5>
+  <hr>
+  <div class="padding">
+    Enter a Space ID to launch SideQuest Legends in a specific space - this is good for testing against other apps created with SideQuest Legends.
+  </div><br><br>
+
+  <h5>Step 3 - Run Your Squanch File</h5>
+  <hr>
+  <div class="padding">
+    Select your SideQuest app ( .squanch ) and run it inside the Unity3D Editor. It will run the full SideQuest Legends Game so you will see the loading screens and then it will load into your selected space.
+    You can test all sorts of things in this way like interaction, networking, mult-iuser, interoperability with other SideQuest Legends apps. You have full access to the Unity3D hierarchy, inspector and console
+    panels to be able to test, prototype and tweak your apps as you build.
+  </div><br><br>
+
+  <h5>More Useful Information</h5>
+  <hr>
+  <div class="padding right-align">
+    <div class="btn small-button pink-button waves-effect waves-light"  routerLink="/scripting-introduction" (click)="appService.scrollToTop()">Scripting - Introduction</div><br><br>
+    <div class="btn small-button pink-button waves-effect waves-light"  routerLink="/scripting-app-behaviours" (click)="appService.scrollToTop()">Scripting - App Behaviours</div><br><br>
+  </div><br><br>
+  <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developers" (click)="appService.scrollToTop()">Back To Developers</div> <br>
+
+  <br><br><br><br>
+</div>

@@ -69,6 +69,21 @@ import { EncodeUriPipe } from "./encode-uri.pipe";
 import { RecaptchaModule } from "ng-recaptcha";
 import { MasonItemComponent } from "./mason-item/mason-item.component";
 import { LegendsListComponent } from "./legends-list/legends-list.component";
+import { DevelopersComponent } from "./developers/developers.component";
+import { GettingStartedComponent } from "./getting-started/getting-started.component";
+import { GettingStartedInspectorComponent } from "./getting-started-inspector/getting-started-inspector.component";
+import { DeveloperFAQComponent } from "./developer-faq/developer-faq.component";
+import { ScriptingIntroductionComponent } from "./scripting-introduction/scripting-introduction.component";
+import { HighlightModule } from "ngx-highlightjs";
+import cs from "highlight.js/lib/languages/cs";
+import { CodeBlockComponent } from "./code-block/code-block.component";
+import { ScriptingAppBehavioursComponent } from "./scripting-app-behaviours/scripting-app-behaviours.component";
+import { ScriptingInteractionComponent } from "./scripting-interaction/scripting-interaction.component";
+import { ScriptingInputControlsComponent } from "./scripting-input-controls/scripting-input-controls.component";
+
+export function hljsLanguages() {
+  return [{ name: "cs", func: cs }];
+}
 
 @NgModule({
   declarations: [
@@ -112,9 +127,21 @@ import { LegendsListComponent } from "./legends-list/legends-list.component";
     NotOverNinePipe,
     EncodeUriPipe,
     MasonItemComponent,
-    LegendsListComponent
+    LegendsListComponent,
+    DevelopersComponent,
+    GettingStartedComponent,
+    GettingStartedInspectorComponent,
+    DeveloperFAQComponent,
+    ScriptingIntroductionComponent,
+    CodeBlockComponent,
+    ScriptingAppBehavioursComponent,
+    ScriptingInteractionComponent,
+    ScriptingInputControlsComponent
   ],
   imports: [
+    HighlightModule.forRoot({
+      languages: hljsLanguages
+    }),
     BrowserModule,
     AppRoutingModule,
     NgxMasonryModule,

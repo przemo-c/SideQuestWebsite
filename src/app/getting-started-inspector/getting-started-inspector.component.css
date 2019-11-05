@@ -1,0 +1,23 @@
+
+.top-chip{
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.top-image{
+  max-width: 850px;
+}
+
+.message-chip{
+  height: auto!important;
+  border-radius: 32px;
+  line-height: 18px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.padding{
+  padding-left: 1em;
+  padding-right: 1em;
+}

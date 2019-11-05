@@ -1,0 +1,67 @@
+<div class="bottom-border">
+  <mz-parallax [height]="350" >
+    <img src="assets/images/scripting-background.jpg">
+  </mz-parallax>
+</div>
+<div class="main-container relative" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}"
+     [ngStyle]="{'margin-top': '-150px'}">
+  <div class="top-back">
+
+  </div>
+  <div class="right">
+  <span class="chip pointer top-chip"
+        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+        mz-tooltip tooltip="People have been so kind, we are humbled."
+        position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+      Support us on Patreon
+    </span>
+    <span class="chip pointer top-chip"
+          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
+          mz-tooltip tooltip="Use this option if you prefer a one off donation."
+          position="bottom">
+      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+      Donate on Paypal
+    </span>
+  </div>
+
+  <h4>SideQuest Scripting in C-Sharp</h4>
+  <hr>
+
+  <div class="btn pink-button small-button waves-effect waves-light" (click)="appService.scrollToTop()" routerLink="/developers">Back To Developers</div>
+  <div class="right grey-text">Get going with scripting in SideQuest to open a whole world of possibilities to create content.<br><br></div>
+
+  <div class="padding clearfix">
+    Notice: This next section assumes you are familiar with Unity3D and C-Sharp scripting. Unity has a lot of great <a href="https://learn.unity.com/">tutorials</a> to get your started.<br><br>
+  </div>
+  You can build a whole range of cool things with scripting. At SideQuest Legends we thought it was important to build a scripting SDK that was as easy as
+  possible to use but also had to be powerful and flexible. We decided early on that the most beneficial option was to
+  allow users to use full C-Sharp scripting like you already do in Unity3D. We have created a scripting enabled SDK that allows you to run your scripts
+  on our platform with a host of benefits.
+  <app-code-block [someCode]="someCode"></app-code-block>
+
+  <h5>What you can do</h5>
+  <hr>
+  <div class="padding">
+    <span class="chip message-chip"><i class="material-icons">done</i>Access most of the Unity3D API with a few extras like Json.NET and websocket-sharp.</span><br>
+    <span class="chip message-chip"><i class="material-icons">done</i>Leverage our integrated interaction system for super simple user interactions like grabbales, clickables and spawners.</span><br>
+    <span class="chip message-chip"><i class="material-icons">done</i>Interact with the API as permitted by the user.</span><br>
+    <span class="chip message-chip"><i class="material-icons">done</i>Leverage networking to sync events / data between users.</span><br>
+  </div><br><br>
+  <h5>What you can't do</h5>
+  <hr>
+  <div class="padding">
+    <span class="chip message-chip"><i class="material-icons purple-text">close</i>Use DLLs with your scripting or access any other assemblies other than those provided by us.</span><br>
+    <span class="chip message-chip"><i class="material-icons purple-text">close</i>Access secure namespaces like IO, Reflection, Process, Input.</span><br>
+  </div><br><br>
+  <h5>More Useful Information</h5>
+  <hr>
+  <div class="padding right-align">
+    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/scripting-app-behaviours" (click)="appService.scrollToTop()" >Scripting - App Behaviours</div><br><br>
+    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/scripting-interactions" (click)="appService.scrollToTop()">Scripting - Interaction System</div><br><br>
+  </div><br><br>
+  <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developers" (click)="appService.scrollToTop()">Back To Developers</div> <br>
+
+  <br><br><br><br>
+
+</div>

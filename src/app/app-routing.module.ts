@@ -25,10 +25,35 @@ import { SpaceManagerComponent } from "./space-manager/space-manager.component";
 import { SpaceListingComponent } from "./space-listing/space-listing.component";
 import { UserProfileComponent } from "./user-profile/user-profile.component";
 import { LegendsListComponent } from "./legends-list/legends-list.component";
+import { DevelopersComponent } from "./developers/developers.component";
+import { GettingStartedComponent } from "./getting-started/getting-started.component";
+import { GettingStartedInspectorComponent } from "./getting-started-inspector/getting-started-inspector.component";
+import { DeveloperFAQComponent } from "./developer-faq/developer-faq.component";
+import { ScriptingIntroductionComponent } from "./scripting-introduction/scripting-introduction.component";
+import { ScriptingAppBehavioursComponent } from "./scripting-app-behaviours/scripting-app-behaviours.component";
+import { ScriptingInteractionComponent } from "./scripting-interaction/scripting-interaction.component";
+import { ScriptingInputControlsComponent } from "./scripting-input-controls/scripting-input-controls.component";
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
   { path: "legends", component: LegendsListComponent },
+  { path: "developers", component: DevelopersComponent },
+  { path: "developer-faq", component: DeveloperFAQComponent },
+  { path: "getting-started-build-app", component: GettingStartedComponent },
+  {
+    path: "getting-started-test-app",
+    component: GettingStartedInspectorComponent
+  },
+  { path: "scripting-introduction", component: ScriptingIntroductionComponent },
+  {
+    path: "scripting-app-behaviours",
+    component: ScriptingAppBehavioursComponent
+  },
+  { path: "scripting-interactions", component: ScriptingInteractionComponent },
+  {
+    path: "scripting-input-controls",
+    component: ScriptingInputControlsComponent
+  },
   { path: "download", component: DownloadSideQuestComponent },
   { path: "privacy", component: PrivacyPolicyComponent },
   {

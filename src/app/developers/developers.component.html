@@ -1,0 +1,155 @@
+<div class="bottom-border">
+  <mz-parallax [height]="350" >
+    <img src="https://cdn.theexpanse.app/file/2755/Untitled-2.jpg">
+  </mz-parallax>
+</div>
+<div class="main-container relative" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}"
+     [ngStyle]="{'margin-top': '-150px'}">
+  <div class="top-back">
+
+  </div>
+  <div class="right">
+  <span class="chip pointer top-chip"
+        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+        mz-tooltip tooltip="People have been so kind, we are humbled."
+        position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+      Support us on Patreon
+    </span>
+    <span class="chip pointer top-chip"
+          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
+          mz-tooltip tooltip="Use this option if you prefer a one off donation."
+          position="bottom">
+      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+      Donate on Paypal
+    </span>
+  </div>
+
+  <h4>Developers</h4>
+  <hr>
+  <div class="right-align grey-text">Build apps for SideQuest Legends<br><br></div>
+  <div class="row">
+    <div class="col s12 m8">
+      <h5>What is the SideQuest Legends SDK?</h5>
+      <hr>
+      <div class="right-align grey-text">SideQuest Legends is the All In One VR Development Platform<br><br></div>
+      <div class="more-padding">
+        <div class="top-image z-depth-3" [ngStyle]="{'background-image':'url(https://cdn.theexpanse.app/file/2876/Logo-Mockup.jpg)'}"></div>
+      </div>
+      <br><br>
+      SideQuest Legends is a content distribution platform. People can download and use SideQuest Legends to access content we and our members make.
+      It has everything you need to create loyalty building multi-user crossplay content. <br><br>
+      SideQuest Legends is a new way to build your Unity Game. SideQuest Legends provides a simple unified SDK for building
+      VR games, content and experiences for standalone and desktop VR headsets. What makes SQ Legends different is how developer friendly our system
+      is. It has been designed from the ground up to integrate with the latest Unity3D workflows and it supports C-Sharp scripting in Unity3D.
+      <br>
+      <br>
+      <br>
+      <h5>SDK Benefits</h5>
+      <hr>
+      <div class="right-align grey-text">SideQuest Legends is the All In One VR Development Platform<br><br></div>
+      Working with the SideQuest Legends SDK is great. Your project is lightweight and only contains scripts and asset you need,
+      no additional third party scripts are required for you to have full support for all major VR headsets and a host of other features.
+      Here are some of the benefits of using the SideQuest Legends SDK over deploying a traditional standalone Unity3D game.
+      <br>
+      <br>
+      <div class="padding">
+        <span class="chip message-chip"><i class="material-icons">done</i>Cross platform support - We already support all major desktop and mobile headsets.</span>
+        <span class="chip message-chip"><i class="material-icons">done</i>3D Spatial Voice & Networking - We provide VOIP & networking pipelines so you can focus on the game logic, content and all the fun stuff! Added benefit: no server costs!</span>
+        <span class="chip message-chip"><i class="material-icons">done</i>Single Input System - We translate inputs from a range of devices into a single set of inputs for you to use, no more multiple input systems!</span>
+        <span class="chip message-chip"><i class="material-icons">done</i>Interaction system - You can leverage the SideQuest Interaction System to allow people to spawn, grab, resize and throw objects with integrated network sync and fine controls over physics - make custom interactable objects!</span>
+        <span class="chip message-chip"><i class="material-icons">done</i>Single click export of existing Unity projects - You can get our SDK on the Unity Asset Store and export any GameObject in your Unity3D scene to SideQuest. You can use custom scripts and MonoBehaviours to access the whole scene hierarchy at runtime!</span>
+        <span class="chip message-chip"><i class="material-icons">done</i>Monetization ( coming soon )! - Its important to get paid for your work, it helps to keep new updates coming and drives more polished content. Our SDK will allow you to monetize your content on our platform so you can keep the lights on!</span>
+      </div>
+
+      <br>
+      <br>
+      <h5>Download</h5>
+      <hr>
+      <div class="right-align grey-text">Download the SideQuest Legends SDK today to get started building in VR!<br><br></div>
+      <br>
+      <br>
+      <div class="row center-align">
+        <div class="col s6">
+          <img src="assets/images/unitystore.png" class="responsive-img" style="opacity: 0.4"/>
+        </div>
+        <div class="col s6">
+          <img onClick="window.location = 'https://github.com/the-expanse/SideQuestSDK';" src="assets/images/github.png" class="pointer responsive-img"/>
+        </div>
+      </div>
+      <br>
+      <br>
+
+      <br>
+      <br>
+      <h5>Join our growing Discord Community! ( {{totalDiscord | number}} members )</h5>
+      <hr>
+      <div class="right-align grey-text">We have a great community of developers, designers and users, oh lots of users!<br><br></div>
+      <br>
+      <br>
+      <div class="row center-align">
+        <div class="col s3"></div>
+        <div class="col s6 center-align">
+          <img onClick="window.location = 'https://discord.gg/HNnDPSu';" src="assets/images/discord.png" class="pointer responsive-img"/>
+        </div>
+        <div class="col s3"></div>
+      </div>
+      <br>
+      <br>
+
+    </div>
+    <div class="col s12 m4">
+      <div class="hide-on-small-only">
+        <h5>Download</h5>
+        <hr>
+        <div class="right-align grey-text">Download the SideQuest Legends SDK today to get started building in VR!<br><br></div>
+        <img src="assets/images/unitystore.png" class="responsive-img" style="opacity: 0.4"/>
+        <br><img onClick="window.location = 'https://github.com/the-expanse/SideQuestSDK';" src="assets/images/github.png" class="pointer responsive-img"/>
+        <br>
+        <br>
+      </div>
+      <h5>Documentation</h5>
+      <hr>
+      <div class="right-align grey-text">Get up and running in minutes with our in-game or professional tools.<br><br></div>
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <h5 class="right-align">Professional ( Unity3D )</h5>
+          <div class="right-align grey-text">Design and debug with professional Unity3D tools</div>
+        </li>
+        <li routerLink="/getting-started-build-app" (click)="appService.scrollToTop()" class="collection-item pointer"><div>Getting Started - Build An App<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <li routerLink="/getting-started-test-app" (click)="appService.scrollToTop()" class="collection-item pointer"><div>Getting Started - Test An App<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <li routerLink="/scripting-introduction" (click)="appService.scrollToTop()" class="collection-item pointer"><div>Scripting - Introduction<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <li routerLink="/scripting-app-behaviours" class="collection-item pointer" (click)="appService.scrollToTop()" ><div>Scripting - App Behaviours<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <li routerLink="/scripting-interactions" class="collection-item pointer" (click)="appService.scrollToTop()" ><div>Scripting - Interaction System<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <li routerLink="/scripting-input-controls" class="collection-item pointer" (click)="appService.scrollToTop()" ><div>Scripting - Input Controls<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+      </ul>
+      <br>
+      <br>
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <h5 class="right-align">In-Game Creation Tools</h5>
+          <div class="right-align grey-text">Build in VR with our in game tools.</div>
+        </li>
+        <li style="opacity: 0.4" class="collection-item pointer" (click)="appService.scrollToTop()"><div>Editing a Space<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <!--<li class="collection-item pointer" (click)="appService.scrollToTop()"><div>Textured Shapes<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>-->
+        <li style="opacity: 0.4" class="collection-item pointer" (click)="appService.scrollToTop()"><div>Loading 3D Models<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <li style="opacity: 0.4" class="collection-item pointer" (click)="appService.scrollToTop()"><div>Setting Skyboxes<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <li style="opacity: 0.4" class="collection-item pointer" (click)="appService.scrollToTop()"><div>Interactable Objects<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <!--<li class="collection-item pointer" (click)="appService.scrollToTop()"><div>Networking<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>-->
+      </ul>
+      <br>
+      <br>
+      <ul class="collection with-header">
+        <li class="collection-header">
+          <h5 class="right-align">Support</h5>
+          <div class="right-align grey-text">Extra support information</div>
+        </li>
+        <li style="opacity: 0.4" class="collection-item pointer" (click)="appService.scrollToTop()" ><div>SDK Reference<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <li style="opacity: 0.4" class="collection-item pointer" (click)="appService.scrollToTop()" ><div>SDK Samples<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <li routerLink="/developer-faq" (click)="appService.scrollToTop()" class="collection-item pointer"><div>Developer FAQ<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <li onClick="window.location = 'https://discord.gg/HNnDPSu';" class="collection-item pointer" (click)="appService.scrollToTop()" ><div>SideQuest Discord<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+        <li routerLink="/account/message-thread/1" class="collection-item pointer" (click)="appService.scrollToTop()" ><div>Contact Shane Directly<span class="secondary-content"><i class="material-icons white-text">send</i></span></div></li>
+      </ul>
+    </div>
+  </div>
+</div>

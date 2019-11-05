@@ -286,10 +286,10 @@ export class AppService {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(url).then(
         () => {
-          this.showMessage({ error: false }, "URL Copied to clipboard!");
+          this.showMessage({ error: false }, "Copied to clipboard!");
         },
         err => {
-          this.showMessage({ error: true, data: "Cant copy share url!" }, "");
+          this.showMessage({ error: true, data: "Cant copy!" }, "");
         }
       );
     }

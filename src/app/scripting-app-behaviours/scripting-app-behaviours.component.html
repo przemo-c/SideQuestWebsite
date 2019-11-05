@@ -1,0 +1,77 @@
+<div class="bottom-border">
+  <mz-parallax [height]="350" >
+    <img src="assets/images/scripting-background.jpg">
+  </mz-parallax>
+</div>
+<div class="main-container relative" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}"
+     [ngStyle]="{'margin-top': '-150px'}">
+  <div class="top-back">
+
+  </div>
+  <div class="right">
+    <span class="chip pointer top-chip"
+        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+        mz-tooltip tooltip="People have been so kind, we are humbled."
+        position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+      Support us on Patreon
+    </span>
+    <span class="chip pointer top-chip"
+          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
+          mz-tooltip tooltip="Use this option if you prefer a one off donation."
+          position="bottom">
+      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+      Donate on Paypal
+    </span>
+  </div>
+
+  <h4>SideQuest Scripting App Behaviours</h4>
+  <hr>
+
+  <div class="btn pink-button small-button waves-effect waves-light" (click)="appService.scrollToTop()" routerLink="/developers">Back To Developers</div>
+  <div class="right grey-text">Get going with scripting in SideQuest to open a whole world of possibilities to create content.<br><br></div>
+
+  <div class="padding clearfix">
+    Notice: This next section assumes you are familiar with Unity3D and C-Sharp scripting. Unity has a lot of great <a href="https://learn.unity.com/">tutorials</a> to get your started.<br><br>
+  </div>
+  <h5>Introducing App Behaviours</h5>
+  <hr>
+  <div class="padding">
+    In order to use scripting in SideQuest you must bootstrap your custom scripts inside a class that inherits from <span class="chip">AppBehaviour</span>instead of <span class="chip">MonoBehaviour</span>.<br><br>
+    You only need to do this with one or more scripts you want to be automatically instantiated at runtime on the root of your SideQuest app. These scripts cannot have public references to other components in the scene but they can use primitive types like string, int, float to initialise properties in the class.
+    <app-code-block [someCode]="appBehaviour"></app-code-block>
+  </div>
+  <h5>Adding scripts to other objects.</h5>
+  <hr>
+  <div class="padding">
+    Scripts that are compiled at runtime need to be instantiated at runtime too, this means you cannot link your custom scripts to gameobjects in the Unit3D inspector and instead must instantiate them inside the bootstrap <span class="chip">AppBehaviour</span>.
+    <br><br>
+    This means you need to use <span class="chip">AddComponent&lt;T&gt;()</span> in the <span class="chip">AppBehaviour</span> to create instances of your other <span class="chip">MonoBehaviours</span>.
+    <app-code-block [someCode]="appBehaviourAddComponent"></app-code-block>
+    It is important to only use <span class="chip">AppBehaviour</span> components for things you want to be instantiated automatically on the root object. You cannot use them to add components to children of the root object. To add scripts to other objects just use normal <span class="chip">MonoBehaviours</span> and Instantiate them inside an <span class="chip">AppBehaviour</span>.
+    <app-code-block [someCode]="appBehaviourAddComponentOther"></app-code-block>
+  </div>
+  <h5>Why do I need to do this?</h5>
+  <hr>
+  <div class="padding">
+    In short, the script references break due to the fact that your script assembly is not available at runtime. Since we compile your scripts at runtime they are effectively considered new scripts and this results in missing script references. For more information see here.
+  </div><br><br>
+
+  <h5>What is an AppBehaviour?</h5>
+  <hr>
+  <div class="padding">
+    An <span class="chip">AppBehaviour</span> simply inherits from <span class="chip">MonoBehaviour</span> with an empty class. Here is what the source looks like:
+    <app-code-block [someCode]="appBehaviourSource"></app-code-block>
+    It provides a way for us to detect the Type of your bootstrap <span class="chip">MonoBehaviour</span> at runtime. This means we can initialise these scripts at runtime and they can bootstrap the rest of your scripts.
+  </div><br><br>
+
+  <h5>More Useful Information</h5>
+  <hr>
+  <div class="padding right-align">
+    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/scripting-interactions" (click)="appService.scrollToTop()">Scripting - Interaction System</div><br><br>
+    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/scripting-input-controls" (click)="appService.scrollToTop()">Scripting - Input Controls</div><br><br>
+  </div><br><br>
+  <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developers" (click)="appService.scrollToTop()">Back To Developers</div> <br>
+
+  <br><br><br><br>
+</div>
