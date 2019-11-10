@@ -372,12 +372,22 @@ export class AppListingComponent implements OnInit, OnDestroy {
     }
     if (customUrl) {
       this.service.openSidequestUrl(customUrl).then(() => {
-        return this.expanseService.addInstalledApp(
-          this.apps_id,
-          this.currentApp.versioncode
-        );
+        return this.subscribeToApp();
       });
     }
+  }
+
+  subscribeIfItch(provider) {
+    if (provider === "Itch") {
+      this.subscribeToApp();
+    }
+  }
+
+  subscribeToApp() {
+    return this.expanseService.addInstalledApp(
+      this.apps_id,
+      this.currentApp.versioncode
+    );
   }
 
   uninstallApp(packageName) {

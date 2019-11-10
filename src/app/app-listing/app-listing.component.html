@@ -100,7 +100,7 @@
                  (click)="openItems(apk_download_urls)">Update To {{currentApp.versionname}}</div><br><br><br>
 
           </div>
-          <div *ngIf="isInstalled && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')">
+          <div *ngIf="isInstalled">
             <br>
             <div class="btn waves-effect waves-light pink-button small-button"
                  (click)="uninstallApp(currentApp.packagename)">Unsubscribe & Uninstall</div>
@@ -309,9 +309,9 @@
           <div class="chip pointer"
                mz-tooltip tooltip="{{url.provider}}"
                position="bottom"
-               (click)="openUrl(url.link_url)">
+               (click)="openUrl(url.link_url);subscribeIfItch(url.provider)">
             <img src="{{urlIcons[url.provider].icon}}">
-            {{url.provider==='Itch'?'Buy On Itch':url.provider}}
+            {{url.provider==='Itch'? isInstalled && installedVersion < currentApp.versioncode ? 'Update On Itch' : 'Buy On Itch':url.provider}}
           </div>
         </div>
       </div>
