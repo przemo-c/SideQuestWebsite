@@ -42,7 +42,7 @@
   <br>
   <div class="row">
     <div class="col s12 m10">
-      <ng-container *ngIf="isInstalled && installedVersion < currentApp.versioncode && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')">
+      <ng-container *ngIf="apk_download_urls && apk_download_urls.length && isInstalled && installedVersion < currentApp.versioncode && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')">
         <div class="btn waves-effect waves-light white-text pink-button small-button"
              (click)="openItems(apk_download_urls)">Update Available</div><br><br>
       </ng-container>
