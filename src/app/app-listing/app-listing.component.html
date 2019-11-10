@@ -94,7 +94,7 @@
           <img class="screen-shot pointer" *ngFor="let screenshot of screenshots; let i = index" src="{{screenshot}}" (click)="openImage(i)"/>
 
           <br>
-          <div *ngIf="isInstalled && installedVersion < currentApp.versioncode && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')">
+          <div *ngIf="apk_download_urls && apk_download_urls.length && isInstalled && installedVersion < currentApp.versioncode && !(currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4')">
             <br>
             <div class="btn waves-effect waves-light pink-button small-button"
                  (click)="openItems(apk_download_urls)">Update To {{currentApp.versionname}}</div><br><br><br>
