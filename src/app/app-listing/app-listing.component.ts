@@ -391,10 +391,19 @@ export class AppListingComponent implements OnInit, OnDestroy {
   }
 
   uninstallApp(packageName) {
-    this.service
-      .openSidequestUrl("sidequest://unload/#" + packageName)
-      .then(() => this.expanseService.uninstallApp(this.apps_id))
-      .then(() => (this.isInstalled = false));
+    if (
+      this.currentApp.website === "BeatOn" &&
+      this.currentApp.app_categories_id === "4"
+    ) {
+      this.expanseService
+        .uninstallApp(this.apps_id)
+        .then(() => (this.isInstalled = false));
+    } else {
+      this.service
+        .openSidequestUrl("sidequest://unload/#" + packageName)
+        .then(() => this.expanseService.uninstallApp(this.apps_id))
+        .then(() => (this.isInstalled = false));
+    }
   }
 
   openItem(url: string) {

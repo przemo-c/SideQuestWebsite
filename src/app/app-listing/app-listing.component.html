@@ -103,7 +103,7 @@
           <div *ngIf="isInstalled">
             <br>
             <div class="btn waves-effect waves-light pink-button small-button"
-                 (click)="uninstallApp(currentApp.packagename)">Unsubscribe & Uninstall</div>
+                 (click)="uninstallApp(currentApp.packagename)">{{currentApp.website === 'BeatOn' && currentApp.app_categories_id === '4' ? 'Unsubscribe' : 'Unsubscribe & Uninstall'}}</div>
             <br><br>Click to unsubscribe from this app to not receive update notifications and also uninstall if SideQuest is open. You may need to uninstall separately if you're not connected.
           </div>
           <div *ngIf="currentApp.donate_url">
