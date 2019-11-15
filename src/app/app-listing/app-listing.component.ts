@@ -364,6 +364,11 @@ export class AppListingComponent implements OnInit, OnDestroy {
       customUrl = "sidequest://firefox-skybox/#" + _apps;
     } else if (
       this.currentApp.app_categories_id === "4" &&
+      this.currentApp.website === "SynthRiders"
+    ) {
+      customUrl = "sidequest://synthriders-multi/#" + _apps;
+    } else if (
+      this.currentApp.app_categories_id === "4" &&
       this.currentApp.website === "BeatOn"
     ) {
       customUrl = "sidequest://bsaber-multi/#" + _apps;
@@ -392,7 +397,8 @@ export class AppListingComponent implements OnInit, OnDestroy {
 
   uninstallApp(packageName) {
     if (
-      this.currentApp.website === "BeatOn" &&
+      (this.currentApp.website === "BeatOn" ||
+        this.currentApp.website === "SynthRiders") &&
       this.currentApp.app_categories_id === "4"
     ) {
       this.expanseService
@@ -491,6 +497,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
             [
               "OBB",
               "APK",
+              "SynthRiders Mod",
               "BeatOn Mod",
               "Github Release",
               "Firefox Skybox"

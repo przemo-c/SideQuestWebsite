@@ -403,8 +403,6 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     this.urlTypes = [
       "APK",
       "OBB",
-      "BeatOn Mod",
-      "Firefox Skybox",
       "Oculus Quest",
       "Oculus Go",
       "Oculus Rift",
@@ -425,7 +423,10 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       "Youtube",
       "Facebook",
       "Instagram",
-      "Vimeo"
+      "Vimeo",
+      "SynthRiders Mod",
+      "Firefox Skybox",
+      "BeatOn Mod"
     ];
   }
 
