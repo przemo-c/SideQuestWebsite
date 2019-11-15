@@ -309,7 +309,7 @@
           <div class="chip pointer"
                mz-tooltip tooltip="{{url.provider}}"
                position="bottom"
-               (click)="openUrl(url.link_url);subscribeIfItch(url.provider)">
+               (click)="openUrl(url.link_url + (url.provider==='Itch'?'?ac=k3RTPJMnVvG':''));subscribeIfItch(url.provider)">
             <img src="{{urlIcons[url.provider].icon}}">
             {{url.provider==='Itch'? isInstalled && installedVersion < currentApp.versioncode ? 'Update On Itch' : 'Buy On Itch':url.provider}}
           </div>
