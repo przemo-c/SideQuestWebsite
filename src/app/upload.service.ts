@@ -1,9 +1,10 @@
 import { EventEmitter, Injectable } from "@angular/core";
 import { ExpanseClientService } from "./expanse-client.service";
 import { AvatarPickerComponent } from "./avatar-picker/avatar-picker.component";
-import { Router } from "@angular/router";
+import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { AppService } from "./app.service";
-
+import { Subscription } from "rxjs";
+declare let gtag;
 @Injectable({
   providedIn: "root"
 })
@@ -12,12 +13,26 @@ export class UploadService {
   is_loading_icon: boolean;
   is_loading_screenshot: boolean;
   loading: boolean;
+  sub: Subscription;
   constructor(
     private expanseService: ExpanseClientService,
     private router: Router,
-    private appService: AppService
+    private appService: AppService,
+    private route: ActivatedRoute
   ) {
     this.setupWindowEvents();
+    this.sub = this.router.events.subscribe(val => {
+      if (val instanceof NavigationEnd) {
+        if (this.route.snapshot.children.length) {
+          gtag("config", "UA-152732171-1", {
+            page_title:
+              (<any>this.route.snapshot.children[0].component).name ||
+              "Unknown",
+            page_path: val.url
+          });
+        }
+      }
+    });
   }
 
   setupWindowEvents() {
