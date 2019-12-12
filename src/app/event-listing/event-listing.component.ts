@@ -241,7 +241,8 @@ export class EventListingComponent implements OnInit, OnDestroy {
         if (this.currentApp.apps_id) {
           await this.expanseService
             .getApp(this.currentApp.apps_id)
-            .then(app => (this.selectedApp = app[0]));
+            .then(app => (this.selectedApp = app[0]))
+            .then(() => (this.selectedApp.apps_id = this.currentApp.apps_id));
         }
         if (this.currentApp.spaces_id) {
           await this.expanseService

@@ -36,7 +36,7 @@ import { ScriptingInputControlsComponent } from "./scripting-input-controls/scri
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
-  { path: "legends", component: LegendsListComponent },
+  { path: "channels", component: LegendsListComponent },
   { path: "developers", component: DevelopersComponent },
   { path: "developer-faq", component: DeveloperFAQComponent },
   { path: "getting-started-build-app", component: GettingStartedComponent },

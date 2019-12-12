@@ -1,9 +1,11 @@
 
 .margin-top-icons{
-  margin-top: 1em;
+  margin-top: 1.5em;
+  margin-right: 1em;
 }
 .layout-button{
-  margin: 0.5em;
+  margin-left: 0.3em;
+  margin-right: 0.3em;
   cursor: pointer;
 }
 

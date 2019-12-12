@@ -145,6 +145,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   page = 0;
   searchTimeout: any;
   searchString: string;
+  isAccepted: boolean;
   constructor(
     private router: Router,
     public service: AppService,
@@ -206,6 +207,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.isLoading = false;
         this.reviews = this.reviews.concat(r);
         this.page++;
+        console.log(this.reviews);
       })
       .then(() => this.expanseService.getRating(this.apps_id, "apps"))
       .then((r: any) => {
@@ -221,6 +223,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
       .deleteReview(this.apps_id, "apps", this.currentReviewId)
       .then(r => this.service.showMessage(r, "Review Deleted!"))
       .then(() => {
+        this.currentReviewId = null;
         this.page = 0;
         this.getReviews();
       });
@@ -235,7 +238,14 @@ export class AppListingComponent implements OnInit, OnDestroy {
       return;
     }
     this.expanseService
-      .addReview(this.currentReview, this.currentRating, this.apps_id)
+      .addReview(
+        this.currentReview,
+        this.currentRating,
+        this.apps_id,
+        null,
+        null,
+        this.currentReviewId
+      )
       .then((r: any) => {
         this.service.showMessage(r, "Review Added!");
         if (!r.error) {
@@ -248,6 +258,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.page = 0;
         this.currentReview = "";
         this.currentRating = 3;
+        this.currentReviewId = null;
         return this.getReviews();
       });
   }
@@ -349,37 +360,37 @@ export class AppListingComponent implements OnInit, OnDestroy {
 
   openItems(apps: any) {
     this.downloadCount();
-    let customUrl;
-    let _apps = JSON.stringify(
-      apps.map(app =>
-        app.browser_download_url
-          ? app.browser_download_url.trim()
-          : app.link_url.trim()
-      )
-    );
-    if (
-      this.currentApp.app_categories_id === "4" &&
-      this.currentApp.website === "FirefoxSkybox"
-    ) {
-      customUrl = "sidequest://firefox-skybox/#" + _apps;
-    } else if (
-      this.currentApp.app_categories_id === "4" &&
-      this.currentApp.website === "SynthRiders"
-    ) {
-      customUrl = "sidequest://synthriders-multi/#" + _apps;
-    } else if (
-      this.currentApp.app_categories_id === "4" &&
-      this.currentApp.website === "BeatOn"
-    ) {
-      customUrl = "sidequest://bsaber-multi/#" + _apps;
-    } else {
-      customUrl = "sidequest://sideload-multi/#" + _apps;
-    }
-    if (customUrl) {
-      this.service.openSidequestUrl(customUrl).then(() => {
-        return this.subscribeToApp();
-      });
-    }
+    // let customUrl;
+    // let _apps = JSON.stringify(
+    //   apps.map(app =>
+    //     app.browser_download_url
+    //       ? app.browser_download_url.trim()
+    //       : app.link_url.trim()
+    //   )
+    // );
+    // if (
+    //   this.currentApp.app_categories_id === "4" &&
+    //   this.currentApp.website === "FirefoxSkybox"
+    // ) {
+    //   customUrl = "sidequest://firefox-skybox/#" + _apps;
+    // } else if (
+    //   this.currentApp.app_categories_id === "4" &&
+    //   this.currentApp.website === "SynthRiders"
+    // ) {
+    //   customUrl = "sidequest://synthriders-multi/#" + _apps;
+    // } else if (
+    //   this.currentApp.app_categories_id === "4" &&
+    //   this.currentApp.website === "BeatOn"
+    // ) {
+    //   customUrl = "sidequest://bsaber-multi/#" + _apps;
+    // } else {
+    //   customUrl = "sidequest://sideload-multi/#" + _apps;
+    // }
+    // if (customUrl) {
+    //   this.service.openSidequestUrl(customUrl).then(() => {
+    return this.subscribeToApp();
+    //  });
+    // }
   }
 
   subscribeIfItch(provider) {
@@ -389,10 +400,11 @@ export class AppListingComponent implements OnInit, OnDestroy {
   }
 
   subscribeToApp() {
-    return this.expanseService.addInstalledApp(
-      this.apps_id,
-      this.currentApp.versioncode
-    );
+    return this.expanseService
+      .addInstalledApp(this.apps_id, this.currentApp.versioncode)
+      .then(res => {
+        this.service.showMessage(res, "Sending to SideQuest...");
+      });
   }
 
   uninstallApp(packageName) {

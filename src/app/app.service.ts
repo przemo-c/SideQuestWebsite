@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { MzModalComponent, MzToastService } from "ngx-materialize";
 import { ExpanseClientService } from "./expanse-client.service";
+import { Observable } from "rxjs";
+import { AccountComponent } from "./account/account.component";
 
 @Injectable({
   providedIn: "root"
@@ -22,6 +24,7 @@ export class AppService {
   confirmOpen: MzModalComponent;
   isGrid: boolean = true;
   isTimeline: boolean = false;
+  accountComponent: AccountComponent;
   notifications: any = { friend_requests: [], unread_messages: [] };
 
   public readonly siteKey = "6LfrRrcUAAAAAE00oWA60iMK5AeM7luMlKWevTlY";
@@ -46,6 +49,9 @@ export class AppService {
       this.isTimeline = isTimeline === "true";
     }
   }
+  setAccountComponent(accountComponent: AccountComponent) {
+    this.accountComponent = accountComponent;
+  }
 
   getNotifications(expanseService: ExpanseClientService) {
     expanseService
@@ -59,7 +65,7 @@ export class AppService {
   }
 
   scrollTo(pos) {
-    this.scrollContainer.scrollTo(0, pos);
+    document.body.scrollTo(0, pos);
   }
 
   async fixImages(result) {
@@ -88,20 +94,20 @@ export class AppService {
   }
 
   setupWindowEvents() {
-    window.addEventListener(
-      "dragover",
-      (e: any) => {
-        e.preventDefault();
-      },
-      false
-    );
-    window.addEventListener(
-      "drop",
-      (e: any) => {
-        e.preventDefault();
-      },
-      false
-    );
+    // window.addEventListener(
+    //   "dragover",
+    //   (e: any) => {
+    //     e.preventDefault();
+    //   },
+    //   false
+    // );
+    // window.addEventListener(
+    //   "drop",
+    //   (e: any) => {
+    //     e.preventDefault();
+    //   },
+    //   false
+    // );
   }
 
   getNews(page: number = 0, filter: string = "none") {
@@ -267,6 +273,9 @@ export class AppService {
     }, 1000);
   }
 
+  openLink(url: string) {
+    window.location.href = url;
+  }
   openSidequestUrl(url) {
     this.sidequestUrl = url;
     this.retrySidequestUrl();

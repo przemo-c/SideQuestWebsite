@@ -1,9 +1,8 @@
-<div class="bottom-border">
-  <mz-parallax *ngIf="expanseService.currentSession.banner_image && !isLoading" [height]="350" >
-    <img src="{{expanseService.currentSession.banner_image}}">
-  </mz-parallax>
+<div class="bottom-border paralax"  [ngClass]="{'banner-in-app':appService.hideLogo}">
+  <div class="banner-top-back" *ngIf="expanseService.currentSession.banner_image && !isLoading"
+       [ngStyle]="{'background-image':'url(\''+expanseService.currentSession.banner_image+'\')'}"></div>
 </div>
-<div class="main-container relative" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}"
+<div class="main-container relative padding"
      [ngStyle]="{'margin-top': expanseService.currentSession.banner_image ? '-150px' : '0'}">
   <div class="top-back" *ngIf="expanseService.currentSession.banner_image">
 
@@ -139,7 +138,7 @@
         <div class="right-align grey-text">You personal SideQuest avatar.</div>
         <div class="center-align">
           <img class="responsive-img pointer" routerLink="/avatar-picker" src="{{expanseService.cdnUrl+expanseService.currentSession.preview_image}}"/><br>
-          <div class="btn waves-effect waves-light pink-button small-button change-avatar" routerLink="/avatar-picker" (click)="appService.scrollToTop()">Change Avatar</div>
+          <div class="btn waves-effect waves-light pink-button small-button change-avatar" (click)="appService.scrollToTop();setAvatarImage()">Select Image</div>
         </div>
         <br>
         <h5>Developer Mode</h5>
@@ -611,6 +610,37 @@
     <br><br>
   </div>
   <br><br>
+  <div *ngIf="mainPage === 'message-thread'">
+    <div class="row">
+      <div class="col s12">
+        <div class="user-chip chip grey darken-2 message-chip send-chip relative" #scrollTo>
+          <div class="btn waves-effect waves-light right pink-button message-send-top" (click)="sendMessage()">Send</div>
+          <div id="message_to_send">
+            <mz-textarea-container>
+              <i mz-icon-mdi mz-textarea-prefix [icon]="'double_arrow'">
+              </i>
+              <textarea mz-textarea
+                        [label]="'Send Message'"
+                        name="message_to_send"
+                        placeholder="Message..."
+                        class="white-text"
+                        [(ngModel)]="messageToSend"
+                        length="256"></textarea>
+            </mz-textarea-container>
+            <br><br>
+          </div>
+        </div>
+      </div>
+      <div class="col s12" *ngFor="let message of myThreads">
+        <div class="user-chip chip message-chip" [ngClass]="{'other-user-message':!message.is_mine}">
+          <img routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}"/>
+          <div class="right margin-right">{{message.message_date|fromNow}}</div>
+          <div class="chip-title">{{message.name}}</div>
+          <div [innerHTML]="message.message"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="clearfix"></div>
   <br>
@@ -623,6 +653,10 @@
       </div>
     </div>
   </ng-container>
+  <ng-container>
+
+    <h4 *ngIf="messageUser && mainPage == 'message-thread'">Messages to {{messageUser}}</h4>
+  </ng-container>
   <div class="center-align">
     <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore&&mainPage!=='basic'" (click)="getCurrent()">Load More</div>
     <div *ngIf="hasNoMore && mainPage !== 'message-thread'" class="chip">No more items...</div>
@@ -634,44 +668,6 @@
     </div>
   </div>
   <br><br>
-  <div *ngIf="mainPage === 'message-thread'">
-    <div class="row">
-      <div class="col s12" *ngFor="let message of myThreads">
-        <div class="user-chip chip message-chip" [ngClass]="{'other-user-message':!message.is_mine}">
-          <img routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}"/>
-          <div class="right margin-right">{{message.message_date|fromNow}}</div>
-          <div class="chip-title">{{message.name}}</div>
-          <div [innerHTML]="message.message"></div>
-        </div>
-      </div>
-      <div class="col s12">
-        <div class="user-chip chip grey darken-2 message-chip send-chip relative" #scrollTo>
-          <div class="btn waves-effect waves-light right pink-button message-send-top" (click)="sendMessage()">Send</div>
-          <div id="message_to_send">
-            <mz-textarea-container>
-              <i mz-icon-mdi mz-textarea-prefix [icon]="'double_arrow'">
-              </i>
-              <textarea mz-textarea
-                [label]="'Send Message'"
-                name="message_to_send"
-                placeholder="Message..."
-                class="white-text"
-                [(ngModel)]="messageToSend"
-                length="256"></textarea>
-            </mz-textarea-container>
-            <br><br>
-          </div>
-          <!--<form autocomplete="off" class="input-field">-->
-              <!--<i class="material-icons prefix">double_arrow</i>-->
-              <!--<textarea class="materialize-textarea" max="256" placeholder="Message..." [(ngModel)]="messageToSend">-->
-              <!--</textarea>-->
-              <!--<label for="message_to_send" class="active">Send Message</label>-->
-          <!--</form>-->
-        </div>
-      </div>
-    </div>
-  </div>
-  <br>
 
 
 </div>

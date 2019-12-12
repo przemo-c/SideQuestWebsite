@@ -1,4 +1,4 @@
-<div class="container main-container">
+<div class="main-container padding">
   <div class="right">
   <span class="chip pointer top-chip"
         onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
@@ -57,7 +57,7 @@
       Download the SideQuest Legends Gaming Platform available for most major VR headsets.
       <div class="card" *ngFor="let asset of sideQuestApps">
         <div class="card-content">
-          <div *ngIf="asset.name.indexOf('.exe')===-1" routerLink="/app/12/1" (click)="appService.scrollToTop()" class="right waves-effect waves-light btn pink-button small-button">SideQuest Store Page</div>
+          <div *ngIf="asset.name.indexOf('.exe')===-1" routerLink="/app/12/1" (click)="appService.scrollToTop()" class="right waves-effect waves-light btn pink-button small-button">Store Page</div>
           <span class="card-title">{{asset.name.indexOf('.exe')>-1?'Steam / Rift / Windows 2D':'Quest & Go on Android'}}</span>
           <div class="download-buttons">
             <div (click)="openUrl(asset.browser_download_url)" class="waves-effect waves-light btn pink-button">{{asset.name}}</div> <br>

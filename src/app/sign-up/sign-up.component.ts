@@ -20,7 +20,7 @@ export class SignUpComponent implements OnInit {
   email2: string;
   password: string;
   password2: string;
-
+  public_profile: boolean;
   selectedDate = {
     start: moment(), // new Date(new Date().getTime() - (1000 * 3600 * 24 * 7)),
     end: null

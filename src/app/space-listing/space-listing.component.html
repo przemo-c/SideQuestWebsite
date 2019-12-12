@@ -8,12 +8,11 @@
     </div>
   </div>
 </ng-container>
-<div class="bottom-border">
-  <mz-parallax *ngIf="(currentApp.image) && !loading" [height]="350">
-    <img src="{{currentApp.image}}">
-  </mz-parallax>
+<div class="bottom-border paralax"  [ngClass]="{'banner-in-app':service.hideLogo}">
+  <div class="banner-top-back" *ngIf="(currentApp.image) && !loading"
+       [ngStyle]="{'background-image':'url(\''+currentApp.image+'\')'}"></div>
 </div>
-<div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}"
+<div *ngIf="!is_not_found && !loading" class="main-container padding"
      [ngStyle]="{'margin-top': currentApp.image ? '-150px' : '0'}">
   <div class="top-back" *ngIf="currentApp.image">
 

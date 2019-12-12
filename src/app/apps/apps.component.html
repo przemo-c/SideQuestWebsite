@@ -1,186 +1,188 @@
-<div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
-  <app-listing-modes [show_sort]="!appService.isTimeline"
-                     (recent)="isRecent = true; isRating = false; isDownloads = false; page = 0; getApps()"
-                     (name)="isRecent = false; isRating = false; isDownloads = false; page = 0; getApps()"
-                     (rating)="isRecent = false; isRating = true; isDownloads = false; page = 0; getApps()"
-                     (download)="isRecent = false; isRating = false; isDownloads = true; page = 0; getApps()"></app-listing-modes>
-  <h4 class="inline-block">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 3 ? 'NSFW' : 'Apps'}}</h4>
-  <hr class="grey">
-  <div class="right search-box input-field">
-    <i class="material-icons prefix">search</i>
 
-    <input id="searchBox" type="text" class="validate"
+<mz-sidenav
+  [closeOnClick]="true"
+  [draggable]="false"
+  [id]="'mobile-games-menu'"
+  #sidenavGames>
+  <mz-sidenav-header>
+    <h5 class="black-text center-align">Games Menu</h5>
+  </mz-sidenav-header>
+
+  <div class="search-box input-field" style="margin-left: 1em; margin-right: 1em; color: black!important;">
+    <input id="searchBoxSide" type="text" class="validate"
            [(ngModel)]="searchString"
-           (input)="debounceSearch()"
-    >
-    <label for="searchBox" class="active">Search</label>
+           (input)="debounceSearch()">
+    <label for="searchBoxSide" class="active">Search</label>
   </div>
-  <div *ngIf="category !== 4">
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Official VR Games for Go and Quest."
-         position="bottom"
-         routerLink="/apps/1">
-      <img src="https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png"/>
-      Games
-    </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Official VR Apps for Go and Quest."
-         position="bottom"
-         routerLink="/apps/2">
-      <img src="https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png"/>
-      Apps
-    </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="VR Mods for Go and Quest."
-         position="bottom"
-         routerLink="/apps/4">
-      <img src="https://the-expanse.github.io/SideQuestRepos/android-games/icons/games.png"/>
-      Mods
-    </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="NSFW Content for Go and Quest."
-         position="bottom"
-         routerLink="/apps/3">
-      <img src="https://the-expanse.github.io/SideQuestRepos/nsfw/icons/nsfw.png"/>
-      NSFW
-    </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Official VR Games for Go and Quest."
-         position="bottom"
-         routerLink="/apps">
-      <img src="assets/images/score-logo.png"/>
-      All
-    </div>
-  </div>
+  <!--<mz-sidenav-subheader>Link Subheader</mz-sidenav-subheader>-->
+  <div class="">
+    <mz-sidenav-link  *ngFor="let item of menuItems" >
 
-  <div *ngIf="category == 4">
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Back to top."
-         position="bottom"
-         routerLink="/apps/1">
-      <i class="material-icons prefix">arrow_back</i>
-      Back To Games
-    </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="SynthRiders Stages."
-         position="bottom"
-         routerLink="/apps/4/srstage">
-      <img src="https://cdn.theexpanse.app/file/3687/Synth.png"/>
-      SR Stages
-    </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="BMBF Mods for quest."
-         position="bottom"
-         routerLink="/apps/4/beaton">
-      <img src="assets/images/BMBF.png"/>
-      BMBF
-    </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Firefox Reality mods for quest."
-         position="bottom"
-         routerLink="/apps/4/firefox">
-      <img src="https://i.imgur.com/ccwZwxX.jpg"/>
-      Firefox Reality
-    </div><br>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Sabers."
-         position="bottom"
-         routerLink="/apps/4/saber">
-      <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
-      BS Sabers
-    </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Saber Trails."
-         position="bottom"
-         routerLink="/apps/4/sabertrail">
-      <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
-      BS Saber Trails
-    </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Platforms."
-         position="bottom"
-         routerLink="/apps/4/platform">
-      <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
-      BS Platforms
-    </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Menu Titles."
-         position="bottom"
-         routerLink="/apps/4/menutitle">
-      <img src="https://the-expanse.github.io/SideQuestRepos/app-index-icons/beat-saber.jpg"/>
-      BS Menu Titles
-    </div>
+      <a class="pointer"
 
+           mz-tooltip tooltip="{{item.description}}"
+           position="bottom"
+           routerLink="{{item.url}}">
+        <img class="menu-image"  *ngIf="item.is_main" src="{{item.image}}"/>
+        <span *ngIf="item.is_main"><b>{{item.name}}</b></span>
+        <span *ngIf="!item.is_main">{{item.name}}</span>
+      </a>
+    </mz-sidenav-link>
   </div>
-  <!--<div *ngIf="category == 4">-->
-    <!--<br>-->
-    <!--<div class="chip orange white-text full-width">WARNING: BeatOn is no longer officially supported. See <a href="https://www.reddit.com/r/OculusQuest/comments/dddjb9/beaton_support_ending_illicit_mods_are_now/" target="_blank">here</a> for more information.</div>-->
-    <!--<br>-->
-    <!--<div class="clearfix"></div>-->
-  <!--</div>-->
-  <ng-container *ngIf="isLoading">
-    <div class="center-align">
-      <div class="tall-placeholder relative">
-        <div class="loader-initial"></div>
+</mz-sidenav>
+
+<div class="main-container padding">
+
+
+  <div class="move-search-up">
+    <app-listing-modes [show_sort]="!appService.isTimeline" [hide_display]="true"
+                       (recent)="isRecent = true; isRating = false; isDownloads = false; page = 0; getApps()"
+                       (name)="isRecent = false; isRating = false; isDownloads = false; page = 0; getApps()"
+                       (rating)="isRecent = false; isRating = true; isDownloads = false; page = 0; getApps()"
+                       (download)="isRecent = false; isRating = false; isDownloads = true; page = 0; getApps()"></app-listing-modes>
+
+    <div class="games-search right hide-on-med-and-down">
+      <input type="text" class="validate" placeholder="Search..."
+             [(ngModel)]="searchString"
+             (input)="debounceSearch()">
+    </div>
+  </div>
+<!--  <i (click)="sidenavGames.opened = true" class="material-icons small white-text games-mobile-menu hide-on-large-only pointer">more_vert</i>-->
+<!--  <h4 class="inline-block hide-on-med-and-down" style="margin-left: -18px;">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>-->
+<!--  <h4 class="inline-block hide-on-large-only">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>-->
+  <div class="row margin-top">
+    <div class="col l2 xl1 hide-on-med-and-down no-padding">
+      <i (click)="sidenavGames.opened = true" class="material-icons small white-text games-mobile-menu hide-on-large-only pointer">more_vert</i>
+      <h4 style="margin: 0rem 0 .912rem 0;" class="inline-block hide-on-med-and-down" style="margin-left: -18px;">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>
+      <h4 style="margin: 0rem 0 .912rem 0;" class="inline-block hide-on-large-only">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>
+
+      <div class="game-menu-container">
+        <div *ngFor="let item of menuItems" class="pointer"
+             [ngClass]="{'menu-chip-main':item.is_main,'menu-chip-sub':!item.is_main}"
+             mz-tooltip tooltip="{{item.description}}"
+             position="bottom"
+             routerLink="{{item.url}}">
+          <img *ngIf="item.is_main" class="menu-image" src="{{item.image}}"/>
+          <span *ngIf="item.is_main"><b>[ {{item.name}} ]</b></span>
+          <span *ngIf="!item.is_main">{{item.name}}</span>
+        </div>
+      </div>
+
+
+      <br><br>
+
+      <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
+        <br><br><br>
+        Thank you
+        <h5>{{expanseService.currentSession.name}}</h5>
+        for supporting us<br>on Patreon.<br>
+        <i class="material-icons white-text medium">thumb_up</i>
+      </div>
+      <div style="margin-left: -16px;" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+        <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 160px; height: 600px;"/>
       </div>
     </div>
-  </ng-container>
-  <div class="clearfix"></div>
-  <div *ngIf="!apps.length && !isLoading">
-    <i class="material-icons back-icon" (click)="backClicked()">reply</i>
-    <div class="chip">No more items...</div>
-  </div>
-  <div *ngIf="!isLoading">
+    <div class="col s12 l10 xl11">
 
-    <div class="clearfix"></div>
-    <div *ngIf="!appService.isGrid&&appService.isTimeline" class="row">
-      <app-timeline-item *ngFor="let app of apps;let i = index;"
-                         [name]="app.name"
-                         [description]="app.summary"
-                         [image]="app.image_url"
-                         [start_time]="app.created/1000"
-                         [rating]="app.rating"
-                         [number_of_rating]="app.number_of_rating"
-                         [downloads]="app.downloads"
-                         [license]="app.license"
-                         [show_date]="app.show_date"
-                         [show_date_first]="app.show_date"
-                         [hide_time]="true"
-                         (open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"
-      ></app-timeline-item>
-    </div>
-    <div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">
-      <app-list-item *ngFor="let app of apps;"
-                     [name]="app.name"
-                     [rating]="app.rating"
-                     [number_of_rating]="app.number_of_rating"
-                     [downloads]="app.downloads"
-                     [license]="app.license"
-                     [description]="app.summary"
-                     [image]="app.image_url"
-                     (open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"
-      ></app-list-item>
-    </div>
-
-    <div class="row"
-                 *ngIf="appService.isGrid&&!appService.isTimeline">
-      <div class="col s6 l3" *ngFor="let app of apps">
-        <app-grid-item [name]="app.name"
-                       [rating]="app.rating"
-                       [number_of_rating]="app.number_of_rating"
-                       [downloads]="app.downloads"
-                       [license]="app.license"
-                       [description]="app.summary"
-                       [image]="app.image_url"
-                       (open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"
-        ></app-grid-item>
+      <!--<div *ngIf="category == 4">-->
+      <!--<br>-->
+      <!--<div class="chip orange white-text full-width">WARNING: BeatOn is no longer officially supported. See <a href="https://www.reddit.com/r/OculusQuest/comments/dddjb9/beaton_support_ending_illicit_mods_are_now/" target="_blank">here</a> for more information.</div>-->
+      <!--<br>-->
+      <!--<div class="clearfix"></div>-->
+      <!--</div>-->
+      <ng-container *ngIf="isLoading">
+        <div class="center-align">
+          <div class="tall-placeholder relative">
+            <div class="loader-initial"></div>
+          </div>
+        </div>
+      </ng-container>
+      <div class="clearfix"></div>
+      <div *ngIf="!apps.length && !isLoading">
+<!--        <i class="material-icons back-icon" (click)="backClicked()">reply</i>-->
+        <div class="chip">No more items...</div>
       </div>
+      <div *ngIf="!isLoading">
+
+        <div class="clearfix"></div>
+        <!--<div *ngIf="!appService.isGrid&&appService.isTimeline" class="row">-->
+          <!--<app-timeline-item *ngFor="let app of apps;let i = index;"-->
+                             <!--[name]="app.name"-->
+                             <!--[description]="app.summary"-->
+                             <!--[image]="app.image_url"-->
+                             <!--[start_time]="app.created/1000"-->
+                             <!--[rating]="app.rating"-->
+                             <!--[number_of_rating]="app.number_of_rating"-->
+                             <!--[downloads]="app.downloads"-->
+                             <!--[license]="app.license"-->
+                             <!--[show_date]="app.show_date"-->
+                             <!--[show_date_first]="app.show_date"-->
+                             <!--[hide_time]="true"-->
+                             <!--(open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"-->
+          <!--&gt;</app-timeline-item>-->
+        <!--</div>-->
+        <!--<div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">-->
+          <!--<app-list-item *ngFor="let app of apps;"-->
+                         <!--[name]="app.name"-->
+                         <!--[rating]="app.rating"-->
+                         <!--[number_of_rating]="app.number_of_rating"-->
+                         <!--[downloads]="app.downloads"-->
+                         <!--[license]="app.license"-->
+                         <!--[description]="app.summary"-->
+                         <!--[image]="app.image_url"-->
+                         <!--(open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"-->
+          <!--&gt;</app-list-item>-->
+        <!--</div>-->
+
+        <div class="row">
+          <app-app-display-box [apps]="apps"></app-app-display-box>
+          <!--<div class="col s6 l4" *ngFor="let app of apps">-->
+            <!--<app-grid-item [name]="app.name"-->
+                           <!--[rating]="app.rating"-->
+                           <!--[number_of_rating]="app.number_of_rating"-->
+                           <!--[downloads]="app.downloads"-->
+                           <!--[license]="app.license"-->
+                           <!--[description]="app.summary"-->
+                           <!--[image]="app.image_url"-->
+                           <!--(open)="router.navigateByUrl('/app/'+app.apps_id);appService.scrollToTop()"-->
+            <!--&gt;</app-grid-item>-->
+          <!--</div>-->
+        </div>
+      </div>
+
     </div>
+
+
+  </div>
+
+
+  <br><br><br>
+
+  <div class="center-align">
+    <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="appService.scrollToTop()" routerLink="/apps/{{category}}/{{tag||'none'}}/{{page}}">Load More</div>
+    <div *ngIf="hasNoMore" class="chip">No more items...</div>
+  </div>
+  <br><br><br>
+  <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+    <h6>Sponsored</h6>
+    <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 728px; height: 90px;"/>
+    <br>
+    <br>
+    <span class="chip pointer top-chip"
+          onclick="window.location.href = 'https://www.patreon.com/SIdeQuestVR'"
+          mz-tooltip tooltip="People have been so kind, we are humbled."
+          position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+      Support us on Patreon
+    </span>
+    <span class="chip pointer top-chip"
+          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
+          mz-tooltip tooltip="Use this option if you prefer a one off donation."
+          position="bottom">
+      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+      Donate on Paypal
+    </span>
+    <br>
+    <br>
   </div>
 </div>
-<br><br><br>
-<div class="center-align">
-  <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="appService.scrollToTop()" routerLink="/apps/{{category}}/{{tag||'none'}}/{{page}}">Load More</div>
-  <div *ngIf="hasNoMore" class="chip">No more items...</div>
-</div>
-<br><br><br>

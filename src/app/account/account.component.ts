@@ -214,6 +214,7 @@ export class AccountComponent implements OnInit, OnDestroy {
     "Reddit",
     "Twitch",
     "Discord",
+    // "Linkedin",
     "Twitter",
     "Youtube",
     "Facebook",
@@ -221,6 +222,7 @@ export class AccountComponent implements OnInit, OnDestroy {
     "Vimeo"
   ];
   sub: Subscription;
+  messageUser;
   constructor(
     public expanseService: ExpanseClientService,
     public appService: AppService,
@@ -232,8 +234,10 @@ export class AccountComponent implements OnInit, OnDestroy {
     this.isUpdated = !!localStorage.getItem("viewIsUpdated");
     this.isUninstalled = !!localStorage.getItem("viewIsUninstalled");
     this.expanseService.getUserSettings();
+    this.appService.setAccountComponent(this);
     this.sub = this.router.events.subscribe(async val => {
       if (val instanceof NavigationEnd) {
+        this.messageUser = null;
         let users_id = Number(route.snapshot.paramMap.get("users_id"));
         if (Number.isInteger(users_id)) {
           this.threadUsersId = users_id;
@@ -267,11 +271,9 @@ export class AccountComponent implements OnInit, OnDestroy {
               this.mainPage = "spaces";
               break;
           }
+
           this.page = 0;
-          this.expanseService
-            .refreshSession()
-            .then(() => this.getCurrent())
-            .then(() => console.log(this.expanseService.currentSession));
+          this.expanseService.refreshSession().then(() => this.getCurrent());
         }
       }
     });
@@ -279,6 +281,20 @@ export class AccountComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+    this.appService.setAccountComponent(null);
+  }
+
+  setAvatarImage() {
+    this.uploadService.uploadImage(true).then((res: any) => {
+      this.expanseService.currentSession.preview_image = res.path;
+      let existingParts = this.expanseService.currentSession.image.split("/");
+      if (existingParts.length > 1) {
+        this.expanseService.savePreviewImage(
+          res.fileId,
+          this.expanseService.currentSession.avatar_images_id
+        );
+      }
+    });
   }
 
   uploadIcon() {
@@ -513,13 +529,23 @@ export class AccountComponent implements OnInit, OnDestroy {
       }
     );
   }
-
   openMessageThread(users_id) {
     this.threadUsersId = users_id;
     this.isLoading = true;
     this.hasNoMore = false;
     return this.expanseService
-      .getMessagesThread(users_id, this.page, this.searchString)
+      .start()
+      .then(() => this.expanseService.getUserCurrentSpace(users_id))
+      .then((res: any) => {
+        this.messageUser = res.name;
+      })
+      .then(() =>
+        this.expanseService.getMessagesThread(
+          users_id,
+          this.page,
+          this.searchString
+        )
+      )
       .then((res: any) => {
         this.hasNoMore = !res.length;
         this.isLoading = false;
@@ -529,12 +555,6 @@ export class AccountComponent implements OnInit, OnDestroy {
               Number(r.users_id) ===
               this.expanseService.currentSession.users_id;
           });
-          res.reverse();
-        }
-        if (this.page === 0) {
-          setTimeout(() =>
-            this.appService.scrollTo(this.scrollTo.nativeElement.offsetTop)
-          );
         }
         this.myThreads = this.page === 0 ? res : res.concat(this.myThreads);
         this.isLoaded = true;

@@ -1,7 +1,5 @@
-<div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
-  <app-listing-modes></app-listing-modes>
-  <h4 class="inline-block">Spaces</h4>
-  <hr class="grey">
+<div class="main-container padding">
+  <!--<app-listing-modes></app-listing-modes>-->
   <div class="right search-box input-field">
     <i class="material-icons prefix">search</i>
 
@@ -9,8 +7,10 @@
            [(ngModel)]="searchString"
            (input)="debounceSearch()"
     >
-    <label for="searchBox" class="active">Search</label>
+    <label for="searchBox">Search</label>
   </div>
+  <h4 class="inline-block">Spaces on SideQuest Legends</h4>
+  <!--<hr class="grey">-->
   <ng-container *ngIf="!isLoaded||!isGridLoaded">
     <div class="center-align">
       <div class="tall-placeholder relative">
@@ -20,20 +20,20 @@
   </ng-container>
   <div class="clearfix"></div>
   <div *ngIf="isLoaded">
-    <div *ngIf="!appService.isGrid&&appService.isTimeline" class="row">
-      <app-timeline-item *ngFor="let space of spaces; let i = index"
-                         [name]="space.name"
-                         [description]="space.description"
-                         [image]="space.image"
-                         [start_time]="space.updated"
-                         [show_date]="space.show_date"
-                         [show_date_first]="space.show_date && i > 0"
-                         (open)="router.navigateByUrl('/space/'+space.spaces_id);appService.scrollToTop()"
-      ></app-timeline-item>
+    <!--<div *ngIf="!appService.isGrid&&appService.isTimeline" class="row">-->
+      <!--<app-timeline-item *ngFor="let space of spaces; let i = index"-->
+                         <!--[name]="space.name"-->
+                         <!--[description]="space.description"-->
+                         <!--[image]="space.image"-->
+                         <!--[start_time]="space.updated"-->
+                         <!--[show_date]="space.show_date"-->
+                         <!--[show_date_first]="space.show_date && i > 0"-->
+                         <!--(open)="router.navigateByUrl('/space/'+space.spaces_id);appService.scrollToTop()"-->
+      <!--&gt;</app-timeline-item>-->
 
-      <!--[duration]="event.event_duration"-->
-    </div>
-    <div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">
+      <!--&lt;!&ndash;[duration]="event.event_duration"&ndash;&gt;-->
+    <!--</div>-->
+    <div class="row">
       <app-list-item *ngFor="let space of spaces; let i = index"
                      [name]="space.name"
                      [description]="space.description"
@@ -43,18 +43,18 @@
       ></app-list-item>
     </div>
 
-    <div class="row"
-                 [ngClass]="{'hide-masonry' : !isGridLoaded}"
-                 *ngIf="appService.isGrid&&!appService.isTimeline">
-      <div class="col s6 l3" *ngFor="let space of spaces; let i = index">
-        <app-grid-item
-          [name]="space.name"
-          [description]="space.description"
-          [image]="space.image"
-          (open)="router.navigateByUrl('/space/'+space.spaces_id);appService.scrollToTop()"
-        ></app-grid-item>
-      </div>
-    </div>
+    <!--<div class="row"-->
+                 <!--[ngClass]="{'hide-masonry' : !isGridLoaded}"-->
+                 <!--*ngIf="appService.isGrid&&!appService.isTimeline">-->
+      <!--<div class="col s6 l3" *ngFor="let space of spaces; let i = index">-->
+        <!--<app-grid-item-->
+          <!--[name]="space.name"-->
+          <!--[description]="space.description"-->
+          <!--[image]="space.image"-->
+          <!--(open)="router.navigateByUrl('/space/'+space.spaces_id);appService.scrollToTop()"-->
+        <!--&gt;</app-grid-item>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 </div>
 <br><br><br>

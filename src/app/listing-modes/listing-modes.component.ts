@@ -8,6 +8,7 @@ import { AppService } from "../app.service";
 })
 export class ListingModesComponent implements OnInit {
   @Input() show_sort: boolean;
+  @Input() hide_display: boolean;
   @Output() recent = new EventEmitter();
   @Output() rating = new EventEmitter();
   @Output() name = new EventEmitter();

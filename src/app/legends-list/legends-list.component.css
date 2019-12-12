@@ -10,3 +10,8 @@
 .tall-placeholder{
   height: 330px;
 }
+
+.padding{
+  padding-left: 3em;
+  padding-right: 3em;
+}

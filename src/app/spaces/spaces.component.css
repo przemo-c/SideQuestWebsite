@@ -8,6 +8,7 @@
 }
 .search-box{
   width: 410px;
+  padding-top: 10px;
 }
 .hide-masonry{
   display: none;

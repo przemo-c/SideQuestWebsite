@@ -1,4 +1,4 @@
-<div class="card card-height">
+<div class="card card-height pointer" (click)="open.emit()">
   <div class="card-image card-image-left waves-effect waves-block waves-light relative" (click)="open.emit()"
        *ngIf="image" [ngStyle]="{'background-image':'url(\''+image+'\')'}">
     <div *ngIf="rating && rating != 0" class="listing-rating">
@@ -8,14 +8,14 @@
     <div *ngIf="license" class="app-list-license">{{license}}</div>
   </div>
   <div class="card-content">
-    <i class="material-icons activator pointer list-more">more_vert</i>
-    <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':image}">{{name}}</span>
+<!--    <i class="material-icons activator pointer list-more">more_vert</i>-->
+    <span class="card-title white-text truncate" [ngClass]="{'card-title-small':image}">{{name}}</span>
     <p class="grey-text description truncate" [ngClass]="{'card-title-small':image}">{{description}}</p>
     <div class="right-align">
       <span class="left chip" *ngIf="start_time">{{(start_time)*1000|date:'mediumDate'}}</span>
       <span class="left chip" *ngIf="start_time">{{(start_time)*1000|date:'shortTime'}}</span>
       <span class="left chip" *ngIf="duration">{{(duration)/60| number:'1.0-0'}}mins</span>
-      <div class="btn-flat waves-effect waves-light white-text" (click)="open.emit()">open</div>
+<!--      <div class="btn-flat waves-effect waves-light white-text" >open</div>-->
     </div>
   </div>
   <div class="card-reveal">

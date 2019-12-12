@@ -6,6 +6,9 @@
 .card-content{
   white-space: nowrap;
 }
+.card{
+  background-color:#19161a!important;
+}
 .rating-number{
   font-size: 0.75em;
 }

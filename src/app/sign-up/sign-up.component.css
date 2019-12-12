@@ -8,8 +8,17 @@
   background-size: cover;
   height: 120px;
 }
+
 .login-container{
-  height: 100%;
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+}
+.capchee{
+  width: 304px;
+  position: relative;
+  margin-left: auto;
+  margin-top: 15px;
 }
 .login-card{
   width: 90%;

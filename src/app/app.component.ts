@@ -44,6 +44,8 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
     this.setupAppUninstall();
     this.expanseService.onusermessage = this.userMessage.bind(this);
 
+    this.expanseService.onremoteinstall = this.remoteInstall.bind(this);
+
     this.message_sound = new Audio();
     this.message_sound.src = "../../assets/sounds/message.mp3";
     this.friend_sound = new Audio();
@@ -52,6 +54,29 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  remoteInstall(data) {
+    console.log(data.app_urls);
+
+    let customUrl;
+    let _apps = JSON.stringify(data.app_urls.map(l => l.link_url));
+    if (data.app_categories_id === "4" && data.website === "FirefoxSkybox") {
+      customUrl = "sidequest://firefox-skybox/#" + _apps;
+    } else if (
+      data.app_categories_id === "4" &&
+      data.website === "SynthRiders"
+    ) {
+      customUrl = "sidequest://synthriders-multi/#" + _apps;
+    } else if (data.app_categories_id === "4" && data.website === "BeatOn") {
+      customUrl = "sidequest://bsaber-multi/#" + _apps;
+    } else {
+      customUrl = "sidequest://sideload-multi/#" + _apps;
+    }
+    if (customUrl) {
+      console.log(customUrl);
+      this.appService.openSidequestUrl(customUrl);
+    }
   }
 
   userMessage(data) {
@@ -63,6 +88,13 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
     } else {
       this.appService.getNotifications(this.expanseService);
       this.message_sound.play();
+      if (
+        this.appService.accountComponent &&
+        this.appService.accountComponent.mainPage === "message-thread"
+      ) {
+        this.appService.accountComponent.page = 0;
+        this.appService.accountComponent.getCurrent();
+      }
     }
   }
 
@@ -81,9 +113,11 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
     };
   }
 
-  signOut() {
-    this.appService.logout(this.expanseService);
-    this.router.navigateByUrl("/login");
+  scrollFire() {
+    return (
+      document.body.scrollTop > 180 ||
+      (window.innerWidth < 992 && document.body.scrollTop > 80)
+    );
   }
 
   ngOnInit() {

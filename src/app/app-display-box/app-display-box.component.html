@@ -1,0 +1,28 @@
+<ng-container *ngIf="!apps">
+  <div class="col s12 no-padding">
+    <div class="tall-placeholder relative">
+      <div class="loader-initial"></div>
+    </div>
+  </div>
+</ng-container>
+<div class="col s6 m4 app-padding pointer" *ngFor="let app of apps" (click)="appService.scrollToTop();app.apps_id?router.navigateByUrl('/app/'+app.apps_id):appService.openLink(app.url);">
+  <div class="home-app-image relative" [ngStyle]="{'background-image':'url(\''+(app.image?app.image:app.image_url)+'?size=512\')'}">
+    <div style="padding-top: 80%"></div>
+  </div>
+  <div class="relative">
+    <div class="rating-container">
+      <div *ngIf="app.rating && app.rating != 0" class="listing-rating z-depth-2">
+        <i class="material-icons">star_half</i>
+        {{app.rating|number:'1.2-2'}}
+        <span class="rating-number"> [{{app.number_of_rating}}]</span>
+      </div><br>
+      <div *ngIf="app.downloads && app.downloads != 0" class="listing-downloads z-depth-2">
+        <i class="material-icons">cloud_download</i>
+        {{app.downloads}}
+      </div>
+    </div>
+  </div>
+  <div class="app-name truncate">{{app.name?app.name:app.title}}</div>
+  <div class="grey-text app-summary truncate">{{app.description?app.description:app.summary}}</div>
+  <br><br><br>
+</div>

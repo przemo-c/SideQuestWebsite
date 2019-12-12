@@ -1,5 +1,5 @@
 .footer-container{
-  background: #1c132b;
+  background: #1c1c1c;
   padding-top: 2em;
   padding-bottom: 6em;
 }
@@ -26,7 +26,8 @@
   transform: scale(1.03);
 }
 .logo img{
-  width: 160px;
+  margin-top: 60px;
+  width: 120px;
 }
 
 .padding{
@@ -49,5 +50,20 @@
   white-space: nowrap;
 }
 .logo-textual{
-  width: 300px;
+  width: 200px;
+}
+.cookie-banner{
+  width: 100%;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  background: #1c1c1c;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+}
+.close-cookie-banner{
+  margin-right: 1em;
+  cursor: pointer;
 }

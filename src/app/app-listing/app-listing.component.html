@@ -1,10 +1,11 @@
 <div class="container" *ngIf="is_not_found && !loading">
   <h4>Not found...</h4>
 </div>
-<div class="bottom-border">
-  <mz-parallax *ngIf="screenshots && screenshots.length" [height]="350">
-    <img src="{{screenshots[screenshots.length-1]}}">
-  </mz-parallax>
+
+<div class="paralax">
+
+  <div class="banner-top-back" *ngIf="screenshots && screenshots.length"  [ngClass]="{'banner-in-app':service.hideLogo}"
+       [ngStyle]="{'background-image':'url(\''+screenshots[screenshots.length-1]+'\')'}"></div>
 </div>
 <ng-container *ngIf="loading">
   <div class="center-align">
@@ -13,319 +14,406 @@
     </div>
   </div>
 </ng-container>
-<div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}"
-     [ngStyle]="{'margin-top': screenshots && screenshots.length ? '-150px' : '0'}">
+<div *ngIf="!is_not_found && !loading" class="main-container padding"
+     [ngStyle]="{'margin-top': screenshots && screenshots.length ? '-79px' : '0'}">
+  <div *ngIf="currentApp.app_categories_id === '3' && !isAccepted" class="blur-back">
+    <div class="card center-align black-text over-eighteen">
+      <br><br><br><br>
+      <h4>Explicit Content Ahead</h4>
+      This content contains Not Safe For Work material. You must be 18+ years of age to continue.
+      <br><br><br><br><br><br>
+
+      <div class="btn waves-effect waves-light pink-button margin-left" (click)="backClicked()">Back</div>
+      <div class="btn waves-effect waves-light pink-button margin-left" (click)="isAccepted = true">Yes I am Over 18</div>
+
+    </div>
+  </div>
   <div class="top-back" *ngIf="screenshots && screenshots.length">
 
   </div>
-  <h4>
-    <i class="material-icons back-icon" (click)="backClicked()">reply</i>
-    <img class="responsive-img top-image pointer"
-         *ngIf="currentApp.image_url"
-         src="{{currentApp.image_url}}" (click)="openImage(screenshots.length)"/>
-    <img class="responsive-img top-image circle pointer"
-         *ngIf="currentApp.preview_image"
-         src="{{expanseService.cdnUrl+currentApp.preview_image}}" routerLink="/user/{{currentApp.users_id}}"/>
+  <h4 style="padding-left: 8px;">
+    <!--    <i class="material-icons back-icon" (click)="backClicked()">reply</i>-->
+    <!--    <img class="responsive-img top-image pointer"-->
+    <!--         *ngIf="currentApp.image_url"-->
+    <!--         src="{{currentApp.image_url}}" (click)="openImage(screenshots.length)"/>-->
     {{currentApp.name}}
     <span *ngIf="!currentApp.active" class="chip white-text orange">Unlisted</span>
   </h4>
   <div class="right top-tags-name">
-    <div class="btn waves-effect waves-light pink-button"
+    <div *ngIf="currentApp.donate_url" class="btn waves-effect waves-light pink-button"
+         (click)="copyShareUrl()">Share</div>
+    <div class="btn waves-effect waves-light pink-button margin-left"
          *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access"
          (click)="openItems(apk_download_urls)">Install Latest</div>
     <div class="btn waves-effect waves-light pink-button margin-left" routerLink="/my-app/{{apps_id}}" (click)="service.scrollToTop()" *ngIf="isMine">Edit App</div>
   </div>
   <div class="clearfix"></div>
   <hr>
-  <div class="right app-package right-align truncate">{{currentApp.packagename}}</div>
-  <div class="app-summary truncate">{{currentApp.summary}}</div>
+  <div class="app-summary grey-text truncate">{{currentApp.summary}}</div>
   <br>
+  <ng-container *ngIf="apk_download_urls && apk_download_urls.length && isInstalled && installedVersion < currentApp.versioncode && !((currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4')">
+    <div class="btn waves-effect waves-light white-text pink-button small-button"
+         (click)="openItems(apk_download_urls)">Update Available</div><br><br>
+  </ng-container>
   <div class="row">
-    <div class="col s12 m10">
-      <ng-container *ngIf="apk_download_urls && apk_download_urls.length && isInstalled && installedVersion < currentApp.versioncode && !((currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4')">
-        <div class="btn waves-effect waves-light white-text pink-button small-button"
-             (click)="openItems(apk_download_urls)">Update Available</div><br><br>
-      </ng-container>
-      <div class="row">
-        <div class="col s12 m7">
-          <div *ngIf="videoObject">
-            <div *ngIf="videoObject.provider === 'youtube'">
-              <iframe width="100%" height="360" [src]="videoUrl" frameborder="0"
-                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                      allowfullscreen></iframe>
-            </div>
-            <div *ngIf="videoObject.provider === 'vimeo'">
-              <iframe [src]="videoUrl" width="100%" height="360"
-                      frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </div>
-          </div>
-          <img class="responsive-img"
-               *ngIf="!videoObject && currentApp.image_url && !is_loading_icon"
-               src="{{currentApp.image_url}}"/>
-
-          <div>
-
-            <div class="right" *ngIf="currentApp.early_access">
-              <div class="chip pointer"
-                   mz-tooltip tooltip="This is is still in early access and has limited availability."
-                   position="bottom">
-                <img src="assets/images/social/EarlyAccess.png"/>
-                Comming Soon
-              </div>
-            </div>
-        <span class="counter" *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access">{{counters.d}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-                                                           mz-tooltip tooltip="Number of downloads"
-                                                           position="bottom"
-        >cloud_download</i></span>
-            <span class="counter">{{counters.v}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-                                                               mz-tooltip tooltip="Number of views"
-                                                               position="bottom"
-            >visibility</i></span>
-            <!--<span class="counter pointer" (click)="likeApp()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"-->
-                                                                                           <!--mz-tooltip tooltip="Number of likes"-->
-                                                                                           <!--position="bottom"-->
-            <!--&gt;thumb_up</i></span>-->
-          </div>
-          <br>
-
-          <!--<img class="screen-shot pointer"-->
-               <!--*ngIf="videoObject && currentApp.image_url && !is_loading_icon"-->
-               <!--src="{{currentApp.image_url}}" (click)="openImage(screenshots.length)"/>-->
-          <img class="screen-shot pointer" *ngFor="let screenshot of screenshots; let i = index" src="{{screenshot}}" (click)="openImage(i)"/>
-
-          <br>
-          <div *ngIf="apk_download_urls && apk_download_urls.length && isInstalled && installedVersion < currentApp.versioncode && !((currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4')">
-            <br>
-            <div class="btn waves-effect waves-light pink-button small-button"
-                 (click)="openItems(apk_download_urls)">Update To {{currentApp.versionname}}</div><br><br><br>
-
-          </div>
-          <div *ngIf="isInstalled">
-            <br>
-            <div class="btn waves-effect waves-light pink-button small-button"
-                 (click)="uninstallApp(currentApp.packagename)">{{(currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4' ? 'Unsubscribe' : 'Unsubscribe & Uninstall'}}</div>
-            <br><br>Click to unsubscribe from this app to not receive update notifications and also uninstall if SideQuest is open. You may need to uninstall separately if you're not connected.
-          </div>
-          <div *ngIf="currentApp.donate_url">
-            <br><br>
-            <div class="btn waves-effect waves-light pink-button small-button"
-                 (click)="copyShareUrl()">Copy Share Link</div>
-            <br><br>Share Link: {{currentApp.donate_url}}
-          </div>
-          <div *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access">
-            <br><br>
-            <h5>Download Links</h5>
-            <hr>
-            <div class="row" *ngFor="let url of apk_download_urls">
-              <div class="col s11 vertical-align line-height truncate full-width">
-                {{url.link_url}}
-              </div>
-              <div class="col s1 right-align vertical-align">
-                <div mzTooltip tooltip="Copy this link" position="bottom"
-                     class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"
-                   (click)="service.copyUrl(url.link_url)"
-                ><i class="material-icons">file_copy</i></div>
-              </div>
-            </div>
-          </div>
+    <div class="col s12 m5">
+      <div *ngIf="videoObject">
+        <div *ngIf="videoObject.provider === 'youtube'">
+          <iframe width="100%" height="360" [src]="videoUrl" frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  allowfullscreen></iframe>
         </div>
-        <div class="col s12 m5">
-          <div class="row">
-            <div class="col s12">
-              <div *ngIf="currentApp.description">
-                <div>
-                  <i class="material-icons block-icon">playlist_add</i><label>Description</label>
-                </div>
-                <p [innerHTML]="currentApp.description"></p>
-                <div *ngIf="currentApp.user_name" class="truncate"><br>By {{currentApp.user_name}}</div>
-              </div>
-              <div *ngIf="appRating">
-                <br><br>
-                <div>
-                  <i class="material-icons block-icon">star_half</i><label>Rating</label>
-                </div>
-                <br>
-                <span class="review-name">{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i> ( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )
-              </div>
-              <div *ngIf="searchTags && searchTags.length">
-                <br><br>
-                <div>
-                  <i class="material-icons block-icon">search</i><label>Search Tags</label>
-                </div>
-                <br>
-                <ng-container>
-                  <span *ngFor="let tag of searchTags" class="chip">{{tag}}</span>&nbsp;&nbsp;&nbsp;
-                </ng-container>
-              </div>
-              <div *ngIf="currentApp.supports_quest || currentApp.supports_go || currentApp.supports_other">
-                <br><br>
-                <div>
-                  <i class="material-icons block-icon">gamepad</i><label>Device Support</label>
-                </div>
-                <br>
-                <ng-container >
+        <div *ngIf="videoObject.provider === 'vimeo'">
+          <iframe [src]="videoUrl" width="100%" height="360"
+                  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="center-align">
+      <img class="responsive-img"
+           *ngIf="!videoObject && currentApp.image_url && !is_loading_icon"
+           src="{{currentApp.image_url}}"/>
+      </div>
+<!--      <div>-->
+
+<!--        <div class="right" *ngIf="currentApp.early_access">-->
+<!--          <div class="chip pointer"-->
+<!--               mz-tooltip tooltip="This is is still in early access and has limited availability."-->
+<!--               position="bottom">-->
+<!--            <img src="assets/images/social/EarlyAccess.png"/>-->
+<!--            Coming Soon-->
+<!--          </div>-->
+<!--        </div>-->
+<!--&lt;!&ndash;        <span class="counter" *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access">{{counters.d}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                                                                                             mz-tooltip tooltip="Number of downloads"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                                                                                                             position="bottom"&ndash;&gt;-->
+<!--&lt;!&ndash;        >cloud_download</i></span>&ndash;&gt;-->
+<!--&lt;!&ndash;        <span class="counter">{{counters.v}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                           mz-tooltip tooltip="Number of views"&ndash;&gt;-->
+<!--&lt;!&ndash;                                                           position="bottom"&ndash;&gt;-->
+<!--&lt;!&ndash;        >visibility</i></span>&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;<span class="counter pointer" (click)="likeApp()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;mz-tooltip tooltip="Number of likes"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;position="bottom"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash;&gt;thumb_up</i></span>&ndash;&gt;&ndash;&gt;-->
+<!--      </div>-->
+<!--      <br>-->
+
+      <div class="col s12 m4">
+        <div>
+          <br><br>
+          <div>
+            <i class="material-icons block-icon">cloud_download</i><label>Downloads</label>
+          </div>
+          <br>
+          <ng-container >
+            <span class="counter">{{counters.d}}</span>
+          </ng-container>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div>
+          <br><br>
+          <div>
+            <i class="material-icons block-icon">visibility</i><label>Views</label>
+          </div>
+          <br>
+          <ng-container >
+            <span class="counter">{{counters.v}}</span>
+          </ng-container>
+        </div>
+      </div>
+      <div class="col s12 m4 device-support">
+        <div>
+          <br><br>
+          <div>
+            <i class="material-icons block-icon">gamepad</i><label>Device Support</label>
+          </div>
+          <br>
+          <ng-container >
                   <span *ngIf="currentApp.supports_quest" class="chip">
                     <img src="assets/images/oculusquest.jpg" alt="Oculus Quest">
-                    Oculus Quest</span>&nbsp;&nbsp;&nbsp;
-                  <span *ngIf="currentApp.supports_go" class="chip">
+                    Quest</span>&nbsp;&nbsp;&nbsp;
+            <span *ngIf="currentApp.supports_go" class="chip">
                     <img src="assets/images/oculusgo.png" alt="Oculus Go">
-                    Oculus Go</span>&nbsp;&nbsp;&nbsp;
-                  <span *ngIf="currentApp.supports_other" class="chip">
+                    Go</span>&nbsp;&nbsp;&nbsp;
+            <span *ngIf="currentApp.supports_other" class="chip">
                     <img src="assets/images/other.jpg" alt="Other">
                     Other</span>&nbsp;&nbsp;&nbsp;
-                </ng-container>
-              </div>
-
-              <div *ngIf="currentApp.license">
-                <br>
-                <div>
-                  <i class="material-icons block-icon">toc</i><label>Licence</label>
-                </div>
-                <p>{{currentApp.license}}</p>
-              </div>
-
-              <div *ngIf="currentApp.comfort">
-                <br>
-                <div>
-                  <i class="material-icons block-icon">accessibility_new</i><label>Comfort</label>
-                </div>
-                <p>{{comforts[currentApp.comfort]}}</p>
-              </div>
-
-              <div *ngIf="currentApp.versionname">
-                <br>
-                <div>
-                  <i class="material-icons block-icon">done</i><label>Latest Version</label>
-                </div>
-                <p>[{{currentApp.versioncode}}] {{currentApp.versionname}}</p>
-              </div>
-              <div *ngIf="currentApp.created">
-                <br>
-                <div>
-                  <i class="material-icons block-icon">event</i><label>Added</label>
-                </div>
-                <p>{{currentApp.created|date:'mediumDate'}}</p>
-              </div>
-              <div *ngIf="currentApp.updated">
-                <br>
-                <div>
-                  <i class="material-icons block-icon">event</i><label>Updated</label>
-                </div>
-                <p>{{currentApp.updated|date:'mediumDate'}}</p>
-              </div>
-            </div>
-          </div>
+          </ng-container>
         </div>
       </div>
-      <div *ngIf="!currentApp.early_access">
+      <div class="row">
+        <div class="col s6 m4">
+          <br><br>
+          <div>
+            <i class="material-icons block-icon">accessibility_new</i><label>Comfort</label>
+          </div>
+          <p>{{comforts[currentApp.comfort]}}</p>
+        </div>
+        <div class="col s6 m4">
+          <br><br>
+          <div>
+            <i class="material-icons block-icon">toc</i><label>Licence</label>
+          </div>
+          <p>{{currentApp.license}}</p>
+        </div>
+        <div class="col s6 m4">
+          <br><br>
+          <div>
+            <i class="material-icons block-icon">extension</i><label>Package Name</label>
+          </div>
+          <p class="package-name truncate">{{currentApp.packagename}}</p>
+        </div>
+        <div class="col s6 m4">
+          <br><br>
+          <div>
+            <i class="material-icons block-icon">done</i><label>Latest Version</label>
+          </div>
+          <p>[{{currentApp.versioncode}}] {{currentApp.versionname}}</p>
+        </div>
+        <div class="col s6 m4">
+          <br><br>
+          <div>
+            <i class="material-icons block-icon">event</i><label>Added</label>
+          </div>
+          <p>{{currentApp.created|date:'mediumDate'}}</p>
+        </div>
+        <div class="col s6 m4">
+          <br><br>
+          <div>
+            <i class="material-icons block-icon">event</i><label>Updated</label>
+          </div>
+          <p>{{currentApp.updated|date:'mediumDate'}}</p>
+        </div>
+        <div class="col s6" *ngIf="store_urls && store_urls.length">
+          <div >
+            <br><br>
+            <div>
+              <i class="material-icons block-icon">search</i><label>Stores & Reviews</label>
+            </div>
+            <br>
+            <ng-container>
+              <span *ngFor="let url of store_urls" class="chip pointer"
+                    mz-tooltip tooltip="{{url.provider}}"
+                    position="bottom"
+                    (click)="openUrl(url.link_url)">
+                <img src="{{urlIcons[url.provider].icon}}">
+                {{url.provider}}
+              </span>&nbsp;&nbsp;&nbsp;
+            </ng-container>
+          </div>
+        </div>
+        <div class="col s6" *ngIf="(social_urls && social_urls.length) || (website_url && website_url.length)">
+          <div >
+            <br><br>
+            <div>
+              <i class="material-icons block-icon">face</i><label>Social</label>
+            </div>
+            <br>
+            <ng-container>
+
+              <span *ngFor="let url of website_url" mz-tooltip tooltip="{{url.provider}} {{url.link_url}}"
+                    position="bottom" class="chip pointer"
+                    (click)="openUrl(url.link_url)">Open Website</span>
+              <span *ngFor="let url of social_urls" class="chip pointer"
+                    mz-tooltip tooltip="{{url.provider}}"
+                    position="bottom"
+                    (click)="openUrl(url.link_url)">
+                <img src="{{urlIcons[url.provider].icon}}">
+                {{url.provider}}
+              </span>&nbsp;&nbsp;&nbsp;
+
+            </ng-container>
+          </div>
+        </div>
+        <div class="col s6" [ngClass]="{'s6': ((social_urls && social_urls.length) || (website_url && website_url.length)), 's12': !((social_urls && social_urls.length) || (website_url && website_url.length))}">
+          <div >
+            <br><br>
+            <div>
+              <i class="material-icons block-icon">search</i><label>Search Tags</label>
+            </div>
+            <br>
+            <ng-container>
+              <span *ngFor="let tag of searchTags" class="chip pointer" routerLink="/apps/0/{{tag}}/">{{tag}}</span>&nbsp;&nbsp;&nbsp;
+            </ng-container>
+          </div>
+        </div>
+        <div class="col s12">
+        <div >
+          <br><br>
+          <div>
+            <i class="material-icons block-icon">panorama</i><label>Screenshots</label>
+          </div>
+          <br>
+          <img class="screen-shot pointer" *ngFor="let screenshot of screenshots; let i = index" src="{{screenshot}}?size=256" (click)="openImage(i)"/>
+        </div>
+      </div>
+      </div>
+      <br>
+      <div *ngIf="apk_download_urls && apk_download_urls.length && isInstalled && installedVersion < currentApp.versioncode && !((currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4')">
         <br>
-        <h5>Reviews</h5>
-        <hr>
-        <div class="right search-box input-field">
-          <i class="material-icons prefix">search</i>
+        <div class="btn waves-effect waves-light pink-button small-button"
+             (click)="openItems(apk_download_urls)">Update To {{currentApp.versionname}}</div><br><br><br>
 
-          <input id="searchBox" type="text" class="validate"
-                 [(ngModel)]="searchString"
-                 (input)="debounceSearch()"
-          >
-          <label for="searchBox" class="active">Search</label>
-        </div>
-        <div class="row">
-          <div class="col s12">
-            <div *ngIf="service.isAuthenticated" class="add-review" (click)="leaveReview.openModal()">
-              <i class="material-icons">add</i> Add a Review
-            </div>
-            <div *ngIf="!service.isAuthenticated" class="add-review" routerLink="/login/{{'/app/'+apps_id|encodeUri}}">
-              <i class="material-icons">add</i> Sign In to Add a Review
+      </div>
+      <div *ngIf="isInstalled">
+        <br>
+        <div class="btn waves-effect waves-light pink-button small-button"
+             (click)="uninstallApp(currentApp.packagename)">{{(currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4' ? 'Unsubscribe' : 'Unsubscribe & Uninstall'}}</div>
+        <br><br>Click to unsubscribe from this app to not receive update notifications and also uninstall if SideQuest is open. You may need to uninstall separately if you're not connected.
+      </div>
+      <!--      <div *ngIf="currentApp.donate_url">-->
+      <!--        <br><br>-->
+      <!--        <div *ngIf="currentApp.donate_url" class="btn waves-effect waves-light pink-button small-button"-->
+      <!--             (click)="copyShareUrl()">Share</div>-->
+      <!--      </div>-->
+      <!--          <div *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access">-->
+      <!--            <br><br>-->
+      <!--            <h5>Download Links</h5>-->
+      <!--            <hr>-->
+      <!--            <div class="row" *ngFor="let url of apk_download_urls">-->
+      <!--              <div class="col s11 vertical-align line-height truncate full-width">-->
+      <!--                {{url.link_url}}-->
+      <!--              </div>-->
+      <!--              <div class="col s1 right-align vertical-align">-->
+      <!--                <div mzTooltip tooltip="Copy this link" position="bottom"-->
+      <!--                     class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"-->
+      <!--                   (click)="service.copyUrl(url.link_url)"-->
+      <!--                ><i class="material-icons">file_copy</i></div>-->
+      <!--              </div>-->
+      <!--            </div>-->
+      <!--          </div>-->
+
+    </div>
+    <div class="col s12 m7">
+      <div class="right social-links">
+        <div *ngIf="donate_urls && donate_urls.length">
+          <div class="input-field radio-top" >
+            <label class="active">Support & Donate</label>
+          </div><br>
+          <div *ngFor="let url of donate_urls">
+            <div class="chip pointer"
+                 mz-tooltip tooltip="{{url.provider}}"
+                 position="bottom"
+                 (click)="openUrl(url.link_url + (url.provider==='Itch'?'?ac=k3RTPJMnVvG':''));subscribeIfItch(url.provider)">
+              <img src="{{urlIcons[url.provider].icon}}">
+              {{url.provider==='Itch'? isInstalled && installedVersion < currentApp.versioncode ? 'Update On Itch' : 'Buy On Itch':url.provider}}
             </div>
           </div>
-          <div class="col s12" *ngFor="let message of reviews">
-            <div class="user-chip chip message-chip">
-              <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.users_id == expanseService.currentSession.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reviews_id;deleteReview.openModal()">close</i>
-              <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}"/>
-              <div class="margin-right"><span class="review-name">{{message.name}}</span> - {{message.created|fromNow}}</div>
-              <div class="">
-                <span class="review-name pink-text">{{message.rating}}/5</span> <i class="material-icons pink-text rating-star">star</i>
+        </div>
+      </div>
+      <div>
+
+        <!--        <div *ngIf="appRating" class="right">-->
+        <!--          <div>-->
+        <!--            <i class="material-icons block-icon">star_half</i><label>Rating</label>-->
+        <!--          </div>-->
+        <!--          <br>-->
+        <!--          <span class="review-name">{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i><br>( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )-->
+        <!--        </div>-->
+
+        <p [innerHTML]="currentApp.description"></p>
+        <div *ngIf="!currentApp.early_access">
+          <div class="truncate">
+            <span class="review-name">{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i> ( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )
+            <br><br>
+            <img class="responsive-img top-image circle pointer"
+                 *ngIf="currentApp.preview_image"
+                 src="{{expanseService.cdnUrl+currentApp.preview_image}}" routerLink="/user/{{currentApp.users_id}}"/>
+
+
+            By {{currentApp.user_name}}
+
+          </div>
+          <br>
+          <div class="btn waves-effect waves-light pink-button right margin-right" *ngIf="service.isAuthenticated"
+               (click)="leaveReview.openModal()">Add Review</div>
+          <div class="btn waves-effect waves-light pink-button right margin-right" *ngIf="!service.isAuthenticated"
+               routerLink="/login/{{'/app/'+apps_id|encodeUri}}">Sign In to Add Review</div>
+          <h5>User Reviews</h5>
+          <br>
+          <!--          <div class="right search-box input-field">-->
+          <!--            <i class="material-icons prefix">search</i>-->
+
+          <!--            <input id="searchBox" type="text" class="validate"-->
+          <!--                   [(ngModel)]="searchString"-->
+          <!--                   (input)="debounceSearch()"-->
+          <!--            >-->
+          <!--            <label for="searchBox" class="active">Search</label>-->
+          <!--          </div>-->
+          <div class="row">
+            <!--            <div class="col s12">-->
+            <!--              <div *ngIf="service.isAuthenticated" class="add-review" (click)="leaveReview.openModal()">-->
+            <!--                <i class="material-icons">add</i> Add a Review-->
+            <!--              </div>-->
+            <!--              <div *ngIf="!service.isAuthenticated" class="add-review" routerLink="/login/{{'/app/'+apps_id|encodeUri}}">-->
+            <!--                <i class="material-icons">add</i> Sign In to Add a Review-->
+            <!--              </div>-->
+            <!--            </div>-->
+            <div class="col s12" *ngFor="let message of reviews">
+              <div class="review-card">
+                <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.users_id == expanseService.currentSession.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reviews_id;deleteReview.openModal()">close</i>
+                <i class="right material-icons blue-text rating-reply pointer" *ngIf="service.isAuthenticated && (currentApp.users_id == expanseService.currentSession.users_id) " (click)="currentReviewId = message.reviews_id;leaveReview.openModal()">replay</i>
+                <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}"/>
+                <div class="margin-right"><span class="review-name">{{message.name}}</span> - {{message.created|fromNow}}</div>
+                <div class="">
+                  <span class="review-name pink-text">{{message.rating}}/5</span> <i class="material-icons pink-text rating-star">star</i>
+                </div>
+                <div [innerHTML]="message.details"></div>
               </div>
-              <div [innerHTML]="message.details"></div>
+              <div class="user-chip chip message-chip reply-chip" *ngIf="message.reply_created">
+                <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.users_id == expanseService.currentSession.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reply_id;deleteReview.openModal()">close</i>
+                <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+currentApp.preview_image}}"/>
+                <div class="margin-right"><span class="review-name">Vendor Reply</span> - {{message.reply_created|fromNow}}</div>
+                <div [innerHTML]="message.reply_details"></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <br><br><br>
-        <div class="center-align">
-          <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMoreReviews" (click)="getReviews()" >Load More</div>
-          <div *ngIf="hasNoMoreReviews" class="chip">No more items...</div>
-        </div>
-        <br><br><br>
+          <br>
+          <div class="center-align">
+            <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMoreReviews" (click)="getReviews()" >Load More</div>
+            <div *ngIf="hasNoMoreReviews" class="chip">No more items...</div>
+          </div>
 
+        </div>
       </div>
+
     </div>
-    <div class="col s12 m2">
-      <div *ngIf="website_url && website_url.length">
-        <div *ngFor="let url of website_url">
-          <div class="chip pointer"
-               mz-tooltip tooltip="{{url.provider}} {{url.link_url}}"
-               position="bottom"
-               (click)="openUrl(url.link_url)">
-            <!--<img src="{{urlIcons[url.provider].icon}}">-->
-            Open Website
-          </div>
-        </div>
-      </div>
-      <div *ngIf="store_urls && store_urls.length">
-        <div class="input-field radio-top">
-          <label class="active">Stores & Reviews</label>
-        </div><br>
-        <div *ngFor="let url of store_urls">
-          <div class="chip pointer"
-               mz-tooltip tooltip="{{url.provider}}"
-               position="bottom"
-               (click)="openUrl(url.link_url)">
-            <img src="{{urlIcons[url.provider].icon}}">
-            {{url.provider}}
-          </div>
-        </div>
-      </div>
-      <div *ngIf="social_urls && social_urls.length">
-        <div class="input-field radio-top">
-          <label class="active">Social</label>
-        </div><br>
-        <div *ngFor="let url of social_urls">
-          <div class="chip pointer"
-               mz-tooltip tooltip="{{url.provider}}"
-               position="bottom"
-               (click)="openUrl(url.link_url)">
-            <img src="{{urlIcons[url.provider].icon}}">
-            {{url.provider}}
-          </div>
-        </div>
-      </div>
-      <div *ngIf="donate_urls && donate_urls.length">
-        <div class="input-field radio-top" >
-          <label class="active">Support & Donate</label>
-        </div><br>
-        <div *ngFor="let url of donate_urls">
-          <div class="chip pointer"
-               mz-tooltip tooltip="{{url.provider}}"
-               position="bottom"
-               (click)="openUrl(url.link_url + (url.provider==='Itch'?'?ac=k3RTPJMnVvG':''));subscribeIfItch(url.provider)">
-            <img src="{{urlIcons[url.provider].icon}}">
-            {{url.provider==='Itch'? isInstalled && installedVersion < currentApp.versioncode ? 'Update On Itch' : 'Buy On Itch':url.provider}}
-          </div>
-        </div>
-      </div>
-    </div>
+  </div>
+
+  <br><br>
+  <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+    <h6>Sponsored</h6>
+    <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 728px; height: 90px;"/>
+    <br>
+    <br>
+    <span class="chip pointer top-chip"
+          onclick="window.location.href = 'https://www.patreon.com/SIdeQuestVR'"
+          mz-tooltip tooltip="People have been so kind, we are humbled."
+          position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+      Support us on Patreon
+    </span>
+    <span class="chip pointer top-chip"
+          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
+          mz-tooltip tooltip="Use this option if you prefer a one off donation."
+          position="bottom">
+      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+      Donate on Paypal
+    </span>
+    <br>
+    <br>
   </div>
 </div>
 
 <mz-modal #leaveReview [fixedFooter]="true">
   <mz-modal-header>
-    <h4>Add Review</h4>
+    <h4>{{currentReviewId?'Add Reply':'Add Review'}}</h4>
   </mz-modal-header>
   <mz-modal-content>
     <br>
-    <div class="col fixed-height extra-padding-left">
+    <div class="col fixed-height extra-padding-left" *ngIf="!currentReviewId">
       <div class="input-field radio-top">
         <i class="material-icons prefix">star_half</i>
         <div class="rating-margin-left">
@@ -340,7 +428,7 @@
     </div>
     <div class="input-field">
       <i class="material-icons prefix">playlist_add</i>
-      <textarea id="description" class="materialize-textarea"  placeholder="Review details..."
+      <textarea id="description" class="materialize-textarea"  placeholder="{{currentReviewId?'Reply Details...':'Review details...'}}"
                 [(ngModel)]="currentReview"
       ></textarea>
       <label for="description" class="active">Review Comment</label>
@@ -352,8 +440,8 @@
   </mz-modal-content>
   <mz-modal-footer>
     <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
-    <button mz-button class="pink-button" mz-modal-close *ngIf="captchaSuccess" (click)="addReview()">Add Review</button>
-    <button mz-button [flat]="true" mz-modal-close *ngIf="!captchaSuccess"  (click)="addReview()">Add Review</button>
+    <button mz-button class="pink-button" mz-modal-close *ngIf="captchaSuccess" (click)="addReview()">{{currentReviewId?'Add Reply':'Add Review'}}</button>
+    <button mz-button [flat]="true" mz-modal-close *ngIf="!captchaSuccess"  (click)="addReview()">{{currentReviewId?'Add Reply':'Add Review'}}</button>
   </mz-modal-footer>
 </mz-modal>
 

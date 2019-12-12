@@ -59,6 +59,8 @@ export class EventsComponent implements OnInit, OnDestroy {
         this.expanseService.getEvents(this.page, this.searchString, "upcoming")
       )
       .then(async (events: EventListing[]) => {
+        console.log(events);
+
         events.forEach((event: EventListing, i) => {
           const date = new Date(event.start_time * 1000);
           event.date_string =

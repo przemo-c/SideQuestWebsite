@@ -1,11 +1,14 @@
 <div class="right margin-top-icons">
-  <i mz-tooltip tooltip="Enable Grid view mode" position="bottom" class="material-icons layout-button"
-     (click)="appService.isGrid = true;appService.isTimeline=false;appService.saveGrid()">dashboard</i>
-  <i mz-tooltip tooltip="Enable List view mode" position="bottom" class="material-icons layout-button"
-     (click)="appService.isGrid = false;appService.isTimeline=false;appService.saveGrid()">list</i>
-  <i mz-tooltip tooltip="Enable Timeline view mode" position="bottom" class="material-icons layout-button"
-     (click)="appService.isGrid = false;appService.isTimeline=true;appService.saveGrid()">event_note</i>
-  <div *ngIf="show_sort" class="top-splitter"></div>
+  <ng-container *ngIf="!hide_display">
+    <i mz-tooltip tooltip="Enable Grid view mode" position="bottom" class="material-icons layout-button"
+       (click)="appService.isGrid = true;appService.isTimeline=false;appService.saveGrid()">dashboard</i>
+    <i mz-tooltip tooltip="Enable List view mode" position="bottom" class="material-icons layout-button"
+       (click)="appService.isGrid = false;appService.isTimeline=false;appService.saveGrid()">list</i>
+    <i mz-tooltip tooltip="Enable Timeline view mode" position="bottom" class="material-icons layout-button"
+       (click)="appService.isGrid = false;appService.isTimeline=true;appService.saveGrid()">event_note</i>
+    <div *ngIf="show_sort" class="top-splitter"></div>
+  </ng-container>
+
   <i *ngIf="show_sort" mz-tooltip tooltip="Sort by recent" position="bottom" class="material-icons layout-button" (click)="recent.emit()">swap_vert</i>
   <i *ngIf="show_sort" mz-tooltip tooltip="Sort by rating" position="bottom" class="material-icons layout-button" (click)="rating.emit()">star_half</i>
   <i *ngIf="show_sort" mz-tooltip tooltip="Sort by name" position="bottom" class="material-icons layout-button" (click)="name.emit()">sort</i>

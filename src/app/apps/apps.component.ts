@@ -26,6 +26,160 @@ export class AppsComponent implements OnInit, OnDestroy {
   isRating = false;
   isDownloads = false;
   tag: string;
+  menuItems = [
+    {
+      is_main: true,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
+      name: "All Games",
+      description: "Official VR Games for Go and Quest.",
+      url: "/apps/1"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
+      name: "Puzzle",
+      description: "Puzzle Games.",
+      url: "/apps/1/puzzle"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
+      name: "FPS",
+      description: "First Person Shooters.",
+      url: "/apps/1/fps"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
+      name: "Combat",
+      description: "Combat Games.",
+      url: "/apps/1/combat"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
+      name: "Climbing",
+      description: "Climbing Games.",
+      url: "/apps/1/climbing"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
+      name: "Horror",
+      description: "Horror Games.",
+      url: "/apps/1/horror"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
+      name: "Game Ports",
+      description: "Ports of legendary titles.",
+      url: "/apps/1/gameport"
+    },
+    {
+      is_main: true,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
+      name: "All Apps",
+      description: "Official VR Apps for Go and Quest.",
+      url: "/apps/2"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
+      name: "Streaming",
+      description: "Steam VR streaming and more.",
+      url: "/apps/2/streaming"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
+      name: "Media Players",
+      description: "VR Video Players.",
+      url: "/apps/2/media"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
+      name: "Collaborative",
+      description: "Collaborative.",
+      url: "/apps/2/collaborative"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
+      name: "Simulations",
+      description: "Simulations.",
+      url: "/apps/2/simulation"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
+      name: "Launchers",
+      description: "Launchers.",
+      url: "/apps/2/launcher"
+    },
+    // What am i going to do about NSFW ??
+    // disable the category menu and add an 18+ warning when entering.
+    // {
+    //   is_main: false,
+    //   image: "https://the-expanse.github.io/SideQuestRepos/nsfw/icons/nsfw.png",
+    //   name: "NSFW",
+    //   description: "NSFW.",
+    //   url: "/apps/3"
+    // },
+    {
+      is_main: true,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/android-games/icons/games.png",
+      name: "All Mods",
+      description: "All Mods.",
+      url: "/apps/4"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/android-games/icons/games.png",
+      name: "SynthRiders",
+      description: "SynthRiders.",
+      url: "/apps/4/srstage"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/android-games/icons/games.png",
+      name: "BMBF",
+      description: "BMBF.",
+      url: "/apps/4/beaton"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/android-games/icons/games.png",
+      name: "Firefox Reality",
+      description: "Firefox Reality.",
+      url: "/apps/4/firefox"
+    },
+    {
+      is_main: true,
+      image: "https://i.imgur.com/tfIhP8C.jpg",
+      name: "Everything",
+      description: "All the content on SideQuest",
+      url: "/apps"
+    }
+  ];
   searchTags: Materialize.AutoCompleteOptions;
   autocompleteOptions: Materialize.AutoCompleteOptions = {
     data: {
@@ -35,7 +189,7 @@ export class AppsComponent implements OnInit, OnDestroy {
     }
   };
   constructor(
-    private expanseService: ExpanseClientService,
+    public expanseService: ExpanseClientService,
     public appService: AppService,
     public router: Router,
     route: ActivatedRoute

@@ -30,6 +30,9 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   mainPage: string = "basic";
   eventsType = "all";
   searchString: string;
+  popularApps: AppListing[] = [];
+  popularEvents: EventListing[] = [];
+  popularSpaces: SpaceListing[] = [];
   userApps: AppListing[];
   userSpaces: SpaceListing[];
   userEvents: EventListing[];
@@ -46,6 +49,8 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   page: 0;
   reportType = "1";
   reportDetails = "";
+  isProfileColor: boolean;
+  add_users_id: number;
   constructor(
     public appService: AppService,
     private router: Router,
@@ -65,9 +70,17 @@ export class UserProfileComponent implements OnInit, OnDestroy {
             .then((res: any) => {
               if (res.length) {
                 this.currentUser = res[0];
+                this.isProfileColor =
+                  this.currentUser.profile_color === "golden";
                 this.isLoading = false;
                 return this.expanseService.getUserSettings(this.users_id);
               } else {
+                if (
+                  this.appService.isAuthenticated &&
+                  this.expanseService.currentSession.users_id !== this.users_id
+                ) {
+                  this.add_users_id = this.users_id;
+                }
                 this.users_id = null;
                 this.currentUser = {};
                 this.isLoading = false;
@@ -130,6 +143,34 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     });
   }
 
+  setProfileColor() {
+    this.expanseService.setProfileColor(
+      this.users_id,
+      this.isProfileColor ? "golden" : ""
+    );
+  }
+
+  getPopularApps() {
+    return this.expanseService
+      .start()
+      .then(() =>
+        this.expanseService.searchApps(
+          "",
+          0,
+          "rating",
+          "desc",
+          null,
+          null,
+          this.users_id,
+          6
+        )
+      )
+      .then(async (resp: AppListing[]) => {
+        this.appService.fixImages(resp);
+        this.popularApps = resp;
+      });
+  }
+
   openUrl(link: string) {
     window.location.href = link;
   }
@@ -138,7 +179,9 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     let promise = Promise.resolve({});
     switch (this.actionString) {
       case "add this sidekick":
-        promise = this.expanseService.addFriend(this.users_id);
+        promise = this.expanseService.addFriend(
+          this.users_id || this.add_users_id
+        );
         break;
       case "accept this sidekick request":
         promise = this.expanseService.acceptFriendRequest(this.users_id);
@@ -172,7 +215,9 @@ export class UserProfileComponent implements OnInit, OnDestroy {
         break;
     }
     return promise
-      .then(() => this.expanseService.getRelated(this.users_id))
+      .then(() =>
+        this.expanseService.getRelated(this.users_id || this.add_users_id)
+      )
       .then(related => (this.related = related));
   }
 
@@ -180,7 +225,22 @@ export class UserProfileComponent implements OnInit, OnDestroy {
     (window as any).history.back();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getPopularApps()
+      .then(() => {
+        this.page = 0;
+      })
+      .then(() => this.getEvents())
+      .then(() => {
+        this.page = 0;
+      })
+      .then(() => this.getSpaces())
+      .then(() => {
+        this.page = 0;
+      })
+      .then(() => (this.popularEvents = this.userEvents.slice(0, 6)))
+      .then(() => (this.popularSpaces = this.userSpaces.slice(0, 6)));
+  }
 
   ngOnDestroy() {
     this.sub.unsubscribe();

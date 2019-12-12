@@ -1,116 +1,91 @@
-<div class="top-banner" [ngClass]="{'smaller':appService.hideLogo}">
-  <div [ngStyle]="{'display':appService.hideLogo?'none':'block'}">
+<div class="top-banner">
+  <div>
     <!--<div class="header-title">SideQuest</div>-->
     <!--<div class="apk-install">Make it your own</div>-->
-    <a href="#/" class="logo">
+    <a href="javascript:void(0)" class="logo">
       <div class="over-menu hide-on-large-only">
-        <i id="btn-sidenav-demo" class="material-icons medium white-text">menu</i>
+        <i (click)="sidenav.opened = true" class="material-icons medium white-text">menu</i>
       </div>
       <!--<img src="assets/images/logo-large icony.png"/>-->
-      <img src="assets/images/new-logo.png"/>
+      <img class="top-main-logo" src="assets/images/new-logo.png"/>
       <!--<img class="spider-image" src="https://i.giphy.com/media/V3sjIPOXgP5Zu/giphy.webp"/>-->
     </a>
   </div>
-  <div class="user-menu-back" (click)="userMenu.style.height = '0';userMenuBack.style.display = 'none'" #userMenuBack></div>
-  <div class="user-menu" #userMenu  [ngClass]="{'smaller-menu':appService.hideLogo}" >
-    <div class="btn-flat waves-light waves-light full-width center-align white-text" (click)="userMenu.style.height = '0';userMenuBack.style.display = 'none';appService.scrollToTop()" *ngIf="appService.isAuthenticated && expanseService.currentSession.public_profile" routerLink="/user/{{expanseService.currentSession.users_id}}">Profile</div>
-    <div class="btn-flat waves-light waves-light full-width center-align white-text" (click)="userMenu.style.height = '0';userMenuBack.style.display = 'none';appService.scrollToTop()" routerLink="/account">Dashboard</div>
-    <div class="btn-flat waves-light waves-light full-width center-align white-text" (click)="userMenu.style.height = '0';userMenuBack.style.display = 'none';appService.scrollToTop()" routerLink="/account/friends">Sidekicks <span class="new badge new-badge" *ngIf="appService.notifications.friend_requests && appService.notifications.friend_requests.length">{{appService.notifications.friend_requests.length|notOverNine}}</span></div>
-    <div class="btn-flat waves-light waves-light full-width center-align white-text" (click)="userMenu.style.height = '0';userMenuBack.style.display = 'none'" routerLink="/account/messages">Messages <span class="new badge new-badge" *ngIf="appService.notifications.unread_messages && appService.notifications.unread_messages.length">{{appService.notifications.unread_messages.length|notOverNine}}</span></div>
-    <div class="btn-flat waves-light waves-light full-width center-align white-text" (click)="userMenu.style.height = '0';userMenuBack.style.display = 'none';signOut();appService.scrollToTop()">Sign Out</div>
+  <app-user-menu></app-user-menu>
+  <div class="top-buttons hide-on-med-and-down">
+    <app-main-menu></app-main-menu>
   </div>
-  <div [ngStyle]="{'display': appService.isAuthenticated ? 'inline-block' : 'none'}" class="right top-buttons-avatar" [ngClass]="{'smaller-buttons-avatar':appService.hideLogo}" (click)="userMenu.style.height = expanseService.currentSession.public_profile ? '187.5px' : '150px';userMenuBack.style.display = 'block'">
-    <img *ngIf="appService.isAuthenticated" class="avatar-menu pointer" src="{{expanseService.cdnUrl+expanseService.currentSession.preview_image}}"/>
-    <i *ngIf="appService.isAuthenticated" class="material-icons vertical-align avatar-menu-margin pointer" (click)="userMenu.style.height = expanseService.currentSession.public_profile ? '187.5px' : '150px';userMenuBack.style.display = 'block'">arrow_drop_down</i>
-    <span class="new badge new-badge top-badge pointer" [ngClass]="{'smaller-badge':appService.hideLogo}" (click)="userMenu.style.height = expanseService.currentSession.public_profile ? '187.5px' : '150px';userMenuBack.style.display = 'block'" *ngIf="appService.isAuthenticated && ((appService.notifications.friend_requests && appService.notifications.friend_requests.length)||(appService.notifications.unread_messages && appService.notifications.unread_messages.length))">{{appService.notifications.friend_requests.length+appService.notifications.unread_messages.length|notOverNine}}</span>
+</div>
+<div class="top-banner collapse" [ngClass]="{'collapse-open': scrollFire()}">
+  <div>
+    <!--<div class="header-title">SideQuest</div>-->
+    <!--<div class="apk-install">Make it your own</div>-->
+    <a href="javascript:void(0)" class="logo logo-collapse">
+      <div class="over-menu hide-on-large-only">
+        <i (click)="sidenav.opened = true" class="material-icons medium white-text">menu</i>
+      </div>
+      <!--<img src="assets/images/logo-large icony.png"/>-->
+      <img src="assets/images/score-logo.png" class="hide-on-med-and-down"/>
+      <img src="assets/images/new-logo.png" class="hide-on-large-only"/>
+      <!--<img class="spider-image" src="https://i.giphy.com/media/V3sjIPOXgP5Zu/giphy.webp"/>-->
+    </a>
   </div>
-  <div class="right top-buttons hide-on-med-and-down" [ngClass]="{'smaller-buttons':appService.hideLogo}">
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="New apps, events and news aggregated from reddit, twitter and discord."
-         position="bottom"
-         routerLink="news"
-    (click)="appService.scrollToTop()">Home</div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="Users with the most legendary content on SIdeQuest."
-         position="bottom"
-         routerLink="legends"
-         (click)="appService.scrollToTop()">Legends</div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="Games you can get on SideQuest"
-         position="bottom"
-         routerLink="apps/1"
-         (click)="appService.scrollToTop()">Games</div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="New VR multi user events."
-         position="bottom"
-         routerLink="events"
-    (click)="appService.scrollToTop()">Events</div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="SideQuest Spaces."
-         position="bottom"
-         routerLink="spaces"
-         (click)="appService.scrollToTop()">Spaces</div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="Get the latest SideQuest download."
-         position="bottom"
-         routerLink="download" *ngIf="!appService.hideLogo"
-         (click)="appService.scrollToTop()"
-          >Download</div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="Sign in and manage apps and events"
-         position="bottom"
-         *ngIf="!appService.isAuthenticated"
-         routerLink="login"
-         (click)="appService.scrollToTop()">Sign In</div>
-    <a class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="Get help with common problems."
-         position="bottom"
-         href="https://github.com/the-expanse/SideQuest/wiki">Wiki/FAQ</a>
-    <div *ngIf="!appService.isAuthenticated" class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="Get your sidequest setup the first time you install, and watch some how to videos."
-         position="bottom"
-         routerLink="setup-howto"
-         (click)="appService.scrollToTop()">Setup</div>
+  <app-user-menu></app-user-menu>
+  <div class="top-buttons hide-on-med-and-down">
+    <app-main-menu></app-main-menu>
   </div>
 </div>
 
+
+
 <mz-sidenav
-  [id]="'sidenav-demo'"
-  [collapseButtonId]="'btn-sidenav-demo'" #sidenav>
+  [closeOnClick]="true"
+  [draggable]="false"
+  [id]="'mobile-menu'"
+  #sidenav>
   <mz-sidenav-header>
-    Main Menu
+    <h5 class="black-text center-align">Main Menu</h5>
   </mz-sidenav-header>
   <!--<mz-sidenav-subheader>Link Subheader</mz-sidenav-subheader>-->
   <mz-sidenav-link>
-    <a routerLink="news" (click)="sidenav.opened = !sidenav.opened">Home</a>
+    <a routerLink="news">Home</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a routerLink="legends" (click)="sidenav.opened = !sidenav.opened">Legends</a>
+    <a routerLink="apps/1">Games</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a routerLink="apps/1" (click)="sidenav.opened = !sidenav.opened">Games</a>
+    <a routerLink="events">Events</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a routerLink="events" (click)="sidenav.opened = !sidenav.opened">Events</a>
+    <a routerLink="spaces">Spaces</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a routerLink="spaces" (click)="sidenav.opened = !sidenav.opened">Spaces</a>
+    <a routerLink="channels">Channels</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a routerLink="what-is-sidequest" (click)="sidenav.opened = !sidenav.opened">What is SideQuest?</a>
+    <a routerLink="download">Download</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a routerLink="download" (click)="sidenav.opened = !sidenav.opened">Download</a>
+    <a routerLink="developers">Developers</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a href="http://tee.pub/lic/L295azlpJYk">Gift Shop</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a routerLink="what-is-sidequest">What is SideQuest?</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
     <a [routerLink]="appService.isAuthenticated ? 'account' : 'login'"
-       (click)="sidenav.opened = !sidenav.opened">{{appService.isAuthenticated? 'Dashboard' : 'Sign In'}}</a>
+       >{{appService.isAuthenticated? 'Dashboard' : 'Sign In'}}</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a routerLink="setup-howto" (click)="sidenav.opened = !sidenav.opened">Setup & How To</a>
+    <a routerLink="setup-howto">Setup</a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a (click)="openLink('https://discord.me/sidequestvr'); sidenav.opened = !sidenav.opened">Discord</a>
+    <a (click)="openLink('https://discord.me/sidequestvr'); ">Discord</a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a (click)="openLink('https://www.patreon.com/SideQuestVR'); ">Patreon</a>
   </mz-sidenav-link>
 </mz-sidenav>
 

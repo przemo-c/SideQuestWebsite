@@ -40,7 +40,7 @@
   margin-top: -80px;
 }
 .card-title-small{
-  width: calc(100% - 300px)!important;
+  width: calc(100% - 200px)!important;
 }
 .card-title.truncate, .description.truncate{
   width: calc(100% - 50px);

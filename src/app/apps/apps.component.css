@@ -5,15 +5,78 @@
   border-left: 0 solid white;
 }
 .padding{
-  padding-left: 3em;
-  padding-right: 3em;
+  padding-left: 4em;
+  padding-right: 2em;
+}
+.games-search input{
+  margin-top: 10px;
+  margin-right: 16px;
+}
+.menu-image{
+  width: 16px;
+  vertical-align: text-top;
+  margin-right: 0.5em;
+  border-radius: 50%;
 }
 .search-box{
-  width: 330px;
+  max-width: 300px;
 }
 .margin-top-icons{
   margin-top: 1em;
 }
+.games-mobile-menu{
+  vertical-align: sub;
+  margin-right: 10px;
+}
+.move-search-up{
+  position: absolute;
+  top: -130px;
+  right: 40px;
+}
+.app-margin-top{
+  margin-top: 16px;
+}
 .back-icon {
   font-size: 3em;
+}
+.menu-chip-main{
+  display: inline-block;
+  margin-top: 2.5em;
+  margin-bottom: 0.2em;
+}
+.menu-chip-sub{
+  padding-left: 22px;
+}
+.menu-chip-main:first-child{
+  margin-top: 0.5em;
+}
+.menu-chip{
+  text-align: center;
+  min-width: 75%;
+  white-space: nowrap;
+  display: inline-block;
+  height: auto;
+  line-height: 30px;
+  padding: 0;
+}
+.menu-chip>img{
+  margin: 0;
+}
+.menu-chip-sub{
+/*margin-left: 25px;*/
+}
+.menu-chip-main{
+  /*margin-left: 10px;*/
+}
+.game-menu-container{
+  margin-left: -18px;
+}
+
+
+@media screen and (max-width: 992px) {
+
+  .padding{
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 }

@@ -1,18 +1,14 @@
 <div class="row full-size no-margin main-container">
-  <div class="col s12 valign-wrapper login-container">
+  <div class="col s12 login-container">
     <div class="card login-card">
-      <div class="card-image">
-        <div class="background-image-card"></div>
+      <div class="card-content">
         <div class="right login-links">
           <a  routerLink="/login">Sign In</a>
-          | <a routerLink="/sign-up">Sign Up</a>
           | <a routerLink="/forgot-password">Forgot Password</a>
         </div>
         <span class="card-title">
           Sign Up
         </span>
-      </div>
-      <div class="card-content">
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">account_circle</i>
@@ -79,7 +75,23 @@
             </div>
           </div>
         </div>
-
+        <div class="row">
+        <div class="col s6">
+          <div class="center-align">
+            <h5>Enable<br>Developer Mode</h5>
+            <div class="switch">
+              <label>
+                Off
+                <input type="checkbox" [(ngModel)]="isDev">
+                <!--(change)="setDev()"-->
+                <span class="lever"></span>
+                On
+              </label>
+            </div>
+            <br>
+          </div>
+        </div>
+        </div>
         <div class="center-align">
           <re-captcha (resolved)="done($event)" [siteKey]="service.siteKey"></re-captcha>
         </div>

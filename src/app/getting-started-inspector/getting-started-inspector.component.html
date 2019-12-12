@@ -1,9 +1,10 @@
 <div class="bottom-border">
-  <mz-parallax [height]="350" >
-    <img src="https://cdn.theexpanse.app/file/2755/Untitled-2.jpg">
-  </mz-parallax>
+  <div class="bottom-border paralax"  [ngClass]="{'banner-in-app':appService.hideLogo}">
+    <div class="banner-top-back"
+         [ngStyle]="{'background-image':'url(https://cdn.theexpanse.app/file/2755/Untitled-2.jpg)'}"></div>
+  </div>
 </div>
-<div class="main-container relative" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}"
+<div class="main-container relative padding"
      [ngStyle]="{'margin-top': '-150px'}">
   <div class="top-back">
 

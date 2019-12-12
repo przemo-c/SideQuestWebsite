@@ -6,6 +6,7 @@
 
 .top-image{
   width: 100%;
+  max-width: 600px;
   height: 320px;
   background-position: center center;
   background-size: cover;

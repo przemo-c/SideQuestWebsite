@@ -80,6 +80,11 @@ import { CodeBlockComponent } from "./code-block/code-block.component";
 import { ScriptingAppBehavioursComponent } from "./scripting-app-behaviours/scripting-app-behaviours.component";
 import { ScriptingInteractionComponent } from "./scripting-interaction/scripting-interaction.component";
 import { ScriptingInputControlsComponent } from "./scripting-input-controls/scripting-input-controls.component";
+import { SlideshowModule } from "ng-simple-slideshow";
+import { AppDisplayBoxComponent } from "./app-display-box/app-display-box.component";
+import { MainMenuComponent } from "./main-menu/main-menu.component";
+import { UserMenuComponent } from "./user-menu/user-menu.component";
+import { SideNavComponent } from "./side-nav/side-nav.component";
 
 export function hljsLanguages() {
   return [{ name: "cs", func: cs }];
@@ -136,12 +141,17 @@ export function hljsLanguages() {
     CodeBlockComponent,
     ScriptingAppBehavioursComponent,
     ScriptingInteractionComponent,
-    ScriptingInputControlsComponent
+    ScriptingInputControlsComponent,
+    AppDisplayBoxComponent,
+    MainMenuComponent,
+    UserMenuComponent,
+    SideNavComponent
   ],
   imports: [
     HighlightModule.forRoot({
       languages: hljsLanguages
     }),
+    SlideshowModule,
     BrowserModule,
     AppRoutingModule,
     NgxMasonryModule,

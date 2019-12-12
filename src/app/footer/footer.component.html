@@ -1,12 +1,16 @@
-<div class="nectar-shape-divider-wrap " style=" height:50px;" data-front="" data-style="curve" data-position="bottom"><svg class="nectar-shape-divider" fill="#1c132b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"> <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path> </svg></div>
+<div class="nectar-shape-divider-wrap " style=" height:50px;" data-front="" data-style="curve" data-position="bottom"><svg class="nectar-shape-divider" fill="#1c1c1c" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none"> <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path> </svg></div>
 <div class="footer-container">
-  <div class="padding" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
+  <div class="padding container">
 
     <div class="row">
       <div class="col s12 center-align hide-on-med-and-up">
         <a href="#/" class="logo">
           <img src="../../assets/images/score-logo.png"/>
         </a>
+        <br>
+        <br>
+        <img src="../../assets/images/logo-textual.png" class="logo-textual"/>
+        <br>
       </div>
       <div class="col s6 m4">
 
@@ -79,15 +83,15 @@
         <h5>Follow Us</h5>
         <hr>
         <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+              onclick="window.location.href = 'https://www.patreon.com/SideQuestVR'"
               mz-tooltip tooltip="People have been so kind, we are humbled."
               position="bottom">
           <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-          Support us on Patreon
+          Support on Patreon
         </span><br>
         <span class="chip pointer top-chip"
               onclick="window.location.href = 'https://paypal.me/sidequestvr'"
-              mz-tooltip tooltip="Use this option if you prefer a one off donation."
+              mz-tooltip tooltip="Prefer a one off donation?"
               position="bottom">
           <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
           Donate on Paypal
@@ -130,13 +134,22 @@
       </div>
       <div class="col s12 center-align">
         <br>
-        <img src="../../assets/images/logo-textual.png" class="logo-textual"/>
+        <img src="../../assets/images/logo-textual.png" class="logo-textual hide-on-small-only"/>
+        <span class="hide-on-small-only">
         <br><br><br>
+        </span>
         <a routerLink="/privacy" class="white-text">Privacy Policy</a>
         <!--| <a href="#" class="white-text">Terms of Use</a>-->
         <br><br>
         © The Expanse VR Ltd 2019 - 2020
       </div>
     </div>
+  </div>
+</div>
+
+<div class="cookie-banner" *ngIf="!hideCookies">
+  <i (click)="hideCooks()" class="material-icons right small white-text close-cookie-banner">close</i>
+  <div class="container">
+  We use cookies to improve user experience, and analyze website traffic and provide relevant ads. For these reasons, we may share your site usage data with our analytics partners. By using this website you consent to store on your device all the technologies described in our Privacy Policy. Please read our Privacy Policy for full details.
   </div>
 </div>

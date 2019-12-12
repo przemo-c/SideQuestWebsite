@@ -4,11 +4,62 @@ html,body{
   height: 100%;
   padding: 0;
   margin: 0;
-  background: #503b73;
+  background: #0c0c0c;
   color:white;
-  overflow:hidden;
-  position:relative;
+  overflow-x:hidden;
   top: 0;
+}
+html{
+  overflow: hidden;
+}
+.collapse app-user-menu .top-buttons-avatar{
+  margin-top: 15px;
+}
+.caption{
+  background-image: linear-gradient(to bottom, rgba(25,25,25,0) 0%, rgba(25,25,25,0.9) 65%);
+  height: 40px;
+}
+.card{
+  background-color:#19161a;
+}
+.banner-top-back{
+  width: 100%;
+  height: 350px;
+  /*position: fixed;*/
+  /*transform: translateZ(-1px) scale(1.5) translateY(-20%);*/
+  /*!* Force the background image to fill the whole element. *!*/
+  background-size: cover;
+  background-position: center center;
+  /* Keep the image from overlapping sibling elements. */
+  /*z-index: -2;*/
+}
+.banner-in-app{
+  /*transform: translateZ(-1px) scale(2);*/
+}
+.paralax{
+  overflow: hidden;
+}
+.home-app-image{
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-color: #100e11;
+  border-radius: 3px;
+}
+.card-height{
+  height: 147px;
+}
+.app-padding{
+  padding-left: 8px!important;
+  padding-right: 8px!important;
+}
+.app-name{
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size:1.1rem;
+}
+.app-summary{
+  margin-left: 5px;
 }
 .full-size{
   width: 100%;
@@ -39,11 +90,11 @@ html,body{
 }
 
 .loader-initial {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #ed4e7a; /* Pink */
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #ed4e7a; /* Pink */
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 60px;
+  height: 60px;
   animation: spin 2s linear infinite;
   position:absolute;
   top: 50%;
@@ -83,10 +134,10 @@ html,body{
   margin-top: 2em;
 }
 .small-button {
-  padding: 5px!important;
-  line-height: 16px!important;
-  height: 24px!important;
-  color: white;
+  /*padding: 5px!important;*/
+  /*line-height: 16px!important;*/
+  /*height: 24px!important;*/
+  /*color: white;*/
 }
 .inline-block{
   display:inline-block;
@@ -183,7 +234,7 @@ input[type=range] {
   width: calc(100% - 50px);
 }
 .card-content{
-  background-color: #312249;
+  background-color: #19161a!important;
 }
 
 .card-title-small.installed{
@@ -223,11 +274,12 @@ input[type=range] {
   list-style-type: initial!important;
 }
 .top-back{
-  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#503b73+1,503b73+100&0+0,0.9+60,1+74,1+100 */
-  background: -moz-linear-gradient(top,  rgba(80,59,115,0) 0%, rgba(80,59,115,0.02) 1%, rgba(80,59,115,0.9) 50%, rgba(80,59,115,1) 54%, rgba(80,59,115,1) 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top,  rgba(80,59,115,0) 0%,rgba(80,59,115,0.02) 1%,rgba(80,59,115,0.9) 50%,rgba(80,59,115,1) 54%,rgba(80,59,115,1) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom,  rgba(80,59,115,0) 0%,rgba(80,59,115,0.02) 1%,rgba(80,59,115,0.9) 50%,rgba(80,59,115,1) 54%,rgba(80,59,115,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00503b73', endColorstr='#503b73',GradientType=0 ); /* IE6-9 */
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#0c0c0c+1,0c0c0c+100&0+0,0.9+60,1+74,1+100 */
+  background: -moz-linear-gradient(top,  rgba(12,12,12,0) 0%, rgba(12,12,12,0.02) 1%, rgba(12,12,12,0.9) 60%, rgba(12,12,12,1) 74%, rgba(12,12,12,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(12,12,12,0) 0%,rgba(12,12,12,0.02) 1%,rgba(12,12,12,0.9) 60%,rgba(12,12,12,1) 74%,rgba(12,12,12,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(12,12,12,0) 0%,rgba(12,12,12,0.02) 1%,rgba(12,12,12,0.9) 60%,rgba(12,12,12,1) 74%,rgba(12,12,12,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000c0c0c', endColorstr='#0c0c0c',GradientType=0 ); /* IE6-9 */
+
   width: calc(100% + 50px);
   margin-left: -25px;
   margin-top: -20px;
@@ -235,10 +287,6 @@ input[type=range] {
   position: absolute;
   left: 0;
   z-index: -1;
-  border-left: 1px solid #8f8f8f;
-  border-right: 1px solid #8f8f8f;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
 }
 
 .sub-banner .top-button{
@@ -294,14 +342,14 @@ input[type=range] {
 }
 
 .sub-banner{
-  background-color: #312249;
-  background-position: top left;
-  background-repeat: no-repeat;
+  /*background-color: #312249;*/
+  /*background-position: top left;*/
+  /*background-repeat: no-repeat;*/
   height: 38px;
   width: 100%;
   margin-top: -7px;
   margin-bottom: 5px;
-  border-bottom: 1px solid #8f8f8f;
+  /*border-bottom: 1px solid #8f8f8f;*/
   white-space: nowrap;
   overflow: auto;
 }
@@ -324,15 +372,17 @@ input[type=range] {
 .listing-rating,.listing-downloads{
   color: white;
   background-color: #ed4e7a!important;
-  padding: 3px;
+  padding: 1px 3px;
   border-radius: 3px;
-  position: absolute;
-  bottom: 40px;
-  right: 8px;
+  margin-top: 3px;
+  display: inline-block;
+}
+.rating-container{
+  float: right;
+  text-align: right;
 }
 .listing-downloads{
-  background-color: #4f4f4f!important;
-  bottom: 8px;
+  background-color: #19161a!important;
 }
 .app-list-license{
   color: white;
@@ -351,3 +401,4 @@ input[type=range] {
 .listing-downloads i{
   margin-left: 0.2em;
 }
+

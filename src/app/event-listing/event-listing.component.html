@@ -8,12 +8,11 @@
     </div>
   </div>
 </ng-container>
-<div class="bottom-border">
-  <mz-parallax *ngIf="(currentApp.event_image || currentApp.image) && !loading" [height]="350">
-    <img src="{{currentApp.event_image || currentApp.image}}">
-  </mz-parallax>
+<div class="bottom-border paralax" [ngClass]="{'banner-in-app':service.hideLogo}">
+  <div class="banner-top-back" *ngIf="(currentApp.event_image || currentApp.image) && !loading"
+       [ngStyle]="{'background-image':'url(\''+(currentApp.event_image || currentApp.image)+'\')'}"></div>
 </div>
-<div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}"
+<div *ngIf="!is_not_found && !loading" class="main-container padding"
      [ngStyle]="{'margin-top': currentApp.event_image || currentApp.image ? '-150px' : '0'}">
   <div class="top-back" *ngIf="currentApp.event_image || currentApp.image">
 
@@ -131,31 +130,11 @@
             <h5>SideQuest App</h5>
             <hr>
             <div class="right-align grey-text">Click open to get this app now.</div>
-            <div class="card card-height">
-              <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-                   *ngIf="selectedApp.image_url" [ngStyle]="{'background-image':'url(\''+selectedApp.image_url+'\')'}">
-              </div>
-              <div class="card-content card-height">
-                <i class="material-icons activator pointer right">more_vert</i>
-                <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':selectedApp.image_url}">{{selectedApp.name||'No Name...'}}</span>
-                <p class="grey-text description truncate" [ngClass]="{'card-title-small':selectedApp.image_url}">{{selectedApp.summary}}</p>
-                <div class="right-align">
-                <span class="chip left white-text"
-                      [ngClass]="{'pink-button': selectedApp.active, 'orange': !selectedApp.active}">
-                {{selectedApp.active ? 'Published' : 'Pending'}}
-                </span>
-                  <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/app/{{currentApp.apps_id}}" (click)="service.scrollToTop()">Open</div>
-                </div>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedApp.name||'No Name...'}}</span>
-                <p class="grey-text">{{selectedApp.summary}}</p>
-              </div>
-            </div>
+            <app-app-display-box [apps]="[selectedApp]"></app-app-display-box>
           </div>
           <div class="col s12 m6" *ngIf="selectedSpace">
             <br>
-            <h5>SideQuest Space</h5>
+            <h5>SideQuest Legends Space</h5>
             <hr>
             <div class="right-align grey-text">See the space this event is hosted in.</div>
             <div class="card card-height">

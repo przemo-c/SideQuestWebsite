@@ -1,17 +1,60 @@
 .logo img{
-  height: 70px;
+  height: 90px;
   position:absolute;
+  top: 20px;
+  left: 20px;
+  transition: 0.35s;
+  scroll-behavior: smooth;
+}
+.logo-collapse img {
+  height: 60px;
   top: 10px;
-  left: 70px;
+  left: 10px;
 }
 #nav-mobile{
   margin-left: 60px;
 }
 .top-banner{
-  background: #312249 url(../assets/images/bg-header.jpg) top right no-repeat;
-  height: 90px;
+  background: #100e11 url(../assets/images/TopBack.png) bottom right no-repeat;
+  background-size: cover;
+  height: 170px;
   width: 100%;
   border-bottom: 1px solid #8f8f8f;
+  transition: 0.35s;
+  position: relative;
+}
+
+.collapse{
+  position: fixed;
+  height: 80px;
+  left: 0;
+  z-index: 10;
+  transition: 0.3s;
+  top: -80px;
+}
+.collapse-open{
+  top: 0;
+}
+.over-menu{
+  position:absolute;
+  top: 20px;
+  left: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .top-banner{
+    height: 80px;
+  }
+  .logo img{
+    top: 10px;
+    height: 60px;
+    left: 100px;
+  }
+  .over-menu{
+    position:absolute;
+    top: 10px;
+    left: 20px;
+  }
 }
 .spider-image{
   margin-top: 50px;
@@ -19,27 +62,21 @@
   position: relative;
   z-index: 99999;
 }
-.over-menu{
-  position:absolute;
-  top: 20px;
-  left: 5px;
-}
 .smaller{
   height: 44px;
 }
-.top-buttons{
-  margin-top: 25px;
+.collapse .top-buttons{
+  position: absolute;
+  top: 23px;
+  left: 80px;
 }
-.top-buttons-avatar{
-  margin-top: 20px;
-  position: relative;
-  z-index: 20;
+.top-buttons{
+  position: absolute;
+  top: 120px;
+  left: 10px;
 }
 .smaller-buttons{
   margin-top: 5px;
-}
-.smaller-buttons-avatar{
-  margin-top: 2px;
 }
 .click-grabber{
   width: 70px;
@@ -47,21 +84,6 @@
   position: absolute;
   right: 20px;
   cursor: pointer;
-}
-.avatar-menu{
-  width: 50px;
-  height: 50px;
-  display: inline-block;
-  border-radius: 20px;
-  vertical-align: middle;
-  border: 3px solid #312249;
-}
-.smaller-buttons-avatar .avatar-menu{
-  width: 40px;
-  height: 40px;
-}
-.avatar-menu-margin{
-  margin-right: 16px;
 }
 .header-title{
   position:absolute;
@@ -84,18 +106,18 @@
 }
 .scroll-container-small{
   position:relative;
-  height: calc(100% - 43px);
-  overflow-x:hidden;
-  overflow-y: auto;
-  scroll-behavior: smooth;
+  /*height: calc(100% - 43px);*/
+  /*overflow-x:hidden;*/
+  /*overflow-y: auto;*/
+  /*scroll-behavior: smooth;*/
   width: 100%;
 }
 .scroll-container{
   position:relative;
-  height: calc(100% - 90px);
-  overflow-x:hidden;
-  overflow-y: auto;
-  scroll-behavior: smooth;
+  /*height: calc(100% - 90px);*/
+  /*overflow-x:hidden;*/
+  /*overflow-y: auto;*/
+  /*scroll-behavior: smooth;*/
   width: 100%;
 }
 
@@ -104,40 +126,4 @@
 }
 .move-down{
   transform: translate(0,80px);
-}
-.top-button{
-  padding-left: 1em;
-  padding-right: 1em;
-}
-.user-menu-back{
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  z-index: 3;
-  display:none;
-}
-.user-menu{
-  position: absolute;
-  top: 90px;
-  right: 25px;
-  width: 200px;
-  z-index: 4;
-  height: 0;
-  overflow: hidden;
-  transition: height 250ms;
-  background: #4e555b;
-}
-.smaller-menu{
-  top: 44px;
-}
-.top-badge{
-  position: absolute;
-  top: 48px;
-  right: 42px;
-}
-.smaller-badge{
-  top: 20px;
-  right: 38px;
 }

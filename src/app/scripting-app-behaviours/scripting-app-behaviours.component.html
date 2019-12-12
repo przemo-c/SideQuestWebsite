@@ -1,9 +1,10 @@
 <div class="bottom-border">
-  <mz-parallax [height]="350" >
-    <img src="assets/images/scripting-background.jpg">
-  </mz-parallax>
+  <div class="bottom-border paralax"  [ngClass]="{'banner-in-app':appService.hideLogo}">
+    <div class="banner-top-back"
+         [ngStyle]="{'background-image':'url(assets/images/scripting-background.jpg)'}"></div>
+  </div>
 </div>
-<div class="main-container relative" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}"
+<div class="main-container relativepadding"
      [ngStyle]="{'margin-top': '-150px'}">
   <div class="top-back">
 

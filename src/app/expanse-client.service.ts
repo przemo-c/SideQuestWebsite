@@ -29,8 +29,8 @@ export class ExpanseClientService {
     this.messageResolves = {}; // localStorage.setItem('isDev','true');
     // localStorage.removeItem("isDev");
     this.isDev = localStorage.getItem("isDev");
-    this.url = !!this.isDev
-      ? "ws://192.168.0.13:3000"
+    this.url = !this.isDev
+      ? "ws://192.168.0.34:3000"
       : "wss://api.theexpanse.app";
     this.cdnUrl = this.isDev
       ? "http://192.168.0.4:47000/"
@@ -41,7 +41,6 @@ export class ExpanseClientService {
     this.openResolves = [];
     this.storageKey = "";
   }
-
   setStorageKey(storageKey: string) {
     this.storageKey = storageKey || "";
   }
@@ -53,6 +52,7 @@ export class ExpanseClientService {
   onreconnect() {
     this.setupWebsocket();
   }
+  onremoteinstall(data) {}
   onusermessage(data) {}
   start(): Promise<any> {
     if (this.isOpen) {
@@ -69,7 +69,7 @@ export class ExpanseClientService {
         setInterval(() => this.keepAlive(), 10000);
       }
       this.openResolves.push(resolve);
-    }).then(() => this.refreshSession());
+    });
   }
   async refreshSession() {
     this.currentSession = await this.getCurrentSession().catch(() => {});
@@ -106,6 +106,7 @@ export class ExpanseClientService {
     }
   }
   getInstalledApps(search, page) {
+    console.log("here");
     return this.start()
       .then(() => this.searchInstalledApps(search, page))
       .then((resp: AppListing[]) => {
@@ -209,9 +210,12 @@ export class ExpanseClientService {
     });
   }
   onOpen(evt) {
-    this.openResolves.forEach(fn => fn());
     this.isOpen = true;
-    console.log("Connected to Expanse API");
+    this.refreshSession().then(() => {
+      this.openResolves.forEach(fn => fn());
+      console.log("Connected to Expanse API");
+      return this.setRemoteClient();
+    });
   }
   onClose(evt) {
     console.log("Connection to API closed. Waiting ...");
@@ -235,6 +239,8 @@ export class ExpanseClientService {
         this.onalljoined(response.data);
       } else if (path === "user-left") {
         this.onleft(response.data);
+      } else if (path === "remote-install") {
+        this.onremoteinstall(response.data);
       } else if (path === "user-message") {
         this.onusermessage(response.data);
       } else if (path === "one-shot") {
@@ -401,6 +407,9 @@ export class ExpanseClientService {
         )
       )
       .then(() => files_id);
+  }
+  setProfileColor(users_id, color) {
+    return this.emit("set-profile-color", { users_id, color });
   }
   login(login, password) {
     return this.emit("login", { login, password });
@@ -625,6 +634,12 @@ export class ExpanseClientService {
       search
     });
   }
+  setRemoteClient() {
+    const userAgent = (navigator as any).userAgent.toLowerCase();
+    if (userAgent.indexOf(" electron/") > -1) {
+      return this.emit("set-remote-client", {});
+    }
+  }
   getFriends(page, search) {
     return this.emit("friends", { page, search });
   }
@@ -737,6 +752,9 @@ export class ExpanseClientService {
   setUserAvatarMesh(type) {
     return this.emit("set-user-avatar-mesh", { type });
   }
+  savePreviewImage(preview, avatar_images_id) {
+    return this.emit("save-preview-images", { preview, avatar_images_id });
+  }
   saveAvatarImage(image, preview) {
     return this.emit("save-avatar-images", { image, preview });
   }
@@ -809,7 +827,8 @@ export class ExpanseClientService {
     direction,
     app_categories_id?,
     tag?,
-    users_id?
+    users_id?,
+    limit?
   ) {
     return this.emit("search-apps", {
       search,
@@ -818,7 +837,8 @@ export class ExpanseClientService {
       direction,
       app_categories_id,
       tag,
-      users_id
+      users_id,
+      limit
     });
   }
   searchMyApps(page, search) {
