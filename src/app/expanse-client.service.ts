@@ -29,7 +29,7 @@ export class ExpanseClientService {
     this.messageResolves = {}; // localStorage.setItem('isDev','true');
     // localStorage.removeItem("isDev");
     this.isDev = localStorage.getItem("isDev");
-    this.url = !this.isDev
+    this.url = !!this.isDev
       ? "ws://192.168.0.34:3000"
       : "wss://api.theexpanse.app";
     this.cdnUrl = this.isDev
@@ -106,7 +106,6 @@ export class ExpanseClientService {
     }
   }
   getInstalledApps(search, page) {
-    console.log("here");
     return this.start()
       .then(() => this.searchInstalledApps(search, page))
       .then((resp: AppListing[]) => {

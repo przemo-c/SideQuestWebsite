@@ -642,8 +642,6 @@ export class AppListingComponent implements OnInit, OnDestroy {
         .searchInstalledApps("", 0, false, false, this.apps_id)
         .then((r: any) => {
           if (r.length) {
-            console.log(this.apps_id);
-            console.log(r);
             this.installedVersion = r[0].current_version;
             this.isInstalled = true;
           }
