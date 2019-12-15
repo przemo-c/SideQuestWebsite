@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   newApps: AppListing[];
   horrorApps: AppListing[];
   multiplayerApps: AppListing[];
-  imageUrls: (string | IImage)[];
+  imageUrls: IImage[];
   isAutoDisabled = false;
   news: NewsItem[] = [];
   updateMasonryLayout: boolean;
@@ -202,7 +202,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
           return {
             url: d.image,
             href: d.url,
-            caption: d.title
+            title: d.title,
+            caption: d.description
           };
         });
       });

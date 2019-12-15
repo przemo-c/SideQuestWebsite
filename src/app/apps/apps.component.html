@@ -2,6 +2,7 @@
 <mz-sidenav
   [closeOnClick]="true"
   [draggable]="false"
+  [edge]="'right'"
   [id]="'mobile-games-menu'"
   #sidenavGames>
   <mz-sidenav-header>
@@ -13,9 +14,28 @@
            [(ngModel)]="searchString"
            (input)="debounceSearch()">
     <label for="searchBoxSide" class="active">Search</label>
+
   </div>
-  <!--<mz-sidenav-subheader>Link Subheader</mz-sidenav-subheader>-->
+  <mz-sidenav-subheader>Sort By:</mz-sidenav-subheader>
+  <mz-sidenav-link>
+    <a class="pointer black-text" (click)="isRecent = false; isRating = true; isDownloads = false; page = 0; getApps()">
+      <i class="menu-image material-icons">star_half</i><span><b>Hot</b></span></a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a class="pointer black-text" (click)="isRecent = true; isRating = false; isDownloads = false; page = 0; getApps()">
+      <i class="menu-image material-icons">swap_vert</i><span><b>Recent</b></span></a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a class="pointer black-text" (click)="isRecent = false; isRating = false; isDownloads = true; page = 0; getApps()">
+      <i class="menu-image material-icons">cloud_download</i><span><b>Downloads</b></span></a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a class="pointer black-text" (click)="isRecent = false; isRating = false; isDownloads = false; page = 0; getApps()">
+      <i class="menu-image material-icons">sort</i><span><b>Name</b></span></a>
+  </mz-sidenav-link>
+  <mz-sidenav-divider></mz-sidenav-divider>
   <div class="">
+
     <mz-sidenav-link  *ngFor="let item of menuItems" >
 
       <a class="pointer"
@@ -35,27 +55,48 @@
 
 
   <div class="move-search-up">
-    <app-listing-modes [show_sort]="!appService.isTimeline" [hide_display]="true"
-                       (recent)="isRecent = true; isRating = false; isDownloads = false; page = 0; getApps()"
-                       (name)="isRecent = false; isRating = false; isDownloads = false; page = 0; getApps()"
-                       (rating)="isRecent = false; isRating = true; isDownloads = false; page = 0; getApps()"
-                       (download)="isRecent = false; isRating = false; isDownloads = true; page = 0; getApps()"></app-listing-modes>
+<!--    <app-listing-modes [show_sort]="!appService.isTimeline" [hide_display]="true"-->
+<!--                       (recent)="isRecent = true; isRating = false; isDownloads = false; page = 0; getApps()"-->
+<!--                       (name)="isRecent = false; isRating = false; isDownloads = false; page = 0; getApps()"-->
+<!--                       (rating)="isRecent = false; isRating = true; isDownloads = false; page = 0; getApps()"-->
+<!--                       (download)="isRecent = false; isRating = false; isDownloads = true; page = 0; getApps()"></app-listing-modes>-->
 
-    <div class="games-search right hide-on-med-and-down">
-      <input type="text" class="validate" placeholder="Search..."
-             [(ngModel)]="searchString"
-             (input)="debounceSearch()">
-    </div>
+<!--    <div class="games-search right hide-on-med-and-down">-->
+<!--      <input type="text" class="validate" placeholder="Search..."-->
+<!--             [(ngModel)]="searchString"-->
+<!--             (input)="debounceSearch()">-->
+<!--    </div>-->
   </div>
-<!--  <i (click)="sidenavGames.opened = true" class="material-icons small white-text games-mobile-menu hide-on-large-only pointer">more_vert</i>-->
-<!--  <h4 class="inline-block hide-on-med-and-down" style="margin-left: -18px;">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>-->
-<!--  <h4 class="inline-block hide-on-large-only">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>-->
+  <i (click)="sidenavGames.opened = true" class="right material-icons small white-text games-mobile-menu hide-on-large-only pointer">more_vert</i>
+  <h4 class="inline-block hide-on-large-only" style="margin: 1.5rem 0 0 18px;">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>
   <div class="row margin-top">
     <div class="col l2 xl1 hide-on-med-and-down no-padding">
-      <i (click)="sidenavGames.opened = true" class="material-icons small white-text games-mobile-menu hide-on-large-only pointer">more_vert</i>
-      <h4 style="margin: 0rem 0 .912rem 0;" class="inline-block hide-on-med-and-down" style="margin-left: -18px;">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>
-      <h4 style="margin: 0rem 0 .912rem 0;" class="inline-block hide-on-large-only">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>
+      <h4 style="margin: 0 0 .912rem -18px;" class="inline-block " >{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>
+      <div class="games-search right hide-on-med-and-down" style="margin: 0 0 .912rem -18px;">
+        <input type="text" class="validate" placeholder="Search..."
+               [(ngModel)]="searchString"
+               (input)="debounceSearch()">
 
+        <br>
+        <span class="grey-text">Sort By:</span>
+        <br>
+        <br>
+        <div class="pointer white-text" (click)="isRecent = false; isRating = true; isDownloads = false; page = 0; getApps()">
+          <i class="menu-image material-icons">star_half</i><span><b>Hot</b></span></div>
+        <div class="pointer white-text" (click)="isRecent = true; isRating = false; isDownloads = false; page = 0; getApps()">
+          <i class="menu-image material-icons">swap_vert</i><span><b>Recent</b></span></div>
+        <div class="pointer white-text" (click)="isRecent = false; isRating = false; isDownloads = true; page = 0; getApps()">
+          <i class="menu-image material-icons">cloud_download</i><span><b>Downloads</b></span></div>
+        <div class="pointer white-text" (click)="isRecent = false; isRating = false; isDownloads = false; page = 0; getApps()">
+          <i class="menu-image material-icons">sort</i><span><b>Name</b></span></div><br>
+      </div>
+
+<!--      -->
+<!--        <app-listing-modes style="margin: 0 0 .912rem -18px;" [show_sort]="!appService.isTimeline" [hide_display]="true"-->
+<!--                           (recent)="isRecent = true; isRating = false; isDownloads = false; page = 0; getApps()"-->
+<!--                           (name)="isRecent = false; isRating = false; isDownloads = false; page = 0; getApps()"-->
+<!--                           (rating)="isRecent = false; isRating = true; isDownloads = false; page = 0; getApps()"-->
+<!--                           (download)="isRecent = false; isRating = false; isDownloads = true; page = 0; getApps()"></app-listing-modes>-->
       <div class="game-menu-container">
         <div *ngFor="let item of menuItems" class="pointer"
              [ngClass]="{'menu-chip-main':item.is_main,'menu-chip-sub':!item.is_main}"
@@ -71,14 +112,14 @@
 
       <br><br>
 
-      <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
+      <div style="margin-left: -28px;" class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
         <br><br><br>
         Thank you
         <h5>{{expanseService.currentSession.name}}</h5>
         for supporting us<br>on Patreon.<br>
         <i class="material-icons white-text medium">thumb_up</i>
       </div>
-      <div style="margin-left: -16px;" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+      <div style="margin-left: -20px;" *ngIf="false">
         <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 160px; height: 600px;"/>
       </div>
     </div>
@@ -163,7 +204,7 @@
     <div *ngIf="hasNoMore" class="chip">No more items...</div>
   </div>
   <br><br><br>
-  <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+  <div class="center-align" *ngIf="false ">
     <h6>Sponsored</h6>
     <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 728px; height: 90px;"/>
     <br>

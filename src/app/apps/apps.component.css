@@ -17,6 +17,7 @@
   vertical-align: text-top;
   margin-right: 0.5em;
   border-radius: 50%;
+  font-size: 16px;
 }
 .search-box{
   max-width: 300px;
@@ -27,6 +28,8 @@
 .games-mobile-menu{
   vertical-align: sub;
   margin-right: 10px;
+  margin-top: 16px;
+  font-size: 3.3rem;
 }
 .move-search-up{
   position: absolute;

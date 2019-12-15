@@ -185,7 +185,7 @@
 }
 
 div#slider { overflow: hidden; border-radius: 3px; }
-div#slider div.slider-inner .img { width: 5%; float: left; height: 600px; background-size: cover; background-position: center center;}
+div#slider div.slider-inner .img { cursor: pointer; width: 5%; float: left; height: 600px; background-size: cover; background-position: center center;}
 div#slider div.slider-inner {
   position: relative;
   width: 2000%;

@@ -400,11 +400,23 @@ export class AppListingComponent implements OnInit, OnDestroy {
   }
 
   subscribeToApp() {
-    return this.expanseService
-      .addInstalledApp(this.apps_id, this.currentApp.versioncode)
-      .then(res => {
-        this.service.showMessage(res, "Sending to SideQuest...");
-      });
+    return this.service.isAuthenticated
+      ? this.expanseService
+          .addInstalledApp(this.apps_id, this.currentApp.versioncode)
+          .then(res => {
+            this.service.showMessage(res, "Sending to SideQuest...");
+          })
+      : Promise.resolve().then(() => {
+          if (this.apk_download_urls && this.apk_download_urls.length) {
+            this.service.remoteInstall({ app_urls: this.apk_download_urls });
+            this.service.showMessage(
+              { error: false },
+              this.service.hideLogo
+                ? "Installing..."
+                : "Sending to SideQuest Locally..."
+            );
+          }
+        });
   }
 
   uninstallApp(packageName) {

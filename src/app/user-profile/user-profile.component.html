@@ -32,7 +32,7 @@
   <div class="top-back" *ngIf="currentUser.banner_image">
 
   </div>
-  <div class="right side-score" mzTooltip tooltip="{{currentUser.name}}'s SideScore!" position="bottom"><img src="../../assets/images/score-logo.png"/> <span class="score">{{currentUser.score_points}}</span></div>
+  <div class="right side-score move-up" mzTooltip tooltip="{{currentUser.name}}'s SideScore!" position="bottom"><img src="../../assets/images/score-logo.png"/> <span class="score">{{currentUser.score_points}}</span></div>
 
   <div *ngIf="expanseService.currentSession && expanseService.currentSession.users_id == users_id" class="btn right waves-effect waves-light pink-button small-button" routerLink="/account" (click)="appService.scrollToTop()">Edit Profile</div>
 

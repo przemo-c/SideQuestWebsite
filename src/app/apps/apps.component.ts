@@ -22,8 +22,8 @@ export class AppsComponent implements OnInit, OnDestroy {
   category: number;
   isLoaded: boolean;
   searchTimeout: any;
-  isRecent = true;
-  isRating = false;
+  isRecent = false;
+  isRating = true;
   isDownloads = false;
   tag: string;
   menuItems = [
@@ -257,11 +257,13 @@ export class AppsComponent implements OnInit, OnDestroy {
             : "name",
           this.isRecent || this.isRating || this.isDownloads ? "desc" : "asc",
           this.category,
-          this.tag
+          this.tag,
+          null,
+          21
         )
         .then(async (resp: AppListing[]) => {
           this.appService.fixImages(resp);
-          this.hasNoMore = resp.length < 20;
+          this.hasNoMore = resp.length < 21;
           // let isGrid = this.appService.isGrid;
           if (this.page === 0) {
             // this.appService.isGrid = false;

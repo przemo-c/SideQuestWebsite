@@ -8,7 +8,7 @@
     </div>
   </div>
 </ng-container>
-<div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
+<div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'content-container':!service.hideLogo}">
 
   <div class="btn waves-effect waves-light pink-button right margin-left" routerLink="/app/{{apps_id}}" *ngIf="apps_id">View Listing</div>
   <div *ngIf="(apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id" class="btn waves-effect waves-light right pink-button margin-left" (click)="saveApp()">Save App</div>

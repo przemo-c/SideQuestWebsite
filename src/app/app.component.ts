@@ -44,7 +44,9 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
     this.setupAppUninstall();
     this.expanseService.onusermessage = this.userMessage.bind(this);
 
-    this.expanseService.onremoteinstall = this.remoteInstall.bind(this);
+    this.expanseService.onremoteinstall = this.appService.remoteInstall.bind(
+      this.appService
+    );
 
     this.message_sound = new Audio();
     this.message_sound.src = "../../assets/sounds/message.mp3";
@@ -54,29 +56,6 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
-  }
-
-  remoteInstall(data) {
-    console.log(data.app_urls);
-
-    let customUrl;
-    let _apps = JSON.stringify(data.app_urls.map(l => l.link_url));
-    if (data.app_categories_id === "4" && data.website === "FirefoxSkybox") {
-      customUrl = "sidequest://firefox-skybox/#" + _apps;
-    } else if (
-      data.app_categories_id === "4" &&
-      data.website === "SynthRiders"
-    ) {
-      customUrl = "sidequest://synthriders-multi/#" + _apps;
-    } else if (data.app_categories_id === "4" && data.website === "BeatOn") {
-      customUrl = "sidequest://bsaber-multi/#" + _apps;
-    } else {
-      customUrl = "sidequest://sideload-multi/#" + _apps;
-    }
-    if (customUrl) {
-      console.log(customUrl);
-      this.appService.openSidequestUrl(customUrl);
-    }
   }
 
   userMessage(data) {
