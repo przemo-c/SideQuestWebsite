@@ -63,7 +63,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   hasGithubRepo: boolean;
   isGettingGithub: boolean;
   isAllReleases: boolean;
-  isInstalled: boolean;
+  isInstalled = false;
   installedVersion: number;
   currentReviewId: number;
   currentApp: AppListing = {
@@ -179,7 +179,8 @@ export class AppListingComponent implements OnInit, OnDestroy {
               Number(this.currentApp.users_id) ===
                 Number(this.expanseService.currentSession.users_id);
           })
-          .then(() => this.getReviews());
+          .then(() => this.getReviews())
+          .then(() => console.log(this.isInstalled));
       }
     });
   }
@@ -547,6 +548,8 @@ export class AppListingComponent implements OnInit, OnDestroy {
         }
 
         const sideQuest = (window as any).sideQuest;
+        console.log(sideQuest);
+        console.log(this.currentApp.packagename);
         if (sideQuest) {
           this.isInstalled =
             sideQuest.installed.indexOf(this.currentApp.packagename) > -1;
@@ -639,6 +642,8 @@ export class AppListingComponent implements OnInit, OnDestroy {
         .searchInstalledApps("", 0, false, false, this.apps_id)
         .then((r: any) => {
           if (r.length) {
+            console.log(this.apps_id);
+            console.log(r);
             this.installedVersion = r[0].current_version;
             this.isInstalled = true;
           }

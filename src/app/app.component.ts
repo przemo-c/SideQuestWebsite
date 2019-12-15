@@ -38,9 +38,8 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
       if (val instanceof NavigationEnd) {
       }
     });
-    this.expanseService
-      .start()
-      .then(() => this.expanseService.getInstalledApps("", 0));
+    this.expanseService.start();
+    // .then(() => this.expanseService.getInstalledApps("", 0));
     this.setupAppUninstall();
     this.expanseService.onusermessage = this.userMessage.bind(this);
 

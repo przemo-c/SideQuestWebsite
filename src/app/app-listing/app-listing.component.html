@@ -361,7 +361,7 @@
                 </div>
                 <div [innerHTML]="message.details"></div>
               </div>
-              <div class="user-chip chip message-chip reply-chip" *ngIf="message.reply_created">
+              <div class="review-card" *ngIf="message.reply_created">
                 <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.users_id == expanseService.currentSession.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reply_id;deleteReview.openModal()">close</i>
                 <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+currentApp.preview_image}}"/>
                 <div class="margin-right"><span class="review-name">Vendor Reply</span> - {{message.reply_created|fromNow}}</div>
