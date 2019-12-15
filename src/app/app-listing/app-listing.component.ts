@@ -179,8 +179,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
               Number(this.currentApp.users_id) ===
                 Number(this.expanseService.currentSession.users_id);
           })
-          .then(() => this.getReviews())
-          .then(() => console.log(this.isInstalled));
+          .then(() => this.getReviews());
       }
     });
   }

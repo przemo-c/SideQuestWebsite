@@ -315,7 +315,7 @@
         <p [innerHTML]="currentApp.description"></p>
         <div *ngIf="!currentApp.early_access">
           <div class="truncate">
-            <span class="review-name">{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i> ( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )
+            <span class="review-name" *ngIf="appRatingTotal>0">{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i> ( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )
             <br><br>
             <img class="responsive-img top-image circle pointer"
                  *ngIf="currentApp.preview_image"
