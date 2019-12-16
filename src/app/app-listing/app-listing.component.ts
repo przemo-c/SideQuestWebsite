@@ -207,7 +207,6 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.isLoading = false;
         this.reviews = this.reviews.concat(r);
         this.page++;
-        console.log(this.reviews);
       })
       .then(() => this.expanseService.getRating(this.apps_id, "apps"))
       .then((r: any) => {
@@ -395,7 +394,9 @@ export class AppListingComponent implements OnInit, OnDestroy {
 
   subscribeIfItch(provider) {
     if (provider === "Itch") {
-      this.subscribeToApp();
+      if (this.apk_download_urls.length === 0) {
+        this.subscribeToApp();
+      }
     }
   }
 
