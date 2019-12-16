@@ -122,8 +122,8 @@
                  [(ngModel)]="currentApp.packagename">
           <label for="package_name" class="active">Package Name</label>
         </div>
-        <div class="col s12 m4" *ngIf="!apps_id">
-          <div #dropJson class="add-app" routerLink="/my-app">
+        <div #dropJson class="col s12 m4" *ngIf="!apps_id">
+          <div class="add-app" >
             Drop JSON Here
           </div>
         </div>

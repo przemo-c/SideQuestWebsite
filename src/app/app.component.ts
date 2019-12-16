@@ -51,6 +51,13 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
     this.message_sound.src = "../../assets/sounds/message.mp3";
     this.friend_sound = new Audio();
     this.friend_sound.src = "../../assets/sounds/message.mp3";
+
+    window.addEventListener("dragover", function(e: any) {
+      e.preventDefault();
+    });
+    window.addEventListener("drop", function(e: any) {
+      e.preventDefault();
+    });
   }
 
   ngOnDestroy() {

@@ -133,6 +133,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   githubRepos: GithubRepo[];
   githubReleases: GithubRelease[];
   loading = true;
+  dropFn: any;
   constructor(
     private router: Router,
     private service: AppService,
@@ -141,6 +142,67 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     route: ActivatedRoute,
     public uploadService: UploadService
   ) {
+    this.dropFn = (e: any) => {
+      e = e || event;
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.dataTransfer.files.length) {
+        const reader = new FileReader();
+        // Closure to capture the file information.
+        reader.onload = (e: any) => {
+          // Render thumbnail.
+          try {
+            const json: BeatOnModJson = JSON.parse(
+              e.target.result
+            ) as BeatOnModJson;
+            if (json.id) {
+              this.currentApp.packagename = "com.beatonmod." + json.id;
+            }
+            const searchTags: Materialize.ChipDataObject[] = [
+              { tag: "BeatOn" }
+            ];
+            if (json.gameVersion) {
+              searchTags.push({
+                tag: json.gameVersion.toString()
+              } as Materialize.ChipDataObject);
+            }
+            if (json.category) {
+              searchTags.push({
+                tag: json.category.toString()
+              } as Materialize.ChipDataObject);
+            }
+            if (json.version) {
+              this.currentApp.versionname = json.version.toString();
+            }
+            if (json.description && json.description.length) {
+              this.currentApp.description = json.description[0].toString();
+            }
+            if (json.author) {
+              searchTags.push({
+                tag: json.author.toString()
+              } as Materialize.ChipDataObject);
+              this.currentApp.summary = "by " + json.author.toString();
+            }
+            if (json.name) {
+              this.currentApp.name = json.name.toString();
+            }
+            this.searchTags = searchTags;
+            this.currentApp.versioncode = 1;
+            this.currentApp.app_categories_id = "4";
+            this.currentApp.website = "BeatOn";
+          } catch (e) {
+            this.service.showMessage(
+              { error: true, data: "Could not parse json!!" },
+              ""
+            );
+          }
+        };
+
+        // Read in the image file as a data URL.
+        reader.readAsText(e.dataTransfer.files[0]);
+      }
+    };
+    window.addEventListener("drop", this.dropFn, false);
     this.sub = this.router.events.subscribe(async val => {
       if (val instanceof NavigationEnd) {
         this.apps_id = route.snapshot.paramMap.get("apps_id");
@@ -197,104 +259,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   setupDatePicker() {}
-  ngAfterViewInit() {
-    if (this.addImage) {
-      const eleImage = this.addImage.nativeElement;
-      eleImage.ondrop = e => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (e.dataTransfer.files.length) {
-          this.is_loading_icon = true;
-          this.uploadService
-            .uploadFile(e.dataTransfer.files[0], e.dataTransfer.files[0].name)
-            .then((res: any) => {
-              this.currentApp.image_url = this.expanseService.cdnUrl + res.path;
-              this.is_loading_icon = false;
-            });
-        }
-      };
-    }
-    if (this.addScreenshot) {
-      const eleScreenshot = this.addScreenshot.nativeElement;
-      eleScreenshot.ondrop = e => {
-        e.preventDefault();
-        e.stopPropagation();
-        this.is_loading_screenshot = true;
-        if (e.dataTransfer.files.length) {
-          this.uploadService
-            .uploadFile(e.dataTransfer.files[0], e.dataTransfer.files[0].name)
-            .then((res: any) => {
-              this.screenshots.push(this.expanseService.cdnUrl + res.path);
-              this.is_loading_screenshot = false;
-            });
-        }
-      };
-    }
-
-    if (this.dropJson) {
-      const ele = this.dropJson.nativeElement;
-
-      ele.ondrop = e => {
-        e.preventDefault();
-        e.stopPropagation();
-        if (e.dataTransfer.files.length) {
-          const reader = new FileReader();
-          // Closure to capture the file information.
-          reader.onload = (e: any) => {
-            // Render thumbnail.
-            try {
-              const json: BeatOnModJson = JSON.parse(
-                e.target.result
-              ) as BeatOnModJson;
-              if (json.id) {
-                this.currentApp.packagename = "com.beatonmod." + json.id;
-              }
-              const searchTags: Materialize.ChipDataObject[] = [
-                { tag: "BeatOn" }
-              ];
-              if (json.gameVersion) {
-                searchTags.push({
-                  tag: json.gameVersion.toString()
-                } as Materialize.ChipDataObject);
-              }
-              if (json.category) {
-                searchTags.push({
-                  tag: json.category.toString()
-                } as Materialize.ChipDataObject);
-              }
-              if (json.version) {
-                this.currentApp.versionname = json.version.toString();
-              }
-              if (json.description && json.description.length) {
-                this.currentApp.description = json.description[0].toString();
-              }
-              if (json.author) {
-                searchTags.push({
-                  tag: json.author.toString()
-                } as Materialize.ChipDataObject);
-                this.currentApp.summary = "by " + json.author.toString();
-              }
-              if (json.name) {
-                this.currentApp.name = json.name.toString();
-              }
-              this.searchTags = searchTags;
-              this.currentApp.versioncode = 1;
-              this.currentApp.app_categories_id = "4";
-              this.currentApp.website = "BeatOn";
-            } catch (e) {
-              this.service.showMessage(
-                { error: true, data: "Could not parse json!!" },
-                ""
-              );
-            }
-          };
-
-          // Read in the image file as a data URL.
-          reader.readAsText(e.dataTransfer.files[0]);
-        }
-      };
-    }
-  }
+  ngAfterViewInit() {}
 
   copyShareUrl(isRefresh?) {
     if (navigator.clipboard) {
@@ -489,6 +454,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+    window.removeEventListener("drop", this.dropFn, false);
   }
 
   uploadIcon() {
@@ -625,6 +591,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
         .then((res: any) => {
           this.service.showMessage(res, "App Saved!");
           if (!res.error && res.length) {
+            this.apps_id = res[0].apps_id;
             this.refreshShareLink();
             this.sendForApproval(res[0].apps_id).then(() =>
               this.router.navigateByUrl("/my-app/" + res[0].apps_id)
