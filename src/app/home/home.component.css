@@ -193,7 +193,7 @@ div#slider div.slider-inner {
   left: 0;
   text-align: left;
   font-size: 0;
-  animation: 120s slidy infinite;
+  animation: 240s slidy infinite;
   transition: left 1s;
 }
 

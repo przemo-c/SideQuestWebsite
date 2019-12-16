@@ -79,6 +79,14 @@ export class AppsComponent implements OnInit, OnDestroy {
       is_main: false,
       image:
         "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
+      name: "Educational",
+      description: "Educational.",
+      url: "/apps/1/education"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
       name: "Game Ports",
       description: "Ports of legendary titles.",
       url: "/apps/1/gameport"
@@ -119,9 +127,9 @@ export class AppsComponent implements OnInit, OnDestroy {
       is_main: false,
       image:
         "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
-      name: "Simulations",
-      description: "Simulations.",
-      url: "/apps/2/simulation"
+      name: "Educational",
+      description: "Educational.",
+      url: "/apps/2/education"
     },
     {
       is_main: false,
