@@ -22,6 +22,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/ads.txt",
               "src/CNAME"
             ],
             "styles": [
@@ -89,6 +90,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/ads.txt",
               "src/CNAME"
             ],
             "styles": [
