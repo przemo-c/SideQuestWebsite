@@ -409,7 +409,11 @@ export class AppListingComponent implements OnInit, OnDestroy {
           })
       : Promise.resolve().then(() => {
           if (this.apk_download_urls && this.apk_download_urls.length) {
-            this.service.remoteInstall({ app_urls: this.apk_download_urls });
+            this.service.remoteInstall({
+              app_urls: this.apk_download_urls,
+              website: this.currentApp.website,
+              app_categories_id: this.currentApp.app_categories_id
+            });
             this.service.showMessage(
               { error: false },
               this.service.hideLogo
