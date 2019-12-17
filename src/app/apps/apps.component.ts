@@ -29,6 +29,13 @@ export class AppsComponent implements OnInit, OnDestroy {
   menuItems = [
     {
       is_main: true,
+      image: "https://i.imgur.com/tfIhP8C.jpg",
+      name: "Everything",
+      description: "All the content on SideQuest",
+      url: "/apps"
+    },
+    {
+      is_main: true,
       image:
         "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
       name: "All Games",
@@ -179,13 +186,6 @@ export class AppsComponent implements OnInit, OnDestroy {
       name: "Firefox Reality",
       description: "Firefox Reality.",
       url: "/apps/4/firefox"
-    },
-    {
-      is_main: true,
-      image: "https://i.imgur.com/tfIhP8C.jpg",
-      name: "Everything",
-      description: "All the content on SideQuest",
-      url: "/apps"
     }
   ];
   searchTags: Materialize.AutoCompleteOptions;

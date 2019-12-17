@@ -68,10 +68,10 @@
 <!--    </div>-->
   </div>
   <i (click)="sidenavGames.opened = true" class="right material-icons small white-text games-mobile-menu hide-on-large-only pointer">more_vert</i>
-  <h4 class="inline-block hide-on-large-only" style="margin: 1.5rem 0 0 18px;">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>
+  <h4 class="inline-block hide-on-large-only" style="margin: 1.5rem 0 0 18px;">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Games & Apps'}}</h4>
   <div class="row margin-top">
     <div class="col l2 xl1 hide-on-med-and-down no-padding">
-      <h4 style="margin: 0 0 .912rem -18px;" class="inline-block " >{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Everything'}}</h4>
+      <h4 style="margin: 0 0 .912rem -18px;" class="inline-block " >{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Games & Apps'}}</h4>
       <div class="games-search right hide-on-med-and-down" style="margin: 0 0 .912rem -18px;">
         <input type="text" class="validate" placeholder="Search..."
                [(ngModel)]="searchString"
