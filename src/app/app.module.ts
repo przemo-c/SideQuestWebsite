@@ -85,6 +85,9 @@ import { MainMenuComponent } from "./main-menu/main-menu.component";
 import { UserMenuComponent } from "./user-menu/user-menu.component";
 import { SideNavComponent } from "./side-nav/side-nav.component";
 import { AmazonNativeAdComponent } from "./amazon-native-ad/amazon-native-ad.component";
+import { AdPlaceholderComponent } from "./ad-placeholder/ad-placeholder.component";
+import { AdGamesVerticalComponent } from "./ad-games-vertical/ad-games-vertical.component";
+import { AdHomeVerticalComponent } from "./ad-home-vertical/ad-home-vertical.component";
 
 export function hljsLanguages() {
   return [{ name: "cs", func: cs }];
@@ -146,7 +149,10 @@ export function hljsLanguages() {
     MainMenuComponent,
     UserMenuComponent,
     SideNavComponent,
-    AmazonNativeAdComponent
+    AmazonNativeAdComponent,
+    AdPlaceholderComponent,
+    AdGamesVerticalComponent,
+    AdHomeVerticalComponent
   ],
   imports: [
     HighlightModule.forRoot({

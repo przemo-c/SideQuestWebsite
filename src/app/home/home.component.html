@@ -4,6 +4,7 @@
 
     <div class="col s12 l10 no-padding">
 
+
       <div class="slider-padding">
         <div id="slider" >
           <div class="slider-inner {{sliderClass}}" #sliderele [ngClass]="{'disable-auto-slider':isAutoDisabled}">
@@ -18,6 +19,13 @@
           </div>
         </div>
       </div>
+<!--      <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">-->
+<!--        <br>-->
+<!--        <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 90%; height: 90px;"/>-->
+<!--        &lt;!&ndash;    <app-amazon-native-ad></app-amazon-native-ad>&ndash;&gt;-->
+<!--        &lt;!&ndash;    <div id="amzn-assoc-ad-5dcbb028-bab2-4227-afb9-29c495eb473e"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=5dcbb028-bab2-4227-afb9-29c495eb473e"></script>&ndash;&gt;-->
+
+<!--      </div>-->
     </div>
     <div class="col l2 hide-on-med-and-down">
       <br><br>
@@ -40,11 +48,12 @@
         <!--          Donate on Paypal-->
         <!--        </span><br>-->
         <!--        <i class="material-icons white-text medium">thumb_up</i>-->
-        <!--        <br><br>-->
-        <!--        <h6>Sponsored</h6>-->
-        <!--        <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 200px; height: 200px;"/>-->
-        <!--        <br>-->
-        <!--        <br>-->
+                <br><br>
+                <h6>Sponsored</h6>
+        <app-ad-home-vertical></app-ad-home-vertical>
+<!--                <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 200px; height: 300px;"/>-->
+                <br>
+                <br>
       </div>
       <div class="center-align">
         <h5>Follow Us</h5>
@@ -84,28 +93,28 @@
           Like on Instagram
         </span>
       </div>
-      <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-        <div style="padding-left: 1em; padding-right: 1em;">
-          <br>SideQuest will always be free for users and developers!<br><br>
-          However the cost of running SideQuest is increasing. We are considering alternative revenue but for now we rely on the kind support of our Patreons.<br><br>
-        </div>
-        <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://www.patreon.com/SIdeQuestVR'"
-              mz-tooltip tooltip="People have been so kind, we are humbled."
-              position="bottom">
-          <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-          Support on Patreon
-        </span><br>
-        <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://paypal.me/sidequestvr'"
-              mz-tooltip tooltip="Use this option if you prefer a one off donation."
-              position="bottom">
-          <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
-          Donate on Paypal
-        </span><br><br>
-        <i class="material-icons white-text medium">thumb_up</i>
-        <br><br>
-      </div>
+<!--      <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">-->
+<!--        <div style="padding-left: 1em; padding-right: 1em;">-->
+<!--          <br>SideQuest will always be free for users and developers!<br><br>-->
+<!--          However the cost of running SideQuest is increasing. We are considering alternative revenue but for now we rely on the kind support of our Patreons.<br><br>-->
+<!--        </div>-->
+<!--        <span class="chip pointer top-chip"-->
+<!--              onclick="window.location.href = 'https://www.patreon.com/SIdeQuestVR'"-->
+<!--              mz-tooltip tooltip="People have been so kind, we are humbled."-->
+<!--              position="bottom">-->
+<!--          <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>-->
+<!--          Support on Patreon-->
+<!--        </span><br>-->
+<!--        <span class="chip pointer top-chip"-->
+<!--              onclick="window.location.href = 'https://paypal.me/sidequestvr'"-->
+<!--              mz-tooltip tooltip="Use this option if you prefer a one off donation."-->
+<!--              position="bottom">-->
+<!--          <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>-->
+<!--          Donate on Paypal-->
+<!--        </span><br><br>-->
+<!--        <i class="material-icons white-text medium">thumb_up</i>-->
+<!--        <br><br>-->
+<!--      </div>-->
       <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
         <br><br><br>
         Thank you
@@ -116,29 +125,11 @@
     </div>
   </div>
 
-  <!--<div class="right">-->
-  <!--<div class="waves-effect waves-light btn-flat white-text top-button"-->
-  <!--mz-tooltip tooltip="Find out about SideQuest."-->
-  <!--position="bottom"-->
-  <!--routerLink="/what-is-sidequest">What is SideQuest?</div>-->
-  <!--<div class="waves-effect waves-light btn-flat white-text top-button"-->
-  <!--mz-tooltip tooltip="Come and chat with us on Discord."-->
-  <!--position="bottom"-->
-  <!--(click)="openItem('https://discord.me/sidequestvr')">Discord</div>-->
-  <!---->
-  <!--</div>-->
-
   <h5>Most popular games</h5>
   <div class="row top-margin">
     <app-app-display-box [apps]="popularApps"></app-app-display-box>
   </div>
-
-  <h5>Latest game releases</h5>
-  <div class="row top-margin">
-    <app-app-display-box [apps]="newApps"></app-app-display-box>
-  </div>
-
-  <div class="center-align" *ngIf="false">
+  <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
     <h6>Sponsored</h6>
     <!--    <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 728px; height: 90px;"/>-->
     <app-amazon-native-ad></app-amazon-native-ad>
@@ -155,122 +146,35 @@
     <br>
     <br>
   </div>
+  <h5>Latest game releases</h5>
+  <div class="row top-margin">
+    <app-app-display-box [apps]="newApps"></app-app-display-box>
+  </div>
+
+
 
   <h5>Apps & streaming</h5>
   <div class="row top-margin">
     <app-app-display-box [apps]="popularAppApps"></app-app-display-box>
   </div>
+  <app-ad-placeholder></app-ad-placeholder>
   <h5>Social & multiplayer</h5>
   <div class="row top-margin">
     <app-app-display-box [apps]="multiplayerApps"></app-app-display-box>
   </div>
+<!--  <app-ad-placeholder></app-ad-placeholder>-->
   <h5>Horror</h5>
   <div class="row top-margin">
     <app-app-display-box [apps]="horrorApps"></app-app-display-box>
   </div>
 
-  <div class="center-align" *ngIf="false">
-    <h6>Sponsored</h6>
-    <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 728px; height: 90px;"/>
-    <br>
-    <br>
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://www.patreon.com/SIdeQuestVR'"
-          mz-tooltip tooltip="People have been so kind, we are humbled."
-          position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-      Support us on Patreon
-    </span>
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
-          mz-tooltip tooltip="Use this option if you prefer a one off donation."
-          position="bottom">
-      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
-      Donate on Paypal
-    </span>
-    <br>
-    <br>
-  </div>
-  <!--  <h5>News</h5>-->
-  <!--  <div class="row top-margin">-->
-  <!--    <app-app-display-box [apps]="news"></app-app-display-box>-->
-  <!--  </div>-->
-  <!--<ng-container *ngIf="firstNews">-->
+  <app-ad-placeholder></app-ad-placeholder>
+<!--    <h5>News</h5>-->
+<!--    <div class="row top-margin">-->
+<!--      <app-app-display-box [apps]="news"></app-app-display-box>-->
+<!--    </div>-->
+<!--    <app-ad-placeholder></app-ad-placeholder>-->
 
-  <!--<div class="col s12">-->
-  <!--<div class="tall-image" [ngStyle]="{'background-image':'url(https://cdn.theexpanse.app/file/3271/Carize_Sidequest_Banner.jpg)'}">-->
-  <!--<app-over-image [firstNews]="{title:'YUR.fit', description:'YUR.fit adds a health and fitness tracker to all Oculus Quest experiences and games.'}" (output)="openItem('https://sidequestvr.com/#/app/270/1')"></app-over-image>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--<div class="col s12 m6">-->
-  <!--<div class="tall-image" [ngStyle]="{'background-image':'url(\''+firstNews[0].image+'\')'}">-->
-  <!--<app-over-image [firstNews]="firstNews[0]" (output)="openItem(firstNews[0].url)"></app-over-image>-->
-  <!--</div>-->
-  <!--</div>-->
-  <!--<div class="col s12 m6">-->
-  <!--&lt;!&ndash;<div class="small-image" [ngStyle]="{'background-image':'url(\''+expanseNews.image+'\')'}">&ndash;&gt;-->
-  <!--&lt;!&ndash;<app-over-image [firstNews]="expanseNews" (output)="openItem(expanseNews.url)"></app-over-image>&ndash;&gt;-->
-  <!--&lt;!&ndash;</div>&ndash;&gt;-->
-  <!--<div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[1].image+'\')'}">-->
-  <!--<app-over-image [firstNews]="firstNews[1]" (output)="openItem(firstNews[1].url)"></app-over-image>-->
-  <!--</div>-->
-  <!--<div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[2].image+'\')'}">-->
-  <!--<app-over-image [firstNews]="firstNews[2]" (output)="openItem(firstNews[2].url)"></app-over-image>-->
-  <!--</div>-->
-
-  <!--</div>-->
-  <!--<div class="col s6 m3"><div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[3].image+'\')'}">-->
-  <!--<app-over-image [firstNews]="firstNews[3]" (output)="openItem(firstNews[3].url)"></app-over-image>-->
-  <!--</div></div>-->
-  <!--<div class="col s6 m3"><div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[4].image+'\')'}">-->
-  <!--<app-over-image [firstNews]="firstNews[4]" (output)="openItem(firstNews[4].url)"></app-over-image>-->
-  <!--</div></div>-->
-  <!--<div class="col s6 m3"><div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[5].image+'\')'}">-->
-  <!--<app-over-image [firstNews]="firstNews[5]" (output)="openItem(firstNews[5].url)"></app-over-image>-->
-  <!--</div></div>-->
-  <!--<div class="col s6 m3"><div class="small-image" [ngStyle]="{'background-image':'url(\''+firstNews[6].image+'\')'}">-->
-  <!--<app-over-image [firstNews]="firstNews[6]" (output)="openItem(firstNews[6].url)"></app-over-image>-->
-  <!--</div></div>-->
-  <!--</ng-container>-->
-  <!--<br><br>-->
-  <!--<app-listing-modes ></app-listing-modes>-->
-  <!--<h4>News Feed</h4>-->
-  <!--<hr class="grey">-->
-  <!--<div *ngIf="!appService.isGrid&&appService.isTimeline" class="row">-->
-  <!--<app-timeline-item *ngFor="let newsItem of news; let i = index"-->
-  <!--[name]="newsItem.title"-->
-  <!--[description]="newsItem.description"-->
-  <!--[image]="newsItem.image"-->
-  <!--[start_time]="newsItem.created/1000"-->
-  <!--[show_date]="newsItem.show_date"-->
-  <!--[show_date_first]="newsItem.show_date && i > 0"-->
-  <!--[hide_time]="true"-->
-  <!--(open)="openItem(newsItem.url)"-->
-  <!--&gt;</app-timeline-item>-->
-  <!--</div>-->
-  <!--<div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">-->
-  <!--<app-list-item *ngFor="let newsItem of news"-->
-  <!--[name]="newsItem.title"-->
-  <!--[description]="newsItem.description"-->
-  <!--[image]="newsItem.image"-->
-  <!--(open)="openItem(newsItem.url)"-->
-  <!--&gt;</app-list-item>-->
-  <!--</div>-->
-
-  <!--<ngx-masonry class="masonry-layout"-->
-  <!--*ngIf="appService.isGrid&&!appService.isTimeline"-->
-  <!--[updateLayout]="updateMasonryLayout"-->
-  <!--[options]="{ transitionDuration: '0s', gutter: 20, isAnimated: false}">-->
-  <!--<ngxMasonryItem class="masonry-item" *ngFor="let newsItem of news">-->
-  <!--<app-mason-item [name]="newsItem.title"-->
-  <!--[description]="newsItem.description"-->
-  <!--[image]="newsItem.image"-->
-  <!--(open)="openItem(newsItem.url)"-->
-  <!--&gt;</app-mason-item>-->
-  <!--</ngxMasonryItem>-->
-  <!--</ngx-masonry>-->
-  <!--</div>-->
-  <!--<br><br><br>-->
 </div>
 
 <ng-container *ngIf="isLoading">

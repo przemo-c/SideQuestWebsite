@@ -119,8 +119,14 @@
         for supporting us<br>on Patreon.<br>
         <i class="material-icons white-text medium">thumb_up</i>
       </div>
-      <div style="margin-left: -20px;" *ngIf="false">
-        <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 160px; height: 600px;"/>
+      <div style="margin-left: -50px;" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+        <app-ad-games-vertical></app-ad-games-vertical>
+        <br><br><br><br><br><br><br><br><br>
+        <app-ad-games-vertical></app-ad-games-vertical>
+        <br><br><br><br><br><br><br><br><br>
+        <app-ad-games-vertical></app-ad-games-vertical>
+<!--        <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 160px; height: 600px; margin-bottom: 16px"/>-->
+<!--        <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 160px; height: 600px; margin-bottom: 16px"/>-->
       </div>
     </div>
     <div class="col s12 l10 xl11">
@@ -189,6 +195,16 @@
             <!--&gt;</app-grid-item>-->
           <!--</div>-->
         </div>
+
+
+        <app-ad-placeholder></app-ad-placeholder>
+        <br><br><br>
+
+        <div class="center-align">
+          <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="appService.scrollToTop()" routerLink="/apps/{{category}}/{{tag||'none'}}/{{page}}">Load More</div>
+          <div *ngIf="hasNoMore" class="chip">No more items...</div>
+        </div>
+        <br><br><br>
       </div>
 
     </div>
@@ -196,34 +212,4 @@
 
   </div>
 
-
-  <br><br><br>
-
-  <div class="center-align">
-    <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="appService.scrollToTop()" routerLink="/apps/{{category}}/{{tag||'none'}}/{{page}}">Load More</div>
-    <div *ngIf="hasNoMore" class="chip">No more items...</div>
-  </div>
-  <br><br><br>
-  <div class="center-align" *ngIf="false ">
-    <h6>Sponsored</h6>
-    <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 728px; height: 90px;"/>
-    <br>
-    <br>
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://www.patreon.com/SIdeQuestVR'"
-          mz-tooltip tooltip="People have been so kind, we are humbled."
-          position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-      Support us on Patreon
-    </span>
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
-          mz-tooltip tooltip="Use this option if you prefer a one off donation."
-          position="bottom">
-      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
-      Donate on Paypal
-    </span>
-    <br>
-    <br>
-  </div>
 </div>

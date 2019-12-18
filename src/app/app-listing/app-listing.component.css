@@ -98,6 +98,11 @@
 .top-image:first-of-type{
   margin-right: 0.3em;
 }
+.badge-container{
+  position: absolute;
+  right: 0;
+  top:-4px;
+}
 .top-image{
   height: 45px;
   vertical-align: middle;

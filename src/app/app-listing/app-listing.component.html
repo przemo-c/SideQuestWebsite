@@ -57,6 +57,18 @@
   </ng-container>
   <div class="row">
     <div class="col s12 m5">
+      <div class="relative">
+        <div class="badge-container">
+          <div class="listing-rating z-depth-2">
+            <i class="material-icons">dashboard</i>
+            {{currentApp.app_categories_id == 1?'GAME':currentApp.app_categories_id == 2?'APP':currentApp.app_categories_id == 3?'NSFW':'MOD'}}
+          </div>
+          <div class="listing-downloads z-depth-2" *ngIf="currentApp.app_categories_id == 4">
+            <i class="material-icons">gamepad</i>
+            {{currentApp.website==="BeatOn"?"Beat Saber":currentApp.website}}
+          </div>
+        </div>
+      </div>
       <div *ngIf="videoObject">
         <div *ngIf="videoObject.provider === 'youtube'">
           <iframe width="100%" height="360" [src]="videoUrl" frameborder="0"
@@ -284,6 +296,15 @@
       <!--            </div>-->
       <!--          </div>-->
 
+<BR><BR>
+      <app-ad-placeholder></app-ad-placeholder>
+      <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
+        <br><br><br>
+        Thank you
+        <h5>{{expanseService.currentSession.name}}</h5>
+        for supporting us<br>on Patreon.<br>
+        <i class="material-icons white-text medium">thumb_up</i>
+      </div>
     </div>
     <div class="col s12 m7">
       <div class="right social-links">
@@ -382,29 +403,6 @@
     </div>
   </div>
 
-  <br><br>
-  <div class="center-align" *ngIf="false">
-    <h6>Sponsored</h6>
-    <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 728px; height: 90px;"/>
-    <br>
-    <br>
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://www.patreon.com/SIdeQuestVR'"
-          mz-tooltip tooltip="People have been so kind, we are humbled."
-          position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-      Support us on Patreon
-    </span>
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
-          mz-tooltip tooltip="Use this option if you prefer a one off donation."
-          position="bottom">
-      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
-      Donate on Paypal
-    </span>
-    <br>
-    <br>
-  </div>
 </div>
 
 <mz-modal #leaveReview [fixedFooter]="true">
