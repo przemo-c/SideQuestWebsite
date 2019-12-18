@@ -166,7 +166,7 @@
           <!--</div>-->
           <!--</div>-->
         </div>
-        <div *ngIf="expanseService.currentSession && expanseService.currentSession.users_id === 1">
+        <div *ngIf="expanseService.currentSession && (expanseService.currentSession.users_id === 1 || expanseService.currentSession.users_id === 24820)">
           <div class="center-align">
             <h5>Enable<br>Profile Color</h5>
             <div class="switch">
