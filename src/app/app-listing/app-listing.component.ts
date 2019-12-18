@@ -456,6 +456,9 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.is_not_found = true;
       } else {
         this.currentApp = apps[0];
+        if (!this.currentApp.early_access) {
+          console.log("Current App: ", this.currentApp);
+        }
         this.searchTags = (this.currentApp.search_tags || "")
           .split(",")
           .filter(t => t);
@@ -486,6 +489,9 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.app_urls = (await this.expanseService.getAppUrls(
           this.apps_id
         )) as AppUrl[];
+        if (!this.currentApp.early_access) {
+          console.log("APP Urls: ", this.app_urls);
+        }
         this.donate_urls = this.app_urls.filter(
           (url: AppUrl) =>
             ["Patreon", "Paypal", "Itch", "Kofi"].indexOf(url.provider) > -1
