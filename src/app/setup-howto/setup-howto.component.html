@@ -128,8 +128,8 @@
             [adSlot]="9125958431"
             [display]="'inline-block'"
             [adFormat]="'auto'"
-            [width]="728"
-            [height]="90"
+            [width]="appService.isMobile?300:728"
+            [height]="appService.isMobile?250:90"
             [fullWidthResponsive]="true"
           ></ng-adsense>
         </div>

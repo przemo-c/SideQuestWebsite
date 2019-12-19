@@ -53,7 +53,17 @@
       Thank you for supporting us {{expanseService.currentSession.name}}.
     </ng-container>
   </span><br><br>
-
+  <div class="center-align hide-on-large-only" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+    <ng-adsense
+      [adClient]="'ca-pub-4418999855454494'"
+      [adSlot]="6185505290"
+      [display]="'inline-block'"
+      [adFormat]="'auto'"
+      [height]="250"
+      [width]="300"
+      [fullWidthResponsive]="true"
+    ></ng-adsense>
+  </div>
   <h5>Most popular games</h5>
   <div class="row top-margin">
     <app-app-display-box [apps]="popularApps"></app-app-display-box>
@@ -90,8 +100,8 @@
       [adSlot]="3198365405"
       [display]="'inline-block'"
       [adFormat]="'auto'"
-      [width]="950"
       [height]="250"
+      [width]="appService.isMobile?300:950"
       [fullWidthResponsive]="true"
     ></ng-adsense>
   </div>
@@ -111,8 +121,8 @@
       [adSlot]="7816267263"
       [display]="'inline-block'"
       [adFormat]="'auto'"
-      [width]="950"
       [height]="250"
+      [width]="appService.isMobile?300:950"
       [fullWidthResponsive]="true"
     ></ng-adsense>
   </div>

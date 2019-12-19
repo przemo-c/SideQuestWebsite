@@ -13,7 +13,7 @@ export class SetupHowtoComponent implements OnInit {
   launcherDownloadUrl: string;
   constructor(
     public lightbox: Lightbox,
-    private appService: AppService,
+    public appService: AppService,
     public expanseService: ExpanseClientService
   ) {}
 

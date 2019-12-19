@@ -26,6 +26,7 @@ export class AppService {
   isTimeline: boolean = false;
   accountComponent: AccountComponent;
   notifications: any = { friend_requests: [], unread_messages: [] };
+  isMobile: boolean;
 
   public readonly siteKey = "6LfrRrcUAAAAAE00oWA60iMK5AeM7luMlKWevTlY";
   public badge: "bottomright" | "bottomleft" | "inline" = "inline";
@@ -36,6 +37,7 @@ export class AppService {
     if (userAgent.indexOf(" electron/") > -1) {
       this.hideLogo = true;
     }
+    this.isMobile = window.innerWidth < 992;
     this.loadAppIndex();
     this.loadAppMeta();
     this.saveAppMeta();
