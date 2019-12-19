@@ -84,7 +84,7 @@
   <div class="row top-margin">
     <app-app-display-box [apps]="popularAppApps"></app-app-display-box>
   </div>
-  <div class="center-align">
+  <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
     <ng-adsense
       [adClient]="'ca-pub-4418999855454494'"
       [adSlot]="3198365405"
@@ -105,7 +105,7 @@
     <app-app-display-box [apps]="horrorApps"></app-app-display-box>
   </div>
 
-  <div class="center-align">
+  <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
     <ng-adsense
       [adClient]="'ca-pub-4418999855454494'"
       [adSlot]="7816267263"

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { IAlbum, Lightbox } from "ngx-lightbox";
 import { AppService } from "../app.service";
+import { ExpanseClientService } from "../expanse-client.service";
 
 @Component({
   selector: "app-setup-howto",
@@ -10,7 +11,11 @@ import { AppService } from "../app.service";
 export class SetupHowtoComponent implements OnInit {
   album: IAlbum[] = [];
   launcherDownloadUrl: string;
-  constructor(public lightbox: Lightbox, private appService: AppService) {}
+  constructor(
+    public lightbox: Lightbox,
+    private appService: AppService,
+    public expanseService: ExpanseClientService
+  ) {}
 
   ngOnInit() {
     const images = [

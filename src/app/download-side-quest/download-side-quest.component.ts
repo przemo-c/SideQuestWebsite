@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AppService } from "../app.service";
+import { ExpanseClientService } from "../expanse-client.service";
 
 @Component({
   selector: "app-download-side-quest",
@@ -11,7 +12,10 @@ export class DownloadSideQuestComponent implements OnInit {
   total_downloads_sidequest: number;
   sideQuestApps: any = [];
   last_updated_at;
-  constructor(public appService: AppService) {}
+  constructor(
+    public appService: AppService,
+    public expanseService: ExpanseClientService
+  ) {}
 
   openUrl(url: string) {
     window.open(url);

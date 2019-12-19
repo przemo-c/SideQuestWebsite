@@ -48,7 +48,18 @@
     <div class="col s12 m6">
       <div class="setup-content">
 
-        <app-ad-placeholder></app-ad-placeholder>
+        <div class="center-align"  *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+          <ng-adsense
+            [adClient]="'ca-pub-4418999855454494'"
+            [adSlot]="1323490033"
+            [display]="'inline-block'"
+            [adFormat]="'auto'"
+            [width]="728"
+            [height]="90"
+            [fullWidthResponsive]="true"
+          ></ng-adsense>
+        </div>
+        <br><br>
         <app-download-box></app-download-box>
       </div>
     </div>
@@ -110,6 +121,18 @@
         </div>
         <br><br>
         <img class="setup-image" src="assets/images/allow-auth.png" (click)="openImage(5)"/>
+        <br><br>
+        <div class="center-align"  *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+          <ng-adsense
+            [adClient]="'ca-pub-4418999855454494'"
+            [adSlot]="9125958431"
+            [display]="'inline-block'"
+            [adFormat]="'auto'"
+            [width]="728"
+            [height]="90"
+            [fullWidthResponsive]="true"
+          ></ng-adsense>
+        </div>
       </div>
     </div>
     <div class="col s12 m6">
@@ -133,68 +156,32 @@
           with Avast antivirus in particular. <br />If you have any problems or want to say hi drop us a
           line on discord - <a href="https://discord.gg/HNnDPSu" class="link">discord</a>.
         </div>
-
-        <app-ad-placeholder></app-ad-placeholder>
+        <br><br>
+        <div class="center-align"  *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+          <ng-adsense
+            [adClient]="'ca-pub-4418999855454494'"
+            [adSlot]="6732068693"
+            [display]="'inline-block'"
+            [adFormat]="'auto'"
+            [width]="300"
+            [height]="250"
+            [fullWidthResponsive]="true"
+          ></ng-adsense>
+          <ng-adsense
+            [adClient]="'ca-pub-4418999855454494'"
+            [adSlot]="6732068693"
+            [display]="'inline-block'"
+            [adFormat]="'auto'"
+            [width]="300"
+            [height]="250"
+            [fullWidthResponsive]="true"
+          ></ng-adsense>
+        </div>
       </div>
     </div>
   </div>
   <div class="clear-fix"></div>
-  <div class="row">
-    <div class="col s12">
-    </div>
-  </div>
 
-<!--  <div class="row">-->
-<!--    <div class="col s12 m6">-->
-<!--      <div class="setup-content">-->
-<!--        <div class="section-title">-->
-<!--          How To Video: RaMarcus-->
-<!--        </div>-->
-<!--        <iframe-->
-<!--          width="655.609756097561"-->
-<!--          height="420"-->
-<!--          style="width: 100%;"-->
-<!--          src="https://www.youtube.com/embed/HspVa4i9rPg"-->
-<!--          frameborder="0"-->
-<!--          allowfullscreen-->
-<!--        ></iframe>-->
-<!--        <br />Kindly provided by <a href="https://www.youtube.com/user/RaMarcus">@RaMarcus</a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="col s12 m6">-->
-<!--      <div class="setup-content">-->
-<!--        <div class="section-title">-->
-<!--          How To Video: VR Oasis-->
-<!--        </div>-->
-<!--        <iframe-->
-<!--          width="655.609756097561"-->
-<!--          height="420"-->
-<!--          style="width: 100%;"-->
-<!--          src="https://www.youtube.com/embed/nlflUCGOuHo"-->
-<!--          frameborder="0"-->
-<!--          allowfullscreen-->
-<!--        ></iframe>-->
-<!--        <br />Kindly provided by <a href="https://www.youtube.com/channel/UCsmk8NDVMct75j_Bfb9Ah7w">@Virtual Reality Oasis</a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="col s12 center-align">-->
-<!--      <div class="setup-content">-->
-<!--        <div class="section-title">-->
-<!--          How To Video: Tyco Tech-->
-<!--        </div>-->
-<!--        <iframe-->
-<!--          width="655.609756097561"-->
-<!--          height="420"-->
-<!--          style="width: 100%;"-->
-<!--          src="https://www.youtube.com/embed/6WbsbnyPBGs"-->
-<!--          frameborder="0"-->
-<!--          allowfullscreen-->
-<!--        ></iframe>-->
-<!--        <br />Kindly provided by <a href="https://www.youtube.com/channel/UC1z5BGgIKk0d5vJ-Jhp9X9A">@Tyco Tech</a>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-  <div class="clear-fix"></div>
   <div class="row" style="display: none;">
     <div class="col s12">
       <div class="section-title">

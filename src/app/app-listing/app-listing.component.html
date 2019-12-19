@@ -297,7 +297,17 @@
       <!--          </div>-->
 
 <BR><BR>
-      <app-ad-placeholder></app-ad-placeholder>
+      <div class="center-align"  *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+        <ng-adsense
+          [adClient]="'ca-pub-4418999855454494'"
+          [adSlot]="3019715082"
+          [display]="'inline-block'"
+          [adFormat]="'auto'"
+          [width]="300"
+          [height]="250"
+          [fullWidthResponsive]="true"
+        ></ng-adsense>
+      </div>
       <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
         <br><br><br>
         Thank you
