@@ -20,15 +20,28 @@
 <!--  <hr>-->
 
   <div class="row">
-    <div class="col s12 m6">
-      <br>
-      <div class="top-image z-depth-3" [ngStyle]="{'background-image':'url(https://i.imgur.com/AlYMbTj.png)'}"></div>
-      <br>
-      <h4>SideQuest Store</h4>
+    <div class="col s12 m8">
+<!--      <br>-->
+<!--      <div class="padding">-->
+<!--        <div class="top-image z-depth-3" [ngStyle]="{'background-image':'url(https://i.imgur.com/AlYMbTj.png)'}"></div>-->
+<!--      </div>-->
+<!--      <br>-->
+<!--      <h4>SideQuest Store</h4>-->
       <hr>
       <div class="right-align grey-text" *ngIf="last_updated_at">Latest Release {{last_updated_at|fromNow}}. Total Downloads ( All Releases ): {{total_downloads_sidequest | number:'1.0-0'}}<br><br></div>
       Grab this to get games on your headset like Crisis VRigade, Deisim, Tea for God and tonnes more! If its streaming your after then there is no other place to get all the best streaming apps on Oculus Quest, Virtual Desktop, ALVR and RiftCat all on SideQuest.
-
+      <br><br>
+      <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+        <ng-adsense
+          [adClient]="'ca-pub-4418999855454494'"
+          [adSlot]="8896031751"
+          [display]="'inline-block'"
+          [adFormat]="'auto'"
+          [width]="appService.isMobile?300:950"
+          [height]="250"
+          [fullWidthResponsive]="true"
+        ></ng-adsense>
+      </div>
       <app-download-box (last_update)="last_updated_at=$event"></app-download-box>
       <br><br>
 
@@ -46,8 +59,30 @@
           <p>For <span class="chip">32 bit Windows</span> and <span class="chip">Portable ZIP</span> users, you can find the install packages on our github page.</p>
         </div>
       </div>
+
+      <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+        <ng-adsense
+          [adClient]="'ca-pub-4418999855454494'"
+          [adSlot]="4732591310"
+          [display]="'inline-block'"
+          [adFormat]="'auto'"
+          [width]="950"
+          [height]="250"
+          [fullWidthResponsive]="true"
+        ></ng-adsense><br>
+
+        <ng-adsense
+          [adClient]="'ca-pub-4418999855454494'"
+          [adSlot]="4732591310"
+          [display]="'inline-block'"
+          [adFormat]="'auto'"
+          [width]="950"
+          [height]="250"
+          [fullWidthResponsive]="true"
+        ></ng-adsense>
+      </div>
     </div>
-    <div class="col s12 m6">
+    <div class="col s12 m4">
       <br>
       <div class="top-image z-depth-3" [ngStyle]="{'background-image':'url(https://cdn.theexpanse.app/file/2876/Logo-Mockup.jpg)'}"></div>
       <br>
@@ -67,17 +102,18 @@
           <p *ngIf="asset.name.indexOf('.exe')===-1">For users of <span class="chip"><img src="/assets/images/social/Oculus Go Listing.png"/>Oculus Go</span> or <span class="chip"><img src="/assets/images/social/Oculus Quest Listing.png"/>Oculus Quest</span>, it is necessary to download the Setup <span class="chip">SIDEQUESTLEGENDS.APK</span> file.</p>
         </div>
       </div>
+      <br><br><br><br><br><br>
+      <div class="center-align"  *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+        <ng-adsense
+          [adClient]="'ca-pub-4418999855454494'"
+          [adSlot]="5148358439"
+          [display]="'inline-block'"
+          [adFormat]="'auto'"
+          [width]="300"
+          [height]="600"
+          [fullWidthResponsive]="true"
+        ></ng-adsense>
+      </div>
     </div>
-  </div>
-  <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-    <ng-adsense
-      [adClient]="'ca-pub-4418999855454494'"
-      [adSlot]="4732591310"
-      [display]="'inline-block'"
-      [adFormat]="'auto'"
-      [width]="950"
-      [height]="250"
-      [fullWidthResponsive]="true"
-    ></ng-adsense>
   </div>
 </div>
