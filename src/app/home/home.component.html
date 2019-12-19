@@ -1,127 +1,58 @@
 <div class="main-container padding" >
 
-  <div class="row">
-
-    <div class="col s12 l10 no-padding">
-
-
-      <div class="slider-padding">
-        <div id="slider" >
-          <div class="slider-inner {{sliderClass}}" #sliderele [ngClass]="{'disable-auto-slider':isAutoDisabled}">
-            <div class="img relative" *ngFor="let url of imageUrls" [ngStyle]="{'background-image': 'url('+url.url+')'}">
-              <app-over-image [firstNews]="{title: url.title, description: url.caption}" (output)="openItem(url.href)"></app-over-image>
-            </div>
-
+  <div class="slider-left-container no-padding">
+    <div class="slider-padding">
+      <div id="slider" >
+        <div class="slider-inner {{sliderClass}}" #sliderele [ngClass]="{'disable-auto-slider':isAutoDisabled}">
+          <div class="img relative" *ngFor="let url of imageUrls" [ngStyle]="{'background-image': 'url('+url.url+')'}">
+            <app-over-image [firstNews]="{title: url.title, description: url.caption}" (output)="openItem(url.href)"></app-over-image>
           </div>
-          <div class="right">
-            <i class="material-icons pointer" (click)="setSliderClass(true)">navigate_before</i>
-            <i class="material-icons pointer" (click)="setSliderClass(false)">navigate_next</i>
-          </div>
+
         </div>
-      </div>
-<!--      <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">-->
-<!--        <br>-->
-<!--        <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 90%; height: 90px;"/>-->
-<!--        &lt;!&ndash;    <app-amazon-native-ad></app-amazon-native-ad>&ndash;&gt;-->
-<!--        &lt;!&ndash;    <div id="amzn-assoc-ad-5dcbb028-bab2-4227-afb9-29c495eb473e"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=5dcbb028-bab2-4227-afb9-29c495eb473e"></script>&ndash;&gt;-->
-
-<!--      </div>-->
-    </div>
-    <div class="col l2 hide-on-med-and-down">
-      <br><br>
-
-      <div class="center-align">
-        <!--        <br><br><br>-->
-        <!--        We are considering ad revenue but <br>for now we rely on the kind <br>support of our Patreons.<br><br>-->
-        <!--        <span class="chip pointer top-chip"-->
-        <!--              onclick="window.location.href = 'https://www.patreon.com/SIdeQuestVR'"-->
-        <!--              mz-tooltip tooltip="People have been so kind, we are humbled."-->
-        <!--              position="bottom">-->
-        <!--          <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>-->
-        <!--          Support us on Patreon-->
-        <!--        </span><br>-->
-        <!--        <span class="chip pointer top-chip"-->
-        <!--                  onclick="window.location.href = 'https://paypal.me/sidequestvr'"-->
-        <!--                  mz-tooltip tooltip="Use this option if you prefer a one off donation."-->
-        <!--                  position="bottom">-->
-        <!--          <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>-->
-        <!--          Donate on Paypal-->
-        <!--        </span><br>-->
-        <!--        <i class="material-icons white-text medium">thumb_up</i>-->
-        <app-ad-home-vertical></app-ad-home-vertical>
-<!--                <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 200px; height: 300px;"/>-->
-                <br>
-                <br>
-      </div>
-      <div class="center-align">
-        <h5>Follow Us</h5>
-        <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://discord.me/sidequestvr'"
-              mz-tooltip tooltip="Come and join in the chat with the community."
-              position="bottom">
-          <img src="assets/images/social/Discord.png" alt="Chat on Discord"/>
-          Chat on Discord
-        </span><br>
-        <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://www.reddit.com/r/sidequest'"
-              mz-tooltip tooltip="Get all the latest news and updates."
-              position="bottom">
-          <img src="assets/images/social/Reddit.png" alt="Chat on Discord"/>
-          Sub on Reddit
-        </span><br>
-        <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://www.youtube.com/c/SideQuestVR'"
-              mz-tooltip tooltip="Binge watch our progress."
-              position="bottom">
-          <img src="assets/images/social/Youtube.png" alt="Chat on Discord"/>
-          Sub on Youtube
-        </span><br>
-        <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://www.twitter.com/SideQuestVR'"
-              mz-tooltip tooltip="Follow all the latest feeds."
-              position="bottom">
-          <img src="assets/images/social/Twitter.png" alt="Chat on Discord"/>
-          Follow on Twitter
-        </span><br>
-        <span class="chip pointer top-chip"
-              onclick="window.location.href = 'https://www.instagram.com/SideQuestVR'"
-              mz-tooltip tooltip="Come and join in the chat with the community."
-              position="bottom">
-          <img src="assets/images/social/Instagram.png" alt="Chat on Discord"/>
-          Like on Instagram
-        </span>
-      </div>
-<!--      <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">-->
-<!--        <div style="padding-left: 1em; padding-right: 1em;">-->
-<!--          <br>SideQuest will always be free for users and developers!<br><br>-->
-<!--          However the cost of running SideQuest is increasing. We are considering alternative revenue but for now we rely on the kind support of our Patreons.<br><br>-->
-<!--        </div>-->
-<!--        <span class="chip pointer top-chip"-->
-<!--              onclick="window.location.href = 'https://www.patreon.com/SIdeQuestVR'"-->
-<!--              mz-tooltip tooltip="People have been so kind, we are humbled."-->
-<!--              position="bottom">-->
-<!--          <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>-->
-<!--          Support on Patreon-->
-<!--        </span><br>-->
-<!--        <span class="chip pointer top-chip"-->
-<!--              onclick="window.location.href = 'https://paypal.me/sidequestvr'"-->
-<!--              mz-tooltip tooltip="Use this option if you prefer a one off donation."-->
-<!--              position="bottom">-->
-<!--          <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>-->
-<!--          Donate on Paypal-->
-<!--        </span><br><br>-->
-<!--        <i class="material-icons white-text medium">thumb_up</i>-->
-<!--        <br><br>-->
-<!--      </div>-->
-      <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
-        <br><br><br>
-        Thank you
-        <h5>{{expanseService.currentSession.name}}</h5>
-        for supporting us<br>on Patreon.<br>
-        <i class="material-icons white-text medium">thumb_up</i>
+        <div class="right">
+          <i class="material-icons pointer" (click)="setSliderClass(true)">navigate_before</i>
+          <i class="material-icons pointer" (click)="setSliderClass(false)">navigate_next</i>
+        </div>
       </div>
     </div>
   </div>
+  <div class="slider-right-container hide-on-med-and-down no-padding">
+    <div class="center-align slider-padding">
+      <ng-adsense *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'"
+        [adClient]="'ca-pub-4418999855454494'"
+        [adSlot]="6185505290"
+        [display]="'inline-block'"
+        [adFormat]="'wide skyscraper'"
+        [width]="300"
+        [height]="600"
+      ></ng-adsense>
+    </div>
+    <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
+      <br><br><br>
+      Thank you
+      <h5>{{expanseService.currentSession.name}}</h5>
+      for supporting us<br>on Patreon.<br>
+      <i class="material-icons white-text medium">thumb_up</i>
+    </div>
+  </div>
+
+  <span class="grey-text margin-left">
+    SideQuest will always be free for users and developers.
+    We rely on the kind support of our patrons and hold our sponsors to a high <a routerLink="/ethics">ethical</a> standard.
+    <ng-container *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
+      Become a
+      <span class="chip pointer top-chip"
+            onclick="window.location.href = 'https://www.patreon.com/SideQuestVR'"
+            mz-tooltip tooltip="People have been so kind, we are humbled."
+            position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+      Patreon
+    </span> to remove ads and other benefits.
+    </ng-container>
+    <ng-container *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
+      Thank you for supporting us {{expanseService.currentSession.name}}.
+    </ng-container>
+  </span><br><br>
 
   <h5>Most popular games</h5>
   <div class="row top-margin">
@@ -129,9 +60,7 @@
   </div>
   <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
     <h6>Sponsored</h6>
-    <!--    <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 728px; height: 90px;"/>-->
     <app-amazon-native-ad></app-amazon-native-ad>
-    <!--    <div id="amzn-assoc-ad-5dcbb028-bab2-4227-afb9-29c495eb473e"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=5dcbb028-bab2-4227-afb9-29c495eb473e"></script>-->
     <br>
     <br>
     <span class="chip pointer top-chip"
@@ -155,7 +84,15 @@
   <div class="row top-margin">
     <app-app-display-box [apps]="popularAppApps"></app-app-display-box>
   </div>
-  <app-ad-placeholder></app-ad-placeholder>
+  <div class="center-align">
+    <ng-adsense
+      [adClient]="'ca-pub-4418999855454494'"
+      [adSlot]="3198365405"
+      [display]="'inline-block'"
+      [adFormat]="'auto'"
+      [fullWidthResponsive]="true"
+    ></ng-adsense>
+  </div>
   <h5>Social & multiplayer</h5>
   <div class="row top-margin">
     <app-app-display-box [apps]="multiplayerApps"></app-app-display-box>
@@ -166,7 +103,15 @@
     <app-app-display-box [apps]="horrorApps"></app-app-display-box>
   </div>
 
-  <app-ad-placeholder></app-ad-placeholder>
+  <div class="center-align">
+    <ng-adsense
+      [adClient]="'ca-pub-4418999855454494'"
+      [adSlot]="7816267263"
+      [display]="'inline-block'"
+      [adFormat]="'auto'"
+      [fullWidthResponsive]="true"
+    ></ng-adsense>
+  </div>
 <!--    <h5>News</h5>-->
 <!--    <div class="row top-margin">-->
 <!--      <app-app-display-box [apps]="news"></app-app-display-box>-->

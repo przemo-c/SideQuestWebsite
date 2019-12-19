@@ -74,7 +74,7 @@
   <div *ngIf="mainPage === 'basic'">
 
     <div class="row">
-      <div class="col s12 m4"><br>
+      <div class="col s12" [ngClass]="{'m4':popularApps.length||popularEvents.length||popularSpaces.length}"><br>
         <div class="center-align move-up">
           <img class="responsive-img" src="{{expanseService.cdnUrl+currentUser.preview_image}}"/><br>
         </div>
@@ -264,7 +264,7 @@
           </div>
         </div>
       </div>
-      <div class="col s12 m8">
+      <div class="col s12 m8" *ngIf="popularApps.length||popularEvents.length||popularSpaces.length">
         <div *ngIf="popularApps.length">
           <h5>Apps, Games & Mods</h5>
           <div class="row top-margin">

@@ -1,16 +1,24 @@
 <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-  <h6>Sponsored</h6>
+<!--  <h6>Sponsored</h6>-->
 <!--  <img src="https://i.imgur.com/zRgUpJJ.jpg" style="width: 728px; height: 180px;"/>-->
-  <iframe src="assets/adsense-horizontal-banner.html" frameborder="0" width="735px" height="180px" scrolling="no"></iframe>
-  <br>
-  <br>
-  <span class="chip pointer top-chip"
-        onclick="window.location.href = 'https://www.patreon.com/SideQuestVR'"
-        mz-tooltip tooltip="Thank you for supporting SideQuest."
-        position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-      Get SideQuest Premium on Patreon to Remove Ads
-    </span>
-  <br>
-  <br>
+<!--  <iframe src="assets/adsense-horizontal-banner.html" frameborder="0" width="735px" height="180px" scrolling="no"></iframe>-->
+  <ng-adsense
+    [adClient]="'ca-pub-4418999855454494'"
+    [adSlot]="6600438266"
+    [display]="'inline-block'"
+    [adFormat]="'billboard'"
+    [width]="950"
+    [height]="250"
+  ></ng-adsense>
+<!--  <br>-->
+<!--  <br>-->
+<!--  <span class="chip pointer top-chip"-->
+<!--        onclick="window.location.href = 'https://www.patreon.com/SideQuestVR'"-->
+<!--        mz-tooltip tooltip="Thank you for supporting SideQuest."-->
+<!--        position="bottom">-->
+<!--      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>-->
+<!--      Get SideQuest Premium on Patreon to Remove Ads-->
+<!--    </span>-->
+<!--  <br>-->
+<!--  <br>-->
 </div>

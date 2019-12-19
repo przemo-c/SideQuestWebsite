@@ -33,9 +33,11 @@ import { ScriptingIntroductionComponent } from "./scripting-introduction/scripti
 import { ScriptingAppBehavioursComponent } from "./scripting-app-behaviours/scripting-app-behaviours.component";
 import { ScriptingInteractionComponent } from "./scripting-interaction/scripting-interaction.component";
 import { ScriptingInputControlsComponent } from "./scripting-input-controls/scripting-input-controls.component";
+import { EthicsComponent } from "./ethics/ethics.component";
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
+  { path: "ethics", component: EthicsComponent },
   { path: "channels", component: LegendsListComponent },
   { path: "developers", component: DevelopersComponent },
   { path: "developer-faq", component: DeveloperFAQComponent },

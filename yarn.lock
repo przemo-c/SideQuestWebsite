@@ -3969,6 +3969,13 @@ ng-simple-slideshow@^1.2.9:
   version "1.2.9"
   resolved "https://registry.yarnpkg.com/ng-simple-slideshow/-/ng-simple-slideshow-1.2.9.tgz#384706ea76ed859c77927fd3b0585aba20d9a034"
 
+ng2-adsense@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/ng2-adsense/-/ng2-adsense-6.0.2.tgz#454adc7fb2035e0cea188b91c51bb8ee88a41cca"
+  integrity sha512-L8capkNzT7v6iibLK3jNxRzbGKahXwkt+ELeIr1cyo90W/xTdZQh3ZY/+HmUdxL24FmewdEAlS1c7SymHDAeSQ==
+  dependencies:
+    tslib "^1.9.0"
+
 ng2-charts@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/ng2-charts/-/ng2-charts-2.3.0.tgz#e4dd1f7fe12dc2635d5e8c4f101a8d4c4f433754"

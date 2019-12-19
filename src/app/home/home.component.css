@@ -11,7 +11,6 @@
 .slider-padding{
   position: relative;
   padding-top: 60px;
-  padding-bottom: 30px;
   margin-left: 8px;
   margin-right: 8px;
 }
@@ -185,7 +184,7 @@
 }
 
 div#slider { overflow: hidden; border-radius: 3px; }
-div#slider div.slider-inner .img { cursor: pointer; width: 5%; float: left; height: 600px; background-size: cover; background-position: center center;}
+div#slider div.slider-inner .img { cursor: pointer; width: 5%; float: left; height: 570px; background-size: cover; background-position: center center;}
 div#slider div.slider-inner {
   position: relative;
   width: 2000%;
@@ -195,5 +194,14 @@ div#slider div.slider-inner {
   font-size: 0;
   animation: 240s slidy infinite;
   transition: left 1s;
+}
+.slider-right-container{
+
+  display: inline-block;
+  width: 300px;
+}
+.slider-left-container{
+  display: inline-block;
+  width: calc(100% - 330px);
 }
 
