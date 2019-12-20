@@ -60,7 +60,7 @@
       [display]="'inline-block'"
       [adFormat]="'auto'"
       [height]="250"
-      [width]="300"
+      [width]="appService.isMobile?300:950"
       [fullWidthResponsive]="true"
     ></ng-adsense>
   </div>
@@ -68,20 +68,17 @@
   <div class="row top-margin">
     <app-app-display-box [apps]="popularApps"></app-app-display-box>
   </div>
+
   <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-    <h6>Sponsored</h6>
-    <app-amazon-native-ad></app-amazon-native-ad>
-    <br>
-    <br>
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://www.patreon.com/SideQuestVR'"
-          mz-tooltip tooltip="People have been so kind, we are humbled."
-          position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-      Get SideQuest Premium on Patreon to Remove Ads
-    </span>
-    <br>
-    <br>
+    <ng-adsense
+      [adClient]="'ca-pub-4418999855454494'"
+      [adSlot]="3701530927"
+      [display]="'inline-block'"
+      [adFormat]="'auto'"
+      [height]="250"
+      [width]="appService.isMobile?300:950"
+      [fullWidthResponsive]="true"
+    ></ng-adsense>
   </div>
   <h5>Latest game releases</h5>
   <div class="row top-margin">
