@@ -197,18 +197,18 @@ div#slider div.slider-inner {
   width: calc(100% - 330px);
 }
 
+.slider-left-container{
+  display: inline-block;
+  width: 100%;
+}
+.slider-right-container{
+  display: none;
+}
 
 @media screen and (max-width: 992px) {
 
   .padding{
     padding-left: 1em;
     padding-right: 1em;
-  }
-  .slider-left-container{
-    display: inline-block;
-    width: 100%;
-  }
-  .slider-right-container{
-    display: none;
   }
 }
