@@ -395,6 +395,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   subscribeIfItch(provider) {
     if (provider === "Itch") {
       if (this.apk_download_urls.length === 0) {
+        this.downloadCount();
         this.subscribeToApp();
       }
     }
@@ -405,7 +406,18 @@ export class AppListingComponent implements OnInit, OnDestroy {
       ? this.expanseService
           .addInstalledApp(this.apps_id, this.currentApp.versioncode)
           .then(res => {
-            this.service.showMessage(res, "Sending to SideQuest...");
+            if (this.service.hideLogo) {
+              this.service.remoteInstall({
+                app_urls: this.apk_download_urls,
+                website: this.currentApp.website,
+                app_categories_id: this.currentApp.app_categories_id
+              });
+              this.service.showMessage({ error: false }, "Installing...");
+            } else {
+              if (this.apk_download_urls.length > 0) {
+                this.service.showMessage(res, "Sending to SideQuest...");
+              }
+            }
           })
       : Promise.resolve().then(() => {
           if (this.apk_download_urls && this.apk_download_urls.length) {

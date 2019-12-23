@@ -72,21 +72,23 @@ export class AppService {
 
   remoteInstall(data) {
     let customUrl;
-    let _apps = JSON.stringify(data.app_urls.map(l => l.link_url.trim()));
-    if (data.app_categories_id === "4" && data.website === "FirefoxSkybox") {
-      customUrl = "sidequest://firefox-skybox/#" + _apps;
-    } else if (
-      data.app_categories_id === "4" &&
-      data.website === "SynthRiders"
-    ) {
-      customUrl = "sidequest://synthriders-multi/#" + _apps;
-    } else if (data.app_categories_id === "4" && data.website === "BeatOn") {
-      customUrl = "sidequest://bsaber-multi/#" + _apps;
-    } else {
-      customUrl = "sidequest://sideload-multi/#" + _apps;
-    }
-    if (customUrl) {
-      this.openSidequestUrl(customUrl);
+    if (data.app_urls.length) {
+      let _apps = JSON.stringify(data.app_urls.map(l => l.link_url.trim()));
+      if (data.app_categories_id === "4" && data.website === "FirefoxSkybox") {
+        customUrl = "sidequest://firefox-skybox/#" + _apps;
+      } else if (
+        data.app_categories_id === "4" &&
+        data.website === "SynthRiders"
+      ) {
+        customUrl = "sidequest://synthriders-multi/#" + _apps;
+      } else if (data.app_categories_id === "4" && data.website === "BeatOn") {
+        customUrl = "sidequest://bsaber-multi/#" + _apps;
+      } else {
+        customUrl = "sidequest://sideload-multi/#" + _apps;
+      }
+      if (customUrl) {
+        this.openSidequestUrl(customUrl);
+      }
     }
   }
 
