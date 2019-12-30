@@ -18,19 +18,19 @@
   </div>
   <mz-sidenav-subheader>Sort By:</mz-sidenav-subheader>
   <mz-sidenav-link>
-    <a class="pointer black-text" (click)="isRecent = false; isRating = true; isDownloads = false; page = 0; getApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = true; isDownloads = false; tryGetApps()">
       <i class="menu-image material-icons">star_half</i><span><b>Hot</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a class="pointer black-text" (click)="isRecent = true; isRating = false; isDownloads = false; page = 0; getApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = true; isRating = false; isDownloads = false; tryGetApps()">
       <i class="menu-image material-icons">swap_vert</i><span><b>Recent</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a class="pointer black-text" (click)="isRecent = false; isRating = false; isDownloads = true; page = 0; getApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = false; isDownloads = true; tryGetApps()">
       <i class="menu-image material-icons">cloud_download</i><span><b>Downloads</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a class="pointer black-text" (click)="isRecent = false; isRating = false; isDownloads = false; page = 0; getApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
       <i class="menu-image material-icons">sort</i><span><b>Name</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-divider></mz-sidenav-divider>
@@ -76,18 +76,17 @@
         <input type="text" class="validate" placeholder="Search..."
                [(ngModel)]="searchString"
                (input)="debounceSearch()">
-
         <br>
         <span class="grey-text">Sort By:</span>
         <br>
         <br>
-        <div class="pointer white-text" (click)="isRecent = false; isRating = true; isDownloads = false; page = 0; getApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = true; isDownloads = false; tryGetApps()">
           <i class="menu-image material-icons">star_half</i><span><b>Hot</b></span></div>
-        <div class="pointer white-text" (click)="isRecent = true; isRating = false; isDownloads = false; page = 0; getApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = true; isRating = false; isDownloads = false; tryGetApps()">
           <i class="menu-image material-icons">swap_vert</i><span><b>Recent</b></span></div>
-        <div class="pointer white-text" (click)="isRecent = false; isRating = false; isDownloads = true; page = 0; getApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = false; isDownloads = true; tryGetApps()">
           <i class="menu-image material-icons">cloud_download</i><span><b>Downloads</b></span></div>
-        <div class="pointer white-text" (click)="isRecent = false; isRating = false; isDownloads = false; page = 0; getApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
           <i class="menu-image material-icons">sort</i><span><b>Name</b></span></div><br>
       </div>
 
@@ -238,7 +237,7 @@
         <br><br><br>
 
         <div class="center-align">
-          <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="appService.scrollToTop()" routerLink="/apps/{{category}}/{{tag||'none'}}/{{page}}">Load More</div>
+          <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="appService.scrollToTop()" routerLink="/apps/{{category}}/{{tag||'none'}}/{{page+1}}">Load More</div>
           <div *ngIf="hasNoMore" class="chip">No more items...</div>
         </div>
         <br><br><br>

@@ -219,7 +219,6 @@ export class AppsComponent implements OnInit, OnDestroy {
         if (this.isLoaded) {
           this.getApps();
         }
-        console.log(this.isRating, this.isRecent, this.isDownloads);
       }
     });
     this.searchTags = {
@@ -297,7 +296,6 @@ export class AppsComponent implements OnInit, OnDestroy {
           //     }, 250);
           //   });
           // }
-          this.page++;
 
           resp.forEach(app => {
             this.appService.app_index[app.apps_id] = app.packagename;
@@ -305,6 +303,12 @@ export class AppsComponent implements OnInit, OnDestroy {
           this.appService.saveAppMeta();
         })
     );
+  }
+
+  tryGetApps() {
+    if (this.page === 0) {
+      this.getApps();
+    }
   }
 
   onAdd() {}
