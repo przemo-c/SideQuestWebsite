@@ -219,6 +219,7 @@ export class AppsComponent implements OnInit, OnDestroy {
         if (this.isLoaded) {
           this.getApps();
         }
+        console.log(this.isRating, this.isRecent, this.isDownloads);
       }
     });
     this.searchTags = {
