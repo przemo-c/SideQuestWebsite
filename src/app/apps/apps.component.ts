@@ -46,17 +46,17 @@ export class AppsComponent implements OnInit, OnDestroy {
       is_main: false,
       image:
         "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
-      name: "Experience",
+      name: "Puzzle",
       description: "Puzzle Games.",
-      url: "/apps/1/experience"
+      url: "/apps/1/puzzle"
     },
     {
       is_main: false,
       image:
         "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
-      name: "Puzzle",
-      description: "Puzzle Games.",
-      url: "/apps/1/puzzle"
+      name: "Experience",
+      description: "Experiences.",
+      url: "/apps/1/experience"
     },
     {
       is_main: false,
@@ -113,6 +113,14 @@ export class AppsComponent implements OnInit, OnDestroy {
       name: "All Apps",
       description: "Official VR Apps for Go and Quest.",
       url: "/apps/2"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
+      name: "Experience",
+      description: "Experiences.",
+      url: "/apps/2/experience"
     },
     {
       is_main: false,
