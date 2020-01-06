@@ -37,7 +37,7 @@ export class ExpanseClientService {
       : "https://cdn.theexpanse.app/";
     this.shortenerUrl = this.isDev
       ? "http://192.168.0.4:47499/"
-      : "https://xpan.cc/";
+      : "https://sdq.st/";
     this.openResolves = [];
     this.storageKey = "";
   }

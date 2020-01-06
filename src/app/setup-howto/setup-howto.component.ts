@@ -38,7 +38,7 @@ export class SetupHowtoComponent implements OnInit {
   }
   getLauncherUrl() {
     fetch(
-      "https://xpan.cc/download-by-package/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2Vyc19pZCI6MSwiYXBwc19pZCI6IjkwIiwiaWF0IjoxNTY1MTAzNjQ2fQ.CFnKmOXO5zWxH1WvRyideQHLvlkZLC2v8SQZOiENANE/aaa.QuestAppLauncher.App"
+      "https://sdq.st/download-by-package/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2Vyc19pZCI6MSwiYXBwc19pZCI6IjkwIiwiaWF0IjoxNTY1MTAzNjQ2fQ.CFnKmOXO5zWxH1WvRyideQHLvlkZLC2v8SQZOiENANE/aaa.QuestAppLauncher.App"
     )
       .then(r => r.json())
       .then((urls: any) => {

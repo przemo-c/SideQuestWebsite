@@ -338,7 +338,7 @@ export class AppService {
     external
   ) {
     return fetch(
-      "https://xpan.cc/delete-link/" +
+      "https://sdq.st/delete-link/" +
         expanseService.currentSession.token +
         "/" +
         type +
@@ -351,7 +351,7 @@ export class AppService {
     )
       .then(() =>
         fetch(
-          "https://xpan.cc/get-link/" + expanseService.currentSession.token,
+          "https://sdq.st/get-link/" + expanseService.currentSession.token,
           {
             method: "POST",
             headers: {

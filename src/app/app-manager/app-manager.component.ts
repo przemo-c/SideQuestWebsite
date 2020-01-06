@@ -312,7 +312,10 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
         this.currentApp.image_url,
         "https://sidequestvr.com/#/app/" + this.apps_id
       )
-      .then(r => (this.currentApp.donate_url = r.url));
+      .then(r => {
+        console.log(r);
+        this.currentApp.donate_url = r.url;
+      });
     // return fetch(
     //   "https://xpan.cc/delete-link/" +
     //     this.expanseService.currentSession.token +

@@ -358,7 +358,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
 
   refreshShareLink() {
     return fetch(
-      "https://xpan.cc/delete-link/" +
+      "https://sdq.st/delete-link/" +
         this.expanseService.currentSession.token +
         "/s-" +
         this.spaces_id,
@@ -369,8 +369,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     )
       .then(() =>
         fetch(
-          "https://xpan.cc/get-link/" +
-            this.expanseService.currentSession.token,
+          "https://sdq.st/get-link/" + this.expanseService.currentSession.token,
           {
             method: "POST",
             headers: {
