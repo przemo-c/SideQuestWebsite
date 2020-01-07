@@ -20,6 +20,13 @@
   <h4>Setup & How To!</h4>
 <!--  <hr>-->
   <div class="row">
+    <div class="col s12">
+
+      <div class="center-align" >
+        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'download-top'"></app-ad-placeholder>
+      </div>
+      <br><br>
+    </div>
     <div class="col s12 m6">
       <div class="setup-content">
         <div class="section-title">
@@ -48,10 +55,6 @@
     <div class="col s12 m6">
       <div class="setup-content">
 
-        <div class="center-align" >
-          <app-ad-placeholder [sizes]="[[728,90],[970,90],[970,250]]" [id]="'apps-bottom'"></app-ad-placeholder>
-        </div>
-        <br><br>
         <app-download-box></app-download-box>
       </div>
     </div>
