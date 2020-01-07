@@ -297,16 +297,8 @@
       <!--          </div>-->
 
 <BR><BR>
-      <div class="center-align"  *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-        <ng-adsense
-          [adClient]="'ca-pub-4418999855454494'"
-          [adSlot]="3019715082"
-          [display]="'inline-block'"
-          [adFormat]="'auto'"
-          [width]="300"
-          [height]="250"
-          [fullWidthResponsive]="true"
-        ></ng-adsense>
+      <div class="center-align" *ngIf="currentApp.app_categories_id !== '3'">
+        <app-ad-placeholder [sizes]="[[300,600],[300,250]]" [id]="'app-listing'"></app-ad-placeholder>
       </div>
       <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
         <br><br><br>

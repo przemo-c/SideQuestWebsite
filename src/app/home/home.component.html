@@ -18,14 +18,7 @@
   </div>
   <div class="slider-right-container hide-on-med-and-down no-padding">
     <div class="center-align slider-padding">
-      <ng-adsense *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'"
-        [adClient]="'ca-pub-4418999855454494'"
-        [adSlot]="6185505290"
-        [display]="'inline-block'"
-        [adFormat]="'wide skyscraper'"
-        [width]="300"
-        [height]="600"
-      ></ng-adsense>
+      <app-ad-placeholder [sizes]="[[300,600]]" [id]="'home-top'"></app-ad-placeholder>
     </div>
     <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
       <br><br><br>
@@ -53,32 +46,17 @@
       Thank you for supporting us {{expanseService.currentSession.name}}.
     </ng-container>
   </span><br><br>
-  <div class="center-align hide-on-large-only" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-    <ng-adsense
-      [adClient]="'ca-pub-4418999855454494'"
-      [adSlot]="6185505290"
-      [display]="'inline-block'"
-      [adFormat]="'auto'"
-      [height]="250"
-      [width]="appService.isMobile?300:950"
-      [fullWidthResponsive]="true"
-    ></ng-adsense>
+  <div class="center-align hide-on-large-only">
+    <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'home-center-0'"></app-ad-placeholder>
+
   </div>
   <h5>Most popular games</h5>
   <div class="row top-margin">
     <app-app-display-box [apps]="popularApps"></app-app-display-box>
   </div>
 
-  <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-    <ng-adsense
-      [adClient]="'ca-pub-4418999855454494'"
-      [adSlot]="3701530927"
-      [display]="'inline-block'"
-      [adFormat]="'auto'"
-      [height]="250"
-      [width]="appService.isMobile?300:950"
-      [fullWidthResponsive]="true"
-    ></ng-adsense>
+  <div class="center-align">
+    <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'home-center-1'"></app-ad-placeholder>
   </div>
   <h5>Latest game releases</h5>
   <div class="row top-margin">
@@ -91,16 +69,8 @@
   <div class="row top-margin">
     <app-app-display-box [apps]="popularAppApps"></app-app-display-box>
   </div>
-  <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-    <ng-adsense
-      [adClient]="'ca-pub-4418999855454494'"
-      [adSlot]="3198365405"
-      [display]="'inline-block'"
-      [adFormat]="'auto'"
-      [height]="250"
-      [width]="appService.isMobile?300:950"
-      [fullWidthResponsive]="true"
-    ></ng-adsense>
+  <div class="center-align">
+    <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'home-center-2'"></app-ad-placeholder>
   </div>
   <h5>Social & multiplayer</h5>
   <div class="row top-margin">
@@ -112,16 +82,8 @@
     <app-app-display-box [apps]="horrorApps"></app-app-display-box>
   </div>
 
-  <div class="center-align" *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-    <ng-adsense
-      [adClient]="'ca-pub-4418999855454494'"
-      [adSlot]="7816267263"
-      [display]="'inline-block'"
-      [adFormat]="'auto'"
-      [height]="250"
-      [width]="appService.isMobile?300:950"
-      [fullWidthResponsive]="true"
-    ></ng-adsense>
+  <div class="center-align">
+    <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'home-center-3'"></app-ad-placeholder>
   </div>
 <!--    <h5>News</h5>-->
 <!--    <div class="row top-margin">-->

@@ -374,6 +374,11 @@ export class ExpanseClientService {
       ).then(r => r.json());
     });
   }
+  isNotGolden() {
+    return (
+      !this.currentSession || this.currentSession.profile_color !== "golden"
+    );
+  }
   savePrefab(prefab) {
     const formData = new FormData();
     // let file = new Blob([JSON.stringify(prefab)], {type: "application/json"})

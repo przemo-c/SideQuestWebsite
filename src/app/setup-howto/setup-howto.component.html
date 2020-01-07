@@ -48,16 +48,8 @@
     <div class="col s12 m6">
       <div class="setup-content">
 
-        <div class="center-align"  *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-          <ng-adsense
-            [adClient]="'ca-pub-4418999855454494'"
-            [adSlot]="1323490033"
-            [display]="'inline-block'"
-            [adFormat]="'auto'"
-            [width]="728"
-            [height]="90"
-            [fullWidthResponsive]="true"
-          ></ng-adsense>
+        <div class="center-align" >
+          <app-ad-placeholder [sizes]="[[728,90],[970,90],[970,250]]" [id]="'apps-bottom'"></app-ad-placeholder>
         </div>
         <br><br>
         <app-download-box></app-download-box>
@@ -122,16 +114,8 @@
         <br><br>
         <img class="setup-image" src="assets/images/allow-auth.png" (click)="openImage(5)"/>
         <br><br>
-        <div class="center-align"  *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-          <ng-adsense
-            [adClient]="'ca-pub-4418999855454494'"
-            [adSlot]="9125958431"
-            [display]="'inline-block'"
-            [adFormat]="'auto'"
-            [width]="appService.isMobile?300:728"
-            [height]="appService.isMobile?250:90"
-            [fullWidthResponsive]="true"
-          ></ng-adsense>
+        <div class="center-align">
+          <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'setup-left'"></app-ad-placeholder>
         </div>
       </div>
     </div>
@@ -157,25 +141,9 @@
           line on discord - <a href="https://discord.gg/HNnDPSu" class="link">discord</a>.
         </div>
         <br><br>
-        <div class="center-align"  *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
-          <ng-adsense
-            [adClient]="'ca-pub-4418999855454494'"
-            [adSlot]="6732068693"
-            [display]="'inline-block'"
-            [adFormat]="'auto'"
-            [width]="300"
-            [height]="250"
-            [fullWidthResponsive]="true"
-          ></ng-adsense>
-          <ng-adsense
-            [adClient]="'ca-pub-4418999855454494'"
-            [adSlot]="6732068693"
-            [display]="'inline-block'"
-            [adFormat]="'auto'"
-            [width]="300"
-            [height]="250"
-            [fullWidthResponsive]="true"
-          ></ng-adsense>
+        <div class="center-align">
+          <app-ad-placeholder [sizes]="[[300,250]]" [id]="'download-top'"></app-ad-placeholder>
+          <app-ad-placeholder [sizes]="[[300,250]]" [id]="'download-top'"></app-ad-placeholder>
         </div>
       </div>
     </div>

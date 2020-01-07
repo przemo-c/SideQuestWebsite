@@ -18,7 +18,23 @@
   <br><br><br><br>
   <h4 class="grey-text center-align">User profile private...</h4>
   <div class="center-align">
+
+    <div *ngIf="related && related.is_related && !related.is_accepted && !related.initiated">
+
+      <div (click)="actionString = 'accept this sidekick request';confirmAction.openModal()"
+        class="chip green white-text pointer">
+        <i class="material-icons">add</i>
+        Accept Request
+      </div>
+      <div
+           (click)="actionString = 'reject this sidekick request';confirmAction.openModal()"
+           class="chip deep-orange white-text pointer">
+        <i class="material-icons">remove</i>
+        Reject Request
+      </div>
+    </div>
     <div (click)="actionString = 'add this sidekick';confirmAction.openModal()"
+         *ngIf="!related || !(related.is_related && !related.is_accepted && !related.initiated)"
          class="chip green white-text pointer">
       <i class="material-icons">add</i>
       Add Friend

@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { AfterViewInit, Component, OnDestroy, OnInit } from "@angular/core";
 import { AppListing } from "../account/account.component";
 import { ExpanseClientService } from "../expanse-client.service";
 import { AppService } from "../app.service";
@@ -11,7 +11,7 @@ import { Subscription } from "rxjs";
   templateUrl: "./apps.component.html",
   styleUrls: ["./apps.component.css"]
 })
-export class AppsComponent implements OnInit, OnDestroy {
+export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
   apps: AppListing[] = [];
   searchString: string;
   updateMasonryLayout = false;
@@ -258,6 +258,7 @@ export class AppsComponent implements OnInit, OnDestroy {
     return this.getApps();
   }
 
+  ngAfterViewInit() {}
   ngOnDestroy() {
     this.sub.unsubscribe();
   }

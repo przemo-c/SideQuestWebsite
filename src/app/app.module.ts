@@ -88,7 +88,6 @@ import { AmazonNativeAdComponent } from "./amazon-native-ad/amazon-native-ad.com
 import { AdPlaceholderComponent } from "./ad-placeholder/ad-placeholder.component";
 import { AdGamesVerticalComponent } from "./ad-games-vertical/ad-games-vertical.component";
 import { AdHomeVerticalComponent } from "./ad-home-vertical/ad-home-vertical.component";
-import { AdsenseModule } from "ng2-adsense";
 import { EthicsComponent } from "./ethics/ethics.component";
 
 export function hljsLanguages() {
@@ -162,7 +161,6 @@ export function hljsLanguages() {
     //   adClient: 'ca-pub-4418999855454494',
     //   adSlot: 7259870550,
     // }
-    AdsenseModule.forRoot(),
     HighlightModule.forRoot({
       languages: hljsLanguages
     }),

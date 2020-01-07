@@ -59,88 +59,92 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   ) {
     this.sub = this.router.events.subscribe(async val => {
       if (val instanceof NavigationEnd) {
-        this.users_id = Number(route.snapshot.paramMap.get("users_id"));
-        if (!Number.isInteger(this.users_id)) {
-          this.users_id = null;
-        } else {
-          this.isLoading = true;
-          this.expanseService
-            .start()
-            .then(() => this.expanseService.viewUser(this.users_id))
-            .then((res: any) => {
-              if (res.length) {
-                this.currentUser = res[0];
-                this.isProfileColor =
-                  this.currentUser.profile_color === "golden";
-                this.isLoading = false;
-                return this.expanseService.getUserSettings(this.users_id);
-              } else {
-                if (
-                  this.appService.isAuthenticated &&
-                  this.expanseService.currentSession.users_id !== this.users_id
-                ) {
-                  this.add_users_id = this.users_id;
-                }
-                this.users_id = null;
-                this.currentUser = {};
-                this.isLoading = false;
-                return Promise.reject();
-              }
-            })
-            .then(app_urls => {
-              app_urls = app_urls || [];
-              const sort = (a, b) =>
-                a.provider > b.provider ? 1 : b.provider > a.provider ? -1 : 0;
-              this.donate_urls = app_urls.filter(
-                (url: AppUrl) =>
-                  ["Patreon", "Paypal", "Itch", "Kofi"].indexOf(url.provider) >
-                  -1
-              );
-              this.donate_urls.sort(sort);
-              this.social_urls = app_urls.filter(
-                (url: AppUrl) =>
-                  [
-                    "Discord",
-                    "Twitter",
-                    "Youtube",
-                    "Facebook",
-                    "Instagram",
-                    "Github",
-                    "Reddit",
-                    "Twitch",
-                    "Vimeo"
-                  ].indexOf(url.provider) > -1
-              );
-              this.social_urls.sort(sort);
-              this.website_url = app_urls.filter(
-                (url: AppUrl) => url.provider === "Website"
-              );
-            })
-            .then(() => this.expanseService.getUserAppTotals(this.users_id))
-            .then(t => {
-              this.app_totals = t[0];
-            })
-            .then(() => {
-              return this.expanseService.getSpace(
-                this.currentUser.default_space
-              );
-            })
-            .then((space: SpaceListing) => {
-              this.selectedSpace = space;
-            })
-            .then(() => {
-              if (
-                this.appService.isAuthenticated &&
-                this.expanseService.currentSession.users_id !== this.users_id
-              ) {
-                return this.expanseService
-                  .getRelated(this.users_id)
-                  .then(related => (this.related = related));
-              }
-            });
-        }
+        this.init();
       }
     });
+  }
+
+  init() {
+    this.users_id = Number(this.route.snapshot.paramMap.get("users_id"));
+    console.log(this.users_id);
+    if (!Number.isInteger(this.users_id)) {
+      this.users_id = null;
+      return Promise.resolve();
+    } else {
+      this.isLoading = true;
+      return this.expanseService
+        .start()
+        .then(() => this.expanseService.viewUser(this.users_id))
+        .then((res: any) => {
+          console.log(res);
+          if (res.length) {
+            this.currentUser = res[0];
+            this.isProfileColor = this.currentUser.profile_color === "golden";
+            this.isLoading = false;
+            return this.expanseService.getUserSettings(this.users_id);
+          } else {
+            if (
+              this.appService.isAuthenticated &&
+              this.expanseService.currentSession.users_id !== this.users_id
+            ) {
+              this.add_users_id = this.users_id;
+            }
+            this.currentUser = {};
+            this.isLoading = false;
+            this.users_id = null;
+          }
+        })
+        .then(app_urls => {
+          app_urls = app_urls || [];
+          const sort = (a, b) =>
+            a.provider > b.provider ? 1 : b.provider > a.provider ? -1 : 0;
+          this.donate_urls = app_urls.filter(
+            (url: AppUrl) =>
+              ["Patreon", "Paypal", "Itch", "Kofi"].indexOf(url.provider) > -1
+          );
+          this.donate_urls.sort(sort);
+          this.social_urls = app_urls.filter(
+            (url: AppUrl) =>
+              [
+                "Discord",
+                "Twitter",
+                "Youtube",
+                "Facebook",
+                "Instagram",
+                "Github",
+                "Reddit",
+                "Twitch",
+                "Vimeo"
+              ].indexOf(url.provider) > -1
+          );
+          this.social_urls.sort(sort);
+          this.website_url = app_urls.filter(
+            (url: AppUrl) => url.provider === "Website"
+          );
+        })
+        .then(() => this.expanseService.getUserAppTotals(this.users_id))
+        .then(t => {
+          this.app_totals = t[0];
+        })
+        .then(() => {
+          return this.expanseService.getSpace(this.currentUser.default_space);
+        })
+        .then((space: SpaceListing) => {
+          this.selectedSpace = space;
+        })
+        .then(() => {
+          if (
+            this.appService.isAuthenticated &&
+            this.expanseService.currentSession.users_id !== this.users_id
+          ) {
+            return this.expanseService
+              .getRelated(this.users_id || this.add_users_id)
+              .then(related => {
+                return (this.related = related);
+              });
+          }
+        });
+    }
   }
 
   setProfileColor() {
@@ -184,24 +188,39 @@ export class UserProfileComponent implements OnInit, OnDestroy {
         );
         break;
       case "accept this sidekick request":
-        promise = this.expanseService.acceptFriendRequest(this.users_id);
+        promise = this.expanseService.acceptFriendRequest(
+          this.users_id || this.add_users_id
+        );
         break;
       case "cancel this sidekick request":
       case "reject this sidekick request":
-        promise = this.expanseService.rejectFriendRequest(this.users_id);
+        promise = this.expanseService.rejectFriendRequest(
+          this.users_id || this.add_users_id
+        );
         break;
       case "remove this sidekick":
-        promise = this.expanseService.removeFriend(this.users_id);
+        promise = this.expanseService.removeFriend(
+          this.users_id || this.add_users_id
+        );
         break;
       case "block this sidekick":
-        promise = this.expanseService.blockUser(this.users_id, 1);
+        promise = this.expanseService.blockUser(
+          this.users_id || this.add_users_id,
+          1
+        );
         break;
       case "unblock this sidekick":
-        promise = this.expanseService.unBlockUser(this.users_id);
+        promise = this.expanseService.unBlockUser(
+          this.users_id || this.add_users_id
+        );
         break;
       case "report this sidekick":
         promise = this.expanseService
-          .reportUser(this.users_id, this.reportType, this.reportDetails)
+          .reportUser(
+            this.users_id || this.add_users_id,
+            this.reportType,
+            this.reportDetails
+          )
           .then((res: any) => {
             if (res.length) {
               return fetch(
@@ -215,10 +234,21 @@ export class UserProfileComponent implements OnInit, OnDestroy {
         break;
     }
     return promise
-      .then(() =>
-        this.expanseService.getRelated(this.users_id || this.add_users_id)
-      )
-      .then(related => (this.related = related));
+      .then(res => {
+        this.isLoading = true;
+        return this.expanseService.getRelated(
+          this.users_id || this.add_users_id
+        );
+      })
+      .then(related => {
+        this.related = related;
+        return this.init()
+          .then(() => this.initUser())
+          .then(() => {
+            this.isLoading = false;
+          });
+      })
+      .catch(e => console.log(e));
   }
 
   backClicked() {
@@ -226,7 +256,11 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.getPopularApps()
+    this.initUser();
+  }
+
+  initUser() {
+    return this.getPopularApps()
       .then(() => {
         this.page = 0;
       })
