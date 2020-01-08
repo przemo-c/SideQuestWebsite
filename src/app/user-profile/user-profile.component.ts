@@ -28,7 +28,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
   hasNoMore: boolean = false;
   isLoaded: boolean;
   mainPage: string = "basic";
-  eventsType = "all";
+  eventsType = "upcoming";
   searchString: string;
   popularApps: AppListing[] = [];
   popularEvents: EventListing[] = [];
