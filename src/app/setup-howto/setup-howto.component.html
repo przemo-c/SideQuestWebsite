@@ -18,7 +18,7 @@
     </span>
   </div>
   <h4>Setup & How To!</h4>
-<!--  <hr>-->
+  <!--  <hr>-->
   <div class="row">
     <div class="col s12">
       <div class="center-align" >
@@ -62,6 +62,14 @@
 
 
   <div class="row">
+
+
+    <div class="col s12">
+      <div class="center-align" >
+        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'download-top'"></app-ad-placeholder>
+        <br><br>
+      </div>
+    </div>
     <div class="col s12 m6">
       <div class="setup-content">
         <div class="section-title">
@@ -144,8 +152,8 @@
         </div>
         <br><br>
         <div class="center-align">
-          <app-ad-placeholder [sizes]="[[300,250]]" [id]="'download-top'"></app-ad-placeholder>
-          <app-ad-placeholder [sizes]="[[300,250]]" [id]="'download-top'"></app-ad-placeholder>
+          <app-ad-placeholder [sizes]="[[300,250]]" [id]="'setup-bottom-0'"></app-ad-placeholder>
+          <app-ad-placeholder [sizes]="[[300,250]]" [id]="'setup-bottom-1'"></app-ad-placeholder>
         </div>
       </div>
     </div>

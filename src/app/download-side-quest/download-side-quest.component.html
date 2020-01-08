@@ -40,6 +40,11 @@
       <app-download-box (last_update)="last_updated_at=$event"></app-download-box>
       <br><br>
 
+
+      <div class="center-align" >
+        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'download-top'"></app-ad-placeholder>
+        <br><br>
+      </div>
       <h5>Legacy SideQuest Downloads</h5>
       <hr>
       <div class="right-align grey-text">Legacy Downloads on github.com<br><br></div>

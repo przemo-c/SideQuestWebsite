@@ -18,7 +18,7 @@ export class DownloadBoxComponent implements OnInit {
   assetsLinux: ReleaseAsset[];
   loading = true;
   total_downloads: number;
-  constructor() {}
+  constructor(public appSerivce: AppService) {}
 
   ngOnInit() {
     // .then(() => );
