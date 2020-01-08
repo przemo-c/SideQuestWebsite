@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 })
 export class AppDisplayBoxComponent implements OnInit {
   @Input() apps;
+  @Input() showAds;
   constructor(public appService: AppService, public router: Router) {}
 
   ngOnInit() {}
