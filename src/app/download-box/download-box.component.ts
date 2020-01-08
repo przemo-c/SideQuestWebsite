@@ -27,7 +27,8 @@ export class DownloadBoxComponent implements OnInit {
       .then(r => {
         r.assets.reverse();
         if (r.assets.length) {
-          this.last_update.emit(r.assets[0].published_at);
+          console.log(r.assets[0]);
+          this.last_update.emit(r.assets[0].updated_at);
         }
         this.assets = r.assets.filter(a => {
           return ~["zip", "exe", "xz", "dmg"].indexOf(a.name.split(".").pop());

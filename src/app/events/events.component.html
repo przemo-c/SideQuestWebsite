@@ -21,6 +21,11 @@
   <div class="clearfix"></div>
   <div *ngIf="isLoaded">
     <div class="row">
+      <div class="col s12">
+        <div class="center-align" >
+          <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-top'"></app-ad-placeholder>
+        </div>
+      </div>
       <app-timeline-item *ngFor="let event of events; let i = index"
                          [name]="event.event_name||event.name"
                          [description]="event.event_description||event.description"
