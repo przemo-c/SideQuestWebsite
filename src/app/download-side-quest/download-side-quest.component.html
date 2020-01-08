@@ -42,7 +42,7 @@
 
 
       <div class="center-align" >
-        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'download-top'"></app-ad-placeholder>
+        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'download-middle'"></app-ad-placeholder>
         <br><br>
       </div>
       <h5>Legacy SideQuest Downloads</h5>
@@ -61,9 +61,7 @@
       </div>
 
       <div class="center-align" >
-        <app-ad-placeholder [sizes]="[[728,90],[970,90],[970,250]]" [id]="'download-left-1'"></app-ad-placeholder>
-        <br>
-        <app-ad-placeholder [sizes]="[[728,90],[970,90],[970,250]]" [id]="'download-left-2'"></app-ad-placeholder>
+        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'download-left-1'"></app-ad-placeholder>
       </div>
     </div>
     <div class="col s12 m4">
