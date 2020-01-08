@@ -341,11 +341,16 @@ export class UserProfileComponent implements OnInit, OnDestroy {
       });
   }
 
-  getEvents() {
+  getEvents(type?) {
     this.isLoading = true;
     this.hasNoMore = false;
     return this.expanseService
-      .getEvents(this.page, this.searchString, this.eventsType, this.users_id)
+      .getEvents(
+        this.page,
+        this.searchString,
+        type || this.eventsType,
+        this.users_id
+      )
       .then((res: any) => {
         this.hasNoMore = !res.length;
         this.isLoading = false;
