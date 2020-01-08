@@ -613,6 +613,9 @@
   <div *ngIf="mainPage === 'message-thread'">
     <div class="row">
       <div class="col s12">
+        <ng-container>
+          <h4 *ngIf="messageUser && mainPage == 'message-thread'">Messages to {{messageUser}}</h4>
+        </ng-container>
         <div class="user-chip chip grey darken-2 message-chip send-chip relative" #scrollTo>
           <div class="btn waves-effect waves-light right pink-button message-send-top" (click)="sendMessage()">Send</div>
           <div id="message_to_send">
@@ -652,10 +655,6 @@
         <div class="loader-initial"></div>
       </div>
     </div>
-  </ng-container>
-  <ng-container>
-
-    <h4 *ngIf="messageUser && mainPage == 'message-thread'">Messages to {{messageUser}}</h4>
   </ng-container>
   <div class="center-align">
     <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore&&mainPage!=='basic'" (click)="getCurrent()">Load More</div>

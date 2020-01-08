@@ -33,12 +33,11 @@
 
       <!--&lt;!&ndash;[duration]="event.event_duration"&ndash;&gt;-->
     <!--</div>-->
+    <div class="center-align" >
+      <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-top'"></app-ad-placeholder>
+      <br><br>
+    </div>
     <div class="row">
-      <div class="col s12">
-        <div class="center-align" >
-          <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-top'"></app-ad-placeholder>
-        </div>
-      </div>
       <app-list-item *ngFor="let space of spaces; let i = index"
                      [name]="space.name"
                      [description]="space.description"

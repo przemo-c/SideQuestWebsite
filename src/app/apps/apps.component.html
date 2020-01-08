@@ -70,11 +70,6 @@
   <i (click)="sidenavGames.opened = true" class="right material-icons small white-text games-mobile-menu hide-on-large-only pointer">more_vert</i>
   <h4 class="inline-block hide-on-large-only" style="margin: 1.5rem 0 0 18px;">{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Games & Apps'}}</h4>
   <div class="row margin-top">
-    <div class="col s12">
-      <div class="center-align" >
-        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-top'"></app-ad-placeholder>
-      </div>
-    </div>
     <div class="col l2 xl1 hide-on-med-and-down no-padding">
       <h4 style="margin: 0 0 .912rem -18px;" class="inline-block " >{{category === 1 ? 'Games' : category === 4 ? 'Mods' : category === 2 ? 'Apps' : 'Games & Apps'}}</h4>
       <div class="games-search right hide-on-med-and-down" style="margin: 0 0 .912rem -18px;">
@@ -132,6 +127,10 @@
       </div>
     </div>
     <div class="col s12 l10 xl11">
+      <div class="center-align" >
+        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-top'"></app-ad-placeholder>
+        <br><br>
+      </div>
       <ng-container *ngIf="isLoading">
         <div class="center-align">
           <div class="tall-placeholder relative">
