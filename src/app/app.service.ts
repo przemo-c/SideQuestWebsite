@@ -27,7 +27,7 @@ export class AppService {
   accountComponent: AccountComponent;
   notifications: any = { friend_requests: [], unread_messages: [] };
   isMobile: boolean;
-
+  isMobileLarge: boolean;
   public readonly siteKey = "6LfrRrcUAAAAAE00oWA60iMK5AeM7luMlKWevTlY";
   public badge: "bottomright" | "bottomleft" | "inline" = "inline";
   public type: "image" | "audio" = "image";
@@ -38,6 +38,7 @@ export class AppService {
       this.hideLogo = true;
     }
     this.isMobile = window.innerWidth < 1500;
+    this.isMobileLarge = window.innerWidth < 900;
     this.loadAppIndex();
     this.loadAppMeta();
     this.saveAppMeta();

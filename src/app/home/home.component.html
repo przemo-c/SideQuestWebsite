@@ -7,7 +7,6 @@
           <div class="img relative" *ngFor="let url of imageUrls" [ngStyle]="{'background-image': 'url('+url.url+')'}">
             <app-over-image [firstNews]="{title: url.title, description: url.caption}" (output)="openItem(url.href)"></app-over-image>
           </div>
-
         </div>
         <div class="right">
           <i class="material-icons pointer" (click)="setSliderClass(true)">navigate_before</i>
@@ -25,7 +24,7 @@
       <i class="material-icons white-text medium">thumb_up</i>
     </div>
     <div class="center-align slider-padding">
-      <app-ad-placeholder [sizes]="[[300,600]]" [id]="'home-top'"></app-ad-placeholder>
+      <app-ad-placeholder [sizes]="[[300,600]]" [id]="'home-top'" ></app-ad-placeholder>
     </div>
   </div>
 
@@ -47,7 +46,7 @@
     </ng-container>
   </span><br><br>
   <div class="center-align">
-    <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'home-center-0'"></app-ad-placeholder>
+    <app-ad-placeholder [sizes]="appService.isMobileLarge?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'home-center-0'"></app-ad-placeholder>
   </div>
   <h5>Most popular games</h5>
   <div class="row top-margin">

@@ -299,7 +299,7 @@
       <!--          </div>-->
 
       <BR><BR>
-      <div class="center-align" *ngIf="currentApp.app_categories_id !== '3' && reviews && this.reviews.length > 4">
+      <div class="center-align" *ngIf="!service.isMobile && currentApp.app_categories_id !== '3' && reviews && this.reviews.length > 4">
         <app-ad-placeholder [sizes]="[[300,600],[300,250]]" [id]="'app-listing'"></app-ad-placeholder>
       </div>
       <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
