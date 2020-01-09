@@ -12,7 +12,7 @@
     <br><br>
   </div>
   <div class="col s6 m4 app-padding pointer" (click)="appService.scrollToTop();app.apps_id?router.navigateByUrl('/app/'+app.apps_id):appService.openLink(app.url);">
-    <div class="home-app-image relative" [ngStyle]="{'background-image':'url(\''+(app.image?app.image:app.image_url)+'?size=512\')'}">
+    <div class="home-app-image relative" [ngStyle]="{'background-image':'url(\''+appImage(app)+'\')'}">
       <div class="app-stats-container">
         <div *ngIf="app.supports_quest" class="listing-downloads z-depth-2">
           Oculus Quest

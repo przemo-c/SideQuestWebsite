@@ -13,4 +13,9 @@ export class AppDisplayBoxComponent implements OnInit {
   constructor(public appService: AppService, public router: Router) {}
 
   ngOnInit() {}
+
+  appImage(app) {
+    let img = app.image ? app.image : app.image_url;
+    return img + (img.endsWith(".gif") ? "" : "?size=512");
+  }
 }
