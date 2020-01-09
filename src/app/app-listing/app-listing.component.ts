@@ -146,6 +146,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   searchTimeout: any;
   searchString: string;
   isAccepted: boolean;
+  itchUrl;
   constructor(
     private router: Router,
     public service: AppService,
@@ -506,8 +507,14 @@ export class AppListingComponent implements OnInit, OnDestroy {
         }
         this.donate_urls = this.app_urls.filter(
           (url: AppUrl) =>
-            ["Patreon", "Paypal", "Itch", "Kofi"].indexOf(url.provider) > -1
+            ["Patreon", "Paypal", "Kofi"].indexOf(url.provider) > -1
         );
+        let itchUrl = this.app_urls.filter(
+          (url: AppUrl) => url.provider === "Itch"
+        );
+        if (itchUrl.length) {
+          this.itchUrl = itchUrl[0];
+        }
         this.store_urls = this.app_urls.filter(
           (url: AppUrl) =>
             [

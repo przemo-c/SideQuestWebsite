@@ -42,6 +42,15 @@
   <div class="right top-tags-name">
     <div *ngIf="currentApp.donate_url" class="btn waves-effect waves-light pink-button"
          (click)="copyShareUrl()">Share</div>
+
+
+
+    <div class="btn waves-effect waves-light pink-button margin-left"
+         *ngIf="itchUrl"
+         (click)="openUrl(itchUrl.link_url + (currentApp.active?'?ac=k3RTPJMnVvG':''));subscribeIfItch(itchUrl.provider)">
+      {{isInstalled && installedVersion < currentApp.versioncode ? 'Update On Itch' : 'Buy On Itch'}}
+    </div>
+
     <div class="btn waves-effect waves-light pink-button margin-left"
          *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access"
          (click)="openItems(apk_download_urls)">Install Latest</div>
@@ -318,6 +327,7 @@
           </div><br>
           <div *ngFor="let url of donate_urls">
             <div class="chip pointer"
+                 *ngIf="url.provider !== 'Itch'"
                  mz-tooltip tooltip="{{url.provider}}"
                  position="bottom"
                  (click)="openUrl(url.link_url + (url.provider==='Itch'?'?ac=k3RTPJMnVvG':''));subscribeIfItch(url.provider)">
