@@ -59,10 +59,6 @@
     <div class="col s12 m5">
       <div class="relative">
         <div class="badge-container">
-          <div class="listing-rating z-depth-2">
-            <i class="material-icons">dashboard</i>
-            {{currentApp.app_categories_id == 1?'GAME':currentApp.app_categories_id == 2?'APP':currentApp.app_categories_id == 3?'NSFW':'MOD'}}
-          </div>
           <div class="listing-downloads z-depth-2" *ngIf="currentApp.app_categories_id == 4">
             <i class="material-icons">gamepad</i>
             {{currentApp.website==="BeatOn"?"Beat Saber":currentApp.website}}
