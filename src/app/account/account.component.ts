@@ -626,6 +626,13 @@ export class AccountComponent implements OnInit, OnDestroy {
       });
   }
 
+  unsubscribe(apps_id) {
+    this.expanseService.uninstallApp(apps_id).then(() => {
+      this.page = 0;
+      this.getCurrent();
+    });
+  }
+
   getInstalledApps() {
     this.isLoading = true;
     this.hasNoMore = false;
@@ -642,9 +649,15 @@ export class AccountComponent implements OnInit, OnDestroy {
       .then((resp: AppListing[]) => {
         this.hasNoMore = !resp.length;
         this.isLoading = false;
+        resp.forEach(a => {
+          a.image_url =
+            a.image_url ||
+            "https://cdn.theexpanse.app/file/2717/Untitled-2.jpg";
+        });
         this.myInstalledApps =
           this.page === 0 ? resp : this.myInstalledApps.concat(resp);
         this.checkForUpdates();
+        //
         this.isLoaded = true;
         this.page++;
       });
@@ -705,77 +718,23 @@ export class AccountComponent implements OnInit, OnDestroy {
     }
   }
 
-  updateAll() {
-    this.appService
-      .openSidequestUrl(
-        "sidequest://sideload-multi/#" +
-          JSON.stringify(
-            this.appsNeedingUpdated
-              .reduce((a, b) => {
-                a = a.concat(b.urls);
-                return a;
-              }, [])
-              .map(a => a.link_url.trim())
-          )
-      )
-      .then(async () => {
-        for (let i = 0; i < this.appsNeedingUpdated.length; i++) {
-          await this.expanseService.addInstalledApp(
-            this.appsNeedingUpdated[i].apps_id,
-            this.appsNeedingUpdated[i].versioncode
-          );
-        }
-        this.getInstalledApps();
-      });
+  async updateAll() {
+    if (this.appService.isAuthenticated) {
+      for (let i = 0; i < this.appsNeedingUpdated.length; i++) {
+        await this.expanseService.addInstalledApp(
+          this.appsNeedingUpdated[i].apps_id,
+          this.appsNeedingUpdated[i].versioncode
+        );
+      }
+      this.appService.showMessage({ error: false }, "Sending to SideQuest...");
+      this.getInstalledApps();
+    }
   }
 
   async checkForUpdates() {
     for (let i = 0; i < this.myInstalledApps.length; i++) {
       const app = this.myInstalledApps[i];
       app.urls = app.urls.filter(u => u);
-      if (
-        app.github_enabled &&
-        !app.urls.filter(u => u.provider === "Github Release").length
-      ) {
-        let releases = await this.findGitReleases(app);
-        if (releases.message) {
-          return this.appService.showMessage(
-            { error: true, data: releases.message },
-            ""
-          );
-        }
-        let release = releases[0];
-        if (app.github_tag !== "[ all ]" && app.github_tag !== "[ latest ]") {
-          releases.forEach(rel => {
-            if (rel.tag_name === app.github_tag) {
-              release = rel;
-            }
-          });
-        }
-        app.versioncode = release.id;
-        app.urls = app.urls.concat(
-          release.assets
-            .filter((asset: any) => {
-              return (
-                ["apk", "obb"].indexOf(
-                  asset.name
-                    .split(".")
-                    .pop()
-                    .toLowerCase()
-                ) > -1
-              );
-            })
-            .map(asset => {
-              return {
-                link_url: asset.browser_download_url,
-                provider: asset.name
-                  .split(".")
-                  .pop()
-                  .toUpperCase()
-              };
-            })
-        );
-      }
       app.needsUpdate = app.versioncode > app.current_version;
     }
     this.appsNeedingUpdated = this.myInstalledApps.filter(

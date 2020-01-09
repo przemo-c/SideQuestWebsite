@@ -133,11 +133,11 @@ html{
 .margin-top{
   margin-top: 2em;
 }
-.small-button {
-  /*padding: 5px!important;*/
-  /*line-height: 16px!important;*/
-  /*height: 24px!important;*/
-  /*color: white;*/
+.smaller-button {
+  padding: 5px!important;
+  line-height: 16px!important;
+  height: 24px!important;
+  color: white;
 }
 .inline-block{
   display:inline-block;

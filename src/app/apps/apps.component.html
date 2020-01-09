@@ -18,19 +18,23 @@
   </div>
   <mz-sidenav-subheader>Sort By:</mz-sidenav-subheader>
   <mz-sidenav-link>
-    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = true; isDownloads = false; tryGetApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = true; isDownloads = false; tryGetApps()">
       <i class="menu-image material-icons">star_half</i><span><b>Hot</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = true; isRating = false; isDownloads = false; tryGetApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = true; isRating = false; isDownloads = false; tryGetApps()">
       <i class="menu-image material-icons">swap_vert</i><span><b>Recent</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = false; isDownloads = true; tryGetApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = true; isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
+      <i class="menu-image material-icons">swap_vert</i><span><b>Latest</b></span></a>
+  </mz-sidenav-link>
+  <mz-sidenav-link>
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = false; isDownloads = true; tryGetApps()">
       <i class="menu-image material-icons">cloud_download</i><span><b>Downloads</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
       <i class="menu-image material-icons">sort</i><span><b>Name</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-divider></mz-sidenav-divider>
@@ -80,13 +84,15 @@
         <span class="grey-text">Sort By:</span>
         <br>
         <br>
-        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = true; isDownloads = false; tryGetApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = true; isDownloads = false; tryGetApps()">
           <i class="menu-image material-icons">star_half</i><span><b>Hot</b></span></div>
-        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = true; isRating = false; isDownloads = false; tryGetApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = true; isRating = false; isDownloads = false; tryGetApps()">
           <i class="menu-image material-icons">swap_vert</i><span><b>Recent</b></span></div>
-        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = false; isDownloads = true; tryGetApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = true; isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
+          <i class="menu-image material-icons">insert_invitation</i><span><b>Latest</b></span></div>
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = false; isDownloads = true; tryGetApps()">
           <i class="menu-image material-icons">cloud_download</i><span><b>Downloads</b></span></div>
-        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
           <i class="menu-image material-icons">sort</i><span><b>Name</b></span></div><br>
       </div>
 
@@ -120,14 +126,10 @@
       </div>
       <div style="margin-left: -28px;">
         <app-ad-placeholder [sizes]="[[160,600]]" [id]="'apps-left-1'"></app-ad-placeholder>
-        <br><br><br><br><br><br><br><br><br>
-        <app-ad-placeholder [sizes]="[[160,600]]" [id]="'apps-left-2'"></app-ad-placeholder>
-        <br><br><br><br><br><br><br><br><br>
-        <app-ad-placeholder [sizes]="[[160,600]]" [id]="'apps-left-3'"></app-ad-placeholder>
       </div>
     </div>
     <div class="col s12 l10 xl11">
-      <div class="center-align" >
+      <div class="center-align" *ngIf="!isLoading">
         <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-top'"></app-ad-placeholder>
         <br><br>
       </div>

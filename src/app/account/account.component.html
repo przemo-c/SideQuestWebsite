@@ -428,15 +428,16 @@
       <div class="col s12 m6 l4" *ngFor="let app of myInstalledApps">
         <div class="card card-height">
           <div class="card-image card-image-left waves-effect waves-block waves-light" routerLink="/app/{{app.apps_id}}"
-               *ngIf="app.image_url" [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
-            <div class="btn waves-effect waves-light white-text pink-button small-button" *ngIf="app.needsUpdate && !isUninstalled" routerLink="/app/{{app.apps_id}}">Update</div>
+               [ngStyle]="{'background-image':'url(\''+(app.image_url)+'\')'}">
+            <div class="btn waves-effect waves-light white-text pink-button smaller-button" *ngIf="app.needsUpdate && !isUninstalled" routerLink="/app/{{app.apps_id}}">Update</div>
           </div>
           <div class="card-content card-height">
             <i class="material-icons activator pointer right">more_vert</i>
             <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
             <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
             <div class="right-align">
-              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button" routerLink="/app/{{app.apps_id}}" (click)="appService.scrollToTop()">Open</div>
+              <div *ngIf="!isUninstalled" class="btn-flat left waves-effect waves-light white-text open-app-button pink-button smaller-button" (click)="unsubscribe(app.apps_id)">Unsubscribe</div>
+              <div class="btn-flat waves-effect waves-light white-text open-app-button pink-button smaller-button" routerLink="/app/{{app.apps_id}}" (click)="appService.scrollToTop()">Open</div>
             </div>
           </div>
           <div class="card-reveal">

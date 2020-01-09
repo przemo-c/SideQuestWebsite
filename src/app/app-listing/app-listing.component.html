@@ -110,6 +110,12 @@
 <!--      </div>-->
 <!--      <br>-->
 
+      <div class="col s12">
+        <div class="center-align" >
+          <app-ad-placeholder [sizes]="service.isMobile?[[300,250],[320,50]]:[[728,90]]" [id]="'apps-listing-under-image'"></app-ad-placeholder>
+          <br><br>
+        </div>
+      </div>
       <div class="col s12 m4">
         <div>
           <br><br>
@@ -266,7 +272,6 @@
         <br>
         <div class="btn waves-effect waves-light pink-button small-button"
              (click)="openItems(apk_download_urls)">Update To {{currentApp.versionname}}</div><br><br><br>
-
       </div>
       <div *ngIf="isInstalled">
         <br>
@@ -296,8 +301,8 @@
       <!--            </div>-->
       <!--          </div>-->
 
-<BR><BR>
-      <div class="center-align" *ngIf="currentApp.app_categories_id !== '3'">
+      <BR><BR>
+      <div class="center-align" *ngIf="currentApp.app_categories_id !== '3' && reviews && this.reviews.length > 4">
         <app-ad-placeholder [sizes]="[[300,600],[300,250]]" [id]="'app-listing'"></app-ad-placeholder>
       </div>
       <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
@@ -335,6 +340,10 @@
         <!--          <span class="review-name">{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i><br>( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )-->
         <!--        </div>-->
 
+        <div class="center-align" >
+          <app-ad-placeholder [sizes]="service.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-top'"></app-ad-placeholder>
+          <br><br>
+        </div>
         <p [innerHTML]="currentApp.description"></p>
         <div *ngIf="!currentApp.early_access">
           <div class="truncate">
@@ -349,12 +358,6 @@
 
           </div>
           <br>
-          <div class="col s12">
-            <div class="center-align" >
-              <app-ad-placeholder [sizes]="service.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-top'"></app-ad-placeholder>
-              <br><br>
-            </div>
-          </div>
           <div class="btn waves-effect waves-light pink-button right margin-right" *ngIf="service.isAuthenticated"
                (click)="leaveReview.openModal()">Add Review</div>
           <div class="btn waves-effect waves-light pink-button right margin-right" *ngIf="!service.isAuthenticated"

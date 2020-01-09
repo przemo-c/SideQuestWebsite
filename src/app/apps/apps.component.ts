@@ -25,20 +25,21 @@ export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
   isRecent = false;
   isRating = true;
   isDownloads = false;
+  isLatest = false;
   tag: string;
   menuItems = [
-    {
-      is_main: true,
-      image: "https://i.imgur.com/tfIhP8C.jpg",
-      name: "Everything",
-      description: "All the content on SideQuest",
-      url: "/apps"
-    },
+    // {
+    //   is_main: true,
+    //   image: "https://i.imgur.com/tfIhP8C.jpg",
+    //   name: "Everything",
+    //   description: "All the content on SideQuest",
+    //   url: "/apps"
+    // },
     {
       is_main: true,
       image:
         "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
-      name: "All Games",
+      name: "All Games & Apps",
       description: "Official VR Games for Go and Quest.",
       url: "/apps/1"
     },
@@ -107,60 +108,36 @@ export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
       url: "/apps/1/gameport"
     },
     {
-      is_main: true,
-      image:
-        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
-      name: "All Apps",
-      description: "Official VR Apps for Go and Quest.",
-      url: "/apps/2"
-    },
-    {
       is_main: false,
       image:
-        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
-      name: "Experience",
-      description: "Experiences.",
-      url: "/apps/2/experience"
-    },
-    {
-      is_main: false,
-      image:
-        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
       name: "Streaming",
       description: "Steam VR streaming and more.",
-      url: "/apps/2/streaming"
+      url: "/apps/1/streaming"
     },
     {
       is_main: false,
       image:
-        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
       name: "Media Players",
       description: "VR Video Players.",
-      url: "/apps/2/media"
+      url: "/apps/1/media"
     },
     {
       is_main: false,
       image:
-        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
       name: "Collaborative",
       description: "Collaborative.",
-      url: "/apps/2/collaborative"
+      url: "/apps/1/collaborative"
     },
     {
       is_main: false,
       image:
-        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
-      name: "Educational",
-      description: "Educational.",
-      url: "/apps/2/education"
-    },
-    {
-      is_main: false,
-      image:
-        "https://the-expanse.github.io/SideQuestRepos/vr-apps/icons/vrapps.png",
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
       name: "Launchers",
       description: "Launchers.",
-      url: "/apps/2/launcher"
+      url: "/apps/1/launcher"
     },
     // What am i going to do about NSFW ??
     // disable the category menu and add an 18+ warning when entering.
@@ -279,8 +256,12 @@ export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
             ? "created"
             : this.isRating
             ? "rating"
+            : this.isLatest
+            ? "latest"
             : "name",
-          this.isRecent || this.isRating || this.isDownloads ? "desc" : "asc",
+          this.isRecent || this.isRating || this.isDownloads || this.isLatest
+            ? "desc"
+            : "asc",
           this.category,
           this.tag,
           null,

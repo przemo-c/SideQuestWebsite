@@ -570,8 +570,6 @@ export class AppListingComponent implements OnInit, OnDestroy {
         }
 
         const sideQuest = (window as any).sideQuest;
-        console.log(sideQuest);
-        console.log(this.currentApp.packagename);
         if (sideQuest) {
           this.isInstalled =
             sideQuest.installed.indexOf(this.currentApp.packagename) > -1;
