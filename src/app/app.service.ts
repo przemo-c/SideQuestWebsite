@@ -37,7 +37,7 @@ export class AppService {
     if (userAgent.indexOf(" electron/") > -1) {
       this.hideLogo = true;
     }
-    this.isMobile = window.innerWidth < 1400;
+    this.isMobile = window.innerWidth < 1500;
     this.loadAppIndex();
     this.loadAppMeta();
     this.saveAppMeta();
