@@ -408,7 +408,7 @@
             <div *ngIf="hasNoMoreReviews" class="chip">No more items...</div>
           </div>
           <BR><BR>
-          <div class="center-align" *ngIf="currentApp.app_categories_id !== '3' && (!reviews || !this.reviews.length)">
+          <div class="center-align" *ngIf="currentApp.app_categories_id !== '3' && (!reviews || this.reviews.length < 4 )">
             <app-ad-placeholder [sizes]="[[300,600],[300,250]]" [id]="'app-listing-right'"></app-ad-placeholder>
           </div>
           <br>
