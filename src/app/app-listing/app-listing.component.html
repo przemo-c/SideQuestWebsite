@@ -320,24 +320,6 @@
       </div>
     </div>
     <div class="col s12 m7">
-      <div class="right social-links">
-        <div *ngIf="donate_urls && donate_urls.length">
-          <div class="input-field radio-top" >
-            <label class="active">Support & Donate</label>
-          </div><br>
-          <div *ngFor="let url of donate_urls">
-            <div class="chip pointer"
-                 *ngIf="url.provider !== 'Itch'"
-                 mz-tooltip tooltip="{{url.provider}}"
-                 position="bottom"
-                 (click)="openUrl(url.link_url + (url.provider==='Itch'?'?ac=k3RTPJMnVvG':''));subscribeIfItch(url.provider)">
-              <img src="{{urlIcons[url.provider].icon}}">
-              {{url.provider==='Itch'? isInstalled && installedVersion < currentApp.versioncode ? 'Update On Itch' : 'Buy On Itch':url.provider}}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
 
         <!--        <div *ngIf="appRating" class="right">-->
         <!--          <div>-->
@@ -350,6 +332,25 @@
         <div class="center-align" >
           <app-ad-placeholder [sizes]="service.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'app-listing-top'"></app-ad-placeholder>
           <br><br>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="right social-links">
+          <div *ngIf="donate_urls && donate_urls.length">
+            <div class="input-field radio-top" >
+              <label class="active">Support & Donate</label>
+            </div><br>
+            <div *ngFor="let url of donate_urls">
+              <div class="chip pointer"
+                   *ngIf="url.provider !== 'Itch'"
+                   mz-tooltip tooltip="{{url.provider}}"
+                   position="bottom"
+                   (click)="openUrl(url.link_url + (url.provider==='Itch'?'?ac=k3RTPJMnVvG':''));subscribeIfItch(url.provider)">
+                <img src="{{urlIcons[url.provider].icon}}">
+                {{url.provider==='Itch'? isInstalled && installedVersion < currentApp.versioncode ? 'Update On Itch' : 'Buy On Itch':url.provider}}
+              </div>
+            </div>
+          </div>
         </div>
         <p [innerHTML]="currentApp.description"></p>
         <div *ngIf="!currentApp.early_access">
@@ -419,7 +420,6 @@
           </div>
           <br>
         </div>
-      </div>
 
     </div>
   </div>
