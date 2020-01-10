@@ -102,7 +102,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     return this.getNews()
       .then(() => this.getApps("recent", 1))
       .then(() => this.getApps("rating", 1))
-      .then(() => this.getApps("rating", 2))
       .then(() => this.getApps("rating", 1, "horror"))
       .then(() => this.getApps("rating", 0, null, "multiplayer"));
   }
@@ -120,8 +119,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
           this.multiplayerApps = resp;
         } else if (tag === "horror") {
           this.horrorApps = resp;
-        } else if (category === 2) {
-          this.popularAppApps = resp;
         } else if (type === "recent") {
           this.newApps = resp;
         } else {
