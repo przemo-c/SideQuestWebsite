@@ -73,4 +73,33 @@ export class DownloadSideQuestComponent implements OnInit {
       )
       .then(total => (this.total_downloads = total));
   }
+
+  subscribeToApp(url) {
+    if (this.appService.isAuthenticated || this.appService.hideLogo) {
+      this.appService.remoteInstall({
+        app_urls: [{ link_url: url, provider: "APK" }],
+        website: "",
+        app_categories_id: 1
+      });
+      this.appService.showMessage({ error: false }, "Installing...");
+    } else {
+      this.appService.showMessage({ error: false }, "Sending to SideQuest...");
+    }
+
+    // : Promise.resolve().then(() => {
+    //   if (this.apk_download_urls && this.apk_download_urls.length) {
+    //     this.service.remoteInstall({
+    //       app_urls: this.apk_download_urls,
+    //       website: this.currentApp.website,
+    //       app_categories_id: this.currentApp.app_categories_id
+    //     });
+    //     this.service.showMessage(
+    //       { error: false },
+    //       this.service.hideLogo
+    //         ? "Installing..."
+    //         : "Sending to SideQuest Locally..."
+    //     );
+    //   }
+    // });
+  }
 }

@@ -188,6 +188,7 @@ export class AccountComponent implements OnInit, OnDestroy {
     app_sub_total: 0,
     event_total: 0,
     event_sub_total: 0,
+    requests_total: 0,
     space_total: 0,
     space_sub_total: 0,
     friend_total: 0,
@@ -398,6 +399,7 @@ export class AccountComponent implements OnInit, OnDestroy {
       .then((space: SpaceListing) => (this.selectedSpace = space))
       .then(() => this.expanseService.getUserAppTotals())
       .then(t => {
+        console.log(t);
         this.app_totals = t[0];
         Object.keys(this.app_totals).forEach(
           t => (this.app_totals[t] = Number(this.app_totals[t]))

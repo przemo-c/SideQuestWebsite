@@ -249,13 +249,13 @@
               <i class="material-icons">close</i>
               Remove Friend
             </div>
-            <div *ngIf="related.is_related && !related.is_accepted && related.initiated"
+            <div *ngIf="related.is_related && !related.is_accepted && !related.is_blocked && related.initiated"
                  (click)="actionString = 'cancel this sidekick request';confirmAction.openModal()"
                  class="chip deep-orange white-text pointer">
               <i class="material-icons">remove</i>
               Cancel Request
             </div>
-            <div *ngIf="related.is_related && !related.is_accepted && !related.initiated"
+            <div *ngIf="related.is_related && !related.is_accepted && !related.is_blocked && !related.initiated"
                  (click)="actionString = 'reject this sidekick request';confirmAction.openModal()"
                  class="chip deep-orange white-text pointer">
               <i class="material-icons">remove</i>

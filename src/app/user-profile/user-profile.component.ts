@@ -76,7 +76,6 @@ export class UserProfileComponent implements OnInit, OnDestroy {
         .start()
         .then(() => this.expanseService.viewUser(this.users_id))
         .then((res: any) => {
-          console.log(res);
           if (res.length) {
             this.currentUser = res[0];
             this.isProfileColor = this.currentUser.profile_color === "golden";
@@ -204,6 +203,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
         );
         break;
       case "block this sidekick":
+        console.log("blocking");
         promise = this.expanseService.blockUser(
           this.users_id || this.add_users_id,
           1

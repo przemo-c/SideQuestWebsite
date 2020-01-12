@@ -87,7 +87,7 @@
          position="bottom"
          routerLink="/account/requests">
       <i class="material-icons prefix">event_note</i>
-      Requests <ng-container *ngIf="!appService.notifications.friend_requests.length">({{appService.notifications.friend_requests.length}})</ng-container><span class="new badge new-badge" *ngIf="appService.notifications.friend_requests.length">{{appService.notifications.friend_requests.length}}</span>
+      Requests <ng-container *ngIf="appService.notifications.friend_requests.length||app_totals.requests_total">({{appService.notifications.friend_requests.length+(+app_totals.requests_total)}})</ng-container><span class="new badge new-badge" *ngIf="appService.notifications.friend_requests.length">{{appService.notifications.friend_requests.length}}</span>
     </div>
     <div class="chip pointer margin-right menu-chip"
          mz-tooltip tooltip="Events that you are running."
