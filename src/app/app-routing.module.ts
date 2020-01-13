@@ -143,8 +143,8 @@ const routes: Routes = [
     component: ResetPasswordComponent,
     canActivate: [NotLoginGuard]
   },
-  { path: "sign-up", component: SignUpComponent, canActivate: [NotLoginGuard] },
-  { path: "**", component: HomeComponent }
+  { path: "sign-up", component: SignUpComponent, canActivate: [NotLoginGuard] }
+  // { path: "**", component: HomeComponent }
 ];
 
 @NgModule({
