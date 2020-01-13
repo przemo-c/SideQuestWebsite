@@ -595,7 +595,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
           if (
             (this.currentApp.github_tag === "[ all ]" ||
               this.currentApp.github_tag === "[ latest ]") &&
-            this.githubReleases.length
+            (this.githubReleases || []).length
           ) {
             this.isAllReleases = true;
             const first_release = this.githubReleases.shift();
