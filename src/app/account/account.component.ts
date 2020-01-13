@@ -231,6 +231,7 @@ export class AccountComponent implements OnInit, OnDestroy {
     public uploadService: UploadService,
     private route: ActivatedRoute
   ) {
+    console.log(this.app_totals);
     this.isDev = !!localStorage.getItem("isDeveloper");
     this.isUpdated = !!localStorage.getItem("viewIsUpdated");
     this.isUninstalled = !!localStorage.getItem("viewIsUninstalled");
@@ -399,7 +400,6 @@ export class AccountComponent implements OnInit, OnDestroy {
       .then((space: SpaceListing) => (this.selectedSpace = space))
       .then(() => this.expanseService.getUserAppTotals())
       .then(t => {
-        console.log(t);
         this.app_totals = t[0];
         Object.keys(this.app_totals).forEach(
           t => (this.app_totals[t] = Number(this.app_totals[t]))

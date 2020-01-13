@@ -624,7 +624,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
                 })
             );
           } else {
-            const tag_release = this.githubReleases.filter(
+            const tag_release = (this.githubReleases || []).filter(
               release => release.tag_name === this.currentApp.github_tag
             );
             if (tag_release.length) {
