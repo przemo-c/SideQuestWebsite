@@ -100,10 +100,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     return this.getNews()
-      .then(() => this.getApps("recent", 1))
+      .then(() => this.promiseWait(1500))
       .then(() => this.getApps("rating", 1))
-      .then(() => this.getApps("rating", 1, "horror"))
-      .then(() => this.getApps("rating", 0, null, "multiplayer"));
+      .then(() => this.promiseWait(1500))
+      .then(() => this.getApps("recent", 1))
+      .then(() => this.promiseWait(1500))
+      .then(() => this.getApps("rating", 0, null, "multiplayer"))
+      .then(() => this.promiseWait(1500))
+      .then(() => this.getApps("rating", 1, "horror"));
+  }
+
+  promiseWait(timeout) {
+    return new Promise(resolve => setTimeout(resolve, timeout));
   }
 
   saveGrid() {
@@ -128,27 +136,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   getNews() {
-    this.isLoading = true;
-    return this.getEvents()
-      .then(() => this.appService.getNews(this.page))
-      .then(async (result: NewsItem[]) => {
-        await this.fixImages(result);
-        this.hasNoMore = !result.length;
-        if (this.page === 0) {
-          this.news.length = 0;
-        }
-        this.isLoading = false;
-        this.news = this.news.concat(result);
-        this.news.forEach((d: NewsItem, i) => {
-          const date = new Date(+d.created);
-          d.date_string =
-            date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
-          d.show_date =
-            i === 0 || this.news[i - 1].date_string !== d.date_string;
-        });
-        this.news = this.news.filter(d => d.image);
-        this.page++;
-      });
+    return this.getEvents();
+    // .then(() => this.appService.getNews(this.page))
+    // .then(async (result: NewsItem[]) => {
+    //   await this.fixImages(result);
+    //   this.hasNoMore = !result.length;
+    //   if (this.page === 0) {
+    //     this.news.length = 0;
+    //   }
+    //   this.isLoading = false;
+    //   this.news = this.news.concat(result);
+    //   this.news.forEach((d: NewsItem, i) => {
+    //     const date = new Date(+d.created);
+    //     d.date_string =
+    //       date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate();
+    //     d.show_date =
+    //       i === 0 || this.news[i - 1].date_string !== d.date_string;
+    //   });
+    //   this.news = this.news.filter(d => d.image);
+    //   this.page++;
+    // });
   }
 
   async fixImages(result) {
@@ -169,6 +176,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   getEvents() {
+    this.isLoading = true;
     return this.appService
       .getNews(0, "app")
       .then(async (result: NewsItem[]) => {
@@ -194,7 +202,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
               .slice(0, 8 - this.firstNews.length)
           );
         }
-        console.log(this.firstNews.length);
         this.imageUrls = this.firstNews.map(d => {
           return {
             url: d.image,
@@ -212,6 +219,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
             "YUR.fit adds a health and fitness tracker to all Oculus Quest experiences and games."
         });
         this.imageUrls.pop();
+        this.isLoading = false;
       });
   }
 
