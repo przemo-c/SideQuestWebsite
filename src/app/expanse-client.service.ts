@@ -220,9 +220,7 @@ export class ExpanseClientService {
   onMessage(evt) {
     try {
       let response = JSON.parse(evt.data);
-      console.log(response);
       let path = response.path;
-      let time = response.data.time;
       if (path.substr(path.length - 4, 4) === "-err") {
         path = path.substr(0, path.length - 4);
         response.data = { error: true, data: response.data };
