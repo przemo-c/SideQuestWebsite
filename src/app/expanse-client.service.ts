@@ -29,7 +29,7 @@ export class ExpanseClientService {
     this.messageResolves = {}; // localStorage.setItem('isDev','true');
     // localStorage.removeItem("isDev");
     this.isDev = localStorage.getItem("isDev");
-    this.url = !!this.isDev
+    this.url = !this.isDev
       ? "ws://192.168.0.34:3000"
       : "wss://api.theexpanse.app";
 
@@ -184,6 +184,7 @@ export class ExpanseClientService {
     this.ws.onerror = evt => console.error(evt);
   }
   emit(path, data) {
+    let time = "-" + new Date().getTime();
     return new Promise(resolve => {
       try {
         let token;
@@ -193,20 +194,13 @@ export class ExpanseClientService {
         } catch (e) {}
         if (this.isOpen) {
           this.ws.send(
-            JSON.stringify({ path: path, data: data, token: token })
+            JSON.stringify({ path: path, data: data, token: token, time })
           );
         }
-        // else {
-        //   this.openResolves.push(() => {
-        //     this.ws.send(
-        //       JSON.stringify({ path: path, data: data, token: token })
-        //     );
-        //   });
-        // }
       } catch (e) {
         console.warn(e);
       }
-      this.messageResolves[path] = resolve;
+      this.messageResolves[path + time] = resolve;
     });
   }
   onOpen(evt) {
@@ -226,7 +220,9 @@ export class ExpanseClientService {
   onMessage(evt) {
     try {
       let response = JSON.parse(evt.data);
+      console.log(response);
       let path = response.path;
+      let time = response.data.time;
       if (path.substr(path.length - 4, 4) === "-err") {
         path = path.substr(0, path.length - 4);
         response.data = { error: true, data: response.data };

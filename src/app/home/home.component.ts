@@ -100,13 +100,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     return this.getNews()
-      .then(() => this.promiseWait(1500))
+      .then(() => this.promiseWait(500))
       .then(() => this.getApps("rating", 1))
-      .then(() => this.promiseWait(1500))
+      .then(() => this.promiseWait(500))
       .then(() => this.getApps("recent", 1))
-      .then(() => this.promiseWait(1500))
+      .then(() => this.promiseWait(500))
       .then(() => this.getApps("rating", 0, null, "multiplayer"))
-      .then(() => this.promiseWait(1500))
+      .then(() => this.promiseWait(500))
       .then(() => this.getApps("rating", 1, "horror"));
   }
 
