@@ -12,17 +12,17 @@
 
   <div class="btn waves-effect waves-light pink-button right margin-left" routerLink="/app/{{apps_id}}" *ngIf="apps_id">View Listing</div>
   <div *ngIf="(apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id" class="btn waves-effect waves-light right pink-button margin-left" (click)="saveApp()">Save App</div>
-  <div *ngIf="(apps_id && expanseService.currentSession.users_id == currentApp.users_id)" class="right center-align" mz-tooltip tooltip="This will disable downloads of your app and you can provide keys to users to be able to install ( this is only partially implemented so i have disabled it for now )" position="bottom">
-    Coming Soon
-    <div class="switch">
-      <label>
-        Off
-        <input type="checkbox" [(ngModel)]="currentApp.early_access">
-        <span class="lever"></span>
-        On
-      </label>
-    </div>
-  </div>
+<!--  <div *ngIf="(apps_id && expanseService.currentSession.users_id == currentApp.users_id)" class="right center-align" mz-tooltip tooltip="This will disable downloads of your app and you can provide keys to users to be able to install ( this is only partially implemented so i have disabled it for now )" position="bottom">-->
+<!--    Coming Soon-->
+<!--    <div class="switch">-->
+<!--      <label>-->
+<!--        Off-->
+<!--        <input type="checkbox" [(ngModel)]="currentApp.early_access">-->
+<!--        <span class="lever"></span>-->
+<!--        On-->
+<!--      </label>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <h4><i class="material-icons back-icon" routerLink="/account">reply</i>{{apps_id?'Manage App':'Create App'}}
     <span *ngIf="apps_id" class="chip white-text"
