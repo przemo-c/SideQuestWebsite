@@ -557,6 +557,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
           )
         )
         .then((res: any) => {
+          console.log(res);
           this.service.showMessage(res, "App Saved!");
           if (!this.currentApp.active) {
             this.sendForApproval(this.apps_id);

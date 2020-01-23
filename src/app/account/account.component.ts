@@ -591,8 +591,14 @@ export class AccountComponent implements OnInit, OnDestroy {
     return this.getStuff("searchMyApps").then((resp: AppListing[]) => {
       if (resp.length) {
         resp.forEach(app => {
-          const downlaodI = app.counters.map(c => c.type).indexOf("download");
-          const viewI = app.counters.map(c => c.type).indexOf("view");
+          const downlaodI = app.counters
+            .filter(c => c)
+            .map(c => c.type)
+            .indexOf("download");
+          const viewI = app.counters
+            .filter(c => c)
+            .map(c => c.type)
+            .indexOf("view");
           app.downloads = app.views = 0;
           if (downlaodI > -1) {
             app.downloads = app.counters[downlaodI].counter;
