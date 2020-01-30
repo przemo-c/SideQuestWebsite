@@ -135,12 +135,6 @@ export class AppService {
     // );
   }
 
-  getNews(page: number = 0, filter: string = "none") {
-    return fetch(
-      "https://shanesedit.org:5678/news_feed/" + page + "/" + filter
-    ).then(r => r.json());
-  }
-
   logout(expanseService) {
     localStorage.removeItem("session" + expanseService.storageKey);
     expanseService.currentSession = null;

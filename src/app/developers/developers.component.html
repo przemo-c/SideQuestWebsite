@@ -1,7 +1,7 @@
 <div class="bottom-border">
   <div class="bottom-border paralax"  [ngClass]="{'banner-in-app':appService.hideLogo}">
     <div class="banner-top-back"
-         [ngStyle]="{'background-image':'url(https://cdn.theexpanse.app/file/2755/Untitled-2.jpg)'}"></div>
+         [ngStyle]="{'background-image':'url('+expanseService.cdnUrl+'file/2755/Untitled-2.jpg)'}"></div>
   </div>
 </div>
 <div class="main-container relative padding"
@@ -35,7 +35,7 @@
       <hr>
       <div class="right-align grey-text">SideQuest Legends is the All In One VR Development Platform<br><br></div>
       <div class="more-padding">
-        <div class="top-image z-depth-3" [ngStyle]="{'background-image':'url(https://cdn.theexpanse.app/file/2876/Logo-Mockup.jpg)'}"></div>
+        <div class="top-image z-depth-3" [ngStyle]="{'background-image':'url('+expanseService.cdnUrl+'file/2876/Logo-Mockup.jpg)'}"></div>
       </div>
       <br><br>
       SideQuest Legends is a content distribution platform. People can download and use SideQuest Legends to access content we and our members make.

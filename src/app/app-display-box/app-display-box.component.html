@@ -11,7 +11,7 @@
     <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-mid'"></app-ad-placeholder>
     <br><br>
   </div>
-  <div class="col s6 m4 app-padding pointer" (click)="appService.scrollToTop();app.apps_id?router.navigateByUrl('/app/'+app.apps_id):appService.openLink(app.url);">
+  <div class="col s6 app-padding pointer" [ngClass]="{'m4':apps.length>2}" (click)="appService.scrollToTop();app.apps_id?router.navigateByUrl('/app/'+app.apps_id):appService.openLink(app.url);">
     <div class="home-app-image relative" [ngStyle]="{'background-image':'url(\''+appImage(app)+'\')'}">
       <div class="app-stats-container">
         <div *ngIf="app.supports_quest" class="listing-downloads z-depth-2">

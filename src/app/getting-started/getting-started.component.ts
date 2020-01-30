@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AppService } from "../app.service";
+import { ExpanseClientService } from "../expanse-client.service";
 
 @Component({
   selector: "app-getting-started",
@@ -7,7 +8,10 @@ import { AppService } from "../app.service";
   styleUrls: ["./getting-started.component.css"]
 })
 export class GettingStartedComponent implements OnInit {
-  constructor(public appService: AppService) {}
+  constructor(
+    public appService: AppService,
+    public expanseService: ExpanseClientService
+  ) {}
 
   ngOnInit() {}
 }

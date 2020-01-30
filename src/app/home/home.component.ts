@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     type: "app",
     message_type: "",
     url: "https://sidequestvr.com/#/app/12",
-    image: "https://cdn.theexpanse.app/file/1119/Untitled-1 (2).jpg",
+    image: this.expanseService.cdnUrl + "file/1119/Untitled-1 (2).jpg",
     video: "",
     created: 0
   };
@@ -99,14 +99,12 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    return this.getNews()
-      .then(() => this.promiseWait(500))
+    return this.expanseService
+      .start()
+      .then(() => this.getNews())
       .then(() => this.getApps("rating", 1))
-      .then(() => this.promiseWait(500))
       .then(() => this.getApps("recent", 1))
-      .then(() => this.promiseWait(500))
       .then(() => this.getApps("rating", 0, null, "multiplayer"))
-      .then(() => this.promiseWait(500))
       .then(() => this.getApps("rating", 1, "horror"));
   }
 
@@ -158,6 +156,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // });
   }
 
+  getAppNews(page: number = 0, filter: string = "none") {
+    return fetch(
+      this.expanseService.discordURl + "/news_feed/" + page + "/" + filter
+    ).then(r => r.json());
+  }
   async fixImages(result) {
     await Promise.all(
       result.map(async d => {
@@ -177,58 +180,55 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   getEvents() {
     this.isLoading = true;
-    return this.appService
-      .getNews(0, "app")
-      .then(async (result: NewsItem[]) => {
-        await this.fixImages(result);
-        this.firstNews = result.filter(
-          d => d.image && (d.type === "event" || d.type === "app")
+    return this.getAppNews(0, "app").then(async (result: NewsItem[]) => {
+      await this.fixImages(result);
+      this.firstNews = result.filter(
+        d => d.image && (d.type === "event" || d.type === "app")
+      );
+
+      //   [
+      //   { url: 'https://cdn.vox-cdn.com/uploads/chorus_image/image/56748793/dbohn_170625_1801_0018.0.0.jpg',
+      //     caption: 'The first slide', href: '#config' },
+      //   { url: 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/9278671/jbareham_170917_2000_0124.jpg',
+      //     clickAction: () => alert('custom click function') },
+      //   { url: 'https://cdn.vox-cdn.com/uploads/chorus_image/image/56789263/akrales_170919_1976_0104.0.jpg',
+      //     caption: 'Apple TV', href: 'https://www.apple.com/' },
+      //   'https://cdn.vox-cdn.com/uploads/chorus_image/image/56674755/mr_pb_is_the_best.0.jpg',
+      //   { url: 'assets/kitties.jpg', backgroundSize: 'contain', backgroundPosition: 'center' }
+      // ];
+      if (this.firstNews.length < 8) {
+        this.firstNews = this.firstNews.concat(
+          this.news
+            .filter(d => d.image && (d.type !== "event" && d.type !== "app"))
+            .slice(0, 8 - this.firstNews.length)
         );
-
-        //   [
-        //   { url: 'https://cdn.vox-cdn.com/uploads/chorus_image/image/56748793/dbohn_170625_1801_0018.0.0.jpg',
-        //     caption: 'The first slide', href: '#config' },
-        //   { url: 'https://cdn.vox-cdn.com/uploads/chorus_asset/file/9278671/jbareham_170917_2000_0124.jpg',
-        //     clickAction: () => alert('custom click function') },
-        //   { url: 'https://cdn.vox-cdn.com/uploads/chorus_image/image/56789263/akrales_170919_1976_0104.0.jpg',
-        //     caption: 'Apple TV', href: 'https://www.apple.com/' },
-        //   'https://cdn.vox-cdn.com/uploads/chorus_image/image/56674755/mr_pb_is_the_best.0.jpg',
-        //   { url: 'assets/kitties.jpg', backgroundSize: 'contain', backgroundPosition: 'center' }
-        // ];
-        if (this.firstNews.length < 8) {
-          this.firstNews = this.firstNews.concat(
-            this.news
-              .filter(d => d.image && (d.type !== "event" && d.type !== "app"))
-              .slice(0, 8 - this.firstNews.length)
-          );
-        }
-        this.imageUrls = this.firstNews.map(d => {
-          return {
-            url: d.image,
-            href: d.url,
-            title: d.title,
-            caption: d.description
-          };
-        });
-        // this.imageUrls.unshift({
-        //   url: "https://i.imgur.com/4j7smI3.png",
-        //   href: "https://sidequestvr.com/#/app/358/1",
-        //   title: "TO THE TOP",
-        //   caption:
-        //     "VR Platforming game, that gives you the freedom to move across the environment with superhuman abilities."
-        // });
-        this.imageUrls.unshift({
-          url:
-            "https://cdn.theexpanse.app/file/3271/Carize_Sidequest_Banner.jpg",
-          href: "https://sidequestvr.com/#/app/270/1",
-          title: "YUR.fit",
-          caption:
-            "YUR.fit adds a health and fitness tracker to all Oculus Quest experiences and games."
-        });
-
-        this.imageUrls.pop();
-        this.isLoading = false;
+      }
+      this.imageUrls = this.firstNews.map(d => {
+        return {
+          url: d.image,
+          href: d.url,
+          title: d.title,
+          caption: d.description
+        };
       });
+      // this.imageUrls.unshift({
+      //   url: "https://i.imgur.com/4j7smI3.png",
+      //   href: "https://sidequestvr.com/#/app/358/1",
+      //   title: "TO THE TOP",
+      //   caption:
+      //     "VR Platforming game, that gives you the freedom to move across the environment with superhuman abilities."
+      // });
+      this.imageUrls.unshift({
+        url:
+          this.expanseService.cdnUrl + "file/3271/Carize_Sidequest_Banner.jpg",
+        href: "https://sidequestvr.com/#/app/270/1",
+        title: "YUR.fit",
+        caption:
+          "YUR.fit adds a health and fitness tracker to all Oculus Quest experiences and games."
+      });
+      this.imageUrls.pop();
+      this.isLoading = false;
+    });
   }
 
   openItem(url: string) {

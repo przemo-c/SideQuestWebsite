@@ -62,7 +62,8 @@ export class UploadService {
               .then((res: any) => {
                 if (res.length) {
                   return fetch(
-                    "https://shanesedit.org:5678/new_avatar/" +
+                    this.expanseService.discordURl +
+                      "/new_avatar/" +
                       res[0].avatar_images_id
                   );
                 }

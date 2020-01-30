@@ -51,7 +51,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
       image: "https://i.imgur.com/TVzpG2B.jpg",
       description: "A blank template to paint your dreams on",
       url: "",
-      skybox: "https://cdn.theexpanse.app/file/2524/6%20copy.jpg",
+      skybox: this.expanseService.cdnUrl + "file/2524/6%20copy.jpg",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
       selected: false
@@ -68,12 +68,12 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     },
     // {
     //   name: "Aurora",
-    //   image: "https://cdn.theexpanse.app/file/1119/Untitled-1%20(2).jpg",
+    //   image: this.expanseService.cdnUrl + "file/1119/Untitled-1%20(2).jpg",
     //   description:
     //     "A beautiful space to enjoy the northern lights with your friends by the campfire!",
     //   url:
     //     "https://github.com/the-expanse/StaticScenes/releases/download/7.0/tuscany",
-    //   skybox: 'https://cdn.theexpanse.app/file/2525/2%20copy.jpg',
+    //   skybox: this.expanseService.cdnUrl + 'file/2525/2%20copy.jpg',
     //   spawn: { x: 0, y: 0, z: 0 },
     //   offset: { x: 0, y: 0, z: 0 },
     //   attribution: "",
@@ -81,11 +81,11 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     // },
     {
       name: "Tuscany",
-      image: "https://cdn.theexpanse.app/file/1914/ezgif-5-9db8e0b6238a.jpg",
+      image: this.expanseService.cdnUrl + "file/1914/ezgif-5-9db8e0b6238a.jpg",
       description: "A fresh cup of nostalgia!",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/7.0/tuscany",
-      skybox: "https://cdn.theexpanse.app/file/2523/1%20copy.jpg",
+      skybox: this.expanseService.cdnUrl + "file/2523/1%20copy.jpg",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
       attribution: "",
@@ -94,7 +94,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     {
       name: "Mars One",
       image:
-        "https://cdn.theexpanse.app/file/2115/selfie_2019-08-16_20_52_38.jpg",
+        this.expanseService.cdnUrl + "file/2115/selfie_2019-08-16_20_52_38.jpg",
       description: "Explore the desolation of lost dreams.",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/15.0/mars_one",
@@ -108,11 +108,11 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     {
       name: "Tatiana Joo",
       image:
-        "https://cdn.theexpanse.app/file/2119/selfie_2019-08-16_20_56_20.jpg",
+        this.expanseService.cdnUrl + "file/2119/selfie_2019-08-16_20_56_20.jpg",
       description: "A private interior space to hang out in!",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/17.0/interior",
-      skybox: "https://cdn.theexpanse.app/file/2524/6%20copy.jpg",
+      skybox: this.expanseService.cdnUrl + "file/2524/6%20copy.jpg",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
       attribution:
@@ -122,12 +122,12 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     {
       name: "Khayiminga temple",
       image:
-        "https://cdn.theexpanse.app/file/2124/selfie_2019-08-16_21_00_49.jpg",
+        this.expanseService.cdnUrl + "file/2124/selfie_2019-08-16_21_00_49.jpg",
       description:
         "Bagan - Khayiminga temple interior, an amazing historic space.",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/16.0/temple",
-      skybox: "https://cdn.theexpanse.app/file/2525/2%20copy.jpg",
+      skybox: this.expanseService.cdnUrl + "file/2525/2%20copy.jpg",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
       attribution:
@@ -137,12 +137,12 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     {
       name: "The Isle of Mull",
       image:
-        "https://cdn.theexpanse.app/file/2531/selfie_2019-08-16_22_16_12.jpg",
+        this.expanseService.cdnUrl + "file/2531/selfie_2019-08-16_22_16_12.jpg",
       description:
         "The Isle of Mull or just Mull is the second-largest island of the Inner Hebrides off the west coast of Scotland.",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/18.0/isle_of_mull",
-      skybox: "https://cdn.theexpanse.app/file/2526/3%20copy.jpg",
+      skybox: this.expanseService.cdnUrl + "file/2526/3%20copy.jpg",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
       attribution:
@@ -153,7 +153,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     // {
     //   name: "Mortuary",
     //   image:
-    //     "https://cdn.theexpanse.app/file/1944/selfie_2019-08-14_16_44_44.jpg",
+    //     this.expanseService.cdnUrl + "file/1944/selfie_2019-08-14_16_44_44.jpg",
     //   description: "Come explore what secrets this space holds. ",
     //   url:
     //     "https://github.com/the-expanse/StaticScenes/releases/download/5.1/world",
@@ -164,7 +164,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     // {
     //   name: "Basement",
     //   image:
-    //     "https://cdn.theexpanse.app/file/1948/selfie_2019-08-14_16_57_10.jpg",
+    //     this.expanseService.cdnUrl + "file/1948/selfie_2019-08-14_16_57_10.jpg",
     //   description:
     //     "Batten down the hatches in the doomsday safe underground fortified bunker. " +
     //     "Find your way out of the bunker to see daylight again. ",
@@ -177,7 +177,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     // {
     //   name: "Low Poly Western",
     //   image:
-    //     "https://cdn.theexpanse.app/file/1952/selfie_2019-08-14_17_03_46.jpg",
+    //     this.expanseService.cdnUrl + "file/1952/selfie_2019-08-14_17_03_46.jpg",
     //   description:
     //     "Come hang out in this awesome western themed space, call someone out of the saloon for a draw! ",
     //   url:
@@ -188,7 +188,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     // },
     // {
     //   name: "Abandoned Colony",
-    //   image: "https://cdn.theexpanse.app/file/1956/Abandoned%20Colony.jpg",
+    //   image: this.expanseService.cdnUrl + "file/1956/Abandoned%20Colony.jpg",
     //   description: "Explore this abandoned colony, try to find out what happened.",
     //   url: "https://github.com/the-expanse/StaticScenes/releases/download/2.1/world",
     //   spawn: { x: 0, y: 0, z: 0}, offset: { x: 0, y: 0, z: 0},
@@ -197,7 +197,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     {
       name: "Fae's Castle",
       image:
-        "https://cdn.theexpanse.app/file/2008/selfie_2019-08-14_20_56_32.jpg",
+        this.expanseService.cdnUrl + "file/2008/selfie_2019-08-14_20_56_32.jpg",
       description: "Collect all the coins!",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/8.0/peach",
@@ -210,11 +210,11 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     },
     {
       name: "Wanderers",
-      image: "https://cdn.theexpanse.app/file/2012/w.jpg",
+      image: this.expanseService.cdnUrl + "file/2012/w.jpg",
       description: "A new planet with new possibilities.",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/9.0/wanderers",
-      skybox: "https://cdn.theexpanse.app/file/2527/7-s.jpg",
+      skybox: this.expanseService.cdnUrl + "file/2527/7-s.jpg",
       spawn: { x: 6, y: 3, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
       attribution:
@@ -224,11 +224,11 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     {
       name: "Giant's Bedroom",
       image:
-        "https://cdn.theexpanse.app/file/2058/selfie_2019-08-14_23_40_28.jpg",
+        this.expanseService.cdnUrl + "file/2058/selfie_2019-08-14_23_40_28.jpg",
       description: "Fe Fi Fo Fum, I smell the blood of an english man.",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/12.0/giants_bedroom",
-      skybox: "https://cdn.theexpanse.app/file/2529/5%20copy.jpg",
+      skybox: this.expanseService.cdnUrl + "file/2529/5%20copy.jpg",
       spawn: { x: 0, y: 11, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
       attribution:
@@ -237,7 +237,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     },
     // {
     //   name: "Tiny Town",
-    //   image: "https://cdn.theexpanse.app/file/2063/selfie_2019-08-15_00_38_02.jpg",
+    //   image: this.expanseService.cdnUrl + "file/2063/selfie_2019-08-15_00_38_02.jpg",
     //   description: "Destroy this tiny detailed town.",
     //   url: "https://github.com/the-expanse/StaticScenes/releases/download/13.0/tiny_town",
     //   spawn: { x: 0, y: 11, z: 0}, offset: { x: 0, y: 0, z: 0},
@@ -246,11 +246,11 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     {
       name: "Air Ship",
       image:
-        "https://cdn.theexpanse.app/file/2067/selfie_2019-08-15_00_41_14.jpg",
+        this.expanseService.cdnUrl + "file/2067/selfie_2019-08-15_00_41_14.jpg",
       description: "Float high above with this Airship.",
       url:
         "https://github.com/the-expanse/StaticScenes/releases/download/10.0/ship_in_clouds",
-      skybox: "https://cdn.theexpanse.app/file/2525/2%20copy.jpg",
+      skybox: this.expanseService.cdnUrl + "file/2525/2%20copy.jpg",
       spawn: { x: 0, y: 0, z: 0 },
       offset: { x: 0, y: 0, z: 0 },
       attribution:
@@ -260,7 +260,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     // {
     //   name: "Abandoned Colony",
     //   image:
-    //     "https://cdn.theexpanse.app/file/1960/selfie_2019-08-14_17_12_31.jpg",
+    //     this.expanseService.cdnUrl + "file/1960/selfie_2019-08-14_17_12_31.jpg",
     //   description:
     //     "Explore this abandoned colony, try to find out what happened.",
     //   url:
@@ -272,7 +272,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     // {
     //   name: "Unity Junkyard",
     //   image:
-    //     "https://cdn.theexpanse.app/file/1964/selfie_2019-08-14_17_17_47.jpg",
+    //     this.expanseService.cdnUrl + "file/1964/selfie_2019-08-14_17_17_47.jpg",
     //   description: "See what hidden treasures this junk yard contains!",
     //   url:
     //     "https://github.com/the-expanse/StaticScenes/releases/download/0.1/mecanimexamplescene",
@@ -283,7 +283,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
     // {
     //   name: "J5",
     //   image:
-    //     "https://cdn.theexpanse.app/file/1968/selfie_2019-08-14_17_21_28.jpg",
+    //     this.expanseService.cdnUrl + "file/1968/selfie_2019-08-14_17_21_28.jpg",
     //   description: "Jonny five is alive and he needs input!",
     //   url:
     //     "https://github.com/the-expanse/StaticScenes/releases/download/0.0.5/jj5",
@@ -504,7 +504,7 @@ export class SpaceManagerComponent implements OnInit, OnDestroy {
   }
 
   sendForApproval(spaces_id) {
-    return fetch("https://shanesedit.org:5678/new_space/" + spaces_id);
+    return fetch(this.expanseService.discordURl + "/new_space/" + spaces_id);
   }
 
   deleteSpace() {

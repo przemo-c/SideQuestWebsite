@@ -135,7 +135,8 @@ export class SignUpComponent implements OnInit {
           this.expanseService.currentSession = resp;
           this.service.isAuthenticated = !!resp;
           return fetch(
-            "https://shanesedit.org:5678/new_user/" +
+            this.expanseService.discordURl +
+              "/new_user/" +
               resp.users_id +
               "/" +
               this.name +

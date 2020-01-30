@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { AppService } from "../app.service";
+import { ExpanseClientService } from "../expanse-client.service";
 
 @Component({
   selector: "app-developers",
@@ -8,7 +9,10 @@ import { AppService } from "../app.service";
 })
 export class DevelopersComponent implements OnInit {
   totalDiscord;
-  constructor(public appService: AppService) {}
+  constructor(
+    public appService: AppService,
+    public expanseService: ExpanseClientService
+  ) {}
 
   ngOnInit() {
     fetch("https://proxy.statbot.net:5000/serverhome/413712766180786176")

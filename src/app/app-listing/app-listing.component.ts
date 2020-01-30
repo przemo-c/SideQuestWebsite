@@ -250,7 +250,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.service.showMessage(r, "Review Added!");
         if (!r.error) {
           return fetch(
-            "https://shanesedit.org:5678/new_review/" + r.reviews_id
+            this.expanseService.discordURl + "/new_review/" + r.reviews_id
           );
         }
       })

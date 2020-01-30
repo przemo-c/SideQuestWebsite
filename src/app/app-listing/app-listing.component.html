@@ -394,7 +394,7 @@
               <div class="review-card">
                 <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.users_id == expanseService.currentSession.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reviews_id;deleteReview.openModal()">close</i>
                 <i class="right material-icons blue-text rating-reply pointer" *ngIf="service.isAuthenticated && (currentApp.users_id == expanseService.currentSession.users_id) " (click)="currentReviewId = message.reviews_id;leaveReview.openModal()">replay</i>
-                <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}"/>
+                <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}?size=256"/>
                 <div class="margin-right"><span class="review-name">{{message.name}}</span> - {{message.created|fromNow}}</div>
                 <div class="">
                   <span class="review-name pink-text">{{message.rating}}/5</span> <i class="material-icons pink-text rating-star">star</i>
@@ -403,7 +403,7 @@
               </div>
               <div class="review-card reply-chip" *ngIf="message.reply_created">
                 <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.users_id == expanseService.currentSession.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reply_id;deleteReview.openModal()">close</i>
-                <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+currentApp.preview_image}}"/>
+                <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+currentApp.preview_image}}?size=256"/>
                 <div class="margin-right"><span class="review-name">Vendor Reply</span> - {{message.reply_created|fromNow}}</div>
                 <div [innerHTML]="message.reply_details"></div>
               </div>

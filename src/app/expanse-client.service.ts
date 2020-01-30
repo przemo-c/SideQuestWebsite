@@ -11,6 +11,7 @@ export class ExpanseClientService {
   url: string;
   cdnUrl: string;
   shortenerUrl: string;
+  discordURl: string;
   openResolves: any;
   storageKey: string;
   isStarted: boolean;
@@ -29,15 +30,19 @@ export class ExpanseClientService {
     this.messageResolves = {}; // localStorage.setItem('isDev','true');
     // localStorage.removeItem("isDev");
     this.isDev = localStorage.getItem("isDev");
+
     this.url = !!this.isDev
       ? "ws://192.168.0.34:3000"
       : "wss://api.theexpanse.app";
     this.cdnUrl = this.isDev
       ? "http://192.168.0.4:47000/"
       : "https://cdn.theexpanse.app/";
+
     this.shortenerUrl = this.isDev
       ? "http://192.168.0.4:47499/"
       : "https://sdq.st/";
+
+    this.discordURl = "https://xactaccounts.co.uk:5678";
     this.openResolves = [];
     this.storageKey = "";
   }
@@ -356,9 +361,7 @@ export class ExpanseClientService {
   downloadSketchFab(data) {
     return this.getCurrentSession().then((resp: any) => {
       return fetch(
-        (this.isDev
-          ? "http://192.168.0.4:47000"
-          : "https://cdn.theexpanse.app") +
+        this.cdnUrl +
           "/get-sketchfab/" +
           resp.token +
           "/" +

@@ -660,7 +660,7 @@ export class AccountComponent implements OnInit, OnDestroy {
         resp.forEach(a => {
           a.image_url =
             a.image_url ||
-            "https://cdn.theexpanse.app/file/2717/Untitled-2.jpg";
+            this.expanseService.cdnUrl + "file/2717/Untitled-2.jpg";
         });
         this.myInstalledApps =
           this.page === 0 ? resp : this.myInstalledApps.concat(resp);

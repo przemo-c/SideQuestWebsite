@@ -606,7 +606,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   sendForApproval(apps_id) {
-    return fetch("https://shanesedit.org:5678/new_app/" + apps_id);
+    return fetch(this.expanseService.discordURl + "/new_app/" + apps_id);
   }
 
   deleteApp() {

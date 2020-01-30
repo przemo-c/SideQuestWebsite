@@ -224,7 +224,8 @@ export class UserProfileComponent implements OnInit, OnDestroy {
           .then((res: any) => {
             if (res.length) {
               return fetch(
-                "https://shanesedit.org:5678/new_report/" +
+                this.expanseService.discordURl +
+                  "/new_report/" +
                   res[0].user_reports_id
               );
             }

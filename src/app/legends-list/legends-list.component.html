@@ -10,7 +10,7 @@
   </ng-container>
   <div class="row">
     <div *ngFor="let legend of legends" class="col s12 l6">
-      <div class="small-image" [ngStyle]="{'background-image':'url(\''+legend.banner_image+'\')'}">
+      <div class="small-image" [ngStyle]="{'background-image':'url(\''+legend.banner_image+'?size=1024\')'}">
         <app-over-image [firstNews]="{title: legend.name, description: legend.score_points}" (output)="appService.scrollToTop();router.navigateByUrl('/user/'+legend.users_id)"></app-over-image>
       </div>
     </div>

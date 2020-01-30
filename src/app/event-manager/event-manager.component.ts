@@ -289,7 +289,7 @@ export class EventManagerComponent implements OnInit, OnDestroy {
   }
 
   sendForApproval(events_id) {
-    return fetch("https://shanesedit.org:5678/new_event/" + events_id);
+    return fetch(this.expanseService.discordURl + "/new_event/" + events_id);
   }
 
   deleteEvent() {

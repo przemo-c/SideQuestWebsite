@@ -293,7 +293,7 @@
         <div class="user-chip chip">
           <div class="settings-button right" routerLink="/user/{{message.users_id}}" (click)="appService.scrollToTop()"><i class="material-icons medium pointer">settings</i></div>
           <div class="right" (click)="appService.scrollToTop();" routerLink="/account/message-thread/{{message.users_id}}"><span class="message-badge new badge pointer" *ngIf="message.is_read > 0">{{message.is_read|notOverNine}}</span><i class="material-icons medium pointer " [ngClass]="{'pink-text': message.is_read > 0}">mail</i></div>
-          <img src="{{expanseService.cdnUrl+message.preview_image}}" />
+          <img src="{{expanseService.cdnUrl+message.preview_image}}?size=256" />
           <div class="right">{{message.message_date|fromNow}}</div>
           <div class="chip-title">{{message.name}}</div>
           <div class="truncate">{{message.sent_id == expanseService.currentSession.users_id ? 'You replied: ' : ''}}{{message.last_message}}</div>
@@ -310,7 +310,7 @@
         <div class="col s12 m6" *ngFor="let friend of myBlocked">
           <div class="user-chip chip">
             <div class="settings-button right" routerLink="/user/{{friend.users_id}}"  (click)="appService.scrollToTop()"><i class="material-icons medium pointer">settings</i></div>
-            <img src="{{expanseService.cdnUrl+friend.preview_image}}" />
+            <img src="{{expanseService.cdnUrl+friend.preview_image}}?size=256" />
             <div class="chip-title">{{friend.name}}</div>{{friend.initiated?'They blocked you ':'You blocked them '}}{{friend.since|fromNow}}
           </div>
         </div>
@@ -637,7 +637,7 @@
       </div>
       <div class="col s12" *ngFor="let message of myThreads">
         <div class="user-chip chip message-chip" [ngClass]="{'other-user-message':!message.is_mine}">
-          <img routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}"/>
+          <img routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}?size=256"/>
           <div class="right margin-right">{{message.message_date|fromNow}}</div>
           <div class="chip-title">{{message.name}}</div>
           <div [innerHTML]="message.message"></div>
