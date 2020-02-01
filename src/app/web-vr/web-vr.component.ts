@@ -180,15 +180,6 @@ export class WebVRComponent implements OnInit {
       logo: "https://supermedium.com/superassets/site/spacedisaster.png"
     },
     {
-      url: "http://swimminglessonsformodernlife.com/polygon-shredder/",
-      title: "Polygon Shredder",
-      author: "Jaume Sanchez Elias (@thespite)",
-      description:
-        "A whirlwind of confetti amassed from shredded cubes and polygons.",
-      image: "https://supermedium.com/superassets/site/polygonshredder.jpg",
-      logo: "https://supermedium.com/superassets/site/polygonshredder.png"
-    },
-    {
       url: "https://findinglove.activetheory.net/",
       title: "Finding Love",
       author: "Active Theory",
@@ -275,15 +266,15 @@ export class WebVRComponent implements OnInit {
       image: "https://supermedium.com/superassets/site/bear71.jpg",
       logo: "https://supermedium.com/superassets/site/bear71.png"
     },
-    {
-      url: "https://cecropia.github.io/thehallaframe/",
-      title: "The Hall",
-      author: "Cecropia Solutions",
-      description:
-        "A fine little museum. Statues, kinectic sculptures, and paintings.",
-      image: "https://supermedium.com/superassets/site/thehall.jpg",
-      logo: "https://supermedium.com/superassets/site/thehall.png"
-    },
+    // {
+    //   url: "https://cecropia.github.io/thehallaframe/",
+    //   title: "The Hall",
+    //   author: "Cecropia Solutions",
+    //   description:
+    //     "A fine little museum. Statues, kinectic sculptures, and paintings.",
+    //   image: "https://supermedium.com/superassets/site/thehall.jpg",
+    //   logo: "https://supermedium.com/superassets/site/thehall.png"
+    // },
     {
       url: "https://aframe.city/",
       title: "City Builder",
@@ -338,15 +329,15 @@ export class WebVRComponent implements OnInit {
       image: "https://supermedium.com/superassets/site/darkhaze.jpg",
       logo: "https://supermedium.com/superassets/site/darkhaze.png"
     },
-    {
-      url: "https://christmasexperiments.com/xps/2016/01/night-eye/",
-      title: "Night Eye",
-      author: "Lin.Bert Collective",
-      description:
-        "Using abstract lines to recreate the shape of the animals in the forest. Click the thumb at the winds to move.",
-      image: "https://supermedium.com/superassets/site/nighteye.jpg",
-      logo: "https://supermedium.com/superassets/site/nighteye.png"
-    },
+    // {
+    //   url: "https://christmasexperiments.com/xps/2016/01/night-eye/",
+    //   title: "Night Eye",
+    //   author: "Lin.Bert Collective",
+    //   description:
+    //     "Using abstract lines to recreate the shape of the animals in the forest. Click the thumb at the winds to move.",
+    //   image: "https://supermedium.com/superassets/site/nighteye.jpg",
+    //   logo: "https://supermedium.com/superassets/site/nighteye.png"
+    // },
     {
       url: "https://aframe.io/a-blast/",
       title: "A-Blast",
@@ -519,6 +510,15 @@ export class WebVRComponent implements OnInit {
       logo: "https://supermedium.com/superassets/site/vrbeats.png"
     },
     {
+      url: "https://codercat.tk/monster-or-friend/",
+      title: "Monster or Friend",
+      author: "Codercat (@kirill @sneha)",
+      description:
+        "You are followed by a procedurally animated sea space creature. A visual and audio experience.",
+      image: "https://supermedium.com/superassets/site/monsterorfriend.jpg",
+      logo: "https://supermedium.com/superassets/site/monsterorfriend.png"
+    },
+    {
       url: "https://towermax.fitness/tower/",
       title: "Tower Max Fitness",
       author: "SROMLINE",
@@ -526,41 +526,6 @@ export class WebVRComponent implements OnInit {
         "TRAIN YOUR POWER WITH THE TOWER. Soundbased VR workout in space on a tower.",
       image: "https://supermedium.com/superassets/site/towermaxfitness.jpg",
       logo: "https://supermedium.com/superassets/site/towermaxfitness.png"
-    },
-    {
-      url: "https://vrblocks.gatunes.com/",
-      title: "VRBlocks",
-      author: "Daniel Esteban (@danigatunes)",
-      description:
-        "A tranquil multiplayer Minecraft-like sandbox. The sequel to Walking Simulator.",
-      image: "https://supermedium.com/superassets/site/vrblocks.jpg",
-      logo: "https://supermedium.com/superassets/site/vrblocks.png"
-    },
-    {
-      url: "https://demos.littleworkshop.fr/demos/track/",
-      title: "Track",
-      author: "Little Workshop",
-      description:
-        "Go on a trip. Randomly ever-changing environment composed of various geometrical shapes.",
-      image: "https://supermedium.com/superassets/site/track.jpg",
-      logo: "https://supermedium.com/superassets/site/track.png"
-    },
-    {
-      url: "https://www.jorgefuentes.net/projects/halloVReen/",
-      title: "HalloVReen",
-      author: "Jorge Fuentes (@jorgefuentesnet)",
-      description:
-        "Gaze upon the citizens of Creepville and see what they're up to. Can you find them all?",
-      image: "https://supermedium.com/superassets/site/hallovreen.jpg",
-      logo: "https://supermedium.com/superassets/site/hallovreen.png"
-    },
-    {
-      url: "https://realmsvr.gatunes.com",
-      title: "Realms VR",
-      author: "Daniel Esteban (@danigatunes)",
-      description: "A recursive VR experience.",
-      image: "https://supermedium.com/superassets/site/realmsvr.jpg",
-      logo: "https://supermedium.com/superassets/site/realmsvr.png"
     },
     {
       url:
@@ -572,6 +537,50 @@ export class WebVRComponent implements OnInit {
       logo: "https://supermedium.com/superassets/site/baristaexpress.png"
     },
     {
+      url: "https://vrblocks.gatunes.com/",
+      title: "VRBlocks",
+      author: "Daniel Esteban (@danigatunes)",
+      description:
+        "A tranquil multiplayer Minecraft-like sandbox. The sequel to Walking Simulator.",
+      image: "https://supermedium.com/superassets/site/vrblocks.jpg",
+      logo: "https://supermedium.com/superassets/site/vrblocks.png"
+    },
+    {
+      url: "https://www.jorgefuentes.net/projects/halloVReen/",
+      title: "HalloVReen",
+      author: "Jorge Fuentes (@jorgefuentesnet)",
+      description:
+        "Gaze upon the citizens of Creepville and see what they're up to. Can you find them all?",
+      image: "https://supermedium.com/superassets/site/hallovreen.jpg",
+      logo: "https://supermedium.com/superassets/site/hallovreen.png"
+    },
+    {
+      url: "http://swimminglessonsformodernlife.com/polygon-shredder/",
+      title: "Polygon Shredder",
+      author: "Jaume Sanchez Elias (@thespite)",
+      description:
+        "A whirlwind of confetti amassed from shredded cubes and polygons.",
+      image: "https://supermedium.com/superassets/site/polygonshredder.jpg",
+      logo: "https://supermedium.com/superassets/site/polygonshredder.png"
+    },
+    {
+      url: "https://realmsvr.gatunes.com",
+      title: "Realms VR",
+      author: "Daniel Esteban (@danigatunes)",
+      description: "A recursive VR experience.",
+      image: "https://supermedium.com/superassets/site/realmsvr.jpg",
+      logo: "https://supermedium.com/superassets/site/realmsvr.png"
+    },
+    {
+      url: "https://demos.littleworkshop.fr/demos/track/",
+      title: "Track",
+      author: "Little Workshop",
+      description:
+        "Go on a trip. Randomly ever-changing environment composed of various geometrical shapes.",
+      image: "https://supermedium.com/superassets/site/track.jpg",
+      logo: "https://supermedium.com/superassets/site/track.png"
+    },
+    {
       url: "https://www.bluecybervr.com/episode01/",
       title: "Blue Cyber: Episode 1",
       author: "@bluecybervr",
@@ -579,15 +588,6 @@ export class WebVRComponent implements OnInit {
         "You are charged to protect the galaxy with powers given from the artfiact, Blue Cyber. A science fantasy VR story.",
       image: "https://supermedium.com/superassets/site/bluecyber.jpg",
       logo: "https://supermedium.com/superassets/site/bluecyber.png"
-    },
-    {
-      url: "https://codercat.tk/monster-or-friend/",
-      title: "Monster or Friend",
-      author: "Codercat (@kirill @sneha)",
-      description:
-        "You are followed by a procedurally animated sea space creature. A visual and audio experience.",
-      image: "https://supermedium.com/superassets/site/monsterorfriend.jpg",
-      logo: "https://supermedium.com/superassets/site/monsterorfriend.png"
     },
     {
       url: "https://moonrider.xyz",
