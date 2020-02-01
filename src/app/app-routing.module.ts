@@ -34,6 +34,7 @@ import { ScriptingAppBehavioursComponent } from "./scripting-app-behaviours/scri
 import { ScriptingInteractionComponent } from "./scripting-interaction/scripting-interaction.component";
 import { ScriptingInputControlsComponent } from "./scripting-input-controls/scripting-input-controls.component";
 import { EthicsComponent } from "./ethics/ethics.component";
+import { WebVRComponent } from "./web-vr/web-vr.component";
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
@@ -126,6 +127,7 @@ const routes: Routes = [
     canActivate: [LoginGuard]
   },
   { path: "the-expanse", component: HomeComponent },
+  { path: "webvr", component: WebVRComponent },
   { path: "setup-howto", component: SetupHowtoComponent },
   { path: "login", component: LoginComponent, canActivate: [NotLoginGuard] },
   {

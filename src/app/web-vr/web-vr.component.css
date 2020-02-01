@@ -1,0 +1,19 @@
+.padding{
+  padding-left: 3em;
+  padding-right: 3em;
+}
+.web-vr-banner{
+  width: 100%;
+  height: 300px;
+  background: transparent url(https://i.imgur.com/auckSJw.jpg) center center no-repeat;
+  background-size: cover;
+  position:relative;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.web-vr-banner h4{
+  position: absolute;
+  bottom: 10px;
+  left: 30px;
+  font-size: 2rem;
+}

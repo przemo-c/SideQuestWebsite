@@ -1,0 +1,22 @@
+
+<div class="main-container padding">
+
+  <div class="web-vr-banner">
+<!--    <h4 class="inline-block">VR powered by the Open Web</h4>-->
+  </div>
+  <div class="right search-box input-field">
+    <i class="material-icons prefix">search</i>
+
+    <input id="searchBox" type="text" class="validate"
+           [(ngModel)]="searchString"
+           (input)="debounceSearch()"
+    >
+    <label for="searchBox">Search</label>
+  </div>
+  <h4 class="inline-block">WebVR Experiences</h4>
+  <div class="grey-text">Launch this page from within your headset's browser ( use <a href="https://sdq.st/webvr">sdq.st/webvr</a> for quick access ).</div><br>
+  <div class="clearfix"></div>
+  <div class="row">
+    <app-app-display-box [apps]="apps" [showAds]="false" [isFourRow]="true"></app-app-display-box>
+  </div>
+</div>
