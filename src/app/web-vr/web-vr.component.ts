@@ -26,15 +26,6 @@ export class WebVRComponent implements OnInit {
       logo: "https://supermedium.com/superassets/site/jellyface.png"
     },
     {
-      url: "https://patches.vizor.io/machinedrum/ocean-of-thought",
-      title: "Ocean of Thought",
-      author: "machinedrum + fthr + lintu",
-      description:
-        "A surreal and relaxive music experience for Machine Drum's Ocean of Thought.",
-      image: "https://supermedium.com/superassets/site/oceanofthought.jpg",
-      logo: "https://supermedium.com/superassets/site/oceanofthought.png"
-    },
-    {
       url: "https://supermedium.com/gunters-of-oasis-deploy/",
       title: "Gunters of OASIS",
       author: "Supermedium",
@@ -71,33 +62,6 @@ export class WebVRComponent implements OnInit {
       logo: "https://supermedium.com/superassets/site/slimefreighter.png"
     },
     {
-      url: "https://sketchfab.com/models/311d052a9f034ba8bce55a1a8296b6f9",
-      title: "Van Gogh Room",
-      author: "Ruslan Sokolovsky",
-      description:
-        "The room of the artist. Recreation of Vincent Van Gogh's 'The Bedroom' painting.",
-      image: "https://supermedium.com/superassets/site/vangoghroom.jpg",
-      logo: "https://supermedium.com/superassets/site/vangoghroom.png"
-    },
-    {
-      url: "https://sketchfab.com/models/2324f9685404433fa6231c7cb2cd2ff5",
-      title: "Apollo 11",
-      author: "The Arck Project",
-      description:
-        "Neil Armstrong & Buzz Aldrin landed on the moon July 20, 1969. Step onto the lunar surface alongside Armstrong.",
-      image: "https://supermedium.com/superassets/site/apollo11.jpg",
-      logo: "https://supermedium.com/superassets/site/apollo11.png"
-    },
-    {
-      url: "https://sketchfab.com/models/69be107ca5234ca8a9fcff6ba6851e9e",
-      title: "Sherlock",
-      author: "Aurelien Martel",
-      description:
-        "Visit 221B Baker Street, home of the world's most renowned detective.",
-      image: "https://supermedium.com/superassets/site/sherlock.jpg",
-      logo: "https://supermedium.com/superassets/site/sherlock.png"
-    },
-    {
       url: "https://supermedium.com/supersays/src",
       title: "Super Says",
       author: "@feiss",
@@ -105,15 +69,6 @@ export class WebVRComponent implements OnInit {
         "Test your memory with Super. Memorize the color sequence and grab a high score!",
       image: "https://supermedium.com/superassets/site/supersays.jpg",
       logo: "https://supermedium.com/superassets/site/supersays.png"
-    },
-    {
-      url: "https://sketchfab.com/models/618ea0209b1045e89b2c6d2b74d0956e",
-      title: "Lily & Snout",
-      author: "Sketchfab",
-      description:
-        "A girl, a dragon, and some berries. Pick your vantage point and watch this charming VR short.",
-      image: "https://supermedium.com/superassets/site/lilyandsnout.jpg",
-      logo: "https://supermedium.com/superassets/site/lilyandsnout.png"
     },
     {
       url: "https://sketchfab.com/models/90034cbe58904828a11429395cef9125",
@@ -161,15 +116,6 @@ export class WebVRComponent implements OnInit {
         "Enter a world of imagination and color in this interactive music experience for The Chemical Brothers Under Neon Lights.",
       image: "https://supermedium.com/superassets/site/underneonlights.jpg",
       logo: "https://supermedium.com/superassets/site/underneonlights.png"
-    },
-    {
-      url: "https://tabel.withgoogle.com/film",
-      title: "Tabel",
-      author: "Art Copy & Code + Google",
-      description:
-        "A tasty allegory for global inaction in the face of climate change. Listen to the conversation you want.",
-      image: "https://supermedium.com/superassets/site/tabel.jpg",
-      logo: "https://supermedium.com/superassets/site/tabel.png"
     },
     {
       url: "https://forest.webvrexperiments.com/",
@@ -544,15 +490,6 @@ export class WebVRComponent implements OnInit {
         "A medieval dance-off. Sit back and be the judge, who's got the moves?",
       image: "https://supermedium.com/superassets/site/epicmedievalbattle.jpg",
       logo: "https://supermedium.com/superassets/site/epicmedievalbattle.png"
-    },
-    {
-      url: "https://my.panomoments.com",
-      title: "PanoMoments",
-      author: "PanoMoments",
-      description:
-        "The GIFs of VR, control time with your gaze! Press any button navigate through visual stories and living photos.",
-      image: "https://supermedium.com/superassets/site/panomoments.jpg",
-      logo: "https://supermedium.com/superassets/site/panomoments.png"
     },
     {
       url: "http://micosmo.com/trajectilecommand/",
