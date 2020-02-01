@@ -266,15 +266,6 @@ export class WebVRComponent implements OnInit {
       image: "https://supermedium.com/superassets/site/bear71.jpg",
       logo: "https://supermedium.com/superassets/site/bear71.png"
     },
-    // {
-    //   url: "https://cecropia.github.io/thehallaframe/",
-    //   title: "The Hall",
-    //   author: "Cecropia Solutions",
-    //   description:
-    //     "A fine little museum. Statues, kinectic sculptures, and paintings.",
-    //   image: "https://supermedium.com/superassets/site/thehall.jpg",
-    //   logo: "https://supermedium.com/superassets/site/thehall.png"
-    // },
     {
       url: "https://aframe.city/",
       title: "City Builder",
@@ -301,15 +292,6 @@ export class WebVRComponent implements OnInit {
         "Ride the audio reactive waves. First installment of featuring generative VR worlds.",
       image: "https://supermedium.com/superassets/site/resonate.jpg",
       logo: "https://supermedium.com/superassets/site/resonate.png"
-    },
-    {
-      url: "https://speaktogo.withgoogle.com/",
-      title: "Speak to Go",
-      author: "Google Creative Lab",
-      description:
-        "Discover somewhere new in the world. 360-degree imagery from around the globe. Press the trigger instead of the spacebar.",
-      image: "https://supermedium.com/superassets/site/speaktogo.jpg",
-      logo: "https://supermedium.com/superassets/site/speaktogo.png"
     },
     {
       url: "https://spacerocks.moar.io/",
