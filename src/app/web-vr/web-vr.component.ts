@@ -473,15 +473,15 @@ export class WebVRComponent implements OnInit {
       image: "https://supermedium.com/superassets/site/pokemon.jpg",
       logo: "https://supermedium.com/superassets/site/pokemon.png"
     },
-    {
-      url: "https://sketchfab.com/models/d7fbea6211aa4116ae8a3a882af55c6c",
-      title: "Destroyed Subway",
-      author: "Aur<C3><83><C2><A9>lien Marlle",
-      description:
-        "A subway that won't be in service any time soon. Inspired by post-apocalyptic horror game Metro 2033.",
-      image: "https://supermedium.com/superassets/site/destroyedsubway.jpg",
-      logo: "https://supermedium.com/superassets/site/destroyedsubway.png"
-    },
+    // {
+    //   url: "https://sketchfab.com/models/d7fbea6211aa4116ae8a3a882af55c6c",
+    //   title: "Destroyed Subway",
+    //   author: "Aur<C3><83><C2><A9>lien Marlle",
+    //   description:
+    //     "A subway that won't be in service any time soon. Inspired by post-apocalyptic horror game Metro 2033.",
+    //   image: "https://supermedium.com/superassets/site/destroyedsubway.jpg",
+    //   logo: "https://supermedium.com/superassets/site/destroyedsubway.png"
+    // },
     {
       url: "https://sketchfab.com/models/63dd568f5bc64e8694d5f4252924c99e",
       title: "Sherwood Forest",
