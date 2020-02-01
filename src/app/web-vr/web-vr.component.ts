@@ -580,86 +580,86 @@ export class WebVRComponent implements OnInit {
       image: "https://supermedium.com/superassets/site/trajectilecommand.jpg",
       logo: "https://supermedium.com/superassets/site/trajectilecommand.png"
     },
-    {
-      url: "https://supermedium.com/craft/",
-      title: "Supercraft",
-      author: "Supermedium",
-      description:
-        "Build a VR world in minutes! Publish your creation instantly to the Web to share with your friends.",
-      image: "https://supermedium.com/superassets/site/supercraft.jpg",
-      logo: "https://supermedium.com/superassets/site/supercraft.png"
-    },
-    {
-      url: "https://supermedium.com/craft/bawdy-wealth",
-      title: "Dragon",
-      author: "Diego F. Goberna",
-      image: "https://supermedium.com/superassets/site/supercraftdragon.jpg",
-      logo: "https://supermedium.com/superassets/site/supercraft.png"
-    },
-    {
-      url: "https://supermedium.com/craft/fierce-talk",
-      title: "Blimps",
-      author: "Diego F. Goberna",
-      image: "https://supermedium.com/superassets/site/supercraftblimps.jpg",
-      logo: "https://supermedium.com/superassets/site/supercraft.png"
-    },
-    {
-      url: "https://supermedium.com/craft/icky-snake",
-      title: "Castle of Mystery",
-      author: "Diego F. Goberna",
-      image: "https://supermedium.com/superassets/site/supercraftcastle.jpg",
-      logo: "https://supermedium.com/superassets/site/supercraft.png"
-    },
-    {
-      url: "https://supermedium.com/craft/cooperative-potato",
-      title: "Mecha",
-      author: "Diego F. Goberna",
-      image: "https://supermedium.com/superassets/site/supercraftmecha.jpg",
-      logo: "https://supermedium.com/superassets/site/supercraft.png"
-    },
-    {
-      url: "https://supermedium.com/craft/shocking-hose",
-      title: "Toy Mountain",
-      author: "Diego F. Goberna",
-      image:
-        "https://supermedium.com/superassets/site/supercrafttoymountain.jpg",
-      logo: "https://supermedium.com/superassets/site/supercraft.png"
-    },
-    {
-      url: "https://supermedium.com/craft/onerous-chalk",
-      title: "Danger",
-      author: "Diego F. Goberna",
-      image: "https://supermedium.com/superassets/site/supercraftdanger.jpg",
-      logo: "https://supermedium.com/superassets/site/supercraft.png"
-    },
-    {
-      url: "https://supermedium.com/craft/dangerous-cars",
-      title: "Homer",
-      author: "Diego F. Goberna",
-      image: "https://supermedium.com/superassets/site/supercrafthomer.jpg",
-      logo: "https://supermedium.com/superassets/site/supercraft.png"
-    },
-    {
-      url: "https://supermedium.com/craft/previous-acoustics",
-      title: "Powerpuff",
-      author: "Diego F. Goberna",
-      image: "https://supermedium.com/superassets/site/supercraftpowerpuff.jpg",
-      logo: "https://supermedium.com/superassets/site/supercraft.png"
-    },
-    {
-      url: "https://supermedium.com/craft/wealthy-dock",
-      title: "Cave",
-      author: "Kevin Ngo",
-      image: "https://supermedium.com/superassets/site/supercraftcave.jpg",
-      logo: "https://supermedium.com/superassets/site/supercraft.png"
-    },
-    {
-      url: "https://supermedium.com/craft/optimal-marble",
-      title: "Canyon",
-      author: "Diego F. Goberna",
-      image: "https://supermedium.com/superassets/site/supercraftcanyon.jpg",
-      logo: "https://supermedium.com/superassets/site/supercraft.png"
-    },
+    // {
+    //   url: "https://supermedium.com/craft/",
+    //   title: "Supercraft",
+    //   author: "Supermedium",
+    //   description:
+    //     "Build a VR world in minutes! Publish your creation instantly to the Web to share with your friends.",
+    //   image: "https://supermedium.com/superassets/site/supercraft.jpg",
+    //   logo: "https://supermedium.com/superassets/site/supercraft.png"
+    // },
+    // {
+    //   url: "https://supermedium.com/craft/bawdy-wealth",
+    //   title: "Dragon",
+    //   author: "Diego F. Goberna",
+    //   image: "https://supermedium.com/superassets/site/supercraftdragon.jpg",
+    //   logo: "https://supermedium.com/superassets/site/supercraft.png"
+    // },
+    // {
+    //   url: "https://supermedium.com/craft/fierce-talk",
+    //   title: "Blimps",
+    //   author: "Diego F. Goberna",
+    //   image: "https://supermedium.com/superassets/site/supercraftblimps.jpg",
+    //   logo: "https://supermedium.com/superassets/site/supercraft.png"
+    // },
+    // {
+    //   url: "https://supermedium.com/craft/icky-snake",
+    //   title: "Castle of Mystery",
+    //   author: "Diego F. Goberna",
+    //   image: "https://supermedium.com/superassets/site/supercraftcastle.jpg",
+    //   logo: "https://supermedium.com/superassets/site/supercraft.png"
+    // },
+    // {
+    //   url: "https://supermedium.com/craft/cooperative-potato",
+    //   title: "Mecha",
+    //   author: "Diego F. Goberna",
+    //   image: "https://supermedium.com/superassets/site/supercraftmecha.jpg",
+    //   logo: "https://supermedium.com/superassets/site/supercraft.png"
+    // },
+    // {
+    //   url: "https://supermedium.com/craft/shocking-hose",
+    //   title: "Toy Mountain",
+    //   author: "Diego F. Goberna",
+    //   image:
+    //     "https://supermedium.com/superassets/site/supercrafttoymountain.jpg",
+    //   logo: "https://supermedium.com/superassets/site/supercraft.png"
+    // },
+    // {
+    //   url: "https://supermedium.com/craft/onerous-chalk",
+    //   title: "Danger",
+    //   author: "Diego F. Goberna",
+    //   image: "https://supermedium.com/superassets/site/supercraftdanger.jpg",
+    //   logo: "https://supermedium.com/superassets/site/supercraft.png"
+    // },
+    // {
+    //   url: "https://supermedium.com/craft/dangerous-cars",
+    //   title: "Homer",
+    //   author: "Diego F. Goberna",
+    //   image: "https://supermedium.com/superassets/site/supercrafthomer.jpg",
+    //   logo: "https://supermedium.com/superassets/site/supercraft.png"
+    // },
+    // {
+    //   url: "https://supermedium.com/craft/previous-acoustics",
+    //   title: "Powerpuff",
+    //   author: "Diego F. Goberna",
+    //   image: "https://supermedium.com/superassets/site/supercraftpowerpuff.jpg",
+    //   logo: "https://supermedium.com/superassets/site/supercraft.png"
+    // },
+    // {
+    //   url: "https://supermedium.com/craft/wealthy-dock",
+    //   title: "Cave",
+    //   author: "Kevin Ngo",
+    //   image: "https://supermedium.com/superassets/site/supercraftcave.jpg",
+    //   logo: "https://supermedium.com/superassets/site/supercraft.png"
+    // },
+    // {
+    //   url: "https://supermedium.com/craft/optimal-marble",
+    //   title: "Canyon",
+    //   author: "Diego F. Goberna",
+    //   image: "https://supermedium.com/superassets/site/supercraftcanyon.jpg",
+    //   logo: "https://supermedium.com/superassets/site/supercraft.png"
+    // },
     {
       url: "https://projects.gatunes.com/wsvr/#/61331/443,-448",
       title: "Walking Simulator VR",
@@ -714,14 +714,14 @@ export class WebVRComponent implements OnInit {
       image: "https://supermedium.com/superassets/site/hallovreen.jpg",
       logo: "https://supermedium.com/superassets/site/hallovreen.png"
     },
-    {
-      url: "https://www.jorgefuentes.net/projects/vuppets/vuppets_6DOF/",
-      title: "Vuppets",
-      author: "Jorge Fuentes (@jorgefuentesnet)",
-      description: "Put on a show with these cute animated hand puppets.",
-      image: "https://supermedium.com/superassets/site/vuppets.jpg",
-      logo: "https://supermedium.com/superassets/site/vuppets.png"
-    },
+    // {
+    //   url: "https://www.jorgefuentes.net/projects/vuppets/vuppets_6DOF/",
+    //   title: "Vuppets",
+    //   author: "Jorge Fuentes (@jorgefuentesnet)",
+    //   description: "Put on a show with these cute animated hand puppets.",
+    //   image: "https://supermedium.com/superassets/site/vuppets.jpg",
+    //   logo: "https://supermedium.com/superassets/site/vuppets.png"
+    // },
     {
       url: "https://realmsvr.gatunes.com",
       title: "Realms VR",
