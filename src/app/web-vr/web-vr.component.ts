@@ -70,25 +70,25 @@ export class WebVRComponent implements OnInit {
       image: "https://supermedium.com/superassets/site/supersays.jpg",
       logo: "https://supermedium.com/superassets/site/supersays.png"
     },
-    {
-      url: "https://sketchfab.com/models/90034cbe58904828a11429395cef9125",
-      title: "Tomb of Nefertari",
-      author: "scionk",
-      description:
-        "A 3D reconstruction of QV66, the tomb of Egyptian queen Nefertari (1255 BC), in the Valley of the Queens.",
-      image: "https://supermedium.com/superassets/site/nefertari.jpg",
-      logo: "https://supermedium.com/superassets/site/nefertari.png"
-    },
-    {
-      url: "https://sketchfab.com/models/478d32513eda44338b59aa2284ee01b8",
-      title: "Sea Railway",
-      author: "fongoose",
-      description: "Relive the Sea-Railway scene from Spirited Away.",
-      image:
-        "https://supermedium.com/superassets/site/spiritedawaysearailway.jpg",
-      logo:
-        "https://supermedium.com/superassets/site/spiritedawaysearailway.png"
-    },
+    // {
+    //   url: "https://sketchfab.com/models/90034cbe58904828a11429395cef9125",
+    //   title: "Tomb of Nefertari",
+    //   author: "scionk",
+    //   description:
+    //     "A 3D reconstruction of QV66, the tomb of Egyptian queen Nefertari (1255 BC), in the Valley of the Queens.",
+    //   image: "https://supermedium.com/superassets/site/nefertari.jpg",
+    //   logo: "https://supermedium.com/superassets/site/nefertari.png"
+    // },
+    // {
+    //   url: "https://sketchfab.com/models/478d32513eda44338b59aa2284ee01b8",
+    //   title: "Sea Railway",
+    //   author: "fongoose",
+    //   description: "Relive the Sea-Railway scene from Spirited Away.",
+    //   image:
+    //     "https://supermedium.com/superassets/site/spiritedawaysearailway.jpg",
+    //   logo:
+    //     "https://supermedium.com/superassets/site/spiritedawaysearailway.png"
+    // },
     {
       url: "https://aframe.io/a-painter/",
       title: "A-Painter",
