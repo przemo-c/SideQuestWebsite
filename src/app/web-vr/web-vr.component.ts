@@ -554,6 +554,16 @@ export class WebVRComponent implements OnInit {
       logo: "https://supermedium.com/superassets/site/realmsvr.png"
     },
     {
+      url: "https://spiderman.webvr.link/",
+      title: "Spider-Man VR Experience",
+      author: "Tal Kol (@talkol)",
+      description:
+        "Virtual Reality experience based on WebVR, works best with a VR headset like Oculus Quest.",
+      image:
+        "https://github.com/talkol/spiderman/raw/master/assets/preview.gif",
+      logo: "https://github.com/talkol/spiderman/raw/master/assets/preview.gif"
+    },
+    {
       url: "https://demos.littleworkshop.fr/demos/track/",
       title: "Track",
       author: "Little Workshop",

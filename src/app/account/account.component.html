@@ -712,7 +712,10 @@
         </div>
         <div class="input-field">
           <i class="material-icons prefix">lock</i>
-          <input id="password2" type="password" placeholder="Password Again..." [(ngModel)]="newPassword1">
+          <input id="password2" type="password" placeholder="Password Again..."
+
+                 ng-model-options="{ allowInvalid: true }"
+                 [(ngModel)]="newPassword1">
           <label for="password2" class="active">Password Again</label>
         </div>
       </div>
