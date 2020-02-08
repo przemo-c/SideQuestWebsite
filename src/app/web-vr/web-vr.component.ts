@@ -402,41 +402,41 @@ export class WebVRComponent implements OnInit {
       logo:
         "https://supermedium.com/superassets/site/robinhoodinsherwoodforest.png"
     },
-    {
-      url: "https://sketchfab.com/models/7bb67d1dea724a6eb4ebe21bcf94b09e",
-      title: "SIKA",
-      author: "Marine Quiviger",
-      description:
-        "Deer under a cherry blossom on an island in the moonlit lake.",
-      image: "https://supermedium.com/superassets/site/sika.jpg",
-      logo: "https://supermedium.com/superassets/site/sika.png"
-    },
-    {
-      url: "https://www.shadertoy.com/view/4dSGW1",
-      title: "Grid of Cylinders",
-      author: "Inigo Quilez (iq)",
-      description:
-        "An infinite grid of cylinders, like the swelling waves of the ocean. An expanse of mountains, rising and falling, forever.",
-      image: "https://supermedium.com/superassets/site/gridofcylinders.jpg",
-      logo: "https://supermedium.com/superassets/site/gridofcylinders.png"
-    },
-    {
-      url: "https://www.shadertoy.com/view/Msl3Rr",
-      title: "Cubescape",
-      author: "Inigo Quilez (iq)",
-      description:
-        "Marvel at the fine detail of the wood-grained waveforms. Rounded pulsating cubes that bounce to the beat.",
-      image: "https://supermedium.com/superassets/site/cubescape.jpg",
-      logo: "https://supermedium.com/superassets/site/cubescape.png"
-    },
-    {
-      url: "https://www.shadertoy.com/view/XsjXR1",
-      title: "Worms",
-      author: "Inigo Quilez (iq)",
-      description: "A surreal experience in a forest of strand things.",
-      image: "https://supermedium.com/superassets/site/worms.jpg",
-      logo: "https://supermedium.com/superassets/site/worms.png"
-    },
+    // {
+    //   url: "https://sketchfab.com/models/7bb67d1dea724a6eb4ebe21bcf94b09e",
+    //   title: "SIKA",
+    //   author: "Marine Quiviger",
+    //   description:
+    //     "Deer under a cherry blossom on an island in the moonlit lake.",
+    //   image: "https://supermedium.com/superassets/site/sika.jpg",
+    //   logo: "https://supermedium.com/superassets/site/sika.png"
+    // },
+    // {
+    //   url: "https://www.shadertoy.com/view/4dSGW1",
+    //   title: "Grid of Cylinders",
+    //   author: "Inigo Quilez (iq)",
+    //   description:
+    //     "An infinite grid of cylinders, like the swelling waves of the ocean. An expanse of mountains, rising and falling, forever.",
+    //   image: "https://supermedium.com/superassets/site/gridofcylinders.jpg",
+    //   logo: "https://supermedium.com/superassets/site/gridofcylinders.png"
+    // },
+    // {
+    //   url: "https://www.shadertoy.com/view/Msl3Rr",
+    //   title: "Cubescape",
+    //   author: "Inigo Quilez (iq)",
+    //   description:
+    //     "Marvel at the fine detail of the wood-grained waveforms. Rounded pulsating cubes that bounce to the beat.",
+    //   image: "https://supermedium.com/superassets/site/cubescape.jpg",
+    //   logo: "https://supermedium.com/superassets/site/cubescape.png"
+    // },
+    // {
+    //   url: "https://www.shadertoy.com/view/XsjXR1",
+    //   title: "Worms",
+    //   author: "Inigo Quilez (iq)",
+    //   description: "A surreal experience in a forest of strand things.",
+    //   image: "https://supermedium.com/superassets/site/worms.jpg",
+    //   logo: "https://supermedium.com/superassets/site/worms.png"
+    // },
     {
       url: "https://ravenworks.ca/witch/",
       title: "Witch's Brew",

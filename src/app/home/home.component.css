@@ -194,7 +194,8 @@ div#slider div.slider-inner {
 }
 .slider-left-container{
   display: inline-block;
-  width: calc(100% - 330px);
+  width: 100%;
+/*calc(100% - 330px);*/
 }
 
 
