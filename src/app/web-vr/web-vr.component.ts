@@ -582,6 +582,14 @@ export class WebVRComponent implements OnInit {
       logo: "https://supermedium.com/superassets/site/bluecyber.png"
     },
     {
+      url: "https://www.kodub.com/apps/krossa",
+      title: "Krossa",
+      author: "Kodub",
+      description: "Smash and shatter glass objects in virtual reality.",
+      image: "https://i.imgur.com/B9cnCNx.png",
+      logo: "https://i.imgur.com/B9cnCNx.png"
+    },
+    {
       url: "https://moonrider.xyz",
       title: "Moon Rider",
       author: "Supermedium",
