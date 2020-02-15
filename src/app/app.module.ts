@@ -90,6 +90,7 @@ import { AdGamesVerticalComponent } from "./ad-games-vertical/ad-games-vertical.
 import { AdHomeVerticalComponent } from "./ad-home-vertical/ad-home-vertical.component";
 import { EthicsComponent } from "./ethics/ethics.component";
 import { WebVRComponent } from "./web-vr/web-vr.component";
+import { GiveawayComponent } from "./giveaway/giveaway.component";
 
 export function hljsLanguages() {
   return [{ name: "cs", func: cs }];
@@ -156,7 +157,8 @@ export function hljsLanguages() {
     AdGamesVerticalComponent,
     AdHomeVerticalComponent,
     EthicsComponent,
-    WebVRComponent
+    WebVRComponent,
+    GiveawayComponent
   ],
   imports: [
     // {

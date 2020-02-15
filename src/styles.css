@@ -417,3 +417,6 @@ input[type=range] {
   max-width: 1550px;
   width: 90%;
 }
+.margin-bottom{
+  margin-bottom: 1em;
+}

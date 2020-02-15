@@ -34,6 +34,7 @@ export class ExpanseClientService {
     this.url = !!this.isDev
       ? "ws://192.168.0.34:3000"
       : "wss://api.theexpanse.app";
+
     this.cdnUrl = this.isDev
       ? "http://192.168.0.4:47000/"
       : "https://cdn.theexpanse.app/";

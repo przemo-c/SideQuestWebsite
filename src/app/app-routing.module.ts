@@ -35,6 +35,7 @@ import { ScriptingInteractionComponent } from "./scripting-interaction/scripting
 import { ScriptingInputControlsComponent } from "./scripting-input-controls/scripting-input-controls.component";
 import { EthicsComponent } from "./ethics/ethics.component";
 import { WebVRComponent } from "./web-vr/web-vr.component";
+import { GiveawayComponent } from "./giveaway/giveaway.component";
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
@@ -110,6 +111,7 @@ const routes: Routes = [
     component: SpaceManagerComponent,
     canActivate: [LoginGuard]
   },
+  { path: "giveaway", component: GiveawayComponent },
   { path: "apps", component: AppsComponent },
   { path: "user/:users_id", component: UserProfileComponent },
   { path: "apps/:category", component: AppsComponent },
