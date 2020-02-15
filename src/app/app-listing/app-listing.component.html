@@ -445,6 +445,7 @@
         <label class="active">Rating</label>
       </div>
     </div>
+
     <div class="input-field">
       <i class="material-icons prefix">playlist_add</i>
       <textarea id="description" class="materialize-textarea"  placeholder="{{currentReviewId?'Reply Details...':'Review details...'}}"
@@ -456,6 +457,8 @@
         <re-captcha (resolved)="done($event)" [siteKey]="service.siteKey"></re-captcha>
       </div>
     </div>
+    <br><br>
+    Reviews should only be left for games you have played and should not be used for support. Please reach out on <a href="https://discord.gg/udrVYMV" target="_blank">discord</a> for support.
   </mz-modal-content>
   <mz-modal-footer>
     <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
