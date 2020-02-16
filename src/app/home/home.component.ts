@@ -218,15 +218,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
       //   caption:
       //     "VR Platforming game, that gives you the freedom to move across the environment with superhuman abilities."
       // });
-      this.imageUrls.unshift({
-        url:
-          this.expanseService.cdnUrl + "file/3271/Carize_Sidequest_Banner.jpg",
-        href: "https://sidequestvr.com/#/app/270/1",
-        title: "YUR.fit",
-        caption:
-          "YUR.fit adds a health and fitness tracker to all Oculus Quest experiences and games."
-      });
-      this.imageUrls.pop();
+      // this.imageUrls.unshift({
+      //   url:
+      //     this.expanseService.cdnUrl + "file/3271/Carize_Sidequest_Banner.jpg",
+      //   href: "https://sidequestvr.com/#/app/270/1",
+      //   title: "YUR.fit",
+      //   caption:
+      //     "YUR.fit adds a health and fitness tracker to all Oculus Quest experiences and games."
+      // });
+      // this.imageUrls.pop();
       this.isLoading = false;
     });
   }
