@@ -181,7 +181,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   getEvents() {
     this.isLoading = true;
     return this.getAppNews(0, "app").then(async (result: NewsItem[]) => {
-      await this.fixImages(result);
+      this.fixImages(result);
       this.firstNews = result.filter(
         d => d.image && (d.type === "event" || d.type === "app")
       );

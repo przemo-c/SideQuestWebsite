@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
+import { LazyLoadImageModule } from "ng-lazyload-image";
 import { NgxMasonryModule } from "ngx-masonry";
 import { OverImageComponent } from "./over-image/over-image.component";
 import { SetupHowtoComponent } from "./setup-howto/setup-howto.component";
@@ -168,6 +169,7 @@ export function hljsLanguages() {
     HighlightModule.forRoot({
       languages: hljsLanguages
     }),
+    LazyLoadImageModule,
     BrowserModule,
     AppRoutingModule,
     NgxMasonryModule,
