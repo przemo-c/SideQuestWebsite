@@ -268,7 +268,7 @@ export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
           21
         )
         .then(async (resp: AppListing[]) => {
-          this.appService.fixImages(resp);
+          // this.appService.fixImages(resp, 512);
           this.hasNoMore = resp.length < 21;
           // let isGrid = this.appService.isGrid;
           if (this.page === 0) {

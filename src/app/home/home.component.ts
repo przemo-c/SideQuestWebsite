@@ -120,7 +120,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     return this.expanseService
       .searchApps(search, 0, type, "desc", category, tag, null, 6)
       .then(async (resp: AppListing[]) => {
-        this.appService.fixImages(resp);
+        // this.appService.fixImages(resp, 512);
         if (search === "multiplayer") {
           this.multiplayerApps = resp;
         } else if (tag === "horror") {
@@ -181,7 +181,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   getEvents() {
     this.isLoading = true;
     return this.getAppNews(0, "app").then(async (result: NewsItem[]) => {
-      this.fixImages(result);
+      // this.fixImages(result);
       this.firstNews = result.filter(
         d => d.image && (d.type === "event" || d.type === "app")
       );

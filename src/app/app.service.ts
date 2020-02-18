@@ -93,7 +93,7 @@ export class AppService {
     }
   }
 
-  async fixImages(result) {
+  async fixImages(result, size?) {
     const items = result && result.length ? result : [];
     await Promise.all(
       items.map(async d => {
@@ -102,7 +102,10 @@ export class AppService {
         await new Promise((resolve, reject) => {
           img.onload = resolve;
           img.onerror = reject;
-          img.src = d.image_url || d.event_image || d.image;
+          img.src =
+            (d.image_url || d.event_image || d.image) +
+            (size ? "?size=" + size : "");
+          console.log(img.src);
         }).catch(e => {
           d.image_url = null;
           d.event_image = null;
