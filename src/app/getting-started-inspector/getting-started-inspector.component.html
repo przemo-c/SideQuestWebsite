@@ -9,59 +9,37 @@
   <div class="top-back">
 
   </div>
-  <div class="right">
-  <span class="chip pointer top-chip"
-        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
-        mz-tooltip tooltip="People have been so kind, we are humbled."
-        position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-      Support us on Patreon
-    </span>
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
-          mz-tooltip tooltip="Use this option if you prefer a one off donation."
-          position="bottom">
-      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
-      Donate on Paypal
-    </span>
-  </div>
 
-  <h4>Getting Started - Play test with the SideQuest Inspector</h4>
+  <h4><div class="btn pink-button small-button waves-effect waves-light margin-right" (click)="appService.scrollToTop()" routerLink="/legends-sdk">Back</div>Getting Started - Play test with the SideQuest Inspector</h4>
   <hr>
   <div class="right grey-text">Run your SideQuest Legends App inside Unity3D.<br><br></div>
-  <div class="btn pink-button small-button waves-effect waves-light" (click)="appService.scrollToTop()" routerLink="/developers">Back To Developers</div><br><br>
-  <div class="center-align">
-    <img src="assets/images/run-tutorial.gif" class="top-image responsive-img"/>
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="center-align col s12 m6 l3 offset-l3">
+      <img src="https://i.imgur.com/sVtrOwq.png" class="responsive-img"/>
+    </div>
+    <div class="center-align col s12 m6 l3">
+      <img src="https://i.imgur.com/m3YEoUH.png" class="responsive-img"/>
+    </div>
   </div>
   <br><br>
-  <h5>Step 1 - Open</h5>
+  <h5>Step 1 - Select Squanch and Enter Space ID</h5>
   <hr>
   <div class="padding">
-    Open the <span class="chip">SideQuest</span> option in the <span class="chip">Tools</span> menu of Unity3D as seen in the image above.
+    Open the <span class="chip">SideQuest</span> option in the <span class="chip">Tools</span> menu of Unity3D. Enter a Space ID to launch Legends in a specific space - this is good for testing against other apps created with Legends.
+    Select a squanch file from your hard drive and load it into the selected space. The unity editor will automatically play once you select a file. 
   </div><br><br>
 
-
-  <h5>Step 2 - Enter a Space ID</h5>
+  <h5>Step 2 - Re-running the same Squanch</h5>
   <hr>
   <div class="padding">
-    Enter a Space ID to launch SideQuest Legends in a specific space - this is good for testing against other apps created with SideQuest Legends.
+    Once you have selected a squanch file it will be added to the list of recent squanches selected - this makes it easier to load the same squanch later.
   </div><br><br>
 
-  <h5>Step 3 - Run Your Squanch File</h5>
-  <hr>
-  <div class="padding">
-    Select your SideQuest app ( .squanch ) and run it inside the Unity3D Editor. It will run the full SideQuest Legends Game so you will see the loading screens and then it will load into your selected space.
-    You can test all sorts of things in this way like interaction, networking, mult-iuser, interoperability with other SideQuest Legends apps. You have full access to the Unity3D hierarchy, inspector and console
-    panels to be able to test, prototype and tweak your apps as you build.
-  </div><br><br>
+  <div class="btn pink-button small-button waves-effect waves-light margin-right" (click)="appService.scrollToTop()" routerLink="/legends-sdk">Back</div>
+  <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developer-faq" (click)="appService.scrollToTop()" >FAQ</div>
 
-  <h5>More Useful Information</h5>
-  <hr>
-  <div class="padding right-align">
-    <div class="btn small-button pink-button waves-effect waves-light"  routerLink="/scripting-introduction" (click)="appService.scrollToTop()">Scripting - Introduction</div><br><br>
-    <div class="btn small-button pink-button waves-effect waves-light"  routerLink="/scripting-app-behaviours" (click)="appService.scrollToTop()">Scripting - App Behaviours</div><br><br>
-  </div><br><br>
-  <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developers" (click)="appService.scrollToTop()">Back To Developers</div> <br>
+  <br>
 
   <br><br><br><br>
 </div>

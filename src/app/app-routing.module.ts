@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: "news", component: HomeComponent },
   { path: "ethics", component: EthicsComponent },
   { path: "channels", component: LegendsListComponent },
-  { path: "developers", component: DevelopersComponent },
+  { path: "legends-sdk", component: DevelopersComponent },
   { path: "developer-faq", component: DeveloperFAQComponent },
   { path: "getting-started-build-app", component: GettingStartedComponent },
   {

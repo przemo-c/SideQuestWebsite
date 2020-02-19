@@ -1,58 +1,56 @@
-<div class="main-container" [ngClass]="{'padding':appService.hideLogo,'container':!appService.hideLogo}">
-  <div class="right">
-  <span class="chip pointer top-chip"
-        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
-        mz-tooltip tooltip="People have been so kind, we are humbled."
-        position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-      Support us on Patreon
-    </span>
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
-          mz-tooltip tooltip="Use this option if you prefer a one off donation."
-          position="bottom">
-      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
-      Donate on Paypal
-    </span>
+<div class="bottom-border">
+  <div class="bottom-border paralax"  [ngClass]="{'banner-in-app':appService.hideLogo}">
+    <div class="banner-top-back"
+         [ngStyle]="{'background-image':'url('+expanseService.cdnUrl+'file/2755/Untitled-2.jpg)'}"></div>
+  </div>
+</div>
+<div class="main-container relative padding" [ngStyle]="{'margin-top': '-150px'}">
+
+  <div class="top-back">
+
   </div>
 
-  <h4>Developer FAQ</h4>
+  <h4><div class="btn small-button pink-button waves-effect waves-light margin-right" routerLink="/legends-sdk">Back</div>Developer FAQ</h4>
   <hr>
-  <div class="btn pink-button small-button waves-effect waves-light" (click)="appService.scrollToTop()" routerLink="/developers">Back To Developers</div>
-  <div class="right-align grey-text">Common issues and solutions you could encounter while using the SideQuest Legends SDK<br><br></div>
+  <div class="right-align grey-text">Common issues and solutions you could encounter while using the Legends SDK<br><br></div>
 
-  <h4>SideQuest Inspector</h4>
-  <h5> - What is the SideQuest Inspector and why do I need it?</h5>
+  <h5> - What is the SideQuest Inspector and what benefit does it offer when using the Legends SDK?</h5>
   <hr>
   <div class="padding">
-    When we started building the SideQuest Legends SDK we realised that to provide developers with powerful scripting capability
-    was great and all but pretty soon it was clear we had to do more in order to provide a complete developer solution. We needed
-    to find a way to give developers as much power as us when we build SideQuest Legends. To solve this problem we built the SideQuest Inspector.
+    The SideQuest Inspector is the most powerful tool in the Legends SDK. The beautiful part about the SideQuest Inspector is that
+    it allows you to run the full Legends game platform inside the Unity3D editor with full access to the Unity3D tools for inspecting,
+    debugging and improving performance. This means we can allow developers to have as much power as we do to build the best apps they can on Legends.
   </div><br><br>
-  <h5> - What benefit does the SideQuest Inspector offer?</h5>
+  <h5> - Do I need the SideQuest Inspector?</h5>
   <hr>
   <div class="padding">
-    The SideQuest Inspector is the most powerful tool in the SideQuest Legends SDK. The beautiful part about the SideQuest Inspector is that
-    it allows you to run the full SideQuest Legends game platform inside the Unity3D editor with full access to the Unity3D tools for inspecting,
-    debugging and improving performance. This means we can allow developers to have as much power as we do to build the best apps they can on SideQuest Legends.
+    When we started building the Legends SDK we realised that to provide developers with powerful scripting capability
+    was pretty awesome but pretty soon it was clear we had to do more in order to provide a complete developer solution. We needed
+    to find a way to give developers as much power as us when we build Legends. To solve this problem we built the SideQuest Inspector
+    mode into our SDK. The inspector lets you run the entire legends platform inside unity giving you ultimate control to be able to leverage unity
+    to help debug your applications.
   </div><br><br>
-  <h5> - How do I get the SideQuest Inspector and set it up?</h5>
+  <h5> - What can't I do with the Legends SDK?</h5>
   <hr>
   <div class="padding">
-    The SideQuest Inspector is included with the SideQuest SDK, it automatically gets downloaded the first time you import the SDK. The SIdeQuest Inspector must
-    run in an empty Unity3D ( 2019.2.9f ) project which is also provided as part of the SideQuest SDK. If you open the SideQuest SDK as ususal and click the
-    "Run SideQuest Inspector" button it will open an empty Unity3D project and import the SIdeQuest Inspector automatically.
+    The legends SDK is designed to give developers as much control and power as possible to be able to build truly interactive and functional applications.
+    We have disabled some features to protect users and their data and there are also some other unrelated gotchas too.
     <br><br>
-    Alternatively you can download the SideQuest Inspector Unity3D packge from here and drag and drop it into an empty Unity3D project window.
+    - You cannot access the System.IO namespace.<br>
+    - You cannot use reflection.<br>
+    - Some other namespaces are also disabled.<br>
+    - Until approved by us your custom scripts cannot run on other user's clients unless they agree.<br>
+    - Public spaces will need to be approved before they will function on everyone's client.<br>
+    - You cannot use enums ( Mono Cecil limitation ).
   </div><br><br>
 
-  <h5>More Useful Information</h5>
-  <hr>
-  <div class="padding right-align">
-    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developers">Play test with the SideQuest Inspector</div><br><br>
-    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developers">Scripting - Introduction</div><br><br>
-  </div><br><br>
-  <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developers">Back To Developers</div> <br>
+<!--  <h5>More Useful Information</h5>-->
+<!--  <hr>-->
+<!--  <div class="padding right-align">-->
+<!--    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developers">Play test with the SideQuest Inspector</div><br><br>-->
+<!--    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developers">Scripting - Introduction</div><br><br>-->
+<!--  </div><br><br>-->
+  <div class="btn small-button pink-button waves-effect waves-light" routerLink="/legends-sdk">Back</div> <br>
 
   <br><br><br><br>
 </div>

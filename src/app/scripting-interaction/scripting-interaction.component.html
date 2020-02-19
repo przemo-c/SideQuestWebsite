@@ -9,32 +9,14 @@
   <div class="top-back">
 
   </div>
-  <div class="right">
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
-          mz-tooltip tooltip="People have been so kind, we are humbled."
-          position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-      Support us on Patreon
-    </span>
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
-          mz-tooltip tooltip="Use this option if you prefer a one off donation."
-          position="bottom">
-      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
-      Donate on Paypal
-    </span>
-  </div>
 
-  <h4>SideQuest Scripting Interaction System</h4>
+  <h4><div class="btn pink-button small-button waves-effect waves-light margin-right" (click)="appService.scrollToTop()" routerLink="/legends-sdk">Back</div>Scripting - Interaction System</h4>
   <hr>
-
-  <div class="btn pink-button small-button waves-effect waves-light" (click)="appService.scrollToTop()" routerLink="/developers">Back To Developers</div>
   <div class="right grey-text">Get going with scripting in SideQuest to open a whole world of possibilities to create content.<br><br></div>
 
-  <div class="padding clearfix">
-    Notice: This next section assumes you are familiar with Unity3D and C-Sharp scripting. Unity has a lot of great <a href="https://learn.unity.com/">tutorials</a> to get your started.<br><br>
-  </div>
+  <div class="padding clearfix"></div>
+  Notice: This next section assumes you are familiar with Unity3D and C-Sharp scripting. Unity has a lot of great <a href="https://learn.unity.com/">tutorials</a> to get your started.<br><br>
+
   <h5>Adding Interaction to GameObjects</h5>
   <hr>
   <div class="padding">
@@ -48,14 +30,11 @@
     You can just add this component yourself if you prefer.
     <app-code-block [someCode]="interactionCodeAlt"></app-code-block>
   </div>
+  <div class="btn pink-button small-button waves-effect waves-light margin-right" (click)="appService.scrollToTop()" routerLink="/legends-sdk">BACK</div>
+  <div class="btn small-button pink-button waves-effect waves-light margin-right" routerLink="/scripting-input-controls" (click)="appService.scrollToTop()" >NEXT</div>
+  <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developer-faq" (click)="appService.scrollToTop()" >FAQ</div>
 
-  <h5>More Useful Information</h5>
-  <hr>
-  <div class="padding right-align">
-    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/scripting-app-behaviours" (click)="appService.scrollToTop()">Scripting - App Behaviours</div><br><br>
-    <div class="btn small-button pink-button waves-effect waves-light" routerLink="/scripting-input-controls" (click)="appService.scrollToTop()">Scripting - Input Controls</div><br><br>
-  </div><br><br>
-  <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developers" (click)="appService.scrollToTop()">Back To Developers</div> <br>
+ <br>
 
   <br><br><br><br>
 </div>
