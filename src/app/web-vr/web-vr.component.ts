@@ -596,6 +596,14 @@ export class WebVRComponent implements OnInit {
       description: "Surf the musical road among the stars, moon, and lights.",
       image: "https://supermedium.com/superassets/site/moonrider.jpg",
       logo: "https://supermedium.com/superassets/site/moonrider.png"
+    },
+    {
+      url: "https://hubs.mozilla.com/#/",
+      title: "Hubs",
+      author: "Mozilla",
+      description: "Private social VR in your web browser",
+      image: "https://i.imgur.com/NFEWcTW.png",
+      logo: "https://i.imgur.com/NFEWcTW.png"
     }
   ];
   searchString = "";
