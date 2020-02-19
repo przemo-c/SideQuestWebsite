@@ -20,7 +20,13 @@
   <h5>Adding Interaction to GameObjects</h5>
   <hr>
   <div class="padding">
-    In order to leverage the SideQuest Legends Interaction System you can call this simple method to enable it.
+    In order to leverage the Legends Interaction System you can call this simple method to enable it. This allows you make a gameobject interactable for users to pick up and throw around.
+    You can also hook into the object with some extra lifecycle methods in your scripts to add more functionality.<br><br>
+
+    WARNING: Try to avoid adding multiple nested RigidBodies or other Colliders that are not triggers inside the interactables, it makes them go haywire. The Legends SDK will
+    automatically add/remove Colliders and RigidBodies to the parent object and manage the properties of both as part of the lifecycle of the interaction system. You can add your own collider / RigidBodies
+    and Legends will use those too but it will stil change properties on them.
+
     <app-code-block [someCode]="interactionCode"></app-code-block>
   </div>
   <h5>An Alternate Method</h5>

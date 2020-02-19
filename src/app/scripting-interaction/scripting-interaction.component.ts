@@ -16,7 +16,27 @@ public class MyScript : MonoBehaviour {
   }
   // Update is called once per frame
   void Update () {
-    
+
+  }
+  // Update is called once per frame
+  void Update () {
+
+  }
+  // Left land grabbed duh
+  void OnGrabbedLeft (Transform transform) {
+
+  }
+  // ..
+  void OnDroppedLeft (Transform transform) {
+
+  }
+  // ..
+  void OnGrabbedRight (Transform transform) {
+
+  }
+  // ..
+  void OnDroppedRight (Transform transform) {
+
   }
 }`;
 
@@ -29,7 +49,7 @@ public class MyScript : MonoBehaviour {
     settings.isClickable = true;
     settings.isTeleport = true;
     settings.isGrabable = true;
-    
+
     /*
       public bool isClickable = false;
       public bool isTeleport = false;
@@ -44,16 +64,14 @@ public class MyScript : MonoBehaviour {
       public bool isSpawner = false;
       public float reSpawn = 50f;
       public bool isFixedGrab = false;
-  
-      public bool isTwoHandFixedGrab = false;
+
+
       public Vector3 primaryGrabPosition = Vector3.zero;
       public Vector3 primaryGrabRotation = Vector3.zero;
+      // TODO: two hand grab coming soon
+      public bool isTwoHandFixedGrab = false;
       public Vector3 secondaryGrabPosition = Vector3.zero;
     */
-  }
-  // Update is called once per frame
-  void Update () {
-    
   }
 }`;
   constructor(public appService: AppService) {}
