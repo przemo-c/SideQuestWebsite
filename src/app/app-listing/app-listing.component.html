@@ -86,42 +86,42 @@
         </div>
       </div>
       <div class="center-align">
-      <img class="responsive-img"
-           *ngIf="!videoObject && currentApp.image_url && !is_loading_icon"
-           src="{{currentApp.image_url}}"/>
+        <img class="responsive-img"
+             *ngIf="!videoObject && currentApp.image_url && !is_loading_icon"
+             src="{{currentApp.image_url}}"/>
       </div>
-<!--      <div>-->
+      <!--      <div>-->
 
-<!--        <div class="right" *ngIf="currentApp.early_access">-->
-<!--          <div class="chip pointer"-->
-<!--               mz-tooltip tooltip="This is is still in early access and has limited availability."-->
-<!--               position="bottom">-->
-<!--            <img src="assets/images/social/EarlyAccess.png"/>-->
-<!--            Coming Soon-->
-<!--          </div>-->
-<!--        </div>-->
-<!--&lt;!&ndash;        <span class="counter" *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access">{{counters.d}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                                                                                             mz-tooltip tooltip="Number of downloads"&ndash;&gt;-->
-<!--&lt;!&ndash;                                                                                                                                             position="bottom"&ndash;&gt;-->
-<!--&lt;!&ndash;        >cloud_download</i></span>&ndash;&gt;-->
-<!--&lt;!&ndash;        <span class="counter">{{counters.v}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"&ndash;&gt;-->
-<!--&lt;!&ndash;                                                           mz-tooltip tooltip="Number of views"&ndash;&gt;-->
-<!--&lt;!&ndash;                                                           position="bottom"&ndash;&gt;-->
-<!--&lt;!&ndash;        >visibility</i></span>&ndash;&gt;-->
-<!--&lt;!&ndash;        &lt;!&ndash;<span class="counter pointer" (click)="likeApp()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;        &lt;!&ndash;mz-tooltip tooltip="Number of likes"&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;        &lt;!&ndash;position="bottom"&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;        &lt;!&ndash;&gt;thumb_up</i></span>&ndash;&gt;&ndash;&gt;-->
-<!--      </div>-->
-<!--      <br>-->
+      <!--        <div class="right" *ngIf="currentApp.early_access">-->
+      <!--          <div class="chip pointer"-->
+      <!--               mz-tooltip tooltip="This is is still in early access and has limited availability."-->
+      <!--               position="bottom">-->
+      <!--            <img src="assets/images/social/EarlyAccess.png"/>-->
+      <!--            Coming Soon-->
+      <!--          </div>-->
+      <!--        </div>-->
+      <!--&lt;!&ndash;        <span class="counter" *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access">{{counters.d}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"&ndash;&gt;-->
+      <!--&lt;!&ndash;                                                                                                                                             mz-tooltip tooltip="Number of downloads"&ndash;&gt;-->
+      <!--&lt;!&ndash;                                                                                                                                             position="bottom"&ndash;&gt;-->
+      <!--&lt;!&ndash;        >cloud_download</i></span>&ndash;&gt;-->
+      <!--&lt;!&ndash;        <span class="counter">{{counters.v}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"&ndash;&gt;-->
+      <!--&lt;!&ndash;                                                           mz-tooltip tooltip="Number of views"&ndash;&gt;-->
+      <!--&lt;!&ndash;                                                           position="bottom"&ndash;&gt;-->
+      <!--&lt;!&ndash;        >visibility</i></span>&ndash;&gt;-->
+      <!--&lt;!&ndash;        &lt;!&ndash;<span class="counter pointer" (click)="likeApp()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"&ndash;&gt;&ndash;&gt;-->
+      <!--&lt;!&ndash;        &lt;!&ndash;mz-tooltip tooltip="Number of likes"&ndash;&gt;&ndash;&gt;-->
+      <!--&lt;!&ndash;        &lt;!&ndash;position="bottom"&ndash;&gt;&ndash;&gt;-->
+      <!--&lt;!&ndash;        &lt;!&ndash;&gt;thumb_up</i></span>&ndash;&gt;&ndash;&gt;-->
+      <!--      </div>-->
+      <!--      <br>-->
 
-<!--      <div class="col s12 no-padding">-->
-<!--        <div class="center-align" >-->
-<!--          <br>-->
-<!--          <app-ad-placeholder [sizes]="[[300,250],[320,50]]" [id]="'apps-listing-under-image'"></app-ad-placeholder>-->
-<!--          <br><br>-->
-<!--        </div>-->
-<!--      </div>-->
+      <!--      <div class="col s12 no-padding">-->
+      <!--        <div class="center-align" >-->
+      <!--          <br>-->
+      <!--          <app-ad-placeholder [sizes]="[[300,250],[320,50]]" [id]="'apps-listing-under-image'"></app-ad-placeholder>-->
+      <!--          <br><br>-->
+      <!--        </div>-->
+      <!--      </div>-->
       <div class="col s12 m4">
         <div>
           <br><br>
@@ -263,15 +263,31 @@
           </div>
         </div>
         <div class="col s12">
-        <div >
-          <br><br>
-          <div>
-            <i class="material-icons block-icon">panorama</i><label>Screenshots</label>
+          <div >
+            <br><br>
+            <div>
+              <i class="material-icons block-icon">panorama</i><label>Screenshots</label>
+            </div>
+            <br>
+            <img class="screen-shot pointer" *ngFor="let screenshot of screenshots; let i = index" src="{{screenshot}}?size=256" (click)="openImage(i)"/>
           </div>
-          <br>
-          <img class="screen-shot pointer" *ngFor="let screenshot of screenshots; let i = index" src="{{screenshot}}?size=256" (click)="openImage(i)"/>
         </div>
-      </div>
+        <div class="col s12">
+          <br><br>
+          <h5>Download Links</h5>
+          <hr>
+          <div class="row" *ngFor="let url of apk_download_urls">
+            <div class="col s11 vertical-align line-height truncate full-width">
+              {{url.link_url}}
+            </div>
+            <div class="col s1 right-align vertical-align">
+              <div mzTooltip tooltip="Copy this link" position="bottom"
+                   class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"
+                   (click)="service.copyUrl(url.link_url)"
+              ><i class="material-icons">file_copy</i></div>
+            </div>
+          </div>
+        </div>
       </div>
       <br>
       <div *ngIf="apk_download_urls && apk_download_urls.length && isInstalled && installedVersion < currentApp.versioncode && !((currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4')">
@@ -307,119 +323,119 @@
       <!--            </div>-->
       <!--          </div>-->
 
-<!--      <BR><BR>-->
-<!--      <div class="center-align" *ngIf="!service.isMobile && currentApp.app_categories_id !== '3' && reviews && this.reviews.length > 4">-->
-<!--        <app-ad-placeholder [sizes]="[[300,600],[300,250]]" [id]="'app-listing'"></app-ad-placeholder>-->
-<!--      </div>-->
-<!--      <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">-->
-<!--        <br><br><br>-->
-<!--        Thank you-->
-<!--        <h5>{{expanseService.currentSession.name}}</h5>-->
-<!--        for supporting us<br>on Patreon.<br>-->
-<!--        <i class="material-icons white-text medium">thumb_up</i>-->
-<!--      </div>-->
+      <!--      <BR><BR>-->
+      <!--      <div class="center-align" *ngIf="!service.isMobile && currentApp.app_categories_id !== '3' && reviews && this.reviews.length > 4">-->
+      <!--        <app-ad-placeholder [sizes]="[[300,600],[300,250]]" [id]="'app-listing'"></app-ad-placeholder>-->
+      <!--      </div>-->
+      <!--      <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">-->
+      <!--        <br><br><br>-->
+      <!--        Thank you-->
+      <!--        <h5>{{expanseService.currentSession.name}}</h5>-->
+      <!--        for supporting us<br>on Patreon.<br>-->
+      <!--        <i class="material-icons white-text medium">thumb_up</i>-->
+      <!--      </div>-->
     </div>
     <div class="col s12 m7">
 
-        <!--        <div *ngIf="appRating" class="right">-->
-        <!--          <div>-->
-        <!--            <i class="material-icons block-icon">star_half</i><label>Rating</label>-->
+      <!--        <div *ngIf="appRating" class="right">-->
+      <!--          <div>-->
+      <!--            <i class="material-icons block-icon">star_half</i><label>Rating</label>-->
+      <!--          </div>-->
+      <!--          <br>-->
+      <!--          <span class="review-name">{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i><br>( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )-->
+      <!--        </div>-->
+
+      <!--        <div class="center-align" >-->
+      <!--          <app-ad-placeholder [sizes]="service.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'app-listing-top'"></app-ad-placeholder>-->
+      <!--          <br><br>-->
+      <!--        </div>-->
+      <!--        <div class="clearfix"></div>-->
+
+      <div class="right social-links">
+        <div *ngIf="donate_urls && donate_urls.length">
+          <div class="input-field radio-top" >
+            <label class="active">Support & Donate</label>
+          </div><br>
+          <div *ngFor="let url of donate_urls">
+            <div class="chip pointer"
+                 *ngIf="url.provider !== 'Itch'"
+                 mz-tooltip tooltip="{{url.provider}}"
+                 position="bottom"
+                 (click)="openUrl(url.link_url + (url.provider==='Itch'?'?ac=k3RTPJMnVvG':''));subscribeIfItch(url.provider)">
+              <img src="{{urlIcons[url.provider].icon}}">
+              {{url.provider==='Itch'? isInstalled && installedVersion < currentApp.versioncode ? 'Update On Itch' : 'Buy On Itch':url.provider}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <p [innerHTML]="currentApp.description"></p>
+      <div *ngIf="!currentApp.early_access">
+        <div class="truncate">
+          <span *ngIf="appRatingTotal>0"><span class="review-name" >{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i> ( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )</span>
+          <br><br>
+          <img class="responsive-img top-image circle pointer"
+               *ngIf="currentApp.preview_image"
+               src="{{expanseService.cdnUrl+currentApp.preview_image}}" routerLink="/user/{{currentApp.users_id}}"/>
+
+
+          By {{currentApp.user_name}}
+
+        </div>
+        <br>
+        <div class="btn waves-effect waves-light pink-button right margin-right" *ngIf="service.isAuthenticated"
+             (click)="leaveReview.openModal()">Add Review</div>
+        <div class="btn waves-effect waves-light pink-button right margin-right" *ngIf="!service.isAuthenticated"
+             routerLink="/login/{{'/app/'+apps_id|encodeUri}}">Sign In to Add Review</div>
+        <h5>User Reviews</h5>
+        <br>
+        <!--          <div class="right search-box input-field">-->
+        <!--            <i class="material-icons prefix">search</i>-->
+
+        <!--            <input id="searchBox" type="text" class="validate"-->
+        <!--                   [(ngModel)]="searchString"-->
+        <!--                   (input)="debounceSearch()"-->
+        <!--            >-->
+        <!--            <label for="searchBox" class="active">Search</label>-->
         <!--          </div>-->
-        <!--          <br>-->
-        <!--          <span class="review-name">{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i><br>( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )-->
-        <!--        </div>-->
-
-<!--        <div class="center-align" >-->
-<!--          <app-ad-placeholder [sizes]="service.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'app-listing-top'"></app-ad-placeholder>-->
-<!--          <br><br>-->
-<!--        </div>-->
-<!--        <div class="clearfix"></div>-->
-
-        <div class="right social-links">
-          <div *ngIf="donate_urls && donate_urls.length">
-            <div class="input-field radio-top" >
-              <label class="active">Support & Donate</label>
-            </div><br>
-            <div *ngFor="let url of donate_urls">
-              <div class="chip pointer"
-                   *ngIf="url.provider !== 'Itch'"
-                   mz-tooltip tooltip="{{url.provider}}"
-                   position="bottom"
-                   (click)="openUrl(url.link_url + (url.provider==='Itch'?'?ac=k3RTPJMnVvG':''));subscribeIfItch(url.provider)">
-                <img src="{{urlIcons[url.provider].icon}}">
-                {{url.provider==='Itch'? isInstalled && installedVersion < currentApp.versioncode ? 'Update On Itch' : 'Buy On Itch':url.provider}}
+        <div class="row">
+          <!--            <div class="col s12">-->
+          <!--              <div *ngIf="service.isAuthenticated" class="add-review" (click)="leaveReview.openModal()">-->
+          <!--                <i class="material-icons">add</i> Add a Review-->
+          <!--              </div>-->
+          <!--              <div *ngIf="!service.isAuthenticated" class="add-review" routerLink="/login/{{'/app/'+apps_id|encodeUri}}">-->
+          <!--                <i class="material-icons">add</i> Sign In to Add a Review-->
+          <!--              </div>-->
+          <!--            </div>-->
+          <div class="col s12" *ngFor="let message of reviews">
+            <div class="review-card">
+              <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.users_id == expanseService.currentSession.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reviews_id;deleteReview.openModal()">close</i>
+              <i class="right material-icons blue-text rating-reply pointer" *ngIf="service.isAuthenticated && (currentApp.users_id == expanseService.currentSession.users_id) " (click)="currentReviewId = message.reviews_id;leaveReview.openModal()">replay</i>
+              <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}?size=256"/>
+              <div class="margin-right"><span class="review-name">{{message.name}}</span> - {{message.created|fromNow}}</div>
+              <div class="">
+                <span class="review-name pink-text">{{message.rating}}/5</span> <i class="material-icons pink-text rating-star">star</i>
               </div>
+              <div [innerHTML]="message.details"></div>
+            </div>
+            <div class="review-card reply-chip" *ngIf="message.reply_created">
+              <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.reply_id == currentApp.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reply_id;deleteReview.openModal()">close</i>
+              <img class="pointer left z-depth-2" routerLink="/user/{{currentApp.users_id}}" src="{{expanseService.cdnUrl+currentApp.preview_image}}?size=256"/>
+              <div class="margin-right"><span class="review-name">Vendor Reply</span> - {{message.reply_created|fromNow}}</div>
+              <div [innerHTML]="message.reply_details"></div>
             </div>
           </div>
         </div>
-        <p [innerHTML]="currentApp.description"></p>
-        <div *ngIf="!currentApp.early_access">
-          <div class="truncate">
-            <span *ngIf="appRatingTotal>0"><span class="review-name" >{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i> ( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )</span>
-            <br><br>
-            <img class="responsive-img top-image circle pointer"
-                 *ngIf="currentApp.preview_image"
-                 src="{{expanseService.cdnUrl+currentApp.preview_image}}" routerLink="/user/{{currentApp.users_id}}"/>
-
-
-            By {{currentApp.user_name}}
-
-          </div>
-          <br>
-          <div class="btn waves-effect waves-light pink-button right margin-right" *ngIf="service.isAuthenticated"
-               (click)="leaveReview.openModal()">Add Review</div>
-          <div class="btn waves-effect waves-light pink-button right margin-right" *ngIf="!service.isAuthenticated"
-               routerLink="/login/{{'/app/'+apps_id|encodeUri}}">Sign In to Add Review</div>
-          <h5>User Reviews</h5>
-          <br>
-          <!--          <div class="right search-box input-field">-->
-          <!--            <i class="material-icons prefix">search</i>-->
-
-          <!--            <input id="searchBox" type="text" class="validate"-->
-          <!--                   [(ngModel)]="searchString"-->
-          <!--                   (input)="debounceSearch()"-->
-          <!--            >-->
-          <!--            <label for="searchBox" class="active">Search</label>-->
-          <!--          </div>-->
-          <div class="row">
-            <!--            <div class="col s12">-->
-            <!--              <div *ngIf="service.isAuthenticated" class="add-review" (click)="leaveReview.openModal()">-->
-            <!--                <i class="material-icons">add</i> Add a Review-->
-            <!--              </div>-->
-            <!--              <div *ngIf="!service.isAuthenticated" class="add-review" routerLink="/login/{{'/app/'+apps_id|encodeUri}}">-->
-            <!--                <i class="material-icons">add</i> Sign In to Add a Review-->
-            <!--              </div>-->
-            <!--            </div>-->
-            <div class="col s12" *ngFor="let message of reviews">
-              <div class="review-card">
-                <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.users_id == expanseService.currentSession.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reviews_id;deleteReview.openModal()">close</i>
-                <i class="right material-icons blue-text rating-reply pointer" *ngIf="service.isAuthenticated && (currentApp.users_id == expanseService.currentSession.users_id) " (click)="currentReviewId = message.reviews_id;leaveReview.openModal()">replay</i>
-                <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}?size=256"/>
-                <div class="margin-right"><span class="review-name">{{message.name}}</span> - {{message.created|fromNow}}</div>
-                <div class="">
-                  <span class="review-name pink-text">{{message.rating}}/5</span> <i class="material-icons pink-text rating-star">star</i>
-                </div>
-                <div [innerHTML]="message.details"></div>
-              </div>
-              <div class="review-card reply-chip" *ngIf="message.reply_created">
-                <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.users_id == expanseService.currentSession.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reply_id;deleteReview.openModal()">close</i>
-                <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+currentApp.preview_image}}?size=256"/>
-                <div class="margin-right"><span class="review-name">Vendor Reply</span> - {{message.reply_created|fromNow}}</div>
-                <div [innerHTML]="message.reply_details"></div>
-              </div>
-            </div>
-          </div>
-          <BR><BR>
-          <div class="center-align">
-            <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMoreReviews" (click)="getReviews()" >Load More</div>
-            <div *ngIf="hasNoMoreReviews" class="chip">No more items...</div>
-          </div>
-          <BR><BR>
-<!--          <div class="center-align" *ngIf="currentApp.app_categories_id !== '3' && (!reviews || this.reviews.length < 4 )">-->
-<!--            <app-ad-placeholder [sizes]="[[300,600],[300,250]]" [id]="'app-listing-right'"></app-ad-placeholder>-->
-<!--          </div>-->
-          <br>
+        <BR><BR>
+        <div class="center-align">
+          <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMoreReviews" (click)="getReviews()" >Load More</div>
+          <div *ngIf="hasNoMoreReviews" class="chip">No more items...</div>
         </div>
+        <BR><BR>
+        <!--          <div class="center-align" *ngIf="currentApp.app_categories_id !== '3' && (!reviews || this.reviews.length < 4 )">-->
+        <!--            <app-ad-placeholder [sizes]="[[300,600],[300,250]]" [id]="'app-listing-right'"></app-ad-placeholder>-->
+        <!--          </div>-->
+        <br>
+      </div>
 
     </div>
   </div>
