@@ -36,6 +36,7 @@ import { ScriptingInputControlsComponent } from "./scripting-input-controls/scri
 import { EthicsComponent } from "./ethics/ethics.component";
 import { WebVRComponent } from "./web-vr/web-vr.component";
 import { GiveawayComponent } from "./giveaway/giveaway.component";
+import { GettingStartedInstallSdkComponent } from "./getting-started-install-sdk/getting-started-install-sdk.component";
 
 const routes: Routes = [
   { path: "news", component: HomeComponent },
@@ -43,6 +44,10 @@ const routes: Routes = [
   { path: "channels", component: LegendsListComponent },
   { path: "legends-sdk", component: DevelopersComponent },
   { path: "developer-faq", component: DeveloperFAQComponent },
+  {
+    path: "getting-started-install-sdk",
+    component: GettingStartedInstallSdkComponent
+  },
   { path: "getting-started-build-app", component: GettingStartedComponent },
   {
     path: "getting-started-test-app",

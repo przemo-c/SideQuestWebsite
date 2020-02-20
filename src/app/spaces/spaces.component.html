@@ -20,23 +20,6 @@
   </ng-container>
   <div class="clearfix"></div>
   <div *ngIf="isLoaded">
-    <!--<div *ngIf="!appService.isGrid&&appService.isTimeline" class="row">-->
-      <!--<app-timeline-item *ngFor="let space of spaces; let i = index"-->
-                         <!--[name]="space.name"-->
-                         <!--[description]="space.description"-->
-                         <!--[image]="space.image"-->
-                         <!--[start_time]="space.updated"-->
-                         <!--[show_date]="space.show_date"-->
-                         <!--[show_date_first]="space.show_date && i > 0"-->
-                         <!--(open)="router.navigateByUrl('/space/'+space.spaces_id);appService.scrollToTop()"-->
-      <!--&gt;</app-timeline-item>-->
-
-      <!--&lt;!&ndash;[duration]="event.event_duration"&ndash;&gt;-->
-    <!--</div>-->
-    <div class="center-align" >
-      <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-top'"></app-ad-placeholder>
-      <br><br>
-    </div>
     <div class="row">
       <app-list-item *ngFor="let space of spaces; let i = index"
                      [name]="space.name"
@@ -46,19 +29,6 @@
                      (open)="router.navigateByUrl('/space/'+space.spaces_id);appService.scrollToTop()"
       ></app-list-item>
     </div>
-
-    <!--<div class="row"-->
-                 <!--[ngClass]="{'hide-masonry' : !isGridLoaded}"-->
-                 <!--*ngIf="appService.isGrid&&!appService.isTimeline">-->
-      <!--<div class="col s6 l3" *ngFor="let space of spaces; let i = index">-->
-        <!--<app-grid-item-->
-          <!--[name]="space.name"-->
-          <!--[description]="space.description"-->
-          <!--[image]="space.image"-->
-          <!--(open)="router.navigateByUrl('/space/'+space.spaces_id);appService.scrollToTop()"-->
-        <!--&gt;</app-grid-item>-->
-      <!--</div>-->
-    <!--</div>-->
   </div>
 </div>
 <br><br><br>

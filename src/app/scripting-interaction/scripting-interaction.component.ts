@@ -9,15 +9,18 @@ import { AppService } from "../app.service";
 export class ScriptingInteractionComponent implements OnInit {
   interactionCode = ` // MyScript.cs
 using UnityEngine;
+using SideQuestSDK;
 public class MyScript : MonoBehaviour {
   // Use this for initialization
   void Start () {
-    SideQuestSDK.Core.SetupInteraction(gameObject,false/*isClickable*/, false/*isTeleport*/, true/*isGrabable*/);
-  }
-  // Update is called once per frame
-  void Update () {
+    API.SetupInteraction(gameObject,false/*isClickable*/, false/*isTeleport*/, true/*isGrabable*/);
 
+    // If you need to destroy this interactable later then instead of calling Destroy(gameObject)
+    // use API.DestroyInteractable(gameObject) which will also remove it from the network sync slot etc.
+    // If you want to remove the interactable from the hand but not destroy it use API.DropInteractable(gameObject)
+    // and you can call API.DestroyInteractable(gameObject) at a later stage to remove it entirely.
   }
+
   // Update is called once per frame
   void Update () {
 
@@ -42,6 +45,7 @@ public class MyScript : MonoBehaviour {
 
   interactionCodeAlt = ` // MyScript.cs
 using UnityEngine;
+using SideQuestSDK;
 public class MyScript : MonoBehaviour {
   // Use this for initialization
   void Start () {

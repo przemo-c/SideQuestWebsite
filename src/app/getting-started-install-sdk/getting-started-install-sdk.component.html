@@ -1,0 +1,57 @@
+<div class="bottom-border">
+  <div class="bottom-border paralax"  [ngClass]="{'banner-in-app':appService.hideLogo}">
+    <div class="banner-top-back"
+         [ngStyle]="{'background-image':'url('+expanseService.cdnUrl+'file/2755/Untitled-2.jpg)'}"></div>
+  </div>
+</div>
+<div class="main-container relative padding"
+     [ngStyle]="{'margin-top': '-150px'}">
+  <div class="top-back">
+
+  </div>
+
+  <h4><div class="btn pink-button small-button waves-effect waves-light margin-right" (click)="appService.scrollToTop()" routerLink="/legends-sdk">Back</div>Getting Started - Install the SDK</h4>
+  <hr>
+  <div class="right grey-text">Get Unity3D Setup to use the SideQuest Legends SDK<br><br></div>
+  <div class="clearfix"></div>
+
+  <div class="row">
+    <div class="center-align col s12 m6">
+      <img src="https://i.imgur.com/EaZEBra.png" class="responsive-img"/>
+    </div>
+    <div class="center-align col s12 m6">
+      <img src="https://i.imgur.com/qqhOsLt.png" class="responsive-img"/>
+    </div>
+  </div>
+  <h5>Step 1 - Install Dependencies</h5>
+  <hr>
+  <div class="padding">
+    Create a fresh project ( Unity version 2019.2.X recommended ) and install some extra packages using the unity package manager. You will need to install:<br><br>
+
+    <span class="chip">XR Legacy Input Handlers</span><br>
+    <span class="chip">TextMesh Pro</span><br>
+    <span class="chip">Unity UI</span><br>
+    <span class="chip">PostProcessing Stack ( not required yet but soon hopefully )</span><br><br>
+
+    You may already have some of these installed and can skip them. See the first picture above for instructions.
+
+  </div><br><br>
+  <h5>Step 2 - Enable VR in unity ( Not required by handy to get out of the way if you want to test in VR later )</h5>
+  <hr>
+  <div class="padding">
+    Open the player settings in unity and enable virtual reality under XR Settings. See the second image above for instructions.
+  </div><br><br>
+  <h5>Step 2 - Download & Install</h5>
+  <hr>
+  <div class="padding">
+    Download the Legends SDK unity package from <a href="https://github.com/SideQuestVR/LegendsSDK/releases">here</a>.
+    Drag the file over the Project panel in Unity to install it into your project.
+  </div><br><br>
+  <div class="btn small-button pink-button waves-effect waves-light margin-right" routerLink="/legends-sdk" (click)="appService.scrollToTop()" >Back</div>
+  <div class="btn small-button pink-button waves-effect waves-light margin-right" routerLink="/getting-started-build-app" (click)="appService.scrollToTop()" >NEXT</div>
+  <div class="btn small-button pink-button waves-effect waves-light" routerLink="/developer-faq" (click)="appService.scrollToTop()" >FAQ</div>
+
+  <br>
+
+  <br><br><br><br>
+</div>

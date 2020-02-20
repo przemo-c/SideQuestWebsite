@@ -21,11 +21,6 @@
   <div class="clearfix"></div>
   <div *ngIf="isLoaded">
     <div class="row">
-      <div class="col s12">
-        <div class="center-align" >
-          <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-top'"></app-ad-placeholder>
-        </div>
-      </div>
       <app-timeline-item *ngFor="let event of events; let i = index"
                          [name]="event.event_name||event.name"
                          [description]="event.event_description||event.description"
@@ -37,34 +32,6 @@
                          (open)="router.navigateByUrl('/event/'+event.events_id+'/'+event.start_time);appService.scrollToTop()"
       ></app-timeline-item>
     </div>
-    <!--<div *ngIf="!appService.isGrid&&!appService.isTimeline" class="row">-->
-      <!--<app-list-item *ngFor="let event of events; let i = index"-->
-                     <!--[name]="event.event_name||event.name"-->
-                     <!--[description]="event.event_description||event.description"-->
-                     <!--[image]="event.event_image||event.image"-->
-                     <!--[start_time]="event.start_time"-->
-                     <!--[show_date]="event.show_date"-->
-                     <!--[show_date_first]="event.show_date && i > 0"-->
-                     <!--[duration]="event.event_duration"-->
-                     <!--(open)="router.navigateByUrl('/event/'+event.events_id+'/'+event.start_time);appService.scrollToTop()"-->
-      <!--&gt;</app-list-item>-->
-    <!--</div>-->
-
-    <!--<div class="row"-->
-                 <!--*ngIf="appService.isGrid&&!appService.isTimeline">-->
-      <!--<div class="col s6 l3" *ngFor="let event of events; let i = index">-->
-        <!--<app-grid-item-->
-          <!--[name]="event.event_name||event.name"-->
-          <!--[description]="event.event_description||event.description"-->
-          <!--[image]="event.event_image||event.image"-->
-          <!--[start_time]="event.start_time"-->
-          <!--[show_date]="event.show_date"-->
-          <!--[show_date_first]="event.show_date && i > 0"-->
-          <!--[duration]="event.event_duration"-->
-          <!--(open)="router.navigateByUrl('/event/'+event.events_id+'/'+event.start_time);appService.scrollToTop()"-->
-        <!--&gt;</app-grid-item>-->
-      <!--</div>-->
-    <!--</div>-->
   </div>
 </div>
 <br><br><br>

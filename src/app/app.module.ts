@@ -92,6 +92,7 @@ import { AdHomeVerticalComponent } from "./ad-home-vertical/ad-home-vertical.com
 import { EthicsComponent } from "./ethics/ethics.component";
 import { WebVRComponent } from "./web-vr/web-vr.component";
 import { GiveawayComponent } from "./giveaway/giveaway.component";
+import { GettingStartedInstallSdkComponent } from "./getting-started-install-sdk/getting-started-install-sdk.component";
 
 export function hljsLanguages() {
   return [{ name: "cs", func: cs }];
@@ -159,7 +160,8 @@ export function hljsLanguages() {
     AdHomeVerticalComponent,
     EthicsComponent,
     WebVRComponent,
-    GiveawayComponent
+    GiveawayComponent,
+    GettingStartedInstallSdkComponent
   ],
   imports: [
     // {

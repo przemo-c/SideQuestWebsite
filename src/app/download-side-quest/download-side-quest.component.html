@@ -17,34 +17,13 @@
   </div>
 
   <h4>Download SideQuest</h4>
-<!--  <hr>-->
-
   <div class="row">
-
-    <div class="col s12">
-      <div class="center-align" >
-        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'download-top'"></app-ad-placeholder>
-        <br><br>
-      </div>
-    </div>
     <div class="col s12 m8">
-<!--      <br>-->
-<!--      <div class="padding">-->
-<!--        <div class="top-image z-depth-3" [ngStyle]="{'background-image':'url(https://i.imgur.com/AlYMbTj.png)'}"></div>-->
-<!--      </div>-->
-<!--      <br>-->
-<!--      <h4>SideQuest Store</h4>-->
       <hr>
       <div class="right-align grey-text" *ngIf="last_updated_at">Latest Release {{last_updated_at|fromNow}}. Total Downloads ( All Releases ): {{total_downloads_sidequest | number:'1.0-0'}}<br><br></div>
       Grab this to get games on your headset like Crisis VRigade, Deisim, Tea for God and tonnes more! If its streaming your after then there is no other place to get all the best streaming apps on Oculus Quest, Virtual Desktop, ALVR and RiftCat all on SideQuest.
       <app-download-box (last_update)="last_updated_at=$event"></app-download-box>
       <br><br>
-
-
-      <div class="center-align" >
-        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'download-middle'"></app-ad-placeholder>
-        <br><br>
-      </div>
       <h5>Legacy SideQuest Downloads</h5>
       <hr>
       <div class="right-align grey-text">Legacy Downloads on github.com<br><br></div>
@@ -58,10 +37,6 @@
           </div>
           <p>For <span class="chip">32 bit Windows</span> and <span class="chip">Portable ZIP</span> users, you can find the install packages on our github page.</p>
         </div>
-      </div>
-
-      <div class="center-align" >
-        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'download-left-1'"></app-ad-placeholder>
       </div>
     </div>
     <div class="col s12 m4">
