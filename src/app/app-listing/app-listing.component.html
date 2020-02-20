@@ -272,7 +272,7 @@
             <img class="screen-shot pointer" *ngFor="let screenshot of screenshots; let i = index" src="{{screenshot}}?size=256" (click)="openImage(i)"/>
           </div>
         </div>
-        <div class="col s12">
+        <div class="col s12" *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access">
           <br><br>
           <h5>Download Links</h5>
           <hr>
