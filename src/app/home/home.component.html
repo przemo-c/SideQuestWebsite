@@ -15,18 +15,6 @@
       </div>
     </div>
   </div>
-<!--  <div class="slider-right-container hide-on-med-and-down no-padding" [ngStyle]="{'vertical-align': expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'?'top':'initial'}">-->
-<!--    <div class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'" style="height: 600px;">-->
-<!--      <br><br><br><br><br>-->
-<!--      Thank you-->
-<!--      <h5>{{expanseService.currentSession.name}}</h5>-->
-<!--      for supporting us<br>on Patreon.<br>-->
-<!--      <i class="material-icons white-text medium">thumb_up</i>-->
-<!--    </div>-->
-<!--    <div class="center-align slider-padding">-->
-<!--      <app-ad-placeholder [sizes]="[[300,600]]" [id]="'home-top'" ></app-ad-placeholder>-->
-<!--    </div>-->
-<!--  </div>-->
 
   <span class="grey-text margin-left">
     SideQuest will always be free for users and developers.
@@ -58,22 +46,20 @@
     <app-app-display-box [apps]="newApps"></app-app-display-box>
   </div>
 
-  <h5>Social & multiplayer</h5>
-  <div class="row top-margin">
-    <app-app-display-box [apps]="multiplayerApps"></app-app-display-box>
-  </div>
-<!--  <app-ad-placeholder></app-ad-placeholder>-->
-  <h5>Horror</h5>
+  <h5>Fitness</h5>
   <div class="row top-margin">
     <app-app-display-box [apps]="horrorApps"></app-app-display-box>
   </div>
 
+  <h5>Hand Tracking</h5>
+  <div class="row top-margin">
+    <app-app-display-box [apps]="handyApps"></app-app-display-box>
+  </div>
 
-<!--    <h5>News</h5>-->
-<!--    <div class="row top-margin">-->
-<!--      <app-app-display-box [apps]="news"></app-app-display-box>-->
-<!--    </div>-->
-<!--    <app-ad-placeholder></app-ad-placeholder>-->
+  <h5>Social & multiplayer</h5>
+  <div class="row top-margin">
+    <app-app-display-box [apps]="multiplayerApps"></app-app-display-box>
+  </div>
 
 </div>
 

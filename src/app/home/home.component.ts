@@ -28,11 +28,16 @@ export interface NewsItem {
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"]
 })
+
+/*
+handtracking,Art,wires,colors,3d,oculus,quest,scribble,hands,tracking,experimental,sandbox,space,stars,spheres,reddit,wire,color,hand,sculpting,pinching,drawing,draw,imagination,mix,universe,galaxy,spin,orbit,triangle,square,icosahedron,cube,cubes,shiny,planet,planets,music,chords,music theory,theory,musical,sound,sound effects,effects,build,abstract,notes,tones
+ */
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild("sliderele", { static: true }) sliderele;
   popularApps: AppListing[];
   popularAppApps: AppListing[];
   newApps: AppListing[];
+  handyApps: AppListing[];
   horrorApps: AppListing[];
   multiplayerApps: AppListing[];
   imageUrls: IImage[];
@@ -105,7 +110,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       .then(() => this.getApps("rating", 1))
       .then(() => this.getApps("recent", 1))
       .then(() => this.getApps("rating", 0, null, "multiplayer"))
-      .then(() => this.getApps("rating", 1, "horror"));
+      .then(() => this.getApps("rating", 1, "fitness"))
+      .then(() => this.getApps("rating", 1, "handtracking"));
   }
 
   promiseWait(timeout) {
@@ -123,8 +129,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
         // this.appService.fixImages(resp, 512);
         if (search === "multiplayer") {
           this.multiplayerApps = resp;
-        } else if (tag === "horror") {
+        } else if (tag === "fitness") {
           this.horrorApps = resp;
+        } else if (tag === "handtracking") {
+          this.handyApps = resp;
         } else if (type === "recent") {
           this.newApps = resp;
         } else {
