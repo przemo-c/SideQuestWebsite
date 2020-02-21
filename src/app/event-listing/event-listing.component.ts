@@ -226,17 +226,17 @@ export class EventListingComponent implements OnInit, OnDestroy {
 
   async setupEvent() {
     if (this.events_id) {
-      const events = (await this.expanseService.start().then(() => {
+      const events = await this.expanseService.start().then(() => {
         return this.expanseService.getEvent(this.events_id);
-      })) as EventListing;
+      });
       if (!events) {
         this.events_id = null;
         this.is_not_found = true;
       } else {
         this.currentApp = events;
-        const counters = (await this.expanseService.getEventTotals(
+        const counters = await this.expanseService.getEventTotals(
           this.events_id
-        )) as AppCounter[];
+        );
 
         if (this.currentApp.apps_id) {
           await this.expanseService

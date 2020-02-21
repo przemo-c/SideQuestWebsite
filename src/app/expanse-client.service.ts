@@ -1,12 +1,23 @@
 import { Injectable } from "@angular/core";
 import { AppService } from "./app.service";
-import { AppListing } from "./account/account.component";
+import { AppListing, EventListing, SpaceListing } from "./account/account.component";
+import { ScreenShot, AppCounter, AppUrl } from './app-manager/app-manager.component';
+
+type MessageId = string;
+type MessageResponseData = any;
+type ErrorMessageResponse = { error: true; data: MessageResponseData };
+type MessageResponse = MessageResponseData | ErrorMessageResponse;
+type MessageResolveFunction = (value: MessageResponse) => void;
+
+interface AvatarImage {
+    avatar_images_id: string;
+}
 
 @Injectable({
   providedIn: "root"
 })
 export class ExpanseClientService {
-  messageResolves: any;
+  messageResolves: Record<MessageId, MessageResolveFunction>;
   isDev: string;
   url: string;
   cdnUrl: string;
@@ -413,11 +424,11 @@ export class ExpanseClientService {
   setProfileColor(users_id, color) {
     return this.emit("set-profile-color", { users_id, color });
   }
-  login(login, password) {
-    return this.emit("login", { login, password });
+  login(login: string, password: string) {
+    return this.emit("login", { login, password }) as Promise<any>;
   }
-  signup(name, email, password, dob) {
-    return this.emit("sign-up", { name, email, password, dob });
+  signup(name: string, email: string, password: string, dob: string) {
+    return this.emit("sign-up", { name, email, password, dob }) as Promise<any>;
   }
   refresh(token) {
     return this.emit("refresh", { token });
@@ -437,8 +448,8 @@ export class ExpanseClientService {
   unsubscribeEvent(events_id) {
     return this.emit("unsubscribe-event", { events_id });
   }
-  getEvent(events_id) {
-    return this.emit("event", { events_id });
+  getEvent(events_id: number | string) {
+    return this.emit("event", { events_id }) as Promise<EventListing>;
   }
   getEvents(page, search, filter, users_id?) {
     return this.emit("events-list", { page, search, filter, users_id });
@@ -446,8 +457,8 @@ export class ExpanseClientService {
   getMyEvents(page, search, filter) {
     return this.emit("my-events", { page, search, filter });
   }
-  getEventTotals(events_id) {
-    return this.emit("get-event-totals", { events_id });
+  getEventTotals(events_id: number) {
+    return this.emit("get-event-totals", { events_id }) as Promise<AppCounter[]>;
   }
   getEventCounters(events_id, start_time, end_time, filter) {
     return this.emit("get-event-counters", {
@@ -460,8 +471,8 @@ export class ExpanseClientService {
   eventCount(type, events_id) {
     return this.emit("update-count-event", { type, events_id });
   }
-  getSpace(spaces_id) {
-    return this.emit("space", { spaces_id });
+  getSpace(spaces_id: number) {
+    return this.emit("space", { spaces_id }) as Promise<SpaceListing>;
   }
   getSpaces(page, search, users_id?) {
     return this.emit("spaces-list", { page, search, users_id });
@@ -478,8 +489,8 @@ export class ExpanseClientService {
   unsubscribeSpace(spaces_id) {
     return this.emit("unsubscribe-space", { spaces_id });
   }
-  getSpaceTotals(spaces_id) {
-    return this.emit("get-space-totals", { spaces_id });
+  getSpaceTotals(spaces_id: number) {
+    return this.emit("get-space-totals", { spaces_id }) as Promise<AppCounter[]>;
   }
   getSpaceCounters(spaces_id, start_time, end_time, filter) {
     return this.emit("get-space-counters", {
@@ -720,8 +731,8 @@ export class ExpanseClientService {
   forgotPassword(email, returnUrl) {
     return this.emit("forgot-password", { email, returnUrl });
   }
-  resetPassword(password, resetToken) {
-    return this.emit("reset-password", { password, resetToken });
+  resetPassword(password: string, resetToken: string) {
+    return this.emit("reset-password", { password, resetToken }) as Promise<any>;
   }
   getUserWithSpace() {
     return this.emit("get-user-with-space", {});
@@ -757,8 +768,8 @@ export class ExpanseClientService {
   savePreviewImage(preview, avatar_images_id) {
     return this.emit("save-preview-images", { preview, avatar_images_id });
   }
-  saveAvatarImage(image, preview) {
-    return this.emit("save-avatar-images", { image, preview });
+  saveAvatarImage(image: string, preview: string) {
+    return this.emit("save-avatar-images", { image, preview }) as Promise<AvatarImage[]>;
   }
   deleteAvatarImage(avatar_images_id) {
     return this.emit("delete-avatar-images", { avatar_images_id });
@@ -802,11 +813,11 @@ export class ExpanseClientService {
   getAppPackage(packagename) {
     return this.emit("get-app-package", { packagename });
   }
-  getApp(apps_id) {
-    return this.emit("get-app", { apps_id });
+  getApp(apps_id: number | string) {
+    return this.emit("get-app", { apps_id }) as Promise<AppListing[]>;
   }
-  getAppTotals(apps_id) {
-    return this.emit("get-app-totals", { apps_id });
+  getAppTotals(apps_id: number) {
+    return this.emit("get-app-totals", { apps_id }) as Promise<AppCounter[]>;
   }
   getAppCounters(apps_id, start_time, end_time, filter) {
     return this.emit("get-app-counters", {
@@ -816,11 +827,11 @@ export class ExpanseClientService {
       filter
     });
   }
-  getAppUrls(apps_id) {
-    return this.emit("get-app-urls", { apps_id });
+  getAppUrls(apps_id: number | string) {
+    return this.emit("get-app-urls", { apps_id }) as Promise<AppUrl[]>;
   }
-  getAppScreenshots(apps_id) {
-    return this.emit("get-app-screenshots", { apps_id });
+  getAppScreenshots(apps_id: number | string) {
+    return this.emit("get-app-screenshots", { apps_id }) as Promise<ScreenShot[]>;
   }
   searchApps(
     search,
@@ -846,14 +857,14 @@ export class ExpanseClientService {
   searchMyApps(page, search) {
     return this.emit("search-my-apps", { search, page });
   }
-  searchInstalledApps(search, page, is_updated?, is_uninstalled?, apps_id?) {
+  searchInstalledApps(search: string, page: number, is_updated?: boolean, is_uninstalled?: boolean, apps_id?: number) {
     return this.emit("search-installed-apps", {
       search,
       page,
       is_updated,
       is_uninstalled,
       apps_id
-    });
+    }) as Promise<AppListing[]>;
   }
   addInstalledApp(apps_id, versioncode) {
     return this.emit("add-edit-installed-app", { apps_id, versioncode });
@@ -861,8 +872,8 @@ export class ExpanseClientService {
   uninstallApp(apps_id) {
     return this.emit("uninstall-app", { apps_id });
   }
-  getAppWebhook(apps_id) {
-    return this.emit("get-app-webhook", { apps_id });
+  getAppWebhook(apps_id: string) {
+    return this.emit("get-app-webhook", { apps_id }) as Promise<string>;
   }
   addApp(
     name,
