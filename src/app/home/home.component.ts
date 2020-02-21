@@ -28,10 +28,6 @@ export interface NewsItem {
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.css"]
 })
-
-/*
-handtracking,Art,wires,colors,3d,oculus,quest,scribble,hands,tracking,experimental,sandbox,space,stars,spheres,reddit,wire,color,hand,sculpting,pinching,drawing,draw,imagination,mix,universe,galaxy,spin,orbit,triangle,square,icosahedron,cube,cubes,shiny,planet,planets,music,chords,music theory,theory,musical,sound,sound effects,effects,build,abstract,notes,tones
- */
 export class HomeComponent implements OnInit, AfterViewInit {
   @ViewChild("sliderele", { static: true }) sliderele;
   popularApps: AppListing[];
