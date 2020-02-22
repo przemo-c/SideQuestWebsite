@@ -122,6 +122,7 @@ const routes: Routes = [
   { path: "apps/:category", component: AppsComponent },
   { path: "apps/:category/:tag", component: AppsComponent },
   { path: "apps/:category/:tag/:page", component: AppsComponent },
+  { path: "apps/:category/:tag/:page/:order", component: AppsComponent },
   { path: "account", component: AccountComponent, canActivate: [LoginGuard] },
   {
     path: "account/:type",

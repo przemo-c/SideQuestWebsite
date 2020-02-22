@@ -22,10 +22,6 @@ export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
   category: number;
   isLoaded: boolean;
   searchTimeout: any;
-  isRecent = false;
-  isRating = true;
-  isDownloads = false;
-  isLatest = false;
   tag: string;
   menuItems = [
     // {
@@ -90,6 +86,14 @@ export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
       name: "Fitness",
       description: "Fitness Games.",
       url: "/apps/1/fitness"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
+      name: "Music",
+      description: "Music Games.",
+      url: "/apps/1/music"
     },
     {
       is_main: false,
@@ -205,6 +209,7 @@ export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
       Google: "assets/google_g_logo.png"
     }
   };
+  order: string;
   constructor(
     public expanseService: ExpanseClientService,
     public appService: AppService,
@@ -224,6 +229,11 @@ export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
         this.page = Number(route.snapshot.paramMap.get("page"));
         if (!Number.isInteger(this.page)) {
           this.page = 0;
+        }
+        let orders = ["downloads", "rating", "created", "latest", "name"];
+        this.order = route.snapshot.paramMap.get("order") || "rating";
+        if (!~orders.indexOf(this.order)) {
+          this.order = "rating";
         }
         if (this.isLoaded) {
           this.getApps();
@@ -259,6 +269,7 @@ export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
   backClicked() {
     (window as any).history.back();
   }
+  isDesc() {}
   getApps() {
     this.isLoading = true;
     this.expanseService.start().then(() =>
@@ -266,18 +277,8 @@ export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
         .searchApps(
           this.searchString,
           this.page,
-          this.isDownloads
-            ? "downloads"
-            : this.isRecent
-            ? "created"
-            : this.isRating
-            ? "rating"
-            : this.isLatest
-            ? "latest"
-            : "name",
-          this.isRecent || this.isRating || this.isDownloads || this.isLatest
-            ? "desc"
-            : "asc",
+          this.order,
+          this.order === "name" ? "asc" : "desc",
           this.category,
           this.tag,
           null,

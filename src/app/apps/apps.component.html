@@ -18,23 +18,23 @@
   </div>
   <mz-sidenav-subheader>Sort By:</mz-sidenav-subheader>
   <mz-sidenav-link>
-    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = true; isDownloads = false; tryGetApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0/rating">
       <i class="menu-image material-icons">star_half</i><span><b>Hot</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = true; isRating = false; isDownloads = false; tryGetApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0/created">
       <i class="menu-image material-icons">swap_vert</i><span><b>Recent</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = true; isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0/latest">
       <i class="menu-image material-icons">swap_vert</i><span><b>Latest</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = false; isDownloads = true; tryGetApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0/downloads">
       <i class="menu-image material-icons">cloud_download</i><span><b>Downloads</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-link>
-    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
+    <a class="pointer black-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0/name">
       <i class="menu-image material-icons">sort</i><span><b>Name</b></span></a>
   </mz-sidenav-link>
   <mz-sidenav-divider></mz-sidenav-divider>
@@ -84,24 +84,18 @@
         <span class="grey-text">Sort By:</span>
         <br>
         <br>
-        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = true; isDownloads = false; tryGetApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0/rating">
           <i class="menu-image material-icons">star_half</i><span><b>Hot</b></span></div>
-        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = true; isRating = false; isDownloads = false; tryGetApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0/created">
           <i class="menu-image material-icons">swap_vert</i><span><b>Recent</b></span></div>
-        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = true; isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0/latest">
           <i class="menu-image material-icons">insert_invitation</i><span><b>Latest</b></span></div>
-        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = false; isDownloads = true; tryGetApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0/downloads">
           <i class="menu-image material-icons">cloud_download</i><span><b>Downloads</b></span></div>
-        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0" (click)="isLatest = false; isRecent = false; isRating = false; isDownloads = false; tryGetApps()">
+        <div class="pointer white-text" routerLink="/apps/{{category}}/{{tag||'none'}}/0/name">
           <i class="menu-image material-icons">sort</i><span><b>Name</b></span></div><br>
       </div>
 
-<!--      -->
-<!--        <app-listing-modes style="margin: 0 0 .912rem -18px;" [show_sort]="!appService.isTimeline" [hide_display]="true"-->
-<!--                           (recent)="isRecent = true; isRating = false; isDownloads = false; page = 0; getApps()"-->
-<!--                           (name)="isRecent = false; isRating = false; isDownloads = false; page = 0; getApps()"-->
-<!--                           (rating)="isRecent = false; isRating = true; isDownloads = false; page = 0; getApps()"-->
-<!--                           (download)="isRecent = false; isRating = false; isDownloads = true; page = 0; getApps()"></app-listing-modes>-->
       <div class="game-menu-container">
         <div *ngFor="let item of menuItems" class="pointer"
              [ngClass]="{'menu-chip-main':item.is_main,'menu-chip-sub':!item.is_main}"
@@ -113,20 +107,6 @@
           <span *ngIf="!item.is_main">{{item.name}}</span>
         </div>
       </div>
-
-
-<!--      <br><br>-->
-
-<!--      <div style="margin-left: -28px;" class="center-align" *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">-->
-<!--        <br><br><br>-->
-<!--        Thank you-->
-<!--        <h5>{{expanseService.currentSession.name}}</h5>-->
-<!--        for supporting us<br>on Patreon.<br>-->
-<!--        <i class="material-icons white-text medium">thumb_up</i>-->
-<!--      </div>-->
-<!--      <div style="margin-left: -28px;">-->
-<!--        <app-ad-placeholder [sizes]="[[160,600]]" [id]="'apps-left-1'"></app-ad-placeholder>-->
-<!--      </div>-->
     </div>
     <div class="col s12 l10 xl11">
       <div class="center-align" *ngIf="!isLoading">
@@ -142,7 +122,6 @@
       </ng-container>
       <div class="clearfix"></div>
       <div *ngIf="!apps.length && !isLoading">
-<!--        <i class="material-icons back-icon" (click)="backClicked()">reply</i>-->
         <div class="chip">No more items...</div>
       </div>
       <div *ngIf="!isLoading">
@@ -156,7 +135,7 @@
 
 
         <div class="center-align">
-          <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="appService.scrollToTop()" routerLink="/apps/{{category}}/{{tag||'none'}}/{{page+1}}">Load More</div>
+          <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="appService.scrollToTop()" routerLink="/apps/{{category}}/{{tag||'none'}}/{{page+1}}/{{order}}">Load More</div>
           <div *ngIf="hasNoMore" class="chip">No more items...</div>
         </div>
         <br><br><br>
