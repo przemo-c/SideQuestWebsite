@@ -387,29 +387,32 @@
     </div>
     <br><br>
   </div>
-  <div *ngIf="currentView === 'subscribed-apps'">
+  <div *ngIf="currentView === 'subscribed-apps' || currentView === 'unsubscribed-apps' || currentView === 'updated-apps'">
     <h4>My {{isUpdated? 'App Updates' : isUninstalled? 'Unsubscribed Apps' : 'Subscribed Apps' }}</h4>
     <div class="right pull-up">
       <div
         class="btn waves-effect waves-light pink-button small-button margin-left"
         mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
         position="bottom"
-        (click)="isUpdated = false;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"
+        routerLink="/account/subscribed-apps"
       >Subscribed</div>
+      <!--        (click)="isUpdated = false;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"-->
 
       <div
         class="btn waves-effect waves-light pink-button small-button margin-left"
         mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
         position="bottom"
-        (click)="isUpdated = false;isUninstalled = true; page=0;saveMyAppsView(); getInstalledApps()"
+        routerLink="/account/unsubscribed-apps"
       >Unsubscribed</div>
+      <!--        (click)="isUpdated = false;isUninstalled = true; page=0;saveMyAppsView(); getInstalledApps()"-->
 
       <div
         class="btn waves-effect waves-light pink-button small-button margin-left"
         mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
         position="bottom"
-        (click)="isUpdated = true;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"
+        routerLink="/account/updated-apps"
       >Updates</div>
+    <!--        (click)="isUpdated = true;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"-->
 
       <div *ngIf="appsNeedingUpdated && appsNeedingUpdated.length"
            class="btn waves-effect waves-light pink-button small-button margin-left"

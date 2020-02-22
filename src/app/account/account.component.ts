@@ -237,6 +237,7 @@ export class AccountComponent implements OnInit, OnDestroy {
     this.isUninstalled = !!localStorage.getItem("viewIsUninstalled");
     this.expanseService.getUserSettings();
     this.appService.setAccountComponent(this);
+    this.expanseService.refreshSession();
     this.sub = this.router.events.subscribe(async val => {
       if (val instanceof NavigationEnd) {
         this.messageUser = null;
@@ -248,6 +249,14 @@ export class AccountComponent implements OnInit, OnDestroy {
         type = type || "basic-settings";
         if (type) {
           this.currentView = type;
+          if (type === "unsubscribed-apps") {
+            this.isUninstalled = true;
+            this.isUpdated = false;
+          }
+          if (type === "updated-apps") {
+            this.isUninstalled = false;
+            this.isUpdated = true;
+          }
           switch (type) {
             case "requests":
             case "blocked":
@@ -260,6 +269,8 @@ export class AccountComponent implements OnInit, OnDestroy {
             case "message-thread":
               this.mainPage = "message-thread";
               break;
+            case "unsubscribed-apps":
+            case "updated-apps":
             case "subscribed-apps":
             case "apps-listings":
               this.mainPage = "apps";
@@ -275,7 +286,7 @@ export class AccountComponent implements OnInit, OnDestroy {
           }
 
           this.page = 0;
-          this.expanseService.refreshSession().then(() => this.getCurrent());
+          this.getCurrent();
         }
       }
     });
@@ -448,6 +459,8 @@ export class AccountComponent implements OnInit, OnDestroy {
 
   getCurrent() {
     switch (this.currentView) {
+      case "updated-apps":
+      case "unsubscribed-apps":
       case "subscribed-apps":
         this.getInstalledApps();
         break;
