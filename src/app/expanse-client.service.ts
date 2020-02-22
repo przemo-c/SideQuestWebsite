@@ -33,11 +33,11 @@ export class ExpanseClientService {
 
     this.url = !!this.isDev
       ? "ws://192.168.0.34:3000"
-      : "wss://api.sidequestvr.com";
+      : "wss://api.theexpanse.app";
 
     this.cdnUrl = this.isDev
       ? "http://192.168.0.4:47000/"
-      : "https://cdn.sidequestvr.com/";
+      : "https://cdn.theexpanse.app/";
 
     this.shortenerUrl = this.isDev
       ? "http://192.168.0.4:47499/"

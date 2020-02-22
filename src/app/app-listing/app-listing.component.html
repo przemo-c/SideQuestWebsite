@@ -48,7 +48,7 @@
     <div class="btn waves-effect waves-light pink-button margin-left"
          *ngIf="itchUrl"
          (click)="openUrl(itchUrl.link_url + (currentApp.active?'?ac=k3RTPJMnVvG':''));subscribeIfItch(itchUrl.provider)">
-      {{isInstalled && installedVersion < currentApp.versioncode ? 'Update On Itch' : 'Buy On Itch'}}
+      {{(isInstalled && installedVersion < currentApp.versioncode) ? 'Update On Itch' : isInstalled ? 'View On Itch' : 'Buy On Itch'}}
     </div>
 
     <div class="btn waves-effect waves-light pink-button margin-left"
