@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, APP_INITIALIZER } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -93,6 +93,8 @@ import { EthicsComponent } from "./ethics/ethics.component";
 import { WebVRComponent } from "./web-vr/web-vr.component";
 import { GiveawayComponent } from "./giveaway/giveaway.component";
 import { GettingStartedInstallSdkComponent } from "./getting-started-install-sdk/getting-started-install-sdk.component";
+import { UpdatesCountComponent } from "./updates-count/updates-count.component";
+import { AppsToUpdateService } from './apps-to-update.service';
 
 export function hljsLanguages() {
   return [{ name: "cs", func: cs }];
@@ -161,7 +163,8 @@ export function hljsLanguages() {
     EthicsComponent,
     WebVRComponent,
     GiveawayComponent,
-    GettingStartedInstallSdkComponent
+    GettingStartedInstallSdkComponent,
+    UpdatesCountComponent
   ],
   imports: [
     // {
@@ -196,7 +199,12 @@ export function hljsLanguages() {
     LightboxModule,
     RecaptchaModule
   ],
-  providers: [NotLoginGuard, LoginGuard],
+  providers: [
+    NotLoginGuard,
+    LoginGuard,
+    AppsToUpdateService,
+    AppsToUpdateService.initProvider,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
