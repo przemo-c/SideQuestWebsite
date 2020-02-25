@@ -227,9 +227,6 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
               .filter(t => t)
               .map(t => ({ tag: t }));
             this.hasGithubName = !!this.currentApp.github_name;
-            if (this.hasGithubName) {
-              await this.findGitRepos();
-            }
             this.hasGithubRepo = !!this.currentApp.github_repo;
             if (this.hasGithubRepo) {
               await this.findGitReleases();
@@ -404,23 +401,23 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     this.debounceTimeout = setTimeout(() => fn.call(this), 750);
   }
 
-  findGitRepos() {
-    this.hasGithubName = false;
-    return fetch(
-      "https://api.github.com/users/" + this.currentApp.github_name + "/repos"
-    ).then(async r => {
-      if (r.ok) {
-        this.githubRepos = await r.json();
-        this.hasGithubName = true;
-      } else {
-        this.hasGithubName = false;
-      }
-      this.isGettingGithub = false;
-    });
+  public onEditGithubName(_event) {
+    this.selectGithubRepo('');
+  }
+
+  public selectGithubRepo(name: string) {
+    this.currentApp.github_repo = name;
+    this.hasGithubRepo = name.length > 0;
+    this.githubReleases = [];
+    this.debounce(this.findGitReleases);
   }
 
   findGitReleases() {
-    this.hasGithubRepo = false;
+    if (this.currentApp.github_name.length === 0 || this.currentApp.github_repo.length === 0) {
+      this.isGettingGithub = false;
+      return;
+    }
+    this.isGettingGithub = true;
     return fetch(
       "https://api.github.com/repos/" +
         this.currentApp.github_name +
@@ -434,9 +431,6 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
           tag_name: "[ latest ]",
           isSideQuestOption: true
         });
-        this.hasGithubRepo = true;
-      } else {
-        this.hasGithubRepo = false;
       }
       this.isGettingGithub = false;
     });
@@ -478,7 +472,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     );
     if (
       this.currentApp.github_enabled &&
-      this.hasGithubRepo &&
+      this.hasGithubName &&
       this.hasGithubRepo &&
       releases.length
     ) {
