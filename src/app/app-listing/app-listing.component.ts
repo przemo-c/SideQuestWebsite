@@ -17,6 +17,7 @@ import {
 } from "../app-manager/app-manager.component";
 import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
 import { IAlbum, Lightbox } from "ngx-lightbox";
+import { MzModalComponent } from 'ngx-materialize';
 
 interface SocialIcon {
   provider: string;
@@ -65,7 +66,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
   isAllReleases: boolean;
   isInstalled = false;
   installedVersion: number;
-  currentReviewId: number;
+  selectedReview: Review;
   currentApp: AppListing = {
     name: "",
     users_id: 0,
@@ -220,10 +221,21 @@ export class AppListingComponent implements OnInit, OnDestroy {
 
   deleteReviewConfirm() {
     this.expanseService
-      .deleteReview(this.apps_id, "apps", this.currentReviewId)
+      .deleteReview(this.apps_id, "apps", this.selectedReview.reviews_id)
       .then(r => this.service.showMessage(r, "Review Deleted!"))
       .then(() => {
-        this.currentReviewId = null;
+        this.selectedReview = null;
+        this.page = 0;
+        this.getReviews();
+      });
+  }
+
+  deleteReplyConfirm() {
+    this.expanseService
+      .deleteReview(this.apps_id, "apps", this.selectedReview.reply_id)
+      .then(r => this.service.showMessage(r, "Reply Deleted!"))
+      .then(() => {
+        this.selectedReview = null;
         this.page = 0;
         this.getReviews();
       });
@@ -244,7 +256,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.apps_id,
         null,
         null,
-        this.currentReviewId
+        this.selectedReview ? this.selectedReview.reviews_id : null
       )
       .then((r: any) => {
         this.service.showMessage(r, "Review Added!");
@@ -258,7 +270,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.page = 0;
         this.currentReview = "";
         this.currentRating = 3;
-        this.currentReviewId = null;
+        this.selectedReview = null;
         return this.getReviews();
       });
   }
@@ -694,5 +706,44 @@ export class AppListingComponent implements OnInit, OnDestroy {
       }
       this.isGettingGithub = false;
     });
+  }
+
+  public avatarUrl(imagePath: string): string {
+    return `${this.expanseService.cdnUrl}${imagePath}?size=256`;
+  }
+
+  public openModalForReview(reviewId: number, modal: MzModalComponent) {
+    this.selectedReview = this.reviewForId(reviewId);
+    modal.openModal();
+  }
+
+  public canDeleteReview(reviewId: number): boolean {
+    const review = this.reviewForId(reviewId);
+    return this.isReviewByCurrentUser(review) || this.isAdmin();
+  }
+
+  public canDeleteReply(): boolean {
+    return this.isCurrentUserAppOwner() || this.isAdmin();
+  }
+
+  public canReplyToReview(): boolean {
+    return this.isCurrentUserAppOwner();
+  }
+
+  private reviewForId(id: number): Review {
+    return this.reviews.find(({ reviews_id }) => reviews_id === id);
+  }
+
+  private isAdmin() {
+    return this.service.isAuthenticated && this.expanseService.currentSession.users_id === 1;
+  }
+
+  private isReviewByCurrentUser(review: Review): boolean {
+    return this.service.isAuthenticated && review.users_id == this.expanseService.currentSession.users_id;
+  }
+
+  private isCurrentUserAppOwner(): boolean {
+    return this.service.isAuthenticated &&
+      (this.currentApp.users_id == this.expanseService.currentSession.users_id);
   }
 }
