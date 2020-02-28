@@ -190,17 +190,17 @@ export class SpaceListingComponent implements OnInit, OnDestroy {
 
   async setupSpace() {
     if (this.spaces_id) {
-      const events = (await this.expanseService.start().then(() => {
+      const events = await this.expanseService.start().then(() => {
         return this.expanseService.getSpace(this.spaces_id);
-      })) as SpaceListing;
+      });
       if (!events) {
         this.spaces_id = null;
         this.is_not_found = true;
       } else {
         this.currentApp = events;
-        const counters = (await this.expanseService.getSpaceTotals(
+        const counters = await this.expanseService.getSpaceTotals(
           this.spaces_id
-        )) as AppCounter[];
+        );
 
         if (this.currentApp.apps_id) {
           this.expanseService

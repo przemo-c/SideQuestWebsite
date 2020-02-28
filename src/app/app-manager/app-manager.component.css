@@ -35,6 +35,7 @@
   width: calc(100% - 45px);
   position:relative;
   display: inline-block;
+  padding-bottom: 20px;
 }
 .select-icon{
   width: 3rem;

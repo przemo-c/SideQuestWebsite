@@ -207,39 +207,36 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       if (val instanceof NavigationEnd) {
         this.apps_id = route.snapshot.paramMap.get("apps_id");
         if (this.apps_id) {
-          const apps = (await this.expanseService
+          const apps = await this.expanseService
             .start()
             .then(() =>
               this.expanseService.getApp(this.apps_id)
-            )) as AppListing[];
+            );
           if (!apps.length) {
             this.apps_id = null;
             this.is_not_found = true;
           } else {
             this.currentApp = apps[0];
             if (!this.currentApp.apk_url) {
-              this.currentApp.apk_url = (await this.expanseService.getAppWebhook(
+              this.currentApp.apk_url = await this.expanseService.getAppWebhook(
                 this.apps_id
-              )) as string;
+              );
             }
             this.searchTags = (this.currentApp.search_tags || "")
               .split(",")
               .filter(t => t)
               .map(t => ({ tag: t }));
             this.hasGithubName = !!this.currentApp.github_name;
-            if (this.hasGithubName) {
-              await this.findGitRepos();
-            }
             this.hasGithubRepo = !!this.currentApp.github_repo;
             if (this.hasGithubRepo) {
               await this.findGitReleases();
             }
-            const screenshots = (await this.expanseService.getAppScreenshots(
+            const screenshots = await this.expanseService.getAppScreenshots(
               this.apps_id
-            )) as ScreenShot[];
-            this.app_urls = (await this.expanseService.getAppUrls(
+            );
+            this.app_urls = await this.expanseService.getAppUrls(
               this.apps_id
-            )) as AppUrl[];
+            );
             this.screenshots = (screenshots || []).map(s => s.image_url);
             this.onVideoChange();
           }
@@ -404,23 +401,23 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     this.debounceTimeout = setTimeout(() => fn.call(this), 750);
   }
 
-  findGitRepos() {
-    this.hasGithubName = false;
-    return fetch(
-      "https://api.github.com/users/" + this.currentApp.github_name + "/repos"
-    ).then(async r => {
-      if (r.ok) {
-        this.githubRepos = await r.json();
-        this.hasGithubName = true;
-      } else {
-        this.hasGithubName = false;
-      }
-      this.isGettingGithub = false;
-    });
+  public onEditGithubName(_event) {
+    this.selectGithubRepo('');
+  }
+
+  public selectGithubRepo(name: string) {
+    this.currentApp.github_repo = name;
+    this.hasGithubRepo = name.length > 0;
+    this.githubReleases = [];
+    this.debounce(this.findGitReleases);
   }
 
   findGitReleases() {
-    this.hasGithubRepo = false;
+    if (this.currentApp.github_name.length === 0 || this.currentApp.github_repo.length === 0) {
+      this.isGettingGithub = false;
+      return;
+    }
+    this.isGettingGithub = true;
     return fetch(
       "https://api.github.com/repos/" +
         this.currentApp.github_name +
@@ -434,9 +431,6 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
           tag_name: "[ latest ]",
           isSideQuestOption: true
         });
-        this.hasGithubRepo = true;
-      } else {
-        this.hasGithubRepo = false;
       }
       this.isGettingGithub = false;
     });
@@ -478,7 +472,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
     );
     if (
       this.currentApp.github_enabled &&
-      this.hasGithubRepo &&
+      this.hasGithubName &&
       this.hasGithubRepo &&
       releases.length
     ) {

@@ -100,9 +100,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this.getNews();
     return this.expanseService
       .start()
-      .then(() => this.getNews())
       .then(() => this.getApps("rating", 1))
       .then(() => this.getApps("recent", 1))
       .then(() => this.getApps("rating", 0, null, "multiplayer"))

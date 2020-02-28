@@ -93,8 +93,13 @@ import { EthicsComponent } from "./ethics/ethics.component";
 import { WebVRComponent } from "./web-vr/web-vr.component";
 import { GiveawayComponent } from "./giveaway/giveaway.component";
 import { GettingStartedInstallSdkComponent } from "./getting-started-install-sdk/getting-started-install-sdk.component";
+
 import { UpdatesCountComponent } from "./updates-count/updates-count.component";
 import { AppsToUpdateService } from './apps-to-update.service';
+
+import { GithubRepoSelectComponent } from './github-repo-select/github-repo-select.component';
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
+
 
 export function hljsLanguages() {
   return [{ name: "cs", func: cs }];
@@ -165,6 +170,7 @@ export function hljsLanguages() {
     GiveawayComponent,
     GettingStartedInstallSdkComponent,
     UpdatesCountComponent
+    GithubRepoSelectComponent,
   ],
   imports: [
     // {
@@ -197,7 +203,8 @@ export function hljsLanguages() {
     MzTextareaModule,
     NgxDaterangepickerMd.forRoot(),
     LightboxModule,
-    RecaptchaModule
+    RecaptchaModule,
+    AutocompleteLibModule
   ],
   providers: [
     NotLoginGuard,
