@@ -17,7 +17,7 @@ import {
 } from "../app-manager/app-manager.component";
 import { DomSanitizer, SafeUrl } from "@angular/platform-browser";
 import { IAlbum, Lightbox } from "ngx-lightbox";
-import { MzModalComponent } from 'ngx-materialize';
+import { MzModalComponent } from "ngx-materialize";
 
 interface SocialIcon {
   provider: string;
@@ -487,9 +487,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.searchTags = (this.currentApp.search_tags || "")
           .split(",")
           .filter(t => t);
-        const counters = await this.expanseService.getAppTotals(
-          this.apps_id
-        );
+        const counters = await this.expanseService.getAppTotals(this.apps_id);
         counters.forEach(counter => {
           switch (counter.type) {
             case "click":
@@ -511,9 +509,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
         );
         const sort = (a, b) =>
           a.provider > b.provider ? 1 : b.provider > a.provider ? -1 : 0;
-        this.app_urls = await this.expanseService.getAppUrls(
-          this.apps_id
-        );
+        this.app_urls = await this.expanseService.getAppUrls(this.apps_id);
         if (!this.currentApp.early_access) {
           console.log("APP Urls: ", this.app_urls);
         }
@@ -735,15 +731,23 @@ export class AppListingComponent implements OnInit, OnDestroy {
   }
 
   private isAdmin() {
-    return this.service.isAuthenticated && this.expanseService.currentSession.users_id === 1;
+    return (
+      this.service.isAuthenticated &&
+      this.expanseService.currentSession.users_id === 1
+    );
   }
 
   private isReviewByCurrentUser(review: Review): boolean {
-    return this.service.isAuthenticated && review.users_id == this.expanseService.currentSession.users_id;
+    return (
+      this.service.isAuthenticated &&
+      review.users_id == this.expanseService.currentSession.users_id
+    );
   }
 
   private isCurrentUserAppOwner(): boolean {
-    return this.service.isAuthenticated &&
-      (this.currentApp.users_id == this.expanseService.currentSession.users_id);
+    return (
+      this.service.isAuthenticated &&
+      this.currentApp.users_id == this.expanseService.currentSession.users_id
+    );
   }
 }

@@ -1,30 +1,32 @@
-.side-border{
+.side-border {
   border-left: 1px solid white;
 }
-.side-border:first-child{
+
+.side-border:first-child {
   border-left: 0 solid white;
 }
-.masonry-layout{
-  text-align:center;
+
+.masonry-layout {
+  text-align: center;
   margin-left: 10px;
 }
-.slider-padding{
-  position: relative;
-  padding-top: 60px;
-  margin-left: 8px;
-  margin-right: 8px;
-}
-.layout-button{
+
+.layout-button {
   margin: 0.5em;
   cursor: pointer;
 }
-.top-margin{
+
+.top-margin {
   margin-top: 18px;
 }
-.top-chip{
+
+.top-chip {
   white-space: nowrap;
 }
-.tall-image,.small-image,.tall-placeholder{
+
+.tall-image,
+.small-image,
+.tall-placeholder {
   height: 350px;
   width: 100%;
   background-size: cover;
@@ -32,184 +34,49 @@
   position: relative;
   margin-bottom: 20px;
 }
-.small-image{
+
+.small-image {
   height: 165px;
 }
-.tall-placeholder{
+
+.tall-placeholder {
   height: 525px;
 }
-.padding{
+
+.padding {
   padding-left: 3em;
   padding-right: 3em;
 }
-.top-chip{
+
+.top-chip {
   margin-left: 1em;
   margin-right: 1em;
 }
 
-
-.slidy1 {
-  left: 0%!important;
-}
-.slidy2 {
-  left: -100%!important;
-}
-.slidy3 {
-  left: -200%!important;
-}
-.slidy4 {
-  left: -300%!important;
-}
-.slidy5 {
-  left: -400%!important;
-}
-.slidy6 {
-  left: -500%!important;
-}
-.slidy7 {
-  left: -600%!important;
-}
-.slidy8 {
-  left: -700%!important;
-}
-.slidy9 {
-  left: -800%!important;
-}
-.slidy10 {
-  left: -900%!important;
-}
-.slidy11 {
-  left: -1000%!important;
-}
-.slidy12 {
-  left: -1100%!important;
-}
-.slidy13 {
-  left: -1200%!important;
-}
-.slidy14 {
-  left: -1300%!important;
-}
-.slidy15 {
-  left: -1400%!important;
-}
-.slidy16 {
-  left: -1500%!important;
-}
-.slidy17 {
-  left: -1600%!important;
-}
-.slidy18 {
-  left: -1700%!important;
-}
-.slidy19 {
-  left: -1800%!important;
-}
-.slidy20 {
-  left: -1900%!important;
-}
-@keyframes slidy {
-  0% { left: 0%; }
-  4% { left: 0%; }
-
-  5% { left: -100%; }
-  9% { left: -100%; }
-
-  10% { left: -200%; }
-  14% { left: -200%; }
-
-  15% { left: -300%; }
-  19% { left: -300%; }
-
-  20% { left: -400%; }
-  24% { left: -400%; }
-
-  25% { left: -500%; }
-  29% { left: -500%; }
-
-  30% { left: -600%; }
-  34% { left: -600%; }
-
-  35% { left: -700%; }
-  39% { left: -700%; }
-
-  40% { left: -800%; }
-  44% { left: -800%; }
-
-  45% { left: -900%; }
-  49% { left: -900%; }
-
-  50% { left: -1000%; }
-  54% { left: -1000%; }
-
-  55% { left: -1100%; }
-  59% { left: -1100%; }
-
-  60% { left: -1200%; }
-  64% { left: -1200%; }
-
-  65% { left: -1300%; }
-  69% { left: -1300%; }
-
-  70% { left: -1400%; }
-  74% { left: -1400%; }
-
-  75% { left: -1500%; }
-  79% { left: -1500%; }
-
-  80% { left: -1600%; }
-  84% { left: -1600%; }
-
-  85% { left: -1700%; }
-  89% { left: -1700%; }
-
-  90% { left: -1800%; }
-  94% { left: -1800%; }
-
-  95% { left: -1900%; }
-  99% { left: -1900%; }
-
-  100% { left: -2000%; }
-}
-.disable-auto-slider{
-  animation: initial!important;
+.patreon-notice {
+  margin: 0.5rem 0.5rem 2rem 0.5rem;
+  display: block;
+  background: #222;
+  padding: 1rem;
+  border-radius: 0.3rem;
 }
 
-div#slider { overflow: hidden; border-radius: 3px; }
-div#slider div.slider-inner .img { cursor: pointer; width: 5%; float: left; height: 570px; background-size: cover; background-position: center center;}
-div#slider div.slider-inner {
-  position: relative;
-  width: 2000%;
-  margin: 0;
-  left: 0;
-  text-align: left;
-  font-size: 0;
-  animation: 240s slidy infinite;
-  transition: left 1s;
-}
-.slider-right-container{
-
-  display: inline-block;
-  width: 300px;
-}
-.slider-left-container{
-  display: inline-block;
-  width: 100%;
-/*calc(100% - 330px);*/
+.patreon-notice a {
+  text-decoration: underline;
+  color: #9e9e9e;
 }
 
+.patreon-notice .chip {
+  margin: 0 0.5rem !important;
+}
 
 @media screen and (max-width: 992px) {
-
-  .slider-left-container{
-    display: inline-block;
-    width: 100%;
-  }
-  .slider-right-container{
-    display: none;
-  }
-  .padding{
+  .padding {
     padding-left: 1em;
     padding-right: 1em;
   }
+}
+
+h5 {
+  margin-left: 0.5rem !important;
 }

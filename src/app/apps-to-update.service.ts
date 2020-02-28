@@ -2,7 +2,6 @@ import { Subject } from "rxjs";
 import { Injectable } from "@angular/core";
 import { ExpanseClientService } from "./expanse-client.service";
 import { AppListing } from "./account/account.component";
-
 @Injectable({
   providedIn: "root"
 })
@@ -35,10 +34,9 @@ export class AppsToUpdateService {
       list.push(...pageList);
       hasMore = pageList.length > 0;
       page += 1;
+      return list;
     }
-    return list;
   }
-
   private async getAppsToUpdatePage(page: number): Promise<AppListing[]> {
     const needsUpdate = (app: AppListing) =>
       app.versioncode > app.current_version;

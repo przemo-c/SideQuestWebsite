@@ -914,6 +914,656 @@ export class ExpanseClientService {
   }
   addApp(
     name,
+    // <<<<<<< HEAD
+    //         scene,
+    //         url: "file/" + files_id + "/scene-" + scenes_id
+    //       }));
+    //   }
+    //   downloadSketchFab(data) {
+    //     return this.getCurrentSession().then((resp: any) => {
+    //       return fetch(
+    //         this.cdnUrl +
+    //           "/get-sketchfab/" +
+    //           resp.token +
+    //           "/" +
+    //           data.uid +
+    //           "/" +
+    //           data.access_token
+    //       ).then(r => r.json());
+    //     });
+    //   }
+    //   isNotGolden() {
+    //     return (
+    //       !this.currentSession || this.currentSession.profile_color !== "golden"
+    //     );
+    //   }
+    //   savePrefab(prefab) {
+    //     const formData = new FormData();
+    //     // let file = new Blob([JSON.stringify(prefab)], {type: "application/json"})
+    //     // formData.append("file", file,'prefab.json');
+    //     formData.append("scene", JSON.stringify(prefab));
+    //     let cdnToken, files_id;
+    //     return this.getCurrentSession()
+    //       .then((resp: any) => {
+    //         cdnToken = resp.token;
+    //         return fetch(this.cdnUrl + "create-upload/" + cdnToken + "/")
+    //           .then(res => res.json())
+    //           .then(json => {
+    //             files_id = json.fileId;
+    //           });
+    //       })
+    //       .then(() =>
+    //         fetch(
+    //           this.cdnUrl +
+    //             "upload-scene/" +
+    //             cdnToken +
+    //             "/" +
+    //             files_id +
+    //             "/prefab-" +
+    //             new Date().getTime() +
+    //             "/prefab_json",
+    //           {
+    //             method: "post",
+    //             body: formData
+    //           }
+    //         )
+    //       )
+    //       .then(() => files_id);
+    //   }
+    //   setProfileColor(users_id, color) {
+    //     return this.emit("set-profile-color", { users_id, color });
+    //   }
+    //   login(login: string, password: string) {
+    //     return this.emit("login", { login, password }) as Promise<any>;
+    //   }
+    //   signup(name: string, email: string, password: string, dob: string) {
+    //     return this.emit("sign-up", { name, email, password, dob }) as Promise<any>;
+    //   }
+    //   refresh(token) {
+    //     return this.emit("refresh", { token });
+    //   }
+    //   getUserAppUrls(users_id) {
+    //     return this.emit("get-user-app-urls", { users_id });
+    //   }
+    //   getData(socketId) {
+    //     return this.emit("get-data", { socketId });
+    //   }
+    //   searchSubscribedEvents(page, search, events_id?) {
+    //     return this.emit("search-subscribed-event", { search, page, events_id });
+    //   }
+    //   subscribeEvent(events_id) {
+    //     return this.emit("subscribe-event", { events_id });
+    //   }
+    //   unsubscribeEvent(events_id) {
+    //     return this.emit("unsubscribe-event", { events_id });
+    //   }
+    //   getEvent(events_id: number | string) {
+    //     return this.emit("event", { events_id }) as Promise<EventListing>;
+    //   }
+    //   getEvents(page, search, filter, users_id?) {
+    //     return this.emit("events-list", { page, search, filter, users_id });
+    //   }
+    //   getMyEvents(page, search, filter) {
+    //     return this.emit("my-events", { page, search, filter });
+    //   }
+    //   getEventTotals(events_id: number) {
+    //     return this.emit("get-event-totals", { events_id }) as Promise<
+    //       AppCounter[]
+    //     >;
+    //   }
+    //   getEventCounters(events_id, start_time, end_time, filter) {
+    //     return this.emit("get-event-counters", {
+    //       events_id,
+    //       start_time,
+    //       end_time,
+    //       filter
+    //     });
+    //   }
+    //   eventCount(type, events_id) {
+    //     return this.emit("update-count-event", { type, events_id });
+    //   }
+    //   getSpace(spaces_id: number) {
+    //     return this.emit("space", { spaces_id }) as Promise<SpaceListing>;
+    //   }
+    //   getSpaces(page, search, users_id?) {
+    //     return this.emit("spaces-list", { page, search, users_id });
+    //   }
+    //   getMySpaces(page, search) {
+    //     return this.emit("my-spaces", { page, search });
+    //   }
+    //   searchSubscribedSpaces(page, search, spaces_id?) {
+    //     return this.emit("search-subscribed-space", { search, page, spaces_id });
+    //   }
+    //   subscribeSpace(spaces_id) {
+    //     return this.emit("subscribe-space", { spaces_id });
+    //   }
+    //   unsubscribeSpace(spaces_id) {
+    //     return this.emit("unsubscribe-space", { spaces_id });
+    //   }
+    //   getSpaceTotals(spaces_id: number) {
+    //     return this.emit("get-space-totals", { spaces_id }) as Promise<
+    //       AppCounter[]
+    //     >;
+    //   }
+    //   getSpaceCounters(spaces_id, start_time, end_time, filter) {
+    //     return this.emit("get-space-counters", {
+    //       spaces_id,
+    //       start_time,
+    //       end_time,
+    //       filter
+    //     });
+    //   }
+    //   spaceCount(type, spaces_id) {
+    //     return this.emit("update-count-space", { type, spaces_id });
+    //   }
+    //   createSpace(space) {
+    //     return this.emit("create-space", space);
+    //   }
+    //   updateSpace(space) {
+    //     return this.emit("update-space", space);
+    //   }
+    //   deleteSpace(spaces_id) {
+    //     return this.emit("delete-space", { spaces_id });
+    //   }
+    //   getScenes(page, search, spaces_id) {
+    //     return this.emit("my-scenes", { page, search, spaces_id });
+    //   }
+    //   getScene(scenes_id) {
+    //     return this.emit("scene", { scenes_id });
+    //   }
+    //   createScene(name, files_id, version) {
+    //     return this.emit("create-scene", { name, files_id, version });
+    //   }
+    //   updateScene(name, scenes_id) {
+    //     return this.emit("update-scene", { name, scenes_id });
+    //   }
+    //   getNotifications() {
+    //     return this.emit("get-notifications", {});
+    //   }
+    //   deleteScene(scenes_id) {
+    //     return this.emit("delete-scene", { scenes_id });
+    //   }
+    //   getMyPrefabs(page, search) {
+    //     return this.emit("my-prefabs", { page, search });
+    //   }
+    //   createPrefab(name, description, image, files_id, is_public, obfuscate) {
+    //     return this.emit("create-prefab", {
+    //       name,
+    //       description,
+    //       image,
+    //       files_id,
+    //       is_public,
+    //       obfuscate
+    //     });
+    //   }
+    //   saveUserPublicProfile(public_profile) {
+    //     return this.emit("save-user-public-profile", { public_profile });
+    //   }
+    //   saveUserBannerImage(banner_image) {
+    //     return this.emit("save-user-banner-image", { banner_image });
+    //   }
+    //   viewUser(users_id) {
+    //     return this.emit("view-user", { users_id });
+    //   }
+    //   updatePrefab(prefabs_id, name, description, image, is_public, obfuscate) {
+    //     return this.emit("update-prefab", {
+    //       prefabs_id,
+    //       name,
+    //       description,
+    //       image,
+    //       is_public,
+    //       obfuscate
+    //     });
+    //   }
+    //   deletePrefab(prefabs_id) {
+    //     return this.emit("delete-prefab", { prefabs_id });
+    //   }
+    //   getOldBehaviours(behaviours) {
+    //     return this.emit("get-scene-behaviours", {
+    //       behaviours,
+    //       old_id_check: true
+    //     });
+    //   }
+    //   getSceneBehaviours(behaviours) {
+    //     return this.emit("get-scene-behaviours", { behaviours });
+    //   }
+    //   saveSceneBehaviours(behaviours) {
+    //     return this.emit("save-scene-behaviours", { behaviours });
+    //   }
+    //   createBehaviour(
+    //     name,
+    //     description,
+    //     image,
+    //     definition,
+    //     is_public,
+    //     obfuscate,
+    //     sync,
+    //     trigger
+    //   ) {
+    //     return this.emit("create-behaviour", {
+    //       name,
+    //       description,
+    //       image,
+    //       definition,
+    //       is_public,
+    //       obfuscate,
+    //       sync,
+    //       trigger
+    //     });
+    //   }
+    //   updateBehaviour(
+    //     behaviours_id,
+    //     name,
+    //     description,
+    //     image,
+    //     definition,
+    //     is_public,
+    //     obfuscate,
+    //     sync,
+    //     trigger
+    //   ) {
+    //     return this.emit("update-behaviour", {
+    //       behaviours_id,
+    //       name,
+    //       description,
+    //       image,
+    //       definition,
+    //       is_public,
+    //       obfuscate,
+    //       sync,
+    //       trigger
+    //     });
+    //   }
+    //   getBehavioursNotIncluding(page, excluded) {
+    //     return this.emit("behaviours-not-including", { page, excluded });
+    //   }
+    //   getMyBehaviours(page, search) {
+    //     return this.emit("my-behaviours", { page, search });
+    //   }
+    //   deleteBehaviour(behaviours_id) {
+    //     return this.emit("delete-behaviour", { behaviours_id });
+    //   }
+    //   createEvent(event) {
+    //     return this.emit("create-event", event);
+    //   }
+    //   updateEvent(event) {
+    //     return this.emit("update-event", event);
+    //   }
+    //   deleteEvent(events_id) {
+    //     return this.emit("delete-event", { events_id });
+    //   }
+    //   getPeopleInSpace(currentSpace, spaceId, page, search) {
+    //     return this.emit("people-in-space", {
+    //       currentSpace,
+    //       spaceId,
+    //       page,
+    //       search
+    //     });
+    //   }
+    //   setRemoteClient() {
+    //     const userAgent = (navigator as any).userAgent.toLowerCase();
+    //     if (userAgent.indexOf(" electron/") > -1) {
+    //       return this.emit("set-remote-client", {});
+    //     }
+    //   }
+    //   getFriends(page, search) {
+    //     return this.emit("friends", { page, search });
+    //   }
+    //   getLegends() {
+    //     return this.emit("list-legends", {});
+    //   }
+    //   addFriend(userId) {
+    //     return this.emit("add-friend", { userId });
+    //   }
+    //   removeFriend(userId) {
+    //     return this.emit("reject-request", { userId });
+    //   }
+    //   getFriendRequests(page, search) {
+    //     return this.emit("requests", { page, search });
+    //   }
+    //   acceptFriendRequest(userId) {
+    //     return this.emit("accept-request", { userId });
+    //   }
+    //   rejectFriendRequest(userId) {
+    //     return this.emit("reject-request", { userId });
+    //   }
+    //   getBlocked(page, search) {
+    //     return this.emit("blocked", { page, search });
+    //   }
+    //   blockUser(userId, type) {
+    //     return this.emit("block-user", { userId, type });
+    //   }
+    //   unBlockUser(userId) {
+    //     return this.emit("unblock-user", { userId });
+    //   }
+    //   reportUser(userId, type, details) {
+    //     return this.emit("report-user", { userId, type, details });
+    //   }
+    //   getMessagesPeople(page, search) {
+    //     return this.emit("messages-people", { page, search });
+    //   }
+    //   getMessagesThread(userId, page, search) {
+    //     return this.emit("messages-thread", { userId, page, search });
+    //   }
+    //   inviteUser(userId, space) {
+    //     this.emit("user-message", {
+    //       users_id: userId,
+    //       message: {
+    //         text: "Come visit me at " + space.name + "!!!",
+    //         spaces_id: space.spaces_id
+    //       }
+    //     });
+    //   }
+    //   addReview(details, rating, apps_id?, events_id?, spaces_id?, parent_id?) {
+    //     parent_id = parent_id || null;
+    //     apps_id = apps_id || null;
+    //     events_id = events_id || null;
+    //     spaces_id = spaces_id || null;
+    //     return this.emit("add-review", {
+    //       details,
+    //       rating,
+    //       apps_id,
+    //       events_id,
+    //       spaces_id,
+    //       parent_id
+    //     });
+    //   }
+    //   deleteReview(item_id, type, reviews_id) {
+    //     return this.emit("delete-review", { item_id, type, reviews_id });
+    //   }
+    //   getRating(item_id, type) {
+    //     return this.emit("get-rating", { item_id, type });
+    //   }
+    //   getReviews(item_id, type, page, search?, parent_id?) {
+    //     return this.emit("get-reviews", { item_id, type, page, search, parent_id });
+    //   }
+    //   sendMessage(userId, message) {
+    //     this.emit("user-message", { users_id: userId, message: { text: message } });
+    //     return this.emit("send-message", { userId, message });
+    //   }
+    //   forgotPassword(email, returnUrl) {
+    //     return this.emit("forgot-password", { email, returnUrl });
+    //   }
+    //   resetPassword(password: string, resetToken: string) {
+    //     return this.emit("reset-password", { password, resetToken }) as Promise<
+    //       any
+    //     >;
+    //   }
+    //   getUserWithSpace() {
+    //     return this.emit("get-user-with-space", {});
+    //   }
+    //   getUserCurrentSpace(users_id) {
+    //     return this.emit("get-user-current-space", { users_id });
+    //   }
+    //   saveUserDetails(name, email, tag_line, profile_color, bio, donate_url) {
+    //     return this.emit("save-user-details", {
+    //       name,
+    //       email,
+    //       tag_line,
+    //       profile_color,
+    //       bio,
+    //       donate_url
+    //     });
+    //   }
+    //   saveUserDefaultSpace(spaceId) {
+    //     return this.emit("save-user-default-space", { spaceId });
+    //   }
+    //   saveUserPassword(password) {
+    //     return this.emit("save-user-password", { password });
+    //   }
+    //   getAvatarImages(avatar_images_id?) {
+    //     return this.emit("get-avatar-images", { avatar_images_id });
+    //   }
+    //   setUserAvatarImage(avatar_images_id) {
+    //     return this.emit("set-user-avatar-image", { avatar_images_id });
+    //   }
+    //   setUserAvatarMesh(type) {
+    //     return this.emit("set-user-avatar-mesh", { type });
+    //   }
+    //   savePreviewImage(preview, avatar_images_id) {
+    //     return this.emit("save-preview-images", { preview, avatar_images_id });
+    //   }
+    //   saveAvatarImage(image: string, preview: string) {
+    //     return this.emit("save-avatar-images", { image, preview }) as Promise<
+    //       AvatarImage[]
+    //     >;
+    //   }
+    //   deleteAvatarImage(avatar_images_id) {
+    //     return this.emit("delete-avatar-images", { avatar_images_id });
+    //   }
+    //   setDefaultAvatar(geometry, texture) {
+    //     return this.emit("set-default-avatar", { geometry, texture });
+    //   }
+    //   getUserTimezone(users_id) {
+    //     return this.emit("get-user-timezone", { users_id });
+    //   }
+    //   getRelated(users_id) {
+    //     return this.emit("get-related", { users_id });
+    //   }
+    //   setSpace(spaces_id) {
+    //     return this.emit("set-space", { spaces_id });
+    //   }
+    //   oneShot(data) {
+    //     return this.emit("one-shot", data);
+    //   }
+    //   syncObject(data) {
+    //     return this.emit("sync-object", data);
+    //   }
+    //   removeUserValue(key) {
+    //     return this.emit("remove-user-value", { key });
+    //   }
+    //   getUserValues() {
+    //     return this.emit("get-user-values", {});
+    //   }
+    //   setUserValues(keyValues) {
+    //     return this.emit("set-user-values", { keyValues });
+    //   }
+    //   heartBeat() {
+    //     return this.emit("heart-beat", {});
+    //   }
+    //   deleteApp(apps_id) {
+    //     return this.emit("delete-app", { apps_id });
+    //   }
+    //   getAppUpdates(apps_ids) {
+    //     return this.emit("get-app-updates", { apps_ids });
+    //   }
+    //   getAppPackage(packagename) {
+    //     return this.emit("get-app-package", { packagename });
+    //   }
+    //   getApp(apps_id: number | string) {
+    //     return this.emit("get-app", { apps_id }) as Promise<AppListing[]>;
+    //   }
+    //   getAppTotals(apps_id: number) {
+    //     return this.emit("get-app-totals", { apps_id }) as Promise<AppCounter[]>;
+    //   }
+    //   getAppCounters(apps_id, start_time, end_time, filter) {
+    //     return this.emit("get-app-counters", {
+    //       apps_id,
+    //       start_time,
+    //       end_time,
+    //       filter
+    //     });
+    //   }
+    //   getAppUrls(apps_id: number | string) {
+    //     return this.emit("get-app-urls", { apps_id }) as Promise<AppUrl[]>;
+    //   }
+    //   getAppScreenshots(apps_id: number | string) {
+    //     return this.emit("get-app-screenshots", { apps_id }) as Promise<
+    //       ScreenShot[]
+    //     >;
+    //   }
+    //   searchApps(
+    //     search,
+    //     page,
+    //     order,
+    //     direction,
+    //     app_categories_id?,
+    //     tag?,
+    //     users_id?,
+    //     limit?
+    //   ) {
+    //     return this.emit("search-apps", {
+    //       search,
+    //       page,
+    //       order,
+    //       direction,
+    //       app_categories_id,
+    //       tag,
+    //       users_id,
+    //       limit
+    //     });
+    //   }
+    //   searchMyApps(page, search) {
+    //     return this.emit("search-my-apps", { search, page });
+    //   }
+    //   searchInstalledApps(
+    //     search: string,
+    //     page: number,
+    //     is_updated?: boolean,
+    //     is_uninstalled?: boolean,
+    //     apps_id?: number
+    //   ) {
+    //     return this.emit("search-installed-apps", {
+    //       search,
+    //       page,
+    //       is_updated,
+    //       is_uninstalled,
+    //       apps_id
+    //     }) as Promise<AppListing[]>;
+    //   }
+    //   async addInstalledApp(apps_id, versioncode) {
+    //     const response = await this.emit("add-edit-installed-app", {
+    //       apps_id,
+    //       versioncode
+    //     });
+    //     this.notifyInstalledAppsChanged();
+    //     return response;
+    //   }
+    //   async uninstallApp(apps_id) {
+    //     const response = await this.emit("uninstall-app", { apps_id });
+    //     this.notifyInstalledAppsChanged();
+    //     return response;
+    //   }
+    //   getAppWebhook(apps_id: string) {
+    //     return this.emit("get-app-webhook", { apps_id }) as Promise<string>;
+    //   }
+    //   addApp(
+    //     name,
+    //     image_url,
+    //     video_url,
+    //     comfort,
+    //     summary,
+    //     description,
+    //     apk_url,
+    //     packagename,
+    //     versioncode,
+    //     versionname,
+    //     license,
+    //     website,
+    //     donate_url,
+    //     github_name,
+    //     github_repo,
+    //     github_tag,
+    //     github_enabled,
+    //     app_categories_id,
+    //     screenshots,
+    //     supports_quest,
+    //     supports_go,
+    //     supports_other,
+    //     search_tags,
+    //     app_urls,
+    //     early_access
+    //   ) {
+    //     return this.editApp(
+    //       null,
+    //       name,
+    //       image_url,
+    //       video_url,
+    //       comfort,
+    //       summary,
+    //       description,
+    //       apk_url,
+    //       packagename,
+    //       versioncode,
+    //       versionname,
+    //       license,
+    //       website,
+    //       donate_url,
+    //       github_name,
+    //       github_repo,
+    //       github_tag,
+    //       github_enabled,
+    //       app_categories_id,
+    //       screenshots,
+    //       supports_quest,
+    //       supports_go,
+    //       supports_other,
+    //       search_tags,
+    //       app_urls,
+    //       early_access
+    //     );
+    //   }
+    //   editApp(
+    //     apps_id,
+    //     name,
+    //     image_url,
+    //     video_url,
+    //     comfort,
+    //     summary,
+    //     description,
+    //     apk_url,
+    //     packagename,
+    //     versioncode,
+    //     versionname,
+    //     license,
+    //     website,
+    //     donate_url,
+    //     github_name,
+    //     github_repo,
+    //     github_tag,
+    //     github_enabled,
+    //     app_categories_id,
+    //     screenshots,
+    //     supports_quest,
+    //     supports_go,
+    //     supports_other,
+    //     search_tags,
+    //     app_urls,
+    //     early_access
+    //   ) {
+    //     return this.emit("add-edit-app", {
+    //       apps_id,
+    //       name,
+    //       image_url,
+    //       video_url,
+    //       comfort,
+    //       summary,
+    //       description,
+    //       apk_url,
+    //       packagename,
+    //       versioncode,
+    //       versionname,
+    //       license,
+    //       website,
+    //       donate_url,
+    //       github_name,
+    //       github_repo,
+    //       github_tag,
+    //       github_enabled,
+    //       app_categories_id,
+    //       screenshots,
+    //       supports_quest,
+    //       supports_go,
+    //       supports_other,
+    //       search_tags,
+    //       app_urls,
+    //       early_access
+    //     });
+    //   }
+    //   appCount(type, apps_id) {
+    //     return this.emit("update-count-app", { type, apps_id });
+    //   }
+    // =======
     image_url,
     video_url,
     comfort,
@@ -1028,6 +1678,7 @@ export class ExpanseClientService {
   appCount(type, apps_id) {
     return this.emit("update-count-app", { type, apps_id });
   }
+  //>>>>>>> a287e11ca8816748a0955d48697bc8a75c6b6f09
 
   private notifyInstalledAppsChanged() {
     this.installedAppsChangedAt.next(Date.now());

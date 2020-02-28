@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule, APP_INITIALIZER } from "@angular/core";
+import { NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -100,6 +100,8 @@ import { AppsToUpdateService } from "./apps-to-update.service";
 import { GithubRepoSelectComponent } from "./github-repo-select/github-repo-select.component";
 import { AutocompleteLibModule } from "angular-ng-autocomplete";
 
+import { BannerCarouselComponent } from "./banner-carousel/banner-carousel.component";
+
 export function hljsLanguages() {
   return [{ name: "cs", func: cs }];
 }
@@ -168,6 +170,7 @@ export function hljsLanguages() {
     WebVRComponent,
     GiveawayComponent,
     GettingStartedInstallSdkComponent,
+    BannerCarouselComponent,
     UpdatesCountComponent,
     GithubRepoSelectComponent
   ],
@@ -189,6 +192,7 @@ export function hljsLanguages() {
     MzTooltipModule,
     MzSidenavModule,
     MzInputModule,
+    MzIconModule,
     MzIconMdiModule,
     MzTabModule,
     MzChipModule,

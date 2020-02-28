@@ -1,0 +1,23 @@
+<div class="slider-wrapper">
+  <div class="slider-container">
+    <div #slidePane class="pane">
+      <div *ngFor="let item of items; let index = index" #slide class="slide" [ngStyle]="{left: (index * 100) + '%'}">
+        <div #slideImage (click)="onClickItem(item.targetUrl)" class="slide-image">
+          <div class="overlay"></div>
+          <div [attr.data-tooltip]="formattedTimestamp(item.createdAt)" class="time-ago">
+            {{ timeAgo(item.createdAt) }}
+          </div>
+          <div class="title truncate">{{ item.title }}</div>
+          <div class="description truncate">{{ item.description }}</div>
+        </div>
+        <div class="slide-spinner"></div>
+      </div>
+    </div>
+  </div>
+  <div class="controls">
+    <i (click)="gotoSlideRelative(-1)" class="material-icons pointer">navigate_before</i>
+    <span *ngFor="let item of items; let index = index" (click)="gotoSlide(index)" class="slide-dot"
+      [ngStyle]="{color: activeIndex === index ? 'white' : '#444'}">●</span>
+    <i (click)="gotoSlideRelative(1)" class="material-icons pointer">navigate_next</i>
+  </div>
+</div>

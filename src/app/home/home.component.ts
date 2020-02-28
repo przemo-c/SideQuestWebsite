@@ -19,10 +19,19 @@ export interface NewsItem {
   url: string;
   image: string;
   video: string;
-  created: number;
+  created: string;
   date_string?: string;
   show_date?: boolean;
 }
+
+export interface CarouselItem {
+  imageUrl: string;
+  targetUrl: string;
+  title?: string;
+  description?: string;
+  createdAt?: number;
+}
+
 @Component({
   selector: "app-home",
   templateUrl: "./home.component.html",
@@ -36,7 +45,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   handyApps: AppListing[];
   horrorApps: AppListing[];
   multiplayerApps: AppListing[];
-  imageUrls: IImage[];
+  imageUrls: CarouselItem[];
   isAutoDisabled = false;
   news: NewsItem[] = [];
   updateMasonryLayout: boolean;
@@ -54,7 +63,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     url: "https://sidequestvr.com/#/app/12",
     image: this.expanseService.cdnUrl + "file/1119/Untitled-1 (2).jpg",
     video: "",
-    created: 0
+    created: "0"
   };
   constructor(
     public appService: AppService,
@@ -77,27 +86,27 @@ export class HomeComponent implements OnInit, AfterViewInit {
     // };
   }
 
-  setSliderClass(isLeft: boolean) {
-    let wasAutoDisabled = this.isAutoDisabled;
-    this.isAutoDisabled = true;
-    if (wasAutoDisabled) {
-      let current = parseInt(this.sliderClass.replace("slidy", ""), 10);
-      if (current < 0) {
-        current = 0;
-      }
-      if (current > 20) {
-        current = 20;
-      }
-      this.sliderClass = "slidy" + (current + (isLeft ? -1 : 1));
-    } else {
-      let percent =
-        this.sliderele.nativeElement.offsetLeft /
-        this.sliderele.nativeElement.offsetWidth;
-      let curPos = Math.round(percent / 0.05);
-      this.sliderele.nativeElement.style.left = percent + "%";
-      this.sliderClass = "slidy" + (Math.abs(curPos) + 1 + (isLeft ? -1 : 1));
-    }
-  }
+  // setSliderClass(isLeft: boolean) {
+  //   let wasAutoDisabled = this.isAutoDisabled;
+  //   this.isAutoDisabled = true;
+  //   if (wasAutoDisabled) {
+  //     let current = parseInt(this.sliderClass.replace("slidy", ""), 10);
+  //     if (current < 0) {
+  //       current = 0;
+  //     }
+  //     if (current > 20) {
+  //       current = 20;
+  //     }
+  //     this.sliderClass = "slidy" + (current + (isLeft ? -1 : 1));
+  //   } else {
+  //     let percent =
+  //       this.sliderele.nativeElement.offsetLeft /
+  //       this.sliderele.nativeElement.offsetWidth;
+  //     let curPos = Math.round(percent / 0.05);
+  //     this.sliderele.nativeElement.style.left = percent + "%";
+  //     this.sliderClass = "slidy" + (Math.abs(curPos) + 1 + (isLeft ? -1 : 1));
+  //   }
+  // }
 
   ngOnInit() {
     this.getNews();
@@ -209,10 +218,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }
       this.imageUrls = this.firstNews.map(d => {
         return {
-          url: d.image,
-          href: d.url,
+          imageUrl: d.image,
+          targetUrl: d.url,
           title: d.title,
-          caption: d.description
+          description: d.description,
+          createdAt: +d.created
         };
       });
       // this.imageUrls.unshift({

@@ -209,9 +209,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
         if (this.apps_id) {
           const apps = await this.expanseService
             .start()
-            .then(() =>
-              this.expanseService.getApp(this.apps_id)
-            );
+            .then(() => this.expanseService.getApp(this.apps_id));
           if (!apps.length) {
             this.apps_id = null;
             this.is_not_found = true;
@@ -234,9 +232,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
             const screenshots = await this.expanseService.getAppScreenshots(
               this.apps_id
             );
-            this.app_urls = await this.expanseService.getAppUrls(
-              this.apps_id
-            );
+            this.app_urls = await this.expanseService.getAppUrls(this.apps_id);
             this.screenshots = (screenshots || []).map(s => s.image_url);
             this.onVideoChange();
           }
@@ -402,7 +398,7 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public onEditGithubName(_event) {
-    this.selectGithubRepo('');
+    this.selectGithubRepo("");
   }
 
   public selectGithubRepo(name: string) {
@@ -413,7 +409,10 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   findGitReleases() {
-    if (this.currentApp.github_name.length === 0 || this.currentApp.github_repo.length === 0) {
+    if (
+      this.currentApp.github_name.length === 0 ||
+      this.currentApp.github_repo.length === 0
+    ) {
       this.isGettingGithub = false;
       return;
     }

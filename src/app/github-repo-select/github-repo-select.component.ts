@@ -38,7 +38,7 @@ export class GithubRepoSelectComponent {
     }
   }
   @Output() repoSelected = new EventEmitter<string>();
-  @Output() cleared = new EventEmitter();
+
   public keyword = "name";
   public searchString = "";
   public data: AutocompleteItem[] = [];
@@ -47,13 +47,12 @@ export class GithubRepoSelectComponent {
   private debounceTimeout;
   private _user = "";
 
-  public onSelectRepo(item: AutocompleteItem) {
-    this.repoSelected.emit(item.name);
-  }
-
   public onChangeSearch(searchString: string) {
     this.repoSelected.emit("");
     this.searchReposDelayed(this.user, searchString);
+  }
+  public onSelectRepo(item: AutocompleteItem) {
+    this.repoSelected.emit(item.name);
   }
 
   private searchReposDelayed(user: string, searchString: string) {
@@ -65,6 +64,20 @@ export class GithubRepoSelectComponent {
     clearTimeout(this.debounceTimeout);
     this.debounceTimeout = setTimeout(fn, 750);
   }
+  // <<<<<<< HEAD
+  //     this.isLoading = true;
+  //     const url = new URL("https://api.github.com/search/repositories");
+  //     const params = new URLSearchParams({
+  //       q: `user:${user} ${searchString}`,
+  //       sort: "updated",
+  //       order: "desc"
+  //     });
+  //     url.search = params.toString();
+  //     const response = await fetch(url.toString());
+  //     if (response.ok) {
+  //       const repos = (await response.json()) as GithubRepoSearchResponse;
+  //       this.data = repos.items.map(({ name }, id) => ({ id, name }));
+  // =======
 
   private async searchRepos(user: string, searchString: string) {
     if (this.user !== user) {

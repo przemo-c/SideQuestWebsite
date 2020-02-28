@@ -227,7 +227,7 @@ export class AccountComponent implements OnInit, OnDestroy {
     "Vimeo"
   ];
   sub: Subscription;
-  updates_sub: Subscription;
+  update_sub: Subscription;
   messageUser;
   constructor(
     public expanseService: ExpanseClientService,
@@ -298,7 +298,7 @@ export class AccountComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.updates_sub.unsubscribe();
+    this.update_sub.unsubscribe();
     this.sub.unsubscribe();
     this.appService.setAccountComponent(null);
   }
@@ -407,7 +407,7 @@ export class AccountComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.updates_sub = this.appsToUpdateService.appsToUpdate.subscribe(
+    this.update_sub = this.appsToUpdateService.appsToUpdate.subscribe(
       (apps: AppListing[]) => {
         this.appsToUpdateCount = apps.length;
       }
