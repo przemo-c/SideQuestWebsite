@@ -1,0 +1,11 @@
+.ng-autocomplete {
+    width: 100% !important;
+
+    .not-found-text {
+        color: black;
+    }
+    
+    .suggestions-container, .not-found {
+        margin: -20px 0;
+    }
+}
