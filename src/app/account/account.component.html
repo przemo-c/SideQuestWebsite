@@ -32,7 +32,7 @@
          mz-tooltip tooltip="App that you have installed and an easy update system."
          position="bottom"
          routerLink="/account/subscribed-apps">
-      <i class="material-icons left">apps</i> Apps ({{isDev?app_totals.app_total+app_totals.app_sub_total:app_totals.app_sub_total}})
+      <i class="material-icons left">apps</i> Apps ({{isDev?app_totals.app_total+app_totals.app_sub_total:app_totals.app_sub_total}}) <span class="new badge new-badge" *ngIf="appsToUpdateCount">{{appsToUpdateCount|notOverNine}}</span>
     </div>
     <div class="waves-effect waves-light btn-flat white-text top-button"
          mz-tooltip tooltip="Events you have subscribed to."

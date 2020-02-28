@@ -401,7 +401,7 @@
                 <github-repo-select
                   [user]="currentApp.github_name"
                   [repo]="currentApp.github_repo"
-                  (repoSelected)="selectGithubRepo($event)"></github-repo-select>
+                  (repoSelected)="selectGithubRepo($event)" (cleared)="githubReleases.length = 0"></github-repo-select>
               </div>
             </div>
             <div *ngIf="githubReleases && githubReleases.length > 0">

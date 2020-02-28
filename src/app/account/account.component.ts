@@ -5,6 +5,7 @@ import { GithubRelease } from "../app-manager/app-manager.component";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { UploadService } from "../upload.service";
 import { Subscription } from "rxjs";
+import { AppsToUpdateService } from "../apps-to-update.service";
 export interface Review {
   details: string;
   preview_image: string;
@@ -142,6 +143,7 @@ export interface SpaceListing {
 export class AccountComponent implements OnInit, OnDestroy {
   @ViewChild("scrollTo", { static: false }) scrollTo;
   myApps: AppListing[] = [];
+  appsToUpdateCount: number = 0;
   appsNeedingUpdated: (AppListing & {
     needsUpdate?: boolean;
     current_version?: number;
@@ -225,15 +227,16 @@ export class AccountComponent implements OnInit, OnDestroy {
     "Vimeo"
   ];
   sub: Subscription;
+  updates_sub: Subscription;
   messageUser;
   constructor(
     public expanseService: ExpanseClientService,
     public appService: AppService,
     public router: Router,
     public uploadService: UploadService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private appsToUpdateService: AppsToUpdateService
   ) {
-    console.log(this.app_totals);
     this.isDev = !!localStorage.getItem("isDeveloper");
     this.isUpdated = !!localStorage.getItem("viewIsUpdated");
     this.isUninstalled = !!localStorage.getItem("viewIsUninstalled");
@@ -295,6 +298,7 @@ export class AccountComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.updates_sub.unsubscribe();
     this.sub.unsubscribe();
     this.appService.setAccountComponent(null);
   }
@@ -403,6 +407,11 @@ export class AccountComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.updates_sub = this.appsToUpdateService.appsToUpdate.subscribe(
+      (apps: AppListing[]) => {
+        this.appsToUpdateCount = apps.length;
+      }
+    );
     this.expanseService
       .start()
       .then(() => {

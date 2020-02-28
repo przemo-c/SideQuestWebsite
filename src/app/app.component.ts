@@ -12,6 +12,7 @@ import { MzToastService } from "ngx-materialize";
 import { ExpanseClientService } from "./expanse-client.service";
 import { AppListing } from "./account/account.component";
 import { UploadService } from "./upload.service";
+import { AppsToUpdateService } from "./apps-to-update.service";
 declare const M;
 @Component({
   selector: "app-root",
@@ -32,7 +33,8 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
     private router: Router,
     route: ActivatedRoute,
     private toastService: MzToastService,
-    private uploadService: UploadService
+    private uploadService: UploadService,
+    private appsToUpdateService: AppsToUpdateService
   ) {
     this.sub = router.events.subscribe(val => {
       if (val instanceof NavigationEnd) {
@@ -115,6 +117,7 @@ export class AppComponent implements AfterViewInit, OnDestroy, OnInit {
     this.appService.scrollContainer.addEventListener("scroll", () =>
       window.dispatchEvent(new Event("scroll"))
     );
+    this.appsToUpdateService.init();
   }
 
   openLink(url: string) {

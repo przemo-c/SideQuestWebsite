@@ -1,4 +1,10 @@
-import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ViewEncapsulation
+} from "@angular/core";
 
 interface AutocompleteItem {
   id: number;
@@ -10,16 +16,16 @@ interface GithubRepoSearchResponse {
 }
 
 @Component({
-  selector: 'github-repo-select',
-  templateUrl: './github-repo-select.component.html',
-  styleUrls: ['./github-repo-select.component.scss'],
+  selector: "github-repo-select",
+  templateUrl: "./github-repo-select.component.html",
+  styleUrls: ["./github-repo-select.component.scss"],
   encapsulation: ViewEncapsulation.None
 })
 export class GithubRepoSelectComponent {
   @Input() set user(name: string) {
     this._user = name;
     this.data = [];
-    this.searchString = '';
+    this.searchString = "";
     this.searchReposDelayed(this.user, this.searchString);
   }
   get user(): string {
@@ -32,21 +38,21 @@ export class GithubRepoSelectComponent {
     }
   }
   @Output() repoSelected = new EventEmitter<string>();
-
-  public keyword = 'name';
-  public searchString = '';
+  @Output() cleared = new EventEmitter();
+  public keyword = "name";
+  public searchString = "";
   public data: AutocompleteItem[] = [];
   public isLoading = false;
 
   private debounceTimeout;
-  private _user = '';
+  private _user = "";
 
   public onSelectRepo(item: AutocompleteItem) {
     this.repoSelected.emit(item.name);
   }
 
   public onChangeSearch(searchString: string) {
-    this.repoSelected.emit('');
+    this.repoSelected.emit("");
     this.searchReposDelayed(this.user, searchString);
   }
 
@@ -66,17 +72,17 @@ export class GithubRepoSelectComponent {
       return;
     }
     this.isLoading = true;
-    const url = new URL('https://api.github.com/search/repositories');
+    const url = new URL("https://api.github.com/search/repositories");
     const params = new URLSearchParams({
-        q: `user:${user} ${searchString}`,
-        sort: 'updated',
-        order: 'desc'
+      q: `user:${user} ${searchString}`,
+      sort: "updated",
+      order: "desc"
     });
     url.search = params.toString();
     const response = await fetch(url.toString());
     if (response.ok) {
-        const repos = (await response.json()) as GithubRepoSearchResponse;
-        this.data = repos.items.map(({ name }, id) => ({ id, name }));
+      const repos = (await response.json()) as GithubRepoSearchResponse;
+      this.data = repos.items.map(({ name }, id) => ({ id, name }));
     }
     this.isLoading = false;
   }

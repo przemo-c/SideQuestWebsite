@@ -1,21 +1,37 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { AppService } from "../app.service";
 import { ExpanseClientService } from "../expanse-client.service";
 import { Router } from "@angular/router";
+import { AppsToUpdateService } from "../apps-to-update.service";
+import { AppListing } from "../account/account.component";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-user-menu",
   templateUrl: "./user-menu.component.html",
   styleUrls: ["./user-menu.component.css"]
 })
-export class UserMenuComponent implements OnInit {
+export class UserMenuComponent implements OnInit, OnDestroy {
+  appsToUpdateCount: number = 0;
+  sub: Subscription;
   constructor(
     public appService: AppService,
     public expanseService: ExpanseClientService,
-    public router: Router
+    public router: Router,
+    private appsToUpdateService: AppsToUpdateService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.sub = this.appsToUpdateService.appsToUpdate.subscribe(
+      (apps: AppListing[]) => {
+        this.appsToUpdateCount = apps.length;
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
 
   signOut() {
     this.appService.logout(this.expanseService);

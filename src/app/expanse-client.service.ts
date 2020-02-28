@@ -1,18 +1,28 @@
 import { Injectable } from "@angular/core";
 import { AppService } from "./app.service";
-import { AppListing } from "./account/account.component";
-import { Subject } from 'rxjs';
-import { AppListing, EventListing, SpaceListing } from "./account/account.component";
-import { ScreenShot, AppCounter, AppUrl } from './app-manager/app-manager.component';
+import { Subject } from "rxjs";
+import {
+  AppListing,
+  EventListing,
+  SpaceListing
+} from "./account/account.component";
+import {
+  ScreenShot,
+  AppCounter,
+  AppUrl
+} from "./app-manager/app-manager.component";
 
 type MessageId = string;
 type MessageResponseData = any;
-type ErrorMessageResponse = { error: true; data: MessageResponseData };
+interface ErrorMessageResponse {
+  error: true;
+  data: MessageResponseData;
+}
 type MessageResponse = MessageResponseData | ErrorMessageResponse;
 type MessageResolveFunction = (value: MessageResponse) => void;
 
 interface AvatarImage {
-    avatar_images_id: string;
+  avatar_images_id: string;
 }
 
 @Injectable({
@@ -462,7 +472,9 @@ export class ExpanseClientService {
     return this.emit("my-events", { page, search, filter });
   }
   getEventTotals(events_id: number) {
-    return this.emit("get-event-totals", { events_id }) as Promise<AppCounter[]>;
+    return this.emit("get-event-totals", { events_id }) as Promise<
+      AppCounter[]
+    >;
   }
   getEventCounters(events_id, start_time, end_time, filter) {
     return this.emit("get-event-counters", {
@@ -494,7 +506,9 @@ export class ExpanseClientService {
     return this.emit("unsubscribe-space", { spaces_id });
   }
   getSpaceTotals(spaces_id: number) {
-    return this.emit("get-space-totals", { spaces_id }) as Promise<AppCounter[]>;
+    return this.emit("get-space-totals", { spaces_id }) as Promise<
+      AppCounter[]
+    >;
   }
   getSpaceCounters(spaces_id, start_time, end_time, filter) {
     return this.emit("get-space-counters", {
@@ -736,7 +750,9 @@ export class ExpanseClientService {
     return this.emit("forgot-password", { email, returnUrl });
   }
   resetPassword(password: string, resetToken: string) {
-    return this.emit("reset-password", { password, resetToken }) as Promise<any>;
+    return this.emit("reset-password", { password, resetToken }) as Promise<
+      any
+    >;
   }
   getUserWithSpace() {
     return this.emit("get-user-with-space", {});
@@ -773,7 +789,9 @@ export class ExpanseClientService {
     return this.emit("save-preview-images", { preview, avatar_images_id });
   }
   saveAvatarImage(image: string, preview: string) {
-    return this.emit("save-avatar-images", { image, preview }) as Promise<AvatarImage[]>;
+    return this.emit("save-avatar-images", { image, preview }) as Promise<
+      AvatarImage[]
+    >;
   }
   deleteAvatarImage(avatar_images_id) {
     return this.emit("delete-avatar-images", { avatar_images_id });
@@ -835,7 +853,9 @@ export class ExpanseClientService {
     return this.emit("get-app-urls", { apps_id }) as Promise<AppUrl[]>;
   }
   getAppScreenshots(apps_id: number | string) {
-    return this.emit("get-app-screenshots", { apps_id }) as Promise<ScreenShot[]>;
+    return this.emit("get-app-screenshots", { apps_id }) as Promise<
+      ScreenShot[]
+    >;
   }
   searchApps(
     search,
@@ -861,7 +881,13 @@ export class ExpanseClientService {
   searchMyApps(page, search) {
     return this.emit("search-my-apps", { search, page });
   }
-  searchInstalledApps(search: string, page: number, is_updated?: boolean, is_uninstalled?: boolean, apps_id?: number) {
+  searchInstalledApps(
+    search: string,
+    page: number,
+    is_updated?: boolean,
+    is_uninstalled?: boolean,
+    apps_id?: number
+  ) {
     return this.emit("search-installed-apps", {
       search,
       page,
@@ -871,7 +897,10 @@ export class ExpanseClientService {
     }) as Promise<AppListing[]>;
   }
   async addInstalledApp(apps_id, versioncode) {
-    const response = await this.emit("add-edit-installed-app", { apps_id, versioncode });
+    const response = await this.emit("add-edit-installed-app", {
+      apps_id,
+      versioncode
+    });
     this.notifyInstalledAppsChanged();
     return response;
   }
