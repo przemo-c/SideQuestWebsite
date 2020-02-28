@@ -15,6 +15,7 @@ export interface Review {
   spaces_id?: number;
   parent_id?: number;
   reviews_id?: number;
+  reply_id?: number;
 }
 export interface MessageThreadListing {
   message: string;

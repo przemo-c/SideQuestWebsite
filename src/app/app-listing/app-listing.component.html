@@ -408,9 +408,15 @@
           <!--            </div>-->
           <div class="col s12" *ngFor="let message of reviews">
             <div class="review-card">
-              <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.users_id == expanseService.currentSession.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reviews_id;deleteReview.openModal()">close</i>
-              <i class="right material-icons blue-text rating-reply pointer" *ngIf="service.isAuthenticated && (currentApp.users_id == expanseService.currentSession.users_id) " (click)="currentReviewId = message.reviews_id;leaveReview.openModal()">replay</i>
-              <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}?size=256"/>
+              <i class="right material-icons orange-text rating-delete pointer"
+                 *ngIf="canDeleteReview(message.reviews_id)"
+                 (click)="openModalForReview(message.reviews_id, deleteReview)">close</i>
+              <i class="right material-icons blue-text rating-reply pointer"
+                 *ngIf="canReplyToReview()"
+                 (click)="openModalForReview(message.reviews_id, leaveReview)">reply</i>
+              <img class="pointer left z-depth-2"
+                   routerLink="/user/{{message.users_id}}"
+                   src="{{ avatarUrl(message.preview_image) }}"/>
               <div class="margin-right"><span class="review-name">{{message.name}}</span> - {{message.created|fromNow}}</div>
               <div class="">
                 <span class="review-name pink-text">{{message.rating}}/5</span> <i class="material-icons pink-text rating-star">star</i>
@@ -418,8 +424,12 @@
               <div [innerHTML]="message.details"></div>
             </div>
             <div class="review-card reply-chip" *ngIf="message.reply_created">
-              <i class="right material-icons orange-text rating-delete pointer" *ngIf="service.isAuthenticated && (message.reply_id == currentApp.users_id || expanseService.currentSession.users_id === 1) " (click)="currentReviewId = message.reply_id;deleteReview.openModal()">close</i>
-              <img class="pointer left z-depth-2" routerLink="/user/{{currentApp.users_id}}" src="{{expanseService.cdnUrl+currentApp.preview_image}}?size=256"/>
+              <i class="right material-icons orange-text rating-delete pointer"
+                 *ngIf="canDeleteReply()"
+                 (click)="openModalForReview(message.reviews_id, deleteReply)">close</i>
+              <img class="pointer left z-depth-2"
+                   routerLink="/user/{{currentApp.users_id}}"
+                   src="{{ avatarUrl(currentApp.preview_image) }}"/>
               <div class="margin-right"><span class="review-name">Vendor Reply</span> - {{message.reply_created|fromNow}}</div>
               <div [innerHTML]="message.reply_details"></div>
             </div>
@@ -444,29 +454,29 @@
 
 <mz-modal #leaveReview [fixedFooter]="true">
   <mz-modal-header>
-    <h4>{{currentReviewId?'Add Reply':'Add Review'}}</h4>
+    <h4>{{selectedReview ? 'Add Reply' : 'Add Review'}}</h4>
   </mz-modal-header>
   <mz-modal-content>
     <br>
-    <div class="col fixed-height extra-padding-left" *ngIf="!currentReviewId">
-      <div class="input-field radio-top">
-        <i class="material-icons prefix">star_half</i>
-        <div class="rating-margin-left">
-          <i class="material-icons medium pointer white-text" (click)="currentRating = 1">{{currentRating > 0 ? 'star' : 'star_border'}}</i>
-          <i class="material-icons medium pointer white-text" (click)="currentRating = 2">{{currentRating > 1 ? 'star' : 'star_border'}}</i>
-          <i class="material-icons medium pointer white-text" (click)="currentRating = 3">{{currentRating > 2 ? 'star' : 'star_border'}}</i>
-          <i class="material-icons medium pointer white-text" (click)="currentRating = 4">{{currentRating > 3 ? 'star' : 'star_border'}}</i>
-          <i class="material-icons medium pointer white-text" (click)="currentRating = 5">{{currentRating > 4 ? 'star' : 'star_border'}}</i>
+    <div *ngIf="selectedReview">
+      <label class="active">Original Review</label>
+      <div class="review-card">
+        <img class="pointer left z-depth-2" src="{{ avatarUrl(selectedReview.preview_image) }}"/>
+        <div class="margin-right"><span class="review-name">{{selectedReview.name}}</span> - {{selectedReview.created|fromNow}}</div>
+        <div>
+          <span class="review-name pink-text">{{selectedReview.rating}}/5</span>
+          <i class="material-icons pink-text rating-star">star</i>
         </div>
-        <label class="active">Rating</label>
+        <div [innerHTML]="selectedReview.details"></div>
       </div>
     </div>
-
+    <br>
     <div class="input-field">
       <i class="material-icons prefix">playlist_add</i>
-      <textarea id="description" class="materialize-textarea"  placeholder="{{currentReviewId?'Reply Details...':'Review details...'}}"
-                [(ngModel)]="currentReview"
-      ></textarea>
+      <textarea id="description"
+                class="materialize-textarea"
+                placeholder="{{selectedReview ? 'Reply Details...' : 'Review details...'}}"
+                [(ngModel)]="currentReview"></textarea>
       <label for="description" class="active">Review Comment</label>
       <br><br>
       <div class="center-align">
@@ -478,13 +488,16 @@
   </mz-modal-content>
   <mz-modal-footer>
     <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
-    <button mz-button class="pink-button" mz-modal-close *ngIf="captchaSuccess" (click)="addReview()">{{currentReviewId?'Add Reply':'Add Review'}}</button>
-    <button mz-button [flat]="true" mz-modal-close *ngIf="!captchaSuccess"  (click)="addReview()">{{currentReviewId?'Add Reply':'Add Review'}}</button>
+    <button mz-button
+            class="pink-button"
+            mz-modal-close
+            *ngIf="captchaSuccess"
+            (click)="addReview()">{{selectedReview ? 'Add Reply' : 'Add Review'}}</button>
+    <button mz-button
+            [flat]="true"
+            *ngIf="!captchaSuccess">{{selectedReview ? 'Add Reply' : 'Add Review'}}</button>
   </mz-modal-footer>
 </mz-modal>
-
-
-
 
 <mz-modal #deleteReview [fixedFooter]="true">
   <mz-modal-header>
@@ -497,5 +510,19 @@
   <mz-modal-footer>
     <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
     <button mz-button class="red" mz-modal-close (click)="deleteReviewConfirm()">Delete Review</button>
+  </mz-modal-footer>
+</mz-modal>
+
+<mz-modal #deleteReply [fixedFooter]="true">
+  <mz-modal-header>
+    <h4>Delete Reply</h4>
+  </mz-modal-header>
+  <mz-modal-content>
+    <br>
+    Are you sure you want to delete this reply?
+  </mz-modal-content>
+  <mz-modal-footer>
+    <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
+    <button mz-button class="red" mz-modal-close (click)="deleteReplyConfirm()">Delete Reply</button>
   </mz-modal-footer>
 </mz-modal>
