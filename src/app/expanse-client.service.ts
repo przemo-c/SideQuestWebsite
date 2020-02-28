@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AppService } from './app.service';
-import { AppListing } from './account/account.component';
 import { Subject } from 'rxjs';
 import { AppListing, EventListing, SpaceListing } from './account/account.component';
 import { ScreenShot, AppCounter, AppUrl } from './app-manager/app-manager.component';
