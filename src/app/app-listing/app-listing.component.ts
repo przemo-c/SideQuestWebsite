@@ -460,9 +460,9 @@ export class AppListingComponent implements OnInit, OnDestroy {
 
   async setupApp() {
     if (this.apps_id) {
-      const apps = (await this.expanseService.start().then(() => {
+      const apps = await this.expanseService.start().then(() => {
         return this.expanseService.getApp(this.apps_id);
-      })) as AppListing[];
+      });
       this.getUserInstalled();
       if (!apps.length) {
         this.apps_id = null;
@@ -475,9 +475,9 @@ export class AppListingComponent implements OnInit, OnDestroy {
         this.searchTags = (this.currentApp.search_tags || "")
           .split(",")
           .filter(t => t);
-        const counters = (await this.expanseService.getAppTotals(
+        const counters = await this.expanseService.getAppTotals(
           this.apps_id
-        )) as AppCounter[];
+        );
         counters.forEach(counter => {
           switch (counter.type) {
             case "click":
@@ -494,14 +494,14 @@ export class AppListingComponent implements OnInit, OnDestroy {
               break;
           }
         });
-        const screenshots = (await this.expanseService.getAppScreenshots(
+        const screenshots = await this.expanseService.getAppScreenshots(
           this.apps_id
-        )) as ScreenShot[];
+        );
         const sort = (a, b) =>
           a.provider > b.provider ? 1 : b.provider > a.provider ? -1 : 0;
-        this.app_urls = (await this.expanseService.getAppUrls(
+        this.app_urls = await this.expanseService.getAppUrls(
           this.apps_id
-        )) as AppUrl[];
+        );
         if (!this.currentApp.early_access) {
           console.log("APP Urls: ", this.app_urls);
         }

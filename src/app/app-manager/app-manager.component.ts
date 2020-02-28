@@ -207,20 +207,20 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
       if (val instanceof NavigationEnd) {
         this.apps_id = route.snapshot.paramMap.get("apps_id");
         if (this.apps_id) {
-          const apps = (await this.expanseService
+          const apps = await this.expanseService
             .start()
             .then(() =>
               this.expanseService.getApp(this.apps_id)
-            )) as AppListing[];
+            );
           if (!apps.length) {
             this.apps_id = null;
             this.is_not_found = true;
           } else {
             this.currentApp = apps[0];
             if (!this.currentApp.apk_url) {
-              this.currentApp.apk_url = (await this.expanseService.getAppWebhook(
+              this.currentApp.apk_url = await this.expanseService.getAppWebhook(
                 this.apps_id
-              )) as string;
+              );
             }
             this.searchTags = (this.currentApp.search_tags || "")
               .split(",")
@@ -231,12 +231,12 @@ export class AppManagerComponent implements OnInit, AfterViewInit, OnDestroy {
             if (this.hasGithubRepo) {
               await this.findGitReleases();
             }
-            const screenshots = (await this.expanseService.getAppScreenshots(
+            const screenshots = await this.expanseService.getAppScreenshots(
               this.apps_id
-            )) as ScreenShot[];
-            this.app_urls = (await this.expanseService.getAppUrls(
+            );
+            this.app_urls = await this.expanseService.getAppUrls(
               this.apps_id
-            )) as AppUrl[];
+            );
             this.screenshots = (screenshots || []).map(s => s.image_url);
             this.onVideoChange();
           }

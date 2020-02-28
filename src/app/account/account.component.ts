@@ -88,6 +88,7 @@ export interface AppListing {
   counters?: any;
   rating?: number;
   num_of_reviews?: number;
+  current_version?: number;
 }
 export interface EventListing {
   name: string;
