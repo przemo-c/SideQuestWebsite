@@ -25,7 +25,8 @@
 .top-badge{
   position: absolute;
   top: 40px;
-  right: 42px;
+  right: 38px;
+  width: 52px;
 }
 .smaller-badge{
   top: 20px;

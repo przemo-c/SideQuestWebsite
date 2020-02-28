@@ -1029,7 +1029,7 @@ export class ExpanseClientService {
     return this.emit("update-count-app", { type, apps_id });
   }
 
-  private notifyInstalledAppsChanged() {
+  notifyInstalledAppsChanged() {
     this.installedAppsChangedAt.next(Date.now());
   }
 }

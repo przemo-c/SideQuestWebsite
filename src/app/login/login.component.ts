@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit, OnDestroy {
               this.expanseService.currentSession = resp;
               this.service.isAuthenticated = !!resp;
               this.router.navigateByUrl(this.return_url || "/account");
+              this.expanseService.notifyInstalledAppsChanged();
             }
           })
       );
