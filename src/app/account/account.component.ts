@@ -254,6 +254,10 @@ export class AccountComponent implements OnInit, OnDestroy {
         type = type || "basic-settings";
         if (type) {
           this.currentView = type;
+          if (type === "subscribed-apps") {
+            this.isUninstalled = false;
+            this.isUpdated = false;
+          }
           if (type === "unsubscribed-apps") {
             this.isUninstalled = true;
             this.isUpdated = false;

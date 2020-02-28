@@ -38,6 +38,7 @@ export class GithubRepoSelectComponent {
     }
   }
   @Output() repoSelected = new EventEmitter<string>();
+  @Output() cleared = new EventEmitter<string>();
 
   public keyword = "name";
   public searchString = "";

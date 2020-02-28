@@ -515,7 +515,7 @@ export class AppListingComponent implements OnInit, OnDestroy {
         }
         this.donate_urls = this.app_urls.filter(
           (url: AppUrl) =>
-            ["Patreon", "Paypal", "Kofi"].indexOf(url.provider) > -1
+            ["Patreon", "Paypal", "Kofi", "Itch"].indexOf(url.provider) > -1
         );
         let itchUrl = this.app_urls.filter(
           (url: AppUrl) => url.provider === "Itch"

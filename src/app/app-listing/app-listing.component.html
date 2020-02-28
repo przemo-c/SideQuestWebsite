@@ -358,12 +358,11 @@
           </div><br>
           <div *ngFor="let url of donate_urls">
             <div class="chip pointer"
-                 *ngIf="url.provider !== 'Itch'"
                  mz-tooltip tooltip="{{url.provider}}"
                  position="bottom"
-                 (click)="openUrl(url.link_url + (url.provider==='Itch'?'?ac=k3RTPJMnVvG':''));subscribeIfItch(url.provider)">
+                 (click)="openUrl(url.link_url + (url.provider==='Itch' && currentApp.active?'?ac=k3RTPJMnVvG':''));">
               <img src="{{urlIcons[url.provider].icon}}">
-              {{url.provider==='Itch'? isInstalled && installedVersion < currentApp.versioncode ? 'Update On Itch' : 'Buy On Itch':url.provider}}
+              {{url.provider}}
             </div>
           </div>
         </div>
@@ -468,6 +467,20 @@
           <i class="material-icons pink-text rating-star">star</i>
         </div>
         <div [innerHTML]="selectedReview.details"></div>
+      </div>
+    </div>
+    <div *ngIf="!selectedReview">
+      <div class="col fixed-height extra-padding-left" *ngIf="!currentReviewId">
+        <div class="input-field radio-top">
+          <i class="material-icons prefix">star_half</i>
+          <div class="rating-margin-left">
+            <i class="material-icons medium pointer white-text" (click)="currentRating = 1">{{currentRating > 0 ? 'star' : 'star_border'}}</i>
+            <i class="material-icons medium pointer white-text" (click)="currentRating = 2">{{currentRating > 1 ? 'star' : 'star_border'}}</i>
+            <i class="material-icons medium pointer white-text" (click)="currentRating = 3">{{currentRating > 2 ? 'star' : 'star_border'}}</i>
+            <i class="material-icons medium pointer white-text" (click)="currentRating = 4">{{currentRating > 3 ? 'star' : 'star_border'}}</i>
+            <i class="material-icons medium pointer white-text" (click)="currentRating = 5">{{currentRating > 4 ? 'star' : 'star_border'}}</i>
+          </div>
+        </div>
       </div>
     </div>
     <br>

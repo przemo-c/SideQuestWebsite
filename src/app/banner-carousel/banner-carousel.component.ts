@@ -45,9 +45,9 @@ export class BannerCarouselComponent implements AfterViewInit {
     this.itemSelected.emit(targetUrl);
   }
 
-  public gotoSlideRelative(offset: SlideOffset) {
-    this.activeIndex = this.relativeSlideIndex(offset);
-    this.play(offset);
+  public gotoSlideRelative(offset: number) {
+    this.activeIndex = this.relativeSlideIndex(offset as SlideOffset);
+    this.play(offset as SlideOffset);
   }
 
   public gotoSlide(index: number) {

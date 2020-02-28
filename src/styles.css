@@ -147,6 +147,7 @@ html{
 }
 .new-badge{
   background-color: #ed4e7a!important;
+  white-space: nowrap;
 }
 .circle{
   border-radius: 50%;
