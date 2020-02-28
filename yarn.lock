@@ -1301,6 +1301,13 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+angular-ng-autocomplete@^1.1.17:
+  version "1.1.17"
+  resolved "https://registry.yarnpkg.com/angular-ng-autocomplete/-/angular-ng-autocomplete-1.1.17.tgz#469d160af8c079d0333aa6225a6b72ef8ca776c2"
+  integrity sha512-wLaXY/D2WAi4DvwylMaC7oCPR1670UP5IIuybCl121qAYzuiit6tS/sLJ4VHWu7xX4ilVRFJAQUvpypBTJO2IQ==
+  dependencies:
+    tslib "^1.9.0"
+
 ansi-colors@4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-4.1.1.tgz#cbb9ae256bf750af1eab344f229aa27fe94ba348"

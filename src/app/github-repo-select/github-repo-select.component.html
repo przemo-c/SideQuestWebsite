@@ -1,0 +1,22 @@
+<div class="ng-autocomplete">
+  <ng-autocomplete 
+    [data]="data"
+    [searchKeyword]="keyword"
+    [(ngModel)]="searchString"
+    (selected)='onSelectRepo($event)'
+    (inputChanged)='onChangeSearch($event)'
+    [itemTemplate]="itemTemplate"
+    [notFoundTemplate]="notFoundTemplate"
+    [isLoading]="isLoading"
+    [placeHolder]="'Type to search'">
+  </ng-autocomplete>
+
+  <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item.name"></a>
+  </ng-template>
+     
+  <ng-template #notFoundTemplate let-notFound>
+    <div class="not-found-text" [innerHTML]="notFound"></div>
+  </ng-template>
+</div>
+

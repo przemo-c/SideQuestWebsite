@@ -29,6 +29,7 @@
     "@types/highlightjs": "^9.12.0",
     "@types/masonry-layout": "^4.2.1",
     "@types/uuid": "^3.4.5",
+    "angular-ng-autocomplete": "^1.1.17",
     "chart.js": "^2.8.0",
     "highlight.js": "^9.16.2",
     "husky": "^3.0.0",

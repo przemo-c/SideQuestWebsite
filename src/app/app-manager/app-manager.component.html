@@ -390,23 +390,21 @@
             <div class="input-field">
               <i class="material-icons prefix">insert_emoticon</i>
               <input id="github_name" type="text" class="validate" placeholder="the-expanse"
-                     (input)="debounce(findGitRepos)"
+                     (input)="onEditGithubName($event)"
                      [(ngModel)]="currentApp.github_name">
               <label for="github_name" class="active">Github User/Org name</label>
             </div>
-            <div *ngIf="hasGithubName">
+            <div *ngIf="currentApp.github_name">
               <i class="material-icons select-icon">public</i>
               <div class="select-drop-down">
-                <label class="active">Repos</label>
-                <select class="browser-default black-text "
-                        [(ngModel)]="currentApp.github_repo"
-                        (change)="debounce(findGitReleases)">
-                  <option *ngFor="let repo of githubRepos">{{repo.name}}</option>
-                </select>
+                <label class="active">Repo</label>
+                <github-repo-select
+                  [user]="currentApp.github_name"
+                  [repo]="currentApp.github_repo"
+                  (repoSelected)="selectGithubRepo($event)"></github-repo-select>
               </div>
             </div>
-            <div *ngIf="hasGithubName && hasGithubRepo">
-
+            <div *ngIf="githubReleases && githubReleases.length > 0">
               <i class="material-icons select-icon">public</i>
               <div class="select-drop-down">
                 <label class="active">Release</label>
