@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { AppService } from "./app.service";
+import { AppListing } from "./account/account.component";
+import { Subject } from 'rxjs';
 import { AppListing, EventListing, SpaceListing } from "./account/account.component";
 import { ScreenShot, AppCounter, AppUrl } from './app-manager/app-manager.component';
 
@@ -37,6 +39,8 @@ export class ExpanseClientService {
   currentSession: any;
   installedApps: AppListing[];
   default_app_ulrs: any[] = [];
+  public installedAppsChangedAt = new Subject<number>();
+
   constructor(private appService: AppService) {
     this.messageResolves = {}; // localStorage.setItem('isDev','true');
     // localStorage.removeItem("isDev");
@@ -866,11 +870,15 @@ export class ExpanseClientService {
       apps_id
     }) as Promise<AppListing[]>;
   }
-  addInstalledApp(apps_id, versioncode) {
-    return this.emit("add-edit-installed-app", { apps_id, versioncode });
+  async addInstalledApp(apps_id, versioncode) {
+    const response = await this.emit("add-edit-installed-app", { apps_id, versioncode });
+    this.notifyInstalledAppsChanged();
+    return response;
   }
-  uninstallApp(apps_id) {
-    return this.emit("uninstall-app", { apps_id });
+  async uninstallApp(apps_id) {
+    const response = await this.emit("uninstall-app", { apps_id });
+    this.notifyInstalledAppsChanged();
+    return response;
   }
   getAppWebhook(apps_id: string) {
     return this.emit("get-app-webhook", { apps_id }) as Promise<string>;
@@ -990,5 +998,9 @@ export class ExpanseClientService {
   }
   appCount(type, apps_id) {
     return this.emit("update-count-app", { type, apps_id });
+  }
+
+  private notifyInstalledAppsChanged() {
+    this.installedAppsChangedAt.next(Date.now());
   }
 }

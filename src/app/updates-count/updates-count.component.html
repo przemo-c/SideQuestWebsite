@@ -1,0 +1,7 @@
+<div *ngIf="appsToUpdateCount > 0"
+    (click)="appService.scrollToTop()"
+    routerLink="/account/updated-apps"
+    class="updates-count right btn-flat badge new-badge white-text top-new-badge">
+    <span>{{appsToUpdateCount}}</span>
+    {{appsToUpdateCount > 1 ? 'Updates' : 'Update'}}
+</div>
