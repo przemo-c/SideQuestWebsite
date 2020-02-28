@@ -1,40 +1,28 @@
-<div class="main-container padding" >
+<div class="main-container padding">
 
-  <div class="slider-left-container no-padding">
-    <div class="slider-padding">
-      <div id="slider" >
-        <div class="slider-inner {{sliderClass}}" #sliderele [ngClass]="{'disable-auto-slider':isAutoDisabled}">
-          <div class="img relative" *ngFor="let url of imageUrls" [ngStyle]="{'background-image': 'url('+url.url+')'}">
-            <app-over-image [firstNews]="{title: url.title, description: url.caption}" (output)="openItem(url.href)"></app-over-image>
-          </div>
-        </div>
-        <div class="right">
-          <i class="material-icons pointer" (click)="setSliderClass(true)">navigate_before</i>
-          <i class="material-icons pointer" (click)="setSliderClass(false)">navigate_next</i>
-        </div>
-      </div>
-    </div>
-  </div>
+  <banner-carousel [items]="imageUrls" (itemSelected)="openItem($event)"></banner-carousel>
 
-  <span class="grey-text margin-left">
+  <span class="grey-text margin-left patreon-notice">
     SideQuest will always be free for users and developers.
-    We rely on the kind support of our patrons and hold our sponsors to a high <a routerLink="/ethics">ethical standard</a>.
+    We rely on the kind support of our patrons and hold our sponsors to a high <a routerLink="/ethics">ethical
+      standard</a>.
+    <br>
     <ng-container *ngIf="!expanseService.currentSession || expanseService.currentSession.profile_color !== 'golden'">
       Become a
-      <span class="chip pointer top-chip"
-            onclick="window.location.href = 'https://www.patreon.com/SideQuestVR'"
-            mz-tooltip tooltip="People have been so kind, we are humbled."
-            position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-      Patreon
-    </span> to remove ads and other benefits.
+      <span class="chip pointer top-chip" onclick="window.location.href = 'https://www.patreon.com/SideQuestVR'"
+        mz-tooltip tooltip="People have been so kind, we are humbled." position="bottom">
+        <img src="assets/images/patreon.jpg" alt="Support us on Patreon." />
+        Patreon
+      </span> to remove ads and other benefits.
     </ng-container>
     <ng-container *ngIf="expanseService.currentSession && expanseService.currentSession.profile_color === 'golden'">
-      Thank you for supporting us {{expanseService.currentSession.name}}.
+      Thank you for supporting us {{expanseService.currentSession.name}}. 🎉
     </ng-container>
-  </span><br><br>
+  </span>
+
   <div class="center-align">
-    <app-ad-placeholder [sizes]="appService.isMobileLarge?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'home-center-0'"></app-ad-placeholder>
+    <app-ad-placeholder [sizes]="appService.isMobileLarge?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]"
+      [id]="'home-center-0'"></app-ad-placeholder>
   </div>
   <h5>Most popular games</h5>
   <div class="row top-margin">
