@@ -7,10 +7,6 @@
 </ng-container>
 
 <ng-container *ngFor="let app of apps; let i = index" >
-  <div class="col s12 center-align" *ngIf="showAds && ((appService.isMobileLarge && i === 2) || (!appService.isMobileLarge) && i === 3)">
-    <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-mid'"></app-ad-placeholder>
-    <br><br>
-  </div>
   <div class="col s6 app-padding pointer" [ngClass]="{'m3':isFourRow, 'm4':apps.length>2 && !isFourRow}" (click)="appService.scrollToTop();app.apps_id?router.navigateByUrl('/app/'+app.apps_id):appService.openLink(app.url);">
     <div class="home-app-image relative" [lazyLoad]="appImage(app)">
       <div class="app-stats-container">

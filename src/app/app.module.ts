@@ -86,9 +86,6 @@ import { MainMenuComponent } from "./main-menu/main-menu.component";
 import { UserMenuComponent } from "./user-menu/user-menu.component";
 import { SideNavComponent } from "./side-nav/side-nav.component";
 import { AmazonNativeAdComponent } from "./amazon-native-ad/amazon-native-ad.component";
-import { AdPlaceholderComponent } from "./ad-placeholder/ad-placeholder.component";
-import { AdGamesVerticalComponent } from "./ad-games-vertical/ad-games-vertical.component";
-import { AdHomeVerticalComponent } from "./ad-home-vertical/ad-home-vertical.component";
 import { EthicsComponent } from "./ethics/ethics.component";
 import { WebVRComponent } from "./web-vr/web-vr.component";
 import { GiveawayComponent } from "./giveaway/giveaway.component";
@@ -163,9 +160,6 @@ export function hljsLanguages() {
     UserMenuComponent,
     SideNavComponent,
     AmazonNativeAdComponent,
-    AdPlaceholderComponent,
-    AdGamesVerticalComponent,
-    AdHomeVerticalComponent,
     EthicsComponent,
     WebVRComponent,
     GiveawayComponent,

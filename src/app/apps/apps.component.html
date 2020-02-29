@@ -109,10 +109,6 @@
       </div>
     </div>
     <div class="col s12 l10 xl11">
-      <div class="center-align" *ngIf="!isLoading">
-        <app-ad-placeholder [sizes]="appService.isMobile?[[300,250],[320,50]]:[[728,90],[970,90],[970,250]]" [id]="'apps-top'"></app-ad-placeholder>
-        <br><br>
-      </div>
       <ng-container *ngIf="isLoading">
         <div class="center-align">
           <div class="tall-placeholder relative">
