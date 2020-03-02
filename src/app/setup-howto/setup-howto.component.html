@@ -2,18 +2,14 @@
 
 
   <div class="right">
-  <span class="chip pointer top-chip"
-        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
-        mz-tooltip tooltip="People have been so kind, we are humbled."
-        position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
+    <span class="chip pointer top-chip" onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+      mz-tooltip tooltip="People have been so kind, we are humbled." position="bottom">
+      <img src="assets/images/patreon.jpg" alt="Support us on Patreon." />
       Support us on Patreon
     </span>
-    <span class="chip pointer top-chip"
-          onclick="window.location.href = 'https://paypal.me/sidequestvr'"
-          mz-tooltip tooltip="Use this option if you prefer a one off donation."
-          position="bottom">
-      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
+    <span class="chip pointer top-chip" onclick="window.location.href = 'https://paypal.me/sidequestvr'" mz-tooltip
+      tooltip="Use this option if you prefer a one-off donation." position="bottom">
+      <img src="assets/images/paypal.jpg" alt="Donate on Paypal" />
       Donate on Paypal
     </span>
   </div>
@@ -41,8 +37,8 @@
           on your PC and create an 'organization'. You'll be asked to accept the developer agreement.
         </div>
         <br><br>
-        <img class="setup-image" src="assets/images/CreateOrganisation.png" (click)="openImage(0)"/>
-        <img class="setup-image" src="assets/images/OculusDashboardDeveloperCreate.png"  (click)="openImage(1)"/>
+        <img class="setup-image" src="assets/images/CreateOrganisation.png" (click)="openImage(0)" />
+        <img class="setup-image" src="assets/images/OculusDashboardDeveloperCreate.png" (click)="openImage(1)" />
       </div>
     </div>
     <div class="col s12 m6">
@@ -63,15 +59,16 @@
         </div>
         <div>
           Install the driver software for your device. Go to
-          <a href="https://developer.oculus.com/downloads/package/oculus-go-adb-drivers/" class="link">developer.oculus.com</a>
+          <a href="https://developer.oculus.com/downloads/package/oculus-go-adb-drivers/"
+            class="link">developer.oculus.com</a>
           on your PC and download the drivers for your headset. The Oculus Go drivers work for the
           quest also. To install the drivers extract the zip folder, right click the
           <div class="chip">android_winusb.inf</div>
           file and click install.
         </div>
         <br><br>
-        <img class="setup-image" src="assets/images/ADB Drivers.png" (click)="openImage(2)"/>
-        <img class="setup-image" src="assets/images/right-click.png" (click)="openImage(3)"/>
+        <img class="setup-image" src="assets/images/ADB Drivers.png" (click)="openImage(2)" />
+        <img class="setup-image" src="assets/images/right-click.png" (click)="openImage(3)" />
 
       </div>
     </div>
@@ -87,7 +84,7 @@
           to be able to see it on the device.
         </p>
         <br><br>
-        <img class="setup-image" src="assets/images/OculusAppDevModeSteps.png" (click)="openImage(4)"/>
+        <img class="setup-image" src="assets/images/OculusAppDevModeSteps.png" (click)="openImage(4)" />
       </div>
     </div>
   </div>
@@ -104,11 +101,12 @@
           something like the below. You should also select 'Always allow from this computer' to prevent
           this message from coming up every time you connect.
           <br><br>
-          Important 1): Disable Unlock Pattern in the Oculus app in <div class="chip">Settings > Quest > More Settings > Unlock Pattern</div>. <br>See the image in Step 2 for more info. <br><br>
+          Important 1): Disable Unlock Pattern in the Oculus app in <div class="chip">Settings > Quest > More Settings >
+            Unlock Pattern</div>. <br>See the image in Step 2 for more info. <br><br>
           Important 2): Try a phone USB cable instead of the cable that comes with your Quest.
         </div>
         <br><br>
-        <img class="setup-image" src="assets/images/allow-auth.png" (click)="openImage(5)"/>
+        <img class="setup-image" src="assets/images/allow-auth.png" (click)="openImage(5)" />
       </div>
     </div>
     <div class="col s12 m6">
@@ -121,12 +119,15 @@
           the library under 'Unknown Sources' on the menu on the left. Open it to find all the apps that
           have been installed on your device.
         </div><br>
-        <div class="waves-effect waves-light btn pink-button" *ngIf="launcherDownloadUrl" (click)="openItem('sidequest://sideload/#'+launcherDownloadUrl)">
+        <div class="waves-effect waves-light btn pink-button" *ngIf="launcherDownloadUrl"
+          (click)="openItem('sidequest://sideload/#'+launcherDownloadUrl)">
           Install QuestAppLauncher
         </div>
         <br><br>
         <div>
-          WARNING: Most Apps you install via SideQuest will appear in the Unknown Sources list in your headset ( except for apps also on the store like Virtual Desktop - these appear in the library like normal ). If in doubt use the above launcher, it has all your apps in one place.
+          WARNING: Most Apps you install via SideQuest will appear in the Unknown Sources list in your headset ( except
+          for apps also on the store like Virtual Desktop - these appear in the library like normal ). If in doubt use
+          the above launcher, it has all your apps in one place.
           <br><br>
           Check your antivirus hasn't blocked some parts of the ADB download - this has happened for some
           with Avast antivirus in particular. <br />If you have any problems or want to say hi drop us a
@@ -144,14 +145,8 @@
         <div class="section-title">
           How To Video: Cas and Chary VR
         </div>
-        <iframe
-          width="655.609756097561"
-          height="420"
-          style="width: 100%;max-width: 640px;"
-          src="https://www.youtube.com/embed/SDljN6UqO34"
-          frameborder="0"
-          allowfullscreen
-        ></iframe>
+        <iframe width="655.609756097561" height="420" style="width: 100%;max-width: 640px;"
+          src="https://www.youtube.com/embed/SDljN6UqO34" frameborder="0" allowfullscreen></iframe>
         <br />Kindly provided by <a href="https://www.youtube.com/channel/UCN0FGqUt7e79xKoPAZQ8tww">Cas and Chary VR</a>
       </div>
     </div>
@@ -160,14 +155,8 @@
         <div class="section-title">
           How To Video: TycoTech
         </div>
-        <iframe
-          width="655.609756097561"
-          height="420"
-          style="width: 100%;max-width: 640px;"
-          src="https://www.youtube.com/embed/dRWSAQJ13Zc"
-          frameborder="0"
-          allowfullscreen
-        ></iframe>
+        <iframe width="655.609756097561" height="420" style="width: 100%;max-width: 640px;"
+          src="https://www.youtube.com/embed/dRWSAQJ13Zc" frameborder="0" allowfullscreen></iframe>
         <br />Kindly provided by <a href="https://www.youtube.com/channel/UC1z5BGgIKk0d5vJ-Jhp9X9A">@TycoTech</a>
       </div>
     </div>

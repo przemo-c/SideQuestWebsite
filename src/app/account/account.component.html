@@ -1,130 +1,113 @@
-<div class="bottom-border paralax"  [ngClass]="{'banner-in-app':appService.hideLogo}">
+<div class="bottom-border paralax" [ngClass]="{'banner-in-app':appService.hideLogo}">
   <div class="banner-top-back" *ngIf="expanseService.currentSession.banner_image && !isLoading"
-       [ngStyle]="{'background-image':'url(\''+expanseService.currentSession.banner_image+'\')'}"></div>
+    [ngStyle]="{'background-image':'url(\''+expanseService.currentSession.banner_image+'\')'}"></div>
 </div>
 <div class="main-container relative padding"
-     [ngStyle]="{'margin-top': expanseService.currentSession.banner_image ? '-150px' : '0'}">
+  [ngStyle]="{'margin-top': expanseService.currentSession.banner_image ? '-150px' : '0'}">
   <div class="top-back" *ngIf="expanseService.currentSession.banner_image">
 
   </div>
 
 
-  <div class="right side-score pointer" mzTooltip tooltip="Your SideScore! Click to find out how you earn score points." position="bottom" (click)="sidePoints.openModal()"><img src="../../assets/images/score-logo.png"/> <span class="score">{{expanseService.currentSession.score_points}}</span></div>
+  <div class="right side-score pointer" mzTooltip tooltip="Your SideScore! Click to find out how you earn score points."
+    position="bottom" (click)="sidePoints.openModal()"><img src="../../assets/images/score-logo.png" /> <span
+      class="score">{{expanseService.currentSession.score_points}}</span></div>
   <h4>Hi {{expanseService.currentSession.name}}!</h4>
   <div class="sub-banner">
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="App that you have installed and an easy update system."
-         position="bottom" routerLink="/account">
+    <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
+      tooltip="Update your profile information." position="bottom" routerLink="/account">
       <i class="material-icons left">face</i> My Info
     </div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="Spaces that you have created."
-         position="bottom" routerLink="/account/friends">
-      <i class="material-icons left">people</i> Sidekicks <span class="new badge new-badge" *ngIf="appService.notifications.friend_requests.length">{{appService.notifications.friend_requests.length|notOverNine}}</span>
+    <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
+      tooltip="Your friends and connection requests." position="bottom" routerLink="/account/friends">
+      <i class="material-icons left">people</i> Sidekicks <span class="new badge new-badge"
+        *ngIf="appService.notifications.friend_requests.length">{{appService.notifications.friend_requests.length|notOverNine}}</span>
     </div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="Your messages with other users."
-         position="bottom"
-         routerLink="/account/messages">
-      <i class="material-icons left">mail</i> Messages <span class="new badge new-badge" *ngIf="appService.notifications.unread_messages.length">{{appService.notifications.unread_messages.length|notOverNine}}</span>
+    <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
+      tooltip="Your messages with other users." position="bottom" routerLink="/account/messages">
+      <i class="material-icons left">mail</i> Messages <span class="new badge new-badge"
+        *ngIf="appService.notifications.unread_messages.length">{{appService.notifications.unread_messages.length|notOverNine}}</span>
     </div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="App that you have installed and an easy update system."
-         position="bottom"
-         routerLink="/account/subscribed-apps">
-      <i class="material-icons left">apps</i> Apps ({{isDev?app_totals.app_total+app_totals.app_sub_total:app_totals.app_sub_total}}) <span class="new badge new-badge" *ngIf="appsToUpdateCount">{{appsToUpdateCount|notOverNine}}</span>
+    <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
+      tooltip="Apps that you have installed and an easy update system." position="bottom"
+      routerLink="/account/subscribed-apps">
+      <i class="material-icons left">apps</i> Apps
+      ({{isDev?app_totals.app_total+app_totals.app_sub_total:app_totals.app_sub_total}}) <span
+        class="new badge new-badge" *ngIf="appsToUpdateCount">{{appsToUpdateCount|notOverNine}}</span>
     </div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="Events you have subscribed to."
-         position="bottom"
-         routerLink="/account/subscribed-events">
-      <i class="material-icons left">event</i> Events ({{isDev?app_totals.event_total+app_totals.event_sub_total:app_totals.event_sub_total}})
+    <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
+      tooltip="Events you have subscribed to." position="bottom" routerLink="/account/subscribed-events">
+      <i class="material-icons left">event</i> Events
+      ({{isDev?app_totals.event_total+app_totals.event_sub_total:app_totals.event_sub_total}})
     </div>
-    <div class="waves-effect waves-light btn-flat white-text top-button"
-         mz-tooltip tooltip="Spaces that you have created."
-         position="bottom"
-         routerLink="/account/subscribed-spaces">
-      <i class="material-icons left">location_on</i> Spaces ({{isDev?app_totals.space_total+app_totals.space_sub_total:app_totals.space_sub_total}})
+    <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
+      tooltip="Spaces that you have created or subscribed to." position="bottom"
+      routerLink="/account/subscribed-spaces">
+      <i class="material-icons left">location_on</i> Spaces
+      ({{isDev?app_totals.space_total+app_totals.space_sub_total:app_totals.space_sub_total}})
     </div>
   </div>
   <div class="clearfix"></div>
   <div class="right search-width">
     <form autocomplete="off" class="right search-box input-field" *ngIf="mainPage!=='basic'">
       <i class="material-icons prefix">search</i>
-      <input id="searchBox3" name="searchBox3" type="text"
-             [(ngModel)]="searchString"
-             (input)="debounceSearch()"
-      >
+      <input id="searchBox3" name="searchBox3" type="text" [(ngModel)]="searchString" (input)="debounceSearch()">
       <label for="searchBox3">Search</label>
     </form>
   </div>
   <div *ngIf="mainPage === 'apps'" class="margin-left">
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="App that you have installed and an easy update system."
-         position="bottom"
-         routerLink="/account/subscribed-apps">
+    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="App that you have installed." position="bottom"
+      routerLink="/account/subscribed-apps">
       <i class="material-icons prefix">apps</i>
       App Subscriptions ({{app_totals.app_sub_total}})
     </div>
-    <div *ngIf="isDev" class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="App listings on Sidequest for games, apps and mods for Standalone VR headsets."
-         position="bottom"
-         routerLink="/account/apps-listings">
+    <div *ngIf="isDev" class="chip pointer margin-right menu-chip" mz-tooltip
+      tooltip="App listings on Sidequest for games, apps and mods for standalone VR headsets." position="bottom"
+      routerLink="/account/apps-listings">
       <i class="material-icons prefix">list</i>
       App Listings ({{app_totals.app_total}})
     </div>
   </div>
   <div *ngIf="mainPage === 'friends'" class="margin-left">
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Events you have subscribed to."
-         position="bottom"
-         routerLink="/account/friends">
+    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Your friends on SideQuest." position="bottom"
+      routerLink="/account/friends">
       <i class="material-icons prefix">event</i>
       Sidekicks ({{app_totals.friend_total}})
     </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Events that you are running."
-         position="bottom"
-         routerLink="/account/requests">
+    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Friend requests you haven't responded to yet."
+      position="bottom" routerLink="/account/requests">
       <i class="material-icons prefix">event_note</i>
-      Requests <ng-container *ngIf="appService.notifications.friend_requests.length||app_totals.requests_total">({{appService.notifications.friend_requests.length+(+app_totals.requests_total)}})</ng-container><span class="new badge new-badge" *ngIf="appService.notifications.friend_requests.length">{{appService.notifications.friend_requests.length}}</span>
+      Requests <ng-container *ngIf="appService.notifications.friend_requests.length||app_totals.requests_total">
+        ({{appService.notifications.friend_requests.length+(+app_totals.requests_total)}})</ng-container><span
+        class="new badge new-badge"
+        *ngIf="appService.notifications.friend_requests.length">{{appService.notifications.friend_requests.length}}</span>
     </div>
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Events that you are running."
-         position="bottom"
-         routerLink="/account/blocked">
+    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Users you have blocked." position="bottom"
+      routerLink="/account/blocked">
       <i class="material-icons prefix">event_note</i>
       Blocked ({{app_totals.block_total}})
     </div>
   </div>
   <div *ngIf="mainPage === 'events'" class="margin-left">
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Events you have subscribed to."
-         position="bottom"
-         routerLink="/account/subscribed-events">
+    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Events you have subscribed to."
+      position="bottom" routerLink="/account/subscribed-events">
       <i class="material-icons prefix">event</i>
       Event Subscriptions ({{app_totals.event_sub_total}})
     </div>
-    <div *ngIf="isDev" class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Events that you are running."
-         position="bottom"
-         routerLink="/account/events-listings">
+    <div *ngIf="isDev" class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Events that you are running."
+      position="bottom" routerLink="/account/events-listings">
       <i class="material-icons prefix">event_note</i>
       Event Listings ({{app_totals.event_total}})
     </div>
   </div>
   <div *ngIf="mainPage === 'spaces'" class="margin-left">
-    <div class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Spaces that you have subscribed to."
-         position="bottom"
-         routerLink="/account/subscribed-spaces">
+    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Spaces that you have subscribed to."
+      position="bottom" routerLink="/account/subscribed-spaces">
       <i class="material-icons prefix">location_on</i>
       Space Subscriptions ({{app_totals.space_sub_total}})
     </div>
-    <div *ngIf="isDev" class="chip pointer margin-right menu-chip"
-         mz-tooltip tooltip="Spaces that you have created."
-         position="bottom"
-         routerLink="/account/spaces-listings">
+    <div *ngIf="isDev" class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Spaces that you have created."
+      position="bottom" routerLink="/account/spaces-listings">
       <i class="material-icons prefix">location_on</i>
       Space Listings ({{app_totals.space_total}})
     </div>
@@ -137,8 +120,10 @@
         <hr>
         <div class="right-align grey-text">You personal SideQuest avatar.</div>
         <div class="center-align">
-          <img class="responsive-img pointer" routerLink="/avatar-picker" src="{{expanseService.cdnUrl+expanseService.currentSession.preview_image}}"/><br>
-          <div class="btn waves-effect waves-light pink-button small-button change-avatar" (click)="appService.scrollToTop();setAvatarImage()">Select Image</div>
+          <img class="responsive-img pointer" routerLink="/avatar-picker"
+            src="{{expanseService.cdnUrl+expanseService.currentSession.preview_image}}" /><br>
+          <div class="btn waves-effect waves-light pink-button small-button change-avatar"
+            (click)="appService.scrollToTop();setAvatarImage()">Select Image</div>
         </div>
         <br>
         <h5>Developer Mode</h5>
@@ -149,7 +134,7 @@
           <div class="switch">
             <label>
               Off
-              <input type="checkbox" [(ngModel)]="isDev"  (change)="setDev()">
+              <input type="checkbox" [(ngModel)]="isDev" (change)="setDev()">
               <span class="lever"></span>
               On
             </label>
@@ -161,61 +146,74 @@
         <br>
         <h5>Share URL</h5>
         <hr>
-        <div class="right-align grey-text">This url will show your profile description when shared on social media.</div>
+        <div class="right-align grey-text">This url will show your profile description when shared on social media.
+        </div>
         <div class="center-align">
           <br><br><br>
-          <div class="btn waves-effect waves-light pink-button small-button" (click)="appService.copyUrl(expanseService.currentSession.donate_url)">Copy To Clipboard</div>
+          <div class="btn waves-effect waves-light pink-button small-button"
+            (click)="appService.copyUrl(expanseService.currentSession.donate_url)">Copy To Clipboard</div>
 
           <br><br>
-          <div *ngIf="expanseService.currentSession.donate_url" class="truncate">Share URL: {{expanseService.currentSession.donate_url}}</div>
+          <div *ngIf="expanseService.currentSession.donate_url" class="truncate">Share URL:
+            {{expanseService.currentSession.donate_url}}</div>
           <br>
         </div>
       </div>
       <div class="col s12 m8">
         <div class="row no-margin">
           <form autocomplete="off" class="col s12 m7 no-padding-left">
-            <div class="btn right waves-effect waves-light pink-button small-button" (click)="saveNameAndEmail()">Save Settings</div>
+            <div class="btn right waves-effect waves-light pink-button small-button" (click)="saveNameAndEmail()">Save
+              Settings</div>
             <h6>Basic Info</h6>
             <div class="clearfix"></div>
             <hr>
             <div class="right-align grey-text">Update your SideQuest information.</div>
             <div class="input-field">
               <i class="material-icons prefix">face</i>
-              <input id="user_name" name="user_name" type="text" placeholder="Your name..." [(ngModel)]="expanseService.currentSession.name">
+              <input id="user_name" name="user_name" type="text" placeholder="Your name..."
+                [(ngModel)]="expanseService.currentSession.name">
               <label for="user_name" class="active">Name</label>
             </div>
             <div class="input-field">
               <i class="material-icons prefix">mail</i>
-              <input id="user_email" name="user_email" type="text" placeholder="Email Address..." [(ngModel)]="expanseService.currentSession.email">
+              <input id="user_email" name="user_email" type="text" placeholder="Email Address..."
+                [(ngModel)]="expanseService.currentSession.email">
               <label for="user_email" class="active">Email</label>
             </div>
             <div class="input-field">
               <i class="material-icons prefix">double_arrow</i>
-              <input id="tag_line" name="tag_line" type="text" placeholder="Tag Line..." [(ngModel)]="expanseService.currentSession.tag_line">
+              <input id="tag_line" name="tag_line" type="text" placeholder="Tag Line..."
+                [(ngModel)]="expanseService.currentSession.tag_line">
               <label for="tag_line" class="active">Tag Line</label>
             </div>
             <div class="input-field">
               <i class="material-icons prefix">portrait</i>
-              <textarea id="description" name="description" class="materialize-textarea" placeholder="Bio..." [(ngModel)]="expanseService.currentSession.bio">
+              <textarea id="description" name="description" class="materialize-textarea" placeholder="Bio..."
+                [(ngModel)]="expanseService.currentSession.bio">
               </textarea>
               <label for="description" class="active">Bio</label>
             </div>
             <!--<div class="input-field" style="display: none">-->
-              <!--<i class="material-icons prefix">palette</i>-->
-              <!--<input id="profile_color" name="tag_line" type="text" placeholder="Profile Color Hex..." [(ngModel)]="expanseService.currentSession.profile_color">-->
-              <!--<label for="profile_color" class="active">Profile Color</label>-->
+            <!--<i class="material-icons prefix">palette</i>-->
+            <!--<input id="profile_color" name="tag_line" type="text" placeholder="Profile Color Hex..." [(ngModel)]="expanseService.currentSession.profile_color">-->
+            <!--<label for="profile_color" class="active">Profile Color</label>-->
             <!--</div>-->
           </form>
           <div class="col s12 m5">
-            <div *ngIf="expanseService.currentSession.public_profile" class="btn right waves-effect waves-light pink-button small-button" routerLink="/user/{{expanseService.currentSession.users_id}}" (click)="appService.scrollToTop()">View Profile</div>
+            <div *ngIf="expanseService.currentSession.public_profile"
+              class="btn right waves-effect waves-light pink-button small-button"
+              routerLink="/user/{{expanseService.currentSession.users_id}}" (click)="appService.scrollToTop()">View
+              Profile</div>
             <h6>Public Profile</h6>
             <div class="clearfix"></div>
             <hr>
-            <div class="right-align grey-text">Allow people to find you on SideQuest. Friends can see your profile too.</div>
+            <div class="right-align grey-text">Allow people to find you on SideQuest. Friends can see your profile too.
+            </div>
             <div class="switch right">
               <label>
                 Off
-                <input type="checkbox" [(ngModel)]="expanseService.currentSession.public_profile"  (change)="setPublic()">
+                <input type="checkbox" [(ngModel)]="expanseService.currentSession.public_profile"
+                  (change)="setPublic()">
                 <span class="lever"></span>
                 On
               </label>
@@ -226,28 +224,35 @@
             <div class="clearfix"></div>
             <hr>
             <div class="right-align grey-text">Add a banner image - 2048px X 1024px is a good size.</div>
-            <div #addImage class="add-image" *ngIf="!expanseService.currentSession.banner_image && !uploadService.is_loading_icon" (click)="uploadIcon()">
+            <div #addImage class="add-image"
+              *ngIf="!expanseService.currentSession.banner_image && !uploadService.is_loading_icon"
+              (click)="uploadIcon()">
               <i class="material-icons">add</i> Add Banner
             </div>
             <div class="loader-cont" *ngIf="uploadService.is_loading_icon">
               <div class="loader-initial"></div>
             </div>
-            <img class="responsive-img pointer" *ngIf="expanseService.currentSession.banner_image && !uploadService.is_loading_icon" src="{{expanseService.currentSession.banner_image}}" (click)="uploadIcon()"/>
+            <img class="responsive-img pointer"
+              *ngIf="expanseService.currentSession.banner_image && !uploadService.is_loading_icon"
+              src="{{expanseService.currentSession.banner_image}}" (click)="uploadIcon()" />
             <br>
           </div>
         </div>
 
         <br>
         <br>
-        <div class="btn right waves-effect waves-light pink-button small-button" (click)="settingsModal.openModal()">Profile Url Settings</div>
+        <div class="btn right waves-effect waves-light pink-button small-button" (click)="settingsModal.openModal()">
+          Profile Url Settings</div>
         <h6>Profile Urls</h6>
         <div class="clearfix"></div>
         <hr>
-        <div class="right-align grey-text">Update social and donate urls to show on your profile and as defaults for your listings.</div>
+        <div class="right-align grey-text">Update social and donate urls to show on your profile and as defaults for
+          your listings.</div>
         <br>
         <br>
         <br>
-        <div class="btn right waves-effect waves-light pink-button small-button" (click)="passwordModal.openModal()">Change Password</div>
+        <div class="btn right waves-effect waves-light pink-button small-button" (click)="passwordModal.openModal()">
+          Change Password</div>
         <h6>Change Password</h6>
         <div class="clearfix"></div>
         <hr>
@@ -255,29 +260,34 @@
         <br>
         <br>
         <br>
-        <div class="btn right waves-effect waves-light pink-button small-button" (click)="searchString = '';getDefaultSpaces();linkItem.openModal()">Change Home Space</div>
+        <div class="btn right waves-effect waves-light pink-button small-button"
+          (click)="searchString = '';getDefaultSpaces();linkItem.openModal()">Change Home Space</div>
         <h6>Home Space</h6>
         <div class="clearfix"></div>
         <hr>
-        <div class="right-align grey-text">Select a space from your listings to use as your default home space in SideQuestVR.</div>
+        <div class="right-align grey-text">Select a space from your listings to use as your default home space in
+          SideQuestVR.</div>
         <div *ngIf="selectedSpace">
           <div class="card card-height">
-            <div class="card-image card-image-left waves-effect waves-block waves-light"
-                 *ngIf="selectedSpace.image" [ngStyle]="{'background-image':'url(\''+(selectedSpace.image)+'\')'}">
+            <div class="card-image card-image-left waves-effect waves-block waves-light" *ngIf="selectedSpace.image"
+              [ngStyle]="{'background-image':'url(\''+(selectedSpace.image)+'\')'}">
             </div>
             <div class="card-content card-height">
               <i class="material-icons activator pointer right">more_vert</i>
-              <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.name||'No Name...'}}</span>
-              <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.description}}</p>
+              <span class="card-title activator white-text truncate installed"
+                [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.name||'No Name...'}}</span>
+              <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':selectedSpace.image}">
+                {{selectedSpace.description}}</p>
               <div class="right-align">
                 <span class="chip left white-text"
-                      [ngClass]="{'pink-button': selectedSpace.is_approved, 'orange': !selectedSpace.is_approved}">
-                {{selectedSpace.is_approved ? 'Published' : 'Pending'}}
+                  [ngClass]="{'pink-button': selectedSpace.is_approved, 'orange': !selectedSpace.is_approved}">
+                  {{selectedSpace.is_approved ? 'Published' : 'Pending'}}
                 </span>
               </div>
             </div>
             <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedSpace.name||'No Name...'}}</span>
+              <span class="card-title grey-text text-darken-4"><i
+                  class="material-icons right">close</i>{{selectedSpace.name||'No Name...'}}</span>
               <p class="grey-text">{{selectedSpace.description}}</p>
             </div>
           </div>
@@ -292,12 +302,18 @@
     <div class="row">
       <div class="col s12" *ngFor="let message of myMessages">
         <div class="user-chip chip">
-          <div class="settings-button right" routerLink="/user/{{message.users_id}}" (click)="appService.scrollToTop()"><i class="material-icons medium pointer">settings</i></div>
-          <div class="right" (click)="appService.scrollToTop();" routerLink="/account/message-thread/{{message.users_id}}"><span class="message-badge new badge pointer" *ngIf="message.is_read > 0">{{message.is_read|notOverNine}}</span><i class="material-icons medium pointer " [ngClass]="{'pink-text': message.is_read > 0}">mail</i></div>
+          <div class="settings-button right" routerLink="/user/{{message.users_id}}" (click)="appService.scrollToTop()">
+            <i class="material-icons medium pointer">settings</i></div>
+          <div class="right" (click)="appService.scrollToTop();"
+            routerLink="/account/message-thread/{{message.users_id}}"><span class="message-badge new badge pointer"
+              *ngIf="message.is_read > 0">{{message.is_read|notOverNine}}</span><i
+              class="material-icons medium pointer " [ngClass]="{'pink-text': message.is_read > 0}">mail</i></div>
           <img src="{{expanseService.cdnUrl+message.preview_image}}?size=256" />
           <div class="right">{{message.message_date|fromNow}}</div>
           <div class="chip-title">{{message.name}}</div>
-          <div class="truncate">{{message.sent_id == expanseService.currentSession.users_id ? 'You replied: ' : ''}}{{message.last_message}}</div>
+          <div class="truncate">
+            {{message.sent_id == expanseService.currentSession.users_id ? 'You replied: ' : ''}}{{message.last_message}}
+          </div>
         </div>
       </div>
     </div>
@@ -310,9 +326,11 @@
       <div class="row">
         <div class="col s12 m6" *ngFor="let friend of myBlocked">
           <div class="user-chip chip">
-            <div class="settings-button right" routerLink="/user/{{friend.users_id}}"  (click)="appService.scrollToTop()"><i class="material-icons medium pointer">settings</i></div>
+            <div class="settings-button right" routerLink="/user/{{friend.users_id}}"
+              (click)="appService.scrollToTop()"><i class="material-icons medium pointer">settings</i></div>
             <img src="{{expanseService.cdnUrl+friend.preview_image}}?size=256" />
-            <div class="chip-title">{{friend.name}}</div>{{friend.initiated?'They blocked you ':'You blocked them '}}{{friend.since|fromNow}}
+            <div class="chip-title">{{friend.name}}</div>
+            {{friend.initiated?'They blocked you ':'You blocked them '}}{{friend.since|fromNow}}
           </div>
         </div>
       </div>
@@ -324,9 +342,11 @@
       <div class="row">
         <div class="col s12 m6" *ngFor="let friend of myRequests">
           <div class="user-chip chip">
-            <div class="settings-button right" routerLink="/user/{{friend.users_id}}"  (click)="appService.scrollToTop()"><i class="material-icons medium pointer">settings</i></div>
+            <div class="settings-button right" routerLink="/user/{{friend.users_id}}"
+              (click)="appService.scrollToTop()"><i class="material-icons medium pointer">settings</i></div>
             <img src="{{expanseService.cdnUrl+friend.preview_image}}" />
-            <div class="chip-title">{{friend.name}}</div>{{friend.initiated?'You sent a request ':'They sent a request '}}{{friend.since|fromNow}}
+            <div class="chip-title">{{friend.name}}</div>
+            {{friend.initiated?'You sent a request ':'They sent a request '}}{{friend.since|fromNow}}
           </div>
         </div>
       </div>
@@ -339,9 +359,11 @@
       <div class="row">
         <div class="col s12 m6" *ngFor="let friend of myFriends">
           <div class="user-chip chip">
-            <div class="settings-button right" routerLink="/user/{{friend.users_id}}" (click)="appService.scrollToTop()"><i class="material-icons medium pointer">settings</i></div>
+            <div class="settings-button right" routerLink="/user/{{friend.users_id}}"
+              (click)="appService.scrollToTop()"><i class="material-icons medium pointer">settings</i></div>
             <img src="{{expanseService.cdnUrl+friend.preview_image}}" />
-            <div class="chip-title">{{friend.name}}</div>{{friend.initiated?'You added them ':'They added you '}}{{friend.since|fromNow}}
+            <div class="chip-title">{{friend.name}}</div>
+            {{friend.initiated?'You added them ':'They added you '}}{{friend.since|fromNow}}
           </div>
         </div>
       </div>
@@ -360,27 +382,30 @@
       </div>
       <div class="col s12 m6" *ngFor="let app of myApps">
         <div class="card card-height">
-          <div class="card-image card-image-left waves-effect waves-block waves-light" routerLink="/my-app/{{app.apps_id}}"
-               *ngIf="app.image_url" [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
+          <div class="card-image card-image-left waves-effect waves-block waves-light"
+            routerLink="/my-app/{{app.apps_id}}" *ngIf="app.image_url"
+            [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
           </div>
           <div class="card-content card-height">
             <i class="material-icons activator pointer right">more_vert</i>
-            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
+            <span class="card-title activator white-text truncate"
+              [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
             <p class="grey-text description truncate" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
             <div class="right-align">
-            <span class="chip left white-text"
-                  [ngClass]="{'pink-button': app.active, 'orange': !app.active}">
-            {{app.active ? 'Published' : 'Pending'}}
-          </span><span class="chip left">
-              <i class="material-icons" mz-tooltip tooltip="Number of views" position="bottom" >visibility</i>
-              {{app.views}}</span><span class="chip left">
-              <i class="material-icons" mz-tooltip tooltip="Number of downloads" position="bottom" >cloud_download</i>
-              {{app.downloads}}</span>
-              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/my-app/{{app.apps_id}}" (click)="appService.scrollToTop()">Open</div>
+              <span class="chip left white-text" [ngClass]="{'pink-button': app.active, 'orange': !app.active}">
+                {{app.active ? 'Published' : 'Pending'}}
+              </span><span class="chip left">
+                <i class="material-icons" mz-tooltip tooltip="Number of views" position="bottom">visibility</i>
+                {{app.views}}</span><span class="chip left">
+                <i class="material-icons" mz-tooltip tooltip="Number of downloads" position="bottom">cloud_download</i>
+                {{app.downloads}}</span>
+              <div class="btn-flat waves-effect waves-light white-text small-button"
+                routerLink="/my-app/{{app.apps_id}}" (click)="appService.scrollToTop()">Open</div>
             </div>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{app.name||'No Name...'}}</span>
+            <span class="card-title grey-text text-darken-4"><i
+                class="material-icons right">close</i>{{app.name||'No Name...'}}</span>
             <p class="grey-text">{{app.summary}}</p>
           </div>
         </div>
@@ -388,39 +413,29 @@
     </div>
     <br><br>
   </div>
-  <div *ngIf="currentView === 'subscribed-apps' || currentView === 'unsubscribed-apps' || currentView === 'updated-apps'">
+  <div
+    *ngIf="currentView === 'subscribed-apps' || currentView === 'unsubscribed-apps' || currentView === 'updated-apps'">
     <h4>My {{isUpdated? 'App Updates' : isUninstalled? 'Unsubscribed Apps' : 'Subscribed Apps' }}</h4>
     <div class="right pull-up">
-      <div
-        class="btn waves-effect waves-light pink-button small-button margin-left"
-        mz-tooltip tooltip="Get a list of all the apps you have installed or subscribed to."
-        position="bottom"
-        routerLink="/account/subscribed-apps"
-      >Subscribed</div>
+      <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
+        tooltip="Get a list of all the apps you have installed or subscribed to." position="bottom"
+        routerLink="/account/subscribed-apps">Subscribed</div>
       <!--        (click)="isUpdated = false;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"-->
 
-      <div
-        class="btn waves-effect waves-light pink-button small-button margin-left"
-        mz-tooltip tooltip="Get a list of all the apps you have installed or unsubscribed from."
-        position="bottom"
-        routerLink="/account/unsubscribed-apps"
-      >Unsubscribed</div>
+      <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
+        tooltip="Get a list of all the apps you have installed and unsubscribed from." position="bottom"
+        routerLink="/account/unsubscribed-apps">Unsubscribed</div>
       <!--        (click)="isUpdated = false;isUninstalled = true; page=0;saveMyAppsView(); getInstalledApps()"-->
 
-      <div
-        class="btn waves-effect waves-light pink-button small-button margin-left"
-        mz-tooltip tooltip="Get a list of all apps that have an update available."
-        position="bottom"
-        routerLink="/account/updated-apps"
-      >Updates</div>
-    <!--        (click)="isUpdated = true;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"-->
+      <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
+        tooltip="Get a list of all your subscribed apps that have an update available." position="bottom"
+        routerLink="/account/updated-apps">Updates</div>
+      <!--        (click)="isUpdated = true;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"-->
 
       <div *ngIf="appsNeedingUpdated && appsNeedingUpdated.length"
-           class="btn waves-effect waves-light pink-button small-button margin-left"
-           mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
-           position="bottom"
-           (click)="updateAll()"
-      >Update All</div>
+        class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
+        tooltip="Install all of the apps that have updates available. This can take some time." position="bottom"
+        (click)="updateAll()">Update All</div>
     </div>
     <div class="clearfix"></div>
     <hr>
@@ -432,20 +447,27 @@
       <div class="col s12 m6 l4" *ngFor="let app of myInstalledApps">
         <div class="card card-height">
           <div class="card-image card-image-left waves-effect waves-block waves-light" routerLink="/app/{{app.apps_id}}"
-               [ngStyle]="{'background-image':'url(\''+(app.image_url)+'\')'}">
-            <div class="btn waves-effect waves-light white-text pink-button smaller-button" *ngIf="app.needsUpdate && !isUninstalled" routerLink="/app/{{app.apps_id}}">Update</div>
+            [ngStyle]="{'background-image':'url(\''+(app.image_url)+'\')'}">
+            <div class="btn waves-effect waves-light white-text pink-button smaller-button"
+              *ngIf="app.needsUpdate && !isUninstalled" routerLink="/app/{{app.apps_id}}">Update</div>
           </div>
           <div class="card-content card-height">
             <i class="material-icons activator pointer right">more_vert</i>
-            <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
-            <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
+            <span class="card-title activator white-text truncate installed"
+              [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
+            <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':app.image_url}">
+              {{app.summary}}</p>
             <div class="right-align">
-              <div *ngIf="!isUninstalled" class="btn-flat left waves-effect waves-light white-text open-app-button pink-button smaller-button" (click)="unsubscribe(app.apps_id)">Unsubscribe</div>
-              <div class="btn-flat waves-effect waves-light white-text open-app-button pink-button smaller-button" routerLink="/app/{{app.apps_id}}" (click)="appService.scrollToTop()">Open</div>
+              <div *ngIf="!isUninstalled"
+                class="btn-flat left waves-effect waves-light white-text open-app-button pink-button smaller-button"
+                (click)="unsubscribe(app.apps_id)">Unsubscribe</div>
+              <div class="btn-flat waves-effect waves-light white-text open-app-button pink-button smaller-button"
+                routerLink="/app/{{app.apps_id}}" (click)="appService.scrollToTop()">Open</div>
             </div>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{app.name||'No Name...'}}</span>
+            <span class="card-title grey-text text-darken-4"><i
+                class="material-icons right">close</i>{{app.name||'No Name...'}}</span>
             <p class="grey-text">{{app.summary}}</p>
           </div>
         </div>
@@ -457,24 +479,13 @@
   <div *ngIf="currentView === 'events-listings'">
     <h4>My Events</h4>
     <div class="right pull-up">
-      <div
-        class="btn waves-effect waves-light pink-button small-button margin-left"
-        mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
-        position="bottom"
-        (click)="eventsType = 'upcoming'; page = 0; getEvents()"
-      >Upcoming</div>
-      <div
-        class="btn waves-effect waves-light pink-button small-button margin-left"
-        mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
-        position="bottom"
-        (click)="eventsType = 'past'; page = 0; getEvents()"
-      >Past</div>
-      <div
-        class="btn waves-effect waves-light pink-button small-button margin-left"
-        mz-tooltip tooltip="Install all of the apps that have updates available, this can take some time."
-        position="bottom"
-        (click)="eventsType = 'all'; page = 0; getEvents()"
-      >All</div>
+      <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
+        tooltip="List upcoming events." position="bottom" (click)="eventsType = 'upcoming'; page = 0; getEvents()">
+        Upcoming</div>
+      <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
+        tooltip="List past events." position="bottom" (click)="eventsType = 'past'; page = 0; getEvents()">Past</div>
+      <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
+        tooltip="List all events." position="bottom" (click)="eventsType = 'all'; page = 0; getEvents()">All</div>
     </div>
     <div class="clearfix"></div>
     <hr>
@@ -486,25 +497,30 @@
       </div>
       <div class="col s12 m6" *ngFor="let event of myEvents">
         <div class="card card-height">
-          <div class="card-image card-image-left waves-effect waves-block waves-light" routerLink="/my-event/{{event.events_id}}"
-               *ngIf="event.event_image||event.image" [ngStyle]="{'background-image':'url(\''+(event.event_image||event.image)+'\')'}">
+          <div class="card-image card-image-left waves-effect waves-block waves-light"
+            routerLink="/my-event/{{event.events_id}}" *ngIf="event.event_image||event.image"
+            [ngStyle]="{'background-image':'url(\''+(event.event_image||event.image)+'\')'}">
           </div>
           <div class="card-content card-height">
             <i class="material-icons activator pointer right">more_vert</i>
-            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.event_name||event.name||'No Name...'}}</span>
-            <p class="grey-text description truncate" [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.event_description||event.description}}</p>
+            <span class="card-title activator white-text truncate"
+              [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.event_name||event.name||'No Name...'}}</span>
+            <p class="grey-text description truncate" [ngClass]="{'card-title-small':event.event_image||event.image}">
+              {{event.event_description||event.description}}</p>
             <div class="right-align">
-            <span class="chip left white-text"
-                  [ngClass]="{'pink-button': event.is_approved, 'orange': !event.is_approved}">
-            {{event.is_approved ? 'Published' : 'Pending'}}
-          </span>
+              <span class="chip left white-text"
+                [ngClass]="{'pink-button': event.is_approved, 'orange': !event.is_approved}">
+                {{event.is_approved ? 'Published' : 'Pending'}}
+              </span>
               <span class="left chip">{{(event.start_time)*1000|date:'mediumDate'}}</span>
               <span class="left chip">{{(event.event_duration)/60| number:'1.0-0'}}mins</span>
-              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/my-event/{{event.events_id}}" (click)="appService.scrollToTop()">Open</div>
+              <div class="btn-flat waves-effect waves-light white-text small-button"
+                routerLink="/my-event/{{event.events_id}}" (click)="appService.scrollToTop()">Open</div>
             </div>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{event.event_name||event.name||'No Name...'}}</span>
+            <span class="card-title grey-text text-darken-4"><i
+                class="material-icons right">close</i>{{event.event_name||event.name||'No Name...'}}</span>
             <p class="grey-text">{{event.event_description||event.description}}</p>
           </div>
         </div>
@@ -524,24 +540,29 @@
       </div>
       <div class="col s12 m6" *ngFor="let space of mySpaces">
         <div class="card card-height">
-          <div class="card-image card-image-left waves-effect waves-block waves-light" routerLink="/my-space/{{space.spaces_id}}"
-               *ngIf="space.image" [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
+          <div class="card-image card-image-left waves-effect waves-block waves-light"
+            routerLink="/my-space/{{space.spaces_id}}" *ngIf="space.image"
+            [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
           </div>
           <div class="card-content card-height">
             <i class="material-icons activator pointer right">more_vert</i>
-            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
-            <p class="grey-text description truncate" [ngClass]="{'card-title-small':space.image}">{{space.description}}</p>
+            <span class="card-title activator white-text truncate"
+              [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
+            <p class="grey-text description truncate" [ngClass]="{'card-title-small':space.image}">{{space.description}}
+            </p>
             <div class="right-align">
-            <span class="chip left white-text"
-                  [ngClass]="{'pink-button': space.is_approved, 'orange': !space.is_approved}">
-            {{space.is_approved ? 'Published' : 'Pending'}}
-          </span>
+              <span class="chip left white-text"
+                [ngClass]="{'pink-button': space.is_approved, 'orange': !space.is_approved}">
+                {{space.is_approved ? 'Published' : 'Pending'}}
+              </span>
               <span class="left chip">{{(space.updated)*1000|date:'mediumDate'}}</span>
-              <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/my-space/{{space.spaces_id}}" (click)="appService.scrollToTop()">Open</div>
+              <div class="btn-flat waves-effect waves-light white-text small-button"
+                routerLink="/my-space/{{space.spaces_id}}" (click)="appService.scrollToTop()">Open</div>
             </div>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
+            <span class="card-title grey-text text-darken-4"><i
+                class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
             <p class="grey-text">{{space.description}}</p>
           </div>
         </div>
@@ -561,20 +582,24 @@
       </h5>
       <div class="col s12 m6 l4" *ngFor="let space of mySubscribedSpaces">
         <div class="card card-height">
-          <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-               *ngIf="space.image" [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
+          <div class="card-image card-image-left waves-effect waves-block waves-light activator" *ngIf="space.image"
+            [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
             <!--<div class="btn waves-effect waves-light white-text pink-button small-button" *ngIf="app.needsUpdate && !isUninstalled" routerLink="/app/{{app.apps_id}}">Update</div>-->
           </div>
           <div class="card-content card-height">
             <i class="material-icons activator pointer right">more_vert</i>
-            <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
-            <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':space.image}">{{space.description}}</p>
+            <span class="card-title activator white-text truncate installed"
+              [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
+            <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':space.image}">
+              {{space.description}}</p>
             <div class="right-align">
-              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button" routerLink="/space/{{space.spaces_id}}" (click)="appService.scrollToTop()">Open</div>
+              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button"
+                routerLink="/space/{{space.spaces_id}}" (click)="appService.scrollToTop()">Open</div>
             </div>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
+            <span class="card-title grey-text text-darken-4"><i
+                class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
             <p class="grey-text">{{space.description}}</p>
           </div>
         </div>
@@ -594,19 +619,24 @@
       <div class="col s12 m6 l4" *ngFor="let event of mySubscribedEvents">
         <div class="card card-height">
           <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-               *ngIf="event.event_image||event.image" [ngStyle]="{'background-image':'url(\''+(event.event_image||event.image)+'\')'}">
+            *ngIf="event.event_image||event.image"
+            [ngStyle]="{'background-image':'url(\''+(event.event_image||event.image)+'\')'}">
             <!--<div class="btn waves-effect waves-light white-text pink-button small-button" *ngIf="app.needsUpdate && !isUninstalled" routerLink="/app/{{app.apps_id}}">Update</div>-->
           </div>
           <div class="card-content card-height">
             <i class="material-icons activator pointer right">more_vert</i>
-            <span class="card-title activator white-text truncate installed" [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.event_name||event.name||'No Name...'}}</span>
-            <p class="grey-text description truncate installed" [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.description}}</p>
+            <span class="card-title activator white-text truncate installed"
+              [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.event_name||event.name||'No Name...'}}</span>
+            <p class="grey-text description truncate installed"
+              [ngClass]="{'card-title-small':event.event_image||event.image}">{{event.description}}</p>
             <div class="right-align">
-              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button" routerLink="/event/{{event.events_id}}" (click)="appService.scrollToTop()">Open</div>
+              <div class="btn-flat waves-effect waves-light white-text open-app-button small-button"
+                routerLink="/event/{{event.events_id}}" (click)="appService.scrollToTop()">Open</div>
             </div>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{event.event_name||event.name||'No Name...'}}</span>
+            <span class="card-title grey-text text-darken-4"><i
+                class="material-icons right">close</i>{{event.event_name||event.name||'No Name...'}}</span>
             <p class="grey-text">{{event.description}}</p>
           </div>
         </div>
@@ -622,18 +652,14 @@
           <h4 *ngIf="messageUser && mainPage == 'message-thread'">Messages to {{messageUser}}</h4>
         </ng-container>
         <div class="user-chip chip grey darken-2 message-chip send-chip relative" #scrollTo>
-          <div class="btn waves-effect waves-light right pink-button message-send-top" (click)="sendMessage()">Send</div>
+          <div class="btn waves-effect waves-light right pink-button message-send-top" (click)="sendMessage()">Send
+          </div>
           <div id="message_to_send">
             <mz-textarea-container>
               <i mz-icon-mdi mz-textarea-prefix [icon]="'double_arrow'">
               </i>
-              <textarea mz-textarea
-                        [label]="'Send Message'"
-                        name="message_to_send"
-                        placeholder="Message..."
-                        class="white-text"
-                        [(ngModel)]="messageToSend"
-                        length="512"></textarea>
+              <textarea mz-textarea [label]="'Send Message'" name="message_to_send" placeholder="Message..."
+                class="white-text" [(ngModel)]="messageToSend" length="512"></textarea>
             </mz-textarea-container>
             <br><br>
           </div>
@@ -641,7 +667,7 @@
       </div>
       <div class="col s12" *ngFor="let message of myThreads">
         <div class="user-chip chip message-chip" [ngClass]="{'other-user-message':!message.is_mine}">
-          <img routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}?size=256"/>
+          <img routerLink="/user/{{message.users_id}}" src="{{expanseService.cdnUrl+message.preview_image}}?size=256" />
           <div class="right margin-right">{{message.message_date|fromNow}}</div>
           <div class="chip-title">{{message.name}}</div>
           <div [innerHTML]="message.message"></div>
@@ -662,7 +688,8 @@
     </div>
   </ng-container>
   <div class="center-align">
-    <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore&&mainPage!=='basic'" (click)="getCurrent()">Load More</div>
+    <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore&&mainPage!=='basic'"
+      (click)="getCurrent()">Load More</div>
     <div *ngIf="hasNoMore && mainPage !== 'message-thread'" class="chip">No more items...</div>
     <div *ngIf="hasNoMore && mainPage === 'message-thread'">
       <br><br><br>
@@ -717,9 +744,7 @@
         <div class="input-field">
           <i class="material-icons prefix">lock</i>
           <input id="password2" type="password" placeholder="Password Again..."
-
-                 ng-model-options="{ allowInvalid: true }"
-                 [(ngModel)]="newPassword1">
+            ng-model-options="{ allowInvalid: true }" [(ngModel)]="newPassword1">
           <label for="password2" class="active">Password Again</label>
         </div>
       </div>
@@ -743,15 +768,15 @@
       <div class="col s6">
         <div class="input-field">
           <i class="material-icons prefix">public</i>
-          <input id="website" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="addNewUrlLink">
+          <input id="website" type="text" class="validate" placeholder="http://www.example.com"
+            [(ngModel)]="addNewUrlLink">
           <label for="website" class="active">Link Url</label>
         </div>
       </div>
       <div class="col s3">
         <div class="select-drop-down">
           <label class="active">Link Type</label>
-          <select class="browser-default black-text "
-                  [(ngModel)]="addNewUrlType" *ngIf="urlTypes">
+          <select class="browser-default black-text " [(ngModel)]="addNewUrlType" *ngIf="urlTypes">
             <option *ngFor="let url of urlTypes">{{url}}</option>
           </select>
         </div>
@@ -770,7 +795,8 @@
             {{app_url.provider}}
           </div>
           <div class="col s2 ">
-            <div class="right btn waves-effect waves-light pink-button margin-bottom small-button" (click)="removeUrl(app_url.provider)">Remove</div>
+            <div class="right btn waves-effect waves-light pink-button margin-bottom small-button"
+              (click)="removeUrl(app_url.provider)">Remove</div>
           </div>
         </div>
       </div>
@@ -789,33 +815,36 @@
     <div class="right search-box input-field">
       <i class="material-icons prefix">search</i>
 
-      <input id="searchBoxDefaults" type="text" class="validate"
-             [(ngModel)]="searchString"
-             (input)="debounceDefaultSearch()"
-      >
+      <input id="searchBoxDefaults" type="text" class="validate" [(ngModel)]="searchString"
+        (input)="debounceDefaultSearch()">
       <label for="searchBoxDefaults" class="active">Search</label>
     </div>
     <div class="clearfix"></div>
     <div class="row">
       <div class="col s12 m6" *ngFor="let space of linkSpaces">
         <div class="card card-height">
-          <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-               *ngIf="space.image" [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
+          <div class="card-image card-image-left waves-effect waves-block waves-light activator" *ngIf="space.image"
+            [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
           </div>
           <div class="card-content card-height">
             <i class="material-icons activator pointer right">more_vert</i>
-            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
-            <p class="grey-text description truncate" [ngClass]="{'card-title-small':space.image}">{{space.description}}</p>
+            <span class="card-title activator white-text truncate"
+              [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
+            <p class="grey-text description truncate" [ngClass]="{'card-title-small':space.image}">{{space.description}}
+            </p>
             <div class="right-align">
               <span class="chip left white-text"
-                    [ngClass]="{'pink-button': space.is_approved, 'orange': !space.is_approved}">
-              {{space.is_approved ? 'Published' : 'Pending'}}
-            </span>
-              <div  class="btn-flat waves-effect waves-light white-text small-button" (click)="linkItem.closeModal();expanseService.currentSession.default_space = space.spaces_id; selectedSpace = space; setDefaultSpace()">Select</div>
+                [ngClass]="{'pink-button': space.is_approved, 'orange': !space.is_approved}">
+                {{space.is_approved ? 'Published' : 'Pending'}}
+              </span>
+              <div class="btn-flat waves-effect waves-light white-text small-button"
+                (click)="linkItem.closeModal();expanseService.currentSession.default_space = space.spaces_id; selectedSpace = space; setDefaultSpace()">
+                Select</div>
             </div>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
+            <span class="card-title grey-text text-darken-4"><i
+                class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
             <p class="grey-text">{{space.description}}</p>
           </div>
         </div>
@@ -826,4 +855,3 @@
     <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
   </mz-modal-footer>
 </mz-modal>
-

@@ -8,27 +8,30 @@
     </div>
   </div>
 </ng-container>
-<div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'content-container':!service.hideLogo}">
+<div *ngIf="!is_not_found && !loading" class="main-container"
+  [ngClass]="{'padding':service.hideLogo,'content-container':!service.hideLogo}">
 
-  <div class="btn waves-effect waves-light pink-button right margin-left" routerLink="/app/{{apps_id}}" *ngIf="apps_id">View Listing</div>
-  <div *ngIf="(apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id" class="btn waves-effect waves-light right pink-button margin-left" (click)="saveApp()">Save App</div>
-<!--  <div *ngIf="(apps_id && expanseService.currentSession.users_id == currentApp.users_id)" class="right center-align" mz-tooltip tooltip="This will disable downloads of your app and you can provide keys to users to be able to install ( this is only partially implemented so i have disabled it for now )" position="bottom">-->
-<!--    Coming Soon-->
-<!--    <div class="switch">-->
-<!--      <label>-->
-<!--        Off-->
-<!--        <input type="checkbox" [(ngModel)]="currentApp.early_access">-->
-<!--        <span class="lever"></span>-->
-<!--        On-->
-<!--      </label>-->
-<!--    </div>-->
-<!--  </div>-->
+  <div class="btn waves-effect waves-light pink-button right margin-left" routerLink="/app/{{apps_id}}" *ngIf="apps_id">
+    View Listing</div>
+  <div *ngIf="(apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id"
+    class="btn waves-effect waves-light right pink-button margin-left" (click)="saveApp()">Save App</div>
+  <!--  <div *ngIf="(apps_id && expanseService.currentSession.users_id == currentApp.users_id)" class="right center-align" mz-tooltip tooltip="This will disable downloads of your app and you can provide keys to users to be able to install ( this is only partially implemented so i have disabled it for now )" position="bottom">-->
+  <!--    Coming Soon-->
+  <!--    <div class="switch">-->
+  <!--      <label>-->
+  <!--        Off-->
+  <!--        <input type="checkbox" [(ngModel)]="currentApp.early_access">-->
+  <!--        <span class="lever"></span>-->
+  <!--        On-->
+  <!--      </label>-->
+  <!--    </div>-->
+  <!--  </div>-->
 
   <h4><i class="material-icons back-icon" routerLink="/account">reply</i>{{apps_id?'Manage App':'Create App'}}
     <span *ngIf="apps_id" class="chip white-text"
-          [ngClass]="{'pink-button': currentApp.active, 'orange': !currentApp.active}">
-  {{currentApp.active ? 'Published' : 'Pending'}}
-  </span>
+      [ngClass]="{'pink-button': currentApp.active, 'orange': !currentApp.active}">
+      {{currentApp.active ? 'Published' : 'Pending'}}
+    </span>
   </h4>
 
   <div *ngIf="apps_id && currentApp.active">
@@ -37,20 +40,16 @@
     <br>
 
     <div class="center-align">
-  <span class="chip pointer top-chip"
-        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
-        mz-tooltip tooltip="People have been so kind, we are humbled."
-        position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-      Support us on Patreon
-    </span>
-      <span class="chip pointer top-chip"
-            onclick="window.location.href = 'https://paypal.me/sidequestvr'"
-            mz-tooltip tooltip="Use this option if you prefer a one off donation."
-            position="bottom">
-      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
-      Donate on Paypal
-    </span>
+      <span class="chip pointer top-chip" onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+        mz-tooltip tooltip="People have been so kind, we are humbled." position="bottom">
+        <img src="assets/images/patreon.jpg" alt="Support us on Patreon." />
+        Support us on Patreon
+      </span>
+      <span class="chip pointer top-chip" onclick="window.location.href = 'https://paypal.me/sidequestvr'" mz-tooltip
+        tooltip="Use this option if you prefer a one-off donation." position="bottom">
+        <img src="assets/images/paypal.jpg" alt="Donate on Paypal" />
+        Donate on Paypal
+      </span>
     </div>
     <br>
   </div>
@@ -59,13 +58,16 @@
       <h5>App Icon</h5>
       <hr>
       <div class="right-align grey-text">Add an icon - 512px X 512px is a good size.</div>
-      <div #addImage class="add-image" *ngIf="!currentApp.image_url && !is_loading_icon && ((apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id)" (click)="uploadIcon()">
+      <div #addImage class="add-image"
+        *ngIf="!currentApp.image_url && !is_loading_icon && ((apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id)"
+        (click)="uploadIcon()">
         <i class="material-icons">add</i> Add Image
       </div>
       <div class="loader-cont" *ngIf="uploadService.is_loading_icon">
         <div class="loader-initial"></div>
       </div>
-      <img class="responsive-img pointer" *ngIf="currentApp.image_url && !is_loading_icon" src="{{currentApp.image_url}}" (click)="uploadIcon()"/>
+      <img class="responsive-img pointer" *ngIf="currentApp.image_url && !is_loading_icon"
+        src="{{currentApp.image_url}}" (click)="uploadIcon()" />
       <br><br>
       <h5>App Video</h5>
       <hr>
@@ -73,18 +75,18 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">movie</i>
-          <input id="video_url" type="text" class="validate" (input)="onVideoChange()" placeholder="http://www.example.com" [(ngModel)]="currentApp.video_url">
+          <input id="video_url" type="text" class="validate" (input)="onVideoChange()"
+            placeholder="http://www.example.com" [(ngModel)]="currentApp.video_url">
           <label for="video_url" class="active">Youtube/Vimeo Url</label>
         </div>
         <div class="col s12" *ngIf="videoObject">
           <div *ngIf="videoObject.provider === 'youtube'">
             <iframe width="100%" height="200" [src]="videoUrl" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div *ngIf="videoObject.provider === 'vimeo'">
-            <iframe [src]="videoUrl" width="100%" height="200"
-                    frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <iframe [src]="videoUrl" width="100%" height="200" frameborder="0" allow="autoplay; fullscreen"
+              allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -95,10 +97,13 @@
       <div class="loader-cont add-screenshot" *ngIf="uploadService.is_loading_screenshot">
         <div class="loader-initial"></div>
       </div>
-      <div #addScreenshot class="add-screenshot" *ngIf="!uploadService.is_loading_screenshot  && ((apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id)" (click)="uploadScreenshot()">
+      <div #addScreenshot class="add-screenshot"
+        *ngIf="!uploadService.is_loading_screenshot  && ((apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id)"
+        (click)="uploadScreenshot()">
         <i class="material-icons">add</i> Add Screenshot
       </div>
-      <img class="responsive-img pointer" *ngFor="let screenshot of screenshots; let i = index" (click)="currentScreenshot = i; manageScreenshot.openModal()" src="{{screenshot}}"/>
+      <img class="responsive-img pointer" *ngFor="let screenshot of screenshots; let i = index"
+        (click)="currentScreenshot = i; manageScreenshot.openModal()" src="{{screenshot}}" />
       <br><br>
     </div>
     <div class="col s12 m9 extra-padding-left-small">
@@ -112,43 +117,38 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">done</i>
-          <input id="app_name" type="text" placeholder="My Cool App" class="validate"
-                 [(ngModel)]="currentApp.name">
+          <input id="app_name" type="text" placeholder="My Cool App" class="validate" [(ngModel)]="currentApp.name">
           <label for="app_name" class="active">App Name</label>
         </div>
         <div class="input-field col s12" [ngClass]="{'m8': !apps_id}" *ngIf="!apps_id">
           <i class="material-icons prefix">extension</i>
           <input id="package_name" placeholder="com.example.app" type="text" class="validate"
-                 [(ngModel)]="currentApp.packagename">
+            [(ngModel)]="currentApp.packagename">
           <label for="package_name" class="active">Package Name</label>
         </div>
         <div #dropJson class="col s12 m4" *ngIf="!apps_id">
-          <div class="add-app" >
+          <div class="add-app">
             Drop JSON Here
           </div>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">mode_edit</i>
           <input id="summary" type="text" class="validate" placeholder="One liner summary..."
-                 [(ngModel)]="currentApp.summary"
-          >
+            [(ngModel)]="currentApp.summary">
           <label for="summary" class="active">Summary</label>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">playlist_add</i>
-          <textarea id="description" class="materialize-textarea"  placeholder="Long description ( not including the summary line )..."
-                    [(ngModel)]="currentApp.description"
-          ></textarea>
+          <textarea id="description" class="materialize-textarea"
+            placeholder="Long description ( not including the summary line )..."
+            [(ngModel)]="currentApp.description"></textarea>
           <label for="description" class="active">Description</label>
         </div>
         <div class="input-field col s12">
           <i class="material-icons select-icon">search</i>
           <label class="active extra-padding-left">Search Tags</label>
-          <mz-chip-input  class="select-drop-down"
-                          [placeholder]="'Hit enter to add...'"
-                          [secondaryPlaceholder]="'Another...'"
-                          (add)="onAddTag($event)"
-                          [(ngModel)]="searchTags">
+          <mz-chip-input class="select-drop-down" [placeholder]="'Hit enter to add...'"
+            [secondaryPlaceholder]="'Another...'" (add)="onAddTag($event)" [(ngModel)]="searchTags">
             <!--(add)="onAddTag($event)"-->
             <!--(delete)="onDeleteTag($event)"-->
             <!--[autocompleteOptions]="comfortAutocomplete"-->
@@ -157,13 +157,15 @@
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">fingerprint</i>
-          <input id="version_code" type="number" onclick="this.select()" class="validate" placeholder="12" [(ngModel)]="currentApp.versioncode">
+          <input id="version_code" type="number" onclick="this.select()" class="validate" placeholder="12"
+            [(ngModel)]="currentApp.versioncode">
           <label for="version_code" class="active">Version Code ( used for auto updates )</label>
         </div>
 
         <div class="input-field col s6">
           <i class="material-icons prefix">toc</i>
-          <input id="version_name" type="text" class="validate" placeholder="v0.1.0" [(ngModel)]="currentApp.versionname">
+          <input id="version_name" type="text" class="validate" placeholder="v0.1.0"
+            [(ngModel)]="currentApp.versionname">
           <label for="version_name" class="active">Version Name</label>
         </div>
 
@@ -172,29 +174,18 @@
             <label class="active">Type</label>
           </div>
           <mz-radio-button-container>
-            <input mz-radio-button
-                   [label]="'Games & Apps'"
-                   [withGap]="true"
-                   id="devices-Quest"
-                   name="type-group"
-                   value="1"
-                   type="radio" [(ngModel)]="currentApp.app_categories_id">
+            <input mz-radio-button [label]="'Games & Apps'" [withGap]="true" id="devices-Quest" name="type-group"
+              value="1" type="radio" [(ngModel)]="currentApp.app_categories_id">
             <br>
-            <input mz-radio-button
-                   [label]="'Mods'"
-                   [withGap]="true"
-                   id="devices-Mods"
-                   name="type-group"
-                   value="4"
-                   type="radio" [(ngModel)]="currentApp.app_categories_id">
+            <input mz-radio-button [label]="'Mods'" [withGap]="true" id="devices-Mods" name="type-group" value="4"
+              type="radio" [(ngModel)]="currentApp.app_categories_id">
           </mz-radio-button-container>
 
           <div *ngIf="currentApp.app_categories_id === '4'">
             <i class="material-icons select-icon">public</i>
             <div class="select-drop-down">
               <label class="active">Mod Type</label>
-              <select class="browser-default black-text "
-                      [(ngModel)]="currentApp.website">
+              <select class="browser-default black-text " [(ngModel)]="currentApp.website">
                 <option>APKInstall</option>
                 <option>FirefoxSkybox</option>
                 <option>SynthRiders</option>
@@ -208,25 +199,13 @@
             <label class="active">Devices</label>
           </div>
           <mz-switch-container>
-            <input mz-switch
-                   id="switch-quest"
-                   [(ngModel)]="currentApp.supports_quest"
-                   [on]="'Quest'"
-                   type="checkbox">
+            <input mz-switch id="switch-quest" [(ngModel)]="currentApp.supports_quest" [on]="'Quest'" type="checkbox">
           </mz-switch-container><br>
           <mz-switch-container>
-            <input mz-switch
-                   id="switch-go"
-                   [(ngModel)]="currentApp.supports_go"
-                   [on]="'Go'"
-                   type="checkbox">
+            <input mz-switch id="switch-go" [(ngModel)]="currentApp.supports_go" [on]="'Go'" type="checkbox">
           </mz-switch-container><br>
           <mz-switch-container>
-            <input mz-switch
-                   id="switch-other"
-                   [(ngModel)]="currentApp.supports_other"
-                   [on]="'Other'"
-                   type="checkbox">
+            <input mz-switch id="switch-other" [(ngModel)]="currentApp.supports_other" [on]="'Other'" type="checkbox">
           </mz-switch-container>
 
         </div>
@@ -236,41 +215,16 @@
           </div>
           <mz-radio-button-container>
 
-            <input mz-radio-button
-                   [label]="'Comfortable'"
-                   [withGap]="true"
-                   id="comfort-Comfortable"
-                   name="comfort-group"
-                   [value]="0"
-                   type="radio" [(ngModel)]="currentApp.comfort"><br>
-            <input mz-radio-button
-                   [label]="'Moderate'"
-                   [withGap]="true"
-                   id="comfort-Moderate"
-                   name="comfort-group"
-                   [value]="1"
-                   type="radio" [(ngModel)]="currentApp.comfort"><br>
-            <input mz-radio-button
-                   [label]="'Average'"
-                   [withGap]="true"
-                   id="comfort-Average"
-                   name="comfort-group"
-                   [value]="2"
-                   type="radio" [(ngModel)]="currentApp.comfort"><br>
-            <input mz-radio-button
-                   [label]="'Exciting'"
-                   [withGap]="true"
-                   id="comfort-Exciting"
-                   name="comfort-group"
-                   [value]="3"
-                   type="radio" [(ngModel)]="currentApp.comfort"><br>
-            <input mz-radio-button
-                   [label]="'Intense'"
-                   [withGap]="true"
-                   id="comfort-Intense"
-                   name="comfort-group"
-                   [value]="4"
-                   type="radio" [(ngModel)]="currentApp.comfort">
+            <input mz-radio-button [label]="'Comfortable'" [withGap]="true" id="comfort-Comfortable"
+              name="comfort-group" [value]="0" type="radio" [(ngModel)]="currentApp.comfort"><br>
+            <input mz-radio-button [label]="'Moderate'" [withGap]="true" id="comfort-Moderate" name="comfort-group"
+              [value]="1" type="radio" [(ngModel)]="currentApp.comfort"><br>
+            <input mz-radio-button [label]="'Average'" [withGap]="true" id="comfort-Average" name="comfort-group"
+              [value]="2" type="radio" [(ngModel)]="currentApp.comfort"><br>
+            <input mz-radio-button [label]="'Exciting'" [withGap]="true" id="comfort-Exciting" name="comfort-group"
+              [value]="3" type="radio" [(ngModel)]="currentApp.comfort"><br>
+            <input mz-radio-button [label]="'Intense'" [withGap]="true" id="comfort-Intense" name="comfort-group"
+              [value]="4" type="radio" [(ngModel)]="currentApp.comfort">
           </mz-radio-button-container>
         </div>
         <div class="col s6 m3 white-text">
@@ -279,41 +233,16 @@
           </div>
           <mz-radio-button-container>
 
-            <input mz-radio-button
-                   [label]="'Free'"
-                   [withGap]="true"
-                   id="license-FREE"
-                   name="license-group"
-                   value="FREE"
-                   type="radio" [(ngModel)]="currentApp.license"><br>
-            <input mz-radio-button
-                   [label]="'Demo'"
-                   [withGap]="true"
-                   id="license-DEMO"
-                   name="license-group"
-                   value="DEMO"
-                   type="radio" [(ngModel)]="currentApp.license"><br>
-            <input mz-radio-button
-                   [label]="'Pre-Release'"
-                   [withGap]="true"
-                   id="license-PRERELEASE"
-                   name="license-group"
-                   value="PRERELEASE"
-                   type="radio" [(ngModel)]="currentApp.license"><br>
-            <input mz-radio-button
-                   [label]="'Paid'"
-                   [withGap]="true"
-                   id="license-PAID"
-                   name="license-group"
-                   value="PAID"
-                   type="radio" [(ngModel)]="currentApp.license"><br>
-            <input mz-radio-button
-                   [label]="'Open Source'"
-                   [withGap]="true"
-                   id="license-OPENSOURCE"
-                   name="license-group"
-                   value="OPENSOURCE"
-                   type="radio" [(ngModel)]="currentApp.license">
+            <input mz-radio-button [label]="'Free'" [withGap]="true" id="license-FREE" name="license-group" value="FREE"
+              type="radio" [(ngModel)]="currentApp.license"><br>
+            <input mz-radio-button [label]="'Demo'" [withGap]="true" id="license-DEMO" name="license-group" value="DEMO"
+              type="radio" [(ngModel)]="currentApp.license"><br>
+            <input mz-radio-button [label]="'Pre-Release'" [withGap]="true" id="license-PRERELEASE" name="license-group"
+              value="PRERELEASE" type="radio" [(ngModel)]="currentApp.license"><br>
+            <input mz-radio-button [label]="'Paid'" [withGap]="true" id="license-PAID" name="license-group" value="PAID"
+              type="radio" [(ngModel)]="currentApp.license"><br>
+            <input mz-radio-button [label]="'Open Source'" [withGap]="true" id="license-OPENSOURCE" name="license-group"
+              value="OPENSOURCE" type="radio" [(ngModel)]="currentApp.license">
           </mz-radio-button-container>
         </div>
         <!--<div class="input-field col s12">-->
@@ -331,12 +260,14 @@
       <div *ngIf="((apps_id && expanseService.currentSession.users_id == currentApp.users_id) || !apps_id)">
         <h5>App Urls</h5>
         <hr>
-        <div class="right-align grey-text">Input an APK url or select github releases to get the latest releases from github.</div>
+        <div class="right-align grey-text">Input an APK url or select github releases to get the latest releases from
+          github.</div>
         <div class="row">
           <div class="col s6">
             <div class="input-field">
               <i class="material-icons prefix">public</i>
-              <input id="website" type="text" class="validate" placeholder="http://www.example.com" [(ngModel)]="addNewUrlLink">
+              <input id="website" type="text" class="validate" placeholder="http://www.example.com"
+                [(ngModel)]="addNewUrlLink">
               <label for="website" class="active">Link Url</label>
             </div>
           </div>
@@ -344,8 +275,7 @@
             <i class="material-icons select-icon">public</i>
             <div class="select-drop-down">
               <label class="active">Link Type</label>
-              <select class="browser-default black-text "
-                      [(ngModel)]="addNewUrlType" *ngIf="urlTypes">
+              <select class="browser-default black-text " [(ngModel)]="addNewUrlType" *ngIf="urlTypes">
                 <option *ngFor="let url of urlTypes">{{url}}</option>
               </select>
             </div>
@@ -364,7 +294,8 @@
                 {{app_url.provider}}
               </div>
               <div class="col s2 ">
-                <div class="right btn waves-effect waves-light pink-button margin-bottom small-button" (click)="removeUrl(i)">Remove</div>
+                <div class="right btn waves-effect waves-light pink-button margin-bottom small-button"
+                  (click)="removeUrl(i)">Remove</div>
               </div>
             </div>
           </div>
@@ -390,17 +321,14 @@
             <div class="input-field">
               <i class="material-icons prefix">insert_emoticon</i>
               <input id="github_name" type="text" class="validate" placeholder="the-expanse"
-                     (input)="onEditGithubName($event)"
-                     [(ngModel)]="currentApp.github_name">
+                (input)="onEditGithubName($event)" [(ngModel)]="currentApp.github_name">
               <label for="github_name" class="active">Github User/Org name</label>
             </div>
             <div *ngIf="currentApp.github_name">
               <i class="material-icons select-icon">public</i>
               <div class="select-drop-down">
                 <label class="active">Repo</label>
-                <github-repo-select
-                  [user]="currentApp.github_name"
-                  [repo]="currentApp.github_repo"
+                <github-repo-select [user]="currentApp.github_name" [repo]="currentApp.github_repo"
                   (repoSelected)="selectGithubRepo($event)" (cleared)="githubReleases.length = 0"></github-repo-select>
               </div>
             </div>
@@ -408,13 +336,14 @@
               <i class="material-icons select-icon">public</i>
               <div class="select-drop-down">
                 <label class="active">Release</label>
-                <select class="browser-default black-text "
-                        [(ngModel)]="currentApp.github_tag">
+                <select class="browser-default black-text " [(ngModel)]="currentApp.github_tag">
                   <option *ngFor="let release of githubReleases">{{release.tag_name}}</option>
                 </select>
               </div>
             </div>
-            <div class="center-align"><div *ngIf="isGettingGithub" class="loader-small"></div></div>
+            <div class="center-align">
+              <div *ngIf="isGettingGithub" class="loader-small"></div>
+            </div>
 
           </div>
           <div class="col s6 center-align">
@@ -430,9 +359,11 @@
             </div>
             <br>
             Enable github release support to allow for automated deployments to suit you. <br><br>
-            <div *ngIf="currentApp.apk_url" class="btn waves-light waves-effect pink-button small-button" (click)="copyUrl('https://sdq.st/release-webhook/'+currentApp.apk_url)">Copy Webhook URL</div><br><br>
+            <div *ngIf="currentApp.apk_url" class="btn waves-light waves-effect pink-button small-button"
+              (click)="copyUrl('https://sdq.st/release-webhook/'+currentApp.apk_url)">Copy Webhook URL</div><br><br>
             Setup a webhook to enable automatic updates for users.<br><br>
-            <div class="btn waves-light waves-effect pink-button small-button" (click)="githubHowTo.openModal()">Github How To</div>
+            <div class="btn waves-light waves-effect pink-button small-button" (click)="githubHowTo.openModal()">Github
+              How To</div>
           </div>
         </div>
       </div>
@@ -443,7 +374,8 @@
         <div class="right-align grey-text">This url will show your apps description when shared on social media.</div>
         <div class="center-align">
           <br><br><br>
-          <div class="btn waves-effect waves-light pink-button small-button" (click)="copyShareUrl()">Copy To Clipboard</div>
+          <div class="btn waves-effect waves-light pink-button small-button" (click)="copyShareUrl()">Copy To Clipboard
+          </div>
 
           <br><br>
           <span *ngIf="currentApp.donate_url">Share URL: {{currentApp.donate_url}}</span>
@@ -454,10 +386,12 @@
         <br>
         <h5>Delete App</h5>
         <hr>
-        <div class="right-align grey-text">WARNING: This cannot be undone. This will remove the app from the listings.</div>
+        <div class="right-align grey-text">WARNING: This cannot be undone. This will remove the app from the listings.
+        </div>
         <div class="center-align">
           <br><br><br>
-          <div class="btn waves-effect waves-light red small-button" (click)="confirmDelete.openModal()">Delete app</div>
+          <div class="btn waves-effect waves-light red small-button" (click)="confirmDelete.openModal()">Delete app
+          </div>
           <br><br><br>
         </div>
       </div>
@@ -487,7 +421,7 @@
   <mz-modal-content>
     <div *ngIf="(currentScreenshot || currentScreenshot === 0) && screenshots[currentScreenshot]" class="center-align">
       <div class="screenshot-container">
-        <img class="responsive-img" src="{{screenshots[currentScreenshot]}}"/>
+        <img class="responsive-img" src="{{screenshots[currentScreenshot]}}" />
       </div>
       <br>
       Screenshot Url:<br> {{screenshots[currentScreenshot]}}
@@ -507,42 +441,36 @@
   <mz-modal-content>
     <h5>Video Tutorial</h5>
     <div class="video-container">
-      <iframe
-        width="655.609756097561"
-        height="420"
-        style="width: 100%;"
-        src="https://www.youtube.com/embed/B0IZv-ljwSI"
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
+      <iframe width="655.609756097561" height="420" style="width: 100%;" src="https://www.youtube.com/embed/B0IZv-ljwSI"
+        frameborder="0" allowfullscreen></iframe>
     </div>
     <br><br>
     <h5>Step 1</h5>
     To use github releases the first thing to do is to create a repository on github:
-    <img class="responsive-img" src="assets/images/githubCreateRepo1.png"/>
+    <img class="responsive-img" src="assets/images/githubCreateRepo1.png" />
     <br><br>
 
-    <img class="responsive-img" src="assets/images/githubCreateRepo2.png"/>
+    <img class="responsive-img" src="assets/images/githubCreateRepo2.png" />
     <br><br>
     <h5>Step 2</h5>
     Create a release on the new empty repository:
-    <img class="responsive-img" src="assets/images/githubCreateReleaase1.png"/>
+    <img class="responsive-img" src="assets/images/githubCreateReleaase1.png" />
     <br><br>
-    <img class="responsive-img" src="assets/images/githubCreateReleaase2.png"/>
+    <img class="responsive-img" src="assets/images/githubCreateReleaase2.png" />
     <br><br>
-    <img class="responsive-img" src="assets/images/githubCreateReleaase3.png"/>
+    <img class="responsive-img" src="assets/images/githubCreateReleaase3.png" />
     <br><br>
     <h5>Step 3</h5>
     Create a webhook on the new empty repository:
-    <img class="responsive-img" src="assets/images/githubCreateWebhook1.png"/>
+    <img class="responsive-img" src="assets/images/githubCreateWebhook1.png" />
     <br><br>
-    <img class="responsive-img" src="assets/images/githubCreateWebhook2.png"/>
+    <img class="responsive-img" src="assets/images/githubCreateWebhook2.png" />
     <br><br>
-    <img class="responsive-img" src="assets/images/githubCreateWebhook3.png"/>
+    <img class="responsive-img" src="assets/images/githubCreateWebhook3.png" />
     <br><br>
-    <img class="responsive-img" src="assets/images/githubCreateWebhook4.png"/>
+    <img class="responsive-img" src="assets/images/githubCreateWebhook4.png" />
     <br><br>
-    <img class="responsive-img" src="assets/images/githubCreateWebhook5.png"/>
+    <img class="responsive-img" src="assets/images/githubCreateWebhook5.png" />
     <br><br>
     <a href="https://developer.github.com/v3/repos/releases/">Github Release API Docs</a>
   </mz-modal-content>
