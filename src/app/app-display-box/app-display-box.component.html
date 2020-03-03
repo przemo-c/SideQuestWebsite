@@ -34,7 +34,8 @@
         </div><br>
         <div *ngIf="app.downloads && app.downloads != 0" class="listing-downloads z-depth-2">
           <i class="material-icons">cloud_download</i>
-          {{ app.downloads | abbreviateNumber }}
+          <span mz-tooltip tooltip="{{ app.downloads | formatNumber }} downloads">
+            {{ app.downloads | abbreviateNumber }}</span>
         </div>
       </div>
     </div>

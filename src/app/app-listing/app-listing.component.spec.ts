@@ -2,6 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppListingComponent } from './app-listing.component';
 import { AbbreviateNumberPipe } from '../abbreviate-number.pipe';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { MzTooltipModule } from 'ngx-materialize';
 
 describe('AppListingComponent', () => {
     let component: AppListingComponent;
@@ -10,6 +12,7 @@ describe('AppListingComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [AppListingComponent, AbbreviateNumberPipe],
+            imports: [LazyLoadImageModule, MzTooltipModule],
         }).compileComponents();
     }));
 

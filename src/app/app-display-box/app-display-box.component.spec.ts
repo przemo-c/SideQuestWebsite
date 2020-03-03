@@ -2,6 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppDisplayBoxComponent } from './app-display-box.component';
 import { AbbreviateNumberPipe } from '../abbreviate-number.pipe';
+import { FormatNumberPipe } from '../format-number.pipe';
+import { MzTooltipModule } from 'ngx-materialize';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 describe('AppDisplayBoxComponent', () => {
     let component: AppDisplayBoxComponent;
@@ -9,7 +12,8 @@ describe('AppDisplayBoxComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [AppDisplayBoxComponent, AbbreviateNumberPipe],
+            declarations: [AppDisplayBoxComponent, AbbreviateNumberPipe, FormatNumberPipe],
+            imports: [LazyLoadImageModule, MzTooltipModule],
         }).compileComponents();
     }));
 

@@ -100,7 +100,8 @@
           </div>
           <br>
           <ng-container>
-            <span class="counter">{{ counters.d | abbreviateNumber }}</span>
+            <span class="counter" mz-tooltip
+              tooltip="{{ counters.d | formatNumber }} downloads">{{ counters.d | abbreviateNumber }}</span>
           </ng-container>
         </div>
       </div>
@@ -112,7 +113,8 @@
           </div>
           <br>
           <ng-container>
-            <span class="counter">{{ counters.v | abbreviateNumber }}</span>
+            <span class="counter" mz-tooltip
+              tooltip="{{ counters.v | formatNumber }} views">{{ counters.v | abbreviateNumber }}</span>
           </ng-container>
         </div>
       </div>
