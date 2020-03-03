@@ -1,24 +1,38 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScriptingInteractionComponent } from "./scripting-interaction.component";
+import { ScriptingInteractionComponent } from './scripting-interaction.component';
+import { CodeBlockComponent } from '../code-block/code-block.component';
+import { HighlightModule } from 'ngx-highlightjs';
+import cs from 'highlight.js/lib/languages/cs';
+import { MzToastModule } from 'ngx-materialize';
 
-describe("ScriptingInteractionComponent", () => {
-  let component: ScriptingInteractionComponent;
-  let fixture: ComponentFixture<ScriptingInteractionComponent>;
+function hljsLanguages() {
+    return [{ name: 'cs', func: cs }];
+}
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ScriptingInteractionComponent]
-    }).compileComponents();
-  }));
+describe('ScriptingInteractionComponent', () => {
+    let component: ScriptingInteractionComponent;
+    let fixture: ComponentFixture<ScriptingInteractionComponent>;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ScriptingInteractionComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            imports: [
+                HighlightModule.forRoot({
+                    languages: hljsLanguages,
+                }),
+                MzToastModule,
+            ],
+            declarations: [ScriptingInteractionComponent, CodeBlockComponent],
+        }).compileComponents();
+    }));
 
-  it("should create", () => {
-    expect(component).toBeTruthy();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(ScriptingInteractionComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
