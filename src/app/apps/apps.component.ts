@@ -59,6 +59,14 @@ export class AppsComponent implements OnInit, OnDestroy, AfterViewInit {
       is_main: false,
       image:
         "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
+      name: "Adventure",
+      description: "Adventures.",
+      url: "/apps/1/adventure"
+    },
+    {
+      is_main: false,
+      image:
+        "https://the-expanse.github.io/SideQuestRepos/vr-games/icons/vrgames.png",
       name: "FPS",
       description: "First Person Shooters.",
       url: "/apps/1/fps"
