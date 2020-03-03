@@ -1,24 +1,25 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AppDisplayBoxComponent } from "./app-display-box.component";
+import { AppDisplayBoxComponent } from './app-display-box.component';
+import { AbbreviateNumberPipe } from '../abbreviate-number.pipe';
 
-describe("AppDisplayBoxComponent", () => {
-  let component: AppDisplayBoxComponent;
-  let fixture: ComponentFixture<AppDisplayBoxComponent>;
+describe('AppDisplayBoxComponent', () => {
+    let component: AppDisplayBoxComponent;
+    let fixture: ComponentFixture<AppDisplayBoxComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [AppDisplayBoxComponent]
-    }).compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [AppDisplayBoxComponent, AbbreviateNumberPipe],
+        }).compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AppDisplayBoxComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(AppDisplayBoxComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it("should create", () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

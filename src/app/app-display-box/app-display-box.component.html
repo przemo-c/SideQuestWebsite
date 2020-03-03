@@ -6,18 +6,19 @@
   </div>
 </ng-container>
 
-<ng-container *ngFor="let app of apps; let i = index" >
-  <div class="col s6 app-padding pointer" [ngClass]="{'m3':isFourRow, 'm4':apps.length>2 && !isFourRow}" (click)="appService.scrollToTop();app.apps_id?router.navigateByUrl('/app/'+app.apps_id):appService.openLink(app.url);">
+<ng-container *ngFor="let app of apps; let i = index">
+  <div class="col s6 app-padding pointer" [ngClass]="{'m3':isFourRow, 'm4':apps.length>2 && !isFourRow}"
+    (click)="appService.scrollToTop();app.apps_id?router.navigateByUrl('/app/'+app.apps_id):appService.openLink(app.url);">
     <div class="home-app-image relative" [lazyLoad]="appImage(app)">
       <div class="app-stats-container">
         <div *ngIf="app.supports_quest" class="listing-downloads z-depth-2">
           Oculus Quest
         </div>
-        <br *ngIf="app.supports_quest" >
+        <br *ngIf="app.supports_quest">
         <div *ngIf="app.supports_go" class="listing-downloads z-depth-2">
           Oculus Go
         </div>
-        <br *ngIf="app.supports_go" >
+        <br *ngIf="app.supports_go">
         <div class="listing-downloads z-depth-2">
           {{app.license}}
         </div>
@@ -33,13 +34,13 @@
         </div><br>
         <div *ngIf="app.downloads && app.downloads != 0" class="listing-downloads z-depth-2">
           <i class="material-icons">cloud_download</i>
-          {{app.downloads}}
+          {{ app.downloads | abbreviateNumber }}
         </div>
       </div>
     </div>
     <div class="app-name truncate">{{app.name?app.name:app.title}}</div>
-    <div class="grey-text app-summary truncate">{{app.description?app.description:app.author?app.author:app.summary}}</div>
+    <div class="grey-text app-summary truncate">{{app.description?app.description:app.author?app.author:app.summary}}
+    </div>
     <br><br><br>
   </div>
 </ng-container>
-
