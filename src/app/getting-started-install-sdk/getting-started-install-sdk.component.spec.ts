@@ -1,24 +1,26 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GettingStartedInstallSdkComponent } from "./getting-started-install-sdk.component";
+import { GettingStartedInstallSdkComponent } from './getting-started-install-sdk.component';
+import { MzToastModule } from 'ngx-materialize';
 
-describe("GettingStartedInstallSdkComponent", () => {
-  let component: GettingStartedInstallSdkComponent;
-  let fixture: ComponentFixture<GettingStartedInstallSdkComponent>;
+describe('GettingStartedInstallSdkComponent', () => {
+    let component: GettingStartedInstallSdkComponent;
+    let fixture: ComponentFixture<GettingStartedInstallSdkComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [GettingStartedInstallSdkComponent]
-    }).compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            imports: [MzToastModule],
+            declarations: [GettingStartedInstallSdkComponent],
+        }).compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(GettingStartedInstallSdkComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(GettingStartedInstallSdkComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it("should create", () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
