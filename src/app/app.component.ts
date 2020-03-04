@@ -10,7 +10,6 @@ import { Subscription } from "rxjs";
 import { ActivatedRoute, NavigationEnd, Router } from "@angular/router";
 import { MzToastService } from "ngx-materialize";
 import { ExpanseClientService } from "./expanse-client.service";
-import { AppListing } from "./account/account.component";
 import { UploadService } from "./upload.service";
 import { AppsToUpdateService } from "./apps-to-update.service";
 declare const M;

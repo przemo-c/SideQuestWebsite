@@ -98,6 +98,8 @@ import { GithubRepoSelectComponent } from "./github-repo-select/github-repo-sele
 import { AutocompleteLibModule } from "angular-ng-autocomplete";
 
 import { BannerCarouselComponent } from "./banner-carousel/banner-carousel.component";
+import { AbbreviateNumberPipe } from "./abbreviate-number.pipe";
+import { FormatNumberPipe } from "./format-number.pipe";
 
 export function hljsLanguages() {
   return [{ name: "cs", func: cs }];
@@ -166,7 +168,9 @@ export function hljsLanguages() {
     GettingStartedInstallSdkComponent,
     BannerCarouselComponent,
     UpdatesCountComponent,
-    GithubRepoSelectComponent
+    GithubRepoSelectComponent,
+    AbbreviateNumberPipe,
+    FormatNumberPipe
   ],
   imports: [
     // {
