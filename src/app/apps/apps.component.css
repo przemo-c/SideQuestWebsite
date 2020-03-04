@@ -74,7 +74,16 @@
 .game-menu-container{
   margin-left: -25px;
 }
-
+@media screen and (max-width: 1480px) {
+  .side-ad{
+    margin-left: -25px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .side-ad{
+    margin-left: -10px;
+  }
+}
 
 @media screen and (max-width: 992px) {
 

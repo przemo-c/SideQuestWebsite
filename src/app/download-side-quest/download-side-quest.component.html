@@ -1,4 +1,14 @@
 <div class="main-container padding">
+
+  <div class="center-align" *ngIf="expanseService.isNotGolden()">
+    <br><br>
+    <a href="javascript:void(0)" routerLink="/" (click)="appService.openLink('https://vrcover.com/product/oculus-quest-foam-and-interface-basic-set/?itm=411')" >
+      <img src="https://vrcover.com/wp-content/uploads/2019/07/728х90_QUEST_A.png" alt="VR Cover" class="responsive-img"/>
+    </a>
+    <br><br>
+    <div class="clearfix"></div>
+  </div>
+
   <div class="right">
   <span class="chip pointer top-chip"
         onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
@@ -15,7 +25,6 @@
       Donate on Paypal
     </span>
   </div>
-
   <h4>Download SideQuest</h4>
   <div class="row">
     <div class="col s12 m8">

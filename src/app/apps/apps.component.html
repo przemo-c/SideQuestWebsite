@@ -106,6 +106,10 @@
           <span *ngIf="item.is_main"><b>[ {{item.name}} ]</b></span>
           <span *ngIf="!item.is_main">{{item.name}}</span>
         </div>
+        <br><br><br>
+        <a href="javascript:void(0)" class="side-ad" *ngIf="expanseService.isNotGolden()"
+           (click)="appService.openLink('https://vrcover.com/shop/?itm=411')" routerLink="/" title="VR Cover">
+          <img src="https://vrcover.com/wp-content/uploads/2019/07/160х600_COVER_B.png" alt="VR Cover" /></a>
       </div>
     </div>
     <div class="col s12 l10 xl11">
@@ -123,7 +127,12 @@
       <div *ngIf="!isLoading">
 
         <div class="clearfix"></div>
-
+        <div class="center-align" *ngIf="expanseService.isNotGolden()">
+          <a href="javascript:void(0)" routerLink="/" (click)="appService.openLink('https://vrcover.com/product/oculus-quest-foam-and-interface-basic-set/?itm=411')" >
+            <img src="https://vrcover.com/wp-content/uploads/2019/07/728х90_QUEST_A.png" alt="VR Cover" class="responsive-img"/>
+          </a>
+          <br><br>
+        </div>
         <div class="row">
           <app-app-display-box [apps]="apps" [showAds]="true"></app-app-display-box>
 

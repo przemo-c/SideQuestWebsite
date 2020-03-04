@@ -85,7 +85,6 @@ import { AppDisplayBoxComponent } from "./app-display-box/app-display-box.compon
 import { MainMenuComponent } from "./main-menu/main-menu.component";
 import { UserMenuComponent } from "./user-menu/user-menu.component";
 import { SideNavComponent } from "./side-nav/side-nav.component";
-import { AmazonNativeAdComponent } from "./amazon-native-ad/amazon-native-ad.component";
 import { EthicsComponent } from "./ethics/ethics.component";
 import { WebVRComponent } from "./web-vr/web-vr.component";
 import { GiveawayComponent } from "./giveaway/giveaway.component";
@@ -161,7 +160,6 @@ export function hljsLanguages() {
     MainMenuComponent,
     UserMenuComponent,
     SideNavComponent,
-    AmazonNativeAdComponent,
     EthicsComponent,
     WebVRComponent,
     GiveawayComponent,
