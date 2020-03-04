@@ -7,7 +7,7 @@
 </ng-container>
 
 <ng-container *ngFor="let app of apps; let i = index" >
-  <div class="col s6 app-padding pointer" [ngClass]="{'m3':isFourRow, 'm4':apps.length>2 && !isFourRow}" (click)="appService.scrollToTop();app.apps_id?router.navigateByUrl('/app/'+app.apps_id):appService.openLink(app.url);">
+  <a href="javascript:void(0)" [routerLink]="app.apps_id?'/app/'+app.apps_id:'/webvr'" class="col s6 app-padding pointer" [ngClass]="{'m3':isFourRow, 'm4':apps.length>2 && !isFourRow}" (click)="appService.scrollToTop();app.apps_id?router.navigateByUrl('/app/'+app.apps_id):appService.openLink(app.url);">
     <div class="home-app-image relative" [lazyLoad]="appImage(app)">
       <div class="app-stats-container">
         <div *ngIf="app.supports_quest" class="listing-downloads z-depth-2">
@@ -37,9 +37,9 @@
         </div>
       </div>
     </div>
-    <div class="app-name truncate">{{app.name?app.name:app.title}}</div>
+    <div class="app-name-text truncate">{{app.name?app.name:app.title}}</div>
     <div class="grey-text app-summary truncate">{{app.description?app.description:app.author?app.author:app.summary}}</div>
     <br><br><br>
-  </div>
+  </a>
 </ng-container>
 
