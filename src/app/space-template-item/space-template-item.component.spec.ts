@@ -1,24 +1,25 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpaceTemplateItemComponent } from "./space-template-item.component";
+import { SpaceTemplateItemComponent } from './space-template-item.component';
 
-describe("SpaceTemplateItemComponent", () => {
-  let component: SpaceTemplateItemComponent;
-  let fixture: ComponentFixture<SpaceTemplateItemComponent>;
+describe('SpaceTemplateItemComponent', () => {
+    let component: SpaceTemplateItemComponent;
+    let fixture: ComponentFixture<SpaceTemplateItemComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [SpaceTemplateItemComponent]
-    }).compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [SpaceTemplateItemComponent],
+        }).compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SpaceTemplateItemComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(SpaceTemplateItemComponent);
+        component = fixture.componentInstance;
+        component.template = {};
+        fixture.detectChanges();
+    });
 
-  it("should create", () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
