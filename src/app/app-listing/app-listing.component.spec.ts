@@ -1,14 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppListingComponent } from './app-listing.component';
+import { AbbreviateNumberPipe } from '../abbreviate-number.pipe';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
-import { MzTooltipModule, MzModalModule, MzButtonModule, MzToastModule } from 'ngx-materialize';
-import { RouterTestingModule } from '@angular/router/testing';
-import { FromNowPipe } from '../from-now.pipe';
-import { EncodeUriPipe } from '../encode-uri.pipe';
-import { RecaptchaModule } from 'ng-recaptcha';
-import { FormsModule } from '@angular/forms';
-import { LightboxModule } from 'ngx-lightbox';
+import { MzTooltipModule } from 'ngx-materialize';
 
 describe('AppListingComponent', () => {
     let component: AppListingComponent;
@@ -16,18 +11,8 @@ describe('AppListingComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [
-                RouterTestingModule,
-                LazyLoadImageModule,
-                MzTooltipModule,
-                MzModalModule,
-                RecaptchaModule,
-                FormsModule,
-                MzButtonModule,
-                MzToastModule,
-                LightboxModule,
-            ],
-            declarations: [AppListingComponent, FromNowPipe, EncodeUriPipe],
+            declarations: [AppListingComponent, AbbreviateNumberPipe],
+            imports: [LazyLoadImageModule, MzTooltipModule],
         }).compileComponents();
     }));
 

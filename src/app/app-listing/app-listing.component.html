@@ -4,8 +4,8 @@
 
 <div class="paralax">
 
-  <div class="banner-top-back" *ngIf="screenshots && screenshots.length"  [ngClass]="{'banner-in-app':service.hideLogo}"
-       [ngStyle]="{'background-image':'url(\''+screenshots[screenshots.length-1]+'\')'}"></div>
+  <div class="banner-top-back" *ngIf="screenshots && screenshots.length" [ngClass]="{'banner-in-app':service.hideLogo}"
+    [ngStyle]="{'background-image':'url(\''+screenshots[screenshots.length-1]+'\')'}"></div>
 </div>
 <ng-container *ngIf="loading">
   <div class="center-align">
@@ -15,7 +15,7 @@
   </div>
 </ng-container>
 <div *ngIf="!is_not_found && !loading" class="main-container padding"
-     [ngStyle]="{'margin-top': screenshots && screenshots.length ? '-79px' : '0'}">
+  [ngStyle]="{'margin-top': screenshots && screenshots.length ? '-79px' : '0'}">
   <div *ngIf="currentApp.app_categories_id === '3' && !isAccepted" class="blur-back">
     <div class="card center-align black-text over-eighteen">
       <br><br><br><br>
@@ -24,7 +24,8 @@
       <br><br><br><br><br><br>
 
       <div class="btn waves-effect waves-light pink-button margin-left" (click)="backClicked()">Back</div>
-      <div class="btn waves-effect waves-light pink-button margin-left" (click)="isAccepted = true">Yes I am Over 18</div>
+      <div class="btn waves-effect waves-light pink-button margin-left" (click)="isAccepted = true">Yes I am Over 18
+      </div>
 
     </div>
   </div>
@@ -40,29 +41,30 @@
     <span *ngIf="!currentApp.active" class="chip white-text orange">Unlisted</span>
   </h4>
   <div class="right top-tags-name">
-    <div *ngIf="currentApp.donate_url" class="btn waves-effect waves-light pink-button"
-         (click)="copyShareUrl()">Share</div>
+    <div *ngIf="currentApp.donate_url" class="btn waves-effect waves-light pink-button" (click)="copyShareUrl()">Share
+    </div>
 
 
 
-    <div class="btn waves-effect waves-light pink-button margin-left"
-         *ngIf="itchUrl"
-         (click)="openUrl(itchUrl.link_url + (currentApp.active?'?ac=k3RTPJMnVvG':''));subscribeIfItch(itchUrl.provider)">
+    <div class="btn waves-effect waves-light pink-button margin-left" *ngIf="itchUrl"
+      (click)="openUrl(itchUrl.link_url + (currentApp.active?'?ac=k3RTPJMnVvG':''));subscribeIfItch(itchUrl.provider)">
       {{(isInstalled && installedVersion < currentApp.versioncode) ? 'Update On Itch' : isInstalled ? 'View On Itch' : 'Buy On Itch'}}
     </div>
 
     <div class="btn waves-effect waves-light pink-button margin-left"
-         *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access"
-         (click)="openItems(apk_download_urls)">Install Latest</div>
-    <div class="btn waves-effect waves-light pink-button margin-left" routerLink="/my-app/{{apps_id}}" (click)="service.scrollToTop()" *ngIf="isMine">Edit App</div>
+      *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access"
+      (click)="openItems(apk_download_urls)">Install Latest</div>
+    <div class="btn waves-effect waves-light pink-button margin-left" routerLink="/my-app/{{apps_id}}"
+      (click)="service.scrollToTop()" *ngIf="isMine">Edit App</div>
   </div>
   <div class="clearfix"></div>
   <hr>
   <div class="app-summary grey-text truncate">{{currentApp.summary}}</div>
   <br>
-  <ng-container *ngIf="apk_download_urls && apk_download_urls.length && isInstalled && installedVersion < currentApp.versioncode && !((currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4')">
+  <ng-container
+    *ngIf="apk_download_urls && apk_download_urls.length && isInstalled && installedVersion < currentApp.versioncode && !((currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4')">
     <div class="btn waves-effect waves-light white-text pink-button small-button"
-         (click)="openItems(apk_download_urls)">Update Available</div><br><br>
+      (click)="openItems(apk_download_urls)">Update Available</div><br><br>
   </ng-container>
   <div class="row">
     <div class="col s12 m5">
@@ -77,28 +79,29 @@
       <div *ngIf="videoObject">
         <div *ngIf="videoObject.provider === 'youtube'">
           <iframe width="100%" height="360" [src]="videoUrl" frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                  allowfullscreen></iframe>
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowfullscreen></iframe>
         </div>
         <div *ngIf="videoObject.provider === 'vimeo'">
-          <iframe [src]="videoUrl" width="100%" height="360"
-                  frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+          <iframe [src]="videoUrl" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen"
+            allowfullscreen></iframe>
         </div>
       </div>
       <div class="center-align">
-        <img class="responsive-img"
-             *ngIf="!videoObject && currentApp.image_url && !is_loading_icon"
-             src="{{currentApp.image_url}}"/>
+        <img class="responsive-img" *ngIf="!videoObject && currentApp.image_url && !is_loading_icon"
+          src="{{currentApp.image_url}}" />
       </div>
       <div class="col s12 m4">
         <div>
           <br><br>
           <div>
-            <i class="material-icons block-icon">cloud_download</i><label>{{itchUrl?'Clicks to Itch':'Downloads'}}</label>
+            <i
+              class="material-icons block-icon">cloud_download</i><label>{{itchUrl?'Clicks to Itch':'Downloads'}}</label>
           </div>
           <br>
-          <ng-container >
-            <span class="counter">{{counters.d}}</span>
+          <ng-container>
+            <span class="counter" mz-tooltip
+              tooltip="{{ counters.d | formatNumber }} downloads">{{ counters.d | abbreviateNumber }}</span>
           </ng-container>
         </div>
       </div>
@@ -109,8 +112,9 @@
             <i class="material-icons block-icon">visibility</i><label>Views</label>
           </div>
           <br>
-          <ng-container >
-            <span class="counter">{{counters.v}}</span>
+          <ng-container>
+            <span class="counter" mz-tooltip
+              tooltip="{{ counters.v | formatNumber }} views">{{ counters.v | abbreviateNumber }}</span>
           </ng-container>
         </div>
       </div>
@@ -121,16 +125,16 @@
             <i class="material-icons block-icon">gamepad</i><label>Device Support</label>
           </div>
           <br>
-          <ng-container >
-                  <span *ngIf="currentApp.supports_quest" class="chip">
-                    <img src="assets/images/oculusquest.jpg" alt="Oculus Quest">
-                    Quest</span>&nbsp;&nbsp;&nbsp;
+          <ng-container>
+            <span *ngIf="currentApp.supports_quest" class="chip">
+              <img src="assets/images/oculusquest.jpg" alt="Oculus Quest">
+              Quest</span>&nbsp;&nbsp;&nbsp;
             <span *ngIf="currentApp.supports_go" class="chip">
-                    <img src="assets/images/oculusgo.png" alt="Oculus Go">
-                    Go</span>&nbsp;&nbsp;&nbsp;
+              <img src="assets/images/oculusgo.png" alt="Oculus Go">
+              Go</span>&nbsp;&nbsp;&nbsp;
             <span *ngIf="currentApp.supports_other" class="chip">
-                    <img src="assets/images/other.jpg" alt="Other">
-                    Other</span>&nbsp;&nbsp;&nbsp;
+              <img src="assets/images/other.jpg" alt="Other">
+              Other</span>&nbsp;&nbsp;&nbsp;
           </ng-container>
         </div>
       </div>
@@ -178,17 +182,15 @@
           <p>{{currentApp.updated|date:'mediumDate'}}</p>
         </div>
         <div class="col s6" *ngIf="store_urls && store_urls.length">
-          <div >
+          <div>
             <br><br>
             <div>
               <i class="material-icons block-icon">search</i><label>Stores & Reviews</label>
             </div>
             <br>
             <ng-container>
-              <span *ngFor="let url of store_urls" class="chip pointer"
-                    mz-tooltip tooltip="{{url.provider}}"
-                    position="bottom"
-                    (click)="openUrl(url.link_url)">
+              <span *ngFor="let url of store_urls" class="chip pointer" mz-tooltip tooltip="{{url.provider}}"
+                position="bottom" (click)="openUrl(url.link_url)">
                 <img src="{{urlIcons[url.provider].icon}}">
                 {{url.provider}}
               </span>&nbsp;&nbsp;&nbsp;
@@ -196,7 +198,7 @@
           </div>
         </div>
         <div class="col s6" *ngIf="(social_urls && social_urls.length) || (website_url && website_url.length)">
-          <div >
+          <div>
             <br><br>
             <div>
               <i class="material-icons block-icon">face</i><label>Social</label>
@@ -205,12 +207,9 @@
             <ng-container>
 
               <span *ngFor="let url of website_url" mz-tooltip tooltip="{{url.provider}} {{url.link_url}}"
-                    position="bottom" class="chip pointer"
-                    (click)="openUrl(url.link_url)">Open Website</span>
-              <span *ngFor="let url of social_urls" class="chip pointer"
-                    mz-tooltip tooltip="{{url.provider}}"
-                    position="bottom"
-                    (click)="openUrl(url.link_url)">
+                position="bottom" class="chip pointer" (click)="openUrl(url.link_url)">Open Website</span>
+              <span *ngFor="let url of social_urls" class="chip pointer" mz-tooltip tooltip="{{url.provider}}"
+                position="bottom" (click)="openUrl(url.link_url)">
                 <img src="{{urlIcons[url.provider].icon}}">
                 {{url.provider}}
               </span>&nbsp;&nbsp;&nbsp;
@@ -218,26 +217,29 @@
             </ng-container>
           </div>
         </div>
-        <div class="col s6" [ngClass]="{'s6': ((social_urls && social_urls.length) || (website_url && website_url.length)), 's12': !((social_urls && social_urls.length) || (website_url && website_url.length))}">
-          <div >
+        <div class="col s6"
+          [ngClass]="{'s6': ((social_urls && social_urls.length) || (website_url && website_url.length)), 's12': !((social_urls && social_urls.length) || (website_url && website_url.length))}">
+          <div>
             <br><br>
             <div>
               <i class="material-icons block-icon">search</i><label>Search Tags</label>
             </div>
             <br>
             <ng-container>
-              <span *ngFor="let tag of searchTags" class="chip pointer" routerLink="/apps/0/{{tag}}/">{{tag}}</span>&nbsp;&nbsp;&nbsp;
+              <span *ngFor="let tag of searchTags" class="chip pointer"
+                routerLink="/apps/0/{{tag}}/">{{tag}}</span>&nbsp;&nbsp;&nbsp;
             </ng-container>
           </div>
         </div>
         <div class="col s12">
-          <div >
+          <div>
             <br><br>
             <div>
               <i class="material-icons block-icon">panorama</i><label>Screenshots</label>
             </div>
             <br>
-            <img class="screen-shot pointer" *ngFor="let screenshot of screenshots; let i = index" src="{{screenshot}}?size=256" (click)="openImage(i)"/>
+            <img class="screen-shot pointer" *ngFor="let screenshot of screenshots; let i = index"
+              src="{{screenshot}}?size=256" (click)="openImage(i)" />
           </div>
         </div>
         <div class="col s12" *ngIf="apk_download_urls && apk_download_urls.length && !currentApp.early_access">
@@ -250,37 +252,38 @@
             </div>
             <div class="col s1 right-align vertical-align">
               <div mzTooltip tooltip="Copy this link" position="bottom"
-                   class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"
-                   (click)="service.copyUrl(url.link_url)"
-              ><i class="material-icons">file_copy</i></div>
+                class="btn-floating vertical-align btn-large waves-effect waves-light pink-button download-button"
+                (click)="service.copyUrl(url.link_url)"><i class="material-icons">file_copy</i></div>
             </div>
           </div>
         </div>
       </div>
       <br>
-      <div *ngIf="apk_download_urls && apk_download_urls.length && isInstalled && installedVersion < currentApp.versioncode && !((currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4')">
+      <div
+        *ngIf="apk_download_urls && apk_download_urls.length && isInstalled && installedVersion < currentApp.versioncode && !((currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4')">
         <br>
-        <div class="btn waves-effect waves-light pink-button small-button"
-             (click)="openItems(apk_download_urls)">Update To {{currentApp.versionname}}</div><br><br><br>
+        <div class="btn waves-effect waves-light pink-button small-button" (click)="openItems(apk_download_urls)">Update
+          To {{currentApp.versionname}}</div><br><br><br>
       </div>
       <div *ngIf="isInstalled">
         <br>
         <div class="btn waves-effect waves-light pink-button small-button"
-             (click)="uninstallApp(currentApp.packagename)">{{(currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4' ? 'Unsubscribe' : 'Unsubscribe & Uninstall'}}</div>
-        <br><br>Click to unsubscribe from this app to not receive update notifications and also uninstall if SideQuest is open. You may need to uninstall separately if you're not connected.
+          (click)="uninstallApp(currentApp.packagename)">
+          {{(currentApp.website === 'BeatOn' || currentApp.website === 'SynthRiders') && currentApp.app_categories_id === '4' ? 'Unsubscribe' : 'Unsubscribe & Uninstall'}}
+        </div>
+        <br><br>Click to unsubscribe from this app to not receive update notifications and also uninstall if SideQuest
+        is open. You may need to uninstall separately if you're not connected.
       </div>
     </div>
     <div class="col s12 m7">
       <div class="right social-links">
         <div *ngIf="donate_urls && donate_urls.length">
-          <div class="input-field radio-top" >
+          <div class="input-field radio-top">
             <label class="active">Support & Donate</label>
           </div><br>
           <div *ngFor="let url of donate_urls">
-            <div class="chip pointer"
-                 mz-tooltip tooltip="{{url.provider}}"
-                 position="bottom"
-                 (click)="openUrl(url.link_url + (url.provider==='Itch' && currentApp.active?'?ac=k3RTPJMnVvG':''));">
+            <div class="chip pointer" mz-tooltip tooltip="{{url.provider}}" position="bottom"
+              (click)="openUrl(url.link_url + (url.provider==='Itch' && currentApp.active?'?ac=k3RTPJMnVvG':''));">
               <img src="{{urlIcons[url.provider].icon}}">
               {{url.provider}}
             </div>
@@ -290,11 +293,11 @@
       <p [innerHTML]="currentApp.description"></p>
       <div *ngIf="!currentApp.early_access">
         <div class="truncate">
-          <span *ngIf="appRatingTotal>0"><span class="review-name" >{{appRating|number:'1.2-2'}}/5.00</span> <i class="material-icons pink-text">star</i> ( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )</span>
+          <span *ngIf="appRatingTotal>0"><span class="review-name">{{appRating|number:'1.2-2'}}/5.00</span> <i
+              class="material-icons pink-text">star</i> ( {{appRatingTotal}} review{{appRatingTotal>1?'s':''}} )</span>
           <br><br>
-          <img class="responsive-img top-image circle pointer"
-               *ngIf="currentApp.preview_image"
-               src="{{expanseService.cdnUrl+currentApp.preview_image}}" routerLink="/user/{{currentApp.users_id}}"/>
+          <img class="responsive-img top-image circle pointer" *ngIf="currentApp.preview_image"
+            src="{{expanseService.cdnUrl+currentApp.preview_image}}" routerLink="/user/{{currentApp.users_id}}" />
 
 
           By {{currentApp.user_name}}
@@ -302,9 +305,9 @@
         </div>
         <br>
         <div class="btn waves-effect waves-light pink-button right margin-right" *ngIf="service.isAuthenticated"
-             (click)="leaveReview.openModal()">Add Review</div>
+          (click)="leaveReview.openModal()">Add Review</div>
         <div class="btn waves-effect waves-light pink-button right margin-right" *ngIf="!service.isAuthenticated"
-             routerLink="/login/{{'/app/'+apps_id|encodeUri}}">Sign In to Add Review</div>
+          routerLink="/login/{{'/app/'+apps_id|encodeUri}}">Sign In to Add Review</div>
         <h5>User Reviews</h5>
         <br>
         <!--          <div class="right search-box input-field">-->
@@ -328,35 +331,35 @@
           <div class="col s12" *ngFor="let message of reviews">
             <div class="review-card">
               <i class="right material-icons orange-text rating-delete pointer"
-                 *ngIf="canDeleteReview(message.reviews_id)"
-                 (click)="openModalForReview(message.reviews_id, deleteReview)">close</i>
-              <i class="right material-icons blue-text rating-reply pointer"
-                 *ngIf="canReplyToReview()"
-                 (click)="openModalForReview(message.reviews_id, leaveReview)">reply</i>
-              <img class="pointer left z-depth-2"
-                   routerLink="/user/{{message.users_id}}"
-                   src="{{ avatarUrl(message.preview_image) }}"/>
-              <div class="margin-right"><span class="review-name">{{message.name}}</span> - {{message.created|fromNow}}</div>
+                *ngIf="canDeleteReview(message.reviews_id)"
+                (click)="openModalForReview(message.reviews_id, deleteReview)">close</i>
+              <i class="right material-icons blue-text rating-reply pointer" *ngIf="canReplyToReview()"
+                (click)="openModalForReview(message.reviews_id, leaveReview)">reply</i>
+              <img class="pointer left z-depth-2" routerLink="/user/{{message.users_id}}"
+                src="{{ avatarUrl(message.preview_image) }}" />
+              <div class="margin-right"><span class="review-name">{{message.name}}</span> - {{message.created|fromNow}}
+              </div>
               <div class="">
-                <span class="review-name pink-text">{{message.rating}}/5</span> <i class="material-icons pink-text rating-star">star</i>
+                <span class="review-name pink-text">{{message.rating}}/5</span> <i
+                  class="material-icons pink-text rating-star">star</i>
               </div>
               <div [innerHTML]="message.details"></div>
             </div>
             <div class="review-card reply-chip" *ngIf="message.reply_created">
-              <i class="right material-icons orange-text rating-delete pointer"
-                 *ngIf="canDeleteReply()"
-                 (click)="openModalForReview(message.reviews_id, deleteReply)">close</i>
-              <img class="pointer left z-depth-2"
-                   routerLink="/user/{{currentApp.users_id}}"
-                   src="{{ avatarUrl(currentApp.preview_image) }}"/>
-              <div class="margin-right"><span class="review-name">Vendor Reply</span> - {{message.reply_created|fromNow}}</div>
+              <i class="right material-icons orange-text rating-delete pointer" *ngIf="canDeleteReply()"
+                (click)="openModalForReview(message.reviews_id, deleteReply)">close</i>
+              <img class="pointer left z-depth-2" routerLink="/user/{{currentApp.users_id}}"
+                src="{{ avatarUrl(currentApp.preview_image) }}" />
+              <div class="margin-right"><span class="review-name">Vendor Reply</span> -
+                {{message.reply_created|fromNow}}</div>
               <div [innerHTML]="message.reply_details"></div>
             </div>
           </div>
         </div>
         <BR><BR>
         <div class="center-align">
-          <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMoreReviews" (click)="getReviews()" >Load More</div>
+          <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMoreReviews"
+            (click)="getReviews()">Load More</div>
           <div *ngIf="hasNoMoreReviews" class="chip">No more items...</div>
         </div>
         <BR><BR>
@@ -377,8 +380,9 @@
     <div *ngIf="selectedReview">
       <label class="active">Original Review</label>
       <div class="review-card">
-        <img class="pointer left z-depth-2" src="{{ avatarUrl(selectedReview.preview_image) }}"/>
-        <div class="margin-right"><span class="review-name">{{selectedReview.name}}</span> - {{selectedReview.created|fromNow}}</div>
+        <img class="pointer left z-depth-2" src="{{ avatarUrl(selectedReview.preview_image) }}" />
+        <div class="margin-right"><span class="review-name">{{selectedReview.name}}</span> -
+          {{selectedReview.created|fromNow}}</div>
         <div>
           <span class="review-name pink-text">{{selectedReview.rating}}/5</span>
           <i class="material-icons pink-text rating-star">star</i>
@@ -391,11 +395,16 @@
         <div class="input-field radio-top">
           <i class="material-icons prefix">star_half</i>
           <div class="rating-margin-left">
-            <i class="material-icons medium pointer white-text" (click)="currentRating = 1">{{currentRating > 0 ? 'star' : 'star_border'}}</i>
-            <i class="material-icons medium pointer white-text" (click)="currentRating = 2">{{currentRating > 1 ? 'star' : 'star_border'}}</i>
-            <i class="material-icons medium pointer white-text" (click)="currentRating = 3">{{currentRating > 2 ? 'star' : 'star_border'}}</i>
-            <i class="material-icons medium pointer white-text" (click)="currentRating = 4">{{currentRating > 3 ? 'star' : 'star_border'}}</i>
-            <i class="material-icons medium pointer white-text" (click)="currentRating = 5">{{currentRating > 4 ? 'star' : 'star_border'}}</i>
+            <i class="material-icons medium pointer white-text"
+              (click)="currentRating = 1">{{currentRating > 0 ? 'star' : 'star_border'}}</i>
+            <i class="material-icons medium pointer white-text"
+              (click)="currentRating = 2">{{currentRating > 1 ? 'star' : 'star_border'}}</i>
+            <i class="material-icons medium pointer white-text"
+              (click)="currentRating = 3">{{currentRating > 2 ? 'star' : 'star_border'}}</i>
+            <i class="material-icons medium pointer white-text"
+              (click)="currentRating = 4">{{currentRating > 3 ? 'star' : 'star_border'}}</i>
+            <i class="material-icons medium pointer white-text"
+              (click)="currentRating = 5">{{currentRating > 4 ? 'star' : 'star_border'}}</i>
           </div>
         </div>
       </div>
@@ -403,10 +412,9 @@
     <br>
     <div class="input-field">
       <i class="material-icons prefix">playlist_add</i>
-      <textarea id="description"
-                class="materialize-textarea"
-                placeholder="{{selectedReview ? 'Reply Details...' : 'Review details...'}}"
-                [(ngModel)]="currentReview"></textarea>
+      <textarea id="description" class="materialize-textarea"
+        placeholder="{{selectedReview ? 'Reply Details...' : 'Review details...'}}"
+        [(ngModel)]="currentReview"></textarea>
       <label for="description" class="active">Review Comment</label>
       <br><br>
       <div class="center-align">
@@ -414,18 +422,14 @@
       </div>
     </div>
     <br><br>
-    Reviews should only be left for games you have played and should not be used for support. Please reach out on <a href="https://discord.gg/udrVYMV" target="_blank">discord</a> for support.
+    Reviews should only be left for games you have played and should not be used for support. Please reach out on <a
+      href="https://discord.gg/udrVYMV" target="_blank">discord</a> for support.
   </mz-modal-content>
   <mz-modal-footer>
     <button mz-button class="white-text waves-light" [flat]="true" mz-modal-close>Close</button>
-    <button mz-button
-            class="pink-button"
-            mz-modal-close
-            *ngIf="captchaSuccess"
-            (click)="addReview()">{{selectedReview ? 'Add Reply' : 'Add Review'}}</button>
-    <button mz-button
-            [flat]="true"
-            *ngIf="!captchaSuccess">{{selectedReview ? 'Add Reply' : 'Add Review'}}</button>
+    <button mz-button class="pink-button" mz-modal-close *ngIf="captchaSuccess"
+      (click)="addReview()">{{selectedReview ? 'Add Reply' : 'Add Review'}}</button>
+    <button mz-button [flat]="true" *ngIf="!captchaSuccess">{{selectedReview ? 'Add Reply' : 'Add Review'}}</button>
   </mz-modal-footer>
 </mz-modal>
 
