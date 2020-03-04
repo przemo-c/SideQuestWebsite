@@ -1,1035 +1,923 @@
-import { Injectable } from "@angular/core";
-import { AppService } from "./app.service";
-import { Subject } from "rxjs";
-import {
-  AppListing,
-  EventListing,
-  SpaceListing
-} from "./account/account.component";
-import {
-  ScreenShot,
-  AppCounter,
-  AppUrl
-} from "./app-manager/app-manager.component";
+import { Injectable } from '@angular/core';
+import { AppService } from './app.service';
+import { Subject } from 'rxjs';
+import { AppListing, EventListing, SpaceListing } from './account/account.component';
+import { ScreenShot, AppCounter, AppUrl } from './app-manager/app-manager.component';
 
 type MessageId = string;
 type MessageResponseData = any;
 interface ErrorMessageResponse {
-  error: true;
-  data: MessageResponseData;
+    error: true;
+    data: MessageResponseData;
 }
 type MessageResponse = MessageResponseData | ErrorMessageResponse;
 type MessageResolveFunction = (value: MessageResponse) => void;
 
 interface AvatarImage {
-  avatar_images_id: string;
+    avatar_images_id: string;
+}
+
+interface NotificationsResponse {
+    friend_requests: any[];
+    unread_messages: any[];
 }
 
 @Injectable({
-  providedIn: "root"
+    providedIn: 'root',
 })
 export class ExpanseClientService {
-  messageResolves: Record<MessageId, MessageResolveFunction>;
-  isDev: string;
-  url: string;
-  cdnUrl: string;
-  shortenerUrl: string;
-  discordURl: string;
-  openResolves: any;
-  storageKey: string;
-  isStarted: boolean;
-  isOpen: boolean;
-  stateChanged: boolean;
-  preventGuest = true;
-  state: any;
-  stateWrap: any;
-  updateLoopCount: number;
-  ws: WebSocket;
-  socketId: any;
-  currentSession: any;
-  installedApps: AppListing[];
-  default_app_ulrs: any[] = [];
-  public installedAppsChangedAt = new Subject<number>();
+    messageResolves: Record<MessageId, MessageResolveFunction>;
+    isDev: string;
+    url: string;
+    cdnUrl: string;
+    shortenerUrl: string;
+    discordURl: string;
+    openResolves: any;
+    storageKey: string;
+    isStarted: boolean;
+    isOpen: boolean;
+    stateChanged: boolean;
+    preventGuest = true;
+    state: any;
+    stateWrap: any;
+    updateLoopCount: number;
+    ws: WebSocket;
+    socketId: any;
+    currentSession: any;
+    installedApps: AppListing[];
+    default_app_ulrs: any[] = [];
+    public installedAppsChangedAt = new Subject<number>();
 
-  constructor(private appService: AppService) {
-    this.messageResolves = {}; // localStorage.setItem('isDev','true');
-    // localStorage.removeItem("isDev");
-    this.isDev = localStorage.getItem("isDev");
+    constructor(private appService: AppService) {
+        this.messageResolves = {}; // localStorage.setItem('isDev','true');
+        // localStorage.removeItem("isDev");
+        this.isDev = localStorage.getItem('isDev');
 
-    this.url = !!this.isDev
-      ? "ws://192.168.0.34:3000"
-      : "wss://api.sidequestvr.com";
+        this.url = !!this.isDev ? 'ws://192.168.0.34:3000' : 'wss://api.sidequestvr.com';
 
-    this.cdnUrl = this.isDev
-      ? "http://192.168.0.4:47000/"
-      : "https://cdn.sidequestvr.com/";
+        this.cdnUrl = this.isDev ? 'http://192.168.0.4:47000/' : 'https://cdn.sidequestvr.com/';
 
-    this.shortenerUrl = this.isDev
-      ? "http://192.168.0.4:47499/"
-      : "https://sdq.st/";
+        this.shortenerUrl = this.isDev ? 'http://192.168.0.4:47499/' : 'https://sdq.st/';
 
-    this.discordURl = "https://discord.sidequestvr.com";
-    this.openResolves = [];
-    this.storageKey = "";
-  }
-  setStorageKey(storageKey: string) {
-    this.storageKey = storageKey || "";
-  }
-  onspacedata(data) {}
-  ononeshot(data) {}
-  onjoined(data) {}
-  onalljoined(data) {}
-  onleft(data) {}
-  onreconnect() {
-    this.setupWebsocket();
-  }
-  onremoteinstall(data) {}
-  onusermessage(data) {}
-  start(): Promise<any> {
-    if (this.isOpen) {
-      return Promise.resolve();
+        this.discordURl = 'https://discord.sidequestvr.com';
+        this.openResolves = [];
+        this.storageKey = '';
     }
-    return new Promise(resolve => {
-      if (!this.isStarted) {
-        this.isStarted = true;
-        this.state = this.state || { rig: [0, 0, 0, 0, 0, 0, 0], hands: [0] };
-        this.stateChanged = false;
-        this.stateWrap = { state: this.state };
+    setStorageKey(storageKey: string) {
+        this.storageKey = storageKey || '';
+    }
+    onspacedata(data) {}
+    ononeshot(data) {}
+    onjoined(data) {}
+    onalljoined(data) {}
+    onleft(data) {}
+    onreconnect() {
         this.setupWebsocket();
-        setInterval(() => this.updateLoop(), 200);
-        setInterval(() => this.keepAlive(), 10000);
-      }
-      this.openResolves.push(resolve);
-    });
-  }
-  async refreshSession() {
-    this.currentSession = await this.getCurrentSession().catch(() => {});
-    this.appService.isAuthenticated = !!this.currentSession;
-  }
-  getUserAppTotals(users_id?) {
-    return this.emit("get-user-app-totals", { users_id });
-  }
-  getUserSettings(users_id?) {
-    if (!this.default_app_ulrs || !this.default_app_ulrs.length || users_id) {
-      return this.start()
-        .then(() =>
-          users_id ? this.getUserAppUrls(users_id) : this.getUserValues()
-        )
-        .then((res: any) => {
-          let urls = [];
-          (res || []).forEach(
-            (setting: { name: string; setting_value: string }) => {
-              const parts = setting.name.split("_");
-              if (parts[0] === "appUrl") {
-                urls.push({
-                  provider: parts[1],
-                  link_url: setting.setting_value
-                });
-              }
+    }
+    onremoteinstall(data) {}
+    onusermessage(data) {}
+    start(): Promise<any> {
+        if (this.isOpen) {
+            return Promise.resolve();
+        }
+        return new Promise(resolve => {
+            if (!this.isStarted) {
+                this.isStarted = true;
+                this.state = this.state || { rig: [0, 0, 0, 0, 0, 0, 0], hands: [0] };
+                this.stateChanged = false;
+                this.stateWrap = { state: this.state };
+                this.setupWebsocket();
+                setInterval(() => this.updateLoop(), 200);
+                setInterval(() => this.keepAlive(), 10000);
             }
-          );
-          if (users_id) {
-            return urls;
-          } else {
-            this.default_app_ulrs = urls;
-          }
+            this.openResolves.push(resolve);
         });
     }
-  }
-  getInstalledApps(search, page) {
-    return this.start()
-      .then(() => this.searchInstalledApps(search, page))
-      .then((resp: AppListing[]) => {
-        this.installedApps = resp;
-      });
-  }
-  updateLoop() {
-    this.updateLoopCount = this.updateLoopCount || 0;
-    if (this.stateChanged) {
-      if (++this.updateLoopCount % 300 === 0) {
-        localStorage.setItem(
-          "current_rig" + this.storageKey,
-          this.state.rig.toString() + "," + new Date().getTime()
-        );
-      }
-      this.emit("state-update", this.stateWrap);
-      this.stateChanged = false;
+    async refreshSession() {
+        this.currentSession = await this.getCurrentSession().catch(() => {});
+        this.appService.isAuthenticated = !!this.currentSession;
     }
-  }
-  keepAlive() {
-    this.emit("keep-alive", {});
-  }
-  refreshGuestSession(options) {
-    return this.emit("generate-guest-login", options).then((msg: any) => {
-      localStorage.setItem("session" + this.storageKey, JSON.stringify(msg));
-      localStorage.setItem("guest_token" + this.storageKey, msg.token);
-      return msg;
-    });
-  }
-  getGuestSession() {
-    const guestToken = localStorage.getItem("guest_token" + this.storageKey);
-    if (!guestToken) {
-      return this.refreshGuestSession({});
-    } else {
-      return this.refreshGuestSession({ guestToken });
+    getUserAppTotals(users_id?) {
+        return this.emit('get-user-app-totals', { users_id });
     }
-  }
-  getCurrentSession() {
-    return new Promise((resolve, reject) => {
-      let session: any = localStorage.getItem("session" + this.storageKey);
-      if (!session) {
-        if (!this.preventGuest) {
-          this.getGuestSession().then(resolve);
-        } else {
-          return reject();
+    getUserSettings(users_id?) {
+        if (!this.default_app_ulrs || !this.default_app_ulrs.length || users_id) {
+            return this.start()
+                .then(() => (users_id ? this.getUserAppUrls(users_id) : this.getUserValues()))
+                .then((res: any) => {
+                    let urls = [];
+                    (res || []).forEach((setting: { name: string; setting_value: string }) => {
+                        const parts = setting.name.split('_');
+                        if (parts[0] === 'appUrl') {
+                            urls.push({
+                                provider: parts[1],
+                                link_url: setting.setting_value,
+                            });
+                        }
+                    });
+                    if (users_id) {
+                        return urls;
+                    } else {
+                        this.default_app_ulrs = urls;
+                    }
+                });
         }
-      } else {
-        try {
-          session = JSON.parse(session);
-          setTimeout(() => {
-            this.refresh(session.token).then((msg: any) => {
-              if (!msg.error) {
-                localStorage.setItem(
-                  "session" + this.storageKey,
-                  JSON.stringify(msg)
-                );
-                resolve(msg);
-              } else {
-                localStorage.removeItem("session" + this.storageKey);
-                return reject();
-              }
+    }
+    getInstalledApps(search, page) {
+        return this.start()
+            .then(() => this.searchInstalledApps(search, page))
+            .then((resp: AppListing[]) => {
+                this.installedApps = resp;
             });
-          });
-        } catch (e) {
-          reject();
+    }
+    updateLoop() {
+        this.updateLoopCount = this.updateLoopCount || 0;
+        if (this.stateChanged) {
+            if (++this.updateLoopCount % 300 === 0) {
+                localStorage.setItem('current_rig' + this.storageKey, this.state.rig.toString() + ',' + new Date().getTime());
+            }
+            this.emit('state-update', this.stateWrap);
+            this.stateChanged = false;
         }
-      }
-    });
-  }
-  setupWebsocket() {
-    this.ws = new WebSocket(this.url);
-    this.ws.onopen = evt => this.onOpen(evt);
-    this.ws.onclose = evt => this.onClose(evt);
-    this.ws.onmessage = evt => this.onMessage(evt);
-    this.ws.onerror = evt => console.error(evt);
-  }
-  emit(path, data) {
-    let time = "-" + new Date().getTime();
-    return new Promise(resolve => {
-      try {
-        let token;
-        try {
-          token = JSON.parse(localStorage.getItem("session" + this.storageKey))
-            .token;
-        } catch (e) {}
-        if (this.isOpen) {
-          this.ws.send(
-            JSON.stringify({ path: path, data: data, token: token, time })
-          );
-        }
-      } catch (e) {
-        console.warn(e);
-      }
-      this.messageResolves[path + time] = resolve;
-    });
-  }
-  onOpen(evt) {
-    this.isOpen = true;
-    this.refreshSession().then(() => {
-      this.openResolves.forEach(fn => fn());
-      console.log("Connected to Expanse API");
-      return this.setRemoteClient();
-    });
-  }
-  onClose(evt) {
-    console.log("Connection to API closed. Waiting ...");
-    this.ws = null;
-    this.isStarted = this.isOpen = false;
-    this.onreconnect();
-  }
-  onMessage(evt) {
-    try {
-      let response = JSON.parse(evt.data);
-      let path = response.path;
-      if (path.substr(path.length - 4, 4) === "-err") {
-        path = path.substr(0, path.length - 4);
-        response.data = { error: true, data: response.data };
-      }
-      if (path === "socketId") {
-        this.socketId = response.data;
-      } else if (path === "user-joined") {
-        this.onjoined(response.data);
-      } else if (path === "users-joined") {
-        this.onalljoined(response.data);
-      } else if (path === "user-left") {
-        this.onleft(response.data);
-      } else if (path === "remote-install") {
-        this.onremoteinstall(response.data);
-      } else if (path === "user-message") {
-        this.onusermessage(response.data);
-      } else if (path === "one-shot") {
-        this.ononeshot(response.data);
-      } else if (path === "space-data") {
-        this.onspacedata(response.data);
-      } else if (this.messageResolves[path]) {
-        this.messageResolves[path](response.data);
-      }
-    } catch (e) {
-      console.warn(e);
     }
-  }
-  linkSceneToSpace(scenes_id, spaces_id) {
-    return this.emit("link-scene-to-space", { scenes_id, spaces_id });
-  }
-  saveImage(file, token) {
-    if (!token) {
-      try {
-        token = JSON.parse(localStorage.getItem("session" + this.storageKey))
-          .token;
-      } catch (e) {}
+    keepAlive() {
+        this.emit('keep-alive', {});
     }
-    let formData = new FormData();
-    let date = new Date().getTime();
-    formData.append("file", file, "selfie.jpg");
-    return fetch(
-      this.cdnUrl + "create-upload/" + token + "/?" + new Date().getTime()
-    )
-      .then(res => res.json())
-      .then(json =>
-        fetch(
-          this.cdnUrl +
-            "upload-file/" +
-            token +
-            "/" +
-            json.fileId +
-            "/selfie-" +
-            date +
-            ".jpg/jpeg",
-          {
-            method: "post",
-            body: formData
-          }
-        )
-      )
-      .then(res => res.json())
-      .then(res =>
-        this.shortenUrl(
-          this.cdnUrl + res.path,
-          "e" + res.fileId.toString(36),
-          token
-        )
-      );
-  }
-  shortenUrl(url, name, token) {
-    if (!token) {
-      try {
-        token = JSON.parse(localStorage.getItem("session" + this.storageKey))
-          .token;
-      } catch (e) {}
+    refreshGuestSession(options) {
+        return this.emit('generate-guest-login', options).then((msg: any) => {
+            localStorage.setItem('session' + this.storageKey, JSON.stringify(msg));
+            localStorage.setItem('guest_token' + this.storageKey, msg.token);
+            return msg;
+        });
     }
-    return fetch(
-      this.shortenerUrl +
-        "get-link/" +
-        token +
-        "/" +
-        name +
-        "/" +
-        encodeURIComponent(url)
-    )
-      .then(res => res.json())
-      .then(res => fetch(res.url).then(() => res));
-  }
-  saveScene(scene, name, scenes_id?) {
-    let formData = new FormData();
-    formData.append("scene", JSON.stringify(scene));
-    let cdnToken, files_id;
-    return this.getCurrentSession()
-      .then((resp: any) => {
-        cdnToken = resp.token;
-        if (scenes_id) {
-          return this.updateScene(name, scenes_id).then(scenes => {
-            files_id = scenes[0].files_id;
-          });
+    getGuestSession() {
+        const guestToken = localStorage.getItem('guest_token' + this.storageKey);
+        if (!guestToken) {
+            return this.refreshGuestSession({});
         } else {
-          return fetch(this.cdnUrl + "create-upload/" + cdnToken + "/")
-            .then(res => res.json())
-            .then(json => {
-              files_id = json.fileId;
-              return this.createScene(name, json.fileId, 2);
-            })
-            .then(scenes => (scenes_id = scenes[0].scenes_id));
+            return this.refreshGuestSession({ guestToken });
         }
-      })
-      .then(() =>
-        fetch(
-          this.cdnUrl +
-            "upload-scene/" +
-            cdnToken +
-            "/" +
-            files_id +
-            "/scene-" +
-            scenes_id +
-            "/scene_json",
-          {
-            method: "post",
-            body: formData
-          }
-        )
-      )
-      .then(() => ({
-        scenes_id,
-        files_id,
-        name,
-        scene,
-        url: "file/" + files_id + "/scene-" + scenes_id
-      }));
-  }
-  downloadSketchFab(data) {
-    return this.getCurrentSession().then((resp: any) => {
-      return fetch(
-        this.cdnUrl +
-          "/get-sketchfab/" +
-          resp.token +
-          "/" +
-          data.uid +
-          "/" +
-          data.access_token
-      ).then(r => r.json());
-    });
-  }
-  isNotGolden() {
-    return (
-      !this.currentSession || this.currentSession.profile_color !== "golden"
-    );
-  }
-  savePrefab(prefab) {
-    const formData = new FormData();
-    // let file = new Blob([JSON.stringify(prefab)], {type: "application/json"})
-    // formData.append("file", file,'prefab.json');
-    formData.append("scene", JSON.stringify(prefab));
-    let cdnToken, files_id;
-    return this.getCurrentSession()
-      .then((resp: any) => {
-        cdnToken = resp.token;
-        return fetch(this.cdnUrl + "create-upload/" + cdnToken + "/")
-          .then(res => res.json())
-          .then(json => {
-            files_id = json.fileId;
-          });
-      })
-      .then(() =>
-        fetch(
-          this.cdnUrl +
-            "upload-scene/" +
-            cdnToken +
-            "/" +
-            files_id +
-            "/prefab-" +
-            new Date().getTime() +
-            "/prefab_json",
-          {
-            method: "post",
-            body: formData
-          }
-        )
-      )
-      .then(() => files_id);
-  }
-  setProfileColor(users_id, color) {
-    return this.emit("set-profile-color", { users_id, color });
-  }
-  login(login: string, password: string) {
-    return this.emit("login", { login, password }) as Promise<any>;
-  }
-  signup(name: string, email: string, password: string, dob: string) {
-    return this.emit("sign-up", { name, email, password, dob }) as Promise<any>;
-  }
-  refresh(token) {
-    return this.emit("refresh", { token });
-  }
-  getUserAppUrls(users_id) {
-    return this.emit("get-user-app-urls", { users_id });
-  }
-  getData(socketId) {
-    return this.emit("get-data", { socketId });
-  }
-  searchSubscribedEvents(page, search, events_id?) {
-    return this.emit("search-subscribed-event", { search, page, events_id });
-  }
-  subscribeEvent(events_id) {
-    return this.emit("subscribe-event", { events_id });
-  }
-  unsubscribeEvent(events_id) {
-    return this.emit("unsubscribe-event", { events_id });
-  }
-  getEvent(events_id: number | string) {
-    return this.emit("event", { events_id }) as Promise<EventListing>;
-  }
-  getEvents(page, search, filter, users_id?) {
-    return this.emit("events-list", { page, search, filter, users_id });
-  }
-  getMyEvents(page, search, filter) {
-    return this.emit("my-events", { page, search, filter });
-  }
-  getEventTotals(events_id: number) {
-    return this.emit("get-event-totals", { events_id }) as Promise<
-      AppCounter[]
-    >;
-  }
-  getEventCounters(events_id, start_time, end_time, filter) {
-    return this.emit("get-event-counters", {
-      events_id,
-      start_time,
-      end_time,
-      filter
-    });
-  }
-  eventCount(type, events_id) {
-    return this.emit("update-count-event", { type, events_id });
-  }
-  getSpace(spaces_id: number) {
-    return this.emit("space", { spaces_id }) as Promise<SpaceListing>;
-  }
-  getSpaces(page, search, users_id?) {
-    return this.emit("spaces-list", { page, search, users_id });
-  }
-  getMySpaces(page, search) {
-    return this.emit("my-spaces", { page, search });
-  }
-  searchSubscribedSpaces(page, search, spaces_id?) {
-    return this.emit("search-subscribed-space", { search, page, spaces_id });
-  }
-  subscribeSpace(spaces_id) {
-    return this.emit("subscribe-space", { spaces_id });
-  }
-  unsubscribeSpace(spaces_id) {
-    return this.emit("unsubscribe-space", { spaces_id });
-  }
-  getSpaceTotals(spaces_id: number) {
-    return this.emit("get-space-totals", { spaces_id }) as Promise<
-      AppCounter[]
-    >;
-  }
-  getSpaceCounters(spaces_id, start_time, end_time, filter) {
-    return this.emit("get-space-counters", {
-      spaces_id,
-      start_time,
-      end_time,
-      filter
-    });
-  }
-  spaceCount(type, spaces_id) {
-    return this.emit("update-count-space", { type, spaces_id });
-  }
-  createSpace(space) {
-    return this.emit("create-space", space);
-  }
-  updateSpace(space) {
-    return this.emit("update-space", space);
-  }
-  deleteSpace(spaces_id) {
-    return this.emit("delete-space", { spaces_id });
-  }
-  getScenes(page, search, spaces_id) {
-    return this.emit("my-scenes", { page, search, spaces_id });
-  }
-  getScene(scenes_id) {
-    return this.emit("scene", { scenes_id });
-  }
-  createScene(name, files_id, version) {
-    return this.emit("create-scene", { name, files_id, version });
-  }
-  updateScene(name, scenes_id) {
-    return this.emit("update-scene", { name, scenes_id });
-  }
-  getNotifications() {
-    return this.emit("get-notifications", {});
-  }
-  deleteScene(scenes_id) {
-    return this.emit("delete-scene", { scenes_id });
-  }
-  getMyPrefabs(page, search) {
-    return this.emit("my-prefabs", { page, search });
-  }
-  createPrefab(name, description, image, files_id, is_public, obfuscate) {
-    return this.emit("create-prefab", {
-      name,
-      description,
-      image,
-      files_id,
-      is_public,
-      obfuscate
-    });
-  }
-  saveUserPublicProfile(public_profile) {
-    return this.emit("save-user-public-profile", { public_profile });
-  }
-  saveUserBannerImage(banner_image) {
-    return this.emit("save-user-banner-image", { banner_image });
-  }
-  viewUser(users_id) {
-    return this.emit("view-user", { users_id });
-  }
-  updatePrefab(prefabs_id, name, description, image, is_public, obfuscate) {
-    return this.emit("update-prefab", {
-      prefabs_id,
-      name,
-      description,
-      image,
-      is_public,
-      obfuscate
-    });
-  }
-  deletePrefab(prefabs_id) {
-    return this.emit("delete-prefab", { prefabs_id });
-  }
-  getOldBehaviours(behaviours) {
-    return this.emit("get-scene-behaviours", {
-      behaviours,
-      old_id_check: true
-    });
-  }
-  getSceneBehaviours(behaviours) {
-    return this.emit("get-scene-behaviours", { behaviours });
-  }
-  saveSceneBehaviours(behaviours) {
-    return this.emit("save-scene-behaviours", { behaviours });
-  }
-  createBehaviour(
-    name,
-    description,
-    image,
-    definition,
-    is_public,
-    obfuscate,
-    sync,
-    trigger
-  ) {
-    return this.emit("create-behaviour", {
-      name,
-      description,
-      image,
-      definition,
-      is_public,
-      obfuscate,
-      sync,
-      trigger
-    });
-  }
-  updateBehaviour(
-    behaviours_id,
-    name,
-    description,
-    image,
-    definition,
-    is_public,
-    obfuscate,
-    sync,
-    trigger
-  ) {
-    return this.emit("update-behaviour", {
-      behaviours_id,
-      name,
-      description,
-      image,
-      definition,
-      is_public,
-      obfuscate,
-      sync,
-      trigger
-    });
-  }
-  getBehavioursNotIncluding(page, excluded) {
-    return this.emit("behaviours-not-including", { page, excluded });
-  }
-  getMyBehaviours(page, search) {
-    return this.emit("my-behaviours", { page, search });
-  }
-  deleteBehaviour(behaviours_id) {
-    return this.emit("delete-behaviour", { behaviours_id });
-  }
-  createEvent(event) {
-    return this.emit("create-event", event);
-  }
-  updateEvent(event) {
-    return this.emit("update-event", event);
-  }
-  deleteEvent(events_id) {
-    return this.emit("delete-event", { events_id });
-  }
-  getPeopleInSpace(currentSpace, spaceId, page, search) {
-    return this.emit("people-in-space", {
-      currentSpace,
-      spaceId,
-      page,
-      search
-    });
-  }
-  setRemoteClient() {
-    const userAgent = (navigator as any).userAgent.toLowerCase();
-    if (userAgent.indexOf(" electron/") > -1) {
-      return this.emit("set-remote-client", {});
     }
-  }
-  getFriends(page, search) {
-    return this.emit("friends", { page, search });
-  }
-  getLegends() {
-    return this.emit("list-legends", {});
-  }
-  addFriend(userId) {
-    return this.emit("add-friend", { userId });
-  }
-  removeFriend(userId) {
-    return this.emit("reject-request", { userId });
-  }
-  getFriendRequests(page, search) {
-    return this.emit("requests", { page, search });
-  }
-  acceptFriendRequest(userId) {
-    return this.emit("accept-request", { userId });
-  }
-  rejectFriendRequest(userId) {
-    return this.emit("reject-request", { userId });
-  }
-  getBlocked(page, search) {
-    return this.emit("blocked", { page, search });
-  }
-  blockUser(userId, type) {
-    return this.emit("block-user", { userId, type });
-  }
-  unBlockUser(userId) {
-    return this.emit("unblock-user", { userId });
-  }
-  reportUser(userId, type, details) {
-    return this.emit("report-user", { userId, type, details });
-  }
-  getMessagesPeople(page, search) {
-    return this.emit("messages-people", { page, search });
-  }
-  getMessagesThread(userId, page, search) {
-    return this.emit("messages-thread", { userId, page, search });
-  }
-  inviteUser(userId, space) {
-    this.emit("user-message", {
-      users_id: userId,
-      message: {
-        text: "Come visit me at " + space.name + "!!!",
-        spaces_id: space.spaces_id
-      }
-    });
-  }
-  addReview(details, rating, apps_id?, events_id?, spaces_id?, parent_id?) {
-    parent_id = parent_id || null;
-    apps_id = apps_id || null;
-    events_id = events_id || null;
-    spaces_id = spaces_id || null;
-    return this.emit("add-review", {
-      details,
-      rating,
-      apps_id,
-      events_id,
-      spaces_id,
-      parent_id
-    });
-  }
-  deleteReview(item_id, type, reviews_id) {
-    return this.emit("delete-review", { item_id, type, reviews_id });
-  }
-  getRating(item_id, type) {
-    return this.emit("get-rating", { item_id, type });
-  }
-  getReviews(item_id, type, page, search?, parent_id?) {
-    return this.emit("get-reviews", { item_id, type, page, search, parent_id });
-  }
-  sendMessage(userId, message) {
-    this.emit("user-message", { users_id: userId, message: { text: message } });
-    return this.emit("send-message", { userId, message });
-  }
-  forgotPassword(email, returnUrl) {
-    return this.emit("forgot-password", { email, returnUrl });
-  }
-  resetPassword(password: string, resetToken: string) {
-    return this.emit("reset-password", { password, resetToken }) as Promise<
-      any
-    >;
-  }
-  getUserWithSpace() {
-    return this.emit("get-user-with-space", {});
-  }
-  getUserCurrentSpace(users_id) {
-    return this.emit("get-user-current-space", { users_id });
-  }
-  saveUserDetails(name, email, tag_line, profile_color, bio, donate_url) {
-    return this.emit("save-user-details", {
-      name,
-      email,
-      tag_line,
-      profile_color,
-      bio,
-      donate_url
-    });
-  }
-  saveUserDefaultSpace(spaceId) {
-    return this.emit("save-user-default-space", { spaceId });
-  }
-  saveUserPassword(password) {
-    return this.emit("save-user-password", { password });
-  }
-  getAvatarImages(avatar_images_id?) {
-    return this.emit("get-avatar-images", { avatar_images_id });
-  }
-  setUserAvatarImage(avatar_images_id) {
-    return this.emit("set-user-avatar-image", { avatar_images_id });
-  }
-  setUserAvatarMesh(type) {
-    return this.emit("set-user-avatar-mesh", { type });
-  }
-  savePreviewImage(preview, avatar_images_id) {
-    return this.emit("save-preview-images", { preview, avatar_images_id });
-  }
-  saveAvatarImage(image: string, preview: string) {
-    return this.emit("save-avatar-images", { image, preview }) as Promise<
-      AvatarImage[]
-    >;
-  }
-  deleteAvatarImage(avatar_images_id) {
-    return this.emit("delete-avatar-images", { avatar_images_id });
-  }
-  setDefaultAvatar(geometry, texture) {
-    return this.emit("set-default-avatar", { geometry, texture });
-  }
-  getUserTimezone(users_id) {
-    return this.emit("get-user-timezone", { users_id });
-  }
-  getRelated(users_id) {
-    return this.emit("get-related", { users_id });
-  }
-  setSpace(spaces_id) {
-    return this.emit("set-space", { spaces_id });
-  }
-  oneShot(data) {
-    return this.emit("one-shot", data);
-  }
-  syncObject(data) {
-    return this.emit("sync-object", data);
-  }
-  removeUserValue(key) {
-    return this.emit("remove-user-value", { key });
-  }
-  getUserValues() {
-    return this.emit("get-user-values", {});
-  }
-  setUserValues(keyValues) {
-    return this.emit("set-user-values", { keyValues });
-  }
-  heartBeat() {
-    return this.emit("heart-beat", {});
-  }
-  deleteApp(apps_id) {
-    return this.emit("delete-app", { apps_id });
-  }
-  getAppUpdates(apps_ids) {
-    return this.emit("get-app-updates", { apps_ids });
-  }
-  getAppPackage(packagename) {
-    return this.emit("get-app-package", { packagename });
-  }
-  getApp(apps_id: number | string) {
-    return this.emit("get-app", { apps_id }) as Promise<AppListing[]>;
-  }
-  getAppTotals(apps_id: number) {
-    return this.emit("get-app-totals", { apps_id }) as Promise<AppCounter[]>;
-  }
-  getAppCounters(apps_id, start_time, end_time, filter) {
-    return this.emit("get-app-counters", {
-      apps_id,
-      start_time,
-      end_time,
-      filter
-    });
-  }
-  getAppUrls(apps_id: number | string) {
-    return this.emit("get-app-urls", { apps_id }) as Promise<AppUrl[]>;
-  }
-  getAppScreenshots(apps_id: number | string) {
-    return this.emit("get-app-screenshots", { apps_id }) as Promise<
-      ScreenShot[]
-    >;
-  }
-  searchApps(
-    search,
-    page,
-    order,
-    direction,
-    app_categories_id?,
-    tag?,
-    users_id?,
-    limit?
-  ) {
-    return this.emit("search-apps", {
-      search,
-      page,
-      order,
-      direction,
-      app_categories_id,
-      tag,
-      users_id,
-      limit
-    });
-  }
-  searchMyApps(page, search) {
-    return this.emit("search-my-apps", { search, page });
-  }
-  searchInstalledApps(
-    search: string,
-    page: number,
-    is_updated?: boolean,
-    is_uninstalled?: boolean,
-    apps_id?: number
-  ) {
-    return this.emit("search-installed-apps", {
-      search,
-      page,
-      is_updated,
-      is_uninstalled,
-      apps_id
-    }) as Promise<AppListing[]>;
-  }
-  async addInstalledApp(apps_id, versioncode) {
-    const response = await this.emit("add-edit-installed-app", {
-      apps_id,
-      versioncode
-    });
-    this.notifyInstalledAppsChanged();
-    return response;
-  }
-  async uninstallApp(apps_id) {
-    const response = await this.emit("uninstall-app", { apps_id });
-    this.notifyInstalledAppsChanged();
-    return response;
-  }
-  getAppWebhook(apps_id: string) {
-    return this.emit("get-app-webhook", { apps_id }) as Promise<string>;
-  }
-  addApp(
-    name,
-    image_url,
-    video_url,
-    comfort,
-    summary,
-    description,
-    apk_url,
-    packagename,
-    versioncode,
-    versionname,
-    license,
-    website,
-    donate_url,
-    github_name,
-    github_repo,
-    github_tag,
-    github_enabled,
-    app_categories_id,
-    screenshots,
-    supports_quest,
-    supports_go,
-    supports_other,
-    search_tags,
-    app_urls,
-    early_access
-  ) {
-    return this.editApp(
-      null,
-      name,
-      image_url,
-      video_url,
-      comfort,
-      summary,
-      description,
-      apk_url,
-      packagename,
-      versioncode,
-      versionname,
-      license,
-      website,
-      donate_url,
-      github_name,
-      github_repo,
-      github_tag,
-      github_enabled,
-      app_categories_id,
-      screenshots,
-      supports_quest,
-      supports_go,
-      supports_other,
-      search_tags,
-      app_urls,
-      early_access
-    );
-  }
-  editApp(
-    apps_id,
-    name,
-    image_url,
-    video_url,
-    comfort,
-    summary,
-    description,
-    apk_url,
-    packagename,
-    versioncode,
-    versionname,
-    license,
-    website,
-    donate_url,
-    github_name,
-    github_repo,
-    github_tag,
-    github_enabled,
-    app_categories_id,
-    screenshots,
-    supports_quest,
-    supports_go,
-    supports_other,
-    search_tags,
-    app_urls,
-    early_access
-  ) {
-    return this.emit("add-edit-app", {
-      apps_id,
-      name,
-      image_url,
-      video_url,
-      comfort,
-      summary,
-      description,
-      apk_url,
-      packagename,
-      versioncode,
-      versionname,
-      license,
-      website,
-      donate_url,
-      github_name,
-      github_repo,
-      github_tag,
-      github_enabled,
-      app_categories_id,
-      screenshots,
-      supports_quest,
-      supports_go,
-      supports_other,
-      search_tags,
-      app_urls,
-      early_access
-    });
-  }
-  appCount(type, apps_id) {
-    return this.emit("update-count-app", { type, apps_id });
-  }
+    getCurrentSession() {
+        return new Promise((resolve, reject) => {
+            let session: any = localStorage.getItem('session' + this.storageKey);
+            if (!session) {
+                if (!this.preventGuest) {
+                    this.getGuestSession().then(resolve);
+                } else {
+                    return reject();
+                }
+            } else {
+                try {
+                    session = JSON.parse(session);
+                    setTimeout(() => {
+                        this.refresh(session.token).then((msg: any) => {
+                            if (!msg.error) {
+                                localStorage.setItem('session' + this.storageKey, JSON.stringify(msg));
+                                resolve(msg);
+                            } else {
+                                localStorage.removeItem('session' + this.storageKey);
+                                return reject();
+                            }
+                        });
+                    });
+                } catch (e) {
+                    reject();
+                }
+            }
+        });
+    }
+    setupWebsocket() {
+        this.ws = new WebSocket(this.url);
+        this.ws.onopen = evt => this.onOpen(evt);
+        this.ws.onclose = evt => this.onClose(evt);
+        this.ws.onmessage = evt => this.onMessage(evt);
+        this.ws.onerror = evt => console.error(evt);
+    }
+    emit(path, data) {
+        let time = '-' + new Date().getTime();
+        return new Promise(resolve => {
+            try {
+                let token;
+                try {
+                    token = JSON.parse(localStorage.getItem('session' + this.storageKey)).token;
+                } catch (e) {}
+                if (this.isOpen) {
+                    this.ws.send(JSON.stringify({ path: path, data: data, token: token, time }));
+                }
+            } catch (e) {
+                console.warn(e);
+            }
+            this.messageResolves[path + time] = resolve;
+        });
+    }
+    onOpen(evt) {
+        this.isOpen = true;
+        this.refreshSession().then(() => {
+            this.openResolves.forEach(fn => fn());
+            console.log('Connected to Expanse API');
+            return this.setRemoteClient();
+        });
+    }
+    onClose(evt) {
+        console.log('Connection to API closed. Waiting ...');
+        this.ws = null;
+        this.isStarted = this.isOpen = false;
+        this.onreconnect();
+    }
+    onMessage(evt) {
+        try {
+            let response = JSON.parse(evt.data);
+            let path = response.path;
+            if (path.substr(path.length - 4, 4) === '-err') {
+                path = path.substr(0, path.length - 4);
+                response.data = { error: true, data: response.data };
+            }
+            if (path === 'socketId') {
+                this.socketId = response.data;
+            } else if (path === 'user-joined') {
+                this.onjoined(response.data);
+            } else if (path === 'users-joined') {
+                this.onalljoined(response.data);
+            } else if (path === 'user-left') {
+                this.onleft(response.data);
+            } else if (path === 'remote-install') {
+                this.onremoteinstall(response.data);
+            } else if (path === 'user-message') {
+                this.onusermessage(response.data);
+            } else if (path === 'one-shot') {
+                this.ononeshot(response.data);
+            } else if (path === 'space-data') {
+                this.onspacedata(response.data);
+            } else if (this.messageResolves[path]) {
+                this.messageResolves[path](response.data);
+            }
+        } catch (e) {
+            console.warn(e);
+        }
+    }
+    linkSceneToSpace(scenes_id, spaces_id) {
+        return this.emit('link-scene-to-space', { scenes_id, spaces_id });
+    }
+    saveImage(file, token) {
+        if (!token) {
+            try {
+                token = JSON.parse(localStorage.getItem('session' + this.storageKey)).token;
+            } catch (e) {}
+        }
+        let formData = new FormData();
+        let date = new Date().getTime();
+        formData.append('file', file, 'selfie.jpg');
+        return fetch(this.cdnUrl + 'create-upload/' + token + '/?' + new Date().getTime())
+            .then(res => res.json())
+            .then(json =>
+                fetch(this.cdnUrl + 'upload-file/' + token + '/' + json.fileId + '/selfie-' + date + '.jpg/jpeg', {
+                    method: 'post',
+                    body: formData,
+                })
+            )
+            .then(res => res.json())
+            .then(res => this.shortenUrl(this.cdnUrl + res.path, 'e' + res.fileId.toString(36), token));
+    }
+    shortenUrl(url, name, token) {
+        if (!token) {
+            try {
+                token = JSON.parse(localStorage.getItem('session' + this.storageKey)).token;
+            } catch (e) {}
+        }
+        return fetch(this.shortenerUrl + 'get-link/' + token + '/' + name + '/' + encodeURIComponent(url))
+            .then(res => res.json())
+            .then(res => fetch(res.url).then(() => res));
+    }
+    saveScene(scene, name, scenes_id?) {
+        let formData = new FormData();
+        formData.append('scene', JSON.stringify(scene));
+        let cdnToken, files_id;
+        return this.getCurrentSession()
+            .then((resp: any) => {
+                cdnToken = resp.token;
+                if (scenes_id) {
+                    return this.updateScene(name, scenes_id).then(scenes => {
+                        files_id = scenes[0].files_id;
+                    });
+                } else {
+                    return fetch(this.cdnUrl + 'create-upload/' + cdnToken + '/')
+                        .then(res => res.json())
+                        .then(json => {
+                            files_id = json.fileId;
+                            return this.createScene(name, json.fileId, 2);
+                        })
+                        .then(scenes => (scenes_id = scenes[0].scenes_id));
+                }
+            })
+            .then(() =>
+                fetch(this.cdnUrl + 'upload-scene/' + cdnToken + '/' + files_id + '/scene-' + scenes_id + '/scene_json', {
+                    method: 'post',
+                    body: formData,
+                })
+            )
+            .then(() => ({
+                scenes_id,
+                files_id,
+                name,
+                scene,
+                url: 'file/' + files_id + '/scene-' + scenes_id,
+            }));
+    }
+    downloadSketchFab(data) {
+        return this.getCurrentSession().then((resp: any) => {
+            return fetch(this.cdnUrl + '/get-sketchfab/' + resp.token + '/' + data.uid + '/' + data.access_token).then(r =>
+                r.json()
+            );
+        });
+    }
+    isNotGolden() {
+        return !this.currentSession || this.currentSession.profile_color !== 'golden';
+    }
+    savePrefab(prefab) {
+        const formData = new FormData();
+        // let file = new Blob([JSON.stringify(prefab)], {type: "application/json"})
+        // formData.append("file", file,'prefab.json');
+        formData.append('scene', JSON.stringify(prefab));
+        let cdnToken, files_id;
+        return this.getCurrentSession()
+            .then((resp: any) => {
+                cdnToken = resp.token;
+                return fetch(this.cdnUrl + 'create-upload/' + cdnToken + '/')
+                    .then(res => res.json())
+                    .then(json => {
+                        files_id = json.fileId;
+                    });
+            })
+            .then(() =>
+                fetch(
+                    this.cdnUrl + 'upload-scene/' + cdnToken + '/' + files_id + '/prefab-' + new Date().getTime() + '/prefab_json',
+                    {
+                        method: 'post',
+                        body: formData,
+                    }
+                )
+            )
+            .then(() => files_id);
+    }
+    setProfileColor(users_id, color) {
+        return this.emit('set-profile-color', { users_id, color });
+    }
+    login(login: string, password: string) {
+        return this.emit('login', { login, password }) as Promise<any>;
+    }
+    signup(name: string, email: string, password: string, dob: string) {
+        return this.emit('sign-up', { name, email, password, dob }) as Promise<any>;
+    }
+    refresh(token) {
+        return this.emit('refresh', { token });
+    }
+    getUserAppUrls(users_id) {
+        return this.emit('get-user-app-urls', { users_id });
+    }
+    getData(socketId) {
+        return this.emit('get-data', { socketId });
+    }
+    searchSubscribedEvents(page, search, events_id?) {
+        return this.emit('search-subscribed-event', { search, page, events_id });
+    }
+    subscribeEvent(events_id) {
+        return this.emit('subscribe-event', { events_id });
+    }
+    unsubscribeEvent(events_id) {
+        return this.emit('unsubscribe-event', { events_id });
+    }
+    getEvent(events_id: number | string) {
+        return this.emit('event', { events_id }) as Promise<EventListing>;
+    }
+    getEvents(page, search, filter, users_id?) {
+        return this.emit('events-list', { page, search, filter, users_id });
+    }
+    getMyEvents(page, search, filter) {
+        return this.emit('my-events', { page, search, filter });
+    }
+    getEventTotals(events_id: number) {
+        return this.emit('get-event-totals', { events_id }) as Promise<AppCounter[]>;
+    }
+    getEventCounters(events_id, start_time, end_time, filter) {
+        return this.emit('get-event-counters', {
+            events_id,
+            start_time,
+            end_time,
+            filter,
+        });
+    }
+    eventCount(type, events_id) {
+        return this.emit('update-count-event', { type, events_id });
+    }
+    getSpace(spaces_id: number) {
+        return this.emit('space', { spaces_id }) as Promise<SpaceListing>;
+    }
+    getSpaces(page, search, users_id?) {
+        return this.emit('spaces-list', { page, search, users_id });
+    }
+    getMySpaces(page, search) {
+        return this.emit('my-spaces', { page, search });
+    }
+    searchSubscribedSpaces(page, search, spaces_id?) {
+        return this.emit('search-subscribed-space', { search, page, spaces_id });
+    }
+    subscribeSpace(spaces_id) {
+        return this.emit('subscribe-space', { spaces_id });
+    }
+    unsubscribeSpace(spaces_id) {
+        return this.emit('unsubscribe-space', { spaces_id });
+    }
+    getSpaceTotals(spaces_id: number) {
+        return this.emit('get-space-totals', { spaces_id }) as Promise<AppCounter[]>;
+    }
+    getSpaceCounters(spaces_id, start_time, end_time, filter) {
+        return this.emit('get-space-counters', {
+            spaces_id,
+            start_time,
+            end_time,
+            filter,
+        });
+    }
+    spaceCount(type, spaces_id) {
+        return this.emit('update-count-space', { type, spaces_id });
+    }
+    createSpace(space) {
+        return this.emit('create-space', space);
+    }
+    updateSpace(space) {
+        return this.emit('update-space', space);
+    }
+    deleteSpace(spaces_id) {
+        return this.emit('delete-space', { spaces_id });
+    }
+    getScenes(page, search, spaces_id) {
+        return this.emit('my-scenes', { page, search, spaces_id });
+    }
+    getScene(scenes_id) {
+        return this.emit('scene', { scenes_id });
+    }
+    createScene(name, files_id, version) {
+        return this.emit('create-scene', { name, files_id, version });
+    }
+    updateScene(name, scenes_id) {
+        return this.emit('update-scene', { name, scenes_id });
+    }
+    async getNotifications(): Promise<NotificationsResponse> {
+        const response = (await this.emit('get-notifications', {})) as Record<string, any>;
+        const isError = !response || response.error;
+        if (isError) {
+            throw response;
+        } else {
+            const { friend_requests, unread_messages } = response;
+            return { friend_requests: friend_requests || [], unread_messages: unread_messages || [] };
+        }
+    }
+    deleteScene(scenes_id) {
+        return this.emit('delete-scene', { scenes_id });
+    }
+    getMyPrefabs(page, search) {
+        return this.emit('my-prefabs', { page, search });
+    }
+    createPrefab(name, description, image, files_id, is_public, obfuscate) {
+        return this.emit('create-prefab', {
+            name,
+            description,
+            image,
+            files_id,
+            is_public,
+            obfuscate,
+        });
+    }
+    saveUserPublicProfile(public_profile) {
+        return this.emit('save-user-public-profile', { public_profile });
+    }
+    saveUserBannerImage(banner_image) {
+        return this.emit('save-user-banner-image', { banner_image });
+    }
+    viewUser(users_id) {
+        return this.emit('view-user', { users_id });
+    }
+    updatePrefab(prefabs_id, name, description, image, is_public, obfuscate) {
+        return this.emit('update-prefab', {
+            prefabs_id,
+            name,
+            description,
+            image,
+            is_public,
+            obfuscate,
+        });
+    }
+    deletePrefab(prefabs_id) {
+        return this.emit('delete-prefab', { prefabs_id });
+    }
+    getOldBehaviours(behaviours) {
+        return this.emit('get-scene-behaviours', {
+            behaviours,
+            old_id_check: true,
+        });
+    }
+    getSceneBehaviours(behaviours) {
+        return this.emit('get-scene-behaviours', { behaviours });
+    }
+    saveSceneBehaviours(behaviours) {
+        return this.emit('save-scene-behaviours', { behaviours });
+    }
+    createBehaviour(name, description, image, definition, is_public, obfuscate, sync, trigger) {
+        return this.emit('create-behaviour', {
+            name,
+            description,
+            image,
+            definition,
+            is_public,
+            obfuscate,
+            sync,
+            trigger,
+        });
+    }
+    updateBehaviour(behaviours_id, name, description, image, definition, is_public, obfuscate, sync, trigger) {
+        return this.emit('update-behaviour', {
+            behaviours_id,
+            name,
+            description,
+            image,
+            definition,
+            is_public,
+            obfuscate,
+            sync,
+            trigger,
+        });
+    }
+    getBehavioursNotIncluding(page, excluded) {
+        return this.emit('behaviours-not-including', { page, excluded });
+    }
+    getMyBehaviours(page, search) {
+        return this.emit('my-behaviours', { page, search });
+    }
+    deleteBehaviour(behaviours_id) {
+        return this.emit('delete-behaviour', { behaviours_id });
+    }
+    createEvent(event) {
+        return this.emit('create-event', event);
+    }
+    updateEvent(event) {
+        return this.emit('update-event', event);
+    }
+    deleteEvent(events_id) {
+        return this.emit('delete-event', { events_id });
+    }
+    getPeopleInSpace(currentSpace, spaceId, page, search) {
+        return this.emit('people-in-space', {
+            currentSpace,
+            spaceId,
+            page,
+            search,
+        });
+    }
+    setRemoteClient() {
+        const userAgent = (navigator as any).userAgent.toLowerCase();
+        if (userAgent.indexOf(' electron/') > -1) {
+            return this.emit('set-remote-client', {});
+        }
+    }
+    getFriends(page, search) {
+        return this.emit('friends', { page, search });
+    }
+    getLegends() {
+        return this.emit('list-legends', {});
+    }
+    addFriend(userId) {
+        return this.emit('add-friend', { userId });
+    }
+    removeFriend(userId) {
+        return this.emit('reject-request', { userId });
+    }
+    getFriendRequests(page, search) {
+        return this.emit('requests', { page, search });
+    }
+    acceptFriendRequest(userId) {
+        return this.emit('accept-request', { userId });
+    }
+    rejectFriendRequest(userId) {
+        return this.emit('reject-request', { userId });
+    }
+    getBlocked(page, search) {
+        return this.emit('blocked', { page, search });
+    }
+    blockUser(userId, type) {
+        return this.emit('block-user', { userId, type });
+    }
+    unBlockUser(userId) {
+        return this.emit('unblock-user', { userId });
+    }
+    reportUser(userId, type, details) {
+        return this.emit('report-user', { userId, type, details });
+    }
+    getMessagesPeople(page, search) {
+        return this.emit('messages-people', { page, search });
+    }
+    getMessagesThread(userId, page, search) {
+        return this.emit('messages-thread', { userId, page, search });
+    }
+    inviteUser(userId, space) {
+        this.emit('user-message', {
+            users_id: userId,
+            message: {
+                text: 'Come visit me at ' + space.name + '!!!',
+                spaces_id: space.spaces_id,
+            },
+        });
+    }
+    addReview(details, rating, apps_id?, events_id?, spaces_id?, parent_id?) {
+        parent_id = parent_id || null;
+        apps_id = apps_id || null;
+        events_id = events_id || null;
+        spaces_id = spaces_id || null;
+        return this.emit('add-review', {
+            details,
+            rating,
+            apps_id,
+            events_id,
+            spaces_id,
+            parent_id,
+        });
+    }
+    deleteReview(item_id, type, reviews_id) {
+        return this.emit('delete-review', { item_id, type, reviews_id });
+    }
+    getRating(item_id, type) {
+        return this.emit('get-rating', { item_id, type });
+    }
+    getReviews(item_id, type, page, search?, parent_id?) {
+        return this.emit('get-reviews', { item_id, type, page, search, parent_id });
+    }
+    sendMessage(userId, message) {
+        this.emit('user-message', { users_id: userId, message: { text: message } });
+        return this.emit('send-message', { userId, message });
+    }
+    forgotPassword(email, returnUrl) {
+        return this.emit('forgot-password', { email, returnUrl });
+    }
+    resetPassword(password: string, resetToken: string) {
+        return this.emit('reset-password', { password, resetToken }) as Promise<any>;
+    }
+    getUserWithSpace() {
+        return this.emit('get-user-with-space', {});
+    }
+    getUserCurrentSpace(users_id) {
+        return this.emit('get-user-current-space', { users_id });
+    }
+    saveUserDetails(name, email, tag_line, profile_color, bio, donate_url) {
+        return this.emit('save-user-details', {
+            name,
+            email,
+            tag_line,
+            profile_color,
+            bio,
+            donate_url,
+        });
+    }
+    saveUserDefaultSpace(spaceId) {
+        return this.emit('save-user-default-space', { spaceId });
+    }
+    saveUserPassword(password) {
+        return this.emit('save-user-password', { password });
+    }
+    getAvatarImages(avatar_images_id?) {
+        return this.emit('get-avatar-images', { avatar_images_id });
+    }
+    setUserAvatarImage(avatar_images_id) {
+        return this.emit('set-user-avatar-image', { avatar_images_id });
+    }
+    setUserAvatarMesh(type) {
+        return this.emit('set-user-avatar-mesh', { type });
+    }
+    savePreviewImage(preview, avatar_images_id) {
+        return this.emit('save-preview-images', { preview, avatar_images_id });
+    }
+    saveAvatarImage(image: string, preview: string) {
+        return this.emit('save-avatar-images', { image, preview }) as Promise<AvatarImage[]>;
+    }
+    deleteAvatarImage(avatar_images_id) {
+        return this.emit('delete-avatar-images', { avatar_images_id });
+    }
+    setDefaultAvatar(geometry, texture) {
+        return this.emit('set-default-avatar', { geometry, texture });
+    }
+    getUserTimezone(users_id) {
+        return this.emit('get-user-timezone', { users_id });
+    }
+    getRelated(users_id) {
+        return this.emit('get-related', { users_id });
+    }
+    setSpace(spaces_id) {
+        return this.emit('set-space', { spaces_id });
+    }
+    oneShot(data) {
+        return this.emit('one-shot', data);
+    }
+    syncObject(data) {
+        return this.emit('sync-object', data);
+    }
+    removeUserValue(key) {
+        return this.emit('remove-user-value', { key });
+    }
+    getUserValues() {
+        return this.emit('get-user-values', {});
+    }
+    setUserValues(keyValues) {
+        return this.emit('set-user-values', { keyValues });
+    }
+    heartBeat() {
+        return this.emit('heart-beat', {});
+    }
+    deleteApp(apps_id) {
+        return this.emit('delete-app', { apps_id });
+    }
+    getAppUpdates(apps_ids) {
+        return this.emit('get-app-updates', { apps_ids });
+    }
+    getAppPackage(packagename) {
+        return this.emit('get-app-package', { packagename });
+    }
+    getApp(apps_id: number | string) {
+        return this.emit('get-app', { apps_id }) as Promise<AppListing[]>;
+    }
+    getAppTotals(apps_id: number) {
+        return this.emit('get-app-totals', { apps_id }) as Promise<AppCounter[]>;
+    }
+    getAppCounters(apps_id, start_time, end_time, filter) {
+        return this.emit('get-app-counters', {
+            apps_id,
+            start_time,
+            end_time,
+            filter,
+        });
+    }
+    getAppUrls(apps_id: number | string) {
+        return this.emit('get-app-urls', { apps_id }) as Promise<AppUrl[]>;
+    }
+    getAppScreenshots(apps_id: number | string) {
+        return this.emit('get-app-screenshots', { apps_id }) as Promise<ScreenShot[]>;
+    }
+    searchApps(search, page, order, direction, app_categories_id?, tag?, users_id?, limit?) {
+        return this.emit('search-apps', {
+            search,
+            page,
+            order,
+            direction,
+            app_categories_id,
+            tag,
+            users_id,
+            limit,
+        });
+    }
+    searchMyApps(page, search) {
+        return this.emit('search-my-apps', { search, page });
+    }
+    searchInstalledApps(search: string, page: number, is_updated?: boolean, is_uninstalled?: boolean, apps_id?: number) {
+        return this.emit('search-installed-apps', {
+            search,
+            page,
+            is_updated,
+            is_uninstalled,
+            apps_id,
+        }) as Promise<AppListing[]>;
+    }
+    async addInstalledApp(apps_id, versioncode) {
+        const response = await this.emit('add-edit-installed-app', {
+            apps_id,
+            versioncode,
+        });
+        this.notifyInstalledAppsChanged();
+        return response;
+    }
+    async uninstallApp(apps_id) {
+        const response = await this.emit('uninstall-app', { apps_id });
+        this.notifyInstalledAppsChanged();
+        return response;
+    }
+    getAppWebhook(apps_id: string) {
+        return this.emit('get-app-webhook', { apps_id }) as Promise<string>;
+    }
+    addApp(
+        name,
+        image_url,
+        video_url,
+        comfort,
+        summary,
+        description,
+        apk_url,
+        packagename,
+        versioncode,
+        versionname,
+        license,
+        website,
+        donate_url,
+        github_name,
+        github_repo,
+        github_tag,
+        github_enabled,
+        app_categories_id,
+        screenshots,
+        supports_quest,
+        supports_go,
+        supports_other,
+        search_tags,
+        app_urls,
+        early_access
+    ) {
+        return this.editApp(
+            null,
+            name,
+            image_url,
+            video_url,
+            comfort,
+            summary,
+            description,
+            apk_url,
+            packagename,
+            versioncode,
+            versionname,
+            license,
+            website,
+            donate_url,
+            github_name,
+            github_repo,
+            github_tag,
+            github_enabled,
+            app_categories_id,
+            screenshots,
+            supports_quest,
+            supports_go,
+            supports_other,
+            search_tags,
+            app_urls,
+            early_access
+        );
+    }
+    editApp(
+        apps_id,
+        name,
+        image_url,
+        video_url,
+        comfort,
+        summary,
+        description,
+        apk_url,
+        packagename,
+        versioncode,
+        versionname,
+        license,
+        website,
+        donate_url,
+        github_name,
+        github_repo,
+        github_tag,
+        github_enabled,
+        app_categories_id,
+        screenshots,
+        supports_quest,
+        supports_go,
+        supports_other,
+        search_tags,
+        app_urls,
+        early_access
+    ) {
+        return this.emit('add-edit-app', {
+            apps_id,
+            name,
+            image_url,
+            video_url,
+            comfort,
+            summary,
+            description,
+            apk_url,
+            packagename,
+            versioncode,
+            versionname,
+            license,
+            website,
+            donate_url,
+            github_name,
+            github_repo,
+            github_tag,
+            github_enabled,
+            app_categories_id,
+            screenshots,
+            supports_quest,
+            supports_go,
+            supports_other,
+            search_tags,
+            app_urls,
+            early_access,
+        });
+    }
+    appCount(type, apps_id) {
+        return this.emit('update-count-app', { type, apps_id });
+    }
 
-  notifyInstalledAppsChanged() {
-    this.installedAppsChangedAt.next(Date.now());
-  }
+    notifyInstalledAppsChanged() {
+        this.installedAppsChangedAt.next(Date.now());
+    }
 }
