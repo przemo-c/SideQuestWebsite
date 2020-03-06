@@ -15,6 +15,7 @@
   <h4>Hi {{expanseService.currentSession.name}}!</h4>
   <div class="sub-banner">
     <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
+
       tooltip="Update your profile information." position="bottom" routerLink="/account">
       <i class="material-icons left">face</i> My Info
     </div>
@@ -56,13 +57,14 @@
     </form>
   </div>
   <div *ngIf="mainPage === 'apps'" class="margin-left">
-    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="App that you have installed." position="bottom"
+    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Apps that you have installed." position="bottom"
       routerLink="/account/subscribed-apps">
       <i class="material-icons prefix">apps</i>
       App Subscriptions ({{app_totals.app_sub_total}})
     </div>
     <div *ngIf="isDev" class="chip pointer margin-right menu-chip" mz-tooltip
       tooltip="App listings on Sidequest for games, apps and mods for standalone VR headsets." position="bottom"
+
       routerLink="/account/apps-listings">
       <i class="material-icons prefix">list</i>
       App Listings ({{app_totals.app_total}})
@@ -420,17 +422,14 @@
       <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
         tooltip="Get a list of all the apps you have installed or subscribed to." position="bottom"
         routerLink="/account/subscribed-apps">Subscribed</div>
-      <!--        (click)="isUpdated = false;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"-->
 
       <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
-        tooltip="Get a list of all the apps you have installed and unsubscribed from." position="bottom"
+       tooltip="Get a list of all the apps you have installed and unsubscribed from." position="bottom"
         routerLink="/account/unsubscribed-apps">Unsubscribed</div>
-      <!--        (click)="isUpdated = false;isUninstalled = true; page=0;saveMyAppsView(); getInstalledApps()"-->
 
       <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
         tooltip="Get a list of all your subscribed apps that have an update available." position="bottom"
         routerLink="/account/updated-apps">Updates</div>
-      <!--        (click)="isUpdated = true;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"-->
 
       <div *ngIf="appsNeedingUpdated && appsNeedingUpdated.length"
         class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip

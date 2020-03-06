@@ -19,6 +19,12 @@
       Thank you for supporting us {{expanseService.currentSession.name}}. 🎉
     </ng-container>
   </span>
+  <div class="center-align" *ngIf="expanseService.isNotGolden()">
+    <a href="javascript:void(0)" routerLink="/" (click)="appService.openLink('https://vrcover.com/product/oculus-quest-foam-and-interface-basic-set/?itm=411')" >
+      <img src="https://vrcover.com/wp-content/uploads/2019/07/728х90_QUEST_B.png" alt="VR Cover" class="responsive-img"/>
+    </a>
+    <br><br>
+  </div>
   <h5>Most popular games</h5>
   <div class="row top-margin">
     <app-app-display-box [apps]="popularApps"></app-app-display-box>

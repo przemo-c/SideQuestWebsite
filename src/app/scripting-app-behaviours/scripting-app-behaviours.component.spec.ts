@@ -1,24 +1,38 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScriptingAppBehavioursComponent } from "./scripting-app-behaviours.component";
+import { ScriptingAppBehavioursComponent } from './scripting-app-behaviours.component';
+import { CodeBlockComponent } from '../code-block/code-block.component';
+import { HighlightModule } from 'ngx-highlightjs';
+import cs from 'highlight.js/lib/languages/cs';
+import { MzToastModule } from 'ngx-materialize';
 
-describe("ScriptingAppBehavioursComponent", () => {
-  let component: ScriptingAppBehavioursComponent;
-  let fixture: ComponentFixture<ScriptingAppBehavioursComponent>;
+function hljsLanguages() {
+    return [{ name: 'cs', func: cs }];
+}
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ScriptingAppBehavioursComponent]
-    }).compileComponents();
-  }));
+describe('ScriptingAppBehavioursComponent', () => {
+    let component: ScriptingAppBehavioursComponent;
+    let fixture: ComponentFixture<ScriptingAppBehavioursComponent>;
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ScriptingAppBehavioursComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            imports: [
+                HighlightModule.forRoot({
+                    languages: hljsLanguages,
+                }),
+                MzToastModule,
+            ],
+            declarations: [ScriptingAppBehavioursComponent, CodeBlockComponent],
+        }).compileComponents();
+    }));
 
-  it("should create", () => {
-    expect(component).toBeTruthy();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(ScriptingAppBehavioursComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

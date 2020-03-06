@@ -4,3 +4,10 @@
   right: 3px;
   text-align: right;
 }
+
+.app-name-text{
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size:1.1rem;
+  color: white;
+}
