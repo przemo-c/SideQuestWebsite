@@ -12,7 +12,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged --pattern \"**/*.*(js|jsx|ts|tsx)\"",
+      "pre-commit": "pretty-quick --staged --pattern \"**/*.*(js|jsx|ts|tsx|html|css|scss)\"",
       "post-commit": "git update-index -g"
     }
   },
