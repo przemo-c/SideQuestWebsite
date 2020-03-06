@@ -22,6 +22,25 @@ interface NotificationsResponse {
     unread_messages: any[];
 }
 
+export interface SessionInfo {
+    users_id?: number;
+    name?: string;
+    image?: string;
+    preview_image?: string;
+    avatar_base_mesh?: 'male' | 'female';
+    avatar_images_id?: number;
+    default_space?: string;
+    email?: string;
+    banner_image?: string;
+    public_profile?: boolean;
+    tag_line?: string;
+    donate_url?: string;
+    bio?: string;
+    profile_color?: string;
+    score_points?: string;
+    token?: string;
+}
+
 @Injectable({
     providedIn: 'root',
 })
@@ -43,7 +62,7 @@ export class ExpanseClientService {
     updateLoopCount: number;
     ws: WebSocket;
     socketId: any;
-    currentSession: any;
+    currentSession?: SessionInfo;
     installedApps: AppListing[];
     default_app_ulrs: any[] = [];
     public installedAppsChangedAt = new Subject<number>();
@@ -370,7 +389,7 @@ export class ExpanseClientService {
         return this.emit('sign-up', { name, email, password, dob }) as Promise<any>;
     }
     refresh(token) {
-        return this.emit('refresh', { token });
+        return this.emit('refresh', { token }) as Promise<SessionInfo>;
     }
     getUserAppUrls(users_id) {
         return this.emit('get-user-app-urls', { users_id });
@@ -410,7 +429,7 @@ export class ExpanseClientService {
     eventCount(type, events_id) {
         return this.emit('update-count-event', { type, events_id });
     }
-    getSpace(spaces_id: number) {
+    getSpace(spaces_id: number | string) {
         return this.emit('space', { spaces_id }) as Promise<SpaceListing>;
     }
     getSpaces(page, search, users_id?) {
