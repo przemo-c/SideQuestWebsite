@@ -9,12 +9,44 @@ interface Notifications {
     unread_messages: any[];
 }
 
+type AppID = number;
+type PackageName = string;
+type AppIndex = Record<AppID, PackageName>;
+
+interface AppMeta {
+    [appId: number]: {
+        v: number; // view
+        ct: number; // click-through
+        d: number; // download
+        l: number; // like
+        vc: number | null; // version code
+    };
+}
+
+interface EventMeta {
+    [eventId: number]: {
+        v: number; // view
+        ct: number; // click-through
+        a: number; // attending
+        l: number; // like
+    };
+}
+
+interface SpaceMeta {
+    [spaceId: number]: {
+        v: number; // view
+        ct: number; // click-through
+        a: number; // attending
+        l: number; // like
+    };
+}
+
 @Injectable({
     providedIn: 'root',
 })
 export class AppService {
-    hideLogo: boolean;
-    scrollContainer: HTMLElement;
+    public hideLogo: boolean;
+    public scrollContainer: HTMLElement;
 
     private _isAuthenticated = false;
 
@@ -27,53 +59,45 @@ export class AppService {
         this.authenticationStatus.next(this._isAuthenticated);
     }
 
-    currentUrl: string;
-    space_meta: any;
-    event_meta: any;
-    app_meta: any;
-    app_index: any;
-    sidequestResolve: any;
-    sidequestReject: any;
-    sidequestUrl: string;
-    urlTimeout: any;
-    urlTimeoutValue: number;
-    confirmOpen: MzModalComponent;
-    isGrid: boolean = true;
-    isTimeline: boolean = false;
-    accountComponent: AccountComponent;
-    notifications: Notifications = { friend_requests: [], unread_messages: [] };
-    isMobile: boolean;
-    isMobileLarge: boolean;
+    public currentUrl: string;
+    public space_meta: SpaceMeta;
+    public event_meta: EventMeta;
+    public app_meta: AppMeta;
+    public app_index: AppIndex;
+    public sidequestUrl: string;
+    public urlTimeout: any;
+    public urlTimeoutValue: number;
+    public confirmOpen: MzModalComponent;
+    public accountComponent: AccountComponent;
+    public notifications: Notifications = { friend_requests: [], unread_messages: [] };
     public readonly siteKey = '6LfrRrcUAAAAAE00oWA60iMK5AeM7luMlKWevTlY';
     public badge: 'bottomright' | 'bottomleft' | 'inline' = 'inline';
     public type: 'image' | 'audio' = 'image';
     public theme: 'light' | 'dark' = 'dark';
     public authenticationStatus = new Subject<boolean>();
+
+    public get isEmbedded() {
+        return this.hideLogo;
+    }
+
+    private urlConfirmDelay = 30; // in seconds
+    private sidequestResolve: any;
+    private sidequestReject: any;
+
     constructor(private toastService: MzToastService) {
         const userAgent = (navigator as any).userAgent.toLowerCase();
         if (userAgent.indexOf(' electron/') > -1) {
             this.hideLogo = true;
         }
-        this.isMobile = window.innerWidth < 1500;
-        this.isMobileLarge = window.innerWidth < 900;
         this.loadAppIndex();
         this.loadAppMeta();
         this.saveAppMeta();
-        this.setupWindowEvents();
-        const isGrid = localStorage.getItem('isGrid');
-        if (isGrid) {
-            this.isGrid = isGrid === 'true';
-        }
-        const isTimeline = localStorage.getItem('isTimeline');
-        if (isTimeline) {
-            this.isTimeline = isTimeline === 'true';
-        }
     }
-    setAccountComponent(accountComponent: AccountComponent) {
+    public setAccountComponent(accountComponent: AccountComponent) {
         this.accountComponent = accountComponent;
     }
 
-    async getNotifications(expanseService: ExpanseClientService) {
+    public async getNotifications(expanseService: ExpanseClientService) {
         await expanseService.start();
         try {
             this.notifications = await expanseService.getNotifications();
@@ -82,15 +106,15 @@ export class AppService {
         }
     }
 
-    scrollToTop() {
+    public scrollToTop() {
         this.scrollTo(0);
     }
 
-    scrollTo(pos) {
+    private scrollTo(pos) {
         document.body.scrollTo(0, pos);
     }
 
-    remoteInstall(data) {
+    public remoteInstall(data) {
         let customUrl;
         if (data.app_urls.length) {
             let _apps = JSON.stringify(data.app_urls.map(l => l.link_url.trim()));
@@ -109,56 +133,31 @@ export class AppService {
         }
     }
 
-    async fixImages(result, size?) {
+    public async fixImages(result, size?) {
         const items = result && result.length ? result : [];
         await Promise.all(
             items.map(async d => {
                 const img = new Image();
-                let notLoaded = false;
                 await new Promise((resolve, reject) => {
                     img.onload = resolve;
                     img.onerror = reject;
                     img.src = (d.image_url || d.event_image || d.image) + (size ? '?size=' + size : '');
-                    console.log(img.src);
                 }).catch(e => {
                     d.image_url = null;
                     d.event_image = null;
                     d.image = null;
-                    notLoaded = true;
                 });
             })
         );
     }
 
-    saveGrid() {
-        localStorage.setItem('isGrid', this.isGrid.toString());
-        localStorage.setItem('isTimeline', this.isTimeline.toString());
-    }
-
-    setupWindowEvents() {
-        // window.addEventListener(
-        //   "dragover",
-        //   (e: any) => {
-        //     e.preventDefault();
-        //   },
-        //   false
-        // );
-        // window.addEventListener(
-        //   "drop",
-        //   (e: any) => {
-        //     e.preventDefault();
-        //   },
-        //   false
-        // );
-    }
-
-    logout(expanseService) {
+    public logout(expanseService) {
         localStorage.removeItem('session' + expanseService.storageKey);
         expanseService.currentSession = null;
         this.isAuthenticated = false;
     }
 
-    showMessage(res: any, message: string) {
+    public showMessage(res: any, message: string) {
         if (res.error) {
             this.toastService.show(res.data, 10000, 'orange', () => {});
         } else {
@@ -166,7 +165,7 @@ export class AppService {
         }
     }
 
-    getSpaceMeta(spaces_id) {
+    public getSpaceMeta(spaces_id) {
         if (!this.space_meta[spaces_id]) {
             this.space_meta[spaces_id] = {
                 v: 0,
@@ -178,7 +177,7 @@ export class AppService {
         return this.space_meta[spaces_id];
     }
 
-    getEventMeta(events_id) {
+    public getEventMeta(events_id) {
         if (!this.event_meta[events_id]) {
             this.event_meta[events_id] = {
                 v: 0,
@@ -190,7 +189,7 @@ export class AppService {
         return this.event_meta[events_id];
     }
 
-    getAppMeta(apps_id) {
+    public getAppMeta(apps_id) {
         if (!this.app_meta[apps_id]) {
             this.app_meta[apps_id] = {
                 v: 0,
@@ -203,7 +202,7 @@ export class AppService {
         return this.app_meta[apps_id];
     }
 
-    loadAppIndex() {
+    private loadAppIndex() {
         let app_index = localStorage.getItem('app_index');
         if (!app_index) {
             this.defaultAppIndex();
@@ -216,11 +215,11 @@ export class AppService {
         }
     }
 
-    defaultAppIndex() {
+    private defaultAppIndex() {
         this.app_index = {};
     }
 
-    loadAppMeta() {
+    private loadAppMeta() {
         let app_meta = localStorage.getItem('app_meta');
         if (!app_meta) {
             this.defaultAppMeta();
@@ -253,51 +252,51 @@ export class AppService {
         }
     }
 
-    defaultAppMeta() {
+    private defaultAppMeta() {
         this.app_meta = {};
     }
 
-    defaultEventMeta() {
+    private defaultEventMeta() {
         this.event_meta = {};
     }
 
-    defaultSpaceMeta() {
+    private defaultSpaceMeta() {
         this.space_meta = {};
     }
 
-    saveAppMeta() {
+    public saveAppMeta() {
         localStorage.setItem('space_meta', JSON.stringify(this.space_meta));
         localStorage.setItem('event_meta', JSON.stringify(this.event_meta));
         localStorage.setItem('app_meta', JSON.stringify(this.app_meta));
         localStorage.setItem('app_index', JSON.stringify(this.app_index));
     }
 
-    retrySidequestUrl() {
+    public retrySidequestUrl() {
         if (this.sidequestUrl) {
             (window as any).location = this.sidequestUrl;
         }
     }
 
-    cancelSidequestUrl() {
+    public cancelSidequestUrl() {
         this.clearUrlTimeout();
         if (this.sidequestReject) {
             this.sidequestReject();
         }
     }
 
-    confirmSidequestUrl() {
+    public confirmSidequestUrl() {
         this.clearUrlTimeout();
         if (this.sidequestResolve) {
             this.sidequestResolve();
         }
     }
 
-    clearUrlTimeout() {
+    public clearUrlTimeout() {
         clearTimeout(this.urlTimeout);
         this.urlTimeoutValue = 0;
     }
 
-    startUrlTimer() {
+    private startUrlTimer() {
         this.urlTimeout = setTimeout(() => {
             this.urlTimeoutValue--;
             if (this.urlTimeoutValue > 0) {
@@ -309,16 +308,16 @@ export class AppService {
         }, 1000);
     }
 
-    openLink(url: string) {
+    public openLink(url: string) {
         window.location.href = url;
     }
-    openSidequestUrl(url) {
+    public openSidequestUrl(url) {
         this.sidequestUrl = url;
         this.retrySidequestUrl();
         if (this.hideLogo) {
             return Promise.resolve();
         }
-        this.urlTimeoutValue = 30;
+        this.urlTimeoutValue = this.urlConfirmDelay;
         this.startUrlTimer();
         this.confirmOpen.openModal();
         return new Promise<void>((resolve, reject) => {
@@ -327,20 +326,20 @@ export class AppService {
         });
     }
 
-    copyUrl(url) {
+    public copyUrl(url) {
         if (navigator.clipboard) {
             navigator.clipboard.writeText(url).then(
                 () => {
                     this.showMessage({ error: false }, 'Copied to clipboard!');
                 },
                 err => {
-                    this.showMessage({ error: true, data: 'Cant copy!' }, '');
+                    this.showMessage({ error: true, data: "Can't copy!" }, '');
                 }
             );
         }
     }
 
-    refreshShareLink(expanseService, type, id, name, description, image, external) {
+    public refreshShareLink(expanseService: ExpanseClientService, type, id, name, description, image, external) {
         return fetch('https://sdq.st/delete-link/' + expanseService.currentSession.token + '/' + type + '-' + id, {
             method: 'GET',
             cache: 'no-cache',
