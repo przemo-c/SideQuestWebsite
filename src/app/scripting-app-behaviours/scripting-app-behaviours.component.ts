@@ -27,7 +27,7 @@ public class MyAppScript : AppBehaviour
     // Your code here...
 
     // Call base.Start() to initialise the underlying AppBehaviour. Without this
-    // some things might not work as expected like interactables.
+    // some things might not work as expected, such as interactables.
     base.Start();
   }
 
