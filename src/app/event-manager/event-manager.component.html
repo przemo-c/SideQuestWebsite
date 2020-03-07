@@ -8,16 +8,18 @@
     </div>
   </div>
 </ng-container>
-<div *ngIf="!is_not_found && !loading" class="main-container" [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
+<div *ngIf="!is_not_found && !loading" class="main-container"
+  [ngClass]="{'padding':service.hideLogo,'container':!service.hideLogo}">
 
-  <div class="btn waves-effect waves-light pink-button right margin-left" routerLink="/event/{{events_id}}" *ngIf="events_id">View Listing</div>
+  <div class="btn waves-effect waves-light pink-button right margin-left" routerLink="/event/{{events_id}}"
+    *ngIf="events_id">View Listing</div>
   <div class="btn waves-effect waves-light right pink-button margin-left" (click)="saveEvent()">Save Event</div>
 
   <h4><i class="material-icons back-icon" routerLink="/account">reply</i>{{events_id?'Manage Event':'Create Event'}}
     <span *ngIf="events_id" class="chip white-text"
-          [ngClass]="{'pink-button': currentApp.is_approved, 'orange': !currentApp.is_approved}">
-  {{currentApp.is_approved ? 'Published' : 'Pending'}}
-  </span>
+      [ngClass]="{'pink-button': currentApp.is_approved, 'orange': !currentApp.is_approved}">
+      {{currentApp.is_approved ? 'Published' : 'Pending'}}
+    </span>
   </h4>
 
   <div *ngIf="events_id && currentApp.is_approved">
@@ -26,20 +28,16 @@
     <br>
 
     <div class="center-align">
-  <span class="chip pointer top-chip"
-        onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
-        mz-tooltip tooltip="People have been so kind, we are humbled."
-        position="bottom">
-      <img src="assets/images/patreon.jpg" alt="Support us on Patreon."/>
-      Support us on Patreon
-    </span>
-      <span class="chip pointer top-chip"
-            onclick="window.location.href = 'https://paypal.me/sidequestvr'"
-            mz-tooltip tooltip="Use this option if you prefer a one off donation."
-            position="bottom">
-      <img src="assets/images/paypal.jpg" alt="Donate on Paypal"/>
-      Donate on Paypal
-    </span>
+      <span class="chip pointer top-chip" onclick="window.location.href = 'https://www.patreon.com/TheExpanseVR'"
+        mz-tooltip tooltip="People have been so kind, we are humbled." position="bottom">
+        <img src="assets/images/patreon.jpg" alt="Support us on Patreon." />
+        Support us on Patreon
+      </span>
+      <span class="chip pointer top-chip" onclick="window.location.href = 'https://paypal.me/sidequestvr'" mz-tooltip
+        tooltip="Use this option if you prefer a one-off donation." position="bottom">
+        <img src="assets/images/paypal.jpg" alt="Donate on Paypal" />
+        Donate on Paypal
+      </span>
     </div>
     <br>
   </div>
@@ -48,13 +46,15 @@
       <h5>Event Image</h5>
       <hr>
       <div class="right-align grey-text">Add an image - 2048px X 1024px is a good size.</div>
-      <div #addImage class="add-image" *ngIf="!currentApp.event_image && !uploadService.is_loading_icon" (click)="uploadIcon()">
+      <div #addImage class="add-image" *ngIf="!currentApp.event_image && !uploadService.is_loading_icon"
+        (click)="uploadIcon()">
         <i class="material-icons">add</i> Add Image
       </div>
       <div class="loader-cont" *ngIf="uploadService.is_loading_icon">
         <div class="loader-initial"></div>
       </div>
-      <img class="responsive-img pointer" *ngIf="currentApp.event_image && !uploadService.is_loading_icon" src="{{currentApp.event_image}}" (click)="uploadIcon()"/>
+      <img class="responsive-img pointer" *ngIf="currentApp.event_image && !uploadService.is_loading_icon"
+        src="{{currentApp.event_image}}" (click)="uploadIcon()" />
       <br><br>
       <h5>Event Video</h5>
       <hr>
@@ -62,18 +62,18 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">movie</i>
-          <input id="video_url" type="text" class="validate" (input)="onVideoChange()" placeholder="http://www.example.com" [(ngModel)]="currentApp.video_url">
+          <input id="video_url" type="text" class="validate" (input)="onVideoChange()"
+            placeholder="http://www.example.com" [(ngModel)]="currentApp.video_url">
           <label for="video_url" class="active">Youtube/Vimeo Url</label>
         </div>
         <div class="col s12" *ngIf="videoObject">
           <div *ngIf="videoObject.provider === 'youtube'">
             <iframe width="100%" height="200" [src]="videoUrl" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div *ngIf="videoObject.provider === 'vimeo'">
-            <iframe [src]="videoUrl" width="100%" height="200"
-                    frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            <iframe [src]="videoUrl" width="100%" height="200" frameborder="0" allow="autoplay; fullscreen"
+              allowfullscreen></iframe>
           </div>
         </div>
       </div>
@@ -87,53 +87,47 @@
         <div class="input-field col s12">
           <i class="material-icons prefix">done</i>
           <input id="app_name" type="text" placeholder="My Cool Event" class="validate"
-                 [(ngModel)]="currentApp.event_name">
+            [(ngModel)]="currentApp.event_name">
           <label for="app_name" class="active">Event Name</label>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">playlist_add</i>
-          <textarea id="description" class="materialize-textarea"  placeholder="Event description..."
-                    [(ngModel)]="currentApp.event_description"
-          ></textarea>
+          <textarea id="description" class="materialize-textarea" placeholder="Event description..."
+            [(ngModel)]="currentApp.event_description"></textarea>
           <label for="description" class="active">Description</label>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">event_note</i>
           <input id="event_url" type="text" placeholder="https://example.com" class="validate"
-                 [(ngModel)]="currentApp.event_url">
+            [(ngModel)]="currentApp.event_url">
           <label for="app_name" class="active">Event Url</label>
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">exit_to_app</i>
           <input id="app_url" type="text" placeholder="https://example.com" class="validate"
-                 [(ngModel)]="currentApp.app_url">
+            [(ngModel)]="currentApp.app_url">
           <label for="app_name" class="active">App Page Url</label>
         </div>
         <div class="col s12 l4 input-field">
           <i class="material-icons prefix">event</i>
           <label for="dateRangePicker" class="active">Date</label>
-          <input type="text" ngxDaterangepickerMd
-                 startKey="start" [singleDatePicker]="true"
-                 [(ngModel)]="selectedDate" [opens]="'left'" [isCustomDate]="customCss"
-                 (choosedDate)="null"
-                 id="dateRangePicker" class="form-control"/>
+          <input type="text" ngxDaterangepickerMd startKey="start" [singleDatePicker]="true" [(ngModel)]="selectedDate"
+            [opens]="'left'" [isCustomDate]="customCss" (choosedDate)="null" id="dateRangePicker"
+            class="form-control" />
         </div>
         <div class="col s12 l4">
           <i class="material-icons select-icon">access_time</i>
           <p class="range-field select-drop-down">
             <label class="active">Time - {{selectedTime*60|showDuration}}</label>
-            <input type="range" id="event_time"
-                   [(ngModel)]="selectedTime"
-                   min="0" step="15" max="1425" />
+            <input type="range" id="event_time" [(ngModel)]="selectedTime" min="0" step="15" max="1425" />
           </p>
         </div>
         <div class="col s12 l4">
           <i class="material-icons select-icon">timelapse</i>
           <p class="range-field select-drop-down">
             <label class="active">Duration - {{currentApp.event_duration|showDuration}} hrs</label>
-            <input type="range" id="event_duration"
-                   [(ngModel)]="currentApp.event_duration"
-                   min="0" step="900" max="21600" />
+            <input type="range" id="event_duration" [(ngModel)]="currentApp.event_duration" min="0" step="900"
+              max="21600" />
           </p>
         </div>
         <div class="col s12">
@@ -142,36 +136,22 @@
             <label class="active">Number of Events</label>
             <mz-radio-button-container>
               <!--<input mz-radio-button-->
-                     <!--[label]="'One Off'"-->
-                     <!--[withGap]="true"-->
-                     <!--id="repeat-Type-OneOff"-->
-                     <!--name="type-group"-->
-                     <!--value="oneoff"-->
-                     <!--type="radio" [(ngModel)]="currentApp.event_repeat_type" (change)="resetRepeat()">-->
+              <!--[label]="'One Off'"-->
+              <!--[withGap]="true"-->
+              <!--id="repeat-Type-OneOff"-->
+              <!--name="type-group"-->
+              <!--value="oneoff"-->
+              <!--type="radio" [(ngModel)]="currentApp.event_repeat_type" (change)="resetRepeat()">-->
               <!--&nbsp;&nbsp;-->
-              <input mz-radio-button
-                     [label]="'Daily'"
-                     [withGap]="true"
-                     id="repeat-Type-Daily"
-                     name="type-group"
-                     value="daily"
-                     type="radio" [(ngModel)]="currentApp.event_repeat_type" (change)="resetRepeat()">
+              <input mz-radio-button [label]="'Daily'" [withGap]="true" id="repeat-Type-Daily" name="type-group"
+                value="daily" type="radio" [(ngModel)]="currentApp.event_repeat_type" (change)="resetRepeat()">
               &nbsp;&nbsp;
-              <input mz-radio-button
-                     [label]="'Weekly'"
-                     [withGap]="true"
-                     id="repeat-Type-Weekly"
-                     name="type-group"
-                     value="weekly"
-                     type="radio" [(ngModel)]="currentApp.event_repeat_type" (change)="resetRepeat()">
+              <input mz-radio-button [label]="'Weekly'" [withGap]="true" id="repeat-Type-Weekly" name="type-group"
+                value="weekly" type="radio" [(ngModel)]="currentApp.event_repeat_type" (change)="resetRepeat()">
               &nbsp;&nbsp;
-              <input mz-radio-button
-                     [label]="'Fortnightly'"
-                     [withGap]="true"
-                     id="repeat-Type-Fortnightly"
-                     name="type-group"
-                     value="fortnightly"
-                     type="radio" [(ngModel)]="currentApp.event_repeat_type" (change)="resetRepeat()">
+              <input mz-radio-button [label]="'Fortnightly'" [withGap]="true" id="repeat-Type-Fortnightly"
+                name="type-group" value="fortnightly" type="radio" [(ngModel)]="currentApp.event_repeat_type"
+                (change)="resetRepeat()">
             </mz-radio-button-container>
           </div>
         </div>
@@ -192,33 +172,38 @@
           <div class="col s12 m6">
             <div class="card card-height">
               <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-                   *ngIf="selectedApp.image_url" [ngStyle]="{'background-image':'url(\''+selectedApp.image_url+'\')'}">
+                *ngIf="selectedApp.image_url" [ngStyle]="{'background-image':'url(\''+selectedApp.image_url+'\')'}">
               </div>
               <div class="card-content card-height">
                 <i class="material-icons activator pointer right">more_vert</i>
-                <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':selectedApp.image_url}">{{selectedApp.name||'No Name...'}}</span>
-                <p class="grey-text description truncate" [ngClass]="{'card-title-small':selectedApp.image_url}">{{selectedApp.summary}}</p>
+                <span class="card-title activator white-text truncate"
+                  [ngClass]="{'card-title-small':selectedApp.image_url}">{{selectedApp.name||'No Name...'}}</span>
+                <p class="grey-text description truncate" [ngClass]="{'card-title-small':selectedApp.image_url}">
+                  {{selectedApp.summary}}</p>
                 <div class="right-align">
-                <span class="chip left white-text"
-                      [ngClass]="{'pink-button': selectedApp.active, 'orange': !selectedApp.active}">
-                {{selectedApp.active ? 'Published' : 'Pending'}}
-                </span>
+                  <span class="chip left white-text"
+                    [ngClass]="{'pink-button': selectedApp.active, 'orange': !selectedApp.active}">
+                    {{selectedApp.active ? 'Published' : 'Pending'}}
+                  </span>
                 </div>
               </div>
               <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedApp.name||'No Name...'}}</span>
+                <span class="card-title grey-text text-darken-4"><i
+                    class="material-icons right">close</i>{{selectedApp.name||'No Name...'}}</span>
                 <p class="grey-text">{{selectedApp.summary}}</p>
               </div>
             </div>
           </div>
           <div class="col s12 m6 center-align">
             <br><br>
-            <div class="btn waves-effect waves-light pink-button small-button" (click)="searchString = '';linkType = 'app';getApps();linkItem.openModal()">Change App</div>
+            <div class="btn waves-effect waves-light pink-button small-button"
+              (click)="searchString = '';linkType = 'app';getApps();linkItem.openModal()">Change App</div>
           </div>
         </div>
         <div class="center-align" *ngIf="!selectedApp">
           <br><br><br>
-          <div class="btn waves-effect waves-light pink-button small-button" (click)="searchString = '';linkType = 'app';getApps();linkItem.openModal()">Select App</div>
+          <div class="btn waves-effect waves-light pink-button small-button"
+            (click)="searchString = '';linkType = 'app';getApps();linkItem.openModal()">Select App</div>
           <br>
         </div>
       </div>
@@ -231,33 +216,38 @@
           <div class="col s12 m6">
             <div class="card card-height">
               <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-                   *ngIf="selectedSpace.image" [ngStyle]="{'background-image':'url(\''+(selectedSpace.image)+'\')'}">
+                *ngIf="selectedSpace.image" [ngStyle]="{'background-image':'url(\''+(selectedSpace.image)+'\')'}">
               </div>
               <div class="card-content card-height">
                 <i class="material-icons activator pointer right">more_vert</i>
-                <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.name||'No Name...'}}</span>
-                <p class="grey-text description truncate" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.description}}</p>
+                <span class="card-title activator white-text truncate"
+                  [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.name||'No Name...'}}</span>
+                <p class="grey-text description truncate" [ngClass]="{'card-title-small':selectedSpace.image}">
+                  {{selectedSpace.description}}</p>
                 <div class="right-align">
-                <span class="chip left white-text"
+                  <span class="chip left white-text"
                     [ngClass]="{'pink-button': selectedSpace.is_approved, 'orange': !selectedSpace.is_approved}">
-                {{selectedSpace.is_approved ? 'Published' : 'Pending'}}
-                </span>
+                    {{selectedSpace.is_approved ? 'Published' : 'Pending'}}
+                  </span>
                 </div>
               </div>
               <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedSpace.name||'No Name...'}}</span>
+                <span class="card-title grey-text text-darken-4"><i
+                    class="material-icons right">close</i>{{selectedSpace.name||'No Name...'}}</span>
                 <p class="grey-text">{{selectedSpace.description}}</p>
               </div>
             </div>
           </div>
           <div class="col s12 m6 center-align">
             <br><br>
-            <div class="btn waves-effect waves-light pink-button small-button" (click)="searchString = '';linkType = 'space';getSpaces();linkItem.openModal()">Change Space</div>
+            <div class="btn waves-effect waves-light pink-button small-button"
+              (click)="searchString = '';linkType = 'space';getSpaces();linkItem.openModal()">Change Space</div>
           </div>
         </div>
         <div class="center-align" *ngIf="!selectedSpace">
           <br><br><br>
-          <div class="btn waves-effect waves-light pink-button small-button" (click)="searchString = '';linkType = 'space';getSpaces();linkItem.openModal()">Select Space</div>
+          <div class="btn waves-effect waves-light pink-button small-button"
+            (click)="searchString = '';linkType = 'space';getSpaces();linkItem.openModal()">Select Space</div>
           <br>
         </div>
       </div>
@@ -268,7 +258,8 @@
         <div class="right-align grey-text">This url will show your apps description when shared on social media.</div>
         <div class="center-align">
           <br><br><br>
-          <div class="btn waves-effect waves-light pink-button small-button" (click)="copyUrl(currentApp.share_url)">Copy To Clipboard</div>
+          <div class="btn waves-effect waves-light pink-button small-button" (click)="copyUrl(currentApp.share_url)">
+            Copy To Clipboard</div>
 
           <br><br>
           <span *ngIf="currentApp.share_url">Share URL: {{currentApp.share_url}}</span>
@@ -279,10 +270,12 @@
         <br>
         <h5>Delete Event</h5>
         <hr>
-        <div class="right-align grey-text">WARNING: This cannot be undone. This will remove the event from the listings.</div>
+        <div class="right-align grey-text">WARNING: This cannot be undone. This will remove the event from the listings.
+        </div>
         <div class="center-align">
           <br><br><br>
-          <div class="btn waves-effect waves-light red small-button" (click)="confirmDelete.openModal()">Delete event</div>
+          <div class="btn waves-effect waves-light red small-button" (click)="confirmDelete.openModal()">Delete event
+          </div>
           <br><br><br>
         </div>
       </div>
@@ -299,33 +292,32 @@
     <div class="right search-box input-field">
       <i class="material-icons prefix">search</i>
 
-      <input id="searchBox" type="text" class="validate"
-             [(ngModel)]="searchString"
-             (input)="debounceSearch()"
-      >
+      <input id="searchBox" type="text" class="validate" [(ngModel)]="searchString" (input)="debounceSearch()">
       <label for="searchBox" class="active">Search</label>
     </div>
     <div class="clearfix"></div>
     <div class="row" *ngIf="linkType === 'app'">
       <div class="col s12 m6" *ngFor="let app of linkApps">
         <div class="card card-height">
-          <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-               *ngIf="app.image_url" [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
+          <div class="card-image card-image-left waves-effect waves-block waves-light activator" *ngIf="app.image_url"
+            [ngStyle]="{'background-image':'url(\''+app.image_url+'\')'}">
           </div>
           <div class="card-content card-height">
             <i class="material-icons activator pointer right">more_vert</i>
-            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
+            <span class="card-title activator white-text truncate"
+              [ngClass]="{'card-title-small':app.image_url}">{{app.name||'No Name...'}}</span>
             <p class="grey-text description truncate" [ngClass]="{'card-title-small':app.image_url}">{{app.summary}}</p>
             <div class="right-align">
-            <span class="chip left white-text"
-                  [ngClass]="{'pink-button': app.active, 'orange': !app.active}">
-            {{app.active ? 'Published' : 'Pending'}}
-          </span>
-              <div class="btn-flat waves-effect waves-light white-text small-button" (click)="linkItem.closeModal();currentApp.apps_id = app.apps_id; selectedApp = app">Select</div>
+              <span class="chip left white-text" [ngClass]="{'pink-button': app.active, 'orange': !app.active}">
+                {{app.active ? 'Published' : 'Pending'}}
+              </span>
+              <div class="btn-flat waves-effect waves-light white-text small-button"
+                (click)="linkItem.closeModal();currentApp.apps_id = app.apps_id; selectedApp = app">Select</div>
             </div>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{app.name||'No Name...'}}</span>
+            <span class="card-title grey-text text-darken-4"><i
+                class="material-icons right">close</i>{{app.name||'No Name...'}}</span>
             <p class="grey-text">{{app.summary}}</p>
           </div>
         </div>
@@ -334,24 +326,29 @@
     <div class="row" *ngIf="linkType !== 'app'">
       <div class="col s12 m6" *ngFor="let space of linkSpaces">
         <div class="card card-height">
-          <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-               *ngIf="space.image" [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
+          <div class="card-image card-image-left waves-effect waves-block waves-light activator" *ngIf="space.image"
+            [ngStyle]="{'background-image':'url(\''+(space.image)+'\')'}">
           </div>
           <div class="card-content card-height">
             <i class="material-icons activator pointer right">more_vert</i>
-            <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
-            <p class="grey-text description truncate" [ngClass]="{'card-title-small':space.image}">{{space.description}}</p>
+            <span class="card-title activator white-text truncate"
+              [ngClass]="{'card-title-small':space.image}">{{space.name||'No Name...'}}</span>
+            <p class="grey-text description truncate" [ngClass]="{'card-title-small':space.image}">{{space.description}}
+            </p>
             <div class="right-align">
               <span class="chip left white-text"
-                    [ngClass]="{'pink-button': space.is_approved, 'orange': !space.is_approved}">
-              {{space.is_approved ? 'Published' : 'Pending'}}
-            </span>
+                [ngClass]="{'pink-button': space.is_approved, 'orange': !space.is_approved}">
+                {{space.is_approved ? 'Published' : 'Pending'}}
+              </span>
               <!--<span class="left chip">{{(space.updated)*1000|date:'mediumDate'}}</span>-->
-              <div  class="btn-flat waves-effect waves-light white-text small-button" (click)="linkItem.closeModal();currentApp.spaces_id = space.spaces_id; selectedSpace = space">Select</div>
+              <div class="btn-flat waves-effect waves-light white-text small-button"
+                (click)="linkItem.closeModal();currentApp.spaces_id = space.spaces_id; selectedSpace = space">Select
+              </div>
             </div>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
+            <span class="card-title grey-text text-darken-4"><i
+                class="material-icons right">close</i>{{space.name||'No Name...'}}</span>
             <p class="grey-text">{{space.description}}</p>
           </div>
         </div>
