@@ -421,3 +421,10 @@ input[type=range] {
 .margin-bottom{
   margin-bottom: 1em;
 }
+
+.inline-highlight{
+  background-color: #282c34;
+  border-radius: 3px;
+  display: inline-block;
+  padding: 1px 3px;
+}

@@ -15,12 +15,12 @@
   <div class="right grey-text">Get going with scripting in SideQuest to open a whole world of possibilities to create content.<br><br></div>
 
   <div class="clearfix"></div>
-    Notice: This next section assumes you are familiar with Unity3D and C-Sharp scripting. Unity has a lot of great <a href="https://learn.unity.com/">tutorials</a> to get your started.<br><br>
+  <span class="inline-highlight blue">NOTICE</span> This next section assumes you are familiar with Unity3D and C-Sharp scripting. Unity has a lot of great <a href="https://learn.unity.com/">tutorials</a> to get your started.<br><br>
 
   <h5>Scripting - Introducing App Behaviours</h5>
   <hr>
   <div class="padding">
-    In order to use scripting in Legends you must bootstrap your custom scripts inside a class that inherits from <span class="chip">AppBehaviour</span>instead of <span class="chip">MonoBehaviour</span>.
+    In order to use scripting in Legends you must bootstrap your custom scripts inside a class that inherits from <span class="inline-highlight">AppBehaviour</span>instead of <span class="inline-highlight">MonoBehaviour</span>.
     Usually this is just one script that sets up all the other MonoBehaviour scripts, in most cases you only have one AppBehaviour.
     These AppBehaviours cannot have public references to other components in the scene but they can use primitive types like string, int, float to initialise properties in the class.
     <app-code-block [someCode]="appBehaviour"></app-code-block>
@@ -29,7 +29,7 @@
   <hr>
   <div class="padding">
     Scripts that are compiled at runtime need to be instantiated at runtime too, this means you cannot link your custom scripts to GameObjects in the Unit3D inspector and instead must instantiate them inside the bootstrap AppBehaviour.
-    This means you need to use <span class="chip">AddComponent&lt;T&gt;()</span> in the AppBehaviour to create instances of your other MonoBehaviours.
+    This means you need to use <span class="inline-highlight">AddComponent&lt;T&gt;()</span> in the AppBehaviour to create instances of your other MonoBehaviours.
     <app-code-block [someCode]="appBehaviourAddComponent"></app-code-block>
     It is important to only use AppBehaviour components for things you want to be instantiated automatically on the root object. You cannot use them to add components to children of the root object. To add scripts to other objects just use normal MonoBehaviours and Instantiate them inside an AppBehaviour.
     <app-code-block [someCode]="appBehaviourAddComponentOther"></app-code-block>
@@ -43,7 +43,7 @@
   <h5>What is an AppBehaviour?</h5>
   <hr>
   <div class="padding">
-    An AppBehaviour simply inherits from MonoBehaviour with an empty class. Here is what the source looks like:
+    An AppBehaviour simply inherits from MonoBehaviour with an almost empty class. Here is what the source looks like:
     <app-code-block [someCode]="appBehaviourSource"></app-code-block>
     It provides a way for us to detect the Type of your bootstrap MonoBehaviour at runtime. This means we can initialise these scripts at runtime automatically and they can then bootstrap the rest of your scripts.
   </div><br><br>

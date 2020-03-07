@@ -127,23 +127,23 @@
       <div *ngIf="!isLoading">
 
         <div class="clearfix"></div>
-        <div class="center-align" *ngIf="expanseService.isNotGolden()">
-          <a href="javascript:void(0)" routerLink="/" (click)="appService.openLink('https://vrcover.com/product/oculus-quest-foam-and-interface-basic-set/?itm=411')" >
-            <img src="https://vrcover.com/wp-content/uploads/2019/07/728х90_QUEST_A.png" alt="VR Cover" class="responsive-img"/>
-          </a>
-          <br><br>
-        </div>
         <div class="row">
           <app-app-display-box [apps]="apps" [showAds]="true"></app-app-display-box>
 
         </div>
-
 
         <div class="center-align">
           <div class="btn waves-effect waves-light pink-button" *ngIf="!isLoading&&!hasNoMore" (click)="appService.scrollToTop()" routerLink="/apps/{{category}}/{{tag||'none'}}/{{page+1}}/{{order}}">Load More</div>
           <div *ngIf="hasNoMore" class="chip">No more items...</div>
         </div>
         <br><br><br>
+
+        <div class="center-align" *ngIf="expanseService.isNotGolden()">
+          <a href="javascript:void(0)" routerLink="/" (click)="appService.openLink('https://vrcover.com/product/oculus-quest-foam-and-interface-basic-set/?itm=411')" >
+            <img src="https://vrcover.com/wp-content/uploads/2019/07/728х90_QUEST_A.png" alt="VR Cover" class="responsive-img"/>
+          </a>
+          <br><br>
+        </div>
       </div>
 
     </div>
