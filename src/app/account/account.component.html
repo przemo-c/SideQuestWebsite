@@ -15,13 +15,14 @@
   <h4>Hi {{expanseService.currentSession.name}}!</h4>
   <div class="sub-banner">
     <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
-      tooltip="App that you have installed and an easy update system." position="bottom" routerLink="/account">
+
+      tooltip="Update your profile information." position="bottom" routerLink="/account">
       <i class="material-icons left">face</i> My Info
     </div>
     <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
-      tooltip="Spaces that you have created." position="bottom" routerLink="/account/friends">
+      tooltip="Your friends and connection requests." position="bottom" routerLink="/account/friends">
       <i class="material-icons left">people</i> Sidekicks <span class="new badge new-badge"
-        *ngIf="friendRequestCount() > 0">{{ friendRequestCount() | notOverNine }}</span>
+        *ngIf="appService.notifications.friend_requests.length">{{appService.notifications.friend_requests.length|notOverNine}}</span>
     </div>
     <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
       tooltip="Your messages with other users." position="bottom" routerLink="/account/messages">
@@ -29,7 +30,7 @@
         *ngIf="appService.notifications.unread_messages.length">{{appService.notifications.unread_messages.length|notOverNine}}</span>
     </div>
     <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
-      tooltip="App that you have installed and an easy update system." position="bottom"
+      tooltip="Apps that you have installed and an easy update system." position="bottom"
       routerLink="/account/subscribed-apps">
       <i class="material-icons left">apps</i> Apps
       ({{isDev?app_totals.app_total+app_totals.app_sub_total:app_totals.app_sub_total}}) <span
@@ -41,7 +42,8 @@
       ({{isDev?app_totals.event_total+app_totals.event_sub_total:app_totals.event_sub_total}})
     </div>
     <div class="waves-effect waves-light btn-flat white-text top-button" mz-tooltip
-      tooltip="Spaces that you have created." position="bottom" routerLink="/account/subscribed-spaces">
+      tooltip="Spaces that you have created or subscribed to." position="bottom"
+      routerLink="/account/subscribed-spaces">
       <i class="material-icons left">location_on</i> Spaces
       ({{isDev?app_totals.space_total+app_totals.space_sub_total:app_totals.space_sub_total}})
     </div>
@@ -55,34 +57,34 @@
     </form>
   </div>
   <div *ngIf="mainPage === 'apps'" class="margin-left">
-    <div class="chip pointer margin-right menu-chip" mz-tooltip
-      tooltip="App that you have installed and an easy update system." position="bottom"
+    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Apps that you have installed." position="bottom"
       routerLink="/account/subscribed-apps">
       <i class="material-icons prefix">apps</i>
       App Subscriptions ({{app_totals.app_sub_total}})
     </div>
     <div *ngIf="isDev" class="chip pointer margin-right menu-chip" mz-tooltip
-      tooltip="App listings on Sidequest for games, apps and mods for Standalone VR headsets." position="bottom"
+      tooltip="App listings on Sidequest for games, apps and mods for standalone VR headsets." position="bottom"
+
       routerLink="/account/apps-listings">
       <i class="material-icons prefix">list</i>
       App Listings ({{app_totals.app_total}})
     </div>
   </div>
   <div *ngIf="mainPage === 'friends'" class="margin-left">
-    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Events you have subscribed to."
-      position="bottom" routerLink="/account/friends">
+    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Your friends on SideQuest." position="bottom"
+      routerLink="/account/friends">
       <i class="material-icons prefix">event</i>
       Sidekicks ({{app_totals.friend_total}})
     </div>
-    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Events that you are running." position="bottom"
-      routerLink="/account/requests">
+    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Friend requests you haven't responded to yet."
+      position="bottom" routerLink="/account/requests">
       <i class="material-icons prefix">event_note</i>
       Requests <ng-container *ngIf="appService.notifications.friend_requests.length||app_totals.requests_total">
         ({{appService.notifications.friend_requests.length+(+app_totals.requests_total)}})</ng-container><span
         class="new badge new-badge"
         *ngIf="appService.notifications.friend_requests.length">{{appService.notifications.friend_requests.length}}</span>
     </div>
-    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Events that you are running." position="bottom"
+    <div class="chip pointer margin-right menu-chip" mz-tooltip tooltip="Users you have blocked." position="bottom"
       routerLink="/account/blocked">
       <i class="material-icons prefix">event_note</i>
       Blocked ({{app_totals.block_total}})
@@ -420,21 +422,18 @@
       <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
         tooltip="Get a list of all the apps you have installed or subscribed to." position="bottom"
         routerLink="/account/subscribed-apps">Subscribed</div>
-      <!--        (click)="isUpdated = false;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"-->
 
       <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
-        tooltip="Get a list of all the apps you have installed or unsubscribed from." position="bottom"
+       tooltip="Get a list of all the apps you have installed and unsubscribed from." position="bottom"
         routerLink="/account/unsubscribed-apps">Unsubscribed</div>
-      <!--        (click)="isUpdated = false;isUninstalled = true; page=0;saveMyAppsView(); getInstalledApps()"-->
 
       <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
-        tooltip="Get a list of all apps that have an update available." position="bottom"
+        tooltip="Get a list of all your subscribed apps that have an update available." position="bottom"
         routerLink="/account/updated-apps">Updates</div>
-      <!--        (click)="isUpdated = true;isUninstalled = false; page=0;saveMyAppsView(); getInstalledApps()"-->
 
       <div *ngIf="appsNeedingUpdated && appsNeedingUpdated.length"
         class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
-        tooltip="Install all of the apps that have updates available, this can take some time." position="bottom"
+        tooltip="Install all of the apps that have updates available. This can take some time." position="bottom"
         (click)="updateAll()">Update All</div>
     </div>
     <div class="clearfix"></div>
@@ -480,14 +479,12 @@
     <h4>My Events</h4>
     <div class="right pull-up">
       <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
-        tooltip="Install all of the apps that have updates available, this can take some time." position="bottom"
-        (click)="eventsType = 'upcoming'; page = 0; getEvents()">Upcoming</div>
+        tooltip="List upcoming events." position="bottom" (click)="eventsType = 'upcoming'; page = 0; getEvents()">
+        Upcoming</div>
       <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
-        tooltip="Install all of the apps that have updates available, this can take some time." position="bottom"
-        (click)="eventsType = 'past'; page = 0; getEvents()">Past</div>
+        tooltip="List past events." position="bottom" (click)="eventsType = 'past'; page = 0; getEvents()">Past</div>
       <div class="btn waves-effect waves-light pink-button small-button margin-left" mz-tooltip
-        tooltip="Install all of the apps that have updates available, this can take some time." position="bottom"
-        (click)="eventsType = 'all'; page = 0; getEvents()">All</div>
+        tooltip="List all events." position="bottom" (click)="eventsType = 'all'; page = 0; getEvents()">All</div>
     </div>
     <div class="clearfix"></div>
     <hr>

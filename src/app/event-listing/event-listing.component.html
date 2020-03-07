@@ -10,28 +10,28 @@
 </ng-container>
 <div class="bottom-border paralax" [ngClass]="{'banner-in-app':service.hideLogo}">
   <div class="banner-top-back" *ngIf="(currentApp.event_image || currentApp.image) && !loading"
-       [ngStyle]="{'background-image':'url(\''+(currentApp.event_image || currentApp.image)+'\')'}"></div>
+    [ngStyle]="{'background-image':'url(\''+(currentApp.event_image || currentApp.image)+'\')'}"></div>
 </div>
 <div *ngIf="!is_not_found && !loading" class="main-container padding"
-     [ngStyle]="{'margin-top': currentApp.event_image || currentApp.image ? '-150px' : '0'}">
+  [ngStyle]="{'margin-top': currentApp.event_image || currentApp.image ? '-150px' : '0'}">
   <div class="top-back" *ngIf="currentApp.event_image || currentApp.image">
 
   </div>
   <h4>
     <i class="material-icons back-icon" (click)="backClicked()">reply</i>
-    <img class="responsive-img top-image"
-         *ngIf="currentApp.event_image || currentApp.image"
-         src="{{currentApp.event_image || currentApp.image}}"/>
-    <img class="responsive-img top-image circle pointer"
-         *ngIf="currentApp.preview_image"
-         src="{{expanseService.cdnUrl+currentApp.preview_image}}" routerLink="/user/{{currentApp.users_id}}"/>
+    <img class="responsive-img top-image" *ngIf="currentApp.event_image || currentApp.image"
+      src="{{currentApp.event_image || currentApp.image}}" />
+    <img class="responsive-img top-image circle pointer" *ngIf="currentApp.preview_image"
+      src="{{expanseService.cdnUrl+currentApp.preview_image}}" routerLink="/user/{{currentApp.users_id}}" />
     {{currentApp.event_name||currentApp.name}}
     <span *ngIf="!currentApp.is_approved" class="chip white-text orange">Private</span>
 
   </h4>
   <div class="right top-tags-name">
-    <a class="btn waves-effect waves-light pink-button" *ngIf="currentApp.event_url" href="{{currentApp.event_url}}">More Info</a>
-    <div class="btn waves-effect waves-light pink-button margin-left" routerLink="/my-event/{{events_id}}" (click)="service.scrollToTop()" *ngIf="isMine">Edit Event</div>
+    <a class="btn waves-effect waves-light pink-button" *ngIf="currentApp.event_url"
+      href="{{currentApp.event_url}}">More Info</a>
+    <div class="btn waves-effect waves-light pink-button margin-left" routerLink="/my-event/{{events_id}}"
+      (click)="service.scrollToTop()" *ngIf="isMine">Edit Event</div>
   </div>
   <div class="clearfix"></div>
   <hr>
@@ -43,20 +43,18 @@
           <div class="right app-package right-align truncate">{{currentApp.start_time*1000|date:'mediumDate'}}</div>
           <div>
             <span class="counter">{{counters.a}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-             mz-tooltip tooltip="Number of downloads"
-             position="bottom"
-            >event</i></span>
+                mz-tooltip tooltip="Number of downloads" position="bottom">event</i></span>
             <span class="counter">{{counters.v}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"
-             mz-tooltip tooltip="Number of views"
-             position="bottom"
-            >visibility</i></span>
+                mz-tooltip tooltip="Number of views" position="bottom">visibility</i></span>
             <!--<span class="counter pointer" (click)="likeEvent()">{{counters.l}}&nbsp;&nbsp;<i class="material-icons vertical-align counter-icon"-->
-             <!--mz-tooltip tooltip="Number of likes"-->
-             <!--position="bottom"-->
+            <!--mz-tooltip tooltip="Number of likes"-->
+            <!--position="bottom"-->
             <!--&gt;thumb_up</i></span>-->
 
-            <div class="btn waves-effect waves-light pink-button margin-left small-button" (click)="attendingCount()">Im Going</div>
-            <div *ngIf="mySubscription" class="btn waves-effect waves-light pink-button margin-left small-button" (click)="unsubscribe()">Unsubscribe</div>
+            <div class="btn waves-effect waves-light pink-button margin-left small-button" (click)="attendingCount()">
+              I'm Going</div>
+            <div *ngIf="mySubscription" class="btn waves-effect waves-light pink-button margin-left small-button"
+              (click)="unsubscribe()">Unsubscribe</div>
 
           </div>
         </div>
@@ -81,12 +79,12 @@
           <div>
             <div *ngIf="videoObject.provider === 'youtube'">
               <iframe width="100%" height="360" [src]="videoUrl" frameborder="0"
-                      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                      allowfullscreen></iframe>
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                allowfullscreen></iframe>
             </div>
             <div *ngIf="videoObject.provider === 'vimeo'">
-              <iframe [src]="videoUrl" width="100%" height="360"
-                      frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+              <iframe [src]="videoUrl" width="100%" height="360" frameborder="0" allow="autoplay; fullscreen"
+                allowfullscreen></iframe>
             </div>
           </div>
           <br>
@@ -123,7 +121,7 @@
         </div>
       </div>
       <div>
-        <div class="row" >
+        <div class="row">
           <div class="col s12 m6" *ngIf="selectedApp">
 
             <br>
@@ -139,22 +137,26 @@
             <div class="right-align grey-text">See the space this event is hosted in.</div>
             <div class="card card-height">
               <div class="card-image card-image-left waves-effect waves-block waves-light activator"
-                   *ngIf="selectedSpace.image" [ngStyle]="{'background-image':'url(\''+(selectedSpace.image)+'\')'}">
+                *ngIf="selectedSpace.image" [ngStyle]="{'background-image':'url(\''+(selectedSpace.image)+'\')'}">
               </div>
               <div class="card-content card-height">
                 <i class="material-icons activator pointer right">more_vert</i>
-                <span class="card-title activator white-text truncate" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.name||'No Name...'}}</span>
-                <p class="grey-text description truncate" [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.description}}</p>
+                <span class="card-title activator white-text truncate"
+                  [ngClass]="{'card-title-small':selectedSpace.image}">{{selectedSpace.name||'No Name...'}}</span>
+                <p class="grey-text description truncate" [ngClass]="{'card-title-small':selectedSpace.image}">
+                  {{selectedSpace.description}}</p>
                 <div class="right-align">
-                <span class="chip left white-text"
-                      [ngClass]="{'pink-button': selectedSpace.is_approved, 'orange': !selectedSpace.is_approved}">
-                {{selectedSpace.is_approved ? 'Published' : 'Pending'}}
-                </span>
-                  <div class="btn-flat waves-effect waves-light white-text small-button" routerLink="/space/{{selectedSpace.spaces_id}}" (click)="service.scrollToTop()">Open</div>
+                  <span class="chip left white-text"
+                    [ngClass]="{'pink-button': selectedSpace.is_approved, 'orange': !selectedSpace.is_approved}">
+                    {{selectedSpace.is_approved ? 'Published' : 'Pending'}}
+                  </span>
+                  <div class="btn-flat waves-effect waves-light white-text small-button"
+                    routerLink="/space/{{selectedSpace.spaces_id}}" (click)="service.scrollToTop()">Open</div>
                 </div>
               </div>
               <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i>{{selectedSpace.name||'No Name...'}}</span>
+                <span class="card-title grey-text text-darken-4"><i
+                    class="material-icons right">close</i>{{selectedSpace.name||'No Name...'}}</span>
                 <p class="grey-text">{{selectedSpace.description}}</p>
               </div>
             </div>
@@ -164,13 +166,13 @@
         <div class="row">
           <div class="col s6 truncate">
             <div *ngIf="currentApp.app_url">
-              <a class="btn waves-effect waves-light pink-button" *ngIf="currentApp.app_url" href="{{currentApp.app_url}}">App Page</a>
+              <a class="btn waves-effect waves-light pink-button" *ngIf="currentApp.app_url"
+                href="{{currentApp.app_url}}">App Page</a>
               <br><br>App Page: {{currentApp.app_url}}
             </div>
           </div>
           <div class="col s6 right-align truncate">
-            <div class="btn waves-effect waves-light pink-button"
-                 (click)="copyShareUrl()">Copy Share Link</div>
+            <div class="btn waves-effect waves-light pink-button" (click)="copyShareUrl()">Copy Share Link</div>
             <br><br>Share Link: {{currentApp.share_url}}
           </div>
         </div>
