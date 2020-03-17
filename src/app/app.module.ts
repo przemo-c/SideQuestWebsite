@@ -98,6 +98,7 @@ import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { BannerCarouselComponent } from './banner-carousel/banner-carousel.component';
 import { AbbreviateNumberPipe } from './abbreviate-number.pipe';
 import { FormatNumberPipe } from './format-number.pipe';
+import { ScriptingNetworkingComponent } from './scripting-networking/scripting-networking.component';
 
 export function hljsLanguages() {
     return [{ name: 'cs', func: cs }];
@@ -167,6 +168,7 @@ export function hljsLanguages() {
         GithubRepoSelectComponent,
         AbbreviateNumberPipe,
         FormatNumberPipe,
+        ScriptingNetworkingComponent,
     ],
     imports: [
         // {
